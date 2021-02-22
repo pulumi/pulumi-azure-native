@@ -52,12 +52,15 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hardwaresecuritymodules:DedicatedHsm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hardwaresecuritymodules:DedicatedHsm"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHsm
-	err := ctx.RegisterResource("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +72,7 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 func GetDedicatedHsm(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedHsmState, opts ...pulumi.ResourceOption) (*DedicatedHsm, error) {
 	var resource DedicatedHsm
-	err := ctx.ReadResource("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

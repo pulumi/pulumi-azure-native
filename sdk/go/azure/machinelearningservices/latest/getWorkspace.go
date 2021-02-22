@@ -10,10 +10,10 @@ import (
 // An object that represents a machine learning workspace.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 func LookupSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSharedPrivateLinkResourceResult, error) {
 	var rv LookupSharedPrivateLinkResourceResult
-	err := ctx.Invoke("azure-nextgen:search/v20200801:getSharedPrivateLinkResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search/v20200801:getSharedPrivateLinkResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Volume resource
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20190801:getVolume", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20190801:getVolume", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

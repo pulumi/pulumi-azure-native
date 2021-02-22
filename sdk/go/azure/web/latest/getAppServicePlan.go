@@ -10,10 +10,10 @@ import (
 // App Service plan.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServicePlan'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServicePlan'.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
 	var rv LookupAppServicePlanResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getAppServicePlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getAppServicePlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

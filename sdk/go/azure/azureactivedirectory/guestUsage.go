@@ -40,12 +40,15 @@ func NewGuestUsage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azureactivedirectory/v20200501preview:GuestUsage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource GuestUsage
-	err := ctx.RegisterResource("azure-nextgen:azureactivedirectory:GuestUsage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azureactivedirectory:GuestUsage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewGuestUsage(ctx *pulumi.Context,
 func GetGuestUsage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GuestUsageState, opts ...pulumi.ResourceOption) (*GuestUsage, error) {
 	var resource GuestUsage
-	err := ctx.ReadResource("azure-nextgen:azureactivedirectory:GuestUsage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azureactivedirectory:GuestUsage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

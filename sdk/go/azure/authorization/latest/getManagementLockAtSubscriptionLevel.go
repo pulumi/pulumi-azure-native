@@ -10,10 +10,10 @@ import (
 // The lock information.
 // Latest API Version: 2016-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtSubscriptionLevel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtSubscriptionLevel'.
 func LookupManagementLockAtSubscriptionLevel(ctx *pulumi.Context, args *LookupManagementLockAtSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtSubscriptionLevelResult, error) {
 	var rv LookupManagementLockAtSubscriptionLevelResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getManagementLockAtSubscriptionLevel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getManagementLockAtSubscriptionLevel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

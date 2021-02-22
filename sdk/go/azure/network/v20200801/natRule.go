@@ -52,7 +52,13 @@ func NewNatRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:NatRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:NatRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:NatRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:NatRule"),
@@ -60,7 +66,7 @@ func NewNatRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NatRule
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:NatRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:NatRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewNatRule(ctx *pulumi.Context,
 func GetNatRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NatRuleState, opts ...pulumi.ResourceOption) (*NatRule, error) {
 	var resource NatRule
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:NatRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:NatRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

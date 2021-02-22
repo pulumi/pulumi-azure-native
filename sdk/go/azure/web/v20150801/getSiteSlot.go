@@ -10,7 +10,7 @@ import (
 // Represents a web app
 func LookupSiteSlot(ctx *pulumi.Context, args *LookupSiteSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotResult, error) {
 	var rv LookupSiteSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

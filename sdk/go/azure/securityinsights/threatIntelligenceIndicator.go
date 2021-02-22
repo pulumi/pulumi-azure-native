@@ -47,12 +47,15 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ThreatIntelligenceIndicator
-	err := ctx.RegisterResource("azure-nextgen:securityinsights:ThreatIntelligenceIndicator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights:ThreatIntelligenceIndicator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +67,7 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 func GetThreatIntelligenceIndicator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ThreatIntelligenceIndicatorState, opts ...pulumi.ResourceOption) (*ThreatIntelligenceIndicator, error) {
 	var resource ThreatIntelligenceIndicator
-	err := ctx.ReadResource("azure-nextgen:securityinsights:ThreatIntelligenceIndicator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights:ThreatIntelligenceIndicator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

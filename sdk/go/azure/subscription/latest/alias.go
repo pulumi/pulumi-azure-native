@@ -14,7 +14,7 @@ import (
 // Subscription Information with the alias.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:subscription:Alias'.
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -38,10 +38,19 @@ func NewAlias(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:subscription:Alias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:subscription:Alias"),
 		},
 		{
+			Type: pulumi.String("azure-native:subscription/v20191001preview:Alias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:subscription/v20191001preview:Alias"),
+		},
+		{
+			Type: pulumi.String("azure-native:subscription/v20200901:Alias"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:subscription/v20200901:Alias"),
@@ -49,7 +58,7 @@ func NewAlias(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Alias
-	err := ctx.RegisterResource("azure-nextgen:subscription/latest:Alias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:subscription/latest:Alias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +70,7 @@ func NewAlias(ctx *pulumi.Context,
 func GetAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
 	var resource Alias
-	err := ctx.ReadResource("azure-nextgen:subscription/latest:Alias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:subscription/latest:Alias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

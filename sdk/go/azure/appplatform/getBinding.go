@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-01.
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
-	err := ctx.Invoke("azure-nextgen:appplatform:getBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform:getBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

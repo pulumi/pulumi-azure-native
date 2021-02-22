@@ -10,7 +10,7 @@ import (
 // The iSCSI disk.
 func LookupIscsiDisk(ctx *pulumi.Context, args *LookupIscsiDiskArgs, opts ...pulumi.InvokeOption) (*LookupIscsiDiskResult, error) {
 	var rv LookupIscsiDiskResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getIscsiDisk", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getIscsiDisk", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

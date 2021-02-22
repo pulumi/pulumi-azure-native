@@ -10,10 +10,10 @@ import (
 // The response of the List Namespace operation.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNamespaceKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNamespaceKeys'.
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/latest:listNamespaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/latest:listNamespaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

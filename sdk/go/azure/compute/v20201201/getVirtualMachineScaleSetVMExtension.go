@@ -10,7 +10,7 @@ import (
 // Describes a VMSS VM Extension.
 func LookupVirtualMachineScaleSetVMExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetVMExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/v20201201:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20201201:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

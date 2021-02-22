@@ -10,7 +10,7 @@ import (
 // A Synchronization Setting data transfer object.
 func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupSynchronizationSettingResult, error) {
 	var rv LookupSynchronizationSettingResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20201001preview:getSynchronizationSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20201001preview:getSynchronizationSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

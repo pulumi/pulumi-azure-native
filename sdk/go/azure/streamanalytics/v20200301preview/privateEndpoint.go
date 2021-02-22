@@ -40,12 +40,15 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics:PrivateEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpoint
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics/v20200301preview:PrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 func GetPrivateEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointState, opts ...pulumi.ResourceOption) (*PrivateEndpoint, error) {
 	var resource PrivateEndpoint
-	err := ctx.ReadResource("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics/v20200301preview:PrivateEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

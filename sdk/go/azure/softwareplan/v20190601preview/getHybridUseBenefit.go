@@ -10,7 +10,7 @@ import (
 // Response on GET of a hybrid use benefit
 func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArgs, opts ...pulumi.InvokeOption) (*LookupHybridUseBenefitResult, error) {
 	var rv LookupHybridUseBenefitResult
-	err := ctx.Invoke("azure-nextgen:softwareplan/v20190601preview:getHybridUseBenefit", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

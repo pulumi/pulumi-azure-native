@@ -10,10 +10,10 @@ import (
 // Pageable list of products.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProducts'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'.
 func GetProducts(ctx *pulumi.Context, args *GetProductsArgs, opts ...pulumi.InvokeOption) (*GetProductsResult, error) {
 	var rv GetProductsResult
-	err := ctx.Invoke("azure-nextgen:azurestack/latest:getProducts", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/latest:getProducts", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

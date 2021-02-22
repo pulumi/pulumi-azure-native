@@ -11,7 +11,7 @@ import (
 // API Version: 2019-07-01.
 func ListRemediationDeploymentsAtManagementGroup(ctx *pulumi.Context, args *ListRemediationDeploymentsAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtManagementGroupResult, error) {
 	var rv ListRemediationDeploymentsAtManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:policyinsights:listRemediationDeploymentsAtManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

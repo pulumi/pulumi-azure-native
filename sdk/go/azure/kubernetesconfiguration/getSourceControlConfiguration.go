@@ -11,7 +11,7 @@ import (
 // API Version: 2021-03-01.
 func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceControlConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlConfigurationResult, error) {
 	var rv LookupSourceControlConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

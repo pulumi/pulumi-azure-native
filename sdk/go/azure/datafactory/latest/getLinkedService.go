@@ -10,10 +10,10 @@ import (
 // Linked service resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getLinkedService'.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getLinkedService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getLinkedService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

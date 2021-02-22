@@ -10,10 +10,10 @@ import (
 // Security assessment metadata
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'.
 func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAssessmentMetadataInSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentMetadataInSubscriptionResult, error) {
 	var rv LookupAssessmentMetadataInSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:security/latest:getAssessmentMetadataInSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/latest:getAssessmentMetadataInSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

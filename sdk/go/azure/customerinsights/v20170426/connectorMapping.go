@@ -75,10 +75,19 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:ConnectorMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:ConnectorMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:ConnectorMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:ConnectorMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:ConnectorMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:ConnectorMapping"),
@@ -86,7 +95,7 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectorMapping
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/v20170426:ConnectorMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/v20170426:ConnectorMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +107,7 @@ func NewConnectorMapping(ctx *pulumi.Context,
 func GetConnectorMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectorMappingState, opts ...pulumi.ResourceOption) (*ConnectorMapping, error) {
 	var resource ConnectorMapping
-	err := ctx.ReadResource("azure-nextgen:customerinsights/v20170426:ConnectorMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/v20170426:ConnectorMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

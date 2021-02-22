@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
-	err := ctx.Invoke("azure-nextgen:network:getLoadBalancer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

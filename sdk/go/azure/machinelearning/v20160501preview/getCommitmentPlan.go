@@ -10,7 +10,7 @@ import (
 // An Azure ML commitment plan resource.
 func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, opts ...pulumi.InvokeOption) (*LookupCommitmentPlanResult, error) {
 	var rv LookupCommitmentPlanResult
-	err := ctx.Invoke("azure-nextgen:machinelearning/v20160501preview:getCommitmentPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning/v20160501preview:getCommitmentPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

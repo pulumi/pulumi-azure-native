@@ -14,7 +14,7 @@ import (
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOrigin'.
 type AFDOrigin struct {
 	pulumi.CustomResourceState
 
@@ -68,7 +68,13 @@ func NewAFDOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:AFDOrigin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:AFDOrigin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:AFDOrigin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDOrigin"),
@@ -76,7 +82,7 @@ func NewAFDOrigin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDOrigin
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:AFDOrigin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:AFDOrigin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +94,7 @@ func NewAFDOrigin(ctx *pulumi.Context,
 func GetAFDOrigin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDOriginState, opts ...pulumi.ResourceOption) (*AFDOrigin, error) {
 	var resource AFDOrigin
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:AFDOrigin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:AFDOrigin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

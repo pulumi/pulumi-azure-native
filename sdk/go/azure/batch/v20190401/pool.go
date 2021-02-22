@@ -78,28 +78,55 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batch:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/latest:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/latest:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170901:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20181201:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20181201:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20190801:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20190801:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20200301:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200501:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200901:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20210101:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20210101:Pool"),
@@ -107,7 +134,7 @@ func NewPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Pool
-	err := ctx.RegisterResource("azure-nextgen:batch/v20190401:Pool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batch/v20190401:Pool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,7 +146,7 @@ func NewPool(ctx *pulumi.Context,
 func GetPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PoolState, opts ...pulumi.ResourceOption) (*Pool, error) {
 	var resource Pool
-	err := ctx.ReadResource("azure-nextgen:batch/v20190401:Pool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batch/v20190401:Pool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

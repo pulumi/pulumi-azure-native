@@ -42,25 +42,49 @@ func NewNotificationRecipientUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:NotificationRecipientUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:NotificationRecipientUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:NotificationRecipientUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:NotificationRecipientUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:NotificationRecipientUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:NotificationRecipientUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:NotificationRecipientUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:NotificationRecipientUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:NotificationRecipientUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:NotificationRecipientUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:NotificationRecipientUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:NotificationRecipientUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser"),
@@ -68,7 +92,7 @@ func NewNotificationRecipientUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationRecipientUser
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:NotificationRecipientUser", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:NotificationRecipientUser", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +104,7 @@ func NewNotificationRecipientUser(ctx *pulumi.Context,
 func GetNotificationRecipientUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationRecipientUserState, opts ...pulumi.ResourceOption) (*NotificationRecipientUser, error) {
 	var resource NotificationRecipientUser
-	err := ctx.ReadResource("azure-nextgen:apimanagement:NotificationRecipientUser", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:NotificationRecipientUser", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

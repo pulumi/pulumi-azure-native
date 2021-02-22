@@ -10,10 +10,10 @@ import (
 // Hybrid Connection for an App Service app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnection'.
 func LookupWebAppRelayServiceConnection(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionResult, error) {
 	var rv LookupWebAppRelayServiceConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppRelayServiceConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppRelayServiceConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

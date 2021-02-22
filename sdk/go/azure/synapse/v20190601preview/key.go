@@ -40,10 +40,19 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:Key"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/latest:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:Key"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:Key"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:Key"),
@@ -51,7 +60,7 @@ func NewKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Key
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:Key", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20190601preview:Key", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +72,7 @@ func NewKey(ctx *pulumi.Context,
 func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
 	var resource Key
-	err := ctx.ReadResource("azure-nextgen:synapse/v20190601preview:Key", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20190601preview:Key", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

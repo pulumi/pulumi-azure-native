@@ -10,7 +10,7 @@ import (
 // Public certificate object
 func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPublicCertificateSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateSlotResult, error) {
 	var rv LookupWebAppPublicCertificateSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:getWebAppPublicCertificateSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:getWebAppPublicCertificateSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

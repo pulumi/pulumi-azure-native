@@ -46,7 +46,7 @@ func NewServerKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	var resource ServerKey
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:ServerKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20200214privatepreview:ServerKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewServerKey(ctx *pulumi.Context,
 func GetServerKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerKeyState, opts ...pulumi.ResourceOption) (*ServerKey, error) {
 	var resource ServerKey
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:ServerKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/v20200214privatepreview:ServerKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

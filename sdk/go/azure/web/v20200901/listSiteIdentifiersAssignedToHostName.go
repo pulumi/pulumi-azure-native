@@ -10,7 +10,7 @@ import (
 // Collection of identifiers.
 func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteIdentifiersAssignedToHostNameArgs, opts ...pulumi.InvokeOption) (*ListSiteIdentifiersAssignedToHostNameResult, error) {
 	var rv ListSiteIdentifiersAssignedToHostNameResult
-	err := ctx.Invoke("azure-nextgen:web/v20200901:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200901:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-11-preview.
 func LookupNotebookProxy(ctx *pulumi.Context, args *LookupNotebookProxyArgs, opts ...pulumi.InvokeOption) (*LookupNotebookProxyResult, error) {
 	var rv LookupNotebookProxyResult
-	err := ctx.Invoke("azure-nextgen:notebooks:getNotebookProxy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notebooks:getNotebookProxy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

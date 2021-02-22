@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01-preview.
 func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
 	var rv LookupSqlResourceSqlRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

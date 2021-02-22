@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func GetIntegrationRuntimeObjectMetadatum(ctx *pulumi.Context, args *GetIntegrationRuntimeObjectMetadatumArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeObjectMetadatumResult, error) {
 	var rv GetIntegrationRuntimeObjectMetadatumResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

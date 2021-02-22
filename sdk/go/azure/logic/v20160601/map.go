@@ -56,16 +56,31 @@ func NewMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:Map"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:Map"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/latest:Map"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Map"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:Map"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Map"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:Map"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Map"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:Map"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:Map"),
@@ -73,7 +88,7 @@ func NewMap(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Map
-	err := ctx.RegisterResource("azure-nextgen:logic/v20160601:Map", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/v20160601:Map", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +100,7 @@ func NewMap(ctx *pulumi.Context,
 func GetMap(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MapState, opts ...pulumi.ResourceOption) (*Map, error) {
 	var resource Map
-	err := ctx.ReadResource("azure-nextgen:logic/v20160601:Map", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/v20160601:Map", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

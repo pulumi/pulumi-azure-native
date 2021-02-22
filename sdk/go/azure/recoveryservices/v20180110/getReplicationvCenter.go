@@ -10,7 +10,7 @@ import (
 // vCenter definition.
 func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCenterArgs, opts ...pulumi.InvokeOption) (*LookupReplicationvCenterResult, error) {
 	var rv LookupReplicationvCenterResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20180110:getReplicationvCenter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationvCenter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

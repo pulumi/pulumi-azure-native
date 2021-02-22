@@ -10,7 +10,7 @@ import (
 // P2S Vpn connection detailed health written to sas url.
 func GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, error) {
 	var rv GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult
-	err := ctx.Invoke("azure-nextgen:network/v20190901:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190901:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

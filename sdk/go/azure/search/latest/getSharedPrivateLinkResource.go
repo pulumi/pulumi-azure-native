@@ -10,10 +10,10 @@ import (
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getSharedPrivateLinkResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getSharedPrivateLinkResource'.
 func LookupSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSharedPrivateLinkResourceResult, error) {
 	var rv LookupSharedPrivateLinkResourceResult
-	err := ctx.Invoke("azure-nextgen:search/latest:getSharedPrivateLinkResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search/latest:getSharedPrivateLinkResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

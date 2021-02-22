@@ -10,10 +10,10 @@ import (
 // The diagnostic setting resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aadiam:getDiagnosticSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aadiam:getDiagnosticSetting'.
 func LookupDiagnosticSetting(ctx *pulumi.Context, args *LookupDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticSettingResult, error) {
 	var rv LookupDiagnosticSettingResult
-	err := ctx.Invoke("azure-nextgen:aadiam/latest:getDiagnosticSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aadiam/latest:getDiagnosticSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

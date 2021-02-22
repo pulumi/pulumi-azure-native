@@ -46,7 +46,13 @@ func NewSqlServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata:SqlServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20170301preview:SqlServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20170301preview:SqlServer"),
@@ -54,7 +60,7 @@ func NewSqlServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlServer
-	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:SqlServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata/v20190724preview:SqlServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewSqlServer(ctx *pulumi.Context,
 func GetSqlServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlServerState, opts ...pulumi.ResourceOption) (*SqlServer, error) {
 	var resource SqlServer
-	err := ctx.ReadResource("azure-nextgen:azuredata/v20190724preview:SqlServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata/v20190724preview:SqlServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -66,25 +66,49 @@ func NewWebAppFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppFunction"),
@@ -92,7 +116,7 @@ func NewWebAppFunction(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppFunction
-	err := ctx.RegisterResource("azure-nextgen:web/v20201001:WebAppFunction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20201001:WebAppFunction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +128,7 @@ func NewWebAppFunction(ctx *pulumi.Context,
 func GetWebAppFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppFunctionState, opts ...pulumi.ResourceOption) (*WebAppFunction, error) {
 	var resource WebAppFunction
-	err := ctx.ReadResource("azure-nextgen:web/v20201001:WebAppFunction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20201001:WebAppFunction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

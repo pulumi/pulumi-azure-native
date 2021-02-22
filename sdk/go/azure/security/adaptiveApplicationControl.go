@@ -48,10 +48,19 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/latest:AdaptiveApplicationControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/latest:AdaptiveApplicationControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20150601preview:AdaptiveApplicationControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101:AdaptiveApplicationControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:AdaptiveApplicationControl"),
@@ -59,7 +68,7 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AdaptiveApplicationControl
-	err := ctx.RegisterResource("azure-nextgen:security:AdaptiveApplicationControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:AdaptiveApplicationControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 func GetAdaptiveApplicationControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AdaptiveApplicationControlState, opts ...pulumi.ResourceOption) (*AdaptiveApplicationControl, error) {
 	var resource AdaptiveApplicationControl
-	err := ctx.ReadResource("azure-nextgen:security:AdaptiveApplicationControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:AdaptiveApplicationControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

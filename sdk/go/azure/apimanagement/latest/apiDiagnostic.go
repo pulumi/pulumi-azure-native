@@ -14,7 +14,7 @@ import (
 // Diagnostic details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnostic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnostic'.
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
 
@@ -61,25 +61,49 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiDiagnostic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiDiagnostic"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiDiagnostic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiDiagnostic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiDiagnostic"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiDiagnostic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic"),
@@ -87,7 +111,7 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiDiagnostic
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:ApiDiagnostic", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:ApiDiagnostic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +123,7 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 func GetApiDiagnostic(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiDiagnosticState, opts ...pulumi.ResourceOption) (*ApiDiagnostic, error) {
 	var resource ApiDiagnostic
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:ApiDiagnostic", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:ApiDiagnostic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

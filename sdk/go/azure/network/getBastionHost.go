@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	var rv LookupBastionHostResult
-	err := ctx.Invoke("azure-nextgen:network:getBastionHost", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getBastionHost", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

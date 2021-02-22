@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ...pulumi.InvokeOption) (*LookupRulesEngineResult, error) {
 	var rv LookupRulesEngineResult
-	err := ctx.Invoke("azure-nextgen:network:getRulesEngine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getRulesEngine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

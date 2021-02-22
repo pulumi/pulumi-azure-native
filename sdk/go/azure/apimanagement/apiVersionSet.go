@@ -53,25 +53,49 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiVersionSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiVersionSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"),
@@ -79,7 +103,7 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiVersionSet
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiVersionSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiVersionSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +115,7 @@ func NewApiVersionSet(ctx *pulumi.Context,
 func GetApiVersionSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiVersionSetState, opts ...pulumi.ResourceOption) (*ApiVersionSet, error) {
 	var resource ApiVersionSet
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiVersionSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiVersionSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

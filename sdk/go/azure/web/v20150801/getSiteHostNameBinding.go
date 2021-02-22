@@ -10,7 +10,7 @@ import (
 // A host name binding object
 func LookupSiteHostNameBinding(ctx *pulumi.Context, args *LookupSiteHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupSiteHostNameBindingResult, error) {
 	var rv LookupSiteHostNameBindingResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteHostNameBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteHostNameBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

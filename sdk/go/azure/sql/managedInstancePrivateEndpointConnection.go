@@ -43,7 +43,13 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"),
@@ -51,7 +57,7 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstancePrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ManagedInstancePrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 func GetManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedInstancePrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*ManagedInstancePrivateEndpointConnection, error) {
 	var resource ManagedInstancePrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ManagedInstancePrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

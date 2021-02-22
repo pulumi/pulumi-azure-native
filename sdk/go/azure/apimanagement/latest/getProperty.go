@@ -10,10 +10,10 @@ import (
 // Property details.
 // Latest API Version: 2019-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProperty'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProperty'.
 func LookupProperty(ctx *pulumi.Context, args *LookupPropertyArgs, opts ...pulumi.InvokeOption) (*LookupPropertyResult, error) {
 	var rv LookupPropertyResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getProperty", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getProperty", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

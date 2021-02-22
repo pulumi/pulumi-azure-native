@@ -93,7 +93,13 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:intune:IoMAMPolicyByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:intune:IoMAMPolicyByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName"),
@@ -101,7 +107,7 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IoMAMPolicyByName
-	err := ctx.RegisterResource("azure-nextgen:intune/v20150114preview:IoMAMPolicyByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:intune/v20150114preview:IoMAMPolicyByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +119,7 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 func GetIoMAMPolicyByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IoMAMPolicyByNameState, opts ...pulumi.ResourceOption) (*IoMAMPolicyByName, error) {
 	var resource IoMAMPolicyByName
-	err := ctx.ReadResource("azure-nextgen:intune/v20150114preview:IoMAMPolicyByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:intune/v20150114preview:IoMAMPolicyByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

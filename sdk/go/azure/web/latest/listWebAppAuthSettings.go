@@ -10,10 +10,10 @@ import (
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAuthSettings'.
 func ListWebAppAuthSettings(ctx *pulumi.Context, args *ListWebAppAuthSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppAuthSettingsResult, error) {
 	var rv ListWebAppAuthSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppAuthSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppAuthSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Developer Keys of account
 func ListSpatialAnchorsAccountKeys(ctx *pulumi.Context, args *ListSpatialAnchorsAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListSpatialAnchorsAccountKeysResult, error) {
 	var rv ListSpatialAnchorsAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/v20210301preview:listSpatialAnchorsAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/v20210301preview:listSpatialAnchorsAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

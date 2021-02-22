@@ -44,16 +44,31 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:TopicAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:TopicAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/latest:TopicAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:TopicAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:TopicAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:TopicAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:TopicAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"),
@@ -61,7 +76,7 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TopicAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/v20180101preview:TopicAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +88,7 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 func GetTopicAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TopicAuthorizationRuleState, opts ...pulumi.ResourceOption) (*TopicAuthorizationRule, error) {
 	var resource TopicAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/v20180101preview:TopicAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

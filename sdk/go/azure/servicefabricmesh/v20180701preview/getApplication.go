@@ -10,7 +10,7 @@ import (
 // This type describes an application resource.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh/v20180701preview:getApplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh/v20180701preview:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

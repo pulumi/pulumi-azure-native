@@ -46,28 +46,55 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration"),
@@ -75,7 +102,7 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDiagnosticLogsConfiguration
-	err := ctx.RegisterResource("azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +114,7 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 func GetWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppDiagnosticLogsConfigurationState, opts ...pulumi.ResourceOption) (*WebAppDiagnosticLogsConfiguration, error) {
 	var resource WebAppDiagnosticLogsConfiguration
-	err := ctx.ReadResource("azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

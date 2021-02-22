@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-20-preview.
 func LookupCommunicationService(ctx *pulumi.Context, args *LookupCommunicationServiceArgs, opts ...pulumi.InvokeOption) (*LookupCommunicationServiceResult, error) {
 	var rv LookupCommunicationServiceResult
-	err := ctx.Invoke("azure-nextgen:communication:getCommunicationService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:communication:getCommunicationService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

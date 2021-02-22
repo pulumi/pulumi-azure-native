@@ -63,109 +63,217 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171101:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180101:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180201:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualNetwork"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetwork"),
@@ -173,7 +281,7 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetwork
-	err := ctx.RegisterResource("azure-nextgen:network/v20180801:VirtualNetwork", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180801:VirtualNetwork", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -185,7 +293,7 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 func GetVirtualNetwork(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkState, opts ...pulumi.ResourceOption) (*VirtualNetwork, error) {
 	var resource VirtualNetwork
-	err := ctx.ReadResource("azure-nextgen:network/v20180801:VirtualNetwork", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180801:VirtualNetwork", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

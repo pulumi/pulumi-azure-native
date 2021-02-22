@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	var rv LookupWorkloadGroupResult
-	err := ctx.Invoke("azure-nextgen:sql:getWorkloadGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getWorkloadGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

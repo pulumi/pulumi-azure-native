@@ -10,10 +10,10 @@ import (
 // The privateStore offer data structure.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:marketplace:getPrivateStoreOffer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:marketplace:getPrivateStoreOffer'.
 func LookupPrivateStoreOffer(ctx *pulumi.Context, args *LookupPrivateStoreOfferArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreOfferResult, error) {
 	var rv LookupPrivateStoreOfferResult
-	err := ctx.Invoke("azure-nextgen:marketplace/latest:getPrivateStoreOffer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:marketplace/latest:getPrivateStoreOffer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

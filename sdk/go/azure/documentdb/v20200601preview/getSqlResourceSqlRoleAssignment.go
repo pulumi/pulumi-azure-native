@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB Role Assignment
 func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
 	var rv LookupSqlResourceSqlRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

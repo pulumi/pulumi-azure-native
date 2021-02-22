@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppMetadataSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppMetadataSlot'.
 func ListWebAppMetadataSlot(ctx *pulumi.Context, args *ListWebAppMetadataSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataSlotResult, error) {
 	var rv ListWebAppMetadataSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppMetadataSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppMetadataSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01-preview.
 func LookupGatewayCertificateAuthority(ctx *pulumi.Context, args *LookupGatewayCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupGatewayCertificateAuthorityResult, error) {
 	var rv LookupGatewayCertificateAuthorityResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getGatewayCertificateAuthority", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getGatewayCertificateAuthority", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

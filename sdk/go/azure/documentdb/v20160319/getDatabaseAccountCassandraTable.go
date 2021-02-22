@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB Cassandra table.
 func LookupDatabaseAccountCassandraTable(ctx *pulumi.Context, args *LookupDatabaseAccountCassandraTableArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountCassandraTableResult, error) {
 	var rv LookupDatabaseAccountCassandraTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20160319:getDatabaseAccountCassandraTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20160319:getDatabaseAccountCassandraTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

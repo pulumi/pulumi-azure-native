@@ -10,10 +10,10 @@ import (
 // Description of topic resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getTopic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopic'.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
-	err := ctx.Invoke("azure-nextgen:servicebus/latest:getTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/latest:getTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

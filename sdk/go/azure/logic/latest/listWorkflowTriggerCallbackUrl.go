@@ -10,10 +10,10 @@ import (
 // The workflow trigger callback URL.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowTriggerCallbackUrl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowTriggerCallbackUrl'.
 func ListWorkflowTriggerCallbackUrl(ctx *pulumi.Context, args *ListWorkflowTriggerCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListWorkflowTriggerCallbackUrlResult, error) {
 	var rv ListWorkflowTriggerCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:listWorkflowTriggerCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:listWorkflowTriggerCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

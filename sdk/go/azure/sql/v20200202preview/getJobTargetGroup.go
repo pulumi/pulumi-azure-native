@@ -10,7 +10,7 @@ import (
 // A group of job targets.
 func LookupJobTargetGroup(ctx *pulumi.Context, args *LookupJobTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupJobTargetGroupResult, error) {
 	var rv LookupJobTargetGroupResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getJobTargetGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getJobTargetGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

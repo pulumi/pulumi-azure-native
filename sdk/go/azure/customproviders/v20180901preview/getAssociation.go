@@ -10,7 +10,7 @@ import (
 // The resource definition of this association.
 func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupAssociationResult, error) {
 	var rv LookupAssociationResult
-	err := ctx.Invoke("azure-nextgen:customproviders/v20180901preview:getAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customproviders/v20180901preview:getAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

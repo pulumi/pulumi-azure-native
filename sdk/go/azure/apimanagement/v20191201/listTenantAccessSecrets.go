@@ -10,7 +10,7 @@ import (
 // Tenant access information contract of the API Management service.
 func ListTenantAccessSecrets(ctx *pulumi.Context, args *ListTenantAccessSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessSecretsResult, error) {
 	var rv ListTenantAccessSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201:listTenantAccessSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201:listTenantAccessSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

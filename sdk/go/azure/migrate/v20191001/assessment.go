@@ -46,7 +46,13 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:Assessment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:Assessment"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/latest:Assessment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:Assessment"),
@@ -54,7 +60,7 @@ func NewAssessment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Assessment
-	err := ctx.RegisterResource("azure-nextgen:migrate/v20191001:Assessment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/v20191001:Assessment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewAssessment(ctx *pulumi.Context,
 func GetAssessment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssessmentState, opts ...pulumi.ResourceOption) (*Assessment, error) {
 	var resource Assessment
-	err := ctx.ReadResource("azure-nextgen:migrate/v20191001:Assessment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/v20191001:Assessment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

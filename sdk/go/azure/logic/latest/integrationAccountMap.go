@@ -14,7 +14,7 @@ import (
 // The integration account map.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountMap'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountMap'.
 type IntegrationAccountMap struct {
 	pulumi.CustomResourceState
 
@@ -62,16 +62,31 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountMap"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountMap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountMap"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountMap"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountMap"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountMap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountMap"),
@@ -79,7 +94,7 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountMap
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationAccountMap", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationAccountMap", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +106,7 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 func GetIntegrationAccountMap(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountMapState, opts ...pulumi.ResourceOption) (*IntegrationAccountMap, error) {
 	var resource IntegrationAccountMap
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationAccountMap", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationAccountMap", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

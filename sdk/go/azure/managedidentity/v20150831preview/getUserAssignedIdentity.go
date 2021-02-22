@@ -10,7 +10,7 @@ import (
 // Describes an identity resource.
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	var rv LookupUserAssignedIdentityResult
-	err := ctx.Invoke("azure-nextgen:managedidentity/v20150831preview:getUserAssignedIdentity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedidentity/v20150831preview:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

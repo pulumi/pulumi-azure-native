@@ -95,25 +95,49 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:AppServicePlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160901:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160901:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:AppServicePlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServicePlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlan"),
@@ -121,7 +145,7 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlan
-	err := ctx.RegisterResource("azure-nextgen:web:AppServicePlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:AppServicePlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -133,7 +157,7 @@ func NewAppServicePlan(ctx *pulumi.Context,
 func GetAppServicePlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppServicePlanState, opts ...pulumi.ResourceOption) (*AppServicePlan, error) {
 	var resource AppServicePlan
-	err := ctx.ReadResource("azure-nextgen:web:AppServicePlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:AppServicePlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

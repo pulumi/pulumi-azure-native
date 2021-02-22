@@ -46,31 +46,61 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/latest:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20180907preview:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20190121:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190121:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:Database"),
@@ -78,7 +108,7 @@ func NewDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Database
-	err := ctx.RegisterResource("azure-nextgen:kusto/v20190515:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/v20190515:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +120,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("azure-nextgen:kusto/v20190515:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/v20190515:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

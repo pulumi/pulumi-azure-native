@@ -10,7 +10,7 @@ import (
 // The connection info for the given notebook workspace
 func ListNotebookWorkspaceConnectionInfo(ctx *pulumi.Context, args *ListNotebookWorkspaceConnectionInfoArgs, opts ...pulumi.InvokeOption) (*ListNotebookWorkspaceConnectionInfoResult, error) {
 	var rv ListNotebookWorkspaceConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20191212:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20191212:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

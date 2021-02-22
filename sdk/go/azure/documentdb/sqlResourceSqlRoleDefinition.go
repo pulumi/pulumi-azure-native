@@ -43,12 +43,15 @@ func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlRoleDefinition
-	err := ctx.RegisterResource("azure-nextgen:documentdb:SqlResourceSqlRoleDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:SqlResourceSqlRoleDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 func GetSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlRoleDefinitionState, opts ...pulumi.ResourceOption) (*SqlResourceSqlRoleDefinition, error) {
 	var resource SqlResourceSqlRoleDefinition
-	err := ctx.ReadResource("azure-nextgen:documentdb:SqlResourceSqlRoleDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:SqlResourceSqlRoleDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

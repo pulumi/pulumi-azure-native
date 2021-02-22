@@ -14,7 +14,7 @@ import (
 // An export resource.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.
 type Export struct {
 	pulumi.CustomResourceState
 
@@ -56,19 +56,37 @@ func NewExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190101:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190101:Export"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20190901:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190901:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20191001:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20191001:Export"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20191101:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20200601:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:Export"),
@@ -76,7 +94,7 @@ func NewExport(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Export
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/latest:Export", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/latest:Export", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +106,7 @@ func NewExport(ctx *pulumi.Context,
 func GetExport(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExportState, opts ...pulumi.ResourceOption) (*Export, error) {
 	var resource Export
-	err := ctx.ReadResource("azure-nextgen:costmanagement/latest:Export", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/latest:Export", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:logic/v20160601:Agreement":
+	case "azure-native:logic/v20160601:Agreement":
 		r, err = NewAgreement(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Certificate":
+	case "azure-native:logic/v20160601:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:IntegrationAccount":
+	case "azure-native:logic/v20160601:IntegrationAccount":
 		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:IntegrationAccountAssembly":
+	case "azure-native:logic/v20160601:IntegrationAccountAssembly":
 		r, err = NewIntegrationAccountAssembly(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration":
+	case "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration":
 		r, err = NewIntegrationAccountBatchConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Map":
+	case "azure-native:logic/v20160601:Map":
 		r, err = NewMap(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Partner":
+	case "azure-native:logic/v20160601:Partner":
 		r, err = NewPartner(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration":
+	case "azure-native:logic/v20160601:RosettaNetProcessConfiguration":
 		r, err = NewRosettaNetProcessConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Schema":
+	case "azure-native:logic/v20160601:Schema":
 		r, err = NewSchema(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Session":
+	case "azure-native:logic/v20160601:Session":
 		r, err = NewSession(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/v20160601:Workflow":
+	case "azure-native:logic/v20160601:Workflow":
 		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"logic/v20160601",
 		&module{version},
 	)

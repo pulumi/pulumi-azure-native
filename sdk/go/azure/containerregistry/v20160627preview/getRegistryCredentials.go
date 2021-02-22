@@ -10,7 +10,7 @@ import (
 // The result of a request to get the administrator login credentials for a container registry.
 func GetRegistryCredentials(ctx *pulumi.Context, args *GetRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*GetRegistryCredentialsResult, error) {
 	var rv GetRegistryCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20160627preview:getRegistryCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20160627preview:getRegistryCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

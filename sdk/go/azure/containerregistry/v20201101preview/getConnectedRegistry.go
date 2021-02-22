@@ -10,7 +10,7 @@ import (
 // An object that represents a connected registry for a container registry.
 func LookupConnectedRegistry(ctx *pulumi.Context, args *LookupConnectedRegistryArgs, opts ...pulumi.InvokeOption) (*LookupConnectedRegistryResult, error) {
 	var rv LookupConnectedRegistryResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20201101preview:getConnectedRegistry", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20201101preview:getConnectedRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

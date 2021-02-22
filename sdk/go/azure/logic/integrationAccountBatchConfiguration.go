@@ -46,13 +46,25 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountBatchConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountBatchConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration"),
@@ -60,7 +72,7 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountBatchConfiguration
-	err := ctx.RegisterResource("azure-nextgen:logic:IntegrationAccountBatchConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:IntegrationAccountBatchConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 func GetIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountBatchConfigurationState, opts ...pulumi.ResourceOption) (*IntegrationAccountBatchConfiguration, error) {
 	var resource IntegrationAccountBatchConfiguration
-	err := ctx.ReadResource("azure-nextgen:logic:IntegrationAccountBatchConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:IntegrationAccountBatchConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

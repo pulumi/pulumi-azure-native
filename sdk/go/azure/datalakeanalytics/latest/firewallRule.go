@@ -14,7 +14,7 @@ import (
 // Data Lake Analytics firewall rule information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakeanalytics:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics/v20151001preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakeanalytics/v20161101:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20161101:FirewallRule"),
@@ -60,7 +69,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:datalakeanalytics/latest:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakeanalytics/latest:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:datalakeanalytics/latest:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakeanalytics/latest:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

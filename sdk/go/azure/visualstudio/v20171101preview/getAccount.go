@@ -10,7 +10,7 @@ import (
 // The response to an account resource GET request.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:visualstudio/v20171101preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:visualstudio/v20171101preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

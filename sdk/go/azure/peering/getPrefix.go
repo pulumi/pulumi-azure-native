@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPrefixResult, error) {
 	var rv LookupPrefixResult
-	err := ctx.Invoke("azure-nextgen:peering:getPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering:getPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

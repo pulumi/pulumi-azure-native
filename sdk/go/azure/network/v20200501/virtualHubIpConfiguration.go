@@ -48,16 +48,31 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualHubIpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualHubIpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubIpConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubIpConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubIpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualHubIpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubIpConfiguration"),
@@ -65,7 +80,7 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubIpConfiguration
-	err := ctx.RegisterResource("azure-nextgen:network/v20200501:VirtualHubIpConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200501:VirtualHubIpConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +92,7 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 func GetVirtualHubIpConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualHubIpConfigurationState, opts ...pulumi.ResourceOption) (*VirtualHubIpConfiguration, error) {
 	var resource VirtualHubIpConfiguration
-	err := ctx.ReadResource("azure-nextgen:network/v20200501:VirtualHubIpConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200501:VirtualHubIpConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

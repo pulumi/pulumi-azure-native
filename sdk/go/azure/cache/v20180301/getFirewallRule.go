@@ -10,7 +10,7 @@ import (
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:cache/v20180301:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20180301:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

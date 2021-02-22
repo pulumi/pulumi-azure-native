@@ -10,7 +10,7 @@ import (
 // Class representing an data connection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20200614:getDataConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20200614:getDataConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

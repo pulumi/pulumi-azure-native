@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-20.
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	var rv LookupAuthorizationResult
-	err := ctx.Invoke("azure-nextgen:avs:getAuthorization", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getAuthorization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

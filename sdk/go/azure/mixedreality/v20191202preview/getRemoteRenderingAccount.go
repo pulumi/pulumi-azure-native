@@ -10,7 +10,7 @@ import (
 // RemoteRenderingAccount Response.
 func LookupRemoteRenderingAccount(ctx *pulumi.Context, args *LookupRemoteRenderingAccountArgs, opts ...pulumi.InvokeOption) (*LookupRemoteRenderingAccountResult, error) {
 	var rv LookupRemoteRenderingAccountResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/v20191202preview:getRemoteRenderingAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

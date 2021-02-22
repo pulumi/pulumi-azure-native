@@ -10,7 +10,7 @@ import (
 // Test result.
 func GetTestResultFile(ctx *pulumi.Context, args *GetTestResultFileArgs, opts ...pulumi.InvokeOption) (*GetTestResultFileResult, error) {
 	var rv GetTestResultFileResult
-	err := ctx.Invoke("azure-nextgen:insights/v20200210preview:getTestResultFile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20200210preview:getTestResultFile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

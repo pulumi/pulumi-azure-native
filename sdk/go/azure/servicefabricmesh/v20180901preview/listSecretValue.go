@@ -10,7 +10,7 @@ import (
 // This type represents the unencrypted value of the secret.
 func ListSecretValue(ctx *pulumi.Context, args *ListSecretValueArgs, opts ...pulumi.InvokeOption) (*ListSecretValueResult, error) {
 	var rv ListSecretValueResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh/v20180901preview:listSecretValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

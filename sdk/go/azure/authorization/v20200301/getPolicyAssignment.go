@@ -10,7 +10,7 @@ import (
 // The policy assignment.
 func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupPolicyAssignmentResult, error) {
 	var rv LookupPolicyAssignmentResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20200301:getPolicyAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20200301:getPolicyAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

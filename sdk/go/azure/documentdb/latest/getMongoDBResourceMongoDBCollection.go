@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB MongoDB collection.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getMongoDBResourceMongoDBCollection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBCollection'.
 func LookupMongoDBResourceMongoDBCollection(ctx *pulumi.Context, args *LookupMongoDBResourceMongoDBCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMongoDBResourceMongoDBCollectionResult, error) {
 	var rv LookupMongoDBResourceMongoDBCollectionResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getMongoDBResourceMongoDBCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getMongoDBResourceMongoDBCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

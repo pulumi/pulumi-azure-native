@@ -53,10 +53,19 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus/latest:MigrationConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:MigrationConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:MigrationConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:MigrationConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:MigrationConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:MigrationConfig"),
@@ -64,7 +73,7 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MigrationConfig
-	err := ctx.RegisterResource("azure-nextgen:servicebus:MigrationConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus:MigrationConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewMigrationConfig(ctx *pulumi.Context,
 func GetMigrationConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MigrationConfigState, opts ...pulumi.ResourceOption) (*MigrationConfig, error) {
 	var resource MigrationConfig
-	err := ctx.ReadResource("azure-nextgen:servicebus:MigrationConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus:MigrationConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

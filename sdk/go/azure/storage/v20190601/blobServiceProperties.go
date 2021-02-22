@@ -56,22 +56,43 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20180701:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20181101:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190401:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobServiceProperties"),
@@ -79,7 +100,7 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage/v20190601:BlobServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20190601:BlobServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +112,7 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 func GetBlobServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobServicePropertiesState, opts ...pulumi.ResourceOption) (*BlobServiceProperties, error) {
 	var resource BlobServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage/v20190601:BlobServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20190601:BlobServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

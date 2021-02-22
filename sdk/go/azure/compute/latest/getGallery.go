@@ -10,10 +10,10 @@ import (
 // Specifies information about the Shared Image Gallery that you want to create or update.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGallery'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGallery'.
 func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.InvokeOption) (*LookupGalleryResult, error) {
 	var rv LookupGalleryResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getGallery", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getGallery", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

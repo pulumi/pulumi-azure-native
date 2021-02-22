@@ -70,13 +70,25 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/latest:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20180901:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20180901:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20190601preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190601preview:Task"),
@@ -84,7 +96,7 @@ func NewTask(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Task
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190401:Task", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20190401:Task", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +108,7 @@ func NewTask(ctx *pulumi.Context,
 func GetTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
 	var resource Task
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20190401:Task", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20190401:Task", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

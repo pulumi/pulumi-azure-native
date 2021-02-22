@@ -38,13 +38,25 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:QueueServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:QueueServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:QueueServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:QueueServiceProperties"),
@@ -52,7 +64,7 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource QueueServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage/v20200801preview:QueueServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20200801preview:QueueServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +76,7 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 func GetQueueServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueueServicePropertiesState, opts ...pulumi.ResourceOption) (*QueueServiceProperties, error) {
 	var resource QueueServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage/v20200801preview:QueueServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20200801preview:QueueServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

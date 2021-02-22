@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionSlotResult, error) {
 	var rv LookupWebAppRelayServiceConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppRelayServiceConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppRelayServiceConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

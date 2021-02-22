@@ -10,7 +10,7 @@ import (
 // Diagnostic details.
 func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupApiDiagnosticResult, error) {
 	var rv LookupApiDiagnosticResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180601preview:getApiDiagnostic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180601preview:getApiDiagnostic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Content type contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentItem'.
 type ContentItem struct {
 	pulumi.CustomResourceState
 
@@ -44,10 +44,19 @@ func NewContentItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ContentItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ContentItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ContentItem"),
@@ -55,7 +64,7 @@ func NewContentItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContentItem
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:ContentItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:ContentItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewContentItem(ctx *pulumi.Context,
 func GetContentItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContentItemState, opts ...pulumi.ResourceOption) (*ContentItem, error) {
 	var resource ContentItem
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:ContentItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:ContentItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupAFDEndpoint(ctx *pulumi.Context, args *LookupAFDEndpointArgs, opts ...pulumi.InvokeOption) (*LookupAFDEndpointResult, error) {
 	var rv LookupAFDEndpointResult
-	err := ctx.Invoke("azure-nextgen:cdn:getAFDEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getAFDEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

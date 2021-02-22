@@ -70,16 +70,31 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:solutions/latest:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/latest:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20170901:ApplicationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20170901:ApplicationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20180601:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/v20180601:ApplicationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20190701:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/v20190701:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20200821preview:ApplicationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:ApplicationDefinition"),
@@ -87,7 +102,7 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationDefinition
-	err := ctx.RegisterResource("azure-nextgen:solutions:ApplicationDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:solutions:ApplicationDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +114,7 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 func GetApplicationDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationDefinitionState, opts ...pulumi.ResourceOption) (*ApplicationDefinition, error) {
 	var resource ApplicationDefinition
-	err := ctx.ReadResource("azure-nextgen:solutions:ApplicationDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:solutions:ApplicationDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

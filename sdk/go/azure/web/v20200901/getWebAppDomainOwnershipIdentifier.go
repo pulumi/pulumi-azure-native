@@ -10,7 +10,7 @@ import (
 // A domain specific resource identifier.
 func LookupWebAppDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierResult
-	err := ctx.Invoke("azure-nextgen:web/v20200901:getWebAppDomainOwnershipIdentifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200901:getWebAppDomainOwnershipIdentifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

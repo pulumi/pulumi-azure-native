@@ -60,7 +60,13 @@ func NewController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devspaces/latest:Controller"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devspaces/latest:Controller"),
+		},
+		{
+			Type: pulumi.String("azure-native:devspaces/v20190401:Controller"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devspaces/v20190401:Controller"),
@@ -68,7 +74,7 @@ func NewController(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Controller
-	err := ctx.RegisterResource("azure-nextgen:devspaces:Controller", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devspaces:Controller", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +86,7 @@ func NewController(ctx *pulumi.Context,
 func GetController(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ControllerState, opts ...pulumi.ResourceOption) (*Controller, error) {
 	var resource Controller
-	err := ctx.ReadResource("azure-nextgen:devspaces:Controller", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devspaces:Controller", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -64,25 +64,49 @@ func NewServerFarm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:ServerFarm"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160901:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160901:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:ServerFarm"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:ServerFarm"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:ServerFarm"),
@@ -90,7 +114,7 @@ func NewServerFarm(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerFarm
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:ServerFarm", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:ServerFarm", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +126,7 @@ func NewServerFarm(ctx *pulumi.Context,
 func GetServerFarm(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerFarmState, opts ...pulumi.ResourceOption) (*ServerFarm, error) {
 	var resource ServerFarm
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:ServerFarm", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:ServerFarm", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	var rv LookupProtectionContainerResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20201001:getProtectionContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20201001:getProtectionContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

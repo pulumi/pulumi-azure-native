@@ -10,7 +10,7 @@ import (
 // The extended info of the manager.
 func LookupManagerExtendedInfo(ctx *pulumi.Context, args *LookupManagerExtendedInfoArgs, opts ...pulumi.InvokeOption) (*LookupManagerExtendedInfoResult, error) {
 	var rv LookupManagerExtendedInfoResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getManagerExtendedInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getManagerExtendedInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

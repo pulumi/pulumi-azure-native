@@ -14,7 +14,7 @@ import (
 // The managed api definition.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationServiceEnvironmentManagedApi'.
 type IntegrationServiceEnvironmentManagedApi struct {
 	pulumi.CustomResourceState
 
@@ -45,7 +45,13 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationServiceEnvironmentManagedApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi"),
@@ -53,7 +59,7 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironmentManagedApi
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 func GetIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationServiceEnvironmentManagedApiState, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironmentManagedApi, error) {
 	var resource IntegrationServiceEnvironmentManagedApi
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

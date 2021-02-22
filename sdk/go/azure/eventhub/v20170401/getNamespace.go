@@ -10,7 +10,7 @@ import (
 // Single Namespace item in List or Get Operation
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20170401:getNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20170401:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

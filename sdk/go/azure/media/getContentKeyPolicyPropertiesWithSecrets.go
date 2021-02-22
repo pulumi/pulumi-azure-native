@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func GetContentKeyPolicyPropertiesWithSecrets(ctx *pulumi.Context, args *GetContentKeyPolicyPropertiesWithSecretsArgs, opts ...pulumi.InvokeOption) (*GetContentKeyPolicyPropertiesWithSecretsResult, error) {
 	var rv GetContentKeyPolicyPropertiesWithSecretsResult
-	err := ctx.Invoke("azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getContentKeyPolicyPropertiesWithSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

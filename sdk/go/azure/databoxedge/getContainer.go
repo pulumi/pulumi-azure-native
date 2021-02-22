@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pulumi.InvokeOption) (*LookupContainerResult, error) {
 	var rv LookupContainerResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Properties of the table, including Id, resource name, resource type.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
-	err := ctx.Invoke("azure-nextgen:storage/v20200801preview:getTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20200801preview:getTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

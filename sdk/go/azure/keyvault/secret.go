@@ -46,19 +46,37 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault/latest:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/latest:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20161001:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20180214:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20180214preview:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20190901:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20200401preview:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Secret"),
@@ -66,7 +84,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:keyvault:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:keyvault:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

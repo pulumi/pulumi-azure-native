@@ -10,7 +10,7 @@ import (
 // Shared access keys of the Domain.
 func ListDomainSharedAccessKeys(ctx *pulumi.Context, args *ListDomainSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListDomainSharedAccessKeysResult, error) {
 	var rv ListDomainSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:listDomainSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:listDomainSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

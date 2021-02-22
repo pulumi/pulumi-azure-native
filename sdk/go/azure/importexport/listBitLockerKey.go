@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...pulumi.InvokeOption) (*ListBitLockerKeyResult, error) {
 	var rv ListBitLockerKeyResult
-	err := ctx.Invoke("azure-nextgen:importexport:listBitLockerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:importexport:listBitLockerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

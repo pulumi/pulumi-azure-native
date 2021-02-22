@@ -10,7 +10,7 @@ import (
 // Data controller resource
 func LookupDataController(ctx *pulumi.Context, args *LookupDataControllerArgs, opts ...pulumi.InvokeOption) (*LookupDataControllerResult, error) {
 	var rv LookupDataControllerResult
-	err := ctx.Invoke("azure-nextgen:azuredata/v20200908preview:getDataController", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azuredata/v20200908preview:getDataController", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

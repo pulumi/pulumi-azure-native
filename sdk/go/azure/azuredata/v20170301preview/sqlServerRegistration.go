@@ -43,7 +43,13 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata:SqlServerRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlServerRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20190724preview:SqlServerRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20190724preview:SqlServerRegistration"),
@@ -51,7 +57,7 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlServerRegistration
-	err := ctx.RegisterResource("azure-nextgen:azuredata/v20170301preview:SqlServerRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata/v20170301preview:SqlServerRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 func GetSqlServerRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlServerRegistrationState, opts ...pulumi.ResourceOption) (*SqlServerRegistration, error) {
 	var resource SqlServerRegistration
-	err := ctx.ReadResource("azure-nextgen:azuredata/v20170301preview:SqlServerRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata/v20170301preview:SqlServerRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

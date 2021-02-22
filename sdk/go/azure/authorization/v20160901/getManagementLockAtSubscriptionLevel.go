@@ -10,7 +10,7 @@ import (
 // The lock information.
 func LookupManagementLockAtSubscriptionLevel(ctx *pulumi.Context, args *LookupManagementLockAtSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtSubscriptionLevelResult, error) {
 	var rv LookupManagementLockAtSubscriptionLevelResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20160901:getManagementLockAtSubscriptionLevel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20160901:getManagementLockAtSubscriptionLevel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

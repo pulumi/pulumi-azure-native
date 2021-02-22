@@ -10,7 +10,7 @@ import (
 // The result of get log link operation.
 func ListRunLogSasUrl(ctx *pulumi.Context, args *ListRunLogSasUrlArgs, opts ...pulumi.InvokeOption) (*ListRunLogSasUrlResult, error) {
 	var rv ListRunLogSasUrlResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20190601preview:listRunLogSasUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20190601preview:listRunLogSasUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

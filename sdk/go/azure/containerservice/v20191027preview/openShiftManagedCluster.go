@@ -66,16 +66,31 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerservice:OpenShiftManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice:OpenShiftManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/latest:OpenShiftManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/latest:OpenShiftManagedCluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20190430:OpenShiftManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20190930preview:OpenShiftManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster"),
@@ -83,7 +98,7 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OpenShiftManagedCluster
-	err := ctx.RegisterResource("azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerservice/v20191027preview:OpenShiftManagedCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +110,7 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 func GetOpenShiftManagedCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OpenShiftManagedClusterState, opts ...pulumi.ResourceOption) (*OpenShiftManagedCluster, error) {
 	var resource OpenShiftManagedCluster
-	err := ctx.ReadResource("azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerservice/v20191027preview:OpenShiftManagedCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

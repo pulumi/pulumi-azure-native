@@ -10,10 +10,10 @@ import (
 // Description of the shared access key.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotDpsResourceKeysForKeyName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeysForKeyName'.
 func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysForKeyNameResult, error) {
 	var rv ListIotDpsResourceKeysForKeyNameResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The User registered to a lab
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

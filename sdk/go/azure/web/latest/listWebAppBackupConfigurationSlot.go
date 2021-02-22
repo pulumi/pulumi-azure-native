@@ -10,10 +10,10 @@ import (
 // Description of a backup which will be performed.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfigurationSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupConfigurationSlot'.
 func ListWebAppBackupConfigurationSlot(ctx *pulumi.Context, args *ListWebAppBackupConfigurationSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationSlotResult, error) {
 	var rv ListWebAppBackupConfigurationSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppBackupConfigurationSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppBackupConfigurationSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

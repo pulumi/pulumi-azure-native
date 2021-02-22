@@ -50,22 +50,43 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/latest:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/latest:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion"),
@@ -73,7 +94,7 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationTypeVersion
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/v20170701preview:ApplicationTypeVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +106,7 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 func GetApplicationTypeVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationTypeVersionState, opts ...pulumi.ResourceOption) (*ApplicationTypeVersion, error) {
 	var resource ApplicationTypeVersion
-	err := ctx.ReadResource("azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/v20170701preview:ApplicationTypeVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

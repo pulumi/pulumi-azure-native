@@ -10,10 +10,10 @@ import (
 // The response from the ListCredentials operation.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'.
 func ListRegistryCredentials(ctx *pulumi.Context, args *ListRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*ListRegistryCredentialsResult, error) {
 	var rv ListRegistryCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:listRegistryCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:listRegistryCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

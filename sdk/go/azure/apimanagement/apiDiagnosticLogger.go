@@ -52,10 +52,19 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiDiagnosticLogger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiDiagnosticLogger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiDiagnosticLogger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger"),
@@ -63,7 +72,7 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiDiagnosticLogger
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiDiagnosticLogger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiDiagnosticLogger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 func GetApiDiagnosticLogger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiDiagnosticLoggerState, opts ...pulumi.ResourceOption) (*ApiDiagnosticLogger, error) {
 	var resource ApiDiagnosticLogger
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiDiagnosticLogger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiDiagnosticLogger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

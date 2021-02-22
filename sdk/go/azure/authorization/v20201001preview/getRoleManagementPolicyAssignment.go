@@ -10,7 +10,7 @@ import (
 // Role management policy
 func LookupRoleManagementPolicyAssignment(ctx *pulumi.Context, args *LookupRoleManagementPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyAssignmentResult, error) {
 	var rv LookupRoleManagementPolicyAssignmentResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20201001preview:getRoleManagementPolicyAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

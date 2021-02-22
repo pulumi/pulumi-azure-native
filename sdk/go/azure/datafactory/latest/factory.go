@@ -14,7 +14,7 @@ import (
 // Factory resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Factory'.
 type Factory struct {
 	pulumi.CustomResourceState
 
@@ -58,10 +58,19 @@ func NewFactory(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:Factory"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:Factory"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Factory"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Factory"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Factory"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Factory"),
@@ -69,7 +78,7 @@ func NewFactory(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Factory
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:Factory", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:Factory", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +90,7 @@ func NewFactory(ctx *pulumi.Context,
 func GetFactory(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FactoryState, opts ...pulumi.ResourceOption) (*Factory, error) {
 	var resource Factory
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:Factory", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:Factory", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

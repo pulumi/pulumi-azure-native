@@ -10,7 +10,7 @@ import (
 // The prediction model status.
 func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatusArgs, opts ...pulumi.InvokeOption) (*GetPredictionModelStatusResult, error) {
 	var rv GetPredictionModelStatusResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getPredictionModelStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getPredictionModelStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

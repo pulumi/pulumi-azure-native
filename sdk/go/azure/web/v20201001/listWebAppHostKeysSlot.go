@@ -10,7 +10,7 @@ import (
 // Functions host level keys.
 func ListWebAppHostKeysSlot(ctx *pulumi.Context, args *ListWebAppHostKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysSlotResult, error) {
 	var rv ListWebAppHostKeysSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:listWebAppHostKeysSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:listWebAppHostKeysSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

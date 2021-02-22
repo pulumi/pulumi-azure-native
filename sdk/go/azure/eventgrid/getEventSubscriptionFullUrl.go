@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func GetEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetEventSubscriptionFullUrlResult, error) {
 	var rv GetEventSubscriptionFullUrlResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getEventSubscriptionFullUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getEventSubscriptionFullUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

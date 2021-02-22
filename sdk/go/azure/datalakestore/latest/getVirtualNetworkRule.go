@@ -10,10 +10,10 @@ import (
 // Data Lake Store virtual network rule information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getVirtualNetworkRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getVirtualNetworkRule'.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:datalakestore/latest:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakestore/latest:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The key.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerActivationKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerActivationKey'.
 func ListManagerActivationKey(ctx *pulumi.Context, args *ListManagerActivationKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerActivationKeyResult, error) {
 	var rv ListManagerActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:listManagerActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:listManagerActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

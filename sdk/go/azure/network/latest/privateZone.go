@@ -14,7 +14,7 @@ import (
 // Describes a Private DNS zone.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateZone'.
 type PrivateZone struct {
 	pulumi.CustomResourceState
 
@@ -58,13 +58,25 @@ func NewPrivateZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180901:PrivateZone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:PrivateZone"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateZone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateZone"),
@@ -72,7 +84,7 @@ func NewPrivateZone(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateZone
-	err := ctx.RegisterResource("azure-nextgen:network/latest:PrivateZone", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:PrivateZone", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +96,7 @@ func NewPrivateZone(ctx *pulumi.Context,
 func GetPrivateZone(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateZoneState, opts ...pulumi.ResourceOption) (*PrivateZone, error) {
 	var resource PrivateZone
-	err := ctx.ReadResource("azure-nextgen:network/latest:PrivateZone", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:PrivateZone", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

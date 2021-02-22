@@ -10,7 +10,7 @@ import (
 // App resource payload
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20201101preview:getApp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20201101preview:getApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

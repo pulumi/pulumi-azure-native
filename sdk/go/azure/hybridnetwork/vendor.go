@@ -34,12 +34,15 @@ func NewVendor(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridnetwork/v20200101preview:Vendor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork/v20200101preview:Vendor"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Vendor
-	err := ctx.RegisterResource("azure-nextgen:hybridnetwork:Vendor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridnetwork:Vendor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +54,7 @@ func NewVendor(ctx *pulumi.Context,
 func GetVendor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VendorState, opts ...pulumi.ResourceOption) (*Vendor, error) {
 	var resource Vendor
-	err := ctx.ReadResource("azure-nextgen:hybridnetwork:Vendor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridnetwork:Vendor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

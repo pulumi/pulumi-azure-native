@@ -66,10 +66,19 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:DscConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:DscConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20151031:DscConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:DscConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:DscConfiguration"),
@@ -77,7 +86,7 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscConfiguration
-	err := ctx.RegisterResource("azure-nextgen:automation:DscConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:DscConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +98,7 @@ func NewDscConfiguration(ctx *pulumi.Context,
 func GetDscConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscConfigurationState, opts ...pulumi.ResourceOption) (*DscConfiguration, error) {
 	var resource DscConfiguration
-	err := ctx.ReadResource("azure-nextgen:automation:DscConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:DscConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

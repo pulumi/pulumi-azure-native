@@ -10,10 +10,10 @@ import (
 // Challenge-Handshake Authentication Protocol (CHAP) setting
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getChapSetting'.
 func LookupChapSetting(ctx *pulumi.Context, args *LookupChapSettingArgs, opts ...pulumi.InvokeOption) (*LookupChapSettingResult, error) {
 	var rv LookupChapSettingResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getChapSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getChapSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

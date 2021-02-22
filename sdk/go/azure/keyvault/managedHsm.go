@@ -42,12 +42,15 @@ func NewManagedHsm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault/v20200401preview:ManagedHsm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:ManagedHsm"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedHsm
-	err := ctx.RegisterResource("azure-nextgen:keyvault:ManagedHsm", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault:ManagedHsm", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewManagedHsm(ctx *pulumi.Context,
 func GetManagedHsm(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedHsmState, opts ...pulumi.ResourceOption) (*ManagedHsm, error) {
 	var resource ManagedHsm
-	err := ctx.ReadResource("azure-nextgen:keyvault:ManagedHsm", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault:ManagedHsm", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

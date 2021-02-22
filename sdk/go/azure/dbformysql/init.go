@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:dbformysql:Configuration":
+	case "azure-native:dbformysql:Configuration":
 		r, err = NewConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:Database":
+	case "azure-native:dbformysql:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:FirewallRule":
+	case "azure-native:dbformysql:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:PrivateEndpointConnection":
+	case "azure-native:dbformysql:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:Server":
+	case "azure-native:dbformysql:Server":
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:ServerAdministrator":
+	case "azure-native:dbformysql:ServerAdministrator":
 		r, err = NewServerAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:ServerKey":
+	case "azure-native:dbformysql:ServerKey":
 		r, err = NewServerKey(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformysql:VirtualNetworkRule":
+	case "azure-native:dbformysql:VirtualNetworkRule":
 		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"dbformysql",
 		&module{version},
 	)

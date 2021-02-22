@@ -10,7 +10,7 @@ import (
 // The Streaming Locators associated with this Asset.
 func ListAssetStreamingLocators(ctx *pulumi.Context, args *ListAssetStreamingLocatorsArgs, opts ...pulumi.InvokeOption) (*ListAssetStreamingLocatorsResult, error) {
 	var rv ListAssetStreamingLocatorsResult
-	err := ctx.Invoke("azure-nextgen:media/v20200501:listAssetStreamingLocators", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20200501:listAssetStreamingLocators", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

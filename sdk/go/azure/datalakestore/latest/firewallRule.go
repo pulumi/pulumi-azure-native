@@ -14,7 +14,7 @@ import (
 // Data Lake Store firewall rule information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:FirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,7 +49,13 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/v20161101:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:FirewallRule"),
@@ -57,7 +63,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:datalakestore/latest:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore/latest:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:datalakestore/latest:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore/latest:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

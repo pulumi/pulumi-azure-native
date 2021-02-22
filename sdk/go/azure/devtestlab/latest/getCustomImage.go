@@ -10,10 +10,10 @@ import (
 // A custom image.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getCustomImage'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getCustomImage'.
 func LookupCustomImage(ctx *pulumi.Context, args *LookupCustomImageArgs, opts ...pulumi.InvokeOption) (*LookupCustomImageResult, error) {
 	var rv LookupCustomImageResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getCustomImage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getCustomImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

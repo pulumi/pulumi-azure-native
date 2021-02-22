@@ -10,10 +10,10 @@ import (
 // AzureStorageInfo dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAzureStorageAccounts'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAzureStorageAccounts'.
 func ListWebAppAzureStorageAccounts(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsResult, error) {
 	var rv ListWebAppAzureStorageAccountsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppAzureStorageAccounts", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppAzureStorageAccounts", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

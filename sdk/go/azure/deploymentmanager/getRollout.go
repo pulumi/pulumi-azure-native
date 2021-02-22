@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01-preview.
 func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.InvokeOption) (*LookupRolloutResult, error) {
 	var rv LookupRolloutResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager:getRollout", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager:getRollout", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

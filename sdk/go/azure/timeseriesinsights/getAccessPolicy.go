@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-15.
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	var rv LookupAccessPolicyResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights:getAccessPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights:getAccessPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

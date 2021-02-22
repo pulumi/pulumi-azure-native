@@ -10,10 +10,10 @@ import (
 // A network interface in a resource group.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterface'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkInterface", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // NSX Port Mirroring
 func LookupWorkloadNetworkPortMirroring(ctx *pulumi.Context, args *LookupWorkloadNetworkPortMirroringArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkPortMirroringResult, error) {
 	var rv LookupWorkloadNetworkPortMirroringResult
-	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getWorkloadNetworkPortMirroring", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20200717preview:getWorkloadNetworkPortMirroring", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

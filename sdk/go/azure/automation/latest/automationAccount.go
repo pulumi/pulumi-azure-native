@@ -14,7 +14,7 @@ import (
 // Definition of the automation account type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:AutomationAccount'.
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 
@@ -54,13 +54,25 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:AutomationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:AutomationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:AutomationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:AutomationAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:AutomationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:AutomationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:AutomationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:AutomationAccount"),
@@ -68,7 +80,7 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AutomationAccount
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:AutomationAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:AutomationAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewAutomationAccount(ctx *pulumi.Context,
 func GetAutomationAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AutomationAccountState, opts ...pulumi.ResourceOption) (*AutomationAccount, error) {
 	var resource AutomationAccount
-	err := ctx.ReadResource("azure-nextgen:automation/latest:AutomationAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:AutomationAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

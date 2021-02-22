@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulumi.InvokeOption) (*LookupDataFlowResult, error) {
 	var rv LookupDataFlowResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getDataFlow", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getDataFlow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

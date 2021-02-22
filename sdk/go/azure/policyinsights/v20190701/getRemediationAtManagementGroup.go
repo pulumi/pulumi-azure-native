@@ -10,7 +10,7 @@ import (
 // The remediation definition.
 func LookupRemediationAtManagementGroup(ctx *pulumi.Context, args *LookupRemediationAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtManagementGroupResult, error) {
 	var rv LookupRemediationAtManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/v20190701:getRemediationAtManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/v20190701:getRemediationAtManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

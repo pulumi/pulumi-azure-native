@@ -14,7 +14,7 @@ import (
 // The lock information.
 // Latest API Version: 2016-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceGroupLevel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceGroupLevel'.
 type ManagementLockAtResourceGroupLevel struct {
 	pulumi.CustomResourceState
 
@@ -45,10 +45,19 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:ManagementLockAtResourceGroupLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
@@ -56,7 +65,7 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockAtResourceGroupLevel
-	err := ctx.RegisterResource("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/latest:ManagementLockAtResourceGroupLevel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 func GetManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementLockAtResourceGroupLevelState, opts ...pulumi.ResourceOption) (*ManagementLockAtResourceGroupLevel, error) {
 	var resource ManagementLockAtResourceGroupLevel
-	err := ctx.ReadResource("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/latest:ManagementLockAtResourceGroupLevel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

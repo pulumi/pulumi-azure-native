@@ -14,7 +14,7 @@ import (
 // Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.
 type RecordSet struct {
 	pulumi.CustomResourceState
 
@@ -68,13 +68,25 @@ func NewRecordSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:RecordSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180901:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:RecordSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:RecordSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:RecordSet"),
@@ -82,7 +94,7 @@ func NewRecordSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RecordSet
-	err := ctx.RegisterResource("azure-nextgen:network/latest:RecordSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:RecordSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +106,7 @@ func NewRecordSet(ctx *pulumi.Context,
 func GetRecordSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RecordSetState, opts ...pulumi.ResourceOption) (*RecordSet, error) {
 	var resource RecordSet
-	err := ctx.ReadResource("azure-nextgen:network/latest:RecordSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:RecordSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

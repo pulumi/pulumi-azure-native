@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-18.
 func LookupDatabasePrincipalAssignment(ctx *pulumi.Context, args *LookupDatabasePrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDatabasePrincipalAssignmentResult, error) {
 	var rv LookupDatabasePrincipalAssignmentResult
-	err := ctx.Invoke("azure-nextgen:kusto:getDatabasePrincipalAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto:getDatabasePrincipalAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

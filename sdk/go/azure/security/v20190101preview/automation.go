@@ -51,12 +51,15 @@ func NewAutomation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:Automation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:Automation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Automation
-	err := ctx.RegisterResource("azure-nextgen:security/v20190101preview:Automation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/v20190101preview:Automation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +71,7 @@ func NewAutomation(ctx *pulumi.Context,
 func GetAutomation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AutomationState, opts ...pulumi.ResourceOption) (*Automation, error) {
 	var resource Automation
-	err := ctx.ReadResource("azure-nextgen:security/v20190101preview:Automation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/v20190101preview:Automation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

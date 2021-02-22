@@ -10,7 +10,7 @@ import (
 // The Log Search Rule resource.
 func LookupScheduledQueryRule(ctx *pulumi.Context, args *LookupScheduledQueryRuleArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRuleResult, error) {
 	var rv LookupScheduledQueryRuleResult
-	err := ctx.Invoke("azure-nextgen:insights/v20180416:getScheduledQueryRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20180416:getScheduledQueryRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

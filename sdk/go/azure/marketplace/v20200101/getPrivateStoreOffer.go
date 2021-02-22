@@ -10,7 +10,7 @@ import (
 // The privateStore offer data structure.
 func LookupPrivateStoreOffer(ctx *pulumi.Context, args *LookupPrivateStoreOfferArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreOfferResult, error) {
 	var rv LookupPrivateStoreOfferResult
-	err := ctx.Invoke("azure-nextgen:marketplace/v20200101:getPrivateStoreOffer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:marketplace/v20200101:getPrivateStoreOffer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

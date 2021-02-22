@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListTenantAccessSecrets(ctx *pulumi.Context, args *ListTenantAccessSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessSecretsResult, error) {
 	var rv ListTenantAccessSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listTenantAccessSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listTenantAccessSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

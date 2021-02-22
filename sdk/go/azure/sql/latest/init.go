@@ -21,25 +21,25 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:sql/latest:Database":
+	case "azure-native:sql/latest:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy":
+	case "azure-native:sql/latest:DatabaseThreatDetectionPolicy":
 		r, err = NewDatabaseThreatDetectionPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:DisasterRecoveryConfiguration":
+	case "azure-native:sql/latest:DisasterRecoveryConfiguration":
 		r, err = NewDisasterRecoveryConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:ElasticPool":
+	case "azure-native:sql/latest:ElasticPool":
 		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:FirewallRule":
+	case "azure-native:sql/latest:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:GeoBackupPolicy":
+	case "azure-native:sql/latest:GeoBackupPolicy":
 		r, err = NewGeoBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:Server":
+	case "azure-native:sql/latest:Server":
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:ServerAzureADAdministrator":
+	case "azure-native:sql/latest:ServerAzureADAdministrator":
 		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:ServerCommunicationLink":
+	case "azure-native:sql/latest:ServerCommunicationLink":
 		r, err = NewServerCommunicationLink(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/latest:TransparentDataEncryption":
+	case "azure-native:sql/latest:TransparentDataEncryption":
 		r, err = NewTransparentDataEncryption(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -54,7 +54,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"sql/latest",
 		&module{version},
 	)

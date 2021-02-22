@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:peering:PeerAsn":
+	case "azure-native:peering:PeerAsn":
 		r, err = NewPeerAsn(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:peering:Peering":
+	case "azure-native:peering:Peering":
 		r, err = NewPeering(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:peering:PeeringService":
+	case "azure-native:peering:PeeringService":
 		r, err = NewPeeringService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:peering:Prefix":
+	case "azure-native:peering:Prefix":
 		r, err = NewPrefix(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:peering:RegisteredAsn":
+	case "azure-native:peering:RegisteredAsn":
 		r, err = NewRegisteredAsn(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:peering:RegisteredPrefix":
+	case "azure-native:peering:RegisteredPrefix":
 		r, err = NewRegisteredPrefix(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"peering",
 		&module{version},
 	)

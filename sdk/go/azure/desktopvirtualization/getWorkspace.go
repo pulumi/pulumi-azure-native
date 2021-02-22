@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-14-preview.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

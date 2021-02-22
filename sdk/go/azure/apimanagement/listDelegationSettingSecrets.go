@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSettingSecretsArgs, opts ...pulumi.InvokeOption) (*ListDelegationSettingSecretsResult, error) {
 	var rv ListDelegationSettingSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listDelegationSettingSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listDelegationSettingSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

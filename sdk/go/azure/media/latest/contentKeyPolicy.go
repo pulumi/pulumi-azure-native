@@ -14,7 +14,7 @@ import (
 // A Content Key Policy resource.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:ContentKeyPolicy'.
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 
@@ -54,16 +54,31 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180330preview:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:ContentKeyPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:ContentKeyPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:ContentKeyPolicy"),
@@ -71,7 +86,7 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContentKeyPolicy
-	err := ctx.RegisterResource("azure-nextgen:media/latest:ContentKeyPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/latest:ContentKeyPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +98,7 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 func GetContentKeyPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContentKeyPolicyState, opts ...pulumi.ResourceOption) (*ContentKeyPolicy, error) {
 	var resource ContentKeyPolicy
-	err := ctx.ReadResource("azure-nextgen:media/latest:ContentKeyPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/latest:ContentKeyPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

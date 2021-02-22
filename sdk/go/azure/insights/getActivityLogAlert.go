@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArgs, opts ...pulumi.InvokeOption) (*LookupActivityLogAlertResult, error) {
 	var rv LookupActivityLogAlertResult
-	err := ctx.Invoke("azure-nextgen:insights:getActivityLogAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getActivityLogAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

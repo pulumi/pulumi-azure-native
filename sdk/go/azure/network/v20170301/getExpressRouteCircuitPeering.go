@@ -10,7 +10,7 @@ import (
 // Peering in an ExpressRouteCircuit resource.
 func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
 	var rv LookupExpressRouteCircuitPeeringResult
-	err := ctx.Invoke("azure-nextgen:network/v20170301:getExpressRouteCircuitPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20170301:getExpressRouteCircuitPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

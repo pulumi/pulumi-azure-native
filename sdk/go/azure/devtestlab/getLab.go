@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
 	var rv LookupLabResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getLab", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getLab", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

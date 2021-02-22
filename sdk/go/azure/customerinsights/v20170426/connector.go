@@ -64,10 +64,19 @@ func NewConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:Connector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:Connector"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Connector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Connector"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Connector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Connector"),
@@ -75,7 +84,7 @@ func NewConnector(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Connector
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/v20170426:Connector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/v20170426:Connector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +96,7 @@ func NewConnector(ctx *pulumi.Context,
 func GetConnector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectorState, opts ...pulumi.ResourceOption) (*Connector, error) {
 	var resource Connector
-	err := ctx.ReadResource("azure-nextgen:customerinsights/v20170426:Connector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/v20170426:Connector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

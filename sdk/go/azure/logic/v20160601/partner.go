@@ -53,16 +53,31 @@ func NewPartner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:Partner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:Partner"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/latest:Partner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Partner"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:Partner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Partner"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:Partner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Partner"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:Partner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:Partner"),
@@ -70,7 +85,7 @@ func NewPartner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Partner
-	err := ctx.RegisterResource("azure-nextgen:logic/v20160601:Partner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/v20160601:Partner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewPartner(ctx *pulumi.Context,
 func GetPartner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerState, opts ...pulumi.ResourceOption) (*Partner, error) {
 	var resource Partner
-	err := ctx.ReadResource("azure-nextgen:logic/v20160601:Partner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/v20160601:Partner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

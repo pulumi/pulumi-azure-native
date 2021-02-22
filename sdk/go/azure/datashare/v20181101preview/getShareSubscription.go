@@ -10,7 +10,7 @@ import (
 // A share subscription data transfer object.
 func LookupShareSubscription(ctx *pulumi.Context, args *LookupShareSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupShareSubscriptionResult, error) {
 	var rv LookupShareSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:getShareSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:getShareSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

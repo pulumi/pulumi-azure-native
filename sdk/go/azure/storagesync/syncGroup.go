@@ -41,34 +41,67 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagesync/latest:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20170605preview:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20180402:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180402:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20180701:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180701:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20181001:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20181001:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190201:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190201:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20190301:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190301:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190601:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190601:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20191001:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20191001:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20200301:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20200901:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200901:SyncGroup"),
@@ -76,7 +109,7 @@ func NewSyncGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SyncGroup
-	err := ctx.RegisterResource("azure-nextgen:storagesync:SyncGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagesync:SyncGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +121,7 @@ func NewSyncGroup(ctx *pulumi.Context,
 func GetSyncGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SyncGroupState, opts ...pulumi.ResourceOption) (*SyncGroup, error) {
 	var resource SyncGroup
-	err := ctx.ReadResource("azure-nextgen:storagesync:SyncGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagesync:SyncGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

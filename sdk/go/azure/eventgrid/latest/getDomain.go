@@ -10,10 +10,10 @@ import (
 // EventGrid Domain.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getDomain'.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/latest:getDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/latest:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

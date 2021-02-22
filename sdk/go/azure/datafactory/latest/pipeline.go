@@ -14,7 +14,7 @@ import (
 // Pipeline resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Pipeline'.
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -59,10 +59,19 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:Pipeline"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Pipeline"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Pipeline"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Pipeline"),
@@ -70,7 +79,7 @@ func NewPipeline(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Pipeline
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:Pipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:Pipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewPipeline(ctx *pulumi.Context,
 func GetPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	var resource Pipeline
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:Pipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:Pipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

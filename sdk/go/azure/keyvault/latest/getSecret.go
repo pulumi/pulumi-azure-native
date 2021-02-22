@@ -10,10 +10,10 @@ import (
 // Resource information with extended details.
 // Latest API Version: 2019-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getSecret'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getSecret'.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:keyvault/latest:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault/latest:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

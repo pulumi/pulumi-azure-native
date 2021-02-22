@@ -52,12 +52,15 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:blueprint:PublishedBlueprint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:blueprint:PublishedBlueprint"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PublishedBlueprint
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20181101preview:PublishedBlueprint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +72,7 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 func GetPublishedBlueprint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublishedBlueprintState, opts ...pulumi.ResourceOption) (*PublishedBlueprint, error) {
 	var resource PublishedBlueprint
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20181101preview:PublishedBlueprint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

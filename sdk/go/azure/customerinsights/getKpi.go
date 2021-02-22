@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func LookupKpi(ctx *pulumi.Context, args *LookupKpiArgs, opts ...pulumi.InvokeOption) (*LookupKpiResult, error) {
 	var rv LookupKpiResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getKpi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getKpi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

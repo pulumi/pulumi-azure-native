@@ -10,7 +10,7 @@ import (
 // Certificate resource payload.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20200701:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20200701:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

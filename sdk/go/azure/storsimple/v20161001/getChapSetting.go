@@ -10,7 +10,7 @@ import (
 // Challenge-Handshake Authentication Protocol (CHAP) setting
 func LookupChapSetting(ctx *pulumi.Context, args *LookupChapSettingArgs, opts ...pulumi.InvokeOption) (*LookupChapSettingResult, error) {
 	var rv LookupChapSettingResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getChapSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getChapSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

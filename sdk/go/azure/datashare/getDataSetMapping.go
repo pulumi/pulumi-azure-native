@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
-	err := ctx.Invoke("azure-nextgen:datashare:getDataSetMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare:getDataSetMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

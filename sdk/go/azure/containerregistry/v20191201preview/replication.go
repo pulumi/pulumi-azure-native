@@ -51,19 +51,37 @@ func NewReplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/latest:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Replication"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20171001:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Replication"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20190501:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Replication"),
@@ -71,7 +89,7 @@ func NewReplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Replication
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20191201preview:Replication", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20191201preview:Replication", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +101,7 @@ func NewReplication(ctx *pulumi.Context,
 func GetReplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationState, opts ...pulumi.ResourceOption) (*Replication, error) {
 	var resource Replication
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20191201preview:Replication", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20191201preview:Replication", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

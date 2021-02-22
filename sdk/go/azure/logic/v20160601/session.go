@@ -46,13 +46,25 @@ func NewSession(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:Session"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:Session"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/latest:Session"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Session"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:Session"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Session"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:Session"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:Session"),
@@ -60,7 +72,7 @@ func NewSession(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Session
-	err := ctx.RegisterResource("azure-nextgen:logic/v20160601:Session", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/v20160601:Session", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewSession(ctx *pulumi.Context,
 func GetSession(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SessionState, opts ...pulumi.ResourceOption) (*Session, error) {
 	var resource Session
-	err := ctx.ReadResource("azure-nextgen:logic/v20160601:Session", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/v20160601:Session", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

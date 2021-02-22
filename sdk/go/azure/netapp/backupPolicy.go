@@ -57,22 +57,43 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp/latest:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200501:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:BackupPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200601:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200701:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:BackupPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200801:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:BackupPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200901:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:BackupPolicy"),
@@ -80,7 +101,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:netapp:BackupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +113,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 func GetBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
 	var resource BackupPolicy
-	err := ctx.ReadResource("azure-nextgen:netapp:BackupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp:BackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

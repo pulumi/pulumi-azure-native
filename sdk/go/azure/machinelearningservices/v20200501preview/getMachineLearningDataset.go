@@ -10,7 +10,7 @@ import (
 // Machine Learning dataset object wrapped into ARM resource envelope.
 func LookupMachineLearningDataset(ctx *pulumi.Context, args *LookupMachineLearningDatasetArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningDatasetResult, error) {
 	var rv LookupMachineLearningDatasetResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200501preview:getMachineLearningDataset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

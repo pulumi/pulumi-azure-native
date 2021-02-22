@@ -125,28 +125,55 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteAuthSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteAuthSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteAuthSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteAuthSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteAuthSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteAuthSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteAuthSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteAuthSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteAuthSettingsSlot"),
@@ -154,7 +181,7 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteAuthSettingsSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteAuthSettingsSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteAuthSettingsSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,7 +193,7 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 func GetSiteAuthSettingsSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteAuthSettingsSlotState, opts ...pulumi.ResourceOption) (*SiteAuthSettingsSlot, error) {
 	var resource SiteAuthSettingsSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteAuthSettingsSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteAuthSettingsSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-01.
 func ListClusterRemoteLoginInformation(ctx *pulumi.Context, args *ListClusterRemoteLoginInformationArgs, opts ...pulumi.InvokeOption) (*ListClusterRemoteLoginInformationResult, error) {
 	var rv ListClusterRemoteLoginInformationResult
-	err := ctx.Invoke("azure-nextgen:batchai:listClusterRemoteLoginInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai:listClusterRemoteLoginInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

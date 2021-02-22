@@ -14,7 +14,7 @@ import (
 // Single item in List or Get Migration Config operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 
@@ -55,10 +55,19 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:MigrationConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:MigrationConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:MigrationConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:MigrationConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:MigrationConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:MigrationConfig"),
@@ -66,7 +75,7 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MigrationConfig
-	err := ctx.RegisterResource("azure-nextgen:servicebus/latest:MigrationConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/latest:MigrationConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +87,7 @@ func NewMigrationConfig(ctx *pulumi.Context,
 func GetMigrationConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MigrationConfigState, opts ...pulumi.ResourceOption) (*MigrationConfig, error) {
 	var resource MigrationConfig
-	err := ctx.ReadResource("azure-nextgen:servicebus/latest:MigrationConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/latest:MigrationConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

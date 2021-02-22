@@ -54,13 +54,25 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:CustomIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:CustomIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:CustomIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:CustomIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:CustomIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:CustomIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:CustomIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:CustomIPPrefix"),
@@ -68,7 +80,7 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomIPPrefix
-	err := ctx.RegisterResource("azure-nextgen:network:CustomIPPrefix", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:CustomIPPrefix", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 func GetCustomIPPrefix(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomIPPrefixState, opts ...pulumi.ResourceOption) (*CustomIPPrefix, error) {
 	var resource CustomIPPrefix
-	err := ctx.ReadResource("azure-nextgen:network:CustomIPPrefix", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:CustomIPPrefix", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

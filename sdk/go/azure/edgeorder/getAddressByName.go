@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01-preview.
 func LookupAddressByName(ctx *pulumi.Context, args *LookupAddressByNameArgs, opts ...pulumi.InvokeOption) (*LookupAddressByNameResult, error) {
 	var rv LookupAddressByNameResult
-	err := ctx.Invoke("azure-nextgen:edgeorder:getAddressByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder:getAddressByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

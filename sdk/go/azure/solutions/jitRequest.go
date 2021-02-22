@@ -63,10 +63,19 @@ func NewJitRequest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:solutions/latest:JitRequest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/latest:JitRequest"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20190701:JitRequest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/v20190701:JitRequest"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20200821preview:JitRequest"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:JitRequest"),
@@ -74,7 +83,7 @@ func NewJitRequest(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JitRequest
-	err := ctx.RegisterResource("azure-nextgen:solutions:JitRequest", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:solutions:JitRequest", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +95,7 @@ func NewJitRequest(ctx *pulumi.Context,
 func GetJitRequest(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JitRequestState, opts ...pulumi.ResourceOption) (*JitRequest, error) {
 	var resource JitRequest
-	err := ctx.ReadResource("azure-nextgen:solutions:JitRequest", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:solutions:JitRequest", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -57,19 +57,37 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:Server"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/latest:Server"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/latest:Server"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20140401:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:Server"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:Server"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:Server"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:Server"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:Server"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:Server"),
@@ -77,7 +95,7 @@ func NewServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Server
-	err := ctx.RegisterResource("azure-nextgen:sql/v20190601preview:Server", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20190601preview:Server", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +107,7 @@ func NewServer(ctx *pulumi.Context,
 func GetServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
 	var resource Server
-	err := ctx.ReadResource("azure-nextgen:sql/v20190601preview:Server", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20190601preview:Server", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

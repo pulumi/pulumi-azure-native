@@ -14,7 +14,7 @@ import (
 // The view resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:View'.
 type View struct {
 	pulumi.CustomResourceState
 
@@ -56,10 +56,19 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:View"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:View"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:View"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:View"),
@@ -67,7 +76,7 @@ func NewView(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource View
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:View", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:View", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewView(ctx *pulumi.Context,
 func GetView(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ViewState, opts ...pulumi.ResourceOption) (*View, error) {
 	var resource View
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:View", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:View", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

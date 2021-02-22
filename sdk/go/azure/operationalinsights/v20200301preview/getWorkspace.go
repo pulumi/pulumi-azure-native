@@ -10,7 +10,7 @@ import (
 // The top level Workspace resource container.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20200301preview:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20200301preview:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Function'.
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -41,10 +41,19 @@ func NewFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics:Function"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics:Function"),
 		},
 		{
+			Type: pulumi.String("azure-native:streamanalytics/v20160301:Function"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Function"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20170401preview:Function"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:Function"),
@@ -52,7 +61,7 @@ func NewFunction(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Function
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics/latest:Function", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics/latest:Function", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewFunction(ctx *pulumi.Context,
 func GetFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FunctionState, opts ...pulumi.ResourceOption) (*Function, error) {
 	var resource Function
-	err := ctx.ReadResource("azure-nextgen:streamanalytics/latest:Function", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics/latest:Function", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

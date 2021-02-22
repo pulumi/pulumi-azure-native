@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-18.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:cognitiveservices:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cognitiveservices:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

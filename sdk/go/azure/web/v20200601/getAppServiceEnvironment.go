@@ -10,7 +10,7 @@ import (
 // App Service Environment ARM resource.
 func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceEnvironmentResult, error) {
 	var rv LookupAppServiceEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:getAppServiceEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:getAppServiceEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

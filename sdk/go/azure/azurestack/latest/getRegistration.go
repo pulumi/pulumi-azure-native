@@ -10,10 +10,10 @@ import (
 // Registration information.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistration'.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
-	err := ctx.Invoke("azure-nextgen:azurestack/latest:getRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/latest:getRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,35 +21,35 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:cdn/v20200901:AFDCustomDomain":
+	case "azure-native:cdn/v20200901:AFDCustomDomain":
 		r, err = NewAFDCustomDomain(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:AFDEndpoint":
+	case "azure-native:cdn/v20200901:AFDEndpoint":
 		r, err = NewAFDEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:AFDOrigin":
+	case "azure-native:cdn/v20200901:AFDOrigin":
 		r, err = NewAFDOrigin(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:AFDOriginGroup":
+	case "azure-native:cdn/v20200901:AFDOriginGroup":
 		r, err = NewAFDOriginGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:CustomDomain":
+	case "azure-native:cdn/v20200901:CustomDomain":
 		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Endpoint":
+	case "azure-native:cdn/v20200901:Endpoint":
 		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Origin":
+	case "azure-native:cdn/v20200901:Origin":
 		r, err = NewOrigin(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:OriginGroup":
+	case "azure-native:cdn/v20200901:OriginGroup":
 		r, err = NewOriginGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Policy":
+	case "azure-native:cdn/v20200901:Policy":
 		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Profile":
+	case "azure-native:cdn/v20200901:Profile":
 		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Route":
+	case "azure-native:cdn/v20200901:Route":
 		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Rule":
+	case "azure-native:cdn/v20200901:Rule":
 		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:RuleSet":
+	case "azure-native:cdn/v20200901:RuleSet":
 		r, err = NewRuleSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:Secret":
+	case "azure-native:cdn/v20200901:Secret":
 		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20200901:SecurityPolicy":
+	case "azure-native:cdn/v20200901:SecurityPolicy":
 		r, err = NewSecurityPolicy(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -64,7 +64,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"cdn/v20200901",
 		&module{version},
 	)

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	var rv LookupImageResult
-	err := ctx.Invoke("azure-nextgen:compute:getImage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

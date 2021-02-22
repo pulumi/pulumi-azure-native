@@ -36,12 +36,15 @@ func NewVendorSkuPreview(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridnetwork:VendorSkuPreview"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork:VendorSkuPreview"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource VendorSkuPreview
-	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +56,7 @@ func NewVendorSkuPreview(ctx *pulumi.Context,
 func GetVendorSkuPreview(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VendorSkuPreviewState, opts ...pulumi.ResourceOption) (*VendorSkuPreview, error) {
 	var resource VendorSkuPreview
-	err := ctx.ReadResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

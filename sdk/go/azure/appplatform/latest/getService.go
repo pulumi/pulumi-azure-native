@@ -10,10 +10,10 @@ import (
 // Service resource
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getService'.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:appplatform/latest:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/latest:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

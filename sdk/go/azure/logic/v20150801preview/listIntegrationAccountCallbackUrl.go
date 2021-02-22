@@ -9,7 +9,7 @@ import (
 
 func ListIntegrationAccountCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountCallbackUrlResult, error) {
 	var rv ListIntegrationAccountCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150801preview:listIntegrationAccountCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150801preview:listIntegrationAccountCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

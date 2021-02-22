@@ -32,7 +32,13 @@ func NewUserSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal/latest:UserSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal/latest:UserSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001:UserSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:UserSettings"),
@@ -40,7 +46,7 @@ func NewUserSettings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource UserSettings
-	err := ctx.RegisterResource("azure-nextgen:portal:UserSettings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal:UserSettings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +58,7 @@ func NewUserSettings(ctx *pulumi.Context,
 func GetUserSettings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserSettingsState, opts ...pulumi.ResourceOption) (*UserSettings, error) {
 	var resource UserSettings
-	err := ctx.ReadResource("azure-nextgen:portal:UserSettings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal:UserSettings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

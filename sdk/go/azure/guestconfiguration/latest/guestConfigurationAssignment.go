@@ -14,7 +14,7 @@ import (
 // Guest configuration assignment is an association between a machine and guest configuration.
 // Latest API Version: 2020-06-25.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:guestconfiguration:GuestConfigurationAssignment'.
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 
@@ -43,13 +43,25 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:guestconfiguration:GuestConfigurationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration:GuestConfigurationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment"),
@@ -57,7 +69,7 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GuestConfigurationAssignment
-	err := ctx.RegisterResource("azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:guestconfiguration/latest:GuestConfigurationAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 func GetGuestConfigurationAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GuestConfigurationAssignmentState, opts ...pulumi.ResourceOption) (*GuestConfigurationAssignment, error) {
 	var resource GuestConfigurationAssignment
-	err := ctx.ReadResource("azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:guestconfiguration/latest:GuestConfigurationAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -58,7 +58,13 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:EventHubConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:EventHubConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20180907preview:EventHubConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:EventHubConnection"),
@@ -66,7 +72,7 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventHubConnection
-	err := ctx.RegisterResource("azure-nextgen:kusto:EventHubConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto:EventHubConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +84,7 @@ func NewEventHubConnection(ctx *pulumi.Context,
 func GetEventHubConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventHubConnectionState, opts ...pulumi.ResourceOption) (*EventHubConnection, error) {
 	var resource EventHubConnection
-	err := ctx.ReadResource("azure-nextgen:kusto:EventHubConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto:EventHubConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

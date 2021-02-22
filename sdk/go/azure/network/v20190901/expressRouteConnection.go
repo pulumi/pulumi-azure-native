@@ -50,58 +50,115 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ExpressRouteConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteConnection"),
@@ -109,7 +166,7 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteConnection
-	err := ctx.RegisterResource("azure-nextgen:network/v20190901:ExpressRouteConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190901:ExpressRouteConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +178,7 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 func GetExpressRouteConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExpressRouteConnectionState, opts ...pulumi.ResourceOption) (*ExpressRouteConnection, error) {
 	var resource ExpressRouteConnection
-	err := ctx.ReadResource("azure-nextgen:network/v20190901:ExpressRouteConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190901:ExpressRouteConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

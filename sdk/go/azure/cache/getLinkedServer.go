@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServerResult, error) {
 	var rv LookupLinkedServerResult
-	err := ctx.Invoke("azure-nextgen:cache:getLinkedServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache:getLinkedServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

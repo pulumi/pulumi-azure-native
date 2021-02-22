@@ -10,7 +10,7 @@ import (
 // the ISV access token result response.
 func ListSaasSubscriptionLevelAccessToken(ctx *pulumi.Context, args *ListSaasSubscriptionLevelAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasSubscriptionLevelAccessTokenResult, error) {
 	var rv ListSaasSubscriptionLevelAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

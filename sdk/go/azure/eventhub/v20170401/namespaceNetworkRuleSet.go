@@ -42,10 +42,19 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub:NamespaceNetworkRuleSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub:NamespaceNetworkRuleSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/latest:NamespaceNetworkRuleSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet"),
@@ -53,7 +62,7 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceNetworkRuleSet
-	err := ctx.RegisterResource("azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub/v20170401:NamespaceNetworkRuleSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 func GetNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceNetworkRuleSetState, opts ...pulumi.ResourceOption) (*NamespaceNetworkRuleSet, error) {
 	var resource NamespaceNetworkRuleSet
-	err := ctx.ReadResource("azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub/v20170401:NamespaceNetworkRuleSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

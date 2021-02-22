@@ -10,7 +10,7 @@ import (
 // Single item in a List or Get IpFilterRules operation
 func LookupNamespaceIpFilterRule(ctx *pulumi.Context, args *LookupNamespaceIpFilterRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceIpFilterRuleResult, error) {
 	var rv LookupNamespaceIpFilterRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:getNamespaceIpFilterRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

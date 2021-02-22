@@ -10,10 +10,10 @@ import (
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getOutput'.
 func LookupOutput(ctx *pulumi.Context, args *LookupOutputArgs, opts ...pulumi.InvokeOption) (*LookupOutputResult, error) {
 	var rv LookupOutputResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics/latest:getOutput", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics/latest:getOutput", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

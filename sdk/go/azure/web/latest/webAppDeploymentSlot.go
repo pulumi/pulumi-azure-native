@@ -14,7 +14,7 @@ import (
 // User credentials used for publishing activity.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDeploymentSlot'.
 type WebAppDeploymentSlot struct {
 	pulumi.CustomResourceState
 
@@ -64,28 +64,55 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppDeploymentSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppDeploymentSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppDeploymentSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDeploymentSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppDeploymentSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDeploymentSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDeploymentSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppDeploymentSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDeploymentSlot"),
@@ -93,7 +120,7 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeploymentSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppDeploymentSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppDeploymentSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +132,7 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 func GetWebAppDeploymentSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppDeploymentSlotState, opts ...pulumi.ResourceOption) (*WebAppDeploymentSlot, error) {
 	var resource WebAppDeploymentSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppDeploymentSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppDeploymentSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage:getFileServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getFileServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

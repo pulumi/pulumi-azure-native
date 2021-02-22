@@ -10,10 +10,10 @@ import (
 // The properties of File services in storage account.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileServiceProperties'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/latest:getFileServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/latest:getFileServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The shared keys for a workspace.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20150320:listWorkspaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20150320:listWorkspaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

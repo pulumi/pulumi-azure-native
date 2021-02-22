@@ -53,10 +53,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache/latest:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/latest:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20201001preview:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210301:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20210301:Database"),
@@ -64,7 +73,7 @@ func NewDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Database
-	err := ctx.RegisterResource("azure-nextgen:cache:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("azure-nextgen:cache:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

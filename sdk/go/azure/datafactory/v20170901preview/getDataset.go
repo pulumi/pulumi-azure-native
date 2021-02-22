@@ -10,7 +10,7 @@ import (
 // Dataset resource type.
 func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.InvokeOption) (*LookupDatasetResult, error) {
 	var rv LookupDatasetResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20170901preview:getDataset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getDataset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

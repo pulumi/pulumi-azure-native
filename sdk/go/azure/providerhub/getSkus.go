@@ -10,7 +10,7 @@ import (
 // API Version: 2020-11-20.
 func LookupSkus(ctx *pulumi.Context, args *LookupSkusArgs, opts ...pulumi.InvokeOption) (*LookupSkusResult, error) {
 	var rv LookupSkusResult
-	err := ctx.Invoke("azure-nextgen:providerhub:getSkus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub:getSkus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

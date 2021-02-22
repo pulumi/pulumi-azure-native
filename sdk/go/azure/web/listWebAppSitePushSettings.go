@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppSitePushSettings(ctx *pulumi.Context, args *ListWebAppSitePushSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSitePushSettingsResult, error) {
 	var rv ListWebAppSitePushSettingsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppSitePushSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppSitePushSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

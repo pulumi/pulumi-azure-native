@@ -10,10 +10,10 @@ import (
 // The connector resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnector'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnector'.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

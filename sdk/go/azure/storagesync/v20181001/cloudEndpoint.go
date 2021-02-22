@@ -57,34 +57,67 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagesync:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync:CloudEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/latest:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20170605preview:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:CloudEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20180402:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180402:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20180701:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180701:CloudEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190201:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190201:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20190301:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190301:CloudEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190601:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190601:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20191001:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20191001:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20200301:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:CloudEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20200901:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200901:CloudEndpoint"),
@@ -92,7 +125,7 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CloudEndpoint
-	err := ctx.RegisterResource("azure-nextgen:storagesync/v20181001:CloudEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagesync/v20181001:CloudEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +137,7 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 func GetCloudEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CloudEndpointState, opts ...pulumi.ResourceOption) (*CloudEndpoint, error) {
 	var resource CloudEndpoint
-	err := ctx.ReadResource("azure-nextgen:storagesync/v20181001:CloudEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagesync/v20181001:CloudEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

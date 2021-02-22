@@ -10,7 +10,7 @@ import (
 // The resource that defines the source location where the artifacts are located.
 func LookupArtifactSource(ctx *pulumi.Context, args *LookupArtifactSourceArgs, opts ...pulumi.InvokeOption) (*LookupArtifactSourceResult, error) {
 	var rv LookupArtifactSourceResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getArtifactSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getArtifactSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

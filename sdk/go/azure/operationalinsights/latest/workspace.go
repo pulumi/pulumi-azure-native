@@ -14,7 +14,7 @@ import (
 // The top level Workspace resource container.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Workspace'.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -60,16 +60,31 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20201001:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20201001:Workspace"),
@@ -77,7 +92,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/latest:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/latest:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +104,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/latest:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/latest:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

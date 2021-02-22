@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:appplatform/latest:App":
+	case "azure-native:appplatform/latest:App":
 		r, err = NewApp(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:appplatform/latest:Binding":
+	case "azure-native:appplatform/latest:Binding":
 		r, err = NewBinding(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:appplatform/latest:Certificate":
+	case "azure-native:appplatform/latest:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:appplatform/latest:CustomDomain":
+	case "azure-native:appplatform/latest:CustomDomain":
 		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:appplatform/latest:Deployment":
+	case "azure-native:appplatform/latest:Deployment":
 		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:appplatform/latest:Service":
+	case "azure-native:appplatform/latest:Service":
 		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"appplatform/latest",
 		&module{version},
 	)

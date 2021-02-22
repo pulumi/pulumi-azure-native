@@ -10,7 +10,7 @@ import (
 // Collection of the consortium payload.
 func ListLocationConsortiums(ctx *pulumi.Context, args *ListLocationConsortiumsArgs, opts ...pulumi.InvokeOption) (*ListLocationConsortiumsResult, error) {
 	var rv ListLocationConsortiumsResult
-	err := ctx.Invoke("azure-nextgen:blockchain/v20180601preview:listLocationConsortiums", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain/v20180601preview:listLocationConsortiums", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

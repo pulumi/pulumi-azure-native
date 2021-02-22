@@ -10,10 +10,10 @@ import (
 // List of deployments for a remediation.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResource'.
 func ListRemediationDeploymentsAtResource(ctx *pulumi.Context, args *ListRemediationDeploymentsAtResourceArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtResourceResult, error) {
 	var rv ListRemediationDeploymentsAtResourceResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/latest:listRemediationDeploymentsAtResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/latest:listRemediationDeploymentsAtResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

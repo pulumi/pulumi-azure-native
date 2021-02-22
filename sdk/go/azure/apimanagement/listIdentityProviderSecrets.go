@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListIdentityProviderSecrets(ctx *pulumi.Context, args *ListIdentityProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListIdentityProviderSecretsResult, error) {
 	var rv ListIdentityProviderSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listIdentityProviderSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listIdentityProviderSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

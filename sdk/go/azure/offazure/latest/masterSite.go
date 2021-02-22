@@ -14,7 +14,7 @@ import (
 // Site REST Resource.
 // Latest API Version: 2020-07-07.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:MasterSite'.
 type MasterSite struct {
 	pulumi.CustomResourceState
 
@@ -42,7 +42,13 @@ func NewMasterSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:offazure:MasterSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure:MasterSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:offazure/v20200707:MasterSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200707:MasterSite"),
@@ -50,7 +56,7 @@ func NewMasterSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MasterSite
-	err := ctx.RegisterResource("azure-nextgen:offazure/latest:MasterSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:offazure/latest:MasterSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewMasterSite(ctx *pulumi.Context,
 func GetMasterSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MasterSiteState, opts ...pulumi.ResourceOption) (*MasterSite, error) {
 	var resource MasterSite
-	err := ctx.ReadResource("azure-nextgen:offazure/latest:MasterSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:offazure/latest:MasterSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulumi.InvokeOption) (*LookupVariableResult, error) {
 	var rv LookupVariableResult
-	err := ctx.Invoke("azure-nextgen:automation:getVariable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getVariable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

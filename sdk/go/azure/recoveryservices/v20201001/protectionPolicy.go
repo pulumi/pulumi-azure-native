@@ -44,19 +44,37 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionPolicy"),
@@ -64,7 +82,7 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionPolicy
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/v20201001:ProtectionPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/v20201001:ProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +94,7 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 func GetProtectionPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectionPolicyState, opts ...pulumi.ResourceOption) (*ProtectionPolicy, error) {
 	var resource ProtectionPolicy
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/v20201001:ProtectionPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/v20201001:ProtectionPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationFabric":
+	case "azure-native:recoveryservices/v20160810:ReplicationFabric":
 		r, err = NewReplicationFabric(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping":
+	case "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping":
 		r, err = NewReplicationNetworkMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationPolicy":
+	case "azure-native:recoveryservices/v20160810:ReplicationPolicy":
 		r, err = NewReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem":
+	case "azure-native:recoveryservices/v20160810:ReplicationProtectedItem":
 		r, err = NewReplicationProtectedItem(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping":
+	case "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping":
 		r, err = NewReplicationProtectionContainerMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan":
+	case "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan":
 		r, err = NewReplicationRecoveryPlan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping":
+	case "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping":
 		r, err = NewReplicationStorageClassificationMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20160810:ReplicationvCenter":
+	case "azure-native:recoveryservices/v20160810:ReplicationvCenter":
 		r, err = NewReplicationvCenter(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"recoveryservices/v20160810",
 		&module{version},
 	)

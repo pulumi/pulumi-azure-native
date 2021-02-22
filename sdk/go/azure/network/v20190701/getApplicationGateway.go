@@ -10,7 +10,7 @@ import (
 // Application gateway resource.
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	var rv LookupApplicationGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/v20190701:getApplicationGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190701:getApplicationGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

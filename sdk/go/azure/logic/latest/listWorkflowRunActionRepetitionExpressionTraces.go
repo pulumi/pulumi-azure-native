@@ -10,10 +10,10 @@ import (
 // The expression traces.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionRepetitionExpressionTraces'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces'.
 func ListWorkflowRunActionRepetitionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionRepetitionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionRepetitionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionRepetitionExpressionTracesResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:listWorkflowRunActionRepetitionExpressionTraces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:listWorkflowRunActionRepetitionExpressionTraces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

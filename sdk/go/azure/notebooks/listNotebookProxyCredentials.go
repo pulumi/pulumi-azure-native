@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-11-preview.
 func ListNotebookProxyCredentials(ctx *pulumi.Context, args *ListNotebookProxyCredentialsArgs, opts ...pulumi.InvokeOption) (*ListNotebookProxyCredentialsResult, error) {
 	var rv ListNotebookProxyCredentialsResult
-	err := ctx.Invoke("azure-nextgen:notebooks:listNotebookProxyCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notebooks:listNotebookProxyCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

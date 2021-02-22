@@ -10,7 +10,7 @@ import (
 // Represents a Configuration.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb/v20180601preview:getConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb/v20180601preview:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

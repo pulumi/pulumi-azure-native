@@ -57,13 +57,25 @@ func NewPolicyResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:PolicyResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:PolicyResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:PolicyResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:PolicyResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:PolicyResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:PolicyResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:PolicyResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:PolicyResource"),
@@ -71,7 +83,7 @@ func NewPolicyResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PolicyResource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:PolicyResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +95,7 @@ func NewPolicyResource(ctx *pulumi.Context,
 func GetPolicyResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyResourceState, opts ...pulumi.ResourceOption) (*PolicyResource, error) {
 	var resource PolicyResource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:PolicyResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

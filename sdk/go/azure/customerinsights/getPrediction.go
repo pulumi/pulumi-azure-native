@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func LookupPrediction(ctx *pulumi.Context, args *LookupPredictionArgs, opts ...pulumi.InvokeOption) (*LookupPredictionResult, error) {
 	var rv LookupPredictionResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getPrediction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getPrediction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

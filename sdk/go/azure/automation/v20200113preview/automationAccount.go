@@ -59,13 +59,25 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:AutomationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:AutomationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:AutomationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:AutomationAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20151031:AutomationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:AutomationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:AutomationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:AutomationAccount"),
@@ -73,7 +85,7 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AutomationAccount
-	err := ctx.RegisterResource("azure-nextgen:automation/v20200113preview:AutomationAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20200113preview:AutomationAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +97,7 @@ func NewAutomationAccount(ctx *pulumi.Context,
 func GetAutomationAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AutomationAccountState, opts ...pulumi.ResourceOption) (*AutomationAccount, error) {
 	var resource AutomationAccount
-	err := ctx.ReadResource("azure-nextgen:automation/v20200113preview:AutomationAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20200113preview:AutomationAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Security Partner Provider resource.
 func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPartnerProviderArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPartnerProviderResult, error) {
 	var rv LookupSecurityPartnerProviderResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getSecurityPartnerProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getSecurityPartnerProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

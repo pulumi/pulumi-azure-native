@@ -10,7 +10,7 @@ import (
 // Information about managed application definition.
 func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationDefinitionResult, error) {
 	var rv LookupApplicationDefinitionResult
-	err := ctx.Invoke("azure-nextgen:solutions/v20180601:getApplicationDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions/v20180601:getApplicationDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

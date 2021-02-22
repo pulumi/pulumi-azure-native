@@ -56,10 +56,19 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:RedisEnterprise"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:RedisEnterprise"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/latest:RedisEnterprise"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/latest:RedisEnterprise"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210301:RedisEnterprise"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20210301:RedisEnterprise"),
@@ -67,7 +76,7 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RedisEnterprise
-	err := ctx.RegisterResource("azure-nextgen:cache/v20201001preview:RedisEnterprise", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/v20201001preview:RedisEnterprise", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 func GetRedisEnterprise(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RedisEnterpriseState, opts ...pulumi.ResourceOption) (*RedisEnterprise, error) {
 	var resource RedisEnterprise
-	err := ctx.ReadResource("azure-nextgen:cache/v20201001preview:RedisEnterprise", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/v20201001preview:RedisEnterprise", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

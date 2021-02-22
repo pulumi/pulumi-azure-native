@@ -10,10 +10,10 @@ import (
 // Factory resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactory'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactory'.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getFactory", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getFactory", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

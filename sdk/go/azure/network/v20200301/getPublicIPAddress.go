@@ -10,7 +10,7 @@ import (
 // Public IP address resource.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
-	err := ctx.Invoke("azure-nextgen:network/v20200301:getPublicIPAddress", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200301:getPublicIPAddress", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

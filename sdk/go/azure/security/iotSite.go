@@ -41,12 +41,15 @@ func NewIotSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/v20200806preview:IotSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20200806preview:IotSite"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource IotSite
-	err := ctx.RegisterResource("azure-nextgen:security:IotSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:IotSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +61,7 @@ func NewIotSite(ctx *pulumi.Context,
 func GetIotSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotSiteState, opts ...pulumi.ResourceOption) (*IotSite, error) {
 	var resource IotSite
-	err := ctx.ReadResource("azure-nextgen:security:IotSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:IotSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

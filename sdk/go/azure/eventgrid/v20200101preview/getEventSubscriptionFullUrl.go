@@ -10,7 +10,7 @@ import (
 // Full endpoint url of an event subscription
 func GetEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetEventSubscriptionFullUrlResult, error) {
 	var rv GetEventSubscriptionFullUrlResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20200101preview:getEventSubscriptionFullUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20200101preview:getEventSubscriptionFullUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

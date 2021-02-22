@@ -50,10 +50,19 @@ func NewComputePolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics:ComputePolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics:ComputePolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics/latest:ComputePolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:ComputePolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakeanalytics/v20151001preview:ComputePolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"),
@@ -61,7 +70,7 @@ func NewComputePolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ComputePolicy
-	err := ctx.RegisterResource("azure-nextgen:datalakeanalytics/v20161101:ComputePolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakeanalytics/v20161101:ComputePolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewComputePolicy(ctx *pulumi.Context,
 func GetComputePolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComputePolicyState, opts ...pulumi.ResourceOption) (*ComputePolicy, error) {
 	var resource ComputePolicy
-	err := ctx.ReadResource("azure-nextgen:datalakeanalytics/v20161101:ComputePolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakeanalytics/v20161101:ComputePolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

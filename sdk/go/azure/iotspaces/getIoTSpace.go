@@ -11,7 +11,7 @@ import (
 // API Version: 2017-10-01-preview.
 func LookupIoTSpace(ctx *pulumi.Context, args *LookupIoTSpaceArgs, opts ...pulumi.InvokeOption) (*LookupIoTSpaceResult, error) {
 	var rv LookupIoTSpaceResult
-	err := ctx.Invoke("azure-nextgen:iotspaces:getIoTSpace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:iotspaces:getIoTSpace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

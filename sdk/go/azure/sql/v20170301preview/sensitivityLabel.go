@@ -59,10 +59,19 @@ func NewSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:SensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:SensitivityLabel"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:SensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SensitivityLabel"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:SensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SensitivityLabel"),
@@ -70,7 +79,7 @@ func NewSensitivityLabel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SensitivityLabel
-	err := ctx.RegisterResource("azure-nextgen:sql/v20170301preview:SensitivityLabel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20170301preview:SensitivityLabel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewSensitivityLabel(ctx *pulumi.Context,
 func GetSensitivityLabel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SensitivityLabelState, opts ...pulumi.ResourceOption) (*SensitivityLabel, error) {
 	var resource SensitivityLabel
-	err := ctx.ReadResource("azure-nextgen:sql/v20170301preview:SensitivityLabel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20170301preview:SensitivityLabel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

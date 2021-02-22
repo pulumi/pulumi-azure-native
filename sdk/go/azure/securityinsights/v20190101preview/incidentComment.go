@@ -55,12 +55,15 @@ func NewIncidentComment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:IncidentComment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:IncidentComment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource IncidentComment
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:IncidentComment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:IncidentComment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +75,7 @@ func NewIncidentComment(ctx *pulumi.Context,
 func GetIncidentComment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IncidentCommentState, opts ...pulumi.ResourceOption) (*IncidentComment, error) {
 	var resource IncidentComment
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:IncidentComment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:IncidentComment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // The log profile resource.
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'.
 type LogProfile struct {
 	pulumi.CustomResourceState
 
@@ -56,7 +56,13 @@ func NewLogProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:LogProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:LogProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20160301:LogProfile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20160301:LogProfile"),
@@ -64,7 +70,7 @@ func NewLogProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LogProfile
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:LogProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:LogProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +82,7 @@ func NewLogProfile(ctx *pulumi.Context,
 func GetLogProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LogProfileState, opts ...pulumi.ResourceOption) (*LogProfile, error) {
 	var resource LogProfile
-	err := ctx.ReadResource("azure-nextgen:insights/latest:LogProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:LogProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

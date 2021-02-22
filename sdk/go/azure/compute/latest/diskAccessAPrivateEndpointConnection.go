@@ -14,7 +14,7 @@ import (
 // The Private Endpoint Connection resource.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.
 type DiskAccessAPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"),
@@ -56,7 +62,7 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DiskAccessAPrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 func GetDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskAccessAPrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*DiskAccessAPrivateEndpointConnection, error) {
 	var resource DiskAccessAPrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

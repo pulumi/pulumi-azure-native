@@ -9,7 +9,7 @@ import (
 
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20210101:listStorageAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20210101:listStorageAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

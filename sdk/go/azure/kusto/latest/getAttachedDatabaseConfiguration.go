@@ -10,10 +10,10 @@ import (
 // Class representing an attached database configuration.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getAttachedDatabaseConfiguration'.
 func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttachedDatabaseConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDatabaseConfigurationResult, error) {
 	var rv LookupAttachedDatabaseConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:getAttachedDatabaseConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:getAttachedDatabaseConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

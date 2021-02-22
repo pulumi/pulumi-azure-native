@@ -10,10 +10,10 @@ import (
 // Domain service.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
-	err := ctx.Invoke("azure-nextgen:aad/latest:getDomainService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aad/latest:getDomainService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

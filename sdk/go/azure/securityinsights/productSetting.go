@@ -47,12 +47,15 @@ func NewProductSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:ProductSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ProductSetting"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ProductSetting
-	err := ctx.RegisterResource("azure-nextgen:securityinsights:ProductSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights:ProductSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +67,7 @@ func NewProductSetting(ctx *pulumi.Context,
 func GetProductSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProductSettingState, opts ...pulumi.ResourceOption) (*ProductSetting, error) {
 	var resource ProductSetting
-	err := ctx.ReadResource("azure-nextgen:securityinsights:ProductSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights:ProductSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

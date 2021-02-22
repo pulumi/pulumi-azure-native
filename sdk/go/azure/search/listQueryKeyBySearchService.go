@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func ListQueryKeyBySearchService(ctx *pulumi.Context, args *ListQueryKeyBySearchServiceArgs, opts ...pulumi.InvokeOption) (*ListQueryKeyBySearchServiceResult, error) {
 	var rv ListQueryKeyBySearchServiceResult
-	err := ctx.Invoke("azure-nextgen:search:listQueryKeyBySearchService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search:listQueryKeyBySearchService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

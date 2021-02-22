@@ -10,10 +10,10 @@ import (
 // ExpressRoutePort resource definition.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRoutePort'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRoutePort'.
 func LookupExpressRoutePort(ctx *pulumi.Context, args *LookupExpressRoutePortArgs, opts ...pulumi.InvokeOption) (*LookupExpressRoutePortResult, error) {
 	var rv LookupExpressRoutePortResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getExpressRoutePort", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getExpressRoutePort", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

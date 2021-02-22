@@ -10,10 +10,10 @@ import (
 // The description of the DigitalTwins service.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwin'.
 func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinResult, error) {
 	var rv LookupDigitalTwinResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins/latest:getDigitalTwin", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins/latest:getDigitalTwin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

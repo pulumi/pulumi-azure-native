@@ -10,7 +10,7 @@ import (
 // An elastic pool.
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
-	err := ctx.Invoke("azure-nextgen:sql/v20171001preview:getElasticPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20171001preview:getElasticPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

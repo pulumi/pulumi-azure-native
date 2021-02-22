@@ -10,10 +10,10 @@ import (
 // The Asset Storage container SAS URLs.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'.
 func ListAssetContainerSas(ctx *pulumi.Context, args *ListAssetContainerSasArgs, opts ...pulumi.InvokeOption) (*ListAssetContainerSasResult, error) {
 	var rv ListAssetContainerSasResult
-	err := ctx.Invoke("azure-nextgen:media/latest:listAssetContainerSas", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:listAssetContainerSas", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

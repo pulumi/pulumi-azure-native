@@ -10,10 +10,10 @@ import (
 // Definition of the schedule.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSchedule'.
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
 	var rv LookupScheduleResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

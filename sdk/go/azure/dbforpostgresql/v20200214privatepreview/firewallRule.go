@@ -46,12 +46,15 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

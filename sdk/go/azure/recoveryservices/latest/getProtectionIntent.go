@@ -10,10 +10,10 @@ import (
 // Base class for backup ProtectionIntent.
 // Latest API Version: 2017-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionIntent'.
 func LookupProtectionIntent(ctx *pulumi.Context, args *LookupProtectionIntentArgs, opts ...pulumi.InvokeOption) (*LookupProtectionIntentResult, error) {
 	var rv LookupProtectionIntentResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getProtectionIntent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getProtectionIntent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

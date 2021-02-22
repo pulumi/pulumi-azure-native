@@ -49,7 +49,13 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub/latest:SkusNestedResourceTypeThird"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:SkusNestedResourceTypeThird"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird"),
@@ -57,7 +63,7 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SkusNestedResourceTypeThird
-	err := ctx.RegisterResource("azure-nextgen:providerhub:SkusNestedResourceTypeThird", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub:SkusNestedResourceTypeThird", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 func GetSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SkusNestedResourceTypeThirdState, opts ...pulumi.ResourceOption) (*SkusNestedResourceTypeThird, error) {
 	var resource SkusNestedResourceTypeThird
-	err := ctx.ReadResource("azure-nextgen:providerhub:SkusNestedResourceTypeThird", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub:SkusNestedResourceTypeThird", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

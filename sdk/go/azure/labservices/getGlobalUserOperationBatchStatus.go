@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func GetGlobalUserOperationBatchStatus(ctx *pulumi.Context, args *GetGlobalUserOperationBatchStatusArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserOperationBatchStatusResult, error) {
 	var rv GetGlobalUserOperationBatchStatusResult
-	err := ctx.Invoke("azure-nextgen:labservices:getGlobalUserOperationBatchStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:getGlobalUserOperationBatchStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

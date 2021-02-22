@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetectorAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupSmartDetectorAlertRuleResult, error) {
 	var rv LookupSmartDetectorAlertRuleResult
-	err := ctx.Invoke("azure-nextgen:alertsmanagement:getSmartDetectorAlertRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:alertsmanagement:getSmartDetectorAlertRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppHostKeys(ctx *pulumi.Context, args *ListWebAppHostKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysResult, error) {
 	var rv ListWebAppHostKeysResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppHostKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppHostKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

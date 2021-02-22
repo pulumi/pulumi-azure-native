@@ -14,7 +14,7 @@ import (
 // vCenter definition.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationvCenter'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationvCenter'.
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 
@@ -46,13 +46,25 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationvCenter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationvCenter"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationvCenter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationvCenter"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationvCenter"),
@@ -60,7 +72,7 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationvCenter
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationvCenter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationvCenter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 func GetReplicationvCenter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationvCenterState, opts ...pulumi.ResourceOption) (*ReplicationvCenter, error) {
 	var resource ReplicationvCenter
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationvCenter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationvCenter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

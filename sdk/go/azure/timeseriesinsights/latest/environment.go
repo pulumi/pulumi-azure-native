@@ -14,7 +14,7 @@ import (
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:Environment'.
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -50,16 +50,31 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:Environment"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:Environment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:Environment"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:Environment"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:Environment"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:Environment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:Environment"),
@@ -67,7 +82,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Environment
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/latest:Environment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/latest:Environment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +94,7 @@ func NewEnvironment(ctx *pulumi.Context,
 func GetEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnvironmentState, opts ...pulumi.ResourceOption) (*Environment, error) {
 	var resource Environment
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/latest:Environment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/latest:Environment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

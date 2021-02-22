@@ -45,28 +45,55 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/latest:PolicyDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup"),
@@ -74,7 +101,7 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PolicyDefinitionAtManagementGroup
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +113,7 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 func GetPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyDefinitionAtManagementGroupState, opts ...pulumi.ResourceOption) (*PolicyDefinitionAtManagementGroup, error) {
 	var resource PolicyDefinitionAtManagementGroup
-	err := ctx.ReadResource("azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

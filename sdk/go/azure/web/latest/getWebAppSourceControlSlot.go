@@ -10,10 +10,10 @@ import (
 // Source control configuration for an app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControlSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControlSlot'.
 func LookupWebAppSourceControlSlot(ctx *pulumi.Context, args *LookupWebAppSourceControlSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlSlotResult, error) {
 	var rv LookupWebAppSourceControlSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppSourceControlSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppSourceControlSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

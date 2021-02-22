@@ -10,10 +10,10 @@ import (
 // A Content Key Policy resource.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicy'.
 func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContentKeyPolicyResult, error) {
 	var rv LookupContentKeyPolicyResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getContentKeyPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getContentKeyPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

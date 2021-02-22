@@ -10,7 +10,7 @@ import (
 // Single item in List or Get Consumer group operation
 func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupConsumerGroupResult, error) {
 	var rv LookupConsumerGroupResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20140901:getConsumerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20140901:getConsumerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

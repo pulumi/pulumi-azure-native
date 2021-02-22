@@ -52,10 +52,19 @@ func NewScalingPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:ScalingPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:ScalingPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:ScalingPlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan"),
@@ -63,7 +72,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ScalingPlan
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization:ScalingPlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 func GetScalingPlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScalingPlanState, opts ...pulumi.ResourceOption) (*ScalingPlan, error) {
 	var resource ScalingPlan
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization:ScalingPlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization:ScalingPlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

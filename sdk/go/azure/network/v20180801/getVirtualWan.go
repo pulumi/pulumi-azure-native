@@ -10,7 +10,7 @@ import (
 // VirtualWAN Resource.
 func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWanResult, error) {
 	var rv LookupVirtualWanResult
-	err := ctx.Invoke("azure-nextgen:network/v20180801:getVirtualWan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180801:getVirtualWan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

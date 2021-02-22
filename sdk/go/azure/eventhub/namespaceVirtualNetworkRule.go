@@ -39,12 +39,15 @@ func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:NamespaceVirtualNetworkRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceVirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:eventhub:NamespaceVirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub:NamespaceVirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +59,7 @@ func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 func GetNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceVirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*NamespaceVirtualNetworkRule, error) {
 	var resource NamespaceVirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:eventhub:NamespaceVirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub:NamespaceVirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

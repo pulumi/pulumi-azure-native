@@ -14,7 +14,7 @@ import (
 // Data store.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.
 type DataStore struct {
 	pulumi.CustomResourceState
 
@@ -52,10 +52,19 @@ func NewDataStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybriddata:DataStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata:DataStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybriddata/v20160601:DataStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:DataStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybriddata/v20190601:DataStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:DataStore"),
@@ -63,7 +72,7 @@ func NewDataStore(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataStore
-	err := ctx.RegisterResource("azure-nextgen:hybriddata/latest:DataStore", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybriddata/latest:DataStore", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewDataStore(ctx *pulumi.Context,
 func GetDataStore(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataStoreState, opts ...pulumi.ResourceOption) (*DataStore, error) {
 	var resource DataStore
-	err := ctx.ReadResource("azure-nextgen:hybriddata/latest:DataStore", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybriddata/latest:DataStore", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

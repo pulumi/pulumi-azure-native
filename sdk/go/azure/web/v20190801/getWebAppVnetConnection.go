@@ -10,7 +10,7 @@ import (
 // Virtual Network information contract.
 func LookupWebAppVnetConnection(ctx *pulumi.Context, args *LookupWebAppVnetConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionResult, error) {
 	var rv LookupWebAppVnetConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/v20190801:getWebAppVnetConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20190801:getWebAppVnetConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

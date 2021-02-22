@@ -14,7 +14,7 @@ import (
 // Response to get user settings
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:UserSettings'.
 type UserSettings struct {
 	pulumi.CustomResourceState
 
@@ -34,7 +34,13 @@ func NewUserSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal:UserSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001:UserSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:UserSettings"),
@@ -42,7 +48,7 @@ func NewUserSettings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource UserSettings
-	err := ctx.RegisterResource("azure-nextgen:portal/latest:UserSettings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal/latest:UserSettings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +60,7 @@ func NewUserSettings(ctx *pulumi.Context,
 func GetUserSettings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserSettingsState, opts ...pulumi.ResourceOption) (*UserSettings, error) {
 	var resource UserSettings
-	err := ctx.ReadResource("azure-nextgen:portal/latest:UserSettings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal/latest:UserSettings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

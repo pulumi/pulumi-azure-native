@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-02.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {
 	var rv ListBotConnectionServiceProvidersResult
-	err := ctx.Invoke("azure-nextgen:botservice:listBotConnectionServiceProviders", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice:listBotConnectionServiceProviders", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

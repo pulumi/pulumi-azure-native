@@ -65,19 +65,37 @@ func NewLiveOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:LiveOutput"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:LiveOutput"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:LiveOutput"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:LiveOutput"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180701:LiveOutput"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:LiveOutput"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20190501preview:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20190501preview:LiveOutput"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:LiveOutput"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:LiveOutput"),
@@ -85,7 +103,7 @@ func NewLiveOutput(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LiveOutput
-	err := ctx.RegisterResource("azure-nextgen:media/v20180330preview:LiveOutput", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20180330preview:LiveOutput", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +115,7 @@ func NewLiveOutput(ctx *pulumi.Context,
 func GetLiveOutput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LiveOutputState, opts ...pulumi.ResourceOption) (*LiveOutput, error) {
 	var resource LiveOutput
-	err := ctx.ReadResource("azure-nextgen:media/v20180330preview:LiveOutput", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20180330preview:LiveOutput", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

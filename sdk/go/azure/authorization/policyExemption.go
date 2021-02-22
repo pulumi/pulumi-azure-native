@@ -56,12 +56,15 @@ func NewPolicyExemption(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization/v20200701preview:PolicyExemption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200701preview:PolicyExemption"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicyExemption
-	err := ctx.RegisterResource("azure-nextgen:authorization:PolicyExemption", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization:PolicyExemption", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +76,7 @@ func NewPolicyExemption(ctx *pulumi.Context,
 func GetPolicyExemption(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyExemptionState, opts ...pulumi.ResourceOption) (*PolicyExemption, error) {
 	var resource PolicyExemption
-	err := ctx.ReadResource("azure-nextgen:authorization:PolicyExemption", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization:PolicyExemption", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

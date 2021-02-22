@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupExpressRoutePort(ctx *pulumi.Context, args *LookupExpressRoutePortArgs, opts ...pulumi.InvokeOption) (*LookupExpressRoutePortResult, error) {
 	var rv LookupExpressRoutePortResult
-	err := ctx.Invoke("azure-nextgen:network:getExpressRoutePort", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getExpressRoutePort", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

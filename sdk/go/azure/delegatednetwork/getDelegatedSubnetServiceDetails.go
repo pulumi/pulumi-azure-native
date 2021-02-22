@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-08-preview.
 func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelegatedSubnetServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupDelegatedSubnetServiceDetailsResult, error) {
 	var rv LookupDelegatedSubnetServiceDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork:getDelegatedSubnetServiceDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

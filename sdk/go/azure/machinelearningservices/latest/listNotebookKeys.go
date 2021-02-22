@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listNotebookKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listNotebookKeys'.
 func ListNotebookKeys(ctx *pulumi.Context, args *ListNotebookKeysArgs, opts ...pulumi.InvokeOption) (*ListNotebookKeysResult, error) {
 	var rv ListNotebookKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:listNotebookKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:listNotebookKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

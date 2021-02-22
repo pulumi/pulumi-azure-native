@@ -10,7 +10,7 @@ import (
 // A Postgres Instance.
 func LookupPostgresInstance(ctx *pulumi.Context, args *LookupPostgresInstanceArgs, opts ...pulumi.InvokeOption) (*LookupPostgresInstanceResult, error) {
 	var rv LookupPostgresInstanceResult
-	err := ctx.Invoke("azure-nextgen:azuredata/v20190724preview:getPostgresInstance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azuredata/v20190724preview:getPostgresInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

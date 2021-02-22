@@ -9,7 +9,7 @@ import (
 
 func LookupProviderRegistration(ctx *pulumi.Context, args *LookupProviderRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupProviderRegistrationResult, error) {
 	var rv LookupProviderRegistrationResult
-	err := ctx.Invoke("azure-nextgen:providerhub/v20201120:getProviderRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/v20201120:getProviderRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

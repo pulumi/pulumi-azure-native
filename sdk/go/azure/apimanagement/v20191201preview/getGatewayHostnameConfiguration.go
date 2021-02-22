@@ -10,7 +10,7 @@ import (
 // Gateway hostname configuration details.
 func LookupGatewayHostnameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostnameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostnameConfigurationResult, error) {
 	var rv LookupGatewayHostnameConfigurationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:getGatewayHostnameConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getGatewayHostnameConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

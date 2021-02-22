@@ -10,7 +10,7 @@ import (
 // Gateway authentication keys.
 func ListGatewayKeys(ctx *pulumi.Context, args *ListGatewayKeysArgs, opts ...pulumi.InvokeOption) (*ListGatewayKeysResult, error) {
 	var rv ListGatewayKeysResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:listGatewayKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20200601preview:listGatewayKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Tag Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByApi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:TagByApi'.
 type TagByApi struct {
 	pulumi.CustomResourceState
 
@@ -44,25 +44,49 @@ func NewTagByApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:TagByApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagByApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagByApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByApi"),
@@ -70,7 +94,7 @@ func NewTagByApi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TagByApi
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:TagByApi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:TagByApi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +106,7 @@ func NewTagByApi(ctx *pulumi.Context,
 func GetTagByApi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagByApiState, opts ...pulumi.ResourceOption) (*TagByApi, error) {
 	var resource TagByApi
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:TagByApi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:TagByApi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

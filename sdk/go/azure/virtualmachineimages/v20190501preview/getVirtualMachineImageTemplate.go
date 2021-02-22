@@ -10,7 +10,7 @@ import (
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualMachineImageTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineImageTemplateResult, error) {
 	var rv LookupVirtualMachineImageTemplateResult
-	err := ctx.Invoke("azure-nextgen:virtualmachineimages/v20190501preview:getVirtualMachineImageTemplate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:virtualmachineimages/v20190501preview:getVirtualMachineImageTemplate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

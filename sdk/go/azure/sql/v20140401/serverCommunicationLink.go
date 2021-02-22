@@ -47,7 +47,13 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:ServerCommunicationLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:ServerCommunicationLink"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/latest:ServerCommunicationLink"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/latest:ServerCommunicationLink"),
@@ -55,7 +61,7 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerCommunicationLink
-	err := ctx.RegisterResource("azure-nextgen:sql/v20140401:ServerCommunicationLink", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20140401:ServerCommunicationLink", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 func GetServerCommunicationLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerCommunicationLinkState, opts ...pulumi.ResourceOption) (*ServerCommunicationLink, error) {
 	var resource ServerCommunicationLink
-	err := ctx.ReadResource("azure-nextgen:sql/v20140401:ServerCommunicationLink", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20140401:ServerCommunicationLink", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

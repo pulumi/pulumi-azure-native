@@ -62,19 +62,37 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/latest:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ActionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180301:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180301:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180901:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180901:ActionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20190301:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20190301:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20190601:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20190601:ActionGroup"),
@@ -82,7 +100,7 @@ func NewActionGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ActionGroup
-	err := ctx.RegisterResource("azure-nextgen:insights/v20170401:ActionGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20170401:ActionGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +112,7 @@ func NewActionGroup(ctx *pulumi.Context,
 func GetActionGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionGroupState, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
 	var resource ActionGroup
-	err := ctx.ReadResource("azure-nextgen:insights/v20170401:ActionGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20170401:ActionGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

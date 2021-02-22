@@ -7,10 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this function to access the current configuration of the Azure NextGen provider.
+// Use this function to access the current configuration of the native Azure provider.
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	var rv GetClientConfigResult
-	err := ctx.Invoke("azure-nextgen:authorization:getClientConfig", nil, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getClientConfig", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

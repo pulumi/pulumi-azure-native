@@ -40,37 +40,73 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batch:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/latest:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/latest:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20151201:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20151201:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20170501:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170501:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170901:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20181201:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20181201:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20190401:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20190401:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20190801:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20190801:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200301:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20200501:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200901:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20210101:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20210101:Application"),
@@ -78,7 +114,7 @@ func NewApplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Application
-	err := ctx.RegisterResource("azure-nextgen:batch/v20170101:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batch/v20170101:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +126,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("azure-nextgen:batch/v20170101:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batch/v20170101:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

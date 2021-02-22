@@ -52,7 +52,7 @@ func NewBlob(ctx *pulumi.Context,
 		args.Type = &e
 	}
 	var resource Blob
-	err := ctx.RegisterResource("azure-nextgen:storage:Blob", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:Blob", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewBlob(ctx *pulumi.Context,
 func GetBlob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobState, opts ...pulumi.ResourceOption) (*Blob, error) {
 	var resource Blob
-	err := ctx.ReadResource("azure-nextgen:storage:Blob", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:Blob", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

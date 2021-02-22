@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupNotebookWorkspace(ctx *pulumi.Context, args *LookupNotebookWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupNotebookWorkspaceResult, error) {
 	var rv LookupNotebookWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getNotebookWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getNotebookWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

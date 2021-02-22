@@ -43,10 +43,19 @@ func NewContentType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ContentType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentType"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentType"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ContentType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ContentType"),
@@ -54,7 +63,7 @@ func NewContentType(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContentType
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ContentType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ContentType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewContentType(ctx *pulumi.Context,
 func GetContentType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContentTypeState, opts ...pulumi.ResourceOption) (*ContentType, error) {
 	var resource ContentType
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ContentType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ContentType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:notificationhubs/latest:Namespace":
+	case "azure-native:notificationhubs/latest:Namespace":
 		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:notificationhubs/latest:NamespaceAuthorizationRule":
+	case "azure-native:notificationhubs/latest:NamespaceAuthorizationRule":
 		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:notificationhubs/latest:NotificationHub":
+	case "azure-native:notificationhubs/latest:NotificationHub":
 		r, err = NewNotificationHub(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule":
+	case "azure-native:notificationhubs/latest:NotificationHubAuthorizationRule":
 		r, err = NewNotificationHubAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"notificationhubs/latest",
 		&module{version},
 	)

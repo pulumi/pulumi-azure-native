@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupDscConfiguration(ctx *pulumi.Context, args *LookupDscConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscConfigurationResult, error) {
 	var rv LookupDscConfigurationResult
-	err := ctx.Invoke("azure-nextgen:automation:getDscConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getDscConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

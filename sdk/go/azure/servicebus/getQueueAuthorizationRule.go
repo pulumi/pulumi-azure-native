@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupQueueAuthorizationRuleResult, error) {
 	var rv LookupQueueAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus:getQueueAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:getQueueAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Description of a namespace authorization rule.
 func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayAuthorizationRuleResult, error) {
 	var rv LookupWCFRelayAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay/v20170401:getWCFRelayAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20170401:getWCFRelayAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

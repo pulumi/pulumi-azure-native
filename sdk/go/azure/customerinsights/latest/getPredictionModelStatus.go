@@ -10,10 +10,10 @@ import (
 // The prediction model status.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'.
 func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatusArgs, opts ...pulumi.InvokeOption) (*GetPredictionModelStatusResult, error) {
 	var rv GetPredictionModelStatusResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getPredictionModelStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getPredictionModelStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -70,13 +70,25 @@ func NewDomainService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:aad/latest:DomainService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad/latest:DomainService"),
+		},
+		{
+			Type: pulumi.String("azure-native:aad/v20170101:DomainService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20170101:DomainService"),
 		},
 		{
+			Type: pulumi.String("azure-native:aad/v20170601:DomainService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad/v20170601:DomainService"),
+		},
+		{
+			Type: pulumi.String("azure-native:aad/v20200101:DomainService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20200101:DomainService"),
@@ -84,7 +96,7 @@ func NewDomainService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DomainService
-	err := ctx.RegisterResource("azure-nextgen:aad:DomainService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:aad:DomainService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +108,7 @@ func NewDomainService(ctx *pulumi.Context,
 func GetDomainService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainServiceState, opts ...pulumi.ResourceOption) (*DomainService, error) {
 	var resource DomainService
-	err := ctx.ReadResource("azure-nextgen:aad:DomainService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:aad:DomainService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

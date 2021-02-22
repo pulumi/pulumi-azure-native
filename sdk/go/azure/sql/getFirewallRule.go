@@ -11,7 +11,7 @@ import (
 // API Version: 2014-04-01.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:sql:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

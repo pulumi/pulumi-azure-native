@@ -62,37 +62,73 @@ func NewContainerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerinstance:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/latest:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/latest:ContainerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerinstance/v20170801preview:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20170801preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20171001preview:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20171001preview:ContainerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerinstance/v20171201preview:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20171201preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20180201preview:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20180201preview:ContainerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerinstance/v20180601:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20180601:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20180901:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20180901:ContainerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerinstance/v20181001:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20181001:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20191201:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20191201:ContainerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerinstance/v20201101:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20201101:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20210301:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20210301:ContainerGroup"),
@@ -100,7 +136,7 @@ func NewContainerGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContainerGroup
-	err := ctx.RegisterResource("azure-nextgen:containerinstance/v20180401:ContainerGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerinstance/v20180401:ContainerGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +148,7 @@ func NewContainerGroup(ctx *pulumi.Context,
 func GetContainerGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContainerGroupState, opts ...pulumi.ResourceOption) (*ContainerGroup, error) {
 	var resource ContainerGroup
-	err := ctx.ReadResource("azure-nextgen:containerinstance/v20180401:ContainerGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerinstance/v20180401:ContainerGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

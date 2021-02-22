@@ -55,7 +55,13 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:redhatopenshift:OpenShiftCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift:OpenShiftCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:redhatopenshift/latest:OpenShiftCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift/latest:OpenShiftCluster"),
@@ -63,7 +69,7 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OpenShiftCluster
-	err := ctx.RegisterResource("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:redhatopenshift/v20200430:OpenShiftCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 func GetOpenShiftCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OpenShiftClusterState, opts ...pulumi.ResourceOption) (*OpenShiftCluster, error) {
 	var resource OpenShiftCluster
-	err := ctx.ReadResource("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:redhatopenshift/v20200430:OpenShiftCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

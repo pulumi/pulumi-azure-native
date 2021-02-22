@@ -10,7 +10,7 @@ import (
 // Represents a relation between two resources
 func LookupBookmarkRelation(ctx *pulumi.Context, args *LookupBookmarkRelationArgs, opts ...pulumi.InvokeOption) (*LookupBookmarkRelationResult, error) {
 	var rv LookupBookmarkRelationResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getBookmarkRelation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

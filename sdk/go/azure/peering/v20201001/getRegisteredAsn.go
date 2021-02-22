@@ -10,7 +10,7 @@ import (
 // The customer's ASN that is registered by the peering service provider.
 func LookupRegisteredAsn(ctx *pulumi.Context, args *LookupRegisteredAsnArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredAsnResult, error) {
 	var rv LookupRegisteredAsnResult
-	err := ctx.Invoke("azure-nextgen:peering/v20201001:getRegisteredAsn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/v20201001:getRegisteredAsn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

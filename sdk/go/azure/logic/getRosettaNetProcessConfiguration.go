@@ -11,7 +11,7 @@ import (
 // API Version: 2016-06-01.
 func LookupRosettaNetProcessConfiguration(ctx *pulumi.Context, args *LookupRosettaNetProcessConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupRosettaNetProcessConfigurationResult, error) {
 	var rv LookupRosettaNetProcessConfigurationResult
-	err := ctx.Invoke("azure-nextgen:logic:getRosettaNetProcessConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getRosettaNetProcessConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

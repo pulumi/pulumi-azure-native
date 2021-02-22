@@ -49,25 +49,49 @@ func NewApiPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiPolicy"),
@@ -75,7 +99,7 @@ func NewApiPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiPolicy
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20191201:ApiPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20191201:ApiPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +111,7 @@ func NewApiPolicy(ctx *pulumi.Context,
 func GetApiPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiPolicyState, opts ...pulumi.ResourceOption) (*ApiPolicy, error) {
 	var resource ApiPolicy
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20191201:ApiPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20191201:ApiPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

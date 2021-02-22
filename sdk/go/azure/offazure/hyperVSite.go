@@ -41,10 +41,19 @@ func NewHyperVSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:offazure/latest:HyperVSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/latest:HyperVSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:offazure/v20200101:HyperVSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200101:HyperVSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:offazure/v20200707:HyperVSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200707:HyperVSite"),
@@ -52,7 +61,7 @@ func NewHyperVSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HyperVSite
-	err := ctx.RegisterResource("azure-nextgen:offazure:HyperVSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:offazure:HyperVSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewHyperVSite(ctx *pulumi.Context,
 func GetHyperVSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HyperVSiteState, opts ...pulumi.ResourceOption) (*HyperVSite, error) {
 	var resource HyperVSite
-	err := ctx.ReadResource("azure-nextgen:offazure:HyperVSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:offazure:HyperVSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

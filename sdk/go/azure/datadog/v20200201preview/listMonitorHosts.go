@@ -10,7 +10,7 @@ import (
 // Response of a list operation.
 func ListMonitorHosts(ctx *pulumi.Context, args *ListMonitorHostsArgs, opts ...pulumi.InvokeOption) (*ListMonitorHostsResult, error) {
 	var rv ListMonitorHostsResult
-	err := ctx.Invoke("azure-nextgen:datadog/v20200201preview:listMonitorHosts", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog/v20200201preview:listMonitorHosts", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

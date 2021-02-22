@@ -10,7 +10,7 @@ import (
 // Deployment script object.
 func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentScriptResult, error) {
 	var rv LookupDeploymentScriptResult
-	err := ctx.Invoke("azure-nextgen:resources/v20201001:getDeploymentScript", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20201001:getDeploymentScript", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

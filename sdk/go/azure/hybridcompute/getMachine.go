@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-02.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute:getMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute:getMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Maintenance configuration record type
 // Latest API Version: 2020-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -46,16 +46,31 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:maintenance:MaintenanceConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maintenance:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:maintenance/v20200401:MaintenanceConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:maintenance/v20200701preview:MaintenanceConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:maintenance/v20210401preview:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"),
@@ -63,7 +78,7 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration
-	err := ctx.RegisterResource("azure-nextgen:maintenance/latest:MaintenanceConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:maintenance/latest:MaintenanceConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +90,7 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 func GetMaintenanceConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MaintenanceConfigurationState, opts ...pulumi.ResourceOption) (*MaintenanceConfiguration, error) {
 	var resource MaintenanceConfiguration
-	err := ctx.ReadResource("azure-nextgen:maintenance/latest:MaintenanceConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:maintenance/latest:MaintenanceConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

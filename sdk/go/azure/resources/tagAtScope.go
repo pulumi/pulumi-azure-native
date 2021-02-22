@@ -39,16 +39,31 @@ func NewTagAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources/latest:TagAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/latest:TagAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:TagAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:TagAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:TagAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:TagAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:TagAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:TagAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:TagAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:TagAtScope"),
@@ -56,7 +71,7 @@ func NewTagAtScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TagAtScope
-	err := ctx.RegisterResource("azure-nextgen:resources:TagAtScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources:TagAtScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +83,7 @@ func NewTagAtScope(ctx *pulumi.Context,
 func GetTagAtScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagAtScopeState, opts ...pulumi.ResourceOption) (*TagAtScope, error) {
 	var resource TagAtScope
-	err := ctx.ReadResource("azure-nextgen:resources:TagAtScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources:TagAtScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

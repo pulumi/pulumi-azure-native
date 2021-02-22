@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	var rv LookupLocalNetworkGatewayResult
-	err := ctx.Invoke("azure-nextgen:network:getLocalNetworkGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getLocalNetworkGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

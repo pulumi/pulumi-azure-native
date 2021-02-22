@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func GetExposureControlFeatureValue(ctx *pulumi.Context, args *GetExposureControlFeatureValueArgs, opts ...pulumi.InvokeOption) (*GetExposureControlFeatureValueResult, error) {
 	var rv GetExposureControlFeatureValueResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getExposureControlFeatureValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getExposureControlFeatureValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

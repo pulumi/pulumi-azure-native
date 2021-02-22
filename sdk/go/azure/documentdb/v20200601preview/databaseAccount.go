@@ -105,40 +105,79 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccount"),
@@ -146,7 +185,7 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccount
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:DatabaseAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20200601preview:DatabaseAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +197,7 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 func GetDatabaseAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountState, opts ...pulumi.ResourceOption) (*DatabaseAccount, error) {
 	var resource DatabaseAccount
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20200601preview:DatabaseAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20200601preview:DatabaseAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

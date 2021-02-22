@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
 	var rv ListWebAppBackupStatusSecretsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppBackupStatusSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppBackupStatusSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // A virtual network rule.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:VirtualNetworkRule'.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
@@ -48,10 +48,19 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:VirtualNetworkRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule"),
@@ -59,7 +68,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/latest:VirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/latest:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	var resource VirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

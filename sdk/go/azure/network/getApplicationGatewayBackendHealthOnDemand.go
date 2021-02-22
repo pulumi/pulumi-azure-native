@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func GetApplicationGatewayBackendHealthOnDemand(ctx *pulumi.Context, args *GetApplicationGatewayBackendHealthOnDemandArgs, opts ...pulumi.InvokeOption) (*GetApplicationGatewayBackendHealthOnDemandResult, error) {
 	var rv GetApplicationGatewayBackendHealthOnDemandResult
-	err := ctx.Invoke("azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

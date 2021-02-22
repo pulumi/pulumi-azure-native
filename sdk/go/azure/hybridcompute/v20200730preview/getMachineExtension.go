@@ -10,7 +10,7 @@ import (
 // Describes a Machine Extension.
 func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupMachineExtensionResult, error) {
 	var rv LookupMachineExtensionResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute/v20200730preview:getMachineExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute/v20200730preview:getMachineExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

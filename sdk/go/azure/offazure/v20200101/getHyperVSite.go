@@ -10,7 +10,7 @@ import (
 // Site REST Resource.
 func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...pulumi.InvokeOption) (*LookupHyperVSiteResult, error) {
 	var rv LookupHyperVSiteResult
-	err := ctx.Invoke("azure-nextgen:offazure/v20200101:getHyperVSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:offazure/v20200101:getHyperVSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

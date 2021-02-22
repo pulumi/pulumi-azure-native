@@ -10,10 +10,10 @@ import (
 // Cache details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getCache'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCache'.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getCache", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getCache", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

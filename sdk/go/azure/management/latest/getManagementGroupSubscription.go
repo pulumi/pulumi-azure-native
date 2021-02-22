@@ -10,10 +10,10 @@ import (
 // The details of subscription under management group.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroupSubscription'.
 func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManagementGroupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupSubscriptionResult, error) {
 	var rv LookupManagementGroupSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:management/latest:getManagementGroupSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/latest:getManagementGroupSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

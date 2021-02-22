@@ -14,7 +14,7 @@ import (
 // Definition of the dsc node configuration.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscNodeConfiguration'.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -57,16 +57,31 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:DscNodeConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscNodeConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20180115:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20180115:DscNodeConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:DscNodeConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:DscNodeConfiguration"),
@@ -74,7 +89,7 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscNodeConfiguration
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:DscNodeConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:DscNodeConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +101,7 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 func GetDscNodeConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscNodeConfigurationState, opts ...pulumi.ResourceOption) (*DscNodeConfiguration, error) {
 	var resource DscNodeConfiguration
-	err := ctx.ReadResource("azure-nextgen:automation/latest:DscNodeConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:DscNodeConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupPartnerRegistration(ctx *pulumi.Context, args *LookupPartnerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupPartnerRegistrationResult, error) {
 	var rv LookupPartnerRegistrationResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getPartnerRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getPartnerRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

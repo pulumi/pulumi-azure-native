@@ -47,7 +47,13 @@ func NewLabAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:labservices:LabAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/latest:LabAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/latest:LabAccount"),
@@ -55,7 +61,7 @@ func NewLabAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LabAccount
-	err := ctx.RegisterResource("azure-nextgen:labservices/v20181015:LabAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:labservices/v20181015:LabAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewLabAccount(ctx *pulumi.Context,
 func GetLabAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LabAccountState, opts ...pulumi.ResourceOption) (*LabAccount, error) {
 	var resource LabAccount
-	err := ctx.ReadResource("azure-nextgen:labservices/v20181015:LabAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:labservices/v20181015:LabAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

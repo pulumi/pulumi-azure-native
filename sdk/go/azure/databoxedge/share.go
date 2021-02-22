@@ -68,22 +68,43 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge/latest:Share"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:Share"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190301:Share"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Share"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:Share"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Share"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Share"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Share"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Share"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Share"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Share"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Share"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Share"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Share"),
@@ -91,7 +112,7 @@ func NewShare(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Share
-	err := ctx.RegisterResource("azure-nextgen:databoxedge:Share", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge:Share", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +124,7 @@ func NewShare(ctx *pulumi.Context,
 func GetShare(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ShareState, opts ...pulumi.ResourceOption) (*Share, error) {
 	var resource Share
-	err := ctx.ReadResource("azure-nextgen:databoxedge:Share", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge:Share", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

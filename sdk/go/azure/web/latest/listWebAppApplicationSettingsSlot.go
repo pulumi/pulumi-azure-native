@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettingsSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettingsSlot'.
 func ListWebAppApplicationSettingsSlot(ctx *pulumi.Context, args *ListWebAppApplicationSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsSlotResult, error) {
 	var rv ListWebAppApplicationSettingsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppApplicationSettingsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppApplicationSettingsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

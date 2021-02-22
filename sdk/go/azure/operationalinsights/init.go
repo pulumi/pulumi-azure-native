@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:operationalinsights:Cluster":
+	case "azure-native:operationalinsights:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:DataExport":
+	case "azure-native:operationalinsights:DataExport":
 		r, err = NewDataExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:DataSource":
+	case "azure-native:operationalinsights:DataSource":
 		r, err = NewDataSource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:LinkedService":
+	case "azure-native:operationalinsights:LinkedService":
 		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:LinkedStorageAccount":
+	case "azure-native:operationalinsights:LinkedStorageAccount":
 		r, err = NewLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:MachineGroup":
+	case "azure-native:operationalinsights:MachineGroup":
 		r, err = NewMachineGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:SavedSearch":
+	case "azure-native:operationalinsights:SavedSearch":
 		r, err = NewSavedSearch(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:StorageInsightConfig":
+	case "azure-native:operationalinsights:StorageInsightConfig":
 		r, err = NewStorageInsightConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights:Workspace":
+	case "azure-native:operationalinsights:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"operationalinsights",
 		&module{version},
 	)

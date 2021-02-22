@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStringsSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppConnectionStringsSlot'.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppConnectionStringsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppConnectionStringsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-20.
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
-	err := ctx.Invoke("azure-nextgen:avs:listPrivateCloudAdminCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:listPrivateCloudAdminCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

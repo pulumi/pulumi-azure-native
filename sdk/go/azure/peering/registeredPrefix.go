@@ -47,13 +47,25 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering/latest:RegisteredPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/latest:RegisteredPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:RegisteredPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:RegisteredPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredPrefix"),
@@ -61,7 +73,7 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredPrefix
-	err := ctx.RegisterResource("azure-nextgen:peering:RegisteredPrefix", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering:RegisteredPrefix", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 func GetRegisteredPrefix(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegisteredPrefixState, opts ...pulumi.ResourceOption) (*RegisteredPrefix, error) {
 	var resource RegisteredPrefix
-	err := ctx.ReadResource("azure-nextgen:peering:RegisteredPrefix", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering:RegisteredPrefix", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

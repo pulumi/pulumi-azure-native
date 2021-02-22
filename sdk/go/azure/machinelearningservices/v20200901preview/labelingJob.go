@@ -40,12 +40,15 @@ func NewLabelingJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices:LabelingJob"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices:LabelingJob"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource LabelingJob
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200901preview:LabelingJob", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices/v20200901preview:LabelingJob", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewLabelingJob(ctx *pulumi.Context,
 func GetLabelingJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LabelingJobState, opts ...pulumi.ResourceOption) (*LabelingJob, error) {
 	var resource LabelingJob
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices/v20200901preview:LabelingJob", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices/v20200901preview:LabelingJob", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

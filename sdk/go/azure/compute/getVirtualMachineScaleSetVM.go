@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupVirtualMachineScaleSetVM(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMResult, error) {
 	var rv LookupVirtualMachineScaleSetVMResult
-	err := ctx.Invoke("azure-nextgen:compute:getVirtualMachineScaleSetVM", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetVM", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The HDInsight cluster.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:hdinsight/v20150301preview:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hdinsight/v20150301preview:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

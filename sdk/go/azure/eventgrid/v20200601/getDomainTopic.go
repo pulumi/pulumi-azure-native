@@ -10,7 +10,7 @@ import (
 // Domain Topic.
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	var rv LookupDomainTopicResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20200601:getDomainTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20200601:getDomainTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

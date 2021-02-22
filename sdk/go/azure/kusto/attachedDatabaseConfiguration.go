@@ -58,19 +58,37 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto/latest:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"),
@@ -78,7 +96,7 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AttachedDatabaseConfiguration
-	err := ctx.RegisterResource("azure-nextgen:kusto:AttachedDatabaseConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto:AttachedDatabaseConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +108,7 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 func GetAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttachedDatabaseConfigurationState, opts ...pulumi.ResourceOption) (*AttachedDatabaseConfiguration, error) {
 	var resource AttachedDatabaseConfiguration
-	err := ctx.ReadResource("azure-nextgen:kusto:AttachedDatabaseConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto:AttachedDatabaseConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

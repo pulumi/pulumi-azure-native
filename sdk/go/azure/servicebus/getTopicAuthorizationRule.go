@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupTopicAuthorizationRule(ctx *pulumi.Context, args *LookupTopicAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupTopicAuthorizationRuleResult, error) {
 	var rv LookupTopicAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus:getTopicAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:getTopicAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

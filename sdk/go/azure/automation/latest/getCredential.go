@@ -10,10 +10,10 @@ import (
 // Definition of the credential.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getCredential'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getCredential'.
 func LookupCredential(ctx *pulumi.Context, args *LookupCredentialArgs, opts ...pulumi.InvokeOption) (*LookupCredentialResult, error) {
 	var rv LookupCredentialResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getCredential", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

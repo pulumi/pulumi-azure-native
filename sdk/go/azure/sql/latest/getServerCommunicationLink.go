@@ -10,10 +10,10 @@ import (
 // Server communication link.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerCommunicationLink'.
 func LookupServerCommunicationLink(ctx *pulumi.Context, args *LookupServerCommunicationLinkArgs, opts ...pulumi.InvokeOption) (*LookupServerCommunicationLinkResult, error) {
 	var rv LookupServerCommunicationLinkResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getServerCommunicationLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getServerCommunicationLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

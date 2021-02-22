@@ -14,7 +14,7 @@ import (
 // Definition of the runbook type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.
 type Runbook struct {
 	pulumi.CustomResourceState
 
@@ -78,13 +78,25 @@ func NewRunbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Runbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Runbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Runbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Runbook"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20180630:Runbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Runbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:Runbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Runbook"),
@@ -92,7 +104,7 @@ func NewRunbook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Runbook
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:Runbook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:Runbook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +116,7 @@ func NewRunbook(ctx *pulumi.Context,
 func GetRunbook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RunbookState, opts ...pulumi.ResourceOption) (*Runbook, error) {
 	var resource Runbook
-	err := ctx.ReadResource("azure-nextgen:automation/latest:Runbook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:Runbook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

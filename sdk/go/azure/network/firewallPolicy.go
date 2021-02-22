@@ -64,40 +64,79 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:FirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicy"),
@@ -105,7 +144,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallPolicy
-	err := ctx.RegisterResource("azure-nextgen:network:FirewallPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:FirewallPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +156,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 func GetFirewallPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallPolicyState, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
 	var resource FirewallPolicy
-	err := ctx.ReadResource("azure-nextgen:network:FirewallPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:FirewallPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

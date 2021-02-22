@@ -10,10 +10,10 @@ import (
 // The private endpoint connection of a provisioning service
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResourcePrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResourcePrivateEndpointConnection'.
 func LookupIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context, args *LookupIotDpsResourcePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourcePrivateEndpointConnectionResult, error) {
 	var rv LookupIotDpsResourcePrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:getIotDpsResourcePrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:getIotDpsResourcePrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Software update configuration properties.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SoftwareUpdateConfigurationByName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SoftwareUpdateConfigurationByName'.
 type SoftwareUpdateConfigurationByName struct {
 	pulumi.CustomResourceState
 
@@ -63,10 +63,19 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:SoftwareUpdateConfigurationByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:SoftwareUpdateConfigurationByName"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"),
@@ -74,7 +83,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SoftwareUpdateConfigurationByName
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +95,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 func GetSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SoftwareUpdateConfigurationByNameState, opts ...pulumi.ResourceOption) (*SoftwareUpdateConfigurationByName, error) {
 	var resource SoftwareUpdateConfigurationByName
-	err := ctx.ReadResource("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:SoftwareUpdateConfigurationByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -59,19 +59,37 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190615:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20190615preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615preview:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200415:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Policy"),
@@ -79,7 +97,7 @@ func NewPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Policy
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20200901:Policy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20200901:Policy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +109,7 @@ func NewPolicy(ctx *pulumi.Context,
 func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
 	var resource Policy
-	err := ctx.ReadResource("azure-nextgen:cdn/v20200901:Policy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20200901:Policy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

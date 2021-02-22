@@ -10,10 +10,10 @@ import (
 // Class representing a database principal assignment.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabasePrincipalAssignment'.
 func LookupDatabasePrincipalAssignment(ctx *pulumi.Context, args *LookupDatabasePrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDatabasePrincipalAssignmentResult, error) {
 	var rv LookupDatabasePrincipalAssignmentResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:getDatabasePrincipalAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:getDatabasePrincipalAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
-	err := ctx.Invoke("azure-nextgen:compute:getDedicatedHost", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getDedicatedHost", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

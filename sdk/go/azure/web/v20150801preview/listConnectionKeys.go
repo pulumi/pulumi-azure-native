@@ -9,7 +9,7 @@ import (
 
 func ListConnectionKeys(ctx *pulumi.Context, args *ListConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListConnectionKeysResult, error) {
 	var rv ListConnectionKeysResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801preview:listConnectionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801preview:listConnectionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

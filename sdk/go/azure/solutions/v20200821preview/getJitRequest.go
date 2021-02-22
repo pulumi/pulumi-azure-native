@@ -10,7 +10,7 @@ import (
 // Information about JIT request definition.
 func LookupJitRequest(ctx *pulumi.Context, args *LookupJitRequestArgs, opts ...pulumi.InvokeOption) (*LookupJitRequestResult, error) {
 	var rv LookupJitRequestResult
-	err := ctx.Invoke("azure-nextgen:solutions/v20200821preview:getJitRequest", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions/v20200821preview:getJitRequest", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

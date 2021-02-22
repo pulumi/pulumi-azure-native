@@ -10,10 +10,10 @@ import (
 // Specifies information about the gallery Application Version that you want to create or update.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplicationVersion'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplicationVersion'.
 func LookupGalleryApplicationVersion(ctx *pulumi.Context, args *LookupGalleryApplicationVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationVersionResult, error) {
 	var rv LookupGalleryApplicationVersionResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getGalleryApplicationVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getGalleryApplicationVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

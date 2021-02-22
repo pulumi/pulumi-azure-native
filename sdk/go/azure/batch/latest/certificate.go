@@ -14,7 +14,7 @@ import (
 // Contains information about a certificate.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Certificate'.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -59,28 +59,55 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batch:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20170901:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20181201:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20181201:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20190401:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20190401:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20190801:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20190801:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20200301:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200501:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200901:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20210101:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20210101:Certificate"),
@@ -88,7 +115,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:batch/latest:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batch/latest:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +127,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:batch/latest:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batch/latest:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

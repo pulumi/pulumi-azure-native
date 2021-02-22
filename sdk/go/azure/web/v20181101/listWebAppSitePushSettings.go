@@ -10,7 +10,7 @@ import (
 // Push settings for the App.
 func ListWebAppSitePushSettings(ctx *pulumi.Context, args *ListWebAppSitePushSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSitePushSettingsResult, error) {
 	var rv ListWebAppSitePushSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:listWebAppSitePushSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:listWebAppSitePushSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

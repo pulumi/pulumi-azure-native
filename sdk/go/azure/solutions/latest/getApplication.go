@@ -10,10 +10,10 @@ import (
 // Information about managed application.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplication'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getApplication'.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
-	err := ctx.Invoke("azure-nextgen:solutions/latest:getApplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions/latest:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

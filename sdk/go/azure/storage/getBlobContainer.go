@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupBlobContainer(ctx *pulumi.Context, args *LookupBlobContainerArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerResult, error) {
 	var rv LookupBlobContainerResult
-	err := ctx.Invoke("azure-nextgen:storage:getBlobContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getBlobContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

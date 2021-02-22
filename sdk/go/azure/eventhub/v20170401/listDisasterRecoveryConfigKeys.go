@@ -10,7 +10,7 @@ import (
 // Namespace/EventHub Connection String
 func ListDisasterRecoveryConfigKeys(ctx *pulumi.Context, args *ListDisasterRecoveryConfigKeysArgs, opts ...pulumi.InvokeOption) (*ListDisasterRecoveryConfigKeysResult, error) {
 	var rv ListDisasterRecoveryConfigKeysResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20170401:listDisasterRecoveryConfigKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20170401:listDisasterRecoveryConfigKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

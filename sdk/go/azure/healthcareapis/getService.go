@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-11.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:healthcareapis:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:healthcareapis:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

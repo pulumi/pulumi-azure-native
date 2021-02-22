@@ -10,7 +10,7 @@ import (
 // Represents an instance of an Analysis Services resource.
 func LookupServerDetails(ctx *pulumi.Context, args *LookupServerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupServerDetailsResult, error) {
 	var rv LookupServerDetailsResult
-	err := ctx.Invoke("azure-nextgen:analysisservices/v20170801:getServerDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:analysisservices/v20170801:getServerDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB Gremlin database.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getGremlinResourceGremlinDatabase'.
 func LookupGremlinResourceGremlinDatabase(ctx *pulumi.Context, args *LookupGremlinResourceGremlinDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupGremlinResourceGremlinDatabaseResult, error) {
 	var rv LookupGremlinResourceGremlinDatabaseResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getGremlinResourceGremlinDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getGremlinResourceGremlinDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

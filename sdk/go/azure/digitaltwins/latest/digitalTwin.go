@@ -14,7 +14,7 @@ import (
 // The description of the DigitalTwins service.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:digitaltwins:DigitalTwin'.
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 
@@ -53,13 +53,25 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:digitaltwins:DigitalTwin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20200301preview:DigitalTwin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"),
 		},
 		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwin"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201201:DigitalTwin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwin"),
@@ -67,7 +79,7 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwin
-	err := ctx.RegisterResource("azure-nextgen:digitaltwins/latest:DigitalTwin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:digitaltwins/latest:DigitalTwin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +91,7 @@ func NewDigitalTwin(ctx *pulumi.Context,
 func GetDigitalTwin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DigitalTwinState, opts ...pulumi.ResourceOption) (*DigitalTwin, error) {
 	var resource DigitalTwin
-	err := ctx.ReadResource("azure-nextgen:digitaltwins/latest:DigitalTwin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:digitaltwins/latest:DigitalTwin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

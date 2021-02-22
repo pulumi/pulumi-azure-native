@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtualNetworkGatewayBgpPeerStatusArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 	var rv GetVirtualNetworkGatewayBgpPeerStatusResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

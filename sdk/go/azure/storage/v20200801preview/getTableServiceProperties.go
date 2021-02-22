@@ -10,7 +10,7 @@ import (
 // The properties of a storage account’s Table service.
 func LookupTableServiceProperties(ctx *pulumi.Context, args *LookupTableServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupTableServicePropertiesResult, error) {
 	var rv LookupTableServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/v20200801preview:getTableServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20200801preview:getTableServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

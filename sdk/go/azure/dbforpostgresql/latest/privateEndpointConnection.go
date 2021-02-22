@@ -14,7 +14,7 @@ import (
 // A private endpoint connection
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -45,10 +45,19 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"),
@@ -56,7 +65,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

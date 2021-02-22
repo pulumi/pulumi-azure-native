@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy":
+	case "azure-native:timeseriesinsights/v20200515:AccessPolicy":
 		r, err = NewAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:timeseriesinsights/v20200515:Environment":
+	case "azure-native:timeseriesinsights/v20200515:Environment":
 		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:timeseriesinsights/v20200515:EventSource":
+	case "azure-native:timeseriesinsights/v20200515:EventSource":
 		r, err = NewEventSource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet":
+	case "azure-native:timeseriesinsights/v20200515:ReferenceDataSet":
 		r, err = NewReferenceDataSet(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"timeseriesinsights/v20200515",
 		&module{version},
 	)

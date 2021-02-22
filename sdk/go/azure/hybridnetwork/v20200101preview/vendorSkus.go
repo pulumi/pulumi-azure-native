@@ -47,12 +47,15 @@ func NewVendorSkus(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridnetwork:VendorSkus"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork:VendorSkus"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource VendorSkus
-	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridnetwork/v20200101preview:VendorSkus", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +67,7 @@ func NewVendorSkus(ctx *pulumi.Context,
 func GetVendorSkus(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VendorSkusState, opts ...pulumi.ResourceOption) (*VendorSkus, error) {
 	var resource VendorSkus
-	err := ctx.ReadResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridnetwork/v20200101preview:VendorSkus", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

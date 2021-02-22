@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteSecrets'.
 func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteSecretsResult, error) {
 	var rv ListStaticSiteSecretsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listStaticSiteSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listStaticSiteSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

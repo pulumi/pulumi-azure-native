@@ -45,7 +45,7 @@ func NewAlertRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource AlertRule
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:AlertRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:AlertRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewAlertRule(ctx *pulumi.Context,
 func GetAlertRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AlertRuleState, opts ...pulumi.ResourceOption) (*AlertRule, error) {
 	var resource AlertRule
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:AlertRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:AlertRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -53,13 +53,25 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage/latest:ObjectReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:ObjectReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:ObjectReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:ObjectReplicationPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:ObjectReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:ObjectReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:ObjectReplicationPolicy"),
@@ -67,7 +79,7 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ObjectReplicationPolicy
-	err := ctx.RegisterResource("azure-nextgen:storage:ObjectReplicationPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:ObjectReplicationPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +91,7 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 func GetObjectReplicationPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ObjectReplicationPolicyState, opts ...pulumi.ResourceOption) (*ObjectReplicationPolicy, error) {
 	var resource ObjectReplicationPolicy
-	err := ctx.ReadResource("azure-nextgen:storage:ObjectReplicationPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:ObjectReplicationPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

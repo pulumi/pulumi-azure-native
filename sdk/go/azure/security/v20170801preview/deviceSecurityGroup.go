@@ -41,10 +41,19 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:DeviceSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/latest:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/latest:DeviceSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20190801:DeviceSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20190801:DeviceSecurityGroup"),
@@ -52,7 +61,7 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeviceSecurityGroup
-	err := ctx.RegisterResource("azure-nextgen:security/v20170801preview:DeviceSecurityGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/v20170801preview:DeviceSecurityGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 func GetDeviceSecurityGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceSecurityGroupState, opts ...pulumi.ResourceOption) (*DeviceSecurityGroup, error) {
 	var resource DeviceSecurityGroup
-	err := ctx.ReadResource("azure-nextgen:security/v20170801preview:DeviceSecurityGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/v20170801preview:DeviceSecurityGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

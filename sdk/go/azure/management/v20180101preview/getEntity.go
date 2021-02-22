@@ -10,7 +10,7 @@ import (
 // Describes the result of the request to view entities.
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
-	err := ctx.Invoke("azure-nextgen:management/v20180101preview:getEntity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/v20180101preview:getEntity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -51,22 +51,43 @@ func NewProperty(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Property"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Property"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Property"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Property"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Property"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Property"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Property"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Property"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Property"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Property"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Property"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Property"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Property"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Property"),
@@ -74,7 +95,7 @@ func NewProperty(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Property
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:Property", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:Property", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +107,7 @@ func NewProperty(ctx *pulumi.Context,
 func GetProperty(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PropertyState, opts ...pulumi.ResourceOption) (*Property, error) {
 	var resource Property
-	err := ctx.ReadResource("azure-nextgen:apimanagement:Property", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:Property", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

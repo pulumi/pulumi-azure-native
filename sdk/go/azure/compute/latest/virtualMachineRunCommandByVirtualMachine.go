@@ -14,7 +14,7 @@ import (
 // Describes a Virtual Machine run command.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineRunCommandByVirtualMachine'.
 type VirtualMachineRunCommandByVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -68,10 +68,19 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"),
@@ -79,7 +88,7 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineRunCommandByVirtualMachine
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +100,7 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 func GetVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineRunCommandByVirtualMachineState, opts ...pulumi.ResourceOption) (*VirtualMachineRunCommandByVirtualMachine, error) {
 	var resource VirtualMachineRunCommandByVirtualMachine
-	err := ctx.ReadResource("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

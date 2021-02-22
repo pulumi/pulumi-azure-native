@@ -14,7 +14,7 @@ import (
 // Workspace connection.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,16 +49,31 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices:WorkspaceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices:WorkspaceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200601:WorkspaceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200801:WorkspaceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210101:WorkspaceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection"),
@@ -66,7 +81,7 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceConnection
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/latest:WorkspaceConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices/latest:WorkspaceConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 func GetWorkspaceConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceConnectionState, opts ...pulumi.ResourceOption) (*WorkspaceConnection, error) {
 	var resource WorkspaceConnection
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices/latest:WorkspaceConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices/latest:WorkspaceConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

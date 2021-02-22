@@ -10,10 +10,10 @@ import (
 // Describes a hybrid machine.
 // Latest API Version: 2020-08-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachine'.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute/latest:getMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute/latest:getMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

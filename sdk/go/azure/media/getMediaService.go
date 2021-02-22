@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
 	var rv LookupMediaServiceResult
-	err := ctx.Invoke("azure-nextgen:media:getMediaService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getMediaService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

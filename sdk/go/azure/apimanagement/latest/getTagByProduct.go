@@ -10,10 +10,10 @@ import (
 // Tag Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByProduct'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTagByProduct'.
 func LookupTagByProduct(ctx *pulumi.Context, args *LookupTagByProductArgs, opts ...pulumi.InvokeOption) (*LookupTagByProductResult, error) {
 	var rv LookupTagByProductResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getTagByProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getTagByProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

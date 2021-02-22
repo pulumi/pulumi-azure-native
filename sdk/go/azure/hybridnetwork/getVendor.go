@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupVendor(ctx *pulumi.Context, args *LookupVendorArgs, opts ...pulumi.InvokeOption) (*LookupVendorResult, error) {
 	var rv LookupVendorResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork:getVendor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork:getVendor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

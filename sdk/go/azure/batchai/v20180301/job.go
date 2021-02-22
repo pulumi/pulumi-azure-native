@@ -101,12 +101,15 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai/v20170901preview:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai/v20170901preview:Job"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:batchai/v20180301:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/v20180301:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -118,7 +121,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:batchai/v20180301:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/v20180301:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

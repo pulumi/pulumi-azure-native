@@ -39,12 +39,15 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ComponentLinkedStorageAccount
-	err := ctx.RegisterResource("azure-nextgen:insights:ComponentLinkedStorageAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:ComponentLinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +59,7 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 func GetComponentLinkedStorageAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentLinkedStorageAccountState, opts ...pulumi.ResourceOption) (*ComponentLinkedStorageAccount, error) {
 	var resource ComponentLinkedStorageAccount
-	err := ctx.ReadResource("azure-nextgen:insights:ComponentLinkedStorageAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:ComponentLinkedStorageAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

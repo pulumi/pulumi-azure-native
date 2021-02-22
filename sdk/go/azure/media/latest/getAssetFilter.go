@@ -10,10 +10,10 @@ import (
 // An Asset Filter.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetFilter'.
 func LookupAssetFilter(ctx *pulumi.Context, args *LookupAssetFilterArgs, opts ...pulumi.InvokeOption) (*LookupAssetFilterResult, error) {
 	var rv LookupAssetFilterResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getAssetFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getAssetFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

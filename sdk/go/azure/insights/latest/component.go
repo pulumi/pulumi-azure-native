@@ -14,7 +14,7 @@ import (
 // An Application Insights component definition.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Component'.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -99,13 +99,25 @@ func NewComponent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:Component"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:Component"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:Component"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Component"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180501preview:Component"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180501preview:Component"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20200202preview:Component"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20200202preview:Component"),
@@ -113,7 +125,7 @@ func NewComponent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Component
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:Component", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:Component", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +137,7 @@ func NewComponent(ctx *pulumi.Context,
 func GetComponent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentState, opts ...pulumi.ResourceOption) (*Component, error) {
 	var resource Component
-	err := ctx.ReadResource("azure-nextgen:insights/latest:Component", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:Component", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Class representing a Traffic Manager endpoint.
 // Latest API Version: 2018-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Role definition.
 // Latest API Version: 2015-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleDefinition'.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 
@@ -46,13 +46,25 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:RoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20150701:RoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180101preview:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180101preview:RoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200301preview:RoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleDefinition"),
@@ -60,7 +72,7 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RoleDefinition
-	err := ctx.RegisterResource("azure-nextgen:authorization/latest:RoleDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/latest:RoleDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewRoleDefinition(ctx *pulumi.Context,
 func GetRoleDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleDefinitionState, opts ...pulumi.ResourceOption) (*RoleDefinition, error) {
 	var resource RoleDefinition
-	err := ctx.ReadResource("azure-nextgen:authorization/latest:RoleDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/latest:RoleDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

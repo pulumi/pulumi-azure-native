@@ -61,16 +61,31 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagecache:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/latest:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/latest:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20190801preview:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20191101:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20191101:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20201001:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20201001:Cache"),
@@ -78,7 +93,7 @@ func NewCache(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cache
-	err := ctx.RegisterResource("azure-nextgen:storagecache/v20200301:Cache", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagecache/v20200301:Cache", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +105,7 @@ func NewCache(ctx *pulumi.Context,
 func GetCache(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CacheState, opts ...pulumi.ResourceOption) (*Cache, error) {
 	var resource Cache
-	err := ctx.ReadResource("azure-nextgen:storagecache/v20200301:Cache", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagecache/v20200301:Cache", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

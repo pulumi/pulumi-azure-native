@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupIntegrationAccountPartner(ctx *pulumi.Context, args *LookupIntegrationAccountPartnerArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountPartnerResult, error) {
 	var rv LookupIntegrationAccountPartnerResult
-	err := ctx.Invoke("azure-nextgen:logic:getIntegrationAccountPartner", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getIntegrationAccountPartner", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

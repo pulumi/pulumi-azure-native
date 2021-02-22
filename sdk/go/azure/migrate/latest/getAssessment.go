@@ -10,10 +10,10 @@ import (
 // An assessment created for a group in the Migration project.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getAssessment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getAssessment'.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
-	err := ctx.Invoke("azure-nextgen:migrate/latest:getAssessment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/latest:getAssessment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

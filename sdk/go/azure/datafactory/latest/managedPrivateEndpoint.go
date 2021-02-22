@@ -14,7 +14,7 @@ import (
 // Managed private endpoint resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:ManagedPrivateEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:ManagedPrivateEndpoint'.
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -49,7 +49,13 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:ManagedPrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:ManagedPrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:ManagedPrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint"),
@@ -57,7 +63,7 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedPrivateEndpoint
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:ManagedPrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 func GetManagedPrivateEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedPrivateEndpointState, opts ...pulumi.ResourceOption) (*ManagedPrivateEndpoint, error) {
 	var resource ManagedPrivateEndpoint
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:ManagedPrivateEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

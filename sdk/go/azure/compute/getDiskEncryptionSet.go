@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-30.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
-	err := ctx.Invoke("azure-nextgen:compute:getDiskEncryptionSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getDiskEncryptionSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

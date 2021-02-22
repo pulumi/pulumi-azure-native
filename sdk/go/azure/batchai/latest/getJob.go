@@ -10,10 +10,10 @@ import (
 // Information about a Job.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getJob'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getJob'.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

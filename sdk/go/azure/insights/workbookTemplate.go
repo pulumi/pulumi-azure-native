@@ -54,12 +54,15 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/v20191017preview:WorkbookTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20191017preview:WorkbookTemplate"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkbookTemplate
-	err := ctx.RegisterResource("azure-nextgen:insights:WorkbookTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:WorkbookTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +74,7 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 func GetWorkbookTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkbookTemplateState, opts ...pulumi.ResourceOption) (*WorkbookTemplate, error) {
 	var resource WorkbookTemplate
-	err := ctx.ReadResource("azure-nextgen:insights:WorkbookTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:WorkbookTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

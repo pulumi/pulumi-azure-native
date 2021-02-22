@@ -15,7 +15,7 @@ import (
 // The task will have all information to schedule a run against it.
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -73,13 +73,25 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20180901:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20180901:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20190401:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190401:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20190601preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190601preview:Task"),
@@ -87,7 +99,7 @@ func NewTask(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Task
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/latest:Task", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/latest:Task", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +111,7 @@ func NewTask(ctx *pulumi.Context,
 func GetTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
 	var resource Task
-	err := ctx.ReadResource("azure-nextgen:containerregistry/latest:Task", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/latest:Task", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

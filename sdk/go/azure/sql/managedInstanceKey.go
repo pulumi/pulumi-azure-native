@@ -50,10 +50,19 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20171001preview:ManagedInstanceKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ManagedInstanceKey"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstanceKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstanceKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceKey"),
@@ -61,7 +70,7 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstanceKey
-	err := ctx.RegisterResource("azure-nextgen:sql:ManagedInstanceKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ManagedInstanceKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 func GetManagedInstanceKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedInstanceKeyState, opts ...pulumi.ResourceOption) (*ManagedInstanceKey, error) {
 	var resource ManagedInstanceKey
-	err := ctx.ReadResource("azure-nextgen:sql:ManagedInstanceKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ManagedInstanceKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

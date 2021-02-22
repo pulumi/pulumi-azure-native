@@ -62,12 +62,15 @@ func NewBudget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20190401preview:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190401preview:Budget"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Budget
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:Budget", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:Budget", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +82,7 @@ func NewBudget(ctx *pulumi.Context,
 func GetBudget(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BudgetState, opts ...pulumi.ResourceOption) (*Budget, error) {
 	var resource Budget
-	err := ctx.ReadResource("azure-nextgen:costmanagement:Budget", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:Budget", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

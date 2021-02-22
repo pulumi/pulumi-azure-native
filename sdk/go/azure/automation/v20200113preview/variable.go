@@ -49,13 +49,25 @@ func NewVariable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Variable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Variable"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:Variable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Variable"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20151031:Variable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Variable"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:Variable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Variable"),
@@ -63,7 +75,7 @@ func NewVariable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Variable
-	err := ctx.RegisterResource("azure-nextgen:automation/v20200113preview:Variable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20200113preview:Variable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewVariable(ctx *pulumi.Context,
 func GetVariable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VariableState, opts ...pulumi.ResourceOption) (*Variable, error) {
 	var resource Variable
-	err := ctx.ReadResource("azure-nextgen:automation/v20200113preview:Variable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20200113preview:Variable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

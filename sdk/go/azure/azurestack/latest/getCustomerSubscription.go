@@ -10,10 +10,10 @@ import (
 // Customer subscription.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getCustomerSubscription'.
 func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupCustomerSubscriptionResult, error) {
 	var rv LookupCustomerSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:azurestack/latest:getCustomerSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/latest:getCustomerSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

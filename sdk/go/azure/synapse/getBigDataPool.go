@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupBigDataPoolResult, error) {
 	var rv LookupBigDataPoolResult
-	err := ctx.Invoke("azure-nextgen:synapse:getBigDataPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getBigDataPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

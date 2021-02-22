@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storagesync:CloudEndpoint":
+	case "azure-native:storagesync:CloudEndpoint":
 		r, err = NewCloudEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storagesync:PrivateEndpointConnection":
+	case "azure-native:storagesync:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storagesync:RegisteredServer":
+	case "azure-native:storagesync:RegisteredServer":
 		r, err = NewRegisteredServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storagesync:ServerEndpoint":
+	case "azure-native:storagesync:ServerEndpoint":
 		r, err = NewServerEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storagesync:StorageSyncService":
+	case "azure-native:storagesync:StorageSyncService":
 		r, err = NewStorageSyncService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storagesync:SyncGroup":
+	case "azure-native:storagesync:SyncGroup":
 		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storagesync",
 		&module{version},
 	)

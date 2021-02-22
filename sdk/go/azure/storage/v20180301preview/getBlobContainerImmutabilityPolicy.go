@@ -10,7 +10,7 @@ import (
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 func LookupBlobContainerImmutabilityPolicy(ctx *pulumi.Context, args *LookupBlobContainerImmutabilityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerImmutabilityPolicyResult, error) {
 	var rv LookupBlobContainerImmutabilityPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage/v20180301preview:getBlobContainerImmutabilityPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20180301preview:getBlobContainerImmutabilityPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

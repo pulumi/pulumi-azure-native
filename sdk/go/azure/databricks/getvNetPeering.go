@@ -11,7 +11,7 @@ import (
 // API Version: 2018-04-01.
 func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulumi.InvokeOption) (*GetvNetPeeringResult, error) {
 	var rv GetvNetPeeringResult
-	err := ctx.Invoke("azure-nextgen:databricks:getvNetPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databricks:getvNetPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The access keys for the storage account.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:storage/v20150501preview:listStorageAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20150501preview:listStorageAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

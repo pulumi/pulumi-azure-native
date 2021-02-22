@@ -10,10 +10,10 @@ import (
 // Represents a and external administrator to be created.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerAdministrator'.
 func LookupServerAdministrator(ctx *pulumi.Context, args *LookupServerAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdministratorResult, error) {
 	var rv LookupServerAdministratorResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/latest:getServerAdministrator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/latest:getServerAdministrator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

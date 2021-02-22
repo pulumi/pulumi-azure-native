@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupStreamingEndpoint(ctx *pulumi.Context, args *LookupStreamingEndpointArgs, opts ...pulumi.InvokeOption) (*LookupStreamingEndpointResult, error) {
 	var rv LookupStreamingEndpointResult
-	err := ctx.Invoke("azure-nextgen:media:getStreamingEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getStreamingEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -58,12 +58,15 @@ func NewHanaInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hanaonazure/v20171103preview:HanaInstance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hanaonazure/v20171103preview:HanaInstance"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource HanaInstance
-	err := ctx.RegisterResource("azure-nextgen:hanaonazure:HanaInstance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hanaonazure:HanaInstance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +78,7 @@ func NewHanaInstance(ctx *pulumi.Context,
 func GetHanaInstance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HanaInstanceState, opts ...pulumi.ResourceOption) (*HanaInstance, error) {
 	var resource HanaInstance
-	err := ctx.ReadResource("azure-nextgen:hanaonazure:HanaInstance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hanaonazure:HanaInstance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

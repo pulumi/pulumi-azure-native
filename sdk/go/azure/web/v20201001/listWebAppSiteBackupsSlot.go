@@ -10,7 +10,7 @@ import (
 // Collection of backup items.
 func ListWebAppSiteBackupsSlot(ctx *pulumi.Context, args *ListWebAppSiteBackupsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsSlotResult, error) {
 	var rv ListWebAppSiteBackupsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:listWebAppSiteBackupsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:listWebAppSiteBackupsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

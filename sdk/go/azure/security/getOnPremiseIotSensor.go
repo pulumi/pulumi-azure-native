@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-06-preview.
 func LookupOnPremiseIotSensor(ctx *pulumi.Context, args *LookupOnPremiseIotSensorArgs, opts ...pulumi.InvokeOption) (*LookupOnPremiseIotSensorResult, error) {
 	var rv LookupOnPremiseIotSensorResult
-	err := ctx.Invoke("azure-nextgen:security:getOnPremiseIotSensor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getOnPremiseIotSensor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The secret access keys used for authenticating connections to redis
 func ListDatabaseKeys(ctx *pulumi.Context, args *ListDatabaseKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseKeysResult, error) {
 	var rv ListDatabaseKeysResult
-	err := ctx.Invoke("azure-nextgen:cache/v20210301:listDatabaseKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20210301:listDatabaseKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

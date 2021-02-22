@@ -55,13 +55,25 @@ func NewSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:SourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20170515preview:SourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20170515preview:SourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:SourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:SourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:SourceControl"),
@@ -69,7 +81,7 @@ func NewSourceControl(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SourceControl
-	err := ctx.RegisterResource("azure-nextgen:automation:SourceControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:SourceControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +93,7 @@ func NewSourceControl(ctx *pulumi.Context,
 func GetSourceControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SourceControlState, opts ...pulumi.ResourceOption) (*SourceControl, error) {
 	var resource SourceControl
-	err := ctx.ReadResource("azure-nextgen:automation:SourceControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:SourceControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

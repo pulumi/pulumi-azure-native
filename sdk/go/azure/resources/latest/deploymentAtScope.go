@@ -14,7 +14,7 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtScope'.
 type DeploymentAtScope struct {
 	pulumi.CustomResourceState
 
@@ -45,22 +45,43 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtScope"),
@@ -68,7 +89,7 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtScope
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:DeploymentAtScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:DeploymentAtScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +101,7 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 func GetDeploymentAtScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentAtScopeState, opts ...pulumi.ResourceOption) (*DeploymentAtScope, error) {
 	var resource DeploymentAtScope
-	err := ctx.ReadResource("azure-nextgen:resources/latest:DeploymentAtScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:DeploymentAtScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

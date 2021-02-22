@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB container.
 func LookupDatabaseAccountSqlContainer(ctx *pulumi.Context, args *LookupDatabaseAccountSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountSqlContainerResult, error) {
 	var rv LookupDatabaseAccountSqlContainerResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20150401:getDatabaseAccountSqlContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20150401:getDatabaseAccountSqlContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

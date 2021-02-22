@@ -39,7 +39,13 @@ func NewServiceTopology(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:deploymentmanager:ServiceTopology"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:ServiceTopology"),
+		},
+		{
+			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:ServiceTopology"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20180901preview:ServiceTopology"),
@@ -47,7 +53,7 @@ func NewServiceTopology(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceTopology
-	err := ctx.RegisterResource("azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:deploymentmanager/v20191101preview:ServiceTopology", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +65,7 @@ func NewServiceTopology(ctx *pulumi.Context,
 func GetServiceTopology(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceTopologyState, opts ...pulumi.ResourceOption) (*ServiceTopology, error) {
 	var resource ServiceTopology
-	err := ctx.ReadResource("azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:deploymentmanager/v20191101preview:ServiceTopology", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Machine Learning compute object wrapped into ARM resource envelope.
 func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearningComputeArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningComputeResult, error) {
 	var rv LookupMachineLearningComputeResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200901preview:getMachineLearningCompute", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200901preview:getMachineLearningCompute", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

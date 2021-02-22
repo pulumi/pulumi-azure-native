@@ -55,28 +55,55 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteVNETConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteVNETConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteVNETConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteVNETConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteVNETConnection"),
@@ -84,7 +111,7 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteVNETConnection
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteVNETConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteVNETConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +123,7 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 func GetSiteVNETConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteVNETConnectionState, opts ...pulumi.ResourceOption) (*SiteVNETConnection, error) {
 	var resource SiteVNETConnection
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteVNETConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteVNETConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

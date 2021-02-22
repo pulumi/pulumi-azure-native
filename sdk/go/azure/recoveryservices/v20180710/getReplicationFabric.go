@@ -10,7 +10,7 @@ import (
 // Fabric definition.
 func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricArgs, opts ...pulumi.InvokeOption) (*LookupReplicationFabricResult, error) {
 	var rv LookupReplicationFabricResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20180710:getReplicationFabric", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20180710:getReplicationFabric", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -43,12 +43,15 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:maps/v20200201preview:PrivateAtlase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maps/v20200201preview:PrivateAtlase"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateAtlase
-	err := ctx.RegisterResource("azure-nextgen:maps:PrivateAtlase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:maps:PrivateAtlase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 func GetPrivateAtlase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateAtlaseState, opts ...pulumi.ResourceOption) (*PrivateAtlase, error) {
 	var resource PrivateAtlase
-	err := ctx.ReadResource("azure-nextgen:maps:PrivateAtlase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:maps:PrivateAtlase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

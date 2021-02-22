@@ -10,10 +10,10 @@ import (
 // The list of all devices in a resource and their eligibility status as a failover target device.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'.
 func ListDeviceFailoverTars(ctx *pulumi.Context, args *ListDeviceFailoverTarsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverTarsResult, error) {
 	var rv ListDeviceFailoverTarsResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:listDeviceFailoverTars", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:listDeviceFailoverTars", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // EventGrid Topic
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getTopic'.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/latest:getTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/latest:getTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

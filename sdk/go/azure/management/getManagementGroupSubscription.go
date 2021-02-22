@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManagementGroupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupSubscriptionResult, error) {
 	var rv LookupManagementGroupSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:management:getManagementGroupSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management:getManagementGroupSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

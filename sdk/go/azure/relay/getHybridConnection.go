@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionResult, error) {
 	var rv LookupHybridConnectionResult
-	err := ctx.Invoke("azure-nextgen:relay:getHybridConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:getHybridConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

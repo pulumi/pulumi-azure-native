@@ -10,7 +10,7 @@ import (
 // Describes a link to virtual network for a Private DNS zone.
 func LookupVirtualNetworkLink(ctx *pulumi.Context, args *LookupVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkLinkResult, error) {
 	var rv LookupVirtualNetworkLinkResult
-	err := ctx.Invoke("azure-nextgen:network/v20200101:getVirtualNetworkLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200101:getVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

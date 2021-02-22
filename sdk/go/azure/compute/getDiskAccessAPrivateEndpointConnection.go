@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-30.
 func LookupDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context, args *LookupDiskAccessAPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessAPrivateEndpointConnectionResult, error) {
 	var rv LookupDiskAccessAPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getDiskAccessAPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

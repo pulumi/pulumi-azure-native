@@ -47,31 +47,61 @@ func NewIpGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:IpGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:IpGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:IpGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:IpGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:IpGroup"),
@@ -79,7 +109,7 @@ func NewIpGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IpGroup
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:IpGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:IpGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +121,7 @@ func NewIpGroup(ctx *pulumi.Context,
 func GetIpGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IpGroupState, opts ...pulumi.ResourceOption) (*IpGroup, error) {
 	var resource IpGroup
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:IpGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:IpGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

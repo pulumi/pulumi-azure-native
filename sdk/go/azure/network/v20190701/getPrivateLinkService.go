@@ -10,7 +10,7 @@ import (
 // Private link service resource.
 func LookupPrivateLinkService(ctx *pulumi.Context, args *LookupPrivateLinkServiceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkServiceResult, error) {
 	var rv LookupPrivateLinkServiceResult
-	err := ctx.Invoke("azure-nextgen:network/v20190701:getPrivateLinkService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190701:getPrivateLinkService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

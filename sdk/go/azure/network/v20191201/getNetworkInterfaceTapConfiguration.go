@@ -10,7 +10,7 @@ import (
 // Tap configuration in a Network Interface.
 func LookupNetworkInterfaceTapConfiguration(ctx *pulumi.Context, args *LookupNetworkInterfaceTapConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceTapConfigurationResult, error) {
 	var rv LookupNetworkInterfaceTapConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/v20191201:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191201:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

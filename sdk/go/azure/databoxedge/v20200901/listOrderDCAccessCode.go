@@ -10,7 +10,7 @@ import (
 // DC Access code in the case of Self Managed Shipping.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200901:listOrderDCAccessCode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200901:listOrderDCAccessCode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The top level data export resource container.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataExport'.
 func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...pulumi.InvokeOption) (*LookupDataExportResult, error) {
 	var rv LookupDataExportResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getDataExport", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getDataExport", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Describes a Virtual Machine Scale Set Extension.
 func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/v20171201:getVirtualMachineScaleSetExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20171201:getVirtualMachineScaleSetExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

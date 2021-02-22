@@ -10,10 +10,10 @@ import (
 // Describes a Private DNS zone.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateZone'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateZone'.
 func LookupPrivateZone(ctx *pulumi.Context, args *LookupPrivateZoneArgs, opts ...pulumi.InvokeOption) (*LookupPrivateZoneResult, error) {
 	var rv LookupPrivateZoneResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getPrivateZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getPrivateZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

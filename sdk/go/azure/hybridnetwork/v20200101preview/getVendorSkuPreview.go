@@ -10,7 +10,7 @@ import (
 // Customer subscription which can use a sku.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork/v20200101preview:getVendorSkuPreview", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getVendorSkuPreview", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

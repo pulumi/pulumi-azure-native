@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupEventHubAuthorizationRuleResult, error) {
 	var rv LookupEventHubAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getEventHubAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getEventHubAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

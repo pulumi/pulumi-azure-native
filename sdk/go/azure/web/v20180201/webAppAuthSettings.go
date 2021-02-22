@@ -130,28 +130,55 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettings"),
@@ -159,7 +186,7 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettings
-	err := ctx.RegisterResource("azure-nextgen:web/v20180201:WebAppAuthSettings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20180201:WebAppAuthSettings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -171,7 +198,7 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 func GetWebAppAuthSettings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppAuthSettingsState, opts ...pulumi.ResourceOption) (*WebAppAuthSettings, error) {
 	var resource WebAppAuthSettings
-	err := ctx.ReadResource("azure-nextgen:web/v20180201:WebAppAuthSettings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20180201:WebAppAuthSettings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

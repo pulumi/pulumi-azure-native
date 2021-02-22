@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getTag", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getTag", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

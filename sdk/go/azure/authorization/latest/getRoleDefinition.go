@@ -10,10 +10,10 @@ import (
 // Role definition.
 // Latest API Version: 2015-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleDefinition'.
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getRoleDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getRoleDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

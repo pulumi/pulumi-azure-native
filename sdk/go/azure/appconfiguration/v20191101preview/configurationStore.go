@@ -56,19 +56,37 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appconfiguration:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/latest:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/latest:ConfigurationStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20190201preview:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20191001:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20191001:ConfigurationStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200601:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200601:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200701preview:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"),
@@ -76,7 +94,7 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationStore
-	err := ctx.RegisterResource("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appconfiguration/v20191101preview:ConfigurationStore", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +106,7 @@ func NewConfigurationStore(ctx *pulumi.Context,
 func GetConfigurationStore(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationStoreState, opts ...pulumi.ResourceOption) (*ConfigurationStore, error) {
 	var resource ConfigurationStore
-	err := ctx.ReadResource("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appconfiguration/v20191101preview:ConfigurationStore", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

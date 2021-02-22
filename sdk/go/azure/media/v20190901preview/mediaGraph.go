@@ -54,12 +54,15 @@ func NewMediaGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media/v20200201preview:MediaGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20200201preview:MediaGraph"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource MediaGraph
-	err := ctx.RegisterResource("azure-nextgen:media/v20190901preview:MediaGraph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20190901preview:MediaGraph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +74,7 @@ func NewMediaGraph(ctx *pulumi.Context,
 func GetMediaGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MediaGraphState, opts ...pulumi.ResourceOption) (*MediaGraph, error) {
 	var resource MediaGraph
-	err := ctx.ReadResource("azure-nextgen:media/v20190901preview:MediaGraph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20190901preview:MediaGraph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

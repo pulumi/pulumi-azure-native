@@ -75,13 +75,25 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:GatewayApiEntityTag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GatewayApiEntityTag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:GatewayApiEntityTag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:GatewayApiEntityTag"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag"),
@@ -89,7 +101,7 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GatewayApiEntityTag
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20191201:GatewayApiEntityTag", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +113,7 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 func GetGatewayApiEntityTag(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayApiEntityTagState, opts ...pulumi.ResourceOption) (*GatewayApiEntityTag, error) {
 	var resource GatewayApiEntityTag
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20191201:GatewayApiEntityTag", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Namespace/EventHub Connection String
 func ListEventHubKeys(ctx *pulumi.Context, args *ListEventHubKeysArgs, opts ...pulumi.InvokeOption) (*ListEventHubKeysResult, error) {
 	var rv ListEventHubKeysResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20170401:listEventHubKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20170401:listEventHubKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

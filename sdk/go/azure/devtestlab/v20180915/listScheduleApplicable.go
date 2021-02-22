@@ -10,7 +10,7 @@ import (
 // The response of a list operation.
 func ListScheduleApplicable(ctx *pulumi.Context, args *ListScheduleApplicableArgs, opts ...pulumi.InvokeOption) (*ListScheduleApplicableResult, error) {
 	var rv ListScheduleApplicableResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:listScheduleApplicable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:listScheduleApplicable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

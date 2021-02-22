@@ -56,28 +56,55 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHostNameBinding"),
@@ -85,7 +112,7 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBinding
-	err := ctx.RegisterResource("azure-nextgen:web/v20180201:WebAppHostNameBinding", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20180201:WebAppHostNameBinding", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +124,7 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 func GetWebAppHostNameBinding(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppHostNameBindingState, opts ...pulumi.ResourceOption) (*WebAppHostNameBinding, error) {
 	var resource WebAppHostNameBinding
-	err := ctx.ReadResource("azure-nextgen:web/v20180201:WebAppHostNameBinding", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20180201:WebAppHostNameBinding", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

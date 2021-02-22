@@ -10,7 +10,7 @@ import (
 // Definition of the module type.
 func LookupPython2Package(ctx *pulumi.Context, args *LookupPython2PackageArgs, opts ...pulumi.InvokeOption) (*LookupPython2PackageResult, error) {
 	var rv LookupPython2PackageResult
-	err := ctx.Invoke("azure-nextgen:automation/v20200113preview:getPython2Package", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20200113preview:getPython2Package", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Provider details.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryServicesProvider'.
 func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *LookupReplicationRecoveryServicesProviderArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryServicesProviderResult, error) {
 	var rv LookupReplicationRecoveryServicesProviderResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationRecoveryServicesProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationRecoveryServicesProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

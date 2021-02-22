@@ -10,10 +10,10 @@ import (
 // Datasources under OMS Workspace.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataSource'.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	var rv LookupDataSourceResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getDataSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getDataSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

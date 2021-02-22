@@ -11,7 +11,7 @@ import (
 // API Version: 2019-04-01.
 func ListRegistryBuildSourceUploadUrl(ctx *pulumi.Context, args *ListRegistryBuildSourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*ListRegistryBuildSourceUploadUrlResult, error) {
 	var rv ListRegistryBuildSourceUploadUrlResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

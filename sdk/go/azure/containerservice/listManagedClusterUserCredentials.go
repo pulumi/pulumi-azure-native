@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func ListManagedClusterUserCredentials(ctx *pulumi.Context, args *ListManagedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterUserCredentialsResult, error) {
 	var rv ListManagedClusterUserCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerservice:listManagedClusterUserCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice:listManagedClusterUserCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

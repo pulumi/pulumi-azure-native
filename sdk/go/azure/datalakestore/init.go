@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:datalakestore:Account":
+	case "azure-native:datalakestore:Account":
 		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datalakestore:FirewallRule":
+	case "azure-native:datalakestore:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datalakestore:TrustedIdProvider":
+	case "azure-native:datalakestore:TrustedIdProvider":
 		r, err = NewTrustedIdProvider(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datalakestore:VirtualNetworkRule":
+	case "azure-native:datalakestore:VirtualNetworkRule":
 		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"datalakestore",
 		&module{version},
 	)

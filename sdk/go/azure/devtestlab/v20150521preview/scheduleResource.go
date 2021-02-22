@@ -54,13 +54,25 @@ func NewScheduleResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ScheduleResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ScheduleResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:ScheduleResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ScheduleResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:ScheduleResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:ScheduleResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ScheduleResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ScheduleResource"),
@@ -68,7 +80,7 @@ func NewScheduleResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ScheduleResource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20150521preview:ScheduleResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:ScheduleResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewScheduleResource(ctx *pulumi.Context,
 func GetScheduleResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduleResourceState, opts ...pulumi.ResourceOption) (*ScheduleResource, error) {
 	var resource ScheduleResource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20150521preview:ScheduleResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:ScheduleResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

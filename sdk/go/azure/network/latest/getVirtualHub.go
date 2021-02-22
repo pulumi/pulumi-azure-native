@@ -10,10 +10,10 @@ import (
 // VirtualHub Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHub'.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -39,12 +39,15 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationProfileAssignment
-	err := ctx.RegisterResource("azure-nextgen:automanage:ConfigurationProfileAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automanage:ConfigurationProfileAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +59,7 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 func GetConfigurationProfileAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationProfileAssignmentState, opts ...pulumi.ResourceOption) (*ConfigurationProfileAssignment, error) {
 	var resource ConfigurationProfileAssignment
-	err := ctx.ReadResource("azure-nextgen:automanage:ConfigurationProfileAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automanage:ConfigurationProfileAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

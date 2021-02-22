@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	var rv LookupOrganizationResult
-	err := ctx.Invoke("azure-nextgen:confluent:getOrganization", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:confluent:getOrganization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

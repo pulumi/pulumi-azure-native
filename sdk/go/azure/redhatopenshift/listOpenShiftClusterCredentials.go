@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-30.
 func ListOpenShiftClusterCredentials(ctx *pulumi.Context, args *ListOpenShiftClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*ListOpenShiftClusterCredentialsResult, error) {
 	var rv ListOpenShiftClusterCredentialsResult
-	err := ctx.Invoke("azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

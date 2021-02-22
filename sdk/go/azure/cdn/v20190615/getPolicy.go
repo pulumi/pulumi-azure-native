@@ -10,7 +10,7 @@ import (
 // Defines web application firewall policy for Azure CDN.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20190615:getPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20190615:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

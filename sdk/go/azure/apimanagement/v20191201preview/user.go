@@ -64,31 +64,61 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:User"),
@@ -96,7 +126,7 @@ func NewUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource User
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20191201preview:User", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20191201preview:User", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +138,7 @@ func NewUser(ctx *pulumi.Context,
 func GetUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserState, opts ...pulumi.ResourceOption) (*User, error) {
 	var resource User
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20191201preview:User", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20191201preview:User", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

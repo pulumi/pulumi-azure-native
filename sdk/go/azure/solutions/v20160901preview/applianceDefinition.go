@@ -61,12 +61,15 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:solutions:ApplianceDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions:ApplianceDefinition"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplianceDefinition
-	err := ctx.RegisterResource("azure-nextgen:solutions/v20160901preview:ApplianceDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:solutions/v20160901preview:ApplianceDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +81,7 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 func GetApplianceDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplianceDefinitionState, opts ...pulumi.ResourceOption) (*ApplianceDefinition, error) {
 	var resource ApplianceDefinition
-	err := ctx.ReadResource("azure-nextgen:solutions/v20160901preview:ApplianceDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:solutions/v20160901preview:ApplianceDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

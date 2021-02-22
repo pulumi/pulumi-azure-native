@@ -14,7 +14,7 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtSubscriptionScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'.
 type DeploymentAtSubscriptionScope struct {
 	pulumi.CustomResourceState
 
@@ -42,34 +42,67 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20180501:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190301:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190501:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190510:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope"),
@@ -77,7 +110,7 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtSubscriptionScope
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:DeploymentAtSubscriptionScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:DeploymentAtSubscriptionScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +122,7 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 func GetDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentAtSubscriptionScopeState, opts ...pulumi.ResourceOption) (*DeploymentAtSubscriptionScope, error) {
 	var resource DeploymentAtSubscriptionScope
-	err := ctx.ReadResource("azure-nextgen:resources/latest:DeploymentAtSubscriptionScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:DeploymentAtSubscriptionScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

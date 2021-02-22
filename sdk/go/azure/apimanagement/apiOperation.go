@@ -65,31 +65,61 @@ func NewApiOperation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:ApiOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiOperation"),
@@ -97,7 +127,7 @@ func NewApiOperation(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiOperation
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiOperation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiOperation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -109,7 +139,7 @@ func NewApiOperation(ctx *pulumi.Context,
 func GetApiOperation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiOperationState, opts ...pulumi.ResourceOption) (*ApiOperation, error) {
 	var resource ApiOperation
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiOperation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiOperation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

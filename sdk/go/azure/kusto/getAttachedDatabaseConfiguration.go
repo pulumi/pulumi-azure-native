@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-18.
 func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttachedDatabaseConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDatabaseConfigurationResult, error) {
 	var rv LookupAttachedDatabaseConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kusto:getAttachedDatabaseConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto:getAttachedDatabaseConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

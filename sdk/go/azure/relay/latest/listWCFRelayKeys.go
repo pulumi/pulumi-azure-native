@@ -10,10 +10,10 @@ import (
 // Namespace/Relay Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listWCFRelayKeys'.
 func ListWCFRelayKeys(ctx *pulumi.Context, args *ListWCFRelayKeysArgs, opts ...pulumi.InvokeOption) (*ListWCFRelayKeysResult, error) {
 	var rv ListWCFRelayKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/latest:listWCFRelayKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/latest:listWCFRelayKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

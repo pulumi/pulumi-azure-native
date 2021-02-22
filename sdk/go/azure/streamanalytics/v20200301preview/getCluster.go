@@ -10,7 +10,7 @@ import (
 // A Stream Analytics Cluster object
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics/v20200301preview:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics/v20200301preview:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

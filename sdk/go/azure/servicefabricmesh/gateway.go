@@ -62,12 +62,15 @@ func NewGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabricmesh/v20180901preview:Gateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:Gateway"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Gateway
-	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh:Gateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabricmesh:Gateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +82,7 @@ func NewGateway(ctx *pulumi.Context,
 func GetGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayState, opts ...pulumi.ResourceOption) (*Gateway, error) {
 	var resource Gateway
-	err := ctx.ReadResource("azure-nextgen:servicefabricmesh:Gateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabricmesh:Gateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

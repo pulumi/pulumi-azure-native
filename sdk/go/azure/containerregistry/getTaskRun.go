@@ -12,7 +12,7 @@ import (
 // API Version: 2019-06-01-preview.
 func LookupTaskRun(ctx *pulumi.Context, args *LookupTaskRunArgs, opts ...pulumi.InvokeOption) (*LookupTaskRunResult, error) {
 	var rv LookupTaskRunResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getTaskRun", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getTaskRun", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

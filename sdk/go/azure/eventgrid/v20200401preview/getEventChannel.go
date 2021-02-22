@@ -10,7 +10,7 @@ import (
 // Event Channel.
 func LookupEventChannel(ctx *pulumi.Context, args *LookupEventChannelArgs, opts ...pulumi.InvokeOption) (*LookupEventChannelResult, error) {
 	var rv LookupEventChannelResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20200401preview:getEventChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20200401preview:getEventChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -61,10 +61,19 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:SqlPoolWorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup"),
@@ -72,7 +81,7 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadGroup
-	err := ctx.RegisterResource("azure-nextgen:synapse:SqlPoolWorkloadGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:SqlPoolWorkloadGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +93,7 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 func GetSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolWorkloadGroupState, opts ...pulumi.ResourceOption) (*SqlPoolWorkloadGroup, error) {
 	var resource SqlPoolWorkloadGroup
-	err := ctx.ReadResource("azure-nextgen:synapse:SqlPoolWorkloadGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:SqlPoolWorkloadGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Class representing a cluster principal assignment.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:ClusterPrincipalAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:ClusterPrincipalAssignment'.
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 
@@ -62,16 +62,31 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:ClusterPrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:ClusterPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20191109:ClusterPrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200215:ClusterPrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:ClusterPrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:ClusterPrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment"),
@@ -79,7 +94,7 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ClusterPrincipalAssignment
-	err := ctx.RegisterResource("azure-nextgen:kusto/latest:ClusterPrincipalAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/latest:ClusterPrincipalAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +106,7 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 func GetClusterPrincipalAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterPrincipalAssignmentState, opts ...pulumi.ResourceOption) (*ClusterPrincipalAssignment, error) {
 	var resource ClusterPrincipalAssignment
-	err := ctx.ReadResource("azure-nextgen:kusto/latest:ClusterPrincipalAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/latest:ClusterPrincipalAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

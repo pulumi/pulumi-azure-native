@@ -51,7 +51,13 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkSegment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:WorkloadNetworkSegment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment"),
@@ -59,7 +65,7 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkSegment
-	err := ctx.RegisterResource("azure-nextgen:avs:WorkloadNetworkSegment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs:WorkloadNetworkSegment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 func GetWorkloadNetworkSegment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkSegmentState, opts ...pulumi.ResourceOption) (*WorkloadNetworkSegment, error) {
 	var resource WorkloadNetworkSegment
-	err := ctx.ReadResource("azure-nextgen:avs:WorkloadNetworkSegment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs:WorkloadNetworkSegment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

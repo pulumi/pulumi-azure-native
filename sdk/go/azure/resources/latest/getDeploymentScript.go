@@ -10,10 +10,10 @@ import (
 // Deployment script object.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentScript'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentScript'.
 func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentScriptResult, error) {
 	var rv LookupDeploymentScriptResult
-	err := ctx.Invoke("azure-nextgen:resources/latest:getDeploymentScript", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/latest:getDeploymentScript", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

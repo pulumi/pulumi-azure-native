@@ -9,7 +9,7 @@ import (
 
 func LookupHyperVCollector(ctx *pulumi.Context, args *LookupHyperVCollectorArgs, opts ...pulumi.InvokeOption) (*LookupHyperVCollectorResult, error) {
 	var rv LookupHyperVCollectorResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20191001:getHyperVCollector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20191001:getHyperVCollector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

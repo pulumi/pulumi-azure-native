@@ -41,34 +41,67 @@ func NewStorageSyncService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagesync:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync:StorageSyncService"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/latest:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:StorageSyncService"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20170605preview:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:StorageSyncService"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20180701:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180701:StorageSyncService"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20181001:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20181001:StorageSyncService"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190201:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190201:StorageSyncService"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20190301:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190301:StorageSyncService"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190601:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190601:StorageSyncService"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20191001:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20191001:StorageSyncService"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20200301:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:StorageSyncService"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20200901:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200901:StorageSyncService"),
@@ -76,7 +109,7 @@ func NewStorageSyncService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageSyncService
-	err := ctx.RegisterResource("azure-nextgen:storagesync/v20180402:StorageSyncService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagesync/v20180402:StorageSyncService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +121,7 @@ func NewStorageSyncService(ctx *pulumi.Context,
 func GetStorageSyncService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageSyncServiceState, opts ...pulumi.ResourceOption) (*StorageSyncService, error) {
 	var resource StorageSyncService
-	err := ctx.ReadResource("azure-nextgen:storagesync/v20180402:StorageSyncService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagesync/v20180402:StorageSyncService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

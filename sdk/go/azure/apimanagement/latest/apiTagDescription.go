@@ -14,7 +14,7 @@ import (
 // Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiTagDescription'.
 type ApiTagDescription struct {
 	pulumi.CustomResourceState
 
@@ -52,25 +52,49 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiTagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiTagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiTagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiTagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiTagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiTagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiTagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiTagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiTagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiTagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiTagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiTagDescription"),
@@ -78,7 +102,7 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiTagDescription
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:ApiTagDescription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:ApiTagDescription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +114,7 @@ func NewApiTagDescription(ctx *pulumi.Context,
 func GetApiTagDescription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiTagDescriptionState, opts ...pulumi.ResourceOption) (*ApiTagDescription, error) {
 	var resource ApiTagDescription
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:ApiTagDescription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:ApiTagDescription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

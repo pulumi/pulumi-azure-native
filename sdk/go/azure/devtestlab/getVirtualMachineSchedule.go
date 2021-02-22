@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupVirtualMachineSchedule(ctx *pulumi.Context, args *LookupVirtualMachineScheduleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScheduleResult, error) {
 	var rv LookupVirtualMachineScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getVirtualMachineSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getVirtualMachineSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

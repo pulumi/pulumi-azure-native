@@ -53,7 +53,13 @@ func NewEventChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:EventChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:EventChannel"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:EventChannel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventChannel"),
@@ -61,7 +67,7 @@ func NewEventChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventChannel
-	err := ctx.RegisterResource("azure-nextgen:eventgrid:EventChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid:EventChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +79,7 @@ func NewEventChannel(ctx *pulumi.Context,
 func GetEventChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventChannelState, opts ...pulumi.ResourceOption) (*EventChannel, error) {
 	var resource EventChannel
-	err := ctx.ReadResource("azure-nextgen:eventgrid:EventChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid:EventChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

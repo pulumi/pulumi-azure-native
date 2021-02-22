@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus:getNamespaceAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:getNamespaceAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

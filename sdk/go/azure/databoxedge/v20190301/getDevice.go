@@ -10,7 +10,7 @@ import (
 // The Data Box Edge/Gateway device.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20190301:getDevice", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20190301:getDevice", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

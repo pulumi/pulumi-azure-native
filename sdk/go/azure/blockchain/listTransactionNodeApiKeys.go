@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func ListTransactionNodeApiKeys(ctx *pulumi.Context, args *ListTransactionNodeApiKeysArgs, opts ...pulumi.InvokeOption) (*ListTransactionNodeApiKeysResult, error) {
 	var rv ListTransactionNodeApiKeysResult
-	err := ctx.Invoke("azure-nextgen:blockchain:listTransactionNodeApiKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain:listTransactionNodeApiKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

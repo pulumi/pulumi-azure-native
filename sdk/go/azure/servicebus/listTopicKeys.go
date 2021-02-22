@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListTopicKeys(ctx *pulumi.Context, args *ListTopicKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicKeysResult, error) {
 	var rv ListTopicKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus:listTopicKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:listTopicKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

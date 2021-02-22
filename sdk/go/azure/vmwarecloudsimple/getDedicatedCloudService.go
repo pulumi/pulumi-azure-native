@@ -11,7 +11,7 @@ import (
 // API Version: 2019-04-01.
 func LookupDedicatedCloudService(ctx *pulumi.Context, args *LookupDedicatedCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudServiceResult, error) {
 	var rv LookupDedicatedCloudServiceResult
-	err := ctx.Invoke("azure-nextgen:vmwarecloudsimple:getDedicatedCloudService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:vmwarecloudsimple:getDedicatedCloudService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

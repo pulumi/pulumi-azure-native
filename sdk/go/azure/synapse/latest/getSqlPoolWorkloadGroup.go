@@ -10,10 +10,10 @@ import (
 // Workload group operations for a sql pool
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadGroup'.
 func LookupSqlPoolWorkloadGroup(ctx *pulumi.Context, args *LookupSqlPoolWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadGroupResult, error) {
 	var rv LookupSqlPoolWorkloadGroupResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getSqlPoolWorkloadGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getSqlPoolWorkloadGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

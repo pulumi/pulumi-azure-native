@@ -45,12 +45,15 @@ func NewIoTSpace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:iotspaces/v20171001preview:IoTSpace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:iotspaces/v20171001preview:IoTSpace"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource IoTSpace
-	err := ctx.RegisterResource("azure-nextgen:iotspaces:IoTSpace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:iotspaces:IoTSpace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +65,7 @@ func NewIoTSpace(ctx *pulumi.Context,
 func GetIoTSpace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IoTSpaceState, opts ...pulumi.ResourceOption) (*IoTSpace, error) {
 	var resource IoTSpace
-	err := ctx.ReadResource("azure-nextgen:iotspaces:IoTSpace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:iotspaces:IoTSpace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

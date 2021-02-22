@@ -10,10 +10,10 @@ import (
 // Profile of a lab user.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getUser'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getUser'.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

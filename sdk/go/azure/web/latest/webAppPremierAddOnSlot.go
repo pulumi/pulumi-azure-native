@@ -14,7 +14,7 @@ import (
 // Premier add-on.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPremierAddOnSlot'.
 type WebAppPremierAddOnSlot struct {
 	pulumi.CustomResourceState
 
@@ -60,28 +60,55 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOnSlot"),
@@ -89,7 +116,7 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOnSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppPremierAddOnSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppPremierAddOnSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +128,7 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 func GetWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppPremierAddOnSlotState, opts ...pulumi.ResourceOption) (*WebAppPremierAddOnSlot, error) {
 	var resource WebAppPremierAddOnSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppPremierAddOnSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppPremierAddOnSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

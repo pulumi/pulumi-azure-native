@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupSqlPool(ctx *pulumi.Context, args *LookupSqlPoolArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolResult, error) {
 	var rv LookupSqlPoolResult
-	err := ctx.Invoke("azure-nextgen:synapse:getSqlPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getSqlPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

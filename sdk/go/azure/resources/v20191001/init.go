@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:resources/v20191001:Deployment":
+	case "azure-native:resources/v20191001:Deployment":
 		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope":
+	case "azure-native:resources/v20191001:DeploymentAtManagementGroupScope":
 		r, err = NewDeploymentAtManagementGroupScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:DeploymentAtScope":
+	case "azure-native:resources/v20191001:DeploymentAtScope":
 		r, err = NewDeploymentAtScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope":
+	case "azure-native:resources/v20191001:DeploymentAtSubscriptionScope":
 		r, err = NewDeploymentAtSubscriptionScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:DeploymentAtTenantScope":
+	case "azure-native:resources/v20191001:DeploymentAtTenantScope":
 		r, err = NewDeploymentAtTenantScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:Resource":
+	case "azure-native:resources/v20191001:Resource":
 		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:ResourceGroup":
+	case "azure-native:resources/v20191001:ResourceGroup":
 		r, err = NewResourceGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/v20191001:TagAtScope":
+	case "azure-native:resources/v20191001:TagAtScope":
 		r, err = NewTagAtScope(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"resources/v20191001",
 		&module{version},
 	)

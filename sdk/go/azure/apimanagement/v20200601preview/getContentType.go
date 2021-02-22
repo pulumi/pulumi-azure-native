@@ -10,7 +10,7 @@ import (
 // Content type contract details.
 func LookupContentType(ctx *pulumi.Context, args *LookupContentTypeArgs, opts ...pulumi.InvokeOption) (*LookupContentTypeResult, error) {
 	var rv LookupContentTypeResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:getContentType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20200601preview:getContentType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

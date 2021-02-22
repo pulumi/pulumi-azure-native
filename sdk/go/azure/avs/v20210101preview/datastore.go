@@ -44,7 +44,7 @@ func NewDatastore(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Datastore
-	err := ctx.RegisterResource("azure-nextgen:avs/v20210101preview:Datastore", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20210101preview:Datastore", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewDatastore(ctx *pulumi.Context,
 func GetDatastore(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatastoreState, opts ...pulumi.ResourceOption) (*Datastore, error) {
 	var resource Datastore
-	err := ctx.ReadResource("azure-nextgen:avs/v20210101preview:Datastore", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20210101preview:Datastore", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

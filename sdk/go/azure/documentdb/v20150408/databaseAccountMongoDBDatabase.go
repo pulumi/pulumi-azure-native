@@ -46,19 +46,37 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccountMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase"),
@@ -66,7 +84,7 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountMongoDBDatabase
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20150408:DatabaseAccountMongoDBDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 func GetDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountMongoDBDatabaseState, opts ...pulumi.ResourceOption) (*DatabaseAccountMongoDBDatabase, error) {
 	var resource DatabaseAccountMongoDBDatabase
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20150408:DatabaseAccountMongoDBDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

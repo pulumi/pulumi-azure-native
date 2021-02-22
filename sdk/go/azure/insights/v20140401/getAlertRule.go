@@ -10,7 +10,7 @@ import (
 // The alert rule resource.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
-	err := ctx.Invoke("azure-nextgen:insights/v20140401:getAlertRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20140401:getAlertRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

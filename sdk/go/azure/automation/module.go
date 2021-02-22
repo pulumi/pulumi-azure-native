@@ -68,13 +68,25 @@ func NewModule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:Module"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Module"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Module"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Module"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Module"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Module"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Module"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Module"),
@@ -82,7 +94,7 @@ func NewModule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Module
-	err := ctx.RegisterResource("azure-nextgen:automation:Module", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:Module", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +106,7 @@ func NewModule(ctx *pulumi.Context,
 func GetModule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModuleState, opts ...pulumi.ResourceOption) (*Module, error) {
 	var resource Module
-	err := ctx.ReadResource("azure-nextgen:automation:Module", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:Module", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

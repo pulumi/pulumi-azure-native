@@ -14,7 +14,7 @@ import (
 // An Azure Cosmos DB container.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'.
 type DatabaseAccountSqlContainer struct {
 	pulumi.CustomResourceState
 
@@ -68,19 +68,37 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccountSqlContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountSqlContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountSqlContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountSqlContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountSqlContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountSqlContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer"),
@@ -88,7 +106,7 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountSqlContainer
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:DatabaseAccountSqlContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +118,7 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 func GetDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountSqlContainerState, opts ...pulumi.ResourceOption) (*DatabaseAccountSqlContainer, error) {
 	var resource DatabaseAccountSqlContainer
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:DatabaseAccountSqlContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Compute node information related to a AmlCompute.
 func ListMachineLearningComputeNodes(ctx *pulumi.Context, args *ListMachineLearningComputeNodesArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeNodesResult, error) {
 	var rv ListMachineLearningComputeNodesResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20190501:listMachineLearningComputeNodes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20190501:listMachineLearningComputeNodes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

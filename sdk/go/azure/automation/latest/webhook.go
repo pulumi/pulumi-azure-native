@@ -14,7 +14,7 @@ import (
 // Definition of the webhook type.
 // Latest API Version: 2015-10-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Webhook'.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -64,7 +64,13 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Webhook"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Webhook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Webhook"),
@@ -72,7 +78,7 @@ func NewWebhook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Webhook
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:Webhook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:Webhook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +90,7 @@ func NewWebhook(ctx *pulumi.Context,
 func GetWebhook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebhookState, opts ...pulumi.ResourceOption) (*Webhook, error) {
 	var resource Webhook
-	err := ctx.ReadResource("azure-nextgen:automation/latest:Webhook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:Webhook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

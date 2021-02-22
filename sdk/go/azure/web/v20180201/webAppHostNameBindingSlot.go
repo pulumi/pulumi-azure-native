@@ -59,28 +59,55 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppHostNameBindingSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHostNameBindingSlot"),
@@ -88,7 +115,7 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBindingSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20180201:WebAppHostNameBindingSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20180201:WebAppHostNameBindingSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +127,7 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 func GetWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppHostNameBindingSlotState, opts ...pulumi.ResourceOption) (*WebAppHostNameBindingSlot, error) {
 	var resource WebAppHostNameBindingSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20180201:WebAppHostNameBindingSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20180201:WebAppHostNameBindingSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

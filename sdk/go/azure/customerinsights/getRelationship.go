@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func LookupRelationship(ctx *pulumi.Context, args *LookupRelationshipArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipResult, error) {
 	var rv LookupRelationshipResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getRelationship", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getRelationship", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

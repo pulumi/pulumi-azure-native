@@ -10,7 +10,7 @@ import (
 // Represents the response of a service unit resource.
 func LookupServiceUnit(ctx *pulumi.Context, args *LookupServiceUnitArgs, opts ...pulumi.InvokeOption) (*LookupServiceUnitResult, error) {
 	var rv LookupServiceUnitResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getServiceUnit", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getServiceUnit", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

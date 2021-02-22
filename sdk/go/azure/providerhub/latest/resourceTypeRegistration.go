@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ResourceTypeRegistration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:ResourceTypeRegistration'.
 type ResourceTypeRegistration struct {
 	pulumi.CustomResourceState
 
@@ -36,7 +36,13 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:ResourceTypeRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:ResourceTypeRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:ResourceTypeRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"),
@@ -44,7 +50,7 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ResourceTypeRegistration
-	err := ctx.RegisterResource("azure-nextgen:providerhub/latest:ResourceTypeRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/latest:ResourceTypeRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +62,7 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 func GetResourceTypeRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceTypeRegistrationState, opts ...pulumi.ResourceOption) (*ResourceTypeRegistration, error) {
 	var resource ResourceTypeRegistration
-	err := ctx.ReadResource("azure-nextgen:providerhub/latest:ResourceTypeRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/latest:ResourceTypeRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

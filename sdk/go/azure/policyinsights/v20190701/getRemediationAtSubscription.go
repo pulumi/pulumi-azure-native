@@ -10,7 +10,7 @@ import (
 // The remediation definition.
 func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediationAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtSubscriptionResult, error) {
 	var rv LookupRemediationAtSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/v20190701:getRemediationAtSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/v20190701:getRemediationAtSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

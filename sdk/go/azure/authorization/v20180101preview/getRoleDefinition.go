@@ -10,7 +10,7 @@ import (
 // Role definition.
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20180101preview:getRoleDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20180101preview:getRoleDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

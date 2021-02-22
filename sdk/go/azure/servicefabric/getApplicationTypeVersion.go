@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupApplicationTypeVersion(ctx *pulumi.Context, args *LookupApplicationTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeVersionResult, error) {
 	var rv LookupApplicationTypeVersionResult
-	err := ctx.Invoke("azure-nextgen:servicefabric:getApplicationTypeVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric:getApplicationTypeVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

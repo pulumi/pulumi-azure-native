@@ -36,7 +36,13 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:DefaultRollout"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/latest:DefaultRollout"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:DefaultRollout"),
@@ -44,7 +50,7 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DefaultRollout
-	err := ctx.RegisterResource("azure-nextgen:providerhub/v20201120:DefaultRollout", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/v20201120:DefaultRollout", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +62,7 @@ func NewDefaultRollout(ctx *pulumi.Context,
 func GetDefaultRollout(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DefaultRolloutState, opts ...pulumi.ResourceOption) (*DefaultRollout, error) {
 	var resource DefaultRollout
-	err := ctx.ReadResource("azure-nextgen:providerhub/v20201120:DefaultRollout", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/v20201120:DefaultRollout", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

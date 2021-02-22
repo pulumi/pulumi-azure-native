@@ -14,7 +14,7 @@ import (
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:Cache'.
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -66,16 +66,31 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagecache:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20190801preview:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20191101:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20191101:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20200301:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20200301:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20201001:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20201001:Cache"),
@@ -83,7 +98,7 @@ func NewCache(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cache
-	err := ctx.RegisterResource("azure-nextgen:storagecache/latest:Cache", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagecache/latest:Cache", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +110,7 @@ func NewCache(ctx *pulumi.Context,
 func GetCache(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CacheState, opts ...pulumi.ResourceOption) (*Cache, error) {
 	var resource Cache
-	err := ctx.ReadResource("azure-nextgen:storagecache/latest:Cache", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagecache/latest:Cache", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

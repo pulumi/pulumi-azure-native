@@ -10,7 +10,7 @@ import (
 // Functions host level keys.
 func ListWebAppHostKeys(ctx *pulumi.Context, args *ListWebAppHostKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysResult, error) {
 	var rv ListWebAppHostKeysResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:listWebAppHostKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:listWebAppHostKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

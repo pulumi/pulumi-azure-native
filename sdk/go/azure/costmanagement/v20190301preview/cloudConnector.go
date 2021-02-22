@@ -61,12 +61,15 @@ func NewCloudConnector(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:CloudConnector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:CloudConnector"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CloudConnector
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/v20190301preview:CloudConnector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +81,7 @@ func NewCloudConnector(ctx *pulumi.Context,
 func GetCloudConnector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CloudConnectorState, opts ...pulumi.ResourceOption) (*CloudConnector, error) {
 	var resource CloudConnector
-	err := ctx.ReadResource("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/v20190301preview:CloudConnector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

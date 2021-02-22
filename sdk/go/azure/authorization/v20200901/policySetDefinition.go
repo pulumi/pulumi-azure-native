@@ -47,28 +47,55 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/latest:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20170601preview:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20180301:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180501:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20190101:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190601:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190901:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190901:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200301:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicySetDefinition"),
@@ -76,7 +103,7 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PolicySetDefinition
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20200901:PolicySetDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20200901:PolicySetDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +115,7 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 func GetPolicySetDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicySetDefinitionState, opts ...pulumi.ResourceOption) (*PolicySetDefinition, error) {
 	var resource PolicySetDefinition
-	err := ctx.ReadResource("azure-nextgen:authorization/v20200901:PolicySetDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20200901:PolicySetDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

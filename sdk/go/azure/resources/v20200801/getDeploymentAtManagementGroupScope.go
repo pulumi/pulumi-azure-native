@@ -10,7 +10,7 @@ import (
 // Deployment information.
 func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDeploymentAtManagementGroupScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtManagementGroupScopeResult, error) {
 	var rv LookupDeploymentAtManagementGroupScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/v20200801:getDeploymentAtManagementGroupScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20200801:getDeploymentAtManagementGroupScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

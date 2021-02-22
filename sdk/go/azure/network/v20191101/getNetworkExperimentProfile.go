@@ -10,7 +10,7 @@ import (
 // Defines an Network Experiment Profile and lists of Experiments
 func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExperimentProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkExperimentProfileResult, error) {
 	var rv LookupNetworkExperimentProfileResult
-	err := ctx.Invoke("azure-nextgen:network/v20191101:getNetworkExperimentProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191101:getNetworkExperimentProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

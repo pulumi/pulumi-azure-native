@@ -14,7 +14,7 @@ import (
 // Deployment resource payload
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Deployment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Deployment'.
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -46,13 +46,25 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20201101preview:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:Deployment"),
@@ -60,7 +72,7 @@ func NewDeployment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Deployment
-	err := ctx.RegisterResource("azure-nextgen:appplatform/latest:Deployment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/latest:Deployment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewDeployment(ctx *pulumi.Context,
 func GetDeployment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentState, opts ...pulumi.ResourceOption) (*Deployment, error) {
 	var resource Deployment
-	err := ctx.ReadResource("azure-nextgen:appplatform/latest:Deployment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/latest:Deployment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

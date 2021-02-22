@@ -10,7 +10,7 @@ import (
 // Single item in List or Get Migration Config operation
 func LookupMigrationConfig(ctx *pulumi.Context, args *LookupMigrationConfigArgs, opts ...pulumi.InvokeOption) (*LookupMigrationConfigResult, error) {
 	var rv LookupMigrationConfigResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:getMigrationConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getMigrationConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

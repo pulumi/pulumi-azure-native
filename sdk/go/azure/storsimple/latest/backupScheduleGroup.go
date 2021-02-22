@@ -14,7 +14,7 @@ import (
 // The Backup Schedule Group
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.
 type BackupScheduleGroup struct {
 	pulumi.CustomResourceState
 
@@ -47,7 +47,13 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BackupScheduleGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupScheduleGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:BackupScheduleGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:BackupScheduleGroup"),
@@ -55,7 +61,7 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupScheduleGroup
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:BackupScheduleGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:BackupScheduleGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 func GetBackupScheduleGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupScheduleGroupState, opts ...pulumi.ResourceOption) (*BackupScheduleGroup, error) {
 	var resource BackupScheduleGroup
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:BackupScheduleGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:BackupScheduleGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

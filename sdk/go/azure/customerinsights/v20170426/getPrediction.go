@@ -10,7 +10,7 @@ import (
 // The prediction resource format.
 func LookupPrediction(ctx *pulumi.Context, args *LookupPredictionArgs, opts ...pulumi.InvokeOption) (*LookupPredictionResult, error) {
 	var rv LookupPredictionResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getPrediction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getPrediction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

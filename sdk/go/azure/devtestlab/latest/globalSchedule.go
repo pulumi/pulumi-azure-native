@@ -14,7 +14,7 @@ import (
 // A schedule.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:GlobalSchedule'.
 type GlobalSchedule struct {
 	pulumi.CustomResourceState
 
@@ -62,10 +62,19 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:GlobalSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:GlobalSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:GlobalSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:GlobalSchedule"),
@@ -73,7 +82,7 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GlobalSchedule
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:GlobalSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:GlobalSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +94,7 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 func GetGlobalSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalScheduleState, opts ...pulumi.ResourceOption) (*GlobalSchedule, error) {
 	var resource GlobalSchedule
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:GlobalSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:GlobalSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:maps/v20200201preview:Account":
+	case "azure-native:maps/v20200201preview:Account":
 		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:maps/v20200201preview:Creator":
+	case "azure-native:maps/v20200201preview:Creator":
 		r, err = NewCreator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:maps/v20200201preview:PrivateAtlase":
+	case "azure-native:maps/v20200201preview:PrivateAtlase":
 		r, err = NewPrivateAtlase(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"maps/v20200201preview",
 		&module{version},
 	)

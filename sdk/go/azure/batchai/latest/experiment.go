@@ -14,7 +14,7 @@ import (
 // Experiment information.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Experiment'.
 type Experiment struct {
 	pulumi.CustomResourceState
 
@@ -45,7 +45,13 @@ func NewExperiment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Experiment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Experiment"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/v20180501:Experiment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Experiment"),
@@ -53,7 +59,7 @@ func NewExperiment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Experiment
-	err := ctx.RegisterResource("azure-nextgen:batchai/latest:Experiment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/latest:Experiment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewExperiment(ctx *pulumi.Context,
 func GetExperiment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExperimentState, opts ...pulumi.ResourceOption) (*Experiment, error) {
 	var resource Experiment
-	err := ctx.ReadResource("azure-nextgen:batchai/latest:Experiment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/latest:Experiment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

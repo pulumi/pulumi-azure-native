@@ -10,10 +10,10 @@ import (
 // A virtual network rule.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getVirtualNetworkRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getVirtualNetworkRule'.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb/latest:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb/latest:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

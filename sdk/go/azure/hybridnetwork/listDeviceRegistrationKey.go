@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func ListDeviceRegistrationKey(ctx *pulumi.Context, args *ListDeviceRegistrationKeyArgs, opts ...pulumi.InvokeOption) (*ListDeviceRegistrationKeyResult, error) {
 	var rv ListDeviceRegistrationKeyResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork:listDeviceRegistrationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork:listDeviceRegistrationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

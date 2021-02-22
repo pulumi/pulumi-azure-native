@@ -14,7 +14,7 @@ import (
 // Describes a hybrid machine.
 // Latest API Version: 2020-08-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:Machine'.
 type Machine struct {
 	pulumi.CustomResourceState
 
@@ -79,22 +79,43 @@ func NewMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridcompute:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20190318preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190318preview:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20190802preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20191212:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20191212:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200730preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200730preview:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200802:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200802:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:Machine"),
@@ -102,7 +123,7 @@ func NewMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Machine
-	err := ctx.RegisterResource("azure-nextgen:hybridcompute/latest:Machine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridcompute/latest:Machine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +135,7 @@ func NewMachine(ctx *pulumi.Context,
 func GetMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineState, opts ...pulumi.ResourceOption) (*Machine, error) {
 	var resource Machine
-	err := ctx.ReadResource("azure-nextgen:hybridcompute/latest:Machine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridcompute/latest:Machine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

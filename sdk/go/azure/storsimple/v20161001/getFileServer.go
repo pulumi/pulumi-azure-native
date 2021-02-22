@@ -10,7 +10,7 @@ import (
 // The file server.
 func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...pulumi.InvokeOption) (*LookupFileServerResult, error) {
 	var rv LookupFileServerResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getFileServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

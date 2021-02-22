@@ -9,7 +9,7 @@ import (
 
 func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegrationAccountCertificateArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountCertificateResult, error) {
 	var rv LookupIntegrationAccountCertificateResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150801preview:getIntegrationAccountCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

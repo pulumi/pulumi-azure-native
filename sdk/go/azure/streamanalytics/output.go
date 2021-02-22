@@ -45,10 +45,19 @@ func NewOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics/latest:Output"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Output"),
 		},
 		{
+			Type: pulumi.String("azure-native:streamanalytics/v20160301:Output"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Output"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20170401preview:Output"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:Output"),
@@ -56,7 +65,7 @@ func NewOutput(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Output
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics:Output", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics:Output", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewOutput(ctx *pulumi.Context,
 func GetOutput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OutputState, opts ...pulumi.ResourceOption) (*Output, error) {
 	var resource Output
-	err := ctx.ReadResource("azure-nextgen:streamanalytics:Output", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics:Output", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

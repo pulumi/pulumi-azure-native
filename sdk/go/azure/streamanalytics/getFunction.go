@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-01.
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	var rv LookupFunctionResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics:getFunction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics:getFunction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

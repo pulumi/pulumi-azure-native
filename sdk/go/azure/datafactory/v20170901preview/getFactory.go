@@ -10,7 +10,7 @@ import (
 // Factory resource type.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20170901preview:getFactory", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getFactory", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

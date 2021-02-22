@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListWorkflowRunActionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionExpressionTracesResult
-	err := ctx.Invoke("azure-nextgen:logic:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

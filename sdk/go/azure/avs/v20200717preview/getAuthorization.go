@@ -10,7 +10,7 @@ import (
 // ExpressRoute Circuit Authorization
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	var rv LookupAuthorizationResult
-	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getAuthorization", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20200717preview:getAuthorization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

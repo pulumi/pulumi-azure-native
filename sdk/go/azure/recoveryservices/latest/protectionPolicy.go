@@ -14,7 +14,7 @@ import (
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionPolicy'.
 type ProtectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -47,19 +47,37 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionPolicy"),
@@ -67,7 +85,7 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionPolicy
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ProtectionPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +97,7 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 func GetProtectionPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectionPolicyState, opts ...pulumi.ResourceOption) (*ProtectionPolicy, error) {
 	var resource ProtectionPolicy
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ProtectionPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ProtectionPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

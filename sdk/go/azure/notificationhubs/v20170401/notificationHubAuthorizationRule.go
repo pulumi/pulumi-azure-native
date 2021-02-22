@@ -66,10 +66,19 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/latest:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
@@ -77,7 +86,7 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationHubAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +98,7 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 func GetNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationHubAuthorizationRuleState, opts ...pulumi.ResourceOption) (*NotificationHubAuthorizationRule, error) {
 	var resource NotificationHubAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

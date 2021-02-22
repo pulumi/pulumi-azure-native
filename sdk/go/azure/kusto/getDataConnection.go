@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-18.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
-	err := ctx.Invoke("azure-nextgen:kusto:getDataConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto:getDataConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

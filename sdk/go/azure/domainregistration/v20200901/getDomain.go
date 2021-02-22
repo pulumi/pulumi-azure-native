@@ -10,7 +10,7 @@ import (
 // Information about a domain.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/v20200901:getDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/v20200901:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

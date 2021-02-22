@@ -10,10 +10,10 @@ import (
 // Peerings in a VirtualNetwork resource
 // Latest API Version: 2018-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getvNetPeering'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'.
 func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulumi.InvokeOption) (*GetvNetPeeringResult, error) {
 	var rv GetvNetPeeringResult
-	err := ctx.Invoke("azure-nextgen:databricks/latest:getvNetPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databricks/latest:getvNetPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

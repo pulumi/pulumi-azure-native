@@ -14,7 +14,7 @@ import (
 // Rule Collection Group resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleCollectionGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicyRuleCollectionGroup'.
 type FirewallPolicyRuleCollectionGroup struct {
 	pulumi.CustomResourceState
 
@@ -47,16 +47,31 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup"),
@@ -64,7 +79,7 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallPolicyRuleCollectionGroup
-	err := ctx.RegisterResource("azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:FirewallPolicyRuleCollectionGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +91,7 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 func GetFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallPolicyRuleCollectionGroupState, opts ...pulumi.ResourceOption) (*FirewallPolicyRuleCollectionGroup, error) {
 	var resource FirewallPolicyRuleCollectionGroup
-	err := ctx.ReadResource("azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:FirewallPolicyRuleCollectionGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -42,7 +42,13 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
@@ -50,7 +56,7 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseKnowledgeGraph
-	err := ctx.RegisterResource("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 func GetEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnterpriseKnowledgeGraphState, opts ...pulumi.ResourceOption) (*EnterpriseKnowledgeGraph, error) {
 	var resource EnterpriseKnowledgeGraph
-	err := ctx.ReadResource("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Represents an instance of a orchestrator.
 func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelegatedSubnetServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupDelegatedSubnetServiceDetailsResult, error) {
 	var rv LookupDelegatedSubnetServiceDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

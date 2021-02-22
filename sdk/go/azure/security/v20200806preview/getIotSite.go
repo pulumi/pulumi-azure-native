@@ -10,7 +10,7 @@ import (
 // IoT site model
 func LookupIotSite(ctx *pulumi.Context, args *LookupIotSiteArgs, opts ...pulumi.InvokeOption) (*LookupIotSiteResult, error) {
 	var rv LookupIotSiteResult
-	err := ctx.Invoke("azure-nextgen:security/v20200806preview:getIotSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20200806preview:getIotSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

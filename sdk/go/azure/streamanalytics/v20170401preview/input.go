@@ -38,10 +38,19 @@ func NewInput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics:Input"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics:Input"),
 		},
 		{
+			Type: pulumi.String("azure-native:streamanalytics/latest:Input"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Input"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20160301:Input"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Input"),
@@ -49,7 +58,7 @@ func NewInput(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Input
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics/v20170401preview:Input", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics/v20170401preview:Input", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +70,7 @@ func NewInput(ctx *pulumi.Context,
 func GetInput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InputState, opts ...pulumi.ResourceOption) (*Input, error) {
 	var resource Input
-	err := ctx.ReadResource("azure-nextgen:streamanalytics/v20170401preview:Input", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics/v20170401preview:Input", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

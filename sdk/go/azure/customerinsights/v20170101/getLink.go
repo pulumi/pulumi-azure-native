@@ -10,7 +10,7 @@ import (
 // The link resource format.
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
 	var rv LookupLinkResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170101:getLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170101:getLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

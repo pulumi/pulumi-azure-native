@@ -10,7 +10,7 @@ import (
 // Represents a server group for create.
 func LookupServerGroup(ctx *pulumi.Context, args *LookupServerGroupArgs, opts ...pulumi.InvokeOption) (*LookupServerGroupResult, error) {
 	var rv LookupServerGroupResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql/v20201005privatepreview:getServerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

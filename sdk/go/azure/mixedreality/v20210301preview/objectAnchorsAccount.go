@@ -46,12 +46,15 @@ func NewObjectAnchorsAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:mixedreality:ObjectAnchorsAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality:ObjectAnchorsAccount"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ObjectAnchorsAccount
-	err := ctx.RegisterResource("azure-nextgen:mixedreality/v20210301preview:ObjectAnchorsAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewObjectAnchorsAccount(ctx *pulumi.Context,
 func GetObjectAnchorsAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ObjectAnchorsAccountState, opts ...pulumi.ResourceOption) (*ObjectAnchorsAccount, error) {
 	var resource ObjectAnchorsAccount
-	err := ctx.ReadResource("azure-nextgen:mixedreality/v20210301preview:ObjectAnchorsAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -56,43 +56,85 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20150615:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20150615:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20160330:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160330:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20170330:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineExtension"),
@@ -100,7 +142,7 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineExtension
-	err := ctx.RegisterResource("azure-nextgen:compute/v20191201:VirtualMachineExtension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20191201:VirtualMachineExtension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +154,7 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 func GetVirtualMachineExtension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineExtensionState, opts ...pulumi.ResourceOption) (*VirtualMachineExtension, error) {
 	var resource VirtualMachineExtension
-	err := ctx.ReadResource("azure-nextgen:compute/v20191201:VirtualMachineExtension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20191201:VirtualMachineExtension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

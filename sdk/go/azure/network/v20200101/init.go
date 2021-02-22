@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:network/v20200101:FrontDoor":
+	case "azure-native:network/v20200101:FrontDoor":
 		r, err = NewFrontDoor(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20200101:PrivateZone":
+	case "azure-native:network/v20200101:PrivateZone":
 		r, err = NewPrivateZone(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20200101:RecordSet":
+	case "azure-native:network/v20200101:RecordSet":
 		r, err = NewRecordSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20200101:RulesEngine":
+	case "azure-native:network/v20200101:RulesEngine":
 		r, err = NewRulesEngine(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20200101:VirtualNetworkLink":
+	case "azure-native:network/v20200101:VirtualNetworkLink":
 		r, err = NewVirtualNetworkLink(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"network/v20200101",
 		&module{version},
 	)

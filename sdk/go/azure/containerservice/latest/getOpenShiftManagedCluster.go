@@ -10,10 +10,10 @@ import (
 // OpenShift Managed cluster.
 // Latest API Version: 2019-04-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getOpenShiftManagedCluster'.
 func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftManagedClusterResult, error) {
 	var rv LookupOpenShiftManagedClusterResult
-	err := ctx.Invoke("azure-nextgen:containerservice/latest:getOpenShiftManagedCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/latest:getOpenShiftManagedCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

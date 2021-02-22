@@ -10,7 +10,7 @@ import (
 // Values returned by the List operation.
 func ListJobRemoteLoginInformation(ctx *pulumi.Context, args *ListJobRemoteLoginInformationArgs, opts ...pulumi.InvokeOption) (*ListJobRemoteLoginInformationResult, error) {
 	var rv ListJobRemoteLoginInformationResult
-	err := ctx.Invoke("azure-nextgen:batchai/v20180501:listJobRemoteLoginInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/v20180501:listJobRemoteLoginInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

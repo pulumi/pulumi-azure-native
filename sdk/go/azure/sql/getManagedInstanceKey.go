@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupManagedInstanceKey(ctx *pulumi.Context, args *LookupManagedInstanceKeyArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceKeyResult, error) {
 	var rv LookupManagedInstanceKeyResult
-	err := ctx.Invoke("azure-nextgen:sql:getManagedInstanceKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getManagedInstanceKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

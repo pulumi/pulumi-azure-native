@@ -43,7 +43,13 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:Secret"),
@@ -51,7 +57,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20200901:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20200901:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:cdn/v20200901:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20200901:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

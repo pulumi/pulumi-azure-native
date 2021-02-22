@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListTenantAccessGitSecrets(ctx *pulumi.Context, args *ListTenantAccessGitSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessGitSecretsResult, error) {
 	var rv ListTenantAccessGitSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listTenantAccessGitSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listTenantAccessGitSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ...pulumi.InvokeOption) (*LookupSavedSearchResult, error) {
 	var rv LookupSavedSearchResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights:getSavedSearch", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights:getSavedSearch", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

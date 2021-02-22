@@ -11,7 +11,7 @@ import (
 // API Version: 2015-03-20.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights:listWorkspaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights:listWorkspaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Gateway settings.
 func GetClusterGatewaySettings(ctx *pulumi.Context, args *GetClusterGatewaySettingsArgs, opts ...pulumi.InvokeOption) (*GetClusterGatewaySettingsResult, error) {
 	var rv GetClusterGatewaySettingsResult
-	err := ctx.Invoke("azure-nextgen:hdinsight/v20180601preview:getClusterGatewaySettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hdinsight/v20180601preview:getClusterGatewaySettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

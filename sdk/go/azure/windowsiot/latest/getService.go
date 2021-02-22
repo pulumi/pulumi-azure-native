@@ -10,10 +10,10 @@ import (
 // The description of the Windows IoT Device Service.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:windowsiot:getService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:windowsiot:getService'.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:windowsiot/latest:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:windowsiot/latest:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

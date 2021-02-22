@@ -50,12 +50,15 @@ func NewReportByDepartment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20180801preview:ReportByDepartment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportByDepartment
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:ReportByDepartment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:ReportByDepartment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +70,7 @@ func NewReportByDepartment(ctx *pulumi.Context,
 func GetReportByDepartment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReportByDepartmentState, opts ...pulumi.ResourceOption) (*ReportByDepartment, error) {
 	var resource ReportByDepartment
-	err := ctx.ReadResource("azure-nextgen:costmanagement:ReportByDepartment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:ReportByDepartment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

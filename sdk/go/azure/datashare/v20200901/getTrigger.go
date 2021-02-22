@@ -10,7 +10,7 @@ import (
 // A Trigger data transfer object.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20200901:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20200901:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

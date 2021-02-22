@@ -10,10 +10,10 @@ import (
 // ExpressRoute Circuit Authorization
 // Latest API Version: 2020-03-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getAuthorization'.
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	var rv LookupAuthorizationResult
-	err := ctx.Invoke("azure-nextgen:avs/latest:getAuthorization", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/latest:getAuthorization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

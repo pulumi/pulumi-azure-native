@@ -48,19 +48,37 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectionContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectionContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20161201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20161201:ProtectionContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectionContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectionContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionContainer"),
@@ -68,7 +86,7 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionContainer
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ProtectionContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ProtectionContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +98,7 @@ func NewProtectionContainer(ctx *pulumi.Context,
 func GetProtectionContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectionContainerState, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
 	var resource ProtectionContainer
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ProtectionContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ProtectionContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Data Lake Store virtual network rule information.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:datalakestore/v20161101:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakestore/v20161101:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

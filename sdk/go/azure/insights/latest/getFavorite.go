@@ -10,10 +10,10 @@ import (
 // Properties that define a favorite that is associated to an Application Insights component.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getFavorite'.
 func LookupFavorite(ctx *pulumi.Context, args *LookupFavoriteArgs, opts ...pulumi.InvokeOption) (*LookupFavoriteResult, error) {
 	var rv LookupFavoriteResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getFavorite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getFavorite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

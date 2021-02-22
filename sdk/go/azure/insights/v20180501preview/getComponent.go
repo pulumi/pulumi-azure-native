@@ -10,7 +10,7 @@ import (
 // An Application Insights component definition.
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
 	var rv LookupComponentResult
-	err := ctx.Invoke("azure-nextgen:insights/v20180501preview:getComponent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20180501preview:getComponent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

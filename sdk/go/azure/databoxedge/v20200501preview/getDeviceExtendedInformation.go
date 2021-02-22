@@ -10,7 +10,7 @@ import (
 // The extended Info of the Data Box Edge/Gateway device.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
 	var rv GetDeviceExtendedInformationResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200501preview:getDeviceExtendedInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200501preview:getDeviceExtendedInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

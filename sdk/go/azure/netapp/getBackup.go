@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01.
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
 	var rv LookupBackupResult
-	err := ctx.Invoke("azure-nextgen:netapp:getBackup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp:getBackup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

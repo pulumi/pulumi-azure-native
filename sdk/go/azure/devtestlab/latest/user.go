@@ -14,7 +14,7 @@ import (
 // Profile of a lab user.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -53,10 +53,19 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:User"),
@@ -64,7 +73,7 @@ func NewUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource User
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:User", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:User", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewUser(ctx *pulumi.Context,
 func GetUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserState, opts ...pulumi.ResourceOption) (*User, error) {
 	var resource User
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:User", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:User", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

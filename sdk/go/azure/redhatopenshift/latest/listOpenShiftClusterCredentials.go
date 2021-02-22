@@ -10,10 +10,10 @@ import (
 // OpenShiftClusterCredentials represents an OpenShift cluster's credentials
 // Latest API Version: 2020-04-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'.
 func ListOpenShiftClusterCredentials(ctx *pulumi.Context, args *ListOpenShiftClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*ListOpenShiftClusterCredentialsResult, error) {
 	var rv ListOpenShiftClusterCredentialsResult
-	err := ctx.Invoke("azure-nextgen:redhatopenshift/latest:listOpenShiftClusterCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:redhatopenshift/latest:listOpenShiftClusterCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

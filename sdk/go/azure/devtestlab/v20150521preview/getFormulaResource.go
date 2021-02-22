@@ -10,7 +10,7 @@ import (
 // A formula.
 func LookupFormulaResource(ctx *pulumi.Context, args *LookupFormulaResourceArgs, opts ...pulumi.InvokeOption) (*LookupFormulaResourceResult, error) {
 	var rv LookupFormulaResourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getFormulaResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getFormulaResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // The device security group resource
 // Latest API Version: 2019-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -44,10 +44,19 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:DeviceSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20170801preview:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:DeviceSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20190801:DeviceSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20190801:DeviceSecurityGroup"),
@@ -55,7 +64,7 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeviceSecurityGroup
-	err := ctx.RegisterResource("azure-nextgen:security/latest:DeviceSecurityGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/latest:DeviceSecurityGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 func GetDeviceSecurityGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceSecurityGroupState, opts ...pulumi.ResourceOption) (*DeviceSecurityGroup, error) {
 	var resource DeviceSecurityGroup
-	err := ctx.ReadResource("azure-nextgen:security/latest:DeviceSecurityGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/latest:DeviceSecurityGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

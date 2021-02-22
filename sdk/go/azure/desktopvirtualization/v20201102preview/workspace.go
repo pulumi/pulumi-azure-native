@@ -43,28 +43,55 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:Workspace"),
@@ -72,7 +99,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20201102preview:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization/v20201102preview:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +111,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization/v20201102preview:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization/v20201102preview:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

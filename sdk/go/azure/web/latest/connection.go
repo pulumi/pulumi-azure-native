@@ -14,7 +14,7 @@ import (
 // API connection
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'.
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -43,10 +43,19 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:Connection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801preview:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801preview:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160601:Connection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160601:Connection"),
@@ -54,7 +63,7 @@ func NewConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Connection
-	err := ctx.RegisterResource("azure-nextgen:web/latest:Connection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:Connection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewConnection(ctx *pulumi.Context,
 func GetConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
 	var resource Connection
-	err := ctx.ReadResource("azure-nextgen:web/latest:Connection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:Connection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

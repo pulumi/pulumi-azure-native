@@ -10,7 +10,7 @@ import (
 // EventGrid Partner Namespace.
 func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupPartnerNamespaceResult, error) {
 	var rv LookupPartnerNamespaceResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:getPartnerNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getPartnerNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupPython2Package(ctx *pulumi.Context, args *LookupPython2PackageArgs, opts ...pulumi.InvokeOption) (*LookupPython2PackageResult, error) {
 	var rv LookupPython2PackageResult
-	err := ctx.Invoke("azure-nextgen:automation:getPython2Package", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getPython2Package", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func ListDatabaseAccountKeys(ctx *pulumi.Context, args *ListDatabaseAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountKeysResult, error) {
 	var rv ListDatabaseAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:documentdb:listDatabaseAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:listDatabaseAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

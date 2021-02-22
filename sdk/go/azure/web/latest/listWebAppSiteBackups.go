@@ -10,10 +10,10 @@ import (
 // Collection of backup items.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackups'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSiteBackups'.
 func ListWebAppSiteBackups(ctx *pulumi.Context, args *ListWebAppSiteBackupsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsResult, error) {
 	var rv ListWebAppSiteBackupsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppSiteBackups", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppSiteBackups", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

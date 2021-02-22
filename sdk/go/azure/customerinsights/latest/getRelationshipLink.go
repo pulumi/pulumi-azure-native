@@ -10,10 +10,10 @@ import (
 // The relationship link resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationshipLink'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationshipLink'.
 func LookupRelationshipLink(ctx *pulumi.Context, args *LookupRelationshipLinkArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipLinkResult, error) {
 	var rv LookupRelationshipLinkResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getRelationshipLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getRelationshipLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

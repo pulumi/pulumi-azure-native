@@ -43,22 +43,43 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault/latest:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/latest:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20150601:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20150601:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20161001:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20180214:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20180214preview:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20190901:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20200401preview:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Vault"),
@@ -66,7 +87,7 @@ func NewVault(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Vault
-	err := ctx.RegisterResource("azure-nextgen:keyvault:Vault", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault:Vault", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +99,7 @@ func NewVault(ctx *pulumi.Context,
 func GetVault(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VaultState, opts ...pulumi.ResourceOption) (*Vault, error) {
 	var resource Vault
-	err := ctx.ReadResource("azure-nextgen:keyvault:Vault", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault:Vault", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

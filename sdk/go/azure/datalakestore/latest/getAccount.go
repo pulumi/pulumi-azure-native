@@ -10,10 +10,10 @@ import (
 // Data Lake Store account information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getAccount'.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:datalakestore/latest:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakestore/latest:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

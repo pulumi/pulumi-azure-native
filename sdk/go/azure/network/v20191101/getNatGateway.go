@@ -10,7 +10,7 @@ import (
 // Nat Gateway resource.
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	var rv LookupNatGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/v20191101:getNatGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191101:getNatGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

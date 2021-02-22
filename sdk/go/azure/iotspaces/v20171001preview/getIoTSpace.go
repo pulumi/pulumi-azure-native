@@ -10,7 +10,7 @@ import (
 // The description of the IoTSpaces service.
 func LookupIoTSpace(ctx *pulumi.Context, args *LookupIoTSpaceArgs, opts ...pulumi.InvokeOption) (*LookupIoTSpaceResult, error) {
 	var rv LookupIoTSpaceResult
-	err := ctx.Invoke("azure-nextgen:iotspaces/v20171001preview:getIoTSpace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:iotspaces/v20171001preview:getIoTSpace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

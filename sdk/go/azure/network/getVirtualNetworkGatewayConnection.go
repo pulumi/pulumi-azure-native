@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayConnectionResult, error) {
 	var rv LookupVirtualNetworkGatewayConnectionResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualNetworkGatewayConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

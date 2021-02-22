@@ -10,10 +10,10 @@ import (
 // Compute role.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getRole'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getRole'.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
 	var rv LookupRoleResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getRole", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getRole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

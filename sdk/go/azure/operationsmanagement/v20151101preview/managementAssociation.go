@@ -46,12 +46,15 @@ func NewManagementAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationsmanagement:ManagementAssociation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationsmanagement:ManagementAssociation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementAssociation
-	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationsmanagement/v20151101preview:ManagementAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewManagementAssociation(ctx *pulumi.Context,
 func GetManagementAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementAssociationState, opts ...pulumi.ResourceOption) (*ManagementAssociation, error) {
 	var resource ManagementAssociation
-	err := ctx.ReadResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationsmanagement/v20151101preview:ManagementAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import (
 
 func LookupIntegrationAccountAgreement(ctx *pulumi.Context, args *LookupIntegrationAccountAgreementArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountAgreementResult, error) {
 	var rv LookupIntegrationAccountAgreementResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150801preview:getIntegrationAccountAgreement", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150801preview:getIntegrationAccountAgreement", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

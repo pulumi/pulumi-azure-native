@@ -11,7 +11,7 @@ import (
 // The task run will have the information of request and result of a run.
 func ListTaskRunDetails(ctx *pulumi.Context, args *ListTaskRunDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskRunDetailsResult, error) {
 	var rv ListTaskRunDetailsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20190601preview:listTaskRunDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20190601preview:listTaskRunDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -52,12 +52,15 @@ func NewBlueprint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:blueprint:Blueprint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:blueprint:Blueprint"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Blueprint
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Blueprint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20181101preview:Blueprint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +72,7 @@ func NewBlueprint(ctx *pulumi.Context,
 func GetBlueprint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlueprintState, opts ...pulumi.ResourceOption) (*Blueprint, error) {
 	var resource Blueprint
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20181101preview:Blueprint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20181101preview:Blueprint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

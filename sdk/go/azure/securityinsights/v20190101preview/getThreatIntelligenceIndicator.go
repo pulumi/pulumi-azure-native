@@ -10,7 +10,7 @@ import (
 // Threat intelligence information object.
 func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIntelligenceIndicatorArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelligenceIndicatorResult, error) {
 	var rv LookupThreatIntelligenceIndicatorResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getThreatIntelligenceIndicator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getThreatIntelligenceIndicator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

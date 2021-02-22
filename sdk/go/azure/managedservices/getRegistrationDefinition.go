@@ -11,7 +11,7 @@ import (
 // API Version: 2019-09-01.
 func LookupRegistrationDefinition(ctx *pulumi.Context, args *LookupRegistrationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationDefinitionResult, error) {
 	var rv LookupRegistrationDefinitionResult
-	err := ctx.Invoke("azure-nextgen:managedservices:getRegistrationDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedservices:getRegistrationDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

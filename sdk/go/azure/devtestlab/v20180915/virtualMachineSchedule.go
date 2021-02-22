@@ -65,10 +65,19 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:VirtualMachineSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:VirtualMachineSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualMachineSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule"),
@@ -76,7 +85,7 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineSchedule
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20180915:VirtualMachineSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +97,7 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 func GetVirtualMachineSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScheduleState, opts ...pulumi.ResourceOption) (*VirtualMachineSchedule, error) {
 	var resource VirtualMachineSchedule
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20180915:VirtualMachineSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

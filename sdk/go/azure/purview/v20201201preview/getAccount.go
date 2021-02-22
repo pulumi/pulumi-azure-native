@@ -10,7 +10,7 @@ import (
 // Account resource
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:purview/v20201201preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:purview/v20201201preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

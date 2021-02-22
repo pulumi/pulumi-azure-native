@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:alertsmanagement:ActionRuleByName":
+	case "azure-native:alertsmanagement:ActionRuleByName":
 		r, err = NewActionRuleByName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:alertsmanagement:HealthAlert":
+	case "azure-native:alertsmanagement:HealthAlert":
 		r, err = NewHealthAlert(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:alertsmanagement:SmartDetectorAlertRule":
+	case "azure-native:alertsmanagement:SmartDetectorAlertRule":
 		r, err = NewSmartDetectorAlertRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"alertsmanagement",
 		&module{version},
 	)

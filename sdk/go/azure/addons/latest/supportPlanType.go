@@ -14,7 +14,7 @@ import (
 // The status of the Canonical support plan.
 // Latest API Version: 2018-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:addons:SupportPlanType'.
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 
@@ -38,10 +38,19 @@ func NewSupportPlanType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:addons:SupportPlanType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:addons:SupportPlanType"),
 		},
 		{
+			Type: pulumi.String("azure-native:addons/v20170515:SupportPlanType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:addons/v20170515:SupportPlanType"),
+		},
+		{
+			Type: pulumi.String("azure-native:addons/v20180301:SupportPlanType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:addons/v20180301:SupportPlanType"),
@@ -49,7 +58,7 @@ func NewSupportPlanType(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SupportPlanType
-	err := ctx.RegisterResource("azure-nextgen:addons/latest:SupportPlanType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:addons/latest:SupportPlanType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +70,7 @@ func NewSupportPlanType(ctx *pulumi.Context,
 func GetSupportPlanType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SupportPlanTypeState, opts ...pulumi.ResourceOption) (*SupportPlanType, error) {
 	var resource SupportPlanType
-	err := ctx.ReadResource("azure-nextgen:addons/latest:SupportPlanType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:addons/latest:SupportPlanType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

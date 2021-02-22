@@ -10,7 +10,7 @@ import (
 // Description of topic resource.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20170401:getTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20170401:getTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

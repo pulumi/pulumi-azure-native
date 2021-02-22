@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
-	err := ctx.Invoke("azure-nextgen:servicebus:getDisasterRecoveryConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:getDisasterRecoveryConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

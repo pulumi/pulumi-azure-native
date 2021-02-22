@@ -10,10 +10,10 @@ import (
 // A report config resource.
 // Latest API Version: 2018-05-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfig'.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/latest:getReportConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/latest:getReportConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

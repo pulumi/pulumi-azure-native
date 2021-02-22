@@ -10,7 +10,7 @@ import (
 // Class of response for listContentKeys action
 func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLocatorContentKeysArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorContentKeysResult, error) {
 	var rv ListStreamingLocatorContentKeysResult
-	err := ctx.Invoke("azure-nextgen:media/v20200501:listStreamingLocatorContentKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20200501:listStreamingLocatorContentKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

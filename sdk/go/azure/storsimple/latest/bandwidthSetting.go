@@ -14,7 +14,7 @@ import (
 // The bandwidth setting.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BandwidthSetting'.
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BandwidthSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BandwidthSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:BandwidthSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:BandwidthSetting"),
@@ -56,7 +62,7 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSetting
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:BandwidthSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:BandwidthSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 func GetBandwidthSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BandwidthSettingState, opts ...pulumi.ResourceOption) (*BandwidthSetting, error) {
 	var resource BandwidthSetting
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:BandwidthSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:BandwidthSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

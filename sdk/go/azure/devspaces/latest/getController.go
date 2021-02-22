@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:getController'.
 func LookupController(ctx *pulumi.Context, args *LookupControllerArgs, opts ...pulumi.InvokeOption) (*LookupControllerResult, error) {
 	var rv LookupControllerResult
-	err := ctx.Invoke("azure-nextgen:devspaces/latest:getController", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devspaces/latest:getController", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

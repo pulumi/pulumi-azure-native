@@ -77,22 +77,43 @@ func NewMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridcompute/latest:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/latest:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20190318preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190318preview:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20190802preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20191212:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20191212:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200730preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200730preview:Machine"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200802:Machine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200802:Machine"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:Machine"),
@@ -100,7 +121,7 @@ func NewMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Machine
-	err := ctx.RegisterResource("azure-nextgen:hybridcompute:Machine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridcompute:Machine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +133,7 @@ func NewMachine(ctx *pulumi.Context,
 func GetMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineState, opts ...pulumi.ResourceOption) (*Machine, error) {
 	var resource Machine
-	err := ctx.ReadResource("azure-nextgen:hybridcompute:Machine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridcompute:Machine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

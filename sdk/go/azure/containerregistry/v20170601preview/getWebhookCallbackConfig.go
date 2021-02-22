@@ -10,7 +10,7 @@ import (
 // The configuration of service URI and custom headers for the webhook.
 func GetWebhookCallbackConfig(ctx *pulumi.Context, args *GetWebhookCallbackConfigArgs, opts ...pulumi.InvokeOption) (*GetWebhookCallbackConfigResult, error) {
 	var rv GetWebhookCallbackConfigResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20170601preview:getWebhookCallbackConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20170601preview:getWebhookCallbackConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -52,13 +52,25 @@ func NewConnectionType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:ConnectionType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:ConnectionType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:ConnectionType"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20151031:ConnectionType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:ConnectionType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:ConnectionType"),
@@ -66,7 +78,7 @@ func NewConnectionType(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionType
-	err := ctx.RegisterResource("azure-nextgen:automation/v20190601:ConnectionType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20190601:ConnectionType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +90,7 @@ func NewConnectionType(ctx *pulumi.Context,
 func GetConnectionType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionTypeState, opts ...pulumi.ResourceOption) (*ConnectionType, error) {
 	var resource ConnectionType
-	err := ctx.ReadResource("azure-nextgen:automation/v20190601:ConnectionType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20190601:ConnectionType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

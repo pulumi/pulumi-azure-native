@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredServerResult, error) {
 	var rv LookupRegisteredServerResult
-	err := ctx.Invoke("azure-nextgen:storagesync:getRegisteredServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync:getRegisteredServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -47,16 +47,31 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection"),
@@ -64,7 +79,7 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationGatewayPrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:ApplicationGatewayPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +91,7 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 func GetApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationGatewayPrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*ApplicationGatewayPrivateEndpointConnection, error) {
 	var resource ApplicationGatewayPrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:ApplicationGatewayPrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

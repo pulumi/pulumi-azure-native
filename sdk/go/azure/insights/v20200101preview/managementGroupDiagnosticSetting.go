@@ -46,7 +46,7 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
 	var resource ManagementGroupDiagnosticSetting
-	err := ctx.RegisterResource("azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 func GetManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementGroupDiagnosticSettingState, opts ...pulumi.ResourceOption) (*ManagementGroupDiagnosticSetting, error) {
 	var resource ManagementGroupDiagnosticSetting
-	err := ctx.ReadResource("azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

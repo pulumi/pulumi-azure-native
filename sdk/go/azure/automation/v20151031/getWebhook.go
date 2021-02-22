@@ -10,7 +10,7 @@ import (
 // Definition of the webhook type.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
-	err := ctx.Invoke("azure-nextgen:automation/v20151031:getWebhook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20151031:getWebhook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

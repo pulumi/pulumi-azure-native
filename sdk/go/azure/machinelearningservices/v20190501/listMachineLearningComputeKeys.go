@@ -10,7 +10,7 @@ import (
 // Secrets related to a Machine Learning compute. Might differ for every type of compute.
 func ListMachineLearningComputeKeys(ctx *pulumi.Context, args *ListMachineLearningComputeKeysArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeKeysResult, error) {
 	var rv ListMachineLearningComputeKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20190501:listMachineLearningComputeKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20190501:listMachineLearningComputeKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

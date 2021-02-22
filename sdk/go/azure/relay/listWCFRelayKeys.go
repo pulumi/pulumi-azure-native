@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListWCFRelayKeys(ctx *pulumi.Context, args *ListWCFRelayKeysArgs, opts ...pulumi.InvokeOption) (*ListWCFRelayKeysResult, error) {
 	var rv ListWCFRelayKeysResult
-	err := ctx.Invoke("azure-nextgen:relay:listWCFRelayKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:listWCFRelayKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

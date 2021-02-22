@@ -45,7 +45,13 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:EnterpriseChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:EnterpriseChannel"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/latest:EnterpriseChannel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/latest:EnterpriseChannel"),
@@ -53,7 +59,7 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseChannel
-	err := ctx.RegisterResource("azure-nextgen:botservice/v20180712:EnterpriseChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/v20180712:EnterpriseChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 func GetEnterpriseChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnterpriseChannelState, opts ...pulumi.ResourceOption) (*EnterpriseChannel, error) {
 	var resource EnterpriseChannel
-	err := ctx.ReadResource("azure-nextgen:botservice/v20180712:EnterpriseChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/v20180712:EnterpriseChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Describes a Virtual Machine Scale Set Extension.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetExtension'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetExtension'.
 func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getVirtualMachineScaleSetExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getVirtualMachineScaleSetExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

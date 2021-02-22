@@ -14,7 +14,7 @@ import (
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:EventSource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:EventSource'.
 type EventSource struct {
 	pulumi.CustomResourceState
 
@@ -48,16 +48,31 @@ func NewEventSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:EventSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:EventSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:EventSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:EventSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:EventSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:EventSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:EventSource"),
@@ -65,7 +80,7 @@ func NewEventSource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventSource
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/latest:EventSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/latest:EventSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +92,7 @@ func NewEventSource(ctx *pulumi.Context,
 func GetEventSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventSourceState, opts ...pulumi.ResourceOption) (*EventSource, error) {
 	var resource EventSource
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/latest:EventSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/latest:EventSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

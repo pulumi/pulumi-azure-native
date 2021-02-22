@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupIpGroup(ctx *pulumi.Context, args *LookupIpGroupArgs, opts ...pulumi.InvokeOption) (*LookupIpGroupResult, error) {
 	var rv LookupIpGroupResult
-	err := ctx.Invoke("azure-nextgen:network:getIpGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getIpGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

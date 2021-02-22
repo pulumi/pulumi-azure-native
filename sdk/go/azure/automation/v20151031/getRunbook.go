@@ -10,7 +10,7 @@ import (
 // Definition of the runbook type.
 func LookupRunbook(ctx *pulumi.Context, args *LookupRunbookArgs, opts ...pulumi.InvokeOption) (*LookupRunbookResult, error) {
 	var rv LookupRunbookResult
-	err := ctx.Invoke("azure-nextgen:automation/v20151031:getRunbook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20151031:getRunbook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

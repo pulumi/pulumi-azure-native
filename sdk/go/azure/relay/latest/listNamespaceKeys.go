@@ -10,10 +10,10 @@ import (
 // Namespace/Relay Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listNamespaceKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listNamespaceKeys'.
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/latest:listNamespaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/latest:listNamespaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,22 +44,43 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage/latest:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180301preview:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180301preview:ManagementPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20181101:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:ManagementPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:ManagementPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:ManagementPolicy"),
@@ -67,7 +88,7 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementPolicy
-	err := ctx.RegisterResource("azure-nextgen:storage:ManagementPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:ManagementPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +100,7 @@ func NewManagementPolicy(ctx *pulumi.Context,
 func GetManagementPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementPolicyState, opts ...pulumi.ResourceOption) (*ManagementPolicy, error) {
 	var resource ManagementPolicy
-	err := ctx.ReadResource("azure-nextgen:storage:ManagementPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:ManagementPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

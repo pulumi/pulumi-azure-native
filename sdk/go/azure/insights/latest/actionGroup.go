@@ -14,7 +14,7 @@ import (
 // An action group resource.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActionGroup'.
 type ActionGroup struct {
 	pulumi.CustomResourceState
 
@@ -73,19 +73,37 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20170401:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180301:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180301:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180901:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180901:ActionGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20190301:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20190301:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20190601:ActionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20190601:ActionGroup"),
@@ -93,7 +111,7 @@ func NewActionGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ActionGroup
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:ActionGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:ActionGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +123,7 @@ func NewActionGroup(ctx *pulumi.Context,
 func GetActionGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionGroupState, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
 	var resource ActionGroup
-	err := ctx.ReadResource("azure-nextgen:insights/latest:ActionGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:ActionGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

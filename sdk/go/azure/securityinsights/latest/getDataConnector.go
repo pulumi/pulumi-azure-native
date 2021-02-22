@@ -10,10 +10,10 @@ import (
 // Data connector.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getDataConnector'.
 func LookupDataConnector(ctx *pulumi.Context, args *LookupDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectorResult, error) {
 	var rv LookupDataConnectorResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/latest:getDataConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/latest:getDataConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // External OAuth authorization server settings.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getAuthorizationServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getAuthorizationServer'.
 func LookupAuthorizationServer(ctx *pulumi.Context, args *LookupAuthorizationServerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationServerResult, error) {
 	var rv LookupAuthorizationServerResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getAuthorizationServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getAuthorizationServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

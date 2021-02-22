@@ -13,7 +13,7 @@ import (
 // Class representing Traffic Manager User Metrics.
 // Latest API Version: 2018-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:TrafficManagerUserMetricsKey'.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 
@@ -34,7 +34,13 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:TrafficManagerUserMetricsKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:TrafficManagerUserMetricsKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:TrafficManagerUserMetricsKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"),
@@ -42,7 +48,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TrafficManagerUserMetricsKey
-	err := ctx.RegisterResource("azure-nextgen:network/latest:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +60,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 func GetTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TrafficManagerUserMetricsKeyState, opts ...pulumi.ResourceOption) (*TrafficManagerUserMetricsKey, error) {
 	var resource TrafficManagerUserMetricsKey
-	err := ctx.ReadResource("azure-nextgen:network/latest:TrafficManagerUserMetricsKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:TrafficManagerUserMetricsKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

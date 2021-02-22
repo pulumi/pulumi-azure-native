@@ -10,7 +10,7 @@ import (
 // An object that represents an export pipeline for a container registry.
 func LookupExportPipeline(ctx *pulumi.Context, args *LookupExportPipelineArgs, opts ...pulumi.InvokeOption) (*LookupExportPipelineResult, error) {
 	var rv LookupExportPipelineResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20201101preview:getExportPipeline", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20201101preview:getExportPipeline", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

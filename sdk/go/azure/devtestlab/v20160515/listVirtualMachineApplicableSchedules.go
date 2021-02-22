@@ -10,7 +10,7 @@ import (
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtualMachineApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListVirtualMachineApplicableSchedulesResult, error) {
 	var rv ListVirtualMachineApplicableSchedulesResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20160515:listVirtualMachineApplicableSchedules", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20160515:listVirtualMachineApplicableSchedules", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

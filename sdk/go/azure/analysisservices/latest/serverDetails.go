@@ -14,7 +14,7 @@ import (
 // Represents an instance of an Analysis Services resource.
 // Latest API Version: 2017-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.
 type ServerDetails struct {
 	pulumi.CustomResourceState
 
@@ -75,16 +75,31 @@ func NewServerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:analysisservices:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:analysisservices:ServerDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:analysisservices/v20160516:ServerDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:analysisservices/v20160516:ServerDetails"),
 		},
 		{
+			Type: pulumi.String("azure-native:analysisservices/v20170714:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:analysisservices/v20170714:ServerDetails"),
 		},
 		{
+			Type: pulumi.String("azure-native:analysisservices/v20170801:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:analysisservices/v20170801:ServerDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:analysisservices/v20170801beta:ServerDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:analysisservices/v20170801beta:ServerDetails"),
@@ -92,7 +107,7 @@ func NewServerDetails(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerDetails
-	err := ctx.RegisterResource("azure-nextgen:analysisservices/latest:ServerDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:analysisservices/latest:ServerDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +119,7 @@ func NewServerDetails(ctx *pulumi.Context,
 func GetServerDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerDetailsState, opts ...pulumi.ResourceOption) (*ServerDetails, error) {
 	var resource ServerDetails
-	err := ctx.ReadResource("azure-nextgen:analysisservices/latest:ServerDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:analysisservices/latest:ServerDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

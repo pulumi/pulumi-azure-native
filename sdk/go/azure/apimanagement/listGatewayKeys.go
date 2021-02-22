@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListGatewayKeys(ctx *pulumi.Context, args *ListGatewayKeysArgs, opts ...pulumi.InvokeOption) (*ListGatewayKeysResult, error) {
 	var rv ListGatewayKeysResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listGatewayKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listGatewayKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

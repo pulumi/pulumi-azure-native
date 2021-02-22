@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ...pulumi.InvokeOption) (*LookupReplicationResult, error) {
 	var rv LookupReplicationResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getReplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getReplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

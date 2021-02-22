@@ -40,13 +40,25 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationPolicy"),
@@ -54,7 +66,7 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationPolicy
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/v20180110:ReplicationPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/v20180110:ReplicationPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +78,7 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 func GetReplicationPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationPolicyState, opts ...pulumi.ResourceOption) (*ReplicationPolicy, error) {
 	var resource ReplicationPolicy
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/v20180110:ReplicationPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/v20180110:ReplicationPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

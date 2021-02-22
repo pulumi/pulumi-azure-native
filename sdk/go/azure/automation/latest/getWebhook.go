@@ -10,10 +10,10 @@ import (
 // Definition of the webhook type.
 // Latest API Version: 2015-10-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWebhook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWebhook'.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getWebhook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getWebhook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

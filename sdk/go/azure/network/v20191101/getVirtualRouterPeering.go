@@ -10,7 +10,7 @@ import (
 // Virtual Router Peering resource.
 func LookupVirtualRouterPeering(ctx *pulumi.Context, args *LookupVirtualRouterPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRouterPeeringResult, error) {
 	var rv LookupVirtualRouterPeeringResult
-	err := ctx.Invoke("azure-nextgen:network/v20191101:getVirtualRouterPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191101:getVirtualRouterPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Build step resource properties
 func LookupBuildStep(ctx *pulumi.Context, args *LookupBuildStepArgs, opts ...pulumi.InvokeOption) (*LookupBuildStepResult, error) {
 	var rv LookupBuildStepResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20180201preview:getBuildStep", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:getBuildStep", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

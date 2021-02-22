@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getMonitoringConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getMonitoringConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

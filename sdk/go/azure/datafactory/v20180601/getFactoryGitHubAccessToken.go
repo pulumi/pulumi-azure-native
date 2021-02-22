@@ -10,7 +10,7 @@ import (
 // Get GitHub access token response definition.
 func GetFactoryGitHubAccessToken(ctx *pulumi.Context, args *GetFactoryGitHubAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetFactoryGitHubAccessTokenResult, error) {
 	var rv GetFactoryGitHubAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20180601:getFactoryGitHubAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

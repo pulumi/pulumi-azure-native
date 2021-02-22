@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB container.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountSqlContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountSqlContainer'.
 func LookupDatabaseAccountSqlContainer(ctx *pulumi.Context, args *LookupDatabaseAccountSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountSqlContainerResult, error) {
 	var rv LookupDatabaseAccountSqlContainerResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getDatabaseAccountSqlContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getDatabaseAccountSqlContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Service resource
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20190501preview:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20190501preview:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // SecurityPolicy association for AzureFrontDoor profile
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getSecurityPolicy'.
 func LookupSecurityPolicy(ctx *pulumi.Context, args *LookupSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPolicyResult, error) {
 	var rv LookupSecurityPolicyResult
-	err := ctx.Invoke("azure-nextgen:cdn/latest:getSecurityPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/latest:getSecurityPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

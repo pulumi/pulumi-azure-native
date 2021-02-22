@@ -14,7 +14,7 @@ import (
 // Virtual machine model
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:VirtualMachine'.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -93,7 +93,13 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple/v20190401:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"),
@@ -101,7 +107,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachine
-	err := ctx.RegisterResource("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:vmwarecloudsimple/latest:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +119,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 func GetVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineState, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
 	var resource VirtualMachine
-	err := ctx.ReadResource("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:vmwarecloudsimple/latest:VirtualMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

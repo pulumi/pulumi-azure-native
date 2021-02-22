@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupVirtualNetworkLink(ctx *pulumi.Context, args *LookupVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkLinkResult, error) {
 	var rv LookupVirtualNetworkLinkResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualNetworkLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

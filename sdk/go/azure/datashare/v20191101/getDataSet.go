@@ -10,7 +10,7 @@ import (
 // A DataSet data transfer object.
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
 	var rv LookupDataSetResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20191101:getDataSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20191101:getDataSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

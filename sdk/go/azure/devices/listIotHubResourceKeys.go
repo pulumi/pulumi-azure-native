@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-31.
 func ListIotHubResourceKeys(ctx *pulumi.Context, args *ListIotHubResourceKeysArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysResult, error) {
 	var rv ListIotHubResourceKeysResult
-	err := ctx.Invoke("azure-nextgen:devices:listIotHubResourceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:listIotHubResourceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -59,10 +59,19 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearning:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearning/latest:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning/latest:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearning/v20191001:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20191001:Workspace"),
@@ -70,7 +79,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:machinelearning/v20160401:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearning/v20160401:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:machinelearning/v20160401:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearning/v20160401:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

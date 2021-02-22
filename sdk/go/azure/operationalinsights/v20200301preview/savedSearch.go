@@ -61,13 +61,25 @@ func NewSavedSearch(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:SavedSearch"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:SavedSearch"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/latest:SavedSearch"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:SavedSearch"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20150320:SavedSearch"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20150320:SavedSearch"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:SavedSearch"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:SavedSearch"),
@@ -75,7 +87,7 @@ func NewSavedSearch(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SavedSearch
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20200301preview:SavedSearch", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20200301preview:SavedSearch", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +99,7 @@ func NewSavedSearch(ctx *pulumi.Context,
 func GetSavedSearch(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SavedSearchState, opts ...pulumi.ResourceOption) (*SavedSearch, error) {
 	var resource SavedSearch
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20200301preview:SavedSearch", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20200301preview:SavedSearch", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

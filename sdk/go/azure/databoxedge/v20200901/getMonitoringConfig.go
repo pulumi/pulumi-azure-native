@@ -10,7 +10,7 @@ import (
 // The metric setting details for the role
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200901:getMonitoringConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200901:getMonitoringConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

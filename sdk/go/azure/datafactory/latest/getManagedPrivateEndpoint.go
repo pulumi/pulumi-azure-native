@@ -10,10 +10,10 @@ import (
 // Managed private endpoint resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getManagedPrivateEndpoint'.
 func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrivateEndpointResult, error) {
 	var rv LookupManagedPrivateEndpointResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getManagedPrivateEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getManagedPrivateEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

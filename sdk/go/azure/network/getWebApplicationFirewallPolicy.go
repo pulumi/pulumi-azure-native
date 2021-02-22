@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebApplicationFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupWebApplicationFirewallPolicyResult, error) {
 	var rv LookupWebApplicationFirewallPolicyResult
-	err := ctx.Invoke("azure-nextgen:network:getWebApplicationFirewallPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getWebApplicationFirewallPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

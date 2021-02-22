@@ -10,7 +10,7 @@ import (
 // Description of a namespace authorization rule.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay/v20170401:getHybridConnectionAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20170401:getHybridConnectionAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

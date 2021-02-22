@@ -56,10 +56,19 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:ManagerExtendedInfo"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:ManagerExtendedInfo"),
 		},
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:ManagerExtendedInfo"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:ManagerExtendedInfo"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:ManagerExtendedInfo"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:ManagerExtendedInfo"),
@@ -67,7 +76,7 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagerExtendedInfo
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20161001:ManagerExtendedInfo", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 func GetManagerExtendedInfo(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagerExtendedInfoState, opts ...pulumi.ResourceOption) (*ManagerExtendedInfo, error) {
 	var resource ManagerExtendedInfo
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20161001:ManagerExtendedInfo", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

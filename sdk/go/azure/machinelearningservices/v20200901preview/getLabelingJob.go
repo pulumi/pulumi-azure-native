@@ -10,7 +10,7 @@ import (
 // Machine Learning labeling job object wrapped into ARM resource envelope.
 func LookupLabelingJob(ctx *pulumi.Context, args *LookupLabelingJobArgs, opts ...pulumi.InvokeOption) (*LookupLabelingJobResult, error) {
 	var rv LookupLabelingJobResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200901preview:getLabelingJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

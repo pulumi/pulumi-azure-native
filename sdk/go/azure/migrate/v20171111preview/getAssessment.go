@@ -10,7 +10,7 @@ import (
 // An assessment created for a group in the Migration project.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20171111preview:getAssessment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20171111preview:getAssessment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

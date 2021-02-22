@@ -10,10 +10,10 @@ import (
 // A database geo backup policy.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'.
 func LookupGeoBackupPolicy(ctx *pulumi.Context, args *LookupGeoBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupGeoBackupPolicyResult, error) {
 	var rv LookupGeoBackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getGeoBackupPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getGeoBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

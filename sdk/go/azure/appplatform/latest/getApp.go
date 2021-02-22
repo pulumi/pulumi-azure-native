@@ -10,10 +10,10 @@ import (
 // App resource payload
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getApp'.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
-	err := ctx.Invoke("azure-nextgen:appplatform/latest:getApp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/latest:getApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Describes a Virtual Machine Scale Set Extension.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetExtension'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetExtension'.
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
 
@@ -57,34 +57,67 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20170330:VirtualMachineScaleSetExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachineScaleSetExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:VirtualMachineScaleSetExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSetExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension"),
@@ -92,7 +125,7 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetExtension
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:VirtualMachineScaleSetExtension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:VirtualMachineScaleSetExtension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +137,7 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 func GetVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScaleSetExtensionState, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetExtension, error) {
 	var resource VirtualMachineScaleSetExtension
-	err := ctx.ReadResource("azure-nextgen:compute/latest:VirtualMachineScaleSetExtension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:VirtualMachineScaleSetExtension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // An account data transfer object.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getAccount'.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -40,28 +40,55 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStrings"),
@@ -69,7 +96,7 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppConnectionStrings
-	err := ctx.RegisterResource("azure-nextgen:web/v20181101:WebAppConnectionStrings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20181101:WebAppConnectionStrings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +108,7 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 func GetWebAppConnectionStrings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppConnectionStringsState, opts ...pulumi.ResourceOption) (*WebAppConnectionStrings, error) {
 	var resource WebAppConnectionStrings
-	err := ctx.ReadResource("azure-nextgen:web/v20181101:WebAppConnectionStrings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20181101:WebAppConnectionStrings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

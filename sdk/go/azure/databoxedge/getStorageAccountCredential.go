@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupStorageAccountCredential(ctx *pulumi.Context, args *LookupStorageAccountCredentialArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountCredentialResult, error) {
 	var rv LookupStorageAccountCredentialResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getStorageAccountCredential", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getStorageAccountCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

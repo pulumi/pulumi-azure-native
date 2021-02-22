@@ -21,39 +21,39 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:synapse/v20190601preview:BigDataPool":
+	case "azure-native:synapse/v20190601preview:BigDataPool":
 		r, err = NewBigDataPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:IntegrationRuntime":
+	case "azure-native:synapse/v20190601preview:IntegrationRuntime":
 		r, err = NewIntegrationRuntime(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:IpFirewallRule":
+	case "azure-native:synapse/v20190601preview:IpFirewallRule":
 		r, err = NewIpFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:Key":
+	case "azure-native:synapse/v20190601preview:Key":
 		r, err = NewKey(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:PrivateEndpointConnection":
+	case "azure-native:synapse/v20190601preview:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:PrivateLinkHub":
+	case "azure-native:synapse/v20190601preview:PrivateLinkHub":
 		r, err = NewPrivateLinkHub(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPool":
+	case "azure-native:synapse/v20190601preview:SqlPool":
 		r, err = NewSqlPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel":
+	case "azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel":
 		r, err = NewSqlPoolSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption":
+	case "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption":
 		r, err = NewSqlPoolTransparentDataEncryption(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolVulnerabilityAssessment":
+	case "azure-native:synapse/v20190601preview:SqlPoolVulnerabilityAssessment":
 		r, err = NewSqlPoolVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolVulnerabilityAssessmentRuleBaseline":
+	case "azure-native:synapse/v20190601preview:SqlPoolVulnerabilityAssessmentRuleBaseline":
 		r, err = NewSqlPoolVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier":
+	case "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier":
 		r, err = NewSqlPoolWorkloadClassifier(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup":
+	case "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup":
 		r, err = NewSqlPoolWorkloadGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:Workspace":
+	case "azure-native:synapse/v20190601preview:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin":
+	case "azure-native:synapse/v20190601preview:WorkspaceAadAdmin":
 		r, err = NewWorkspaceAadAdmin(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:WorkspaceManagedSqlServerVulnerabilityAssessment":
+	case "azure-native:synapse/v20190601preview:WorkspaceManagedSqlServerVulnerabilityAssessment":
 		r, err = NewWorkspaceManagedSqlServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin":
+	case "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin":
 		r, err = NewWorkspaceSqlAadAdmin(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -68,7 +68,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"synapse/v20190601preview",
 		&module{version},
 	)

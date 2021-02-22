@@ -10,10 +10,10 @@ import (
 // Resource information with extended details.
 // Latest API Version: 2019-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getVault'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getVault'.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
-	err := ctx.Invoke("azure-nextgen:keyvault/latest:getVault", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault/latest:getVault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

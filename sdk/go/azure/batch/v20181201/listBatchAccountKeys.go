@@ -10,7 +10,7 @@ import (
 // A set of Azure Batch account keys.
 func ListBatchAccountKeys(ctx *pulumi.Context, args *ListBatchAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchAccountKeysResult, error) {
 	var rv ListBatchAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:batch/v20181201:listBatchAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch/v20181201:listBatchAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

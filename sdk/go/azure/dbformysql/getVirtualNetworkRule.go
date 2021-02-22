@@ -11,7 +11,7 @@ import (
 // API Version: 2017-12-01.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:dbformysql:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

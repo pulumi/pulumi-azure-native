@@ -10,10 +10,10 @@ import (
 // A SQL Analytics pool
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPool'.
 func LookupSqlPool(ctx *pulumi.Context, args *LookupSqlPoolArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolResult, error) {
 	var rv LookupSqlPoolResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getSqlPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getSqlPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

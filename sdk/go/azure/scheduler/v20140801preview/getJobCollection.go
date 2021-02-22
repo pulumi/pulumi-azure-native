@@ -9,7 +9,7 @@ import (
 
 func LookupJobCollection(ctx *pulumi.Context, args *LookupJobCollectionArgs, opts ...pulumi.InvokeOption) (*LookupJobCollectionResult, error) {
 	var rv LookupJobCollectionResult
-	err := ctx.Invoke("azure-nextgen:scheduler/v20140801preview:getJobCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:scheduler/v20140801preview:getJobCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

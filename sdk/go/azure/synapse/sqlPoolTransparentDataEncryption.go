@@ -44,10 +44,19 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:SqlPoolTransparentDataEncryption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption"),
@@ -55,7 +64,7 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolTransparentDataEncryption
-	err := ctx.RegisterResource("azure-nextgen:synapse:SqlPoolTransparentDataEncryption", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:SqlPoolTransparentDataEncryption", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 func GetSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolTransparentDataEncryptionState, opts ...pulumi.ResourceOption) (*SqlPoolTransparentDataEncryption, error) {
 	var resource SqlPoolTransparentDataEncryption
-	err := ctx.ReadResource("azure-nextgen:synapse:SqlPoolTransparentDataEncryption", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:SqlPoolTransparentDataEncryption", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

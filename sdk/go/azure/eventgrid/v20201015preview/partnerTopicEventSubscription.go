@@ -64,7 +64,13 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:PartnerTopicEventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:PartnerTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription"),
@@ -72,7 +78,7 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PartnerTopicEventSubscription
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +90,7 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 func GetPartnerTopicEventSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerTopicEventSubscriptionState, opts ...pulumi.ResourceOption) (*PartnerTopicEventSubscription, error) {
 	var resource PartnerTopicEventSubscription
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

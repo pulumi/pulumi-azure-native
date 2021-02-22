@@ -10,10 +10,10 @@ import (
 // An action group resource.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActionGroup'.
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	var rv LookupActionGroupResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getActionGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getActionGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

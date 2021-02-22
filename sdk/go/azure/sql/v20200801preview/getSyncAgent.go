@@ -10,7 +10,7 @@ import (
 // An Azure SQL Database sync agent.
 func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pulumi.InvokeOption) (*LookupSyncAgentResult, error) {
 	var rv LookupSyncAgentResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200801preview:getSyncAgent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200801preview:getSyncAgent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

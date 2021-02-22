@@ -122,28 +122,55 @@ func NewSiteAuthSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteAuthSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteAuthSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteAuthSettings"),
@@ -151,7 +178,7 @@ func NewSiteAuthSettings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteAuthSettings
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteAuthSettings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteAuthSettings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +190,7 @@ func NewSiteAuthSettings(ctx *pulumi.Context,
 func GetSiteAuthSettings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteAuthSettingsState, opts ...pulumi.ResourceOption) (*SiteAuthSettings, error) {
 	var resource SiteAuthSettings
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteAuthSettings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteAuthSettings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

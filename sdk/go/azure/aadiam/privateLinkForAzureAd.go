@@ -48,12 +48,15 @@ func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:aadiam/v20200301preview:privateLinkForAzureAd"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkForAzureAd
-	err := ctx.RegisterResource("azure-nextgen:aadiam:privateLinkForAzureAd", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:aadiam:privateLinkForAzureAd", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +68,7 @@ func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 func GetPrivateLinkForAzureAd(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkForAzureAdState, opts ...pulumi.ResourceOption) (*PrivateLinkForAzureAd, error) {
 	var resource PrivateLinkForAzureAd
-	err := ctx.ReadResource("azure-nextgen:aadiam:privateLinkForAzureAd", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:aadiam:privateLinkForAzureAd", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A private endpoint connection to SignalR resource
 func LookupSignalRPrivateEndpointConnection(ctx *pulumi.Context, args *LookupSignalRPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupSignalRPrivateEndpointConnectionResult, error) {
 	var rv LookupSignalRPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:signalrservice/v20200701preview:getSignalRPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:signalrservice/v20200701preview:getSignalRPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Definition of the configuration type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscConfiguration'.
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -68,10 +68,19 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:DscConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:DscConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20151031:DscConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:DscConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:DscConfiguration"),
@@ -79,7 +88,7 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscConfiguration
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:DscConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:DscConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +100,7 @@ func NewDscConfiguration(ctx *pulumi.Context,
 func GetDscConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscConfigurationState, opts ...pulumi.ResourceOption) (*DscConfiguration, error) {
 	var resource DscConfiguration
-	err := ctx.ReadResource("azure-nextgen:automation/latest:DscConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:DscConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

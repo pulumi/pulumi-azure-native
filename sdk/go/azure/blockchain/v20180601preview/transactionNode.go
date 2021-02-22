@@ -50,12 +50,15 @@ func NewTransactionNode(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:blockchain:TransactionNode"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:blockchain:TransactionNode"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource TransactionNode
-	err := ctx.RegisterResource("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blockchain/v20180601preview:TransactionNode", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +70,7 @@ func NewTransactionNode(ctx *pulumi.Context,
 func GetTransactionNode(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransactionNodeState, opts ...pulumi.ResourceOption) (*TransactionNode, error) {
 	var resource TransactionNode
-	err := ctx.ReadResource("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blockchain/v20180601preview:TransactionNode", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

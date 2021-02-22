@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-31.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
-	err := ctx.Invoke("azure-nextgen:devices:getIotHubResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getIotHubResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

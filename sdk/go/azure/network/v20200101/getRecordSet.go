@@ -10,7 +10,7 @@ import (
 // Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pulumi.InvokeOption) (*LookupRecordSetResult, error) {
 	var rv LookupRecordSetResult
-	err := ctx.Invoke("azure-nextgen:network/v20200101:getRecordSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200101:getRecordSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

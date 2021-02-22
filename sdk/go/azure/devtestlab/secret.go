@@ -50,10 +50,19 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Secret"),
@@ -61,7 +70,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:devtestlab:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

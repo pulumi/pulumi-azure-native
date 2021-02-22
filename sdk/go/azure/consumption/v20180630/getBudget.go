@@ -10,7 +10,7 @@ import (
 // A budget resource.
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
 	var rv LookupBudgetResult
-	err := ctx.Invoke("azure-nextgen:consumption/v20180630:getBudget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:consumption/v20180630:getBudget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -48,52 +48,103 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DdosCustomPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:DdosCustomPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:DdosCustomPolicy"),
@@ -101,7 +152,7 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DdosCustomPolicy
-	err := ctx.RegisterResource("azure-nextgen:network:DdosCustomPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:DdosCustomPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +164,7 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 func GetDdosCustomPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DdosCustomPolicyState, opts ...pulumi.ResourceOption) (*DdosCustomPolicy, error) {
 	var resource DdosCustomPolicy
-	err := ctx.ReadResource("azure-nextgen:network:DdosCustomPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:DdosCustomPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

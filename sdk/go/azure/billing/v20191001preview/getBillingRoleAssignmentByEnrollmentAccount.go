@@ -10,7 +10,7 @@ import (
 // The role assignment
 func LookupBillingRoleAssignmentByEnrollmentAccount(ctx *pulumi.Context, args *LookupBillingRoleAssignmentByEnrollmentAccountArgs, opts ...pulumi.InvokeOption) (*LookupBillingRoleAssignmentByEnrollmentAccountResult, error) {
 	var rv LookupBillingRoleAssignmentByEnrollmentAccountResult
-	err := ctx.Invoke("azure-nextgen:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

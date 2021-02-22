@@ -10,7 +10,7 @@ import (
 // Shared access keys of the partner namespace.
 func ListPartnerNamespaceSharedAccessKeys(ctx *pulumi.Context, args *ListPartnerNamespaceSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListPartnerNamespaceSharedAccessKeysResult, error) {
 	var rv ListPartnerNamespaceSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:listPartnerNamespaceSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:listPartnerNamespaceSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

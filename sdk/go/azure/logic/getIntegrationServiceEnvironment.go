@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupIntegrationServiceEnvironment(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentResult, error) {
 	var rv LookupIntegrationServiceEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:logic:getIntegrationServiceEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getIntegrationServiceEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

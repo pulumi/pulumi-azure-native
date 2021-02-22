@@ -36,10 +36,19 @@ func NewAlias(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:subscription/latest:Alias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:subscription/latest:Alias"),
 		},
 		{
+			Type: pulumi.String("azure-native:subscription/v20191001preview:Alias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:subscription/v20191001preview:Alias"),
+		},
+		{
+			Type: pulumi.String("azure-native:subscription/v20200901:Alias"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:subscription/v20200901:Alias"),
@@ -47,7 +56,7 @@ func NewAlias(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Alias
-	err := ctx.RegisterResource("azure-nextgen:subscription:Alias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:subscription:Alias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +68,7 @@ func NewAlias(ctx *pulumi.Context,
 func GetAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
 	var resource Alias
-	err := ctx.ReadResource("azure-nextgen:subscription:Alias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:subscription:Alias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

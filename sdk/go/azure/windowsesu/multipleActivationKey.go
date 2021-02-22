@@ -56,12 +56,15 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:windowsesu/v20190916preview:MultipleActivationKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource MultipleActivationKey
-	err := ctx.RegisterResource("azure-nextgen:windowsesu:MultipleActivationKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:windowsesu:MultipleActivationKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +76,7 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 func GetMultipleActivationKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MultipleActivationKeyState, opts ...pulumi.ResourceOption) (*MultipleActivationKey, error) {
 	var resource MultipleActivationKey
-	err := ctx.ReadResource("azure-nextgen:windowsesu:MultipleActivationKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:windowsesu:MultipleActivationKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

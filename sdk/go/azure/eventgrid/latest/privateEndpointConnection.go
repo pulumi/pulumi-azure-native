@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,13 +49,25 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection"),
@@ -63,7 +75,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:eventgrid/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

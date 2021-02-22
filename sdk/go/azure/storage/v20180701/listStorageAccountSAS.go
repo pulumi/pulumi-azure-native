@@ -10,7 +10,7 @@ import (
 // The List SAS credentials operation response.
 func ListStorageAccountSAS(ctx *pulumi.Context, args *ListStorageAccountSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountSASResult, error) {
 	var rv ListStorageAccountSASResult
-	err := ctx.Invoke("azure-nextgen:storage/v20180701:listStorageAccountSAS", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20180701:listStorageAccountSAS", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // A virtual network rule.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:VirtualNetworkRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:VirtualNetworkRule'.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
@@ -48,10 +48,19 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:VirtualNetworkRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule"),
@@ -59,7 +68,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/latest:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	var resource VirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

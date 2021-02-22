@@ -10,10 +10,10 @@ import (
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getCache'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
-	err := ctx.Invoke("azure-nextgen:storagecache/latest:getCache", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagecache/latest:getCache", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func ListAssetContainerSas(ctx *pulumi.Context, args *ListAssetContainerSasArgs, opts ...pulumi.InvokeOption) (*ListAssetContainerSasResult, error) {
 	var rv ListAssetContainerSasResult
-	err := ctx.Invoke("azure-nextgen:media:listAssetContainerSas", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:listAssetContainerSas", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

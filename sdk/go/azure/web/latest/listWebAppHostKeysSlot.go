@@ -10,10 +10,10 @@ import (
 // Functions host level keys.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeysSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHostKeysSlot'.
 func ListWebAppHostKeysSlot(ctx *pulumi.Context, args *ListWebAppHostKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysSlotResult, error) {
 	var rv ListWebAppHostKeysSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppHostKeysSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppHostKeysSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

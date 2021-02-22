@@ -10,7 +10,7 @@ import (
 // Represents a server firewall rule.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/v20200701privatepreview:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/v20200701privatepreview:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

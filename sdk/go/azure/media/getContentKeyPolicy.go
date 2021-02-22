@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContentKeyPolicyResult, error) {
 	var rv LookupContentKeyPolicyResult
-	err := ctx.Invoke("azure-nextgen:media:getContentKeyPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getContentKeyPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

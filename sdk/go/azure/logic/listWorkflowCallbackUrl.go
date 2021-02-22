@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListWorkflowCallbackUrl(ctx *pulumi.Context, args *ListWorkflowCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListWorkflowCallbackUrlResult, error) {
 	var rv ListWorkflowCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic:listWorkflowCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:listWorkflowCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

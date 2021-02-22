@@ -10,10 +10,10 @@ import (
 // Peering Service
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeeringService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeeringService'.
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
-	err := ctx.Invoke("azure-nextgen:peering/latest:getPeeringService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/latest:getPeeringService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

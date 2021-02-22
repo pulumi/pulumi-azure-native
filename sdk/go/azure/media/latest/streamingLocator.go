@@ -14,7 +14,7 @@ import (
 // A Streaming Locator resource
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingLocator'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingLocator'.
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 
@@ -67,16 +67,31 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:StreamingLocator"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180330preview:StreamingLocator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:StreamingLocator"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:StreamingLocator"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:StreamingLocator"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:StreamingLocator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:StreamingLocator"),
@@ -84,7 +99,7 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StreamingLocator
-	err := ctx.RegisterResource("azure-nextgen:media/latest:StreamingLocator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/latest:StreamingLocator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +111,7 @@ func NewStreamingLocator(ctx *pulumi.Context,
 func GetStreamingLocator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamingLocatorState, opts ...pulumi.ResourceOption) (*StreamingLocator, error) {
 	var resource StreamingLocator
-	err := ctx.ReadResource("azure-nextgen:media/latest:StreamingLocator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/latest:StreamingLocator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

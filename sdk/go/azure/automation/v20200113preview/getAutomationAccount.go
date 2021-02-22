@@ -10,7 +10,7 @@ import (
 // Definition of the automation account type.
 func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountArgs, opts ...pulumi.InvokeOption) (*LookupAutomationAccountResult, error) {
 	var rv LookupAutomationAccountResult
-	err := ctx.Invoke("azure-nextgen:automation/v20200113preview:getAutomationAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20200113preview:getAutomationAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

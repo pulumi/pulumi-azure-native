@@ -10,7 +10,7 @@ import (
 // The list of credential result response.
 func ListConnectedClusterUserCredentials(ctx *pulumi.Context, args *ListConnectedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListConnectedClusterUserCredentialsResult, error) {
 	var rv ListConnectedClusterUserCredentialsResult
-	err := ctx.Invoke("azure-nextgen:kubernetes/v20200101preview:listConnectedClusterUserCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetes/v20200101preview:listConnectedClusterUserCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

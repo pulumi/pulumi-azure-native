@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupAFDOriginGroup(ctx *pulumi.Context, args *LookupAFDOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupAFDOriginGroupResult, error) {
 	var rv LookupAFDOriginGroupResult
-	err := ctx.Invoke("azure-nextgen:cdn:getAFDOriginGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getAFDOriginGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Azure Migrate Project.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getProject'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getProject'.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
-	err := ctx.Invoke("azure-nextgen:migrate/latest:getProject", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/latest:getProject", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

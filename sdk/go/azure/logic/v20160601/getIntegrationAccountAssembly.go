@@ -10,7 +10,7 @@ import (
 // The assembly definition.
 func LookupIntegrationAccountAssembly(ctx *pulumi.Context, args *LookupIntegrationAccountAssemblyArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountAssemblyResult, error) {
 	var rv LookupIntegrationAccountAssemblyResult
-	err := ctx.Invoke("azure-nextgen:logic/v20160601:getIntegrationAccountAssembly", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20160601:getIntegrationAccountAssembly", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

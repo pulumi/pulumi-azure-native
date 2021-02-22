@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-07.
 func LookupMasterSite(ctx *pulumi.Context, args *LookupMasterSiteArgs, opts ...pulumi.InvokeOption) (*LookupMasterSiteResult, error) {
 	var rv LookupMasterSiteResult
-	err := ctx.Invoke("azure-nextgen:offazure:getMasterSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:offazure:getMasterSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -40,12 +40,15 @@ func NewWorkflowAccessKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/v20150201preview:WorkflowAccessKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20150201preview:WorkflowAccessKey"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkflowAccessKey
-	err := ctx.RegisterResource("azure-nextgen:logic:WorkflowAccessKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:WorkflowAccessKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewWorkflowAccessKey(ctx *pulumi.Context,
 func GetWorkflowAccessKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkflowAccessKeyState, opts ...pulumi.ResourceOption) (*WorkflowAccessKey, error) {
 	var resource WorkflowAccessKey
-	err := ctx.ReadResource("azure-nextgen:logic:WorkflowAccessKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:WorkflowAccessKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

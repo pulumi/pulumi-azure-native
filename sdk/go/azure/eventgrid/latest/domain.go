@@ -14,7 +14,7 @@ import (
 // EventGrid Domain.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Domain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Domain'.
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -60,25 +60,49 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20180915preview:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180915preview:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190201preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20190601:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200101preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:Domain"),
@@ -86,7 +110,7 @@ func NewDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Domain
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/latest:Domain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/latest:Domain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +122,7 @@ func NewDomain(ctx *pulumi.Context,
 func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
 	var resource Domain
-	err := ctx.ReadResource("azure-nextgen:eventgrid/latest:Domain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/latest:Domain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

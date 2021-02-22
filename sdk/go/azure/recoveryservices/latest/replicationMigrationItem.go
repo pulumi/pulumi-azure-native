@@ -14,7 +14,7 @@ import (
 // Migration item.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'.
 type ReplicationMigrationItem struct {
 	pulumi.CustomResourceState
 
@@ -52,10 +52,19 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationMigrationItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationMigrationItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationMigrationItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationMigrationItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"),
@@ -63,7 +72,7 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationMigrationItem
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationMigrationItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 func GetReplicationMigrationItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationMigrationItemState, opts ...pulumi.ResourceOption) (*ReplicationMigrationItem, error) {
 	var resource ReplicationMigrationItem
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationMigrationItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

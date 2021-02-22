@@ -10,10 +10,10 @@ import (
 // The remediation definition.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtManagementGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtManagementGroup'.
 func LookupRemediationAtManagementGroup(ctx *pulumi.Context, args *LookupRemediationAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtManagementGroupResult, error) {
 	var rv LookupRemediationAtManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/latest:getRemediationAtManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/latest:getRemediationAtManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

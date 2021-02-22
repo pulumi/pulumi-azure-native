@@ -10,10 +10,10 @@ import (
 // An Activity Log Alert rule resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActivityLogAlert'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActivityLogAlert'.
 func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArgs, opts ...pulumi.InvokeOption) (*LookupActivityLogAlertResult, error) {
 	var rv LookupActivityLogAlertResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getActivityLogAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getActivityLogAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

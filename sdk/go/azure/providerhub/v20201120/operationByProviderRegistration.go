@@ -42,7 +42,13 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:OperationByProviderRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:OperationByProviderRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/latest:OperationByProviderRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:OperationByProviderRegistration"),
@@ -50,7 +56,7 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OperationByProviderRegistration
-	err := ctx.RegisterResource("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/v20201120:OperationByProviderRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 func GetOperationByProviderRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OperationByProviderRegistrationState, opts ...pulumi.ResourceOption) (*OperationByProviderRegistration, error) {
 	var resource OperationByProviderRegistration
-	err := ctx.ReadResource("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/v20201120:OperationByProviderRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

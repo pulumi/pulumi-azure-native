@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01-preview.
 func LookupLabelingJob(ctx *pulumi.Context, args *LookupLabelingJobArgs, opts ...pulumi.InvokeOption) (*LookupLabelingJobResult, error) {
 	var rv LookupLabelingJobResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices:getLabelingJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:getLabelingJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

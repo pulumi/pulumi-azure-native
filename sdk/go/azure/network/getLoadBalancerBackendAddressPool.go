@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupLoadBalancerBackendAddressPool(ctx *pulumi.Context, args *LookupLoadBalancerBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerBackendAddressPoolResult, error) {
 	var rv LookupLoadBalancerBackendAddressPoolResult
-	err := ctx.Invoke("azure-nextgen:network:getLoadBalancerBackendAddressPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getLoadBalancerBackendAddressPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

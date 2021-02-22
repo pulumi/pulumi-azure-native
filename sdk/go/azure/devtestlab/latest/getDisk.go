@@ -10,10 +10,10 @@ import (
 // A Disk.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getDisk'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getDisk'.
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
 	var rv LookupDiskResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getDisk", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getDisk", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func ListBlockchainMemberApiKeys(ctx *pulumi.Context, args *ListBlockchainMemberApiKeysArgs, opts ...pulumi.InvokeOption) (*ListBlockchainMemberApiKeysResult, error) {
 	var rv ListBlockchainMemberApiKeysResult
-	err := ctx.Invoke("azure-nextgen:blockchain:listBlockchainMemberApiKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain:listBlockchainMemberApiKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupBlobContainerImmutabilityPolicy(ctx *pulumi.Context, args *LookupBlobContainerImmutabilityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerImmutabilityPolicyResult, error) {
 	var rv LookupBlobContainerImmutabilityPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage:getBlobContainerImmutabilityPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getBlobContainerImmutabilityPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

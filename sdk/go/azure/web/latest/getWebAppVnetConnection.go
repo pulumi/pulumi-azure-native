@@ -10,10 +10,10 @@ import (
 // Virtual Network information contract.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnection'.
 func LookupWebAppVnetConnection(ctx *pulumi.Context, args *LookupWebAppVnetConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionResult, error) {
 	var rv LookupWebAppVnetConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppVnetConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppVnetConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -54,31 +54,61 @@ func NewLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Logger"),
@@ -86,7 +116,7 @@ func NewLogger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Logger
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:Logger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:Logger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +128,7 @@ func NewLogger(ctx *pulumi.Context,
 func GetLogger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LoggerState, opts ...pulumi.ResourceOption) (*Logger, error) {
 	var resource Logger
-	err := ctx.ReadResource("azure-nextgen:apimanagement:Logger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:Logger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

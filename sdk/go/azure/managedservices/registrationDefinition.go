@@ -38,19 +38,37 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managedservices/latest:RegistrationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/latest:RegistrationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20180601preview:RegistrationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:managedservices/v20190401preview:RegistrationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20190601:RegistrationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190601:RegistrationDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:managedservices/v20190901:RegistrationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190901:RegistrationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20200201preview:RegistrationDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20200201preview:RegistrationDefinition"),
@@ -58,7 +76,7 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegistrationDefinition
-	err := ctx.RegisterResource("azure-nextgen:managedservices:RegistrationDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managedservices:RegistrationDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +88,7 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 func GetRegistrationDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistrationDefinitionState, opts ...pulumi.ResourceOption) (*RegistrationDefinition, error) {
 	var resource RegistrationDefinition
-	err := ctx.ReadResource("azure-nextgen:managedservices:RegistrationDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managedservices:RegistrationDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

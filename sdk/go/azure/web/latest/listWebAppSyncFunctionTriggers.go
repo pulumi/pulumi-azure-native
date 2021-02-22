@@ -10,10 +10,10 @@ import (
 // Function secrets.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggers'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggers'.
 func ListWebAppSyncFunctionTriggers(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersResult, error) {
 	var rv ListWebAppSyncFunctionTriggersResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppSyncFunctionTriggers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppSyncFunctionTriggers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -64,16 +64,31 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountSchema"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountSchema"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountSchema"),
@@ -81,7 +96,7 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountSchema
-	err := ctx.RegisterResource("azure-nextgen:logic:IntegrationAccountSchema", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:IntegrationAccountSchema", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +108,7 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 func GetIntegrationAccountSchema(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountSchemaState, opts ...pulumi.ResourceOption) (*IntegrationAccountSchema, error) {
 	var resource IntegrationAccountSchema
-	err := ctx.ReadResource("azure-nextgen:logic:IntegrationAccountSchema", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:IntegrationAccountSchema", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

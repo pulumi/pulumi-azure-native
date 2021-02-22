@@ -14,7 +14,7 @@ import (
 // RouteTable resource in a virtual hub.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.
 type HubRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -51,19 +51,37 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:HubRouteTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:HubRouteTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:HubRouteTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:HubRouteTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:HubRouteTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:HubRouteTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:HubRouteTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:HubRouteTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:HubRouteTable"),
@@ -71,7 +89,7 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HubRouteTable
-	err := ctx.RegisterResource("azure-nextgen:network/latest:HubRouteTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:HubRouteTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +101,7 @@ func NewHubRouteTable(ctx *pulumi.Context,
 func GetHubRouteTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HubRouteTableState, opts ...pulumi.ResourceOption) (*HubRouteTable, error) {
 	var resource HubRouteTable
-	err := ctx.ReadResource("azure-nextgen:network/latest:HubRouteTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:HubRouteTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

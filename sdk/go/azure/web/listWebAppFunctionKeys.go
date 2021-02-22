@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppFunctionKeys(ctx *pulumi.Context, args *ListWebAppFunctionKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysResult, error) {
 	var rv ListWebAppFunctionKeysResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppFunctionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppFunctionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

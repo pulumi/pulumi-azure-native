@@ -10,7 +10,7 @@ import (
 // Source control configuration for an app.
 func LookupWebAppSourceControl(ctx *pulumi.Context, args *LookupWebAppSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlResult, error) {
 	var rv LookupWebAppSourceControlResult
-	err := ctx.Invoke("azure-nextgen:web/v20180201:getWebAppSourceControl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20180201:getWebAppSourceControl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

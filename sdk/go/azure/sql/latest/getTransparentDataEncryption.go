@@ -10,10 +10,10 @@ import (
 // Represents a database transparent data encryption configuration.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getTransparentDataEncryption'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getTransparentDataEncryption'.
 func LookupTransparentDataEncryption(ctx *pulumi.Context, args *LookupTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupTransparentDataEncryptionResult, error) {
 	var rv LookupTransparentDataEncryptionResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getTransparentDataEncryption", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getTransparentDataEncryption", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

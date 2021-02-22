@@ -11,7 +11,7 @@ import (
 // API Version: 2018-11-01-preview.
 func LookupPublishedBlueprint(ctx *pulumi.Context, args *LookupPublishedBlueprintArgs, opts ...pulumi.InvokeOption) (*LookupPublishedBlueprintResult, error) {
 	var rv LookupPublishedBlueprintResult
-	err := ctx.Invoke("azure-nextgen:blueprint:getPublishedBlueprint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint:getPublishedBlueprint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

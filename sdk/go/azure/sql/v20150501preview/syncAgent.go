@@ -48,10 +48,19 @@ func NewSyncAgent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:SyncAgent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:SyncAgent"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:SyncAgent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncAgent"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:SyncAgent"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncAgent"),
@@ -59,7 +68,7 @@ func NewSyncAgent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SyncAgent
-	err := ctx.RegisterResource("azure-nextgen:sql/v20150501preview:SyncAgent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20150501preview:SyncAgent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewSyncAgent(ctx *pulumi.Context,
 func GetSyncAgent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SyncAgentState, opts ...pulumi.ResourceOption) (*SyncAgent, error) {
 	var resource SyncAgent
-	err := ctx.ReadResource("azure-nextgen:sql/v20150501preview:SyncAgent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20150501preview:SyncAgent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

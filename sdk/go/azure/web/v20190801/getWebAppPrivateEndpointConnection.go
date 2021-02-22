@@ -10,7 +10,7 @@ import (
 // Private Endpoint Connection ARM resource.
 func LookupWebAppPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebAppPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPrivateEndpointConnectionResult, error) {
 	var rv LookupWebAppPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/v20190801:getWebAppPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20190801:getWebAppPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

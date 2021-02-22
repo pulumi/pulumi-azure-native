@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:cdn:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

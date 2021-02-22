@@ -53,19 +53,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration/latest:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/latest:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20171115preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180315preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180315preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180331preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180331preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180419:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180419:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180715preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Service"),
@@ -73,7 +91,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:datamigration:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +103,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:datamigration:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The essential information related to the peer's ASN.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeerAsn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
-	err := ctx.Invoke("azure-nextgen:peering/latest:getPeerAsn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/latest:getPeerAsn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

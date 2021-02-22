@@ -55,25 +55,49 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:AppServicePlanRouteForVnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160901:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:AppServicePlanRouteForVnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:AppServicePlanRouteForVnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:AppServicePlanRouteForVnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"),
@@ -81,7 +105,7 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlanRouteForVnet
-	err := ctx.RegisterResource("azure-nextgen:web:AppServicePlanRouteForVnet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:AppServicePlanRouteForVnet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +117,7 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 func GetAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppServicePlanRouteForVnetState, opts ...pulumi.ResourceOption) (*AppServicePlanRouteForVnet, error) {
 	var resource AppServicePlanRouteForVnet
-	err := ctx.ReadResource("azure-nextgen:web:AppServicePlanRouteForVnet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:AppServicePlanRouteForVnet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

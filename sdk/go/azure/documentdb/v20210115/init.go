@@ -21,35 +21,35 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace":
+	case "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace":
 		r, err = NewCassandraResourceCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable":
+	case "azure-native:documentdb/v20210115:CassandraResourceCassandraTable":
 		r, err = NewCassandraResourceCassandraTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:DatabaseAccount":
+	case "azure-native:documentdb/v20210115:DatabaseAccount":
 		r, err = NewDatabaseAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase":
+	case "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase":
 		r, err = NewGremlinResourceGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph":
+	case "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph":
 		r, err = NewGremlinResourceGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection":
+	case "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection":
 		r, err = NewMongoDBResourceMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBDatabase":
+	case "azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase":
 		r, err = NewMongoDBResourceMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:NotebookWorkspace":
+	case "azure-native:documentdb/v20210115:NotebookWorkspace":
 		r, err = NewNotebookWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection":
+	case "azure-native:documentdb/v20210115:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer":
+	case "azure-native:documentdb/v20210115:SqlResourceSqlContainer":
 		r, err = NewSqlResourceSqlContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase":
+	case "azure-native:documentdb/v20210115:SqlResourceSqlDatabase":
 		r, err = NewSqlResourceSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure":
+	case "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure":
 		r, err = NewSqlResourceSqlStoredProcedure(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger":
+	case "azure-native:documentdb/v20210115:SqlResourceSqlTrigger":
 		r, err = NewSqlResourceSqlTrigger(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction":
+	case "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction":
 		r, err = NewSqlResourceSqlUserDefinedFunction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb/v20210115:TableResourceTable":
+	case "azure-native:documentdb/v20210115:TableResourceTable":
 		r, err = NewTableResourceTable(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -64,7 +64,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"documentdb/v20210115",
 		&module{version},
 	)

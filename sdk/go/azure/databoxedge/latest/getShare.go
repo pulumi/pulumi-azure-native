@@ -10,10 +10,10 @@ import (
 // Represents a share on the  Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getShare'.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	var rv LookupShareResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

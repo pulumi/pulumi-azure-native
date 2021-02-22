@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupPartnerTopicEventSubscription(ctx *pulumi.Context, args *LookupPartnerTopicEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupPartnerTopicEventSubscriptionResult, error) {
 	var rv LookupPartnerTopicEventSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getPartnerTopicEventSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getPartnerTopicEventSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

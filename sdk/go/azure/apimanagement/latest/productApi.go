@@ -14,7 +14,7 @@ import (
 // Api details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductApi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ProductApi'.
 type ProductApi struct {
 	pulumi.CustomResourceState
 
@@ -78,25 +78,49 @@ func NewProductApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ProductApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ProductApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ProductApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ProductApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ProductApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ProductApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ProductApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ProductApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ProductApi"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ProductApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ProductApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ProductApi"),
@@ -104,7 +128,7 @@ func NewProductApi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProductApi
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:ProductApi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:ProductApi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +140,7 @@ func NewProductApi(ctx *pulumi.Context,
 func GetProductApi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProductApiState, opts ...pulumi.ResourceOption) (*ProductApi, error) {
 	var resource ProductApi
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:ProductApi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:ProductApi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

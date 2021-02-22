@@ -46,13 +46,25 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationNetworkMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping"),
@@ -60,7 +72,7 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationNetworkMapping
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/v20180110:ReplicationNetworkMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 func GetReplicationNetworkMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationNetworkMappingState, opts ...pulumi.ResourceOption) (*ReplicationNetworkMapping, error) {
 	var resource ReplicationNetworkMapping
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/v20180110:ReplicationNetworkMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

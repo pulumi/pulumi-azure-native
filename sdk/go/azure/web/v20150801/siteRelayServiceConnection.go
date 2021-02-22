@@ -49,28 +49,55 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteRelayServiceConnection"),
@@ -78,7 +105,7 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteRelayServiceConnection
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteRelayServiceConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteRelayServiceConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +117,7 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 func GetSiteRelayServiceConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteRelayServiceConnectionState, opts ...pulumi.ResourceOption) (*SiteRelayServiceConnection, error) {
 	var resource SiteRelayServiceConnection
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteRelayServiceConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteRelayServiceConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

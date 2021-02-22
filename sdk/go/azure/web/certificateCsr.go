@@ -52,7 +52,13 @@ func NewCertificateCsr(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:CertificateCsr"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:CertificateCsr"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:CertificateCsr"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:CertificateCsr"),
@@ -60,7 +66,7 @@ func NewCertificateCsr(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CertificateCsr
-	err := ctx.RegisterResource("azure-nextgen:web:CertificateCsr", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:CertificateCsr", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewCertificateCsr(ctx *pulumi.Context,
 func GetCertificateCsr(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateCsrState, opts ...pulumi.ResourceOption) (*CertificateCsr, error) {
 	var resource CertificateCsr
-	err := ctx.ReadResource("azure-nextgen:web:CertificateCsr", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:CertificateCsr", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

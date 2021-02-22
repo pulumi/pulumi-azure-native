@@ -10,7 +10,7 @@ import (
 // Result of the Get delivery attributes operation.
 func GetSystemTopicEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetSystemTopicEventSubscriptionDeliveryAttributesArgs, opts ...pulumi.InvokeOption) (*GetSystemTopicEventSubscriptionDeliveryAttributesResult, error) {
 	var rv GetSystemTopicEventSubscriptionDeliveryAttributesResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

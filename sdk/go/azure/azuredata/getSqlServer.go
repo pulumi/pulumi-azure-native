@@ -11,7 +11,7 @@ import (
 // API Version: 2019-07-24-preview.
 func LookupSqlServer(ctx *pulumi.Context, args *LookupSqlServerArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerResult, error) {
 	var rv LookupSqlServerResult
-	err := ctx.Invoke("azure-nextgen:azuredata:getSqlServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azuredata:getSqlServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

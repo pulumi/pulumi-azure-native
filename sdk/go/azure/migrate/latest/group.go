@@ -14,7 +14,7 @@ import (
 // A group created in a Migration project.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Group'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:Group'.
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -43,7 +43,13 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:Group"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:Group"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20191001:Group"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:Group"),
@@ -51,7 +57,7 @@ func NewGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Group
-	err := ctx.RegisterResource("azure-nextgen:migrate/latest:Group", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/latest:Group", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewGroup(ctx *pulumi.Context,
 func GetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
 	var resource Group
-	err := ctx.ReadResource("azure-nextgen:migrate/latest:Group", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/latest:Group", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

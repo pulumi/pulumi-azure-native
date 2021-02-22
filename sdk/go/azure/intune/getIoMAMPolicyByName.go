@@ -11,7 +11,7 @@ import (
 // API Version: 2015-01-14-preview.
 func LookupIoMAMPolicyByName(ctx *pulumi.Context, args *LookupIoMAMPolicyByNameArgs, opts ...pulumi.InvokeOption) (*LookupIoMAMPolicyByNameResult, error) {
 	var rv LookupIoMAMPolicyByNameResult
-	err := ctx.Invoke("azure-nextgen:intune:getIoMAMPolicyByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:intune:getIoMAMPolicyByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

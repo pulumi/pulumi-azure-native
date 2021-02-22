@@ -14,7 +14,7 @@ import (
 // A flow log resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FlowLog'.
 type FlowLog struct {
 	pulumi.CustomResourceState
 
@@ -67,28 +67,55 @@ func NewFlowLog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:FlowLog"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:FlowLog"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:FlowLog"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:FlowLog"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FlowLog"),
@@ -96,7 +123,7 @@ func NewFlowLog(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FlowLog
-	err := ctx.RegisterResource("azure-nextgen:network/latest:FlowLog", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:FlowLog", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +135,7 @@ func NewFlowLog(ctx *pulumi.Context,
 func GetFlowLog(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowLogState, opts ...pulumi.ResourceOption) (*FlowLog, error) {
 	var resource FlowLog
-	err := ctx.ReadResource("azure-nextgen:network/latest:FlowLog", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:FlowLog", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A data set mapping data transfer object.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:getDataSetMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:getDataSetMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

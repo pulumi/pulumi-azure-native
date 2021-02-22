@@ -14,7 +14,7 @@ import (
 // The storage domain.
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.
 type StorageDomain struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewStorageDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:StorageDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:StorageDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:StorageDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
@@ -56,7 +62,7 @@ func NewStorageDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageDomain
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:StorageDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:StorageDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewStorageDomain(ctx *pulumi.Context,
 func GetStorageDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageDomainState, opts ...pulumi.ResourceOption) (*StorageDomain, error) {
 	var resource StorageDomain
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:StorageDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:StorageDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

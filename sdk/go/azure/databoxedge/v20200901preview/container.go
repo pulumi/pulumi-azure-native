@@ -52,16 +52,31 @@ func NewContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/latest:Container"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:Container"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Container"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Container"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Container"),
@@ -69,7 +84,7 @@ func NewContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Container
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/v20200901preview:Container", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/v20200901preview:Container", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +96,7 @@ func NewContainer(ctx *pulumi.Context,
 func GetContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContainerState, opts ...pulumi.ResourceOption) (*Container, error) {
 	var resource Container
-	err := ctx.ReadResource("azure-nextgen:databoxedge/v20200901preview:Container", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/v20200901preview:Container", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

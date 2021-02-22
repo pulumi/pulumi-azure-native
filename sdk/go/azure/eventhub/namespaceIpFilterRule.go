@@ -43,12 +43,15 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceIpFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceIpFilterRule
-	err := ctx.RegisterResource("azure-nextgen:eventhub:NamespaceIpFilterRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub:NamespaceIpFilterRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 func GetNamespaceIpFilterRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceIpFilterRuleState, opts ...pulumi.ResourceOption) (*NamespaceIpFilterRule, error) {
 	var resource NamespaceIpFilterRule
-	err := ctx.ReadResource("azure-nextgen:eventhub:NamespaceIpFilterRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub:NamespaceIpFilterRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

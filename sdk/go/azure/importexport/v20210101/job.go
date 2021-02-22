@@ -43,13 +43,25 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:importexport:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:importexport:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:importexport/latest:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:importexport/latest:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:importexport/v20161101:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:importexport/v20161101:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:importexport/v20200801:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:importexport/v20200801:Job"),
@@ -57,7 +69,7 @@ func NewJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:importexport/v20210101:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:importexport/v20210101:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:importexport/v20210101:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:importexport/v20210101:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

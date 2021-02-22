@@ -42,7 +42,13 @@ func NewStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:deploymentmanager:Step"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:Step"),
+		},
+		{
+			Type: pulumi.String("azure-native:deploymentmanager/v20191101preview:Step"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20191101preview:Step"),
@@ -50,7 +56,7 @@ func NewStep(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Step
-	err := ctx.RegisterResource("azure-nextgen:deploymentmanager/v20180901preview:Step", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:deploymentmanager/v20180901preview:Step", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewStep(ctx *pulumi.Context,
 func GetStep(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StepState, opts ...pulumi.ResourceOption) (*Step, error) {
 	var resource Step
-	err := ctx.ReadResource("azure-nextgen:deploymentmanager/v20180901preview:Step", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:deploymentmanager/v20180901preview:Step", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

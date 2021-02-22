@@ -14,7 +14,7 @@ import (
 // A notification.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:NotificationChannel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:NotificationChannel'.
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
@@ -59,10 +59,19 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:NotificationChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:NotificationChannel"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:NotificationChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:NotificationChannel"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:NotificationChannel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:NotificationChannel"),
@@ -70,7 +79,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationChannel
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:NotificationChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:NotificationChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 func GetNotificationChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) (*NotificationChannel, error) {
 	var resource NotificationChannel
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:NotificationChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:NotificationChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

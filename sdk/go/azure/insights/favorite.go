@@ -55,7 +55,13 @@ func NewFavorite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:Favorite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Favorite"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:Favorite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Favorite"),
@@ -63,7 +69,7 @@ func NewFavorite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Favorite
-	err := ctx.RegisterResource("azure-nextgen:insights:Favorite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:Favorite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewFavorite(ctx *pulumi.Context,
 func GetFavorite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FavoriteState, opts ...pulumi.ResourceOption) (*Favorite, error) {
 	var resource Favorite
-	err := ctx.ReadResource("azure-nextgen:insights:Favorite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:Favorite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

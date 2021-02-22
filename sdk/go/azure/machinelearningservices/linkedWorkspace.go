@@ -39,7 +39,13 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/latest:LinkedWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:LinkedWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200301:LinkedWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace"),
@@ -47,7 +53,7 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedWorkspace
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices:LinkedWorkspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices:LinkedWorkspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +65,7 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 func GetLinkedWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedWorkspaceState, opts ...pulumi.ResourceOption) (*LinkedWorkspace, error) {
 	var resource LinkedWorkspace
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices:LinkedWorkspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices:LinkedWorkspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

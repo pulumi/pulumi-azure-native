@@ -40,10 +40,19 @@ func NewHierarchySetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:management/latest:HierarchySetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/latest:HierarchySetting"),
 		},
 		{
+			Type: pulumi.String("azure-native:management/v20200201:HierarchySetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/v20200201:HierarchySetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20200501:HierarchySetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:HierarchySetting"),
@@ -51,7 +60,7 @@ func NewHierarchySetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HierarchySetting
-	err := ctx.RegisterResource("azure-nextgen:management:HierarchySetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:management:HierarchySetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +72,7 @@ func NewHierarchySetting(ctx *pulumi.Context,
 func GetHierarchySetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HierarchySettingState, opts ...pulumi.ResourceOption) (*HierarchySetting, error) {
 	var resource HierarchySetting
-	err := ctx.ReadResource("azure-nextgen:management:HierarchySetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:management:HierarchySetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

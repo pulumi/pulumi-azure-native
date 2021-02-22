@@ -14,7 +14,7 @@ import (
 // Defines an Network Experiment Profile and lists of Experiments
 // Latest API Version: 2019-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'.
 type NetworkExperimentProfile struct {
 	pulumi.CustomResourceState
 
@@ -46,7 +46,13 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:NetworkExperimentProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:NetworkExperimentProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:NetworkExperimentProfile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:NetworkExperimentProfile"),
@@ -54,7 +60,7 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NetworkExperimentProfile
-	err := ctx.RegisterResource("azure-nextgen:network/latest:NetworkExperimentProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:NetworkExperimentProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 func GetNetworkExperimentProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkExperimentProfileState, opts ...pulumi.ResourceOption) (*NetworkExperimentProfile, error) {
 	var resource NetworkExperimentProfile
-	err := ctx.ReadResource("azure-nextgen:network/latest:NetworkExperimentProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:NetworkExperimentProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

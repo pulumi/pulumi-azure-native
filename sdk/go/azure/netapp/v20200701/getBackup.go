@@ -10,7 +10,7 @@ import (
 // Backup of a Volume
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
 	var rv LookupBackupResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20200701:getBackup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20200701:getBackup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

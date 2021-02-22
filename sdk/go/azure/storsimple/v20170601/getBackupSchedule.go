@@ -10,7 +10,7 @@ import (
 // The backup schedule.
 func LookupBackupSchedule(ctx *pulumi.Context, args *LookupBackupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBackupScheduleResult, error) {
 	var rv LookupBackupScheduleResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20170601:getBackupSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20170601:getBackupSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // External OAuth authorization server settings.
 func LookupAuthorizationServer(ctx *pulumi.Context, args *LookupAuthorizationServerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationServerResult, error) {
 	var rv LookupAuthorizationServerResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201:getAuthorizationServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201:getAuthorizationServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -57,7 +57,13 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabricmesh:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180701preview:Application"),
@@ -65,7 +71,7 @@ func NewApplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Application
-	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabricmesh/v20180901preview:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +83,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("azure-nextgen:servicefabricmesh/v20180901preview:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabricmesh/v20180901preview:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

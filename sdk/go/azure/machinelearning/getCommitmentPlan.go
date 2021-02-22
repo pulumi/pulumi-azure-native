@@ -11,7 +11,7 @@ import (
 // API Version: 2016-05-01-preview.
 func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, opts ...pulumi.InvokeOption) (*LookupCommitmentPlanResult, error) {
 	var rv LookupCommitmentPlanResult
-	err := ctx.Invoke("azure-nextgen:machinelearning:getCommitmentPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning:getCommitmentPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

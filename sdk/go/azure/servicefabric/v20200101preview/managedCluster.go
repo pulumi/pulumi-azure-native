@@ -85,12 +85,15 @@ func NewManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:ManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:ManagedCluster"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +105,7 @@ func NewManagedCluster(ctx *pulumi.Context,
 func GetManagedCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedClusterState, opts ...pulumi.ResourceOption) (*ManagedCluster, error) {
 	var resource ManagedCluster
-	err := ctx.ReadResource("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/v20200101preview:ManagedCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

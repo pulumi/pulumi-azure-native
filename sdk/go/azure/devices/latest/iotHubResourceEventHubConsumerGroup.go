@@ -14,7 +14,7 @@ import (
 // The properties of the EventHubConsumerGroupInfo object.
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResourceEventHubConsumerGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotHubResourceEventHubConsumerGroup'.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 
@@ -46,55 +46,109 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20180122:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20180401:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20190322:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20191104:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200301:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200401:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200615:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200801:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200831:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200831preview:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup"),
@@ -102,7 +156,7 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResourceEventHubConsumerGroup
-	err := ctx.RegisterResource("azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/latest:IotHubResourceEventHubConsumerGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +168,7 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 func GetIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotHubResourceEventHubConsumerGroupState, opts ...pulumi.ResourceOption) (*IotHubResourceEventHubConsumerGroup, error) {
 	var resource IotHubResourceEventHubConsumerGroup
-	err := ctx.ReadResource("azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/latest:IotHubResourceEventHubConsumerGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

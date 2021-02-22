@@ -10,10 +10,10 @@ import (
 // The resource containing the Azure Stack activation key.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistrationActivationKey'.
 func GetRegistrationActivationKey(ctx *pulumi.Context, args *GetRegistrationActivationKeyArgs, opts ...pulumi.InvokeOption) (*GetRegistrationActivationKeyResult, error) {
 	var rv GetRegistrationActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:azurestack/latest:getRegistrationActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/latest:getRegistrationActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

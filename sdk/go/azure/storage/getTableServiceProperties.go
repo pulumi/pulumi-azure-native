@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupTableServiceProperties(ctx *pulumi.Context, args *LookupTableServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupTableServicePropertiesResult, error) {
 	var rv LookupTableServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage:getTableServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getTableServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

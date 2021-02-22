@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:labservices:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

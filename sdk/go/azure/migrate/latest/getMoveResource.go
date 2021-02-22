@@ -10,10 +10,10 @@ import (
 // Defines the move resource.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveResource'.
 func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts ...pulumi.InvokeOption) (*LookupMoveResourceResult, error) {
 	var rv LookupMoveResourceResult
-	err := ctx.Invoke("azure-nextgen:migrate/latest:getMoveResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/latest:getMoveResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

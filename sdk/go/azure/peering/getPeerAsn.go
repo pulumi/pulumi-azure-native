@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
-	err := ctx.Invoke("azure-nextgen:peering:getPeerAsn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering:getPeerAsn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

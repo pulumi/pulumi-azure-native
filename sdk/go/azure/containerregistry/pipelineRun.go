@@ -47,7 +47,13 @@ func NewPipelineRun(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:PipelineRun"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:PipelineRun"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:PipelineRun"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:PipelineRun"),
@@ -55,7 +61,7 @@ func NewPipelineRun(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PipelineRun
-	err := ctx.RegisterResource("azure-nextgen:containerregistry:PipelineRun", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry:PipelineRun", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewPipelineRun(ctx *pulumi.Context,
 func GetPipelineRun(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PipelineRunState, opts ...pulumi.ResourceOption) (*PipelineRun, error) {
 	var resource PipelineRun
-	err := ctx.ReadResource("azure-nextgen:containerregistry:PipelineRun", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry:PipelineRun", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

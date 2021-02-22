@@ -10,7 +10,7 @@ import (
 // Definition of the configuration type.
 func LookupDscConfiguration(ctx *pulumi.Context, args *LookupDscConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscConfigurationResult, error) {
 	var rv LookupDscConfigurationResult
-	err := ctx.Invoke("azure-nextgen:automation/v20190601:getDscConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20190601:getDscConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

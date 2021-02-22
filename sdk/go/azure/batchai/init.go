@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:batchai:Cluster":
+	case "azure-native:batchai:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:batchai:Experiment":
+	case "azure-native:batchai:Experiment":
 		r, err = NewExperiment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:batchai:FileServer":
+	case "azure-native:batchai:FileServer":
 		r, err = NewFileServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:batchai:Job":
+	case "azure-native:batchai:Job":
 		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:batchai:Workspace":
+	case "azure-native:batchai:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"batchai",
 		&module{version},
 	)

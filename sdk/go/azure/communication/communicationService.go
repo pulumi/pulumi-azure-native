@@ -53,12 +53,15 @@ func NewCommunicationService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:communication/v20200820preview:CommunicationService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:communication/v20200820preview:CommunicationService"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CommunicationService
-	err := ctx.RegisterResource("azure-nextgen:communication:CommunicationService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:communication:CommunicationService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +73,7 @@ func NewCommunicationService(ctx *pulumi.Context,
 func GetCommunicationService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CommunicationServiceState, opts ...pulumi.ResourceOption) (*CommunicationService, error) {
 	var resource CommunicationService
-	err := ctx.ReadResource("azure-nextgen:communication:CommunicationService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:communication:CommunicationService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

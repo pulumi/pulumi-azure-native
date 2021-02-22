@@ -10,7 +10,7 @@ import (
 // API Version: 2020-11-20.
 func LookupSkusNestedResourceTypeFirst(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeFirstArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeFirstResult, error) {
 	var rv LookupSkusNestedResourceTypeFirstResult
-	err := ctx.Invoke("azure-nextgen:providerhub:getSkusNestedResourceTypeFirst", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub:getSkusNestedResourceTypeFirst", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

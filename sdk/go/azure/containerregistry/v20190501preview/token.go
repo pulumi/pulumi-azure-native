@@ -48,7 +48,13 @@ func NewToken(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Token"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Token"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Token"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Token"),
@@ -56,7 +62,7 @@ func NewToken(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Token
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:Token", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20190501preview:Token", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewToken(ctx *pulumi.Context,
 func GetToken(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TokenState, opts ...pulumi.ResourceOption) (*Token, error) {
 	var resource Token
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20190501preview:Token", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20190501preview:Token", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

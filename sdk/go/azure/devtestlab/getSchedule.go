@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
 	var rv LookupScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -43,28 +43,55 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppMetadata"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppMetadata"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppMetadata"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppMetadata"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadata"),
@@ -72,7 +99,7 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadata
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppMetadata", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppMetadata", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +111,7 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 func GetWebAppMetadata(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppMetadataState, opts ...pulumi.ResourceOption) (*WebAppMetadata, error) {
 	var resource WebAppMetadata
-	err := ctx.ReadResource("azure-nextgen:web:WebAppMetadata", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppMetadata", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listStorageAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listStorageAccountKeys'.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:listStorageAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:listStorageAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

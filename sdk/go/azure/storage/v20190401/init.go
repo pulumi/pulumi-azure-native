@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storage/v20190401:BlobContainer":
+	case "azure-native:storage/v20190401:BlobContainer":
 		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy":
+	case "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy":
 		r, err = NewBlobContainerImmutabilityPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:BlobServiceProperties":
+	case "azure-native:storage/v20190401:BlobServiceProperties":
 		r, err = NewBlobServiceProperties(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:FileServiceProperties":
+	case "azure-native:storage/v20190401:FileServiceProperties":
 		r, err = NewFileServiceProperties(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:FileShare":
+	case "azure-native:storage/v20190401:FileShare":
 		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:ManagementPolicy":
+	case "azure-native:storage/v20190401:ManagementPolicy":
 		r, err = NewManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20190401:StorageAccount":
+	case "azure-native:storage/v20190401:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storage/v20190401",
 		&module{version},
 	)

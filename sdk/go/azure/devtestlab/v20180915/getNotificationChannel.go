@@ -10,7 +10,7 @@ import (
 // A notification.
 func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChannelArgs, opts ...pulumi.InvokeOption) (*LookupNotificationChannelResult, error) {
 	var rv LookupNotificationChannelResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getNotificationChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getNotificationChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Inbound NAT rule of the load balancer.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInboundNatRule'.
 func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupInboundNatRuleResult, error) {
 	var rv LookupInboundNatRuleResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getInboundNatRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getInboundNatRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

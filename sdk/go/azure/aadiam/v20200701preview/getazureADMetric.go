@@ -10,7 +10,7 @@ import (
 // AzureADMetrics resource.
 func GetazureADMetric(ctx *pulumi.Context, args *GetazureADMetricArgs, opts ...pulumi.InvokeOption) (*GetazureADMetricResult, error) {
 	var rv GetazureADMetricResult
-	err := ctx.Invoke("azure-nextgen:aadiam/v20200701preview:getazureADMetric", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aadiam/v20200701preview:getazureADMetric", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

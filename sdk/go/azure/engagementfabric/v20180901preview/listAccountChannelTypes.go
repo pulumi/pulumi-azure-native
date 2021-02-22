@@ -10,7 +10,7 @@ import (
 // List of the EngagementFabric channel descriptions
 func ListAccountChannelTypes(ctx *pulumi.Context, args *ListAccountChannelTypesArgs, opts ...pulumi.InvokeOption) (*ListAccountChannelTypesResult, error) {
 	var rv ListAccountChannelTypesResult
-	err := ctx.Invoke("azure-nextgen:engagementfabric/v20180901preview:listAccountChannelTypes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupJobAgent(ctx *pulumi.Context, args *LookupJobAgentArgs, opts ...pulumi.InvokeOption) (*LookupJobAgentResult, error) {
 	var rv LookupJobAgentResult
-	err := ctx.Invoke("azure-nextgen:sql:getJobAgent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getJobAgent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

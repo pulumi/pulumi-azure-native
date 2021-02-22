@@ -53,28 +53,55 @@ func NewApplicationGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:ApplicationGroup"),
@@ -82,7 +109,7 @@ func NewApplicationGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationGroup
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization/v20200921preview:ApplicationGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +121,7 @@ func NewApplicationGroup(ctx *pulumi.Context,
 func GetApplicationGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationGroupState, opts ...pulumi.ResourceOption) (*ApplicationGroup, error) {
 	var resource ApplicationGroup
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization/v20200921preview:ApplicationGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // An object that represents a machine learning workspace.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:Workspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:Workspace'.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -92,49 +92,97 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20180301preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20180301preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20181119:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20181119:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20190501:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190501:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20190601:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190601:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20191101:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20191101:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200101:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200218preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200218preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200301:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200401:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200401:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200601:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200801:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210101:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:Workspace"),
@@ -142,7 +190,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/latest:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices/latest:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -154,7 +202,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices/latest:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices/latest:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Server Endpoint object.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
-	err := ctx.Invoke("azure-nextgen:storagesync/v20181001:getServerEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/v20181001:getServerEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -73,10 +73,19 @@ func NewProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Profile"),
@@ -84,7 +93,7 @@ func NewProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Profile
-	err := ctx.RegisterResource("azure-nextgen:customerinsights:Profile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights:Profile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +105,7 @@ func NewProfile(ctx *pulumi.Context,
 func GetProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProfileState, opts ...pulumi.ResourceOption) (*Profile, error) {
 	var resource Profile
-	err := ctx.ReadResource("azure-nextgen:customerinsights:Profile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights:Profile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

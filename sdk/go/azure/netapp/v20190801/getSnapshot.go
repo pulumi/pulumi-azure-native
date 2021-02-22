@@ -10,7 +10,7 @@ import (
 // Snapshot of a Volume
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20190801:getSnapshot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20190801:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

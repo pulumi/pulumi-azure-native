@@ -10,10 +10,10 @@ import (
 // Represents a server firewall rule.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getFirewallRule'.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/latest:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/latest:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -39,10 +39,19 @@ func NewMoveResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate/latest:MoveResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:MoveResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:migrate/v20191001preview:MoveResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001preview:MoveResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20210101:MoveResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20210101:MoveResource"),
@@ -50,7 +59,7 @@ func NewMoveResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MoveResource
-	err := ctx.RegisterResource("azure-nextgen:migrate:MoveResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate:MoveResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +71,7 @@ func NewMoveResource(ctx *pulumi.Context,
 func GetMoveResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MoveResourceState, opts ...pulumi.ResourceOption) (*MoveResource, error) {
 	var resource MoveResource
-	err := ctx.ReadResource("azure-nextgen:migrate:MoveResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate:MoveResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

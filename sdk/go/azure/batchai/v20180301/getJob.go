@@ -10,7 +10,7 @@ import (
 // Contains information about the job.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:batchai/v20180301:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/v20180301:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

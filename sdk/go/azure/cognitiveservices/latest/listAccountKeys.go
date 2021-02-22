@@ -10,10 +10,10 @@ import (
 // The access keys for the cognitive services account.
 // Latest API Version: 2017-04-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:listAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:listAccountKeys'.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:cognitiveservices/latest:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cognitiveservices/latest:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupApiPolicy(ctx *pulumi.Context, args *LookupApiPolicyArgs, opts ...pulumi.InvokeOption) (*LookupApiPolicyResult, error) {
 	var rv LookupApiPolicyResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

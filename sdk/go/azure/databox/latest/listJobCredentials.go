@@ -10,10 +10,10 @@ import (
 // List of unencrypted credentials for accessing device.
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:listJobCredentials'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databox:listJobCredentials'.
 func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts ...pulumi.InvokeOption) (*ListJobCredentialsResult, error) {
 	var rv ListJobCredentialsResult
-	err := ctx.Invoke("azure-nextgen:databox/latest:listJobCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databox/latest:listJobCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

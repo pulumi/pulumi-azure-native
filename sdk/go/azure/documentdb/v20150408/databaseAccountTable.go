@@ -46,19 +46,37 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccountTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountTable"),
@@ -66,7 +84,7 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountTable
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20150408:DatabaseAccountTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20150408:DatabaseAccountTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 func GetDatabaseAccountTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountTableState, opts ...pulumi.ResourceOption) (*DatabaseAccountTable, error) {
 	var resource DatabaseAccountTable
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20150408:DatabaseAccountTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20150408:DatabaseAccountTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

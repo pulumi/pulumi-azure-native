@@ -10,7 +10,7 @@ import (
 // Storage Sync Service object.
 func LookupStorageSyncService(ctx *pulumi.Context, args *LookupStorageSyncServiceArgs, opts ...pulumi.InvokeOption) (*LookupStorageSyncServiceResult, error) {
 	var rv LookupStorageSyncServiceResult
-	err := ctx.Invoke("azure-nextgen:storagesync/v20200901:getStorageSyncService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/v20200901:getStorageSyncService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

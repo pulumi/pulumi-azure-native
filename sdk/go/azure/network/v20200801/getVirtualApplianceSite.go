@@ -10,7 +10,7 @@ import (
 // Virtual Appliance Site resource.
 func LookupVirtualApplianceSite(ctx *pulumi.Context, args *LookupVirtualApplianceSiteArgs, opts ...pulumi.InvokeOption) (*LookupVirtualApplianceSiteResult, error) {
 	var rv LookupVirtualApplianceSiteResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getVirtualApplianceSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getVirtualApplianceSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Class representing a cluster principal assignment.
 func LookupClusterPrincipalAssignment(ctx *pulumi.Context, args *LookupClusterPrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupClusterPrincipalAssignmentResult, error) {
 	var rv LookupClusterPrincipalAssignmentResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20200614:getClusterPrincipalAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20200614:getClusterPrincipalAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

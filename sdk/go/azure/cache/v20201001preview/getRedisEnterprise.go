@@ -10,7 +10,7 @@ import (
 // Describes the RedisEnterprise cluster
 func LookupRedisEnterprise(ctx *pulumi.Context, args *LookupRedisEnterpriseArgs, opts ...pulumi.InvokeOption) (*LookupRedisEnterpriseResult, error) {
 	var rv LookupRedisEnterpriseResult
-	err := ctx.Invoke("azure-nextgen:cache/v20201001preview:getRedisEnterprise", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20201001preview:getRedisEnterprise", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

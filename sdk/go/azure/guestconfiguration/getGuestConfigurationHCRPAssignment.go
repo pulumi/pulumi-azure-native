@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-25.
 func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationHCRPAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationHCRPAssignmentResult, error) {
 	var rv LookupGuestConfigurationHCRPAssignmentResult
-	err := ctx.Invoke("azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

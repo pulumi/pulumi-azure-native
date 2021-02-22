@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB SQL Role Definition.
 func LookupSqlResourceSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleDefinitionResult, error) {
 	var rv LookupSqlResourceSqlRoleDefinitionResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlRoleDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getSqlResourceSqlRoleDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

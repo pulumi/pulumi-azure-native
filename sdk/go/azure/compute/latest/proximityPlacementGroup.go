@@ -14,7 +14,7 @@ import (
 // Specifies information about the proximity placement group.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:ProximityPlacementGroup'.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 
@@ -50,28 +50,55 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:ProximityPlacementGroup"),
@@ -79,7 +106,7 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProximityPlacementGroup
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:ProximityPlacementGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:ProximityPlacementGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +118,7 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 func GetProximityPlacementGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProximityPlacementGroupState, opts ...pulumi.ResourceOption) (*ProximityPlacementGroup, error) {
 	var resource ProximityPlacementGroup
-	err := ctx.ReadResource("azure-nextgen:compute/latest:ProximityPlacementGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:ProximityPlacementGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

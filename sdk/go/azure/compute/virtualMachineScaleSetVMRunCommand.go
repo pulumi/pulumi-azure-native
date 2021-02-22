@@ -69,10 +69,19 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
@@ -80,7 +89,7 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetVMRunCommand
-	err := ctx.RegisterResource("azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:VirtualMachineScaleSetVMRunCommand", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +101,7 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 func GetVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScaleSetVMRunCommandState, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVMRunCommand, error) {
 	var resource VirtualMachineScaleSetVMRunCommand
-	err := ctx.ReadResource("azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:VirtualMachineScaleSetVMRunCommand", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

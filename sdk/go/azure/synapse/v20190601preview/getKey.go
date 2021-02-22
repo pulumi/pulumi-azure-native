@@ -10,7 +10,7 @@ import (
 // A workspace key
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20190601preview:getKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20190601preview:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

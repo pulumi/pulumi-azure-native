@@ -10,7 +10,7 @@ import (
 // Contains information about a database Threat Detection policy.
 func LookupDatabaseThreatDetectionPolicy(ctx *pulumi.Context, args *LookupDatabaseThreatDetectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseThreatDetectionPolicyResult, error) {
 	var rv LookupDatabaseThreatDetectionPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql/v20140401:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

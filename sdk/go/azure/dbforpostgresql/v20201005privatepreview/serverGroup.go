@@ -82,7 +82,7 @@ func NewServerGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ServerGroup
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func NewServerGroup(ctx *pulumi.Context,
 func GetServerGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerGroupState, opts ...pulumi.ResourceOption) (*ServerGroup, error) {
 	var resource ServerGroup
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

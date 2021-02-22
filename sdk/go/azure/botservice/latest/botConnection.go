@@ -14,7 +14,7 @@ import (
 // Bot channel resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:botservice:BotConnection'.
 type BotConnection struct {
 	pulumi.CustomResourceState
 
@@ -51,13 +51,25 @@ func NewBotConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:BotConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20171201:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20171201:BotConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:botservice/v20180712:BotConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20200602:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:BotConnection"),
@@ -65,7 +77,7 @@ func NewBotConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BotConnection
-	err := ctx.RegisterResource("azure-nextgen:botservice/latest:BotConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/latest:BotConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +89,7 @@ func NewBotConnection(ctx *pulumi.Context,
 func GetBotConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BotConnectionState, opts ...pulumi.ResourceOption) (*BotConnection, error) {
 	var resource BotConnection
-	err := ctx.ReadResource("azure-nextgen:botservice/latest:BotConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/latest:BotConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Represents a and external administrator to be created.
 func LookupServerAdministrator(ctx *pulumi.Context, args *LookupServerAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdministratorResult, error) {
 	var rv LookupServerAdministratorResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/v20171201preview:getServerAdministrator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/v20171201preview:getServerAdministrator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Developer Keys of account
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listSpatialAnchorsAccountKeys'.
 func ListSpatialAnchorsAccountKeys(ctx *pulumi.Context, args *ListSpatialAnchorsAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListSpatialAnchorsAccountKeysResult, error) {
 	var rv ListSpatialAnchorsAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/latest:listSpatialAnchorsAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/latest:listSpatialAnchorsAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // An ADP Data Pool.
 func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupDataPoolResult, error) {
 	var rv LookupDataPoolResult
-	err := ctx.Invoke("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:getDataPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

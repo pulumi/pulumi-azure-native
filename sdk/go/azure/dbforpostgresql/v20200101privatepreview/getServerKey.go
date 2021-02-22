@@ -10,7 +10,7 @@ import (
 // A PostgreSQL Server key.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql/v20200101privatepreview:getServerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql/v20200101privatepreview:getServerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOriginGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOriginGroup'.
 type AFDOriginGroup struct {
 	pulumi.CustomResourceState
 
@@ -54,7 +54,13 @@ func NewAFDOriginGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:AFDOriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:AFDOriginGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:AFDOriginGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDOriginGroup"),
@@ -62,7 +68,7 @@ func NewAFDOriginGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDOriginGroup
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:AFDOriginGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:AFDOriginGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewAFDOriginGroup(ctx *pulumi.Context,
 func GetAFDOriginGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDOriginGroupState, opts ...pulumi.ResourceOption) (*AFDOriginGroup, error) {
 	var resource AFDOriginGroup
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:AFDOriginGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:AFDOriginGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

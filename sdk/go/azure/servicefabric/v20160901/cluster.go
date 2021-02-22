@@ -81,28 +81,55 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/latest:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/latest:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20180201:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20180201:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20191101preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:Cluster"),
@@ -110,7 +137,7 @@ func NewCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20160901:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/v20160901:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +149,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("azure-nextgen:servicefabric/v20160901:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/v20160901:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

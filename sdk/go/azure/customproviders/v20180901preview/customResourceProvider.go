@@ -45,12 +45,15 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customproviders:CustomResourceProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customproviders:CustomResourceProvider"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomResourceProvider
-	err := ctx.RegisterResource("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customproviders/v20180901preview:CustomResourceProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +65,7 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 func GetCustomResourceProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomResourceProviderState, opts ...pulumi.ResourceOption) (*CustomResourceProvider, error) {
 	var resource CustomResourceProvider
-	err := ctx.ReadResource("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customproviders/v20180901preview:CustomResourceProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

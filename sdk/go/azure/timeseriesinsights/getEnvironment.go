@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-15.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights:getEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights:getEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

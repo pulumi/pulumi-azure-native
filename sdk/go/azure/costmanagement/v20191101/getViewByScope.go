@@ -10,7 +10,7 @@ import (
 // States and configurations of Cost Analysis.
 func LookupViewByScope(ctx *pulumi.Context, args *LookupViewByScopeArgs, opts ...pulumi.InvokeOption) (*LookupViewByScopeResult, error) {
 	var rv LookupViewByScopeResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/v20191101:getViewByScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/v20191101:getViewByScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

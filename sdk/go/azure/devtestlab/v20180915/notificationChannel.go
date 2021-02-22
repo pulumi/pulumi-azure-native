@@ -56,10 +56,19 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:NotificationChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:NotificationChannel"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:NotificationChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:NotificationChannel"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:NotificationChannel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:NotificationChannel"),
@@ -67,7 +76,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationChannel
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20180915:NotificationChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20180915:NotificationChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 func GetNotificationChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) (*NotificationChannel, error) {
 	var resource NotificationChannel
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20180915:NotificationChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20180915:NotificationChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

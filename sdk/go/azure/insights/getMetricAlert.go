@@ -11,7 +11,7 @@ import (
 // API Version: 2018-03-01.
 func LookupMetricAlert(ctx *pulumi.Context, args *LookupMetricAlertArgs, opts ...pulumi.InvokeOption) (*LookupMetricAlertResult, error) {
 	var rv LookupMetricAlertResult
-	err := ctx.Invoke("azure-nextgen:insights:getMetricAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getMetricAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

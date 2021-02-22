@@ -61,13 +61,25 @@ func NewWatcher(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:Watcher"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Watcher"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Watcher"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Watcher"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Watcher"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Watcher"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Watcher"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Watcher"),
@@ -75,7 +87,7 @@ func NewWatcher(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Watcher
-	err := ctx.RegisterResource("azure-nextgen:automation:Watcher", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:Watcher", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +99,7 @@ func NewWatcher(ctx *pulumi.Context,
 func GetWatcher(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WatcherState, opts ...pulumi.ResourceOption) (*Watcher, error) {
 	var resource Watcher
-	err := ctx.ReadResource("azure-nextgen:automation:Watcher", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:Watcher", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

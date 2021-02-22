@@ -44,13 +44,25 @@ func NewDiskAccess(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:DiskAccess"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200501:DiskAccess"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200501:DiskAccess"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200630:DiskAccess"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:DiskAccess"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccess"),
@@ -58,7 +70,7 @@ func NewDiskAccess(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DiskAccess
-	err := ctx.RegisterResource("azure-nextgen:compute:DiskAccess", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:DiskAccess", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewDiskAccess(ctx *pulumi.Context,
 func GetDiskAccess(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskAccessState, opts ...pulumi.ResourceOption) (*DiskAccess, error) {
 	var resource DiskAccess
-	err := ctx.ReadResource("azure-nextgen:compute:DiskAccess", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:DiskAccess", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

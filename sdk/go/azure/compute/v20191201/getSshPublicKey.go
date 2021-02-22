@@ -10,7 +10,7 @@ import (
 // Specifies information about the SSH public key.
 func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshPublicKeyResult, error) {
 	var rv LookupSshPublicKeyResult
-	err := ctx.Invoke("azure-nextgen:compute/v20191201:getSshPublicKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20191201:getSshPublicKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

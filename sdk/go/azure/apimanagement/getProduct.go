@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

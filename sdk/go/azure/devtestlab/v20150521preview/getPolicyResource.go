@@ -10,7 +10,7 @@ import (
 // A Policy.
 func LookupPolicyResource(ctx *pulumi.Context, args *LookupPolicyResourceArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResourceResult, error) {
 	var rv LookupPolicyResourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getPolicyResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getPolicyResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

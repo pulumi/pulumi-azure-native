@@ -11,7 +11,7 @@ import (
 // API Version: 2014-04-01.
 func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigurationResult, error) {
 	var rv LookupDisasterRecoveryConfigurationResult
-	err := ctx.Invoke("azure-nextgen:sql:getDisasterRecoveryConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getDisasterRecoveryConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

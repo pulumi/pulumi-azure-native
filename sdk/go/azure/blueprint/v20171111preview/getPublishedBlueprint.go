@@ -10,7 +10,7 @@ import (
 // Represents a published Blueprint.
 func LookupPublishedBlueprint(ctx *pulumi.Context, args *LookupPublishedBlueprintArgs, opts ...pulumi.InvokeOption) (*LookupPublishedBlueprintResult, error) {
 	var rv LookupPublishedBlueprintResult
-	err := ctx.Invoke("azure-nextgen:blueprint/v20171111preview:getPublishedBlueprint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

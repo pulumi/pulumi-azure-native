@@ -68,7 +68,13 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata:SqlServerInstance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlServerInstance"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20200908preview:SqlServerInstance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:SqlServerInstance"),
@@ -76,7 +82,7 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlServerInstance
-	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:SqlServerInstance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata/v20190724preview:SqlServerInstance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +94,7 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 func GetSqlServerInstance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlServerInstanceState, opts ...pulumi.ResourceOption) (*SqlServerInstance, error) {
 	var resource SqlServerInstance
-	err := ctx.ReadResource("azure-nextgen:azuredata/v20190724preview:SqlServerInstance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata/v20190724preview:SqlServerInstance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // An Azure resource which represents access to a suite of Maps REST APIs.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maps:Account'.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -47,13 +47,25 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:maps:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maps:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:maps/v20170101preview:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:maps/v20170101preview:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:maps/v20180501:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maps/v20180501:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:maps/v20200201preview:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:maps/v20200201preview:Account"),
@@ -61,7 +73,7 @@ func NewAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:maps/latest:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:maps/latest:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:maps/latest:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:maps/latest:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

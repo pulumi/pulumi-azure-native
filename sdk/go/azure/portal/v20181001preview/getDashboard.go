@@ -10,7 +10,7 @@ import (
 // The shared dashboard resource definition.
 func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pulumi.InvokeOption) (*LookupDashboardResult, error) {
 	var rv LookupDashboardResult
-	err := ctx.Invoke("azure-nextgen:portal/v20181001preview:getDashboard", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/v20181001preview:getDashboard", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The description of the DigitalTwins service.
 func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinResult, error) {
 	var rv LookupDigitalTwinResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins/v20200301preview:getDigitalTwin", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

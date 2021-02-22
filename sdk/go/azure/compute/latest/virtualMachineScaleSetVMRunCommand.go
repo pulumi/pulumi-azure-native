@@ -14,7 +14,7 @@ import (
 // Describes a Virtual Machine run command.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.
 type VirtualMachineScaleSetVMRunCommand struct {
 	pulumi.CustomResourceState
 
@@ -71,10 +71,19 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
@@ -82,7 +91,7 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetVMRunCommand
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +103,7 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 func GetVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScaleSetVMRunCommandState, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVMRunCommand, error) {
 	var resource VirtualMachineScaleSetVMRunCommand
-	err := ctx.ReadResource("azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

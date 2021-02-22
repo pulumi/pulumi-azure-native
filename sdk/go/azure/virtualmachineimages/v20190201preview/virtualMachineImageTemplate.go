@@ -54,16 +54,31 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
@@ -71,7 +86,7 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineImageTemplate
-	err := ctx.RegisterResource("azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +98,7 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 func GetVirtualMachineImageTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineImageTemplateState, opts ...pulumi.ResourceOption) (*VirtualMachineImageTemplate, error) {
 	var resource VirtualMachineImageTemplate
-	err := ctx.ReadResource("azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

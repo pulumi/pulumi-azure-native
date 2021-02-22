@@ -10,10 +10,10 @@ import (
 // Response to get user settings
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'.
 func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsResult, error) {
 	var rv LookupUserSettingsResult
-	err := ctx.Invoke("azure-nextgen:portal/latest:getUserSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/latest:getUserSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

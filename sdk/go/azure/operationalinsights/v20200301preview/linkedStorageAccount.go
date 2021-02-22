@@ -40,13 +40,25 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:LinkedStorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:LinkedStorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/latest:LinkedStorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:LinkedStorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:LinkedStorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount"),
@@ -54,7 +66,7 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedStorageAccount
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +78,7 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 func GetLinkedStorageAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedStorageAccountState, opts ...pulumi.ResourceOption) (*LinkedStorageAccount, error) {
 	var resource LinkedStorageAccount
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

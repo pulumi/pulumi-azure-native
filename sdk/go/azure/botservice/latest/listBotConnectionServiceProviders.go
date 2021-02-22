@@ -10,10 +10,10 @@ import (
 // The list of bot service providers response.
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionServiceProviders'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {
 	var rv ListBotConnectionServiceProvidersResult
-	err := ctx.Invoke("azure-nextgen:botservice/latest:listBotConnectionServiceProviders", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/latest:listBotConnectionServiceProviders", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

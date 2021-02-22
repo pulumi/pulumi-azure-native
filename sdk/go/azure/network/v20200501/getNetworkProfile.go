@@ -10,7 +10,7 @@ import (
 // Network profile resource.
 func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkProfileResult, error) {
 	var rv LookupNetworkProfileResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getNetworkProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getNetworkProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

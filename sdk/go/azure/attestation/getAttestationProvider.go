@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupAttestationProvider(ctx *pulumi.Context, args *LookupAttestationProviderArgs, opts ...pulumi.InvokeOption) (*LookupAttestationProviderResult, error) {
 	var rv LookupAttestationProviderResult
-	err := ctx.Invoke("azure-nextgen:attestation:getAttestationProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:attestation:getAttestationProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

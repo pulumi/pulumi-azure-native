@@ -10,10 +10,10 @@ import (
 // The properties of the EventHubConsumerGroupInfo object.
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResourceEventHubConsumerGroup'.
 func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *LookupIotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceEventHubConsumerGroupResult, error) {
 	var rv LookupIotHubResourceEventHubConsumerGroupResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

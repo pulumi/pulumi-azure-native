@@ -10,10 +10,10 @@ import (
 // An object that represents a container registry.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getRegistry'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getRegistry'.
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	var rv LookupRegistryResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:getRegistry", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:getRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

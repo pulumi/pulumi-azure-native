@@ -52,7 +52,13 @@ func NewADCCatalog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datacatalog/latest:ADCCatalog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datacatalog/latest:ADCCatalog"),
+		},
+		{
+			Type: pulumi.String("azure-native:datacatalog/v20160330:ADCCatalog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datacatalog/v20160330:ADCCatalog"),
@@ -60,7 +66,7 @@ func NewADCCatalog(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ADCCatalog
-	err := ctx.RegisterResource("azure-nextgen:datacatalog:ADCCatalog", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datacatalog:ADCCatalog", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewADCCatalog(ctx *pulumi.Context,
 func GetADCCatalog(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ADCCatalogState, opts ...pulumi.ResourceOption) (*ADCCatalog, error) {
 	var resource ADCCatalog
-	err := ctx.ReadResource("azure-nextgen:datacatalog:ADCCatalog", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datacatalog:ADCCatalog", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

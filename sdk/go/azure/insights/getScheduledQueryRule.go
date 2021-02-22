@@ -11,7 +11,7 @@ import (
 // API Version: 2018-04-16.
 func LookupScheduledQueryRule(ctx *pulumi.Context, args *LookupScheduledQueryRuleArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRuleResult, error) {
 	var rv LookupScheduledQueryRuleResult
-	err := ctx.Invoke("azure-nextgen:insights:getScheduledQueryRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getScheduledQueryRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

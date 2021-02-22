@@ -10,7 +10,7 @@ import (
 // Represents a .rdp file
 func GetVirtualMachineRdpFileContents(ctx *pulumi.Context, args *GetVirtualMachineRdpFileContentsArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineRdpFileContentsResult, error) {
 	var rv GetVirtualMachineRdpFileContentsResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getVirtualMachineRdpFileContents", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

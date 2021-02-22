@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupNotificationHubAuthorizationRule(ctx *pulumi.Context, args *LookupNotificationHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubAuthorizationRuleResult, error) {
 	var rv LookupNotificationHubAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

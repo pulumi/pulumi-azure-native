@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-01.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
-	err := ctx.Invoke("azure-nextgen:migrate:getAssessment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getAssessment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

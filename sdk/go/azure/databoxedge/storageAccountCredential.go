@@ -64,22 +64,43 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge/latest:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190301:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:StorageAccountCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:StorageAccountCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"),
@@ -87,7 +108,7 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountCredential
-	err := ctx.RegisterResource("azure-nextgen:databoxedge:StorageAccountCredential", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge:StorageAccountCredential", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +120,7 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 func GetStorageAccountCredential(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountCredentialState, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
 	var resource StorageAccountCredential
-	err := ctx.ReadResource("azure-nextgen:databoxedge:StorageAccountCredential", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge:StorageAccountCredential", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualHubBgpConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualHubBgpConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

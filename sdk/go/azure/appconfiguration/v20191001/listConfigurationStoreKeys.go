@@ -10,7 +10,7 @@ import (
 // The result of a request to list API keys.
 func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStoreKeysArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeysResult, error) {
 	var rv ListConfigurationStoreKeysResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/v20191001:listConfigurationStoreKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/v20191001:listConfigurationStoreKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

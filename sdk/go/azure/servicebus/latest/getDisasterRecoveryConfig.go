@@ -10,10 +10,10 @@ import (
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getDisasterRecoveryConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getDisasterRecoveryConfig'.
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
-	err := ctx.Invoke("azure-nextgen:servicebus/latest:getDisasterRecoveryConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/latest:getDisasterRecoveryConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

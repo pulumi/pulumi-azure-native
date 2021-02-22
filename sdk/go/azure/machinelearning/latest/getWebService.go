@@ -10,10 +10,10 @@ import (
 // Instance of an Azure ML web service resource.
 // Latest API Version: 2017-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'.
 func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...pulumi.InvokeOption) (*LookupWebServiceResult, error) {
 	var rv LookupWebServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearning/latest:getWebService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning/latest:getWebService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

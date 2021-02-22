@@ -14,7 +14,7 @@ import (
 // Represents a disaster recovery configuration.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DisasterRecoveryConfiguration'.
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -55,7 +55,13 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:DisasterRecoveryConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:DisasterRecoveryConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:DisasterRecoveryConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration"),
@@ -63,7 +69,7 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfiguration
-	err := ctx.RegisterResource("azure-nextgen:sql/latest:DisasterRecoveryConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/latest:DisasterRecoveryConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 func GetDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DisasterRecoveryConfigurationState, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfiguration, error) {
 	var resource DisasterRecoveryConfiguration
-	err := ctx.ReadResource("azure-nextgen:sql/latest:DisasterRecoveryConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/latest:DisasterRecoveryConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

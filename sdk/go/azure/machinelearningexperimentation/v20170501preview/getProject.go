@@ -10,7 +10,7 @@ import (
 // An object that represents a machine learning project.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
-	err := ctx.Invoke("azure-nextgen:machinelearningexperimentation/v20170501preview:getProject", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningexperimentation/v20170501preview:getProject", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

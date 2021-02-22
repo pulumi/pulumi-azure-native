@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupMoveCollection(ctx *pulumi.Context, args *LookupMoveCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMoveCollectionResult, error) {
 	var rv LookupMoveCollectionResult
-	err := ctx.Invoke("azure-nextgen:migrate:getMoveCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getMoveCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

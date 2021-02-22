@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func ListTopicSharedAccessKeys(ctx *pulumi.Context, args *ListTopicSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicSharedAccessKeysResult, error) {
 	var rv ListTopicSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:listTopicSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:listTopicSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

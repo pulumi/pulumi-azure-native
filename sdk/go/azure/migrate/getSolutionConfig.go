@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func GetSolutionConfig(ctx *pulumi.Context, args *GetSolutionConfigArgs, opts ...pulumi.InvokeOption) (*GetSolutionConfigResult, error) {
 	var rv GetSolutionConfigResult
-	err := ctx.Invoke("azure-nextgen:migrate:getSolutionConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getSolutionConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

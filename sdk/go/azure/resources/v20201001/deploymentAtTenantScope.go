@@ -39,22 +39,43 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentAtTenantScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/latest:DeploymentAtTenantScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtTenantScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtTenantScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtTenantScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtTenantScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtTenantScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtTenantScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtTenantScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtTenantScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtTenantScope"),
@@ -62,7 +83,7 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtTenantScope
-	err := ctx.RegisterResource("azure-nextgen:resources/v20201001:DeploymentAtTenantScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/v20201001:DeploymentAtTenantScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +95,7 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 func GetDeploymentAtTenantScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentAtTenantScopeState, opts ...pulumi.ResourceOption) (*DeploymentAtTenantScope, error) {
 	var resource DeploymentAtTenantScope
-	err := ctx.ReadResource("azure-nextgen:resources/v20201001:DeploymentAtTenantScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/v20201001:DeploymentAtTenantScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

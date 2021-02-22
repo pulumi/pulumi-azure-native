@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeThird'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeThird'.
 func LookupSkusNestedResourceTypeThird(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeThirdArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeThirdResult, error) {
 	var rv LookupSkusNestedResourceTypeThirdResult
-	err := ctx.Invoke("azure-nextgen:providerhub/latest:getSkusNestedResourceTypeThird", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/latest:getSkusNestedResourceTypeThird", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

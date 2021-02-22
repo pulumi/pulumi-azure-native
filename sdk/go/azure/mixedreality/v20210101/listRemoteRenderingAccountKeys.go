@@ -10,7 +10,7 @@ import (
 // Developer Keys of account
 func ListRemoteRenderingAccountKeys(ctx *pulumi.Context, args *ListRemoteRenderingAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListRemoteRenderingAccountKeysResult, error) {
 	var rv ListRemoteRenderingAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/v20210101:listRemoteRenderingAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/v20210101:listRemoteRenderingAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

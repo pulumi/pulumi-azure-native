@@ -10,10 +10,10 @@ import (
 // Represents the properties of the Dns Resource Reference Result.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDnsResourceReferenceByTarResources'.
 func GetDnsResourceReferenceByTarResources(ctx *pulumi.Context, args *GetDnsResourceReferenceByTarResourcesArgs, opts ...pulumi.InvokeOption) (*GetDnsResourceReferenceByTarResourcesResult, error) {
 	var rv GetDnsResourceReferenceByTarResourcesResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getDnsResourceReferenceByTarResources", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getDnsResourceReferenceByTarResources", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

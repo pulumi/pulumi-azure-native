@@ -10,10 +10,10 @@ import (
 // Machine Learning service object wrapped into ARM resource envelope.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningService'.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:getMachineLearningService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:getMachineLearningService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

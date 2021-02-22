@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	var rv LookupShareResult
-	err := ctx.Invoke("azure-nextgen:datashare:getShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare:getShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

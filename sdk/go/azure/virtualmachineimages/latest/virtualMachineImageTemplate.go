@@ -14,7 +14,7 @@ import (
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 // Latest API Version: 2020-02-14.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:virtualmachineimages:VirtualMachineImageTemplate'.
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 
@@ -67,16 +67,31 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
@@ -84,7 +99,7 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineImageTemplate
-	err := ctx.RegisterResource("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +111,7 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 func GetVirtualMachineImageTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineImageTemplateState, opts ...pulumi.ResourceOption) (*VirtualMachineImageTemplate, error) {
 	var resource VirtualMachineImageTemplate
-	err := ctx.ReadResource("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

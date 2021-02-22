@@ -10,10 +10,10 @@ import (
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFrontDoor'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFrontDoor'.
 func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pulumi.InvokeOption) (*LookupFrontDoorResult, error) {
 	var rv LookupFrontDoorResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getFrontDoor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getFrontDoor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

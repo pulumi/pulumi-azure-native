@@ -11,7 +11,7 @@ import (
 // API Version: 2016-11-01.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:datalakestore:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakestore:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

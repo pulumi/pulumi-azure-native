@@ -10,7 +10,7 @@ import (
 // A common class for general resource information
 func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayConnectionResult, error) {
 	var rv LookupVirtualNetworkGatewayConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20150615:getVirtualNetworkGatewayConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20150615:getVirtualNetworkGatewayConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

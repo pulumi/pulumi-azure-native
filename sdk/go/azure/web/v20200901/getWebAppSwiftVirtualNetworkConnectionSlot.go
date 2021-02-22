@@ -10,7 +10,7 @@ import (
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 func LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20200901:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200901:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

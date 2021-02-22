@@ -51,16 +51,31 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:ContentKeyPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180330preview:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:ContentKeyPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180701:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:ContentKeyPolicy"),
@@ -68,7 +83,7 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContentKeyPolicy
-	err := ctx.RegisterResource("azure-nextgen:media/v20200501:ContentKeyPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20200501:ContentKeyPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +95,7 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 func GetContentKeyPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContentKeyPolicyState, opts ...pulumi.ResourceOption) (*ContentKeyPolicy, error) {
 	var resource ContentKeyPolicy
-	err := ctx.ReadResource("azure-nextgen:media/v20200501:ContentKeyPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20200501:ContentKeyPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

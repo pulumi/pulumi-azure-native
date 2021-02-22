@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01-preview.
 func ListAgentPoolQueueStatus(ctx *pulumi.Context, args *ListAgentPoolQueueStatusArgs, opts ...pulumi.InvokeOption) (*ListAgentPoolQueueStatusResult, error) {
 	var rv ListAgentPoolQueueStatusResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listAgentPoolQueueStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listAgentPoolQueueStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

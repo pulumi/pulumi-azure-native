@@ -10,10 +10,10 @@ import (
 // Description of a namespace authorization rule.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelayAuthorizationRule'.
 func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayAuthorizationRuleResult, error) {
 	var rv LookupWCFRelayAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay/latest:getWCFRelayAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/latest:getWCFRelayAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

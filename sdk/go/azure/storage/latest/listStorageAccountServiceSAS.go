@@ -10,10 +10,10 @@ import (
 // The List service SAS credentials operation response.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountServiceSAS'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountServiceSAS'.
 func ListStorageAccountServiceSAS(ctx *pulumi.Context, args *ListStorageAccountServiceSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountServiceSASResult, error) {
 	var rv ListStorageAccountServiceSASResult
-	err := ctx.Invoke("azure-nextgen:storage/latest:listStorageAccountServiceSAS", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/latest:listStorageAccountServiceSAS", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

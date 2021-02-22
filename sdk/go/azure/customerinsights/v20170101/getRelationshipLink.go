@@ -10,7 +10,7 @@ import (
 // The relationship link resource format.
 func LookupRelationshipLink(ctx *pulumi.Context, args *LookupRelationshipLinkArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipLinkResult, error) {
 	var rv LookupRelationshipLinkResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170101:getRelationshipLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170101:getRelationshipLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

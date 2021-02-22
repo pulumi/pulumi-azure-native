@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func LookupGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context, args *LookupGuestDiagnosticsSettingsAssociationArgs, opts ...pulumi.InvokeOption) (*LookupGuestDiagnosticsSettingsAssociationResult, error) {
 	var rv LookupGuestDiagnosticsSettingsAssociationResult
-	err := ctx.Invoke("azure-nextgen:insights:getGuestDiagnosticsSettingsAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getGuestDiagnosticsSettingsAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

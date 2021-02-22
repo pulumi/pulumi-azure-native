@@ -10,10 +10,10 @@ import (
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getConfigurationStore'.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/latest:getConfigurationStore", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/latest:getConfigurationStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

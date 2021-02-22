@@ -10,10 +10,10 @@ import (
 // LoadBalancer resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'.
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getLoadBalancer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

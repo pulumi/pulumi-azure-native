@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01-preview.
 func LookupDataCollectionRuleAssociation(ctx *pulumi.Context, args *LookupDataCollectionRuleAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleAssociationResult, error) {
 	var rv LookupDataCollectionRuleAssociationResult
-	err := ctx.Invoke("azure-nextgen:insights:getDataCollectionRuleAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getDataCollectionRuleAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // The workflow type.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:Workflow'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:Workflow'.
 type Workflow struct {
 	pulumi.CustomResourceState
 
@@ -66,16 +66,31 @@ func NewWorkflow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:Workflow"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:Workflow"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150201preview:Workflow"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150201preview:Workflow"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:Workflow"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:Workflow"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:Workflow"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Workflow"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:Workflow"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:Workflow"),
@@ -83,7 +98,7 @@ func NewWorkflow(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workflow
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:Workflow", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:Workflow", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +110,7 @@ func NewWorkflow(ctx *pulumi.Context,
 func GetWorkflow(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkflowState, opts ...pulumi.ResourceOption) (*Workflow, error) {
 	var resource Workflow
-	err := ctx.ReadResource("azure-nextgen:logic/latest:Workflow", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:Workflow", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

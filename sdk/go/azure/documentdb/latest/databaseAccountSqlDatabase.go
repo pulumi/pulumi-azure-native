@@ -14,7 +14,7 @@ import (
 // An Azure Cosmos DB SQL database.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlDatabase'.
 type DatabaseAccountSqlDatabase struct {
 	pulumi.CustomResourceState
 
@@ -59,19 +59,37 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccountSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase"),
@@ -79,7 +97,7 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountSqlDatabase
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:DatabaseAccountSqlDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +109,7 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 func GetDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountSqlDatabaseState, opts ...pulumi.ResourceOption) (*DatabaseAccountSqlDatabase, error) {
 	var resource DatabaseAccountSqlDatabase
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:DatabaseAccountSqlDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

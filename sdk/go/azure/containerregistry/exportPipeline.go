@@ -52,7 +52,13 @@ func NewExportPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:ExportPipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:ExportPipeline"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ExportPipeline"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ExportPipeline"),
@@ -60,7 +66,7 @@ func NewExportPipeline(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExportPipeline
-	err := ctx.RegisterResource("azure-nextgen:containerregistry:ExportPipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry:ExportPipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewExportPipeline(ctx *pulumi.Context,
 func GetExportPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExportPipelineState, opts ...pulumi.ResourceOption) (*ExportPipeline, error) {
 	var resource ExportPipeline
-	err := ctx.ReadResource("azure-nextgen:containerregistry:ExportPipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry:ExportPipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

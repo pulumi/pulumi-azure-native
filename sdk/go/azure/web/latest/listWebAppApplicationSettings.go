@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettings'.
 func ListWebAppApplicationSettings(ctx *pulumi.Context, args *ListWebAppApplicationSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsResult, error) {
 	var rv ListWebAppApplicationSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppApplicationSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppApplicationSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

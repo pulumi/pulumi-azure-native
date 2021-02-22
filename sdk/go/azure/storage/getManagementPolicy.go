@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagementPolicyResult, error) {
 	var rv LookupManagementPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage:getManagementPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getManagementPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

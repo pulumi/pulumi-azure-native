@@ -10,7 +10,7 @@ import (
 // Integration runtime resource type.
 func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntimeArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationRuntimeResult, error) {
 	var rv LookupIntegrationRuntimeResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20201201:getIntegrationRuntime", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20201201:getIntegrationRuntime", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

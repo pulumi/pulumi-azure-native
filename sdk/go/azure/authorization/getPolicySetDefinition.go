@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPolicySetDefinitionResult, error) {
 	var rv LookupPolicySetDefinitionResult
-	err := ctx.Invoke("azure-nextgen:authorization:getPolicySetDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getPolicySetDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

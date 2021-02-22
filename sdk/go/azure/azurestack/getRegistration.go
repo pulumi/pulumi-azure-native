@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
-	err := ctx.Invoke("azure-nextgen:azurestack:getRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack:getRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

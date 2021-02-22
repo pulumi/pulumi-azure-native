@@ -14,7 +14,7 @@ import (
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.
 type WebAppSwiftVirtualNetworkConnectionSlot struct {
 	pulumi.CustomResourceState
 
@@ -50,22 +50,43 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"),
@@ -73,7 +94,7 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSwiftVirtualNetworkConnectionSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +106,7 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 func GetWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSwiftVirtualNetworkConnectionSlotState, opts ...pulumi.ResourceOption) (*WebAppSwiftVirtualNetworkConnectionSlot, error) {
 	var resource WebAppSwiftVirtualNetworkConnectionSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Virtual Appliance Site resource.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getVirtualHubBgpConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getVirtualHubBgpConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

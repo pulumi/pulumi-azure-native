@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupIntegrationAccountBatchConfiguration(ctx *pulumi.Context, args *LookupIntegrationAccountBatchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountBatchConfigurationResult, error) {
 	var rv LookupIntegrationAccountBatchConfigurationResult
-	err := ctx.Invoke("azure-nextgen:logic:getIntegrationAccountBatchConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getIntegrationAccountBatchConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Represents a Database.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Database'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:Database'.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -43,10 +43,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:Database"),
@@ -54,7 +63,7 @@ func NewDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Database
-	err := ctx.RegisterResource("azure-nextgen:dbformysql/latest:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql/latest:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("azure-nextgen:dbformysql/latest:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql/latest:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

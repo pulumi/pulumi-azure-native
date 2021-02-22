@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupManagedDatabaseSensitivityLabel(ctx *pulumi.Context, args *LookupManagedDatabaseSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseSensitivityLabelResult, error) {
 	var rv LookupManagedDatabaseSensitivityLabelResult
-	err := ctx.Invoke("azure-nextgen:sql:getManagedDatabaseSensitivityLabel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getManagedDatabaseSensitivityLabel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

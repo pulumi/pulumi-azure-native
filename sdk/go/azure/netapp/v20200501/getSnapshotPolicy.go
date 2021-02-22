@@ -10,7 +10,7 @@ import (
 // Snapshot policy information
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20200501:getSnapshotPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20200501:getSnapshotPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode":
+	case "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode":
 		r, err = NewDedicatedCloudNode(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService":
+	case "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService":
 		r, err = NewDedicatedCloudService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine":
+	case "azure-native:vmwarecloudsimple/v20190401:VirtualMachine":
 		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"vmwarecloudsimple/v20190401",
 		&module{version},
 	)

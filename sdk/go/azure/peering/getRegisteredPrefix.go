@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredPrefixResult, error) {
 	var rv LookupRegisteredPrefixResult
-	err := ctx.Invoke("azure-nextgen:peering:getRegisteredPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering:getRegisteredPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

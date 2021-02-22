@@ -51,16 +51,31 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:DscNodeConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:DscNodeConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20180115:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20180115:DscNodeConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:DscNodeConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:DscNodeConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:DscNodeConfiguration"),
@@ -68,7 +83,7 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscNodeConfiguration
-	err := ctx.RegisterResource("azure-nextgen:automation/v20151031:DscNodeConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20151031:DscNodeConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +95,7 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 func GetDscNodeConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscNodeConfigurationState, opts ...pulumi.ResourceOption) (*DscNodeConfiguration, error) {
 	var resource DscNodeConfiguration
-	err := ctx.ReadResource("azure-nextgen:automation/v20151031:DscNodeConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20151031:DscNodeConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2015-08-01.
 func LookupManagedHostingEnvironment(ctx *pulumi.Context, args *LookupManagedHostingEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupManagedHostingEnvironmentResult, error) {
 	var rv LookupManagedHostingEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:web:getManagedHostingEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getManagedHostingEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

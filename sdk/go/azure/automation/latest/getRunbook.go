@@ -10,10 +10,10 @@ import (
 // Definition of the runbook type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getRunbook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getRunbook'.
 func LookupRunbook(ctx *pulumi.Context, args *LookupRunbookArgs, opts ...pulumi.InvokeOption) (*LookupRunbookResult, error) {
 	var rv LookupRunbookResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getRunbook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getRunbook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

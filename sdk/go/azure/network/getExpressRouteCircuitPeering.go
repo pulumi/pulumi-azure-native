@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
 	var rv LookupExpressRouteCircuitPeeringResult
-	err := ctx.Invoke("azure-nextgen:network:getExpressRouteCircuitPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getExpressRouteCircuitPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

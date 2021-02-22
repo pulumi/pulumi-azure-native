@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	var rv LookupAliasResult
-	err := ctx.Invoke("azure-nextgen:subscription:getAlias", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:subscription:getAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

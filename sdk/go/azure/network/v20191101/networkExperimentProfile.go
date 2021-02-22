@@ -43,7 +43,13 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:NetworkExperimentProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:NetworkExperimentProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:NetworkExperimentProfile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkExperimentProfile"),
@@ -51,7 +57,7 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NetworkExperimentProfile
-	err := ctx.RegisterResource("azure-nextgen:network/v20191101:NetworkExperimentProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20191101:NetworkExperimentProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 func GetNetworkExperimentProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkExperimentProfileState, opts ...pulumi.ResourceOption) (*NetworkExperimentProfile, error) {
 	var resource NetworkExperimentProfile
-	err := ctx.ReadResource("azure-nextgen:network/v20191101:NetworkExperimentProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20191101:NetworkExperimentProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

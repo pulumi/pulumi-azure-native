@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
-	err := ctx.Invoke("azure-nextgen:storage:getFileShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getFileShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

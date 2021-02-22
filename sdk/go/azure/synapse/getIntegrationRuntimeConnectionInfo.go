@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:synapse:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

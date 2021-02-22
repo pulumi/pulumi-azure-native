@@ -73,10 +73,19 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:IotSecuritySolution"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/latest:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/latest:IotSecuritySolution"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20170801preview:IotSecuritySolution"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:IotSecuritySolution"),
@@ -84,7 +93,7 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotSecuritySolution
-	err := ctx.RegisterResource("azure-nextgen:security/v20190801:IotSecuritySolution", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/v20190801:IotSecuritySolution", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +105,7 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 func GetIotSecuritySolution(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotSecuritySolutionState, opts ...pulumi.ResourceOption) (*IotSecuritySolution, error) {
 	var resource IotSecuritySolution
-	err := ctx.ReadResource("azure-nextgen:security/v20190801:IotSecuritySolution", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/v20190801:IotSecuritySolution", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

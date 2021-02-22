@@ -14,7 +14,7 @@ import (
 // Base class for backup ProtectionIntent.
 // Latest API Version: 2017-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionIntent'.
 type ProtectionIntent struct {
 	pulumi.CustomResourceState
 
@@ -50,10 +50,19 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ProtectionIntent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionIntent"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20170701:ProtectionIntent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20170701:ProtectionIntent"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionIntent"),
@@ -61,7 +70,7 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionIntent
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ProtectionIntent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ProtectionIntent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewProtectionIntent(ctx *pulumi.Context,
 func GetProtectionIntent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectionIntentState, opts ...pulumi.ResourceOption) (*ProtectionIntent, error) {
 	var resource ProtectionIntent
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ProtectionIntent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ProtectionIntent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

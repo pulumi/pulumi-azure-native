@@ -14,7 +14,7 @@ import (
 // The volume container.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:VolumeContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:VolumeContainer'.
 type VolumeContainer struct {
 	pulumi.CustomResourceState
 
@@ -63,7 +63,13 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:VolumeContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:VolumeContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:VolumeContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:VolumeContainer"),
@@ -71,7 +77,7 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VolumeContainer
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:VolumeContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:VolumeContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +89,7 @@ func NewVolumeContainer(ctx *pulumi.Context,
 func GetVolumeContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VolumeContainerState, opts ...pulumi.ResourceOption) (*VolumeContainer, error) {
 	var resource VolumeContainer
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:VolumeContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:VolumeContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

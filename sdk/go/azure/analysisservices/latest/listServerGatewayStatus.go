@@ -10,10 +10,10 @@ import (
 // Status of gateway is live.
 // Latest API Version: 2017-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:listServerGatewayStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'.
 func ListServerGatewayStatus(ctx *pulumi.Context, args *ListServerGatewayStatusArgs, opts ...pulumi.InvokeOption) (*ListServerGatewayStatusResult, error) {
 	var rv ListServerGatewayStatusResult
-	err := ctx.Invoke("azure-nextgen:analysisservices/latest:listServerGatewayStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:analysisservices/latest:listServerGatewayStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

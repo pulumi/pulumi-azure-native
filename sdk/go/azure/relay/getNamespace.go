@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
-	err := ctx.Invoke("azure-nextgen:relay:getNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -77,109 +77,217 @@ func NewSecurityRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171101:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180101:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180201:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:SecurityRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:SecurityRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityRule"),
@@ -187,7 +295,7 @@ func NewSecurityRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SecurityRule
-	err := ctx.RegisterResource("azure-nextgen:network/v20200701:SecurityRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200701:SecurityRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -199,7 +307,7 @@ func NewSecurityRule(ctx *pulumi.Context,
 func GetSecurityRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecurityRuleState, opts ...pulumi.ResourceOption) (*SecurityRule, error) {
 	var resource SecurityRule
-	err := ctx.ReadResource("azure-nextgen:network/v20200701:SecurityRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200701:SecurityRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

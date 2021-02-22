@@ -41,25 +41,49 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Policy"),
@@ -67,7 +91,7 @@ func NewPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Policy
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20170301:Policy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20170301:Policy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +103,7 @@ func NewPolicy(ctx *pulumi.Context,
 func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
 	var resource Policy
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20170301:Policy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20170301:Policy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

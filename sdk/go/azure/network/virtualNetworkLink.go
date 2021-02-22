@@ -51,13 +51,25 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:VirtualNetworkLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkLink"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180901:VirtualNetworkLink"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:VirtualNetworkLink"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:VirtualNetworkLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:VirtualNetworkLink"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualNetworkLink"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkLink"),
@@ -65,7 +77,7 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkLink
-	err := ctx.RegisterResource("azure-nextgen:network:VirtualNetworkLink", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:VirtualNetworkLink", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +89,7 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 func GetVirtualNetworkLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkLinkState, opts ...pulumi.ResourceOption) (*VirtualNetworkLink, error) {
 	var resource VirtualNetworkLink
-	err := ctx.ReadResource("azure-nextgen:network:VirtualNetworkLink", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:VirtualNetworkLink", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

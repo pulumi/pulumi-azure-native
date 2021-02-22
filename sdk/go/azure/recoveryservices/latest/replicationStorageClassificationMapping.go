@@ -14,7 +14,7 @@ import (
 // Storage mapping object.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationStorageClassificationMapping'.
 type ReplicationStorageClassificationMapping struct {
 	pulumi.CustomResourceState
 
@@ -49,13 +49,25 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationStorageClassificationMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
@@ -63,7 +75,7 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationStorageClassificationMapping
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 func GetReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationStorageClassificationMappingState, opts ...pulumi.ResourceOption) (*ReplicationStorageClassificationMapping, error) {
 	var resource ReplicationStorageClassificationMapping
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

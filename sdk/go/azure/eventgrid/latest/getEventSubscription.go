@@ -10,10 +10,10 @@ import (
 // Event Subscription
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscription'.
 func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
 	var rv LookupEventSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/latest:getEventSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/latest:getEventSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

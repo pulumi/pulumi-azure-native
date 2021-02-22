@@ -57,12 +57,15 @@ func NewKeyValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200701preview:KeyValue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:KeyValue"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource KeyValue
-	err := ctx.RegisterResource("azure-nextgen:appconfiguration:KeyValue", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appconfiguration:KeyValue", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +77,7 @@ func NewKeyValue(ctx *pulumi.Context,
 func GetKeyValue(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyValueState, opts ...pulumi.ResourceOption) (*KeyValue, error) {
 	var resource KeyValue
-	err := ctx.ReadResource("azure-nextgen:appconfiguration:KeyValue", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appconfiguration:KeyValue", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Describes a Virtual Machine run command.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVMRunCommand'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMRunCommand'.
 func LookupVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMRunCommandArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMRunCommandResult, error) {
 	var rv LookupVirtualMachineScaleSetVMRunCommandResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getVirtualMachineScaleSetVMRunCommand", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getVirtualMachineScaleSetVMRunCommand", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

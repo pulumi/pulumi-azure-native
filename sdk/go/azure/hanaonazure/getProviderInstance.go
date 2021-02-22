@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-07-preview.
 func LookupProviderInstance(ctx *pulumi.Context, args *LookupProviderInstanceArgs, opts ...pulumi.InvokeOption) (*LookupProviderInstanceResult, error) {
 	var rv LookupProviderInstanceResult
-	err := ctx.Invoke("azure-nextgen:hanaonazure:getProviderInstance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hanaonazure:getProviderInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

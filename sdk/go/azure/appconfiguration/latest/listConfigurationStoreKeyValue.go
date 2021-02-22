@@ -10,10 +10,10 @@ import (
 // The result of a request to retrieve a key-value from the specified configuration store.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'.
 func ListConfigurationStoreKeyValue(ctx *pulumi.Context, args *ListConfigurationStoreKeyValueArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeyValueResult, error) {
 	var rv ListConfigurationStoreKeyValueResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeyValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/latest:listConfigurationStoreKeyValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

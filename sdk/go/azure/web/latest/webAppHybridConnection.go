@@ -14,7 +14,7 @@ import (
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHybridConnection'.
 type WebAppHybridConnection struct {
 	pulumi.CustomResourceState
 
@@ -63,25 +63,49 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppHybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHybridConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppHybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHybridConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppHybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHybridConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppHybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnection"),
@@ -89,7 +113,7 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnection
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppHybridConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppHybridConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +125,7 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 func GetWebAppHybridConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppHybridConnectionState, opts ...pulumi.ResourceOption) (*WebAppHybridConnection, error) {
 	var resource WebAppHybridConnection
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppHybridConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppHybridConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

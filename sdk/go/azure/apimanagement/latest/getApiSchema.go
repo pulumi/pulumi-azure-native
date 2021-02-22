@@ -10,10 +10,10 @@ import (
 // Schema Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiSchema'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiSchema'.
 func LookupApiSchema(ctx *pulumi.Context, args *LookupApiSchemaArgs, opts ...pulumi.InvokeOption) (*LookupApiSchemaResult, error) {
 	var rv LookupApiSchemaResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiSchema", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiSchema", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

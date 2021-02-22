@@ -49,13 +49,25 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:NamedValue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:NamedValue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:NamedValue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:NamedValue"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:NamedValue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:NamedValue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:NamedValue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:NamedValue"),
@@ -63,7 +75,7 @@ func NewNamedValue(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NamedValue
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:NamedValue", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20200601preview:NamedValue", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewNamedValue(ctx *pulumi.Context,
 func GetNamedValue(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamedValueState, opts ...pulumi.ResourceOption) (*NamedValue, error) {
 	var resource NamedValue
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:NamedValue", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20200601preview:NamedValue", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

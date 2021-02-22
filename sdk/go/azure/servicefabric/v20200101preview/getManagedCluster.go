@@ -10,7 +10,7 @@ import (
 // The manged cluster resource
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/v20200101preview:getManagedCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/v20200101preview:getManagedCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

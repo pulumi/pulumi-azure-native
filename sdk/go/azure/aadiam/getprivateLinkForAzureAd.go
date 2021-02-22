@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01-preview.
 func GetprivateLinkForAzureAd(ctx *pulumi.Context, args *GetprivateLinkForAzureAdArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkForAzureAdResult, error) {
 	var rv GetprivateLinkForAzureAdResult
-	err := ctx.Invoke("azure-nextgen:aadiam:getprivateLinkForAzureAd", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aadiam:getprivateLinkForAzureAd", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

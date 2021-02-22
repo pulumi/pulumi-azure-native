@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01-preview.
 func LookupPipelineRun(ctx *pulumi.Context, args *LookupPipelineRunArgs, opts ...pulumi.InvokeOption) (*LookupPipelineRunResult, error) {
 	var rv LookupPipelineRunResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getPipelineRun", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getPipelineRun", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

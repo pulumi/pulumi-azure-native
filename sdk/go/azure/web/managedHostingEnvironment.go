@@ -101,7 +101,13 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:ManagedHostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:ManagedHostingEnvironment"),
@@ -109,7 +115,7 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedHostingEnvironment
-	err := ctx.RegisterResource("azure-nextgen:web:ManagedHostingEnvironment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:ManagedHostingEnvironment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +127,7 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 func GetManagedHostingEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedHostingEnvironmentState, opts ...pulumi.ResourceOption) (*ManagedHostingEnvironment, error) {
 	var resource ManagedHostingEnvironment
-	err := ctx.ReadResource("azure-nextgen:web:ManagedHostingEnvironment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:ManagedHostingEnvironment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

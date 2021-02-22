@@ -10,7 +10,7 @@ import (
 // An Azure SQL job agent.
 func LookupJobAgent(ctx *pulumi.Context, args *LookupJobAgentArgs, opts ...pulumi.InvokeOption) (*LookupJobAgentResult, error) {
 	var rv LookupJobAgentResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200801preview:getJobAgent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200801preview:getJobAgent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A Service Fabric.
 func LookupServiceFabric(ctx *pulumi.Context, args *LookupServiceFabricArgs, opts ...pulumi.InvokeOption) (*LookupServiceFabricResult, error) {
 	var rv LookupServiceFabricResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getServiceFabric", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getServiceFabric", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

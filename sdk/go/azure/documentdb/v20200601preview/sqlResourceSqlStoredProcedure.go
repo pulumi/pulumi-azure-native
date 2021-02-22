@@ -55,25 +55,49 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure"),
@@ -81,7 +105,7 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlStoredProcedure
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +117,7 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 func GetSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlStoredProcedureState, opts ...pulumi.ResourceOption) (*SqlResourceSqlStoredProcedure, error) {
 	var resource SqlResourceSqlStoredProcedure
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

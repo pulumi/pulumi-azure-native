@@ -49,7 +49,7 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	var resource ConfigurationAssignment
-	err := ctx.RegisterResource("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:maintenance/v20210401preview:ConfigurationAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 func GetConfigurationAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationAssignmentState, opts ...pulumi.ResourceOption) (*ConfigurationAssignment, error) {
 	var resource ConfigurationAssignment
-	err := ctx.ReadResource("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:maintenance/v20210401preview:ConfigurationAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

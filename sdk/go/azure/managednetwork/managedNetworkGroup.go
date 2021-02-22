@@ -53,12 +53,15 @@ func NewManagedNetworkGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managednetwork/v20190601preview:ManagedNetworkGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedNetworkGroup
-	err := ctx.RegisterResource("azure-nextgen:managednetwork:ManagedNetworkGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managednetwork:ManagedNetworkGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +73,7 @@ func NewManagedNetworkGroup(ctx *pulumi.Context,
 func GetManagedNetworkGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedNetworkGroupState, opts ...pulumi.ResourceOption) (*ManagedNetworkGroup, error) {
 	var resource ManagedNetworkGroup
-	err := ctx.ReadResource("azure-nextgen:managednetwork:ManagedNetworkGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managednetwork:ManagedNetworkGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

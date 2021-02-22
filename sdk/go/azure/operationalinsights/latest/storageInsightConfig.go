@@ -14,7 +14,7 @@ import (
 // The top level storage insight resource container.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:StorageInsightConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:StorageInsightConfig'.
 type StorageInsightConfig struct {
 	pulumi.CustomResourceState
 
@@ -54,13 +54,25 @@ func NewStorageInsightConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:StorageInsightConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:StorageInsightConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20150320:StorageInsightConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20150320:StorageInsightConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:StorageInsightConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:StorageInsightConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:StorageInsightConfig"),
@@ -68,7 +80,7 @@ func NewStorageInsightConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageInsightConfig
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/latest:StorageInsightConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/latest:StorageInsightConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewStorageInsightConfig(ctx *pulumi.Context,
 func GetStorageInsightConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageInsightConfigState, opts ...pulumi.ResourceOption) (*StorageInsightConfig, error) {
 	var resource StorageInsightConfig
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/latest:StorageInsightConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/latest:StorageInsightConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Information about a Cluster.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -79,7 +79,13 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/v20180501:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Cluster"),
@@ -87,7 +93,7 @@ func NewCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
-	err := ctx.RegisterResource("azure-nextgen:batchai/latest:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/latest:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +105,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("azure-nextgen:batchai/latest:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/latest:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

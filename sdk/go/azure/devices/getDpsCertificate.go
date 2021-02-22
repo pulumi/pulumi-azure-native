@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, opts ...pulumi.InvokeOption) (*LookupDpsCertificateResult, error) {
 	var rv LookupDpsCertificateResult
-	err := ctx.Invoke("azure-nextgen:devices:getDpsCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getDpsCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

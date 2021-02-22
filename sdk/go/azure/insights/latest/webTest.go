@@ -14,7 +14,7 @@ import (
 // An Application Insights web test definition.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:WebTest'.
 type WebTest struct {
 	pulumi.CustomResourceState
 
@@ -83,10 +83,19 @@ func NewWebTest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:WebTest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:WebTest"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20150501:WebTest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:WebTest"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20201005preview:WebTest"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20201005preview:WebTest"),
@@ -94,7 +103,7 @@ func NewWebTest(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebTest
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:WebTest", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:WebTest", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +115,7 @@ func NewWebTest(ctx *pulumi.Context,
 func GetWebTest(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebTestState, opts ...pulumi.ResourceOption) (*WebTest, error) {
 	var resource WebTest
-	err := ctx.ReadResource("azure-nextgen:insights/latest:WebTest", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:WebTest", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

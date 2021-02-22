@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppConnectionStrings(ctx *pulumi.Context, args *ListWebAppConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsResult, error) {
 	var rv ListWebAppConnectionStringsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppConnectionStrings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppConnectionStrings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

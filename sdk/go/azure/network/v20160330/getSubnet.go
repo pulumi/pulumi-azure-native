@@ -10,7 +10,7 @@ import (
 // Subnet in a VirtualNetwork resource
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
-	err := ctx.Invoke("azure-nextgen:network/v20160330:getSubnet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20160330:getSubnet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupMongoDBResourceMongoDBCollection(ctx *pulumi.Context, args *LookupMongoDBResourceMongoDBCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMongoDBResourceMongoDBCollectionResult, error) {
 	var rv LookupMongoDBResourceMongoDBCollectionResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getMongoDBResourceMongoDBCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

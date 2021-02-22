@@ -10,7 +10,7 @@ import (
 // An attestation resource.
 func LookupAttestationAtResourceGroup(ctx *pulumi.Context, args *LookupAttestationAtResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupAttestationAtResourceGroupResult, error) {
 	var rv LookupAttestationAtResourceGroupResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/v20210101:getAttestationAtResourceGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

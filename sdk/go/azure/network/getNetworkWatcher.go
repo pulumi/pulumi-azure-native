@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkWatcher", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

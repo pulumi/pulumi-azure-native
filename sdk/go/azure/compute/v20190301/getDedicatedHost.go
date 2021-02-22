@@ -10,7 +10,7 @@ import (
 // Specifies information about the Dedicated host.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
-	err := ctx.Invoke("azure-nextgen:compute/v20190301:getDedicatedHost", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20190301:getDedicatedHost", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

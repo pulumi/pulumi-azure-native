@@ -14,7 +14,7 @@ import (
 // A database geo backup policy.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.
 type GeoBackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -50,7 +50,13 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:GeoBackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:GeoBackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:GeoBackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:GeoBackupPolicy"),
@@ -58,7 +64,7 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GeoBackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:sql/latest:GeoBackupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/latest:GeoBackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 func GetGeoBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GeoBackupPolicyState, opts ...pulumi.ResourceOption) (*GeoBackupPolicy, error) {
 	var resource GeoBackupPolicy
-	err := ctx.ReadResource("azure-nextgen:sql/latest:GeoBackupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/latest:GeoBackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppSourceControlSlot(ctx *pulumi.Context, args *LookupWebAppSourceControlSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlSlotResult, error) {
 	var rv LookupWebAppSourceControlSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppSourceControlSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppSourceControlSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

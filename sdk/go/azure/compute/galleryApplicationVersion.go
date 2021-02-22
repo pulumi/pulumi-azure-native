@@ -53,16 +53,31 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:GalleryApplicationVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:GalleryApplicationVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190301:GalleryApplicationVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:GalleryApplicationVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190701:GalleryApplicationVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:GalleryApplicationVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:GalleryApplicationVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:GalleryApplicationVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:GalleryApplicationVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:GalleryApplicationVersion"),
@@ -70,7 +85,7 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GalleryApplicationVersion
-	err := ctx.RegisterResource("azure-nextgen:compute:GalleryApplicationVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:GalleryApplicationVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 func GetGalleryApplicationVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GalleryApplicationVersionState, opts ...pulumi.ResourceOption) (*GalleryApplicationVersion, error) {
 	var resource GalleryApplicationVersion
-	err := ctx.ReadResource("azure-nextgen:compute:GalleryApplicationVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:GalleryApplicationVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

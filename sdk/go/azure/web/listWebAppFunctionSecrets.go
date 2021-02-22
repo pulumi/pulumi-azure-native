@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppFunctionSecrets(ctx *pulumi.Context, args *ListWebAppFunctionSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsResult, error) {
 	var rv ListWebAppFunctionSecretsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppFunctionSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppFunctionSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Job Resource.
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databox:getJob'.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:databox/latest:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databox/latest:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

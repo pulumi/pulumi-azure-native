@@ -14,7 +14,7 @@ import (
 // Backup of a Volume
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Backup'.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -61,22 +61,43 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200501:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:Backup"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200601:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200701:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:Backup"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200801:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Backup"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200901:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Backup"),
@@ -84,7 +105,7 @@ func NewBackup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Backup
-	err := ctx.RegisterResource("azure-nextgen:netapp/latest:Backup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp/latest:Backup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +117,7 @@ func NewBackup(ctx *pulumi.Context,
 func GetBackup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupState, opts ...pulumi.ResourceOption) (*Backup, error) {
 	var resource Backup
-	err := ctx.ReadResource("azure-nextgen:netapp/latest:Backup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp/latest:Backup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

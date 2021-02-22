@@ -45,12 +45,15 @@ func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/v20191101preview:DataCollectionRuleAssociation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DataCollectionRuleAssociation
-	err := ctx.RegisterResource("azure-nextgen:insights:DataCollectionRuleAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:DataCollectionRuleAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +65,7 @@ func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 func GetDataCollectionRuleAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataCollectionRuleAssociationState, opts ...pulumi.ResourceOption) (*DataCollectionRuleAssociation, error) {
 	var resource DataCollectionRuleAssociation
-	err := ctx.ReadResource("azure-nextgen:insights:DataCollectionRuleAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:DataCollectionRuleAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

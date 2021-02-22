@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-01.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
-	err := ctx.Invoke("azure-nextgen:migrate:getGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

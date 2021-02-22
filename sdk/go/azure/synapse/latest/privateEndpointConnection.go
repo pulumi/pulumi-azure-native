@@ -14,7 +14,7 @@ import (
 // A private endpoint connection
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -45,10 +45,19 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:PrivateEndpointConnection"),
@@ -56,7 +65,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

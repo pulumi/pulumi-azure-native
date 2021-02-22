@@ -40,13 +40,25 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:SshPublicKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:SshPublicKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20191201:SshPublicKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:SshPublicKey"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:SshPublicKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:SshPublicKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:SshPublicKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:SshPublicKey"),
@@ -54,7 +66,7 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SshPublicKey
-	err := ctx.RegisterResource("azure-nextgen:compute:SshPublicKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:SshPublicKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +78,7 @@ func NewSshPublicKey(ctx *pulumi.Context,
 func GetSshPublicKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SshPublicKeyState, opts ...pulumi.ResourceOption) (*SshPublicKey, error) {
 	var resource SshPublicKey
-	err := ctx.ReadResource("azure-nextgen:compute:SshPublicKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:SshPublicKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // An Azure Cosmos DB Cassandra table.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraTable'.
 type CassandraResourceCassandraTable struct {
 	pulumi.CustomResourceState
 
@@ -51,25 +51,49 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:CassandraResourceCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:CassandraResourceCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:CassandraResourceCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable"),
@@ -77,7 +101,7 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraTable
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:CassandraResourceCassandraTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:CassandraResourceCassandraTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +113,7 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 func GetCassandraResourceCassandraTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CassandraResourceCassandraTableState, opts ...pulumi.ResourceOption) (*CassandraResourceCassandraTable, error) {
 	var resource CassandraResourceCassandraTable
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:CassandraResourceCassandraTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:CassandraResourceCassandraTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

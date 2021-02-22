@@ -10,10 +10,10 @@ import (
 // Redis cache access keys.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listRedisKeys'.
 func ListRedisKeys(ctx *pulumi.Context, args *ListRedisKeysArgs, opts ...pulumi.InvokeOption) (*ListRedisKeysResult, error) {
 	var rv ListRedisKeysResult
-	err := ctx.Invoke("azure-nextgen:cache/latest:listRedisKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/latest:listRedisKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

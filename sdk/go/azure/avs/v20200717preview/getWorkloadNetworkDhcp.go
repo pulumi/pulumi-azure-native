@@ -10,7 +10,7 @@ import (
 // NSX DHCP
 func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkDhcpArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDhcpResult, error) {
 	var rv LookupWorkloadNetworkDhcpResult
-	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getWorkloadNetworkDhcp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

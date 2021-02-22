@@ -10,7 +10,7 @@ import (
 // Resource information with extended details.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
-	err := ctx.Invoke("azure-nextgen:keyvault/v20150601:getVault", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault/v20150601:getVault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

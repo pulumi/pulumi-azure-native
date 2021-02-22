@@ -55,12 +55,15 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:IncidentRelation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:IncidentRelation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource IncidentRelation
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:IncidentRelation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:IncidentRelation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +75,7 @@ func NewIncidentRelation(ctx *pulumi.Context,
 func GetIncidentRelation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IncidentRelationState, opts ...pulumi.ResourceOption) (*IncidentRelation, error) {
 	var resource IncidentRelation
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:IncidentRelation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:IncidentRelation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

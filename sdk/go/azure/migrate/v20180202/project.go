@@ -63,12 +63,15 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate/v20171111preview:Project"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/v20171111preview:Project"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Project
-	err := ctx.RegisterResource("azure-nextgen:migrate/v20180202:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/v20180202:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +83,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("azure-nextgen:migrate/v20180202:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/v20180202:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

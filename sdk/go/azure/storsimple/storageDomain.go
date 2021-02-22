@@ -46,7 +46,13 @@ func NewStorageDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:StorageDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:StorageDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:StorageDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
@@ -54,7 +60,7 @@ func NewStorageDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageDomain
-	err := ctx.RegisterResource("azure-nextgen:storsimple:StorageDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple:StorageDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewStorageDomain(ctx *pulumi.Context,
 func GetStorageDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageDomainState, opts ...pulumi.ResourceOption) (*StorageDomain, error) {
 	var resource StorageDomain
-	err := ctx.ReadResource("azure-nextgen:storsimple:StorageDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple:StorageDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

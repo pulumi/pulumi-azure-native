@@ -10,10 +10,10 @@ import (
 // Storage mapping object.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationStorageClassificationMapping'.
 func LookupReplicationStorageClassificationMapping(ctx *pulumi.Context, args *LookupReplicationStorageClassificationMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationStorageClassificationMappingResult, error) {
 	var rv LookupReplicationStorageClassificationMappingResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationStorageClassificationMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationStorageClassificationMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

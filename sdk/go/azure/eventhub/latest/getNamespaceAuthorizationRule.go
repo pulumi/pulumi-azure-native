@@ -10,10 +10,10 @@ import (
 // Single item in a List or Get AuthorizationRule operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getNamespaceAuthorizationRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceAuthorizationRule'.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:eventhub/latest:getNamespaceAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/latest:getNamespaceAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

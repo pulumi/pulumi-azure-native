@@ -51,40 +51,79 @@ func NewProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn/latest:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20150601:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20160402:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20160402:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20161002:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20161002:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20170402:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20170402:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20171012:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20171012:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190415:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190415:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20190615:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190615preview:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615preview:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20191231:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200415:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Profile"),
@@ -92,7 +131,7 @@ func NewProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Profile
-	err := ctx.RegisterResource("azure-nextgen:cdn:Profile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn:Profile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +143,7 @@ func NewProfile(ctx *pulumi.Context,
 func GetProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProfileState, opts ...pulumi.ResourceOption) (*Profile, error) {
 	var resource Profile
-	err := ctx.ReadResource("azure-nextgen:cdn:Profile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn:Profile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

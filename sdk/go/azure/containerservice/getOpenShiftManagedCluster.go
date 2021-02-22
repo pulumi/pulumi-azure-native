@@ -11,7 +11,7 @@ import (
 // API Version: 2019-04-30.
 func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftManagedClusterResult, error) {
 	var rv LookupOpenShiftManagedClusterResult
-	err := ctx.Invoke("azure-nextgen:containerservice:getOpenShiftManagedCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice:getOpenShiftManagedCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

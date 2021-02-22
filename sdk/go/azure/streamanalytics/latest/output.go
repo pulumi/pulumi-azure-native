@@ -14,7 +14,7 @@ import (
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.
 type Output struct {
 	pulumi.CustomResourceState
 
@@ -47,10 +47,19 @@ func NewOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics:Output"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics:Output"),
 		},
 		{
+			Type: pulumi.String("azure-native:streamanalytics/v20160301:Output"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Output"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20170401preview:Output"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:Output"),
@@ -58,7 +67,7 @@ func NewOutput(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Output
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics/latest:Output", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics/latest:Output", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewOutput(ctx *pulumi.Context,
 func GetOutput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OutputState, opts ...pulumi.ResourceOption) (*Output, error) {
 	var resource Output
-	err := ctx.ReadResource("azure-nextgen:streamanalytics/latest:Output", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics/latest:Output", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

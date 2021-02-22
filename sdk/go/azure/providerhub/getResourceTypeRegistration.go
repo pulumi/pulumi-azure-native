@@ -10,7 +10,7 @@ import (
 // API Version: 2020-11-20.
 func LookupResourceTypeRegistration(ctx *pulumi.Context, args *LookupResourceTypeRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupResourceTypeRegistrationResult, error) {
 	var rv LookupResourceTypeRegistrationResult
-	err := ctx.Invoke("azure-nextgen:providerhub:getResourceTypeRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub:getResourceTypeRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

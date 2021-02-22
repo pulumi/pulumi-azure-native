@@ -43,12 +43,15 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource GuestDiagnosticsSettingsAssociation
-	err := ctx.RegisterResource("azure-nextgen:insights:GuestDiagnosticsSettingsAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:GuestDiagnosticsSettingsAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 func GetGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GuestDiagnosticsSettingsAssociationState, opts ...pulumi.ResourceOption) (*GuestDiagnosticsSettingsAssociation, error) {
 	var resource GuestDiagnosticsSettingsAssociation
-	err := ctx.ReadResource("azure-nextgen:insights:GuestDiagnosticsSettingsAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:GuestDiagnosticsSettingsAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

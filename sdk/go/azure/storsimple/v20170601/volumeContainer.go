@@ -60,7 +60,13 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:VolumeContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:VolumeContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:VolumeContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:VolumeContainer"),
@@ -68,7 +74,7 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VolumeContainer
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:VolumeContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:VolumeContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +86,7 @@ func NewVolumeContainer(ctx *pulumi.Context,
 func GetVolumeContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VolumeContainerState, opts ...pulumi.ResourceOption) (*VolumeContainer, error) {
 	var resource VolumeContainer
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:VolumeContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:VolumeContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -42,10 +42,19 @@ func NewWebService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearning:WebService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning:WebService"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearning/latest:WebService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning/latest:WebService"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearning/v20170101:WebService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20170101:WebService"),
@@ -53,7 +62,7 @@ func NewWebService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebService
-	err := ctx.RegisterResource("azure-nextgen:machinelearning/v20160501preview:WebService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearning/v20160501preview:WebService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewWebService(ctx *pulumi.Context,
 func GetWebService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebServiceState, opts ...pulumi.ResourceOption) (*WebService, error) {
 	var resource WebService
-	err := ctx.ReadResource("azure-nextgen:machinelearning/v20160501preview:WebService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearning/v20160501preview:WebService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

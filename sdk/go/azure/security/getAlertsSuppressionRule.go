@@ -11,7 +11,7 @@ import (
 // API Version: 2019-01-01-preview.
 func LookupAlertsSuppressionRule(ctx *pulumi.Context, args *LookupAlertsSuppressionRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertsSuppressionRuleResult, error) {
 	var rv LookupAlertsSuppressionRuleResult
-	err := ctx.Invoke("azure-nextgen:security:getAlertsSuppressionRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getAlertsSuppressionRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

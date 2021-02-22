@@ -46,12 +46,15 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sqlvirtualmachine:AvailabilityGroupListener"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AvailabilityGroupListener
-	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 func GetAvailabilityGroupListener(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AvailabilityGroupListenerState, opts ...pulumi.ResourceOption) (*AvailabilityGroupListener, error) {
 	var resource AvailabilityGroupListener
-	err := ctx.ReadResource("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

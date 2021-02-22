@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupManagedInstancePrivateEndpointConnection(ctx *pulumi.Context, args *LookupManagedInstancePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstancePrivateEndpointConnectionResult, error) {
 	var rv LookupManagedInstancePrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:sql:getManagedInstancePrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getManagedInstancePrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Workspace authorization keys for a workspace.
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearning/v20160401:listWorkspaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning/v20160401:listWorkspaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

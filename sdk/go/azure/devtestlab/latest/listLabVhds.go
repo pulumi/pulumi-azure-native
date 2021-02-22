@@ -10,10 +10,10 @@ import (
 // The response of a list operation.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listLabVhds'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listLabVhds'.
 func ListLabVhds(ctx *pulumi.Context, args *ListLabVhdsArgs, opts ...pulumi.InvokeOption) (*ListLabVhdsResult, error) {
 	var rv ListLabVhdsResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:listLabVhds", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:listLabVhds", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

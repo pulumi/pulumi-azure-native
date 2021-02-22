@@ -10,7 +10,7 @@ import (
 // Response for all the Bastion Shareable Link endpoints.
 func GetBastionShareableLink(ctx *pulumi.Context, args *GetBastionShareableLinkArgs, opts ...pulumi.InvokeOption) (*GetBastionShareableLinkResult, error) {
 	var rv GetBastionShareableLinkResult
-	err := ctx.Invoke("azure-nextgen:network/v20200701:getBastionShareableLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200701:getBastionShareableLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

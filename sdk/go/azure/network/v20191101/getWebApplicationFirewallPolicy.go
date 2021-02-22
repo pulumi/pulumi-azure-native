@@ -10,7 +10,7 @@ import (
 // Defines web application firewall policy.
 func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebApplicationFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupWebApplicationFirewallPolicyResult, error) {
 	var rv LookupWebApplicationFirewallPolicyResult
-	err := ctx.Invoke("azure-nextgen:network/v20191101:getWebApplicationFirewallPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191101:getWebApplicationFirewallPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

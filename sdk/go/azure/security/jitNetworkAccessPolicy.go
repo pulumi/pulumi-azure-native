@@ -48,10 +48,19 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/latest:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/latest:JitNetworkAccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20150601preview:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101:JitNetworkAccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:JitNetworkAccessPolicy"),
@@ -59,7 +68,7 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JitNetworkAccessPolicy
-	err := ctx.RegisterResource("azure-nextgen:security:JitNetworkAccessPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:JitNetworkAccessPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 func GetJitNetworkAccessPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JitNetworkAccessPolicyState, opts ...pulumi.ResourceOption) (*JitNetworkAccessPolicy, error) {
 	var resource JitNetworkAccessPolicy
-	err := ctx.ReadResource("azure-nextgen:security:JitNetworkAccessPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:JitNetworkAccessPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

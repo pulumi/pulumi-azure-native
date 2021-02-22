@@ -50,13 +50,25 @@ func NewVirtualNetworkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:VirtualNetworkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetworkResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:VirtualNetworkResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualNetworkResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualNetworkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:VirtualNetworkResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualNetworkResource"),
@@ -64,7 +76,7 @@ func NewVirtualNetworkResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkResource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:VirtualNetworkResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +88,7 @@ func NewVirtualNetworkResource(ctx *pulumi.Context,
 func GetVirtualNetworkResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkResourceState, opts ...pulumi.ResourceOption) (*VirtualNetworkResource, error) {
 	var resource VirtualNetworkResource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:VirtualNetworkResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

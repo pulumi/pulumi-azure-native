@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkDnsZone(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsZoneArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsZoneResult, error) {
 	var rv LookupWorkloadNetworkDnsZoneResult
-	err := ctx.Invoke("azure-nextgen:avs:getWorkloadNetworkDnsZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkDnsZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

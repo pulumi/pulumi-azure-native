@@ -14,7 +14,7 @@ import (
 // The integration account certificate.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'.
 type IntegrationAccountCertificate struct {
 	pulumi.CustomResourceState
 
@@ -53,16 +53,31 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountCertificate"),
@@ -70,7 +85,7 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountCertificate
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationAccountCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationAccountCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 func GetIntegrationAccountCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountCertificateState, opts ...pulumi.ResourceOption) (*IntegrationAccountCertificate, error) {
 	var resource IntegrationAccountCertificate
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationAccountCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationAccountCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

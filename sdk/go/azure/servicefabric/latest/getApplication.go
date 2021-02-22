@@ -10,10 +10,10 @@ import (
 // The application resource.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplication'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getApplication'.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/latest:getApplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/latest:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

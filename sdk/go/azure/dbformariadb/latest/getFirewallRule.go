@@ -10,10 +10,10 @@ import (
 // Represents a server firewall rule.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getFirewallRule'.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb/latest:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb/latest:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

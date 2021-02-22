@@ -52,7 +52,13 @@ func NewGraphQuery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resourcegraph:GraphQuery"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resourcegraph:GraphQuery"),
+		},
+		{
+			Type: pulumi.String("azure-native:resourcegraph/v20180901preview:GraphQuery"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resourcegraph/v20180901preview:GraphQuery"),
@@ -60,7 +66,7 @@ func NewGraphQuery(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GraphQuery
-	err := ctx.RegisterResource("azure-nextgen:resourcegraph/v20200401preview:GraphQuery", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resourcegraph/v20200401preview:GraphQuery", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewGraphQuery(ctx *pulumi.Context,
 func GetGraphQuery(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GraphQueryState, opts ...pulumi.ResourceOption) (*GraphQuery, error) {
 	var resource GraphQuery
-	err := ctx.ReadResource("azure-nextgen:resourcegraph/v20200401preview:GraphQuery", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resourcegraph/v20200401preview:GraphQuery", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

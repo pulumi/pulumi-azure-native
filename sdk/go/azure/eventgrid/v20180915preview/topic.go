@@ -48,40 +48,79 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/latest:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/latest:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20170615preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170615preview:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20170915preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170915preview:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20180101:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180101:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20180501preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180501preview:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190101:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190101:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20190201preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190601:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200101preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:Topic"),
@@ -89,7 +128,7 @@ func NewTopic(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Topic
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20180915preview:Topic", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20180915preview:Topic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +140,7 @@ func NewTopic(ctx *pulumi.Context,
 func GetTopic(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TopicState, opts ...pulumi.ResourceOption) (*Topic, error) {
 	var resource Topic
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20180915preview:Topic", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20180915preview:Topic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

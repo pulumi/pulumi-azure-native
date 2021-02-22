@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupCustomerSubscriptionResult, error) {
 	var rv LookupCustomerSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:azurestack:getCustomerSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack:getCustomerSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

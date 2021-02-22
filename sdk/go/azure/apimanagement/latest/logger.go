@@ -14,7 +14,7 @@ import (
 // Logger details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.
 type Logger struct {
 	pulumi.CustomResourceState
 
@@ -56,31 +56,61 @@ func NewLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Logger"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Logger"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Logger"),
@@ -88,7 +118,7 @@ func NewLogger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Logger
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:Logger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:Logger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +130,7 @@ func NewLogger(ctx *pulumi.Context,
 func GetLogger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LoggerState, opts ...pulumi.ResourceOption) (*Logger, error) {
 	var resource Logger
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:Logger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:Logger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

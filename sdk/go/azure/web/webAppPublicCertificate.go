@@ -47,25 +47,49 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppPublicCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPublicCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppPublicCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPublicCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppPublicCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPublicCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppPublicCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificate"),
@@ -73,7 +97,7 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificate
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppPublicCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppPublicCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +109,7 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 func GetWebAppPublicCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppPublicCertificateState, opts ...pulumi.ResourceOption) (*WebAppPublicCertificate, error) {
 	var resource WebAppPublicCertificate
-	err := ctx.ReadResource("azure-nextgen:web:WebAppPublicCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppPublicCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

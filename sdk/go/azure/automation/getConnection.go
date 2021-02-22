@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
-	err := ctx.Invoke("azure-nextgen:automation:getConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

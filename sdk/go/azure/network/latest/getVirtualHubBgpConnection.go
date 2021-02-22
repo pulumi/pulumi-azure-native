@@ -10,10 +10,10 @@ import (
 // Virtual Appliance Site resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubBgpConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHubBgpConnection'.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualHubBgpConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualHubBgpConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

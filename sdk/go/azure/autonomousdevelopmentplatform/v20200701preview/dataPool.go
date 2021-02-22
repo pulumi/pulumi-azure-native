@@ -47,12 +47,15 @@ func NewDataPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:autonomousdevelopmentplatform:DataPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform:DataPool"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DataPool
-	err := ctx.RegisterResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +67,7 @@ func NewDataPool(ctx *pulumi.Context,
 func GetDataPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataPoolState, opts ...pulumi.ResourceOption) (*DataPool, error) {
 	var resource DataPool
-	err := ctx.ReadResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

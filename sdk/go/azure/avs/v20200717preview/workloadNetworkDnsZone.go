@@ -50,7 +50,13 @@ func NewWorkloadNetworkDnsZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:WorkloadNetworkDnsZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkDnsZone"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:WorkloadNetworkDnsZone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone"),
@@ -58,7 +64,7 @@ func NewWorkloadNetworkDnsZone(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkDnsZone
-	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20200717preview:WorkloadNetworkDnsZone", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewWorkloadNetworkDnsZone(ctx *pulumi.Context,
 func GetWorkloadNetworkDnsZone(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkDnsZoneState, opts ...pulumi.ResourceOption) (*WorkloadNetworkDnsZone, error) {
 	var resource WorkloadNetworkDnsZone
-	err := ctx.ReadResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20200717preview:WorkloadNetworkDnsZone", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

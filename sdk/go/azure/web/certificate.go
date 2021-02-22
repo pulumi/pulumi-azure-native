@@ -85,28 +85,55 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160301:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160301:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:Certificate"),
@@ -114,7 +141,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:web:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +153,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:web:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

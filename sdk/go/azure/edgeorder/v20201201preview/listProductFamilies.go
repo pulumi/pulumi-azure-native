@@ -10,7 +10,7 @@ import (
 // The list of product families.
 func ListProductFamilies(ctx *pulumi.Context, args *ListProductFamiliesArgs, opts ...pulumi.InvokeOption) (*ListProductFamiliesResult, error) {
 	var rv ListProductFamiliesResult
-	err := ctx.Invoke("azure-nextgen:edgeorder/v20201201preview:listProductFamilies", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder/v20201201preview:listProductFamilies", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

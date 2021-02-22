@@ -11,7 +11,7 @@ import (
 // API Version: 2018-01-01-preview.
 func LookupNamespaceVirtualNetworkRule(ctx *pulumi.Context, args *LookupNamespaceVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceVirtualNetworkRuleResult, error) {
 	var rv LookupNamespaceVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getNamespaceVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getNamespaceVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

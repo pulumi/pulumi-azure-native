@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
 	var rv LookupAvailabilitySetResult
-	err := ctx.Invoke("azure-nextgen:compute:getAvailabilitySet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getAvailabilitySet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

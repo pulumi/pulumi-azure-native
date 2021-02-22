@@ -10,7 +10,7 @@ import (
 // String dictionary resource
 func ListSiteAppSettings(ctx *pulumi.Context, args *ListSiteAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListSiteAppSettingsResult, error) {
 	var rv ListSiteAppSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteAppSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteAppSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

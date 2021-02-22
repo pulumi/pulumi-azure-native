@@ -10,7 +10,7 @@ import (
 // Workload classifier operations for a data warehouse
 func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
 	var rv LookupSqlPoolWorkloadClassifierResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20201201:getSqlPoolWorkloadClassifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

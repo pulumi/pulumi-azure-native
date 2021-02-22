@@ -10,10 +10,10 @@ import (
 // ExpressRoute gateway resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteGateway'.
 func LookupExpressRouteGateway(ctx *pulumi.Context, args *LookupExpressRouteGatewayArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteGatewayResult, error) {
 	var rv LookupExpressRouteGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getExpressRouteGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getExpressRouteGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

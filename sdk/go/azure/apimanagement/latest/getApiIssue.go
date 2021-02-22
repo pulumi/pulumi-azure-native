@@ -10,10 +10,10 @@ import (
 // Issue Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssue'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssue'.
 func LookupApiIssue(ctx *pulumi.Context, args *LookupApiIssueArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueResult, error) {
 	var rv LookupApiIssueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiIssue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiIssue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

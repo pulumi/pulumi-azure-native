@@ -10,10 +10,10 @@ import (
 // A DataSet data transfer object.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSet'.
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
 	var rv LookupDataSetResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:getDataSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:getDataSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

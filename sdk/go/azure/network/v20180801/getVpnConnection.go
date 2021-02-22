@@ -10,7 +10,7 @@ import (
 // VpnConnection Resource.
 func LookupVpnConnection(ctx *pulumi.Context, args *LookupVpnConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpnConnectionResult, error) {
 	var rv LookupVpnConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20180801:getVpnConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180801:getVpnConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

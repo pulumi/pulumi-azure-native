@@ -10,10 +10,10 @@ import (
 // A domain specific resource identifier.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDomainOwnershipIdentifierSlot'.
 func LookupWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierSlotResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppDomainOwnershipIdentifierSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppDomainOwnershipIdentifierSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

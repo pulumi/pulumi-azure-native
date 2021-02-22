@@ -14,7 +14,7 @@ import (
 // Friendly Rules name mapping to the any Rules or secret related information.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Rule'.
 type Rule struct {
 	pulumi.CustomResourceState
 
@@ -61,7 +61,13 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Rule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Rule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Rule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Rule"),
@@ -69,7 +75,7 @@ func NewRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Rule
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:Rule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:Rule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +87,7 @@ func NewRule(ctx *pulumi.Context,
 func GetRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RuleState, opts ...pulumi.ResourceOption) (*Rule, error) {
 	var resource Rule
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:Rule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:Rule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A consumer side list of share subscription synchronizations
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:listShareSubscriptionSynchronizations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

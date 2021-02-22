@@ -10,7 +10,7 @@ import (
 // Collection of top-level domain legal agreements.
 func ListTopLevelDomainAgreements(ctx *pulumi.Context, args *ListTopLevelDomainAgreementsArgs, opts ...pulumi.InvokeOption) (*ListTopLevelDomainAgreementsResult, error) {
 	var rv ListTopLevelDomainAgreementsResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/v20190801:listTopLevelDomainAgreements", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/v20190801:listTopLevelDomainAgreements", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

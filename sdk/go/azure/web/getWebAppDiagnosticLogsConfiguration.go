@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWebAppDiagnosticLogsConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDiagnosticLogsConfigurationResult, error) {
 	var rv LookupWebAppDiagnosticLogsConfigurationResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

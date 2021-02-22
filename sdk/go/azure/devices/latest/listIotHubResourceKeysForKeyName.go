@@ -10,10 +10,10 @@ import (
 // The properties of an IoT hub shared access policy.
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeysForKeyName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeysForKeyName'.
 func ListIotHubResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotHubResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysForKeyNameResult, error) {
 	var rv ListIotHubResourceKeysForKeyNameResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:listIotHubResourceKeysForKeyName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:listIotHubResourceKeysForKeyName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

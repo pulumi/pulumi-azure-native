@@ -10,7 +10,7 @@ import (
 // The list of all devices in a resource and their eligibility status as a failover target device.
 func ListDeviceFailoverTars(ctx *pulumi.Context, args *ListDeviceFailoverTarsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverTarsResult, error) {
 	var rv ListDeviceFailoverTarsResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20170601:listDeviceFailoverTars", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20170601:listDeviceFailoverTars", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

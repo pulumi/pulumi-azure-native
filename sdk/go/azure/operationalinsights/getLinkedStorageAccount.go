@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupLinkedStorageAccountResult, error) {
 	var rv LookupLinkedStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights:getLinkedStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights:getLinkedStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

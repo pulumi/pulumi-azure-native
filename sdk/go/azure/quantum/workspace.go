@@ -50,12 +50,15 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:quantum/v20191104preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:quantum/v20191104preview:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:quantum:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:quantum:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +70,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:quantum:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:quantum:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

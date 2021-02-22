@@ -10,10 +10,10 @@ import (
 // Describes a link to virtual network for a Private DNS zone.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkLink'.
 func LookupVirtualNetworkLink(ctx *pulumi.Context, args *LookupVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkLinkResult, error) {
 	var rv LookupVirtualNetworkLinkResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetworkLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupFailoverGroup(ctx *pulumi.Context, args *LookupFailoverGroupArgs, opts ...pulumi.InvokeOption) (*LookupFailoverGroupResult, error) {
 	var rv LookupFailoverGroupResult
-	err := ctx.Invoke("azure-nextgen:sql:getFailoverGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getFailoverGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

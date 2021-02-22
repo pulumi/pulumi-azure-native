@@ -87,10 +87,19 @@ func NewStreamingJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics:StreamingJob"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics:StreamingJob"),
 		},
 		{
+			Type: pulumi.String("azure-native:streamanalytics/latest:StreamingJob"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/latest:StreamingJob"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20160301:StreamingJob"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:StreamingJob"),
@@ -98,7 +107,7 @@ func NewStreamingJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StreamingJob
-	err := ctx.RegisterResource("azure-nextgen:streamanalytics/v20170401preview:StreamingJob", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:streamanalytics/v20170401preview:StreamingJob", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +119,7 @@ func NewStreamingJob(ctx *pulumi.Context,
 func GetStreamingJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamingJobState, opts ...pulumi.ResourceOption) (*StreamingJob, error) {
 	var resource StreamingJob
-	err := ctx.ReadResource("azure-nextgen:streamanalytics/v20170401preview:StreamingJob", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:streamanalytics/v20170401preview:StreamingJob", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

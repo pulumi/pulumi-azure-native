@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb:getConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

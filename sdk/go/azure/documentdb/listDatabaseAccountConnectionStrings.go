@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func ListDatabaseAccountConnectionStrings(ctx *pulumi.Context, args *ListDatabaseAccountConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountConnectionStringsResult, error) {
 	var rv ListDatabaseAccountConnectionStringsResult
-	err := ctx.Invoke("azure-nextgen:documentdb:listDatabaseAccountConnectionStrings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:listDatabaseAccountConnectionStrings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

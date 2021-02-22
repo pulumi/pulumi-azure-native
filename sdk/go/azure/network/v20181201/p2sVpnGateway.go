@@ -51,58 +51,115 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:P2sVpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:P2sVpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:P2sVpnGateway"),
@@ -110,7 +167,7 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource P2sVpnGateway
-	err := ctx.RegisterResource("azure-nextgen:network/v20181201:P2sVpnGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20181201:P2sVpnGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +179,7 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 func GetP2sVpnGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *P2sVpnGatewayState, opts ...pulumi.ResourceOption) (*P2sVpnGateway, error) {
 	var resource P2sVpnGateway
-	err := ctx.ReadResource("azure-nextgen:network/v20181201:P2sVpnGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20181201:P2sVpnGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

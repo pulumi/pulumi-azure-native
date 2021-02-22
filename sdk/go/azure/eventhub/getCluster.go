@@ -11,7 +11,7 @@ import (
 // API Version: 2018-01-01-preview.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

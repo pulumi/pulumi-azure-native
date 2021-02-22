@@ -47,13 +47,25 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:digitaltwins:DigitalTwin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/latest:DigitalTwin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/latest:DigitalTwin"),
 		},
 		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwin"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201201:DigitalTwin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwin"),
@@ -61,7 +73,7 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwin
-	err := ctx.RegisterResource("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:digitaltwins/v20200301preview:DigitalTwin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewDigitalTwin(ctx *pulumi.Context,
 func GetDigitalTwin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DigitalTwinState, opts ...pulumi.ResourceOption) (*DigitalTwin, error) {
 	var resource DigitalTwin
-	err := ctx.ReadResource("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:digitaltwins/v20200301preview:DigitalTwin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

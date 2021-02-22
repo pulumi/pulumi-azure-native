@@ -45,28 +45,55 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppRelayServiceConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppRelayServiceConnection"),
@@ -74,7 +101,7 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnection
-	err := ctx.RegisterResource("azure-nextgen:web/v20200601:WebAppRelayServiceConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20200601:WebAppRelayServiceConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +113,7 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 func GetWebAppRelayServiceConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppRelayServiceConnectionState, opts ...pulumi.ResourceOption) (*WebAppRelayServiceConnection, error) {
 	var resource WebAppRelayServiceConnection
-	err := ctx.ReadResource("azure-nextgen:web/v20200601:WebAppRelayServiceConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20200601:WebAppRelayServiceConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

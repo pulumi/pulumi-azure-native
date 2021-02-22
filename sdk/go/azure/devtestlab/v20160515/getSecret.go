@@ -10,7 +10,7 @@ import (
 // A secret.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20160515:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20160515:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

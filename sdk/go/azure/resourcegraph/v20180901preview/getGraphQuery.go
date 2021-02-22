@@ -10,7 +10,7 @@ import (
 // Graph Query entity definition.
 func LookupGraphQuery(ctx *pulumi.Context, args *LookupGraphQueryArgs, opts ...pulumi.InvokeOption) (*LookupGraphQueryResult, error) {
 	var rv LookupGraphQueryResult
-	err := ctx.Invoke("azure-nextgen:resourcegraph/v20180901preview:getGraphQuery", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resourcegraph/v20180901preview:getGraphQuery", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

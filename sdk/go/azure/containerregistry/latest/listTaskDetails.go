@@ -11,10 +11,10 @@ import (
 // The task will have all information to schedule a run against it.
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listTaskDetails'.
 func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskDetailsResult, error) {
 	var rv ListTaskDetailsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:listTaskDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:listTaskDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

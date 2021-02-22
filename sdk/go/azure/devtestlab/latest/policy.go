@@ -14,7 +14,7 @@ import (
 // A Policy.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Policy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Policy'.
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -64,13 +64,25 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Policy"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Policy"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Policy"),
@@ -78,7 +90,7 @@ func NewPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Policy
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:Policy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:Policy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +102,7 @@ func NewPolicy(ctx *pulumi.Context,
 func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
 	var resource Policy
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:Policy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:Policy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getWebhook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getWebhook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

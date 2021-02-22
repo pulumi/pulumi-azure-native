@@ -14,7 +14,7 @@ import (
 // A sensitivity label.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolSensitivityLabel'.
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 
@@ -70,10 +70,19 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:SqlPoolSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolSensitivityLabel"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel"),
@@ -81,7 +90,7 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolSensitivityLabel
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:SqlPoolSensitivityLabel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:SqlPoolSensitivityLabel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +102,7 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 func GetSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolSensitivityLabelState, opts ...pulumi.ResourceOption) (*SqlPoolSensitivityLabel, error) {
 	var resource SqlPoolSensitivityLabel
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:SqlPoolSensitivityLabel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:SqlPoolSensitivityLabel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

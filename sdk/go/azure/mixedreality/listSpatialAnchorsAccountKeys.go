@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListSpatialAnchorsAccountKeys(ctx *pulumi.Context, args *ListSpatialAnchorsAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListSpatialAnchorsAccountKeysResult, error) {
 	var rv ListSpatialAnchorsAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

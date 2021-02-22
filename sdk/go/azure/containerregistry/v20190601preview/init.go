@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:containerregistry/v20190601preview:AgentPool":
+	case "azure-native:containerregistry/v20190601preview:AgentPool":
 		r, err = NewAgentPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20190601preview:Task":
+	case "azure-native:containerregistry/v20190601preview:Task":
 		r, err = NewTask(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20190601preview:TaskRun":
+	case "azure-native:containerregistry/v20190601preview:TaskRun":
 		r, err = NewTaskRun(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"containerregistry/v20190601preview",
 		&module{version},
 	)

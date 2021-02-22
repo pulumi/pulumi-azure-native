@@ -10,10 +10,10 @@ import (
 // Certificate details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getCertificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCertificate'.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

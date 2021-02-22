@@ -53,7 +53,13 @@ func NewImportPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:ImportPipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:ImportPipeline"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:ImportPipeline"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:ImportPipeline"),
@@ -61,7 +67,7 @@ func NewImportPipeline(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ImportPipeline
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20201101preview:ImportPipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20201101preview:ImportPipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +79,7 @@ func NewImportPipeline(ctx *pulumi.Context,
 func GetImportPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImportPipelineState, opts ...pulumi.ResourceOption) (*ImportPipeline, error) {
 	var resource ImportPipeline
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20201101preview:ImportPipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20201101preview:ImportPipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

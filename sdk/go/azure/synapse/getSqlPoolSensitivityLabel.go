@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupSqlPoolSensitivityLabel(ctx *pulumi.Context, args *LookupSqlPoolSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolSensitivityLabelResult, error) {
 	var rv LookupSqlPoolSensitivityLabelResult
-	err := ctx.Invoke("azure-nextgen:synapse:getSqlPoolSensitivityLabel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getSqlPoolSensitivityLabel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

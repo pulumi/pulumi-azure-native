@@ -54,7 +54,13 @@ func NewExperiment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:Experiment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:Experiment"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:Experiment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:Experiment"),
@@ -62,7 +68,7 @@ func NewExperiment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Experiment
-	err := ctx.RegisterResource("azure-nextgen:network/v20191101:Experiment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20191101:Experiment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewExperiment(ctx *pulumi.Context,
 func GetExperiment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExperimentState, opts ...pulumi.ResourceOption) (*Experiment, error) {
 	var resource Experiment
-	err := ctx.ReadResource("azure-nextgen:network/v20191101:Experiment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20191101:Experiment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

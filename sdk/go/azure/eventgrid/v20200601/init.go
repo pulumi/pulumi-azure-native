@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:eventgrid/v20200601:Domain":
+	case "azure-native:eventgrid/v20200601:Domain":
 		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventgrid/v20200601:DomainTopic":
+	case "azure-native:eventgrid/v20200601:DomainTopic":
 		r, err = NewDomainTopic(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventgrid/v20200601:EventSubscription":
+	case "azure-native:eventgrid/v20200601:EventSubscription":
 		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection":
+	case "azure-native:eventgrid/v20200601:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventgrid/v20200601:Topic":
+	case "azure-native:eventgrid/v20200601:Topic":
 		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"eventgrid/v20200601",
 		&module{version},
 	)

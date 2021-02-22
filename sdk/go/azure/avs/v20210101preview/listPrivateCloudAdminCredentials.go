@@ -10,7 +10,7 @@ import (
 // Administrative credentials for accessing vCenter and NSX-T
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
-	err := ctx.Invoke("azure-nextgen:avs/v20210101preview:listPrivateCloudAdminCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20210101preview:listPrivateCloudAdminCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

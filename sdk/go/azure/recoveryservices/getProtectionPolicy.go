@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProtectionPolicyResult, error) {
 	var rv LookupProtectionPolicyResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getProtectionPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getProtectionPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

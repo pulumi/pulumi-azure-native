@@ -10,7 +10,7 @@ import (
 // A MySQL Server key.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/v20200701preview:getServerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/v20200701preview:getServerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

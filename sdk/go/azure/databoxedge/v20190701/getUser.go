@@ -10,7 +10,7 @@ import (
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20190701:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20190701:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

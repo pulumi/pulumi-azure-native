@@ -10,7 +10,7 @@ import (
 // The bandwidth schedule details.
 func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthScheduleResult, error) {
 	var rv LookupBandwidthScheduleResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200501preview:getBandwidthSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200501preview:getBandwidthSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

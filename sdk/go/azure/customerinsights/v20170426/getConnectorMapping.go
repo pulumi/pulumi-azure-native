@@ -10,7 +10,7 @@ import (
 // The connector mapping resource format.
 func LookupConnectorMapping(ctx *pulumi.Context, args *LookupConnectorMappingArgs, opts ...pulumi.InvokeOption) (*LookupConnectorMappingResult, error) {
 	var rv LookupConnectorMappingResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getConnectorMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getConnectorMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

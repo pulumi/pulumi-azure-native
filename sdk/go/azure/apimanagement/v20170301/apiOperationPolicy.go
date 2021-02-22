@@ -47,25 +47,49 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiOperationPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiOperationPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy"),
@@ -73,7 +97,7 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiOperationPolicy
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20170301:ApiOperationPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20170301:ApiOperationPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +109,7 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 func GetApiOperationPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiOperationPolicyState, opts ...pulumi.ResourceOption) (*ApiOperationPolicy, error) {
 	var resource ApiOperationPolicy
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20170301:ApiOperationPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20170301:ApiOperationPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

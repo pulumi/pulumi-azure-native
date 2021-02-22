@@ -10,7 +10,7 @@ import (
 // Friendly Rules name mapping to the any Rules or secret related information.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20200901:getRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20200901:getRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

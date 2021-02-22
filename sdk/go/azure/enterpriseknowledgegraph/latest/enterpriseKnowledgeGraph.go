@@ -14,7 +14,7 @@ import (
 // EnterpriseKnowledgeGraph resource definition
 // Latest API Version: 2018-12-03.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +44,13 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
@@ -52,7 +58,7 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseKnowledgeGraph
-	err := ctx.RegisterResource("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 func GetEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnterpriseKnowledgeGraphState, opts ...pulumi.ResourceOption) (*EnterpriseKnowledgeGraph, error) {
 	var resource EnterpriseKnowledgeGraph
-	err := ctx.ReadResource("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

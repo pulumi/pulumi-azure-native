@@ -10,10 +10,10 @@ import (
 // LogAnalytics operation status response
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportRequestRateByInterval'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportRequestRateByInterval'.
 func GetLogAnalyticExportRequestRateByInterval(ctx *pulumi.Context, args *GetLogAnalyticExportRequestRateByIntervalArgs, opts ...pulumi.InvokeOption) (*GetLogAnalyticExportRequestRateByIntervalResult, error) {
 	var rv GetLogAnalyticExportRequestRateByIntervalResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getLogAnalyticExportRequestRateByInterval", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getLogAnalyticExportRequestRateByInterval", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

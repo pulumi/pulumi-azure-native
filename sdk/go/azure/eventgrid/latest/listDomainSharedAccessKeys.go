@@ -10,10 +10,10 @@ import (
 // Shared access keys of the Domain.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:listDomainSharedAccessKeys'.
 func ListDomainSharedAccessKeys(ctx *pulumi.Context, args *ListDomainSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListDomainSharedAccessKeysResult, error) {
 	var rv ListDomainSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/latest:listDomainSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/latest:listDomainSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

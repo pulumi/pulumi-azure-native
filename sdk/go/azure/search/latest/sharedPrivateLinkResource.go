@@ -14,7 +14,7 @@ import (
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
@@ -41,10 +41,19 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:search:SharedPrivateLinkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search:SharedPrivateLinkResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:search/v20200801:SharedPrivateLinkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/v20200801:SharedPrivateLinkResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20200801preview:SharedPrivateLinkResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200801preview:SharedPrivateLinkResource"),
@@ -52,7 +61,7 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SharedPrivateLinkResource
-	err := ctx.RegisterResource("azure-nextgen:search/latest:SharedPrivateLinkResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:search/latest:SharedPrivateLinkResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 func GetSharedPrivateLinkResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SharedPrivateLinkResourceState, opts ...pulumi.ResourceOption) (*SharedPrivateLinkResource, error) {
 	var resource SharedPrivateLinkResource
-	err := ctx.ReadResource("azure-nextgen:search/latest:SharedPrivateLinkResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:search/latest:SharedPrivateLinkResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

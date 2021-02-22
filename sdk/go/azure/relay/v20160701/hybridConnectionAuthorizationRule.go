@@ -44,10 +44,19 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:HybridConnectionAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:HybridConnectionAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/latest:HybridConnectionAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/latest:HybridConnectionAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20170401:HybridConnectionAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule"),
@@ -55,7 +64,7 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HybridConnectionAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/v20160701:HybridConnectionAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 func GetHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HybridConnectionAuthorizationRuleState, opts ...pulumi.ResourceOption) (*HybridConnectionAuthorizationRule, error) {
 	var resource HybridConnectionAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/v20160701:HybridConnectionAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

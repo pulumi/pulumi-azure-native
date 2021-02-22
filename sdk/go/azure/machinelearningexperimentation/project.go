@@ -63,12 +63,15 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningexperimentation/v20170501preview:Project"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningexperimentation/v20170501preview:Project"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Project
-	err := ctx.RegisterResource("azure-nextgen:machinelearningexperimentation:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningexperimentation:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +83,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("azure-nextgen:machinelearningexperimentation:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningexperimentation:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -54,7 +54,13 @@ func NewLogProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:LogProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:LogProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20160301:LogProfile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20160301:LogProfile"),
@@ -62,7 +68,7 @@ func NewLogProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LogProfile
-	err := ctx.RegisterResource("azure-nextgen:insights:LogProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:LogProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewLogProfile(ctx *pulumi.Context,
 func GetLogProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LogProfileState, opts ...pulumi.ResourceOption) (*LogProfile, error) {
 	var resource LogProfile
-	err := ctx.ReadResource("azure-nextgen:insights:LogProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:LogProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

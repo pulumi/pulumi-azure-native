@@ -10,7 +10,7 @@ import (
 // The key resource.
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
-	err := ctx.Invoke("azure-nextgen:keyvault/v20190901:getKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault/v20190901:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListDomainRecommendations(ctx *pulumi.Context, args *ListDomainRecommendationsArgs, opts ...pulumi.InvokeOption) (*ListDomainRecommendationsResult, error) {
 	var rv ListDomainRecommendationsResult
-	err := ctx.Invoke("azure-nextgen:domainregistration:listDomainRecommendations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration:listDomainRecommendations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

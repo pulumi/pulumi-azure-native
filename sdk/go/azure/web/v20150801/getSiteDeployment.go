@@ -10,7 +10,7 @@ import (
 // Represents user credentials used for publishing activity
 func LookupSiteDeployment(ctx *pulumi.Context, args *LookupSiteDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentResult, error) {
 	var rv LookupSiteDeploymentResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

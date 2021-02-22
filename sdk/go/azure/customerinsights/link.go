@@ -72,10 +72,19 @@ func NewLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Link"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Link"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Link"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Link"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Link"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Link"),
@@ -83,7 +92,7 @@ func NewLink(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Link
-	err := ctx.RegisterResource("azure-nextgen:customerinsights:Link", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights:Link", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +104,7 @@ func NewLink(ctx *pulumi.Context,
 func GetLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkState, opts ...pulumi.ResourceOption) (*Link, error) {
 	var resource Link
-	err := ctx.ReadResource("azure-nextgen:customerinsights:Link", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights:Link", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -41,7 +41,13 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore:TrustedIdProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/latest:TrustedIdProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/latest:TrustedIdProvider"),
@@ -49,7 +55,7 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TrustedIdProvider
-	err := ctx.RegisterResource("azure-nextgen:datalakestore/v20161101:TrustedIdProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore/v20161101:TrustedIdProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +67,7 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 func GetTrustedIdProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TrustedIdProviderState, opts ...pulumi.ResourceOption) (*TrustedIdProvider, error) {
 	var resource TrustedIdProvider
-	err := ctx.ReadResource("azure-nextgen:datalakestore/v20161101:TrustedIdProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore/v20161101:TrustedIdProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

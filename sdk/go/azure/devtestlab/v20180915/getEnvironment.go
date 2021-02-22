@@ -10,7 +10,7 @@ import (
 // An environment, which is essentially an ARM template deployment.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

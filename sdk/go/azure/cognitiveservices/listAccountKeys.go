@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-18.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:cognitiveservices:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cognitiveservices:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

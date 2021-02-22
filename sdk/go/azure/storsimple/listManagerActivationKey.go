@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func ListManagerActivationKey(ctx *pulumi.Context, args *ListManagerActivationKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerActivationKeyResult, error) {
 	var rv ListManagerActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:storsimple:listManagerActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:listManagerActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

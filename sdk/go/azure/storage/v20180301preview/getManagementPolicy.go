@@ -10,7 +10,7 @@ import (
 // The Get Storage Account ManagementPolicies operation response.
 func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagementPolicyResult, error) {
 	var rv LookupManagementPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage/v20180301preview:getManagementPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20180301preview:getManagementPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

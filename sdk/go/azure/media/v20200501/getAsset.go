@@ -10,7 +10,7 @@ import (
 // An Asset.
 func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.InvokeOption) (*LookupAssetResult, error) {
 	var rv LookupAssetResult
-	err := ctx.Invoke("azure-nextgen:media/v20200501:getAsset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20200501:getAsset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

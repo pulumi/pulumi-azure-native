@@ -43,12 +43,15 @@ func NewCreator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:maps/v20200201preview:Creator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maps/v20200201preview:Creator"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Creator
-	err := ctx.RegisterResource("azure-nextgen:maps:Creator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:maps:Creator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewCreator(ctx *pulumi.Context,
 func GetCreator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CreatorState, opts ...pulumi.ResourceOption) (*Creator, error) {
 	var resource Creator
-	err := ctx.ReadResource("azure-nextgen:maps:Creator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:maps:Creator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

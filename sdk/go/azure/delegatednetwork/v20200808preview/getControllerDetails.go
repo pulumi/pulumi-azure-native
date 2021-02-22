@@ -10,7 +10,7 @@ import (
 // Represents an instance of a DNC controller.
 func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupControllerDetailsResult, error) {
 	var rv LookupControllerDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork/v20200808preview:getControllerDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getControllerDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

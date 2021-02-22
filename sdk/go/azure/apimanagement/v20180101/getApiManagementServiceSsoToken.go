@@ -10,7 +10,7 @@ import (
 // The response of the GetSsoToken operation.
 func GetApiManagementServiceSsoToken(ctx *pulumi.Context, args *GetApiManagementServiceSsoTokenArgs, opts ...pulumi.InvokeOption) (*GetApiManagementServiceSsoTokenResult, error) {
 	var rv GetApiManagementServiceSsoTokenResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180101:getApiManagementServiceSsoToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180101:getApiManagementServiceSsoToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

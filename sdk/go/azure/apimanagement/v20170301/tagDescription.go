@@ -47,25 +47,49 @@ func NewTagDescription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:TagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:TagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:TagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:TagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:TagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:TagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:TagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagDescription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagDescription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagDescription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagDescription"),
@@ -73,7 +97,7 @@ func NewTagDescription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TagDescription
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20170301:TagDescription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20170301:TagDescription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +109,7 @@ func NewTagDescription(ctx *pulumi.Context,
 func GetTagDescription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagDescriptionState, opts ...pulumi.ResourceOption) (*TagDescription, error) {
 	var resource TagDescription
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20170301:TagDescription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20170301:TagDescription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

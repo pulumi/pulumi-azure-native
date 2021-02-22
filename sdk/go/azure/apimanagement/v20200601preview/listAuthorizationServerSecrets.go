@@ -10,7 +10,7 @@ import (
 // OAuth Server Secrets Contract.
 func ListAuthorizationServerSecrets(ctx *pulumi.Context, args *ListAuthorizationServerSecretsArgs, opts ...pulumi.InvokeOption) (*ListAuthorizationServerSecretsResult, error) {
 	var rv ListAuthorizationServerSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:listAuthorizationServerSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20200601preview:listAuthorizationServerSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -56,12 +56,15 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:DataCollectionRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:DataCollectionRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DataCollectionRule
-	err := ctx.RegisterResource("azure-nextgen:insights/v20191101preview:DataCollectionRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20191101preview:DataCollectionRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +76,7 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 func GetDataCollectionRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataCollectionRuleState, opts ...pulumi.ResourceOption) (*DataCollectionRule, error) {
 	var resource DataCollectionRule
-	err := ctx.ReadResource("azure-nextgen:insights/v20191101preview:DataCollectionRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20191101preview:DataCollectionRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

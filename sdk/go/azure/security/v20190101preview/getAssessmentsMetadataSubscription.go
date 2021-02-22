@@ -10,7 +10,7 @@ import (
 // Security assessment metadata
 func LookupAssessmentsMetadataSubscription(ctx *pulumi.Context, args *LookupAssessmentsMetadataSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentsMetadataSubscriptionResult, error) {
 	var rv LookupAssessmentsMetadataSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:security/v20190101preview:getAssessmentsMetadataSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

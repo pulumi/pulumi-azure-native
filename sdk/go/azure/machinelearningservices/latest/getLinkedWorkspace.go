@@ -10,10 +10,10 @@ import (
 // Linked workspace.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getLinkedWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getLinkedWorkspace'.
 func LookupLinkedWorkspace(ctx *pulumi.Context, args *LookupLinkedWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedWorkspaceResult, error) {
 	var rv LookupLinkedWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:getLinkedWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:getLinkedWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

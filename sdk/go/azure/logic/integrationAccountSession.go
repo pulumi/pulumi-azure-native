@@ -47,13 +47,25 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountSession"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountSession"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountSession"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountSession"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountSession"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountSession"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountSession"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountSession"),
@@ -61,7 +73,7 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountSession
-	err := ctx.RegisterResource("azure-nextgen:logic:IntegrationAccountSession", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:IntegrationAccountSession", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 func GetIntegrationAccountSession(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountSessionState, opts ...pulumi.ResourceOption) (*IntegrationAccountSession, error) {
 	var resource IntegrationAccountSession
-	err := ctx.ReadResource("azure-nextgen:logic:IntegrationAccountSession", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:IntegrationAccountSession", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

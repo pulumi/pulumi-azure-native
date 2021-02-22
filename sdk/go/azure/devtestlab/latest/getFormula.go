@@ -10,10 +10,10 @@ import (
 // A formula for creating a VM, specifying an image base and other parameters
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getFormula'.
 func LookupFormula(ctx *pulumi.Context, args *LookupFormulaArgs, opts ...pulumi.InvokeOption) (*LookupFormulaResult, error) {
 	var rv LookupFormulaResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getFormula", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getFormula", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

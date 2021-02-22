@@ -10,10 +10,10 @@ import (
 // Definition of the module type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getPython2Package'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'.
 func LookupPython2Package(ctx *pulumi.Context, args *LookupPython2PackageArgs, opts ...pulumi.InvokeOption) (*LookupPython2PackageResult, error) {
 	var rv LookupPython2PackageResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getPython2Package", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getPython2Package", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

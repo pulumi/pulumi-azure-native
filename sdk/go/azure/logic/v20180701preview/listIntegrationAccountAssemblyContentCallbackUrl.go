@@ -10,7 +10,7 @@ import (
 // The workflow trigger callback URL.
 func ListIntegrationAccountAssemblyContentCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountAssemblyContentCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountAssemblyContentCallbackUrlResult, error) {
 	var rv ListIntegrationAccountAssemblyContentCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/v20180701preview:listIntegrationAccountAssemblyContentCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20180701preview:listIntegrationAccountAssemblyContentCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

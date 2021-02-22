@@ -10,10 +10,10 @@ import (
 // A Database Migration Service resource
 // Latest API Version: 2018-04-19.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getService'.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:datamigration/latest:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datamigration/latest:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

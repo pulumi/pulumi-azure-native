@@ -10,10 +10,10 @@ import (
 // The remediation definition.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtSubscription'.
 func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediationAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtSubscriptionResult, error) {
 	var rv LookupRemediationAtSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/latest:getRemediationAtSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/latest:getRemediationAtSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

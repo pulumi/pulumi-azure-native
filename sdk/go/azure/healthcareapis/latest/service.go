@@ -14,7 +14,7 @@ import (
 // The description of the service.
 // Latest API Version: 2021-01-11.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthcareapis:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -50,19 +50,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:healthcareapis:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20180820preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20180820preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthcareapis/v20190916:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20190916:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20200315:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200315:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthcareapis/v20200330:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20210111:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20210111:Service"),
@@ -70,7 +88,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:healthcareapis/latest:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:healthcareapis/latest:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +100,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:healthcareapis/latest:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:healthcareapis/latest:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

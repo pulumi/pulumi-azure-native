@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupPrivateZone(ctx *pulumi.Context, args *LookupPrivateZoneArgs, opts ...pulumi.InvokeOption) (*LookupPrivateZoneResult, error) {
 	var rv LookupPrivateZoneResult
-	err := ctx.Invoke("azure-nextgen:network:getPrivateZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getPrivateZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // An object that represents a machine learning workspace.
 // Latest API Version: 2016-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearning:Workspace'.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -62,10 +62,19 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearning:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearning/v20160401:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20160401:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearning/v20191001:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20191001:Workspace"),
@@ -73,7 +82,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:machinelearning/latest:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearning/latest:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +94,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:machinelearning/latest:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearning/latest:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

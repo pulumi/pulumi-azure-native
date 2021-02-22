@@ -11,7 +11,7 @@ import (
 // API Version: 2021-03-01.
 func LookupConnectedCluster(ctx *pulumi.Context, args *LookupConnectedClusterArgs, opts ...pulumi.InvokeOption) (*LookupConnectedClusterResult, error) {
 	var rv LookupConnectedClusterResult
-	err := ctx.Invoke("azure-nextgen:kubernetes:getConnectedCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetes:getConnectedCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The Account access keys.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:purview/v20201201preview:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:purview/v20201201preview:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

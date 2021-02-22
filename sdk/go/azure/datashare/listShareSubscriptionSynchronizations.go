@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
-	err := ctx.Invoke("azure-nextgen:datashare:listShareSubscriptionSynchronizations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare:listShareSubscriptionSynchronizations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

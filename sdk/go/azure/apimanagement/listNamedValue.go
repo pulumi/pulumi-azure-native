@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {
 	var rv ListNamedValueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listNamedValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listNamedValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

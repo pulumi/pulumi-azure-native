@@ -14,7 +14,7 @@ import (
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appconfiguration:ConfigurationStore'.
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
@@ -59,19 +59,37 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appconfiguration:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20190201preview:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20191001:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20191001:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20191101preview:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200601:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200601:ConfigurationStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200701preview:ConfigurationStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"),
@@ -79,7 +97,7 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationStore
-	err := ctx.RegisterResource("azure-nextgen:appconfiguration/latest:ConfigurationStore", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appconfiguration/latest:ConfigurationStore", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +109,7 @@ func NewConfigurationStore(ctx *pulumi.Context,
 func GetConfigurationStore(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationStoreState, opts ...pulumi.ResourceOption) (*ConfigurationStore, error) {
 	var resource ConfigurationStore
-	err := ctx.ReadResource("azure-nextgen:appconfiguration/latest:ConfigurationStore", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appconfiguration/latest:ConfigurationStore", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

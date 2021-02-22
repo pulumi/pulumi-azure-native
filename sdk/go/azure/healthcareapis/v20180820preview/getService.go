@@ -10,7 +10,7 @@ import (
 // The description of the service.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:healthcareapis/v20180820preview:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:healthcareapis/v20180820preview:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

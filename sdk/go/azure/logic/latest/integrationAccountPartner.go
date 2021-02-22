@@ -14,7 +14,7 @@ import (
 // The integration account partner.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 
@@ -59,16 +59,31 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationAccountPartner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountPartner"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountPartner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountPartner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountPartner"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountPartner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountPartner"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountPartner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountPartner"),
@@ -76,7 +91,7 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountPartner
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationAccountPartner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationAccountPartner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +103,7 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 func GetIntegrationAccountPartner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountPartnerState, opts ...pulumi.ResourceOption) (*IntegrationAccountPartner, error) {
 	var resource IntegrationAccountPartner
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationAccountPartner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationAccountPartner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

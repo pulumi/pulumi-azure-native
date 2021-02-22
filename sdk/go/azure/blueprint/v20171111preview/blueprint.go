@@ -51,7 +51,7 @@ func NewBlueprint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetScope'")
 	}
 	var resource Blueprint
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20171111preview:Blueprint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:Blueprint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewBlueprint(ctx *pulumi.Context,
 func GetBlueprint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlueprintState, opts ...pulumi.ResourceOption) (*Blueprint, error) {
 	var resource Blueprint
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20171111preview:Blueprint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20171111preview:Blueprint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

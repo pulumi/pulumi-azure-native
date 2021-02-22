@@ -10,7 +10,7 @@ import (
 // VirtualHub Resource.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
-	err := ctx.Invoke("azure-nextgen:network/v20190601:getVirtualHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190601:getVirtualHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2016-11-01.
 func LookupTrustedIdProvider(ctx *pulumi.Context, args *LookupTrustedIdProviderArgs, opts ...pulumi.InvokeOption) (*LookupTrustedIdProviderResult, error) {
 	var rv LookupTrustedIdProviderResult
-	err := ctx.Invoke("azure-nextgen:datalakestore:getTrustedIdProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakestore:getTrustedIdProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The health alert resource.
 func LookupHealthAlert(ctx *pulumi.Context, args *LookupHealthAlertArgs, opts ...pulumi.InvokeOption) (*LookupHealthAlertResult, error) {
 	var rv LookupHealthAlertResult
-	err := ctx.Invoke("azure-nextgen:alertsmanagement/v20200804preview:getHealthAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:alertsmanagement/v20200804preview:getHealthAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

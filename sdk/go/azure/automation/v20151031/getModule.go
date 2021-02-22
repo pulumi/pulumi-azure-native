@@ -10,7 +10,7 @@ import (
 // Definition of the module type.
 func LookupModule(ctx *pulumi.Context, args *LookupModuleArgs, opts ...pulumi.InvokeOption) (*LookupModuleResult, error) {
 	var rv LookupModuleResult
-	err := ctx.Invoke("azure-nextgen:automation/v20151031:getModule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20151031:getModule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

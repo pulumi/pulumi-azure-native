@@ -51,7 +51,13 @@ func NewScopeMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:ScopeMap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:ScopeMap"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ScopeMap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ScopeMap"),
@@ -59,7 +65,7 @@ func NewScopeMap(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ScopeMap
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20190501preview:ScopeMap", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewScopeMap(ctx *pulumi.Context,
 func GetScopeMap(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScopeMapState, opts ...pulumi.ResourceOption) (*ScopeMap, error) {
 	var resource ScopeMap
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20190501preview:ScopeMap", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

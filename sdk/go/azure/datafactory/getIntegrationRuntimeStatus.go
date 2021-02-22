@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getIntegrationRuntimeStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getIntegrationRuntimeStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

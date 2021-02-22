@@ -10,10 +10,10 @@ import (
 // The configuration of service URI and custom headers for the webhook.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhookCallbackConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhookCallbackConfig'.
 func GetWebhookCallbackConfig(ctx *pulumi.Context, args *GetWebhookCallbackConfigArgs, opts ...pulumi.InvokeOption) (*GetWebhookCallbackConfigResult, error) {
 	var rv GetWebhookCallbackConfigResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:getWebhookCallbackConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:getWebhookCallbackConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -55,16 +55,31 @@ func NewStaticSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:StaticSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:StaticSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:StaticSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:StaticSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:StaticSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:StaticSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:StaticSite"),
@@ -72,7 +87,7 @@ func NewStaticSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StaticSite
-	err := ctx.RegisterResource("azure-nextgen:web/v20200901:StaticSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20200901:StaticSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +99,7 @@ func NewStaticSite(ctx *pulumi.Context,
 func GetStaticSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StaticSiteState, opts ...pulumi.ResourceOption) (*StaticSite, error) {
 	var resource StaticSite
-	err := ctx.ReadResource("azure-nextgen:web/v20200901:StaticSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20200901:StaticSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

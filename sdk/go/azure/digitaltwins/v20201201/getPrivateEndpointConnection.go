@@ -10,7 +10,7 @@ import (
 // The private endpoint connection of a Digital Twin.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins/v20201201:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins/v20201201:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

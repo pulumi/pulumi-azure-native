@@ -10,10 +10,10 @@ import (
 // Experiment information.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getExperiment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getExperiment'.
 func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentResult, error) {
 	var rv LookupExperimentResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:getExperiment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:getExperiment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The result of the GetSupportedOptimizationTypes API
 func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileSupportedOptimizationTypesArgs, opts ...pulumi.InvokeOption) (*GetProfileSupportedOptimizationTypesResult, error) {
 	var rv GetProfileSupportedOptimizationTypesResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20190615preview:getProfileSupportedOptimizationTypes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20190615preview:getProfileSupportedOptimizationTypes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

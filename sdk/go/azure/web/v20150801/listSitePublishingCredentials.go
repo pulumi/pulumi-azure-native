@@ -10,7 +10,7 @@ import (
 // Represents user credentials used for publishing activity
 func ListSitePublishingCredentials(ctx *pulumi.Context, args *ListSitePublishingCredentialsArgs, opts ...pulumi.InvokeOption) (*ListSitePublishingCredentialsResult, error) {
 	var rv ListSitePublishingCredentialsResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSitePublishingCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSitePublishingCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

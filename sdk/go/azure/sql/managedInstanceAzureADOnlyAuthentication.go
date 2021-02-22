@@ -42,7 +42,13 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"),
@@ -50,7 +56,7 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstanceAzureADOnlyAuthentication
-	err := ctx.RegisterResource("azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 func GetManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedInstanceAzureADOnlyAuthenticationState, opts ...pulumi.ResourceOption) (*ManagedInstanceAzureADOnlyAuthentication, error) {
 	var resource ManagedInstanceAzureADOnlyAuthentication
-	err := ctx.ReadResource("azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

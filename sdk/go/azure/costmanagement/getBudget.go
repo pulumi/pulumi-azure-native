@@ -11,7 +11,7 @@ import (
 // API Version: 2019-04-01-preview.
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
 	var rv LookupBudgetResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getBudget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getBudget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

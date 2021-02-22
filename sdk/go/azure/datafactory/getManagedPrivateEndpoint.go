@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrivateEndpointResult, error) {
 	var rv LookupManagedPrivateEndpointResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getManagedPrivateEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getManagedPrivateEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

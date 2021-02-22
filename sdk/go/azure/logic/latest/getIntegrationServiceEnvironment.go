@@ -10,10 +10,10 @@ import (
 // The integration service environment.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironment'.
 func LookupIntegrationServiceEnvironment(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentResult, error) {
 	var rv LookupIntegrationServiceEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationServiceEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationServiceEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

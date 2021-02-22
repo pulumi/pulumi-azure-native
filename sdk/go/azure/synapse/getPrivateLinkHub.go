@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupPrivateLinkHub(ctx *pulumi.Context, args *LookupPrivateLinkHubArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkHubResult, error) {
 	var rv LookupPrivateLinkHubResult
-	err := ctx.Invoke("azure-nextgen:synapse:getPrivateLinkHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getPrivateLinkHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:datashare:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

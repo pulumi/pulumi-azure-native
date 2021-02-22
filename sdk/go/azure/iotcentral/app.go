@@ -51,10 +51,19 @@ func NewApp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:iotcentral/latest:App"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:iotcentral/latest:App"),
 		},
 		{
+			Type: pulumi.String("azure-native:iotcentral/v20170701privatepreview:App"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:iotcentral/v20170701privatepreview:App"),
+		},
+		{
+			Type: pulumi.String("azure-native:iotcentral/v20180901:App"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:iotcentral/v20180901:App"),
@@ -62,7 +71,7 @@ func NewApp(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource App
-	err := ctx.RegisterResource("azure-nextgen:iotcentral:App", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:iotcentral:App", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +83,7 @@ func NewApp(ctx *pulumi.Context,
 func GetApp(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppState, opts ...pulumi.ResourceOption) (*App, error) {
 	var resource App
-	err := ctx.ReadResource("azure-nextgen:iotcentral:App", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:iotcentral:App", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

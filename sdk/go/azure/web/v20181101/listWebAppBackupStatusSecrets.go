@@ -10,7 +10,7 @@ import (
 // Backup description.
 func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
 	var rv ListWebAppBackupStatusSecretsResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:listWebAppBackupStatusSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:listWebAppBackupStatusSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

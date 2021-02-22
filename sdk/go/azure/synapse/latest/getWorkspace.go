@@ -10,10 +10,10 @@ import (
 // A workspace
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

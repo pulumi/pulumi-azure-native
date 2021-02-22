@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-30-preview.
 func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfigurationProfileAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileAssignmentResult, error) {
 	var rv LookupConfigurationProfileAssignmentResult
-	err := ctx.Invoke("azure-nextgen:automanage:getConfigurationProfileAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automanage:getConfigurationProfileAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

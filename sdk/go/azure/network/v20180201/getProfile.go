@@ -10,7 +10,7 @@ import (
 // Class representing a Traffic Manager profile.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
-	err := ctx.Invoke("azure-nextgen:network/v20180201:getProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180201:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

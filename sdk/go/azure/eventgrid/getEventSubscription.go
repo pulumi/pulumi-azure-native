@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
 	var rv LookupEventSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getEventSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getEventSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -62,16 +62,31 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:DatabasePrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/latest:DatabasePrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:DatabasePrincipalAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:DatabasePrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200215:DatabasePrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200614:DatabasePrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"),
@@ -79,7 +94,7 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabasePrincipalAssignment
-	err := ctx.RegisterResource("azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/v20200918:DatabasePrincipalAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +106,7 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 func GetDatabasePrincipalAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabasePrincipalAssignmentState, opts ...pulumi.ResourceOption) (*DatabasePrincipalAssignment, error) {
 	var resource DatabasePrincipalAssignment
-	err := ctx.ReadResource("azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/v20200918:DatabasePrincipalAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:media/v20180601preview:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180601preview:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

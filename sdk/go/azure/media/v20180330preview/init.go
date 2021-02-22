@@ -21,25 +21,25 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:media/v20180330preview:Asset":
+	case "azure-native:media/v20180330preview:Asset":
 		r, err = NewAsset(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:ContentKeyPolicy":
+	case "azure-native:media/v20180330preview:ContentKeyPolicy":
 		r, err = NewContentKeyPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:Job":
+	case "azure-native:media/v20180330preview:Job":
 		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:LiveEvent":
+	case "azure-native:media/v20180330preview:LiveEvent":
 		r, err = NewLiveEvent(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:LiveOutput":
+	case "azure-native:media/v20180330preview:LiveOutput":
 		r, err = NewLiveOutput(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:MediaService":
+	case "azure-native:media/v20180330preview:MediaService":
 		r, err = NewMediaService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:StreamingEndpoint":
+	case "azure-native:media/v20180330preview:StreamingEndpoint":
 		r, err = NewStreamingEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:StreamingLocator":
+	case "azure-native:media/v20180330preview:StreamingLocator":
 		r, err = NewStreamingLocator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:StreamingPolicy":
+	case "azure-native:media/v20180330preview:StreamingPolicy":
 		r, err = NewStreamingPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:media/v20180330preview:Transform":
+	case "azure-native:media/v20180330preview:Transform":
 		r, err = NewTransform(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -54,7 +54,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"media/v20180330preview",
 		&module{version},
 	)

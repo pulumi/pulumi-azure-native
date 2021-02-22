@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupCassandraResourceCassandraTable(ctx *pulumi.Context, args *LookupCassandraResourceCassandraTableArgs, opts ...pulumi.InvokeOption) (*LookupCassandraResourceCassandraTableResult, error) {
 	var rv LookupCassandraResourceCassandraTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getCassandraResourceCassandraTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getCassandraResourceCassandraTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

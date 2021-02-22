@@ -66,19 +66,37 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph"),
@@ -86,7 +104,7 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountGremlinGraph
-	err := ctx.RegisterResource("azure-nextgen:documentdb:DatabaseAccountGremlinGraph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:DatabaseAccountGremlinGraph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +116,7 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 func GetDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountGremlinGraphState, opts ...pulumi.ResourceOption) (*DatabaseAccountGremlinGraph, error) {
 	var resource DatabaseAccountGremlinGraph
-	err := ctx.ReadResource("azure-nextgen:documentdb:DatabaseAccountGremlinGraph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:DatabaseAccountGremlinGraph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

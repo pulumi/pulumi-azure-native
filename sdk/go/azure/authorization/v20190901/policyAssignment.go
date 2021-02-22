@@ -55,37 +55,73 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/latest:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20151001preview:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20151001preview:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20160401:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160401:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20161201:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20161201:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170601preview:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180301:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20180501:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190101:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20190601:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20200301:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200901:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicyAssignment"),
@@ -93,7 +129,7 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PolicyAssignment
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20190901:PolicyAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20190901:PolicyAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +141,7 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 func GetPolicyAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyAssignmentState, opts ...pulumi.ResourceOption) (*PolicyAssignment, error) {
 	var resource PolicyAssignment
-	err := ctx.ReadResource("azure-nextgen:authorization/v20190901:PolicyAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20190901:PolicyAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

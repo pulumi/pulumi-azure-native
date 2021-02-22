@@ -10,10 +10,10 @@ import (
 // Tenant access information contract of the API Management service.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listTenantAccessSecrets'.
 func ListTenantAccessSecrets(ctx *pulumi.Context, args *ListTenantAccessSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessSecretsResult, error) {
 	var rv ListTenantAccessSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:listTenantAccessSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:listTenantAccessSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

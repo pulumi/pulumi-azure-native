@@ -10,10 +10,10 @@ import (
 // Container service.
 // Latest API Version: 2017-01-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getContainerService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getContainerService'.
 func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArgs, opts ...pulumi.InvokeOption) (*LookupContainerServiceResult, error) {
 	var rv LookupContainerServiceResult
-	err := ctx.Invoke("azure-nextgen:containerservice/latest:getContainerService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/latest:getContainerService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

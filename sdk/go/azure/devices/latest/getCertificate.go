@@ -10,10 +10,10 @@ import (
 // The X509 Certificate.
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getCertificate'.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

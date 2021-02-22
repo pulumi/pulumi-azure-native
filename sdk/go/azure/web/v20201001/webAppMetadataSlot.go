@@ -45,28 +45,55 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppMetadataSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppMetadataSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppMetadataSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppMetadataSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppMetadataSlot"),
@@ -74,7 +101,7 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadataSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20201001:WebAppMetadataSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20201001:WebAppMetadataSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +113,7 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 func GetWebAppMetadataSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppMetadataSlotState, opts ...pulumi.ResourceOption) (*WebAppMetadataSlot, error) {
 	var resource WebAppMetadataSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20201001:WebAppMetadataSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20201001:WebAppMetadataSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

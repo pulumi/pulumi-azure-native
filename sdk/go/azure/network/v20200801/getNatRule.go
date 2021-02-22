@@ -10,7 +10,7 @@ import (
 // VpnGatewayNatRule Resource.
 func LookupNatRule(ctx *pulumi.Context, args *LookupNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupNatRuleResult, error) {
 	var rv LookupNatRuleResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getNatRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getNatRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

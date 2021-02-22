@@ -14,7 +14,7 @@ import (
 // Class representing a Kusto cluster.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -88,31 +88,61 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20180907preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190121:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190121:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20190515:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190515:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:Cluster"),
@@ -120,7 +150,7 @@ func NewCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
-	err := ctx.RegisterResource("azure-nextgen:kusto/latest:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/latest:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -132,7 +162,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("azure-nextgen:kusto/latest:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/latest:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // List of virtual network gateway routes
 func GetVirtualNetworkGatewayLearnedRoutes(ctx *pulumi.Context, args *GetVirtualNetworkGatewayLearnedRoutesArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayLearnedRoutesResult, error) {
 	var rv GetVirtualNetworkGatewayLearnedRoutesResult
-	err := ctx.Invoke("azure-nextgen:network/v20180101:getVirtualNetworkGatewayLearnedRoutes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180101:getVirtualNetworkGatewayLearnedRoutes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func ListServiceFabricApplicableSchedules(ctx *pulumi.Context, args *ListServiceFabricApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListServiceFabricApplicableSchedulesResult, error) {
 	var rv ListServiceFabricApplicableSchedulesResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:listServiceFabricApplicableSchedules", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:listServiceFabricApplicableSchedules", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

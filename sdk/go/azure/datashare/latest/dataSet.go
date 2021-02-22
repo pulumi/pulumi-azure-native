@@ -14,7 +14,7 @@ import (
 // A DataSet data transfer object.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:DataSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:DataSet'.
 type DataSet struct {
 	pulumi.CustomResourceState
 
@@ -49,16 +49,31 @@ func NewDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare:DataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare:DataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20181101preview:DataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:DataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20191101:DataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:DataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20200901:DataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:DataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:DataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:DataSet"),
@@ -66,7 +81,7 @@ func NewDataSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataSet
-	err := ctx.RegisterResource("azure-nextgen:datashare/latest:DataSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare/latest:DataSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewDataSet(ctx *pulumi.Context,
 func GetDataSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataSetState, opts ...pulumi.ResourceOption) (*DataSet, error) {
 	var resource DataSet
-	err := ctx.ReadResource("azure-nextgen:datashare/latest:DataSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare/latest:DataSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

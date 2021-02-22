@@ -10,10 +10,10 @@ import (
 // An Asset.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAsset'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAsset'.
 func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.InvokeOption) (*LookupAssetResult, error) {
 	var rv LookupAssetResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getAsset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getAsset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2015-08-01.
 func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, opts ...pulumi.InvokeOption) (*LookupCertificateCsrResult, error) {
 	var rv LookupCertificateCsrResult
-	err := ctx.Invoke("azure-nextgen:web:getCertificateCsr", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getCertificateCsr", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

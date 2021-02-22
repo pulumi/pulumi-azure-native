@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2016-01-29.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:listWorkspaceCollectionAccessKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbi:listWorkspaceCollectionAccessKeys'.
 func ListWorkspaceCollectionAccessKeys(ctx *pulumi.Context, args *ListWorkspaceCollectionAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceCollectionAccessKeysResult, error) {
 	var rv ListWorkspaceCollectionAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:powerbi/latest:listWorkspaceCollectionAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:powerbi/latest:listWorkspaceCollectionAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // An environment, which is essentially an ARM template deployment.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getEnvironment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getEnvironment'.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

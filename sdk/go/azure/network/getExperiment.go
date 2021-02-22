@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01.
 func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentResult, error) {
 	var rv LookupExperimentResult
-	err := ctx.Invoke("azure-nextgen:network:getExperiment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getExperiment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // AzureStorageInfo dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccountsSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccountsSlot'.
 type WebAppAzureStorageAccountsSlot struct {
 	pulumi.CustomResourceState
 
@@ -48,22 +48,43 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppAzureStorageAccountsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccountsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppAzureStorageAccountsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppAzureStorageAccountsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppAzureStorageAccountsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppAzureStorageAccountsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppAzureStorageAccountsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot"),
@@ -71,7 +92,7 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAzureStorageAccountsSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppAzureStorageAccountsSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +104,7 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 func GetWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppAzureStorageAccountsSlotState, opts ...pulumi.ResourceOption) (*WebAppAzureStorageAccountsSlot, error) {
 	var resource WebAppAzureStorageAccountsSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppAzureStorageAccountsSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A user-defined logical grouping of machines.
 func LookupMachineGroup(ctx *pulumi.Context, args *LookupMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupMachineGroupResult, error) {
 	var rv LookupMachineGroupResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20151101preview:getMachineGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20151101preview:getMachineGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

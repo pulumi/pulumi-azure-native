@@ -51,19 +51,37 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:InterfaceEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:InterfaceEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:InterfaceEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:InterfaceEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:InterfaceEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:InterfaceEndpoint"),
@@ -71,7 +89,7 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource InterfaceEndpoint
-	err := ctx.RegisterResource("azure-nextgen:network/v20190201:InterfaceEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190201:InterfaceEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +101,7 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 func GetInterfaceEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InterfaceEndpointState, opts ...pulumi.ResourceOption) (*InterfaceEndpoint, error) {
 	var resource InterfaceEndpoint
-	err := ctx.ReadResource("azure-nextgen:network/v20190201:InterfaceEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190201:InterfaceEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

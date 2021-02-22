@@ -10,7 +10,7 @@ import (
 // Linked Subscription information.
 func LookupLinkedSubscription(ctx *pulumi.Context, args *LookupLinkedSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupLinkedSubscriptionResult, error) {
 	var rv LookupLinkedSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20200601preview:getLinkedSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20200601preview:getLinkedSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

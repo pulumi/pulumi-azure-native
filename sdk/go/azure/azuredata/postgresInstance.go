@@ -48,7 +48,13 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata/v20190724preview:PostgresInstance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20190724preview:PostgresInstance"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20200908preview:PostgresInstance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:PostgresInstance"),
@@ -56,7 +62,7 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PostgresInstance
-	err := ctx.RegisterResource("azure-nextgen:azuredata:PostgresInstance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata:PostgresInstance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewPostgresInstance(ctx *pulumi.Context,
 func GetPostgresInstance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PostgresInstanceState, opts ...pulumi.ResourceOption) (*PostgresInstance, error) {
 	var resource PostgresInstance
-	err := ctx.ReadResource("azure-nextgen:azuredata:PostgresInstance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata:PostgresInstance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

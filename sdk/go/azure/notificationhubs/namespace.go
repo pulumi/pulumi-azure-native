@@ -66,13 +66,25 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs/latest:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/latest:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20140901:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20140901:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20170401:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:Namespace"),
@@ -80,7 +92,7 @@ func NewNamespace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Namespace
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs:Namespace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs:Namespace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +104,7 @@ func NewNamespace(ctx *pulumi.Context,
 func GetNamespace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	var resource Namespace
-	err := ctx.ReadResource("azure-nextgen:notificationhubs:Namespace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs:Namespace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

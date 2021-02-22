@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context, args *LookupSqlResourceSqlUserDefinedFunctionArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlUserDefinedFunctionResult, error) {
 	var rv LookupSqlResourceSqlUserDefinedFunctionResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getSqlResourceSqlUserDefinedFunction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlUserDefinedFunction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

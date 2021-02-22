@@ -10,10 +10,10 @@ import (
 // The description of the IoT hub.
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResource'.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
-	err := ctx.Invoke("azure-nextgen:devices/latest:getIotHubResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/latest:getIotHubResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -54,16 +54,31 @@ func NewOriginGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:OriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:OriginGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:OriginGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:OriginGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20191231:OriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:OriginGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:OriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:OriginGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:OriginGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:OriginGroup"),
@@ -71,7 +86,7 @@ func NewOriginGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OriginGroup
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20200415:OriginGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20200415:OriginGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +98,7 @@ func NewOriginGroup(ctx *pulumi.Context,
 func GetOriginGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OriginGroupState, opts ...pulumi.ResourceOption) (*OriginGroup, error) {
 	var resource OriginGroup
-	err := ctx.ReadResource("azure-nextgen:cdn/v20200415:OriginGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20200415:OriginGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

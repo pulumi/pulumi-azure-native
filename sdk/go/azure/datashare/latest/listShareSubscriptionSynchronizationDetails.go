@@ -10,10 +10,10 @@ import (
 // details of synchronization
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizationDetails'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizationDetails'.
 func ListShareSubscriptionSynchronizationDetails(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationDetailsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationDetailsResult, error) {
 	var rv ListShareSubscriptionSynchronizationDetailsResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:listShareSubscriptionSynchronizationDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:listShareSubscriptionSynchronizationDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

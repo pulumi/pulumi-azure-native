@@ -41,12 +41,15 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedNetworkPeeringPolicy
-	err := ctx.RegisterResource("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managednetwork:ManagedNetworkPeeringPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +61,7 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 func GetManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedNetworkPeeringPolicyState, opts ...pulumi.ResourceOption) (*ManagedNetworkPeeringPolicy, error) {
 	var resource ManagedNetworkPeeringPolicy
-	err := ctx.ReadResource("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managednetwork:ManagedNetworkPeeringPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

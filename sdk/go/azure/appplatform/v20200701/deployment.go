@@ -43,13 +43,25 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/latest:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/latest:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20201101preview:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:Deployment"),
@@ -57,7 +69,7 @@ func NewDeployment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Deployment
-	err := ctx.RegisterResource("azure-nextgen:appplatform/v20200701:Deployment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/v20200701:Deployment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewDeployment(ctx *pulumi.Context,
 func GetDeployment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentState, opts ...pulumi.ResourceOption) (*Deployment, error) {
 	var resource Deployment
-	err := ctx.ReadResource("azure-nextgen:appplatform/v20200701:Deployment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/v20200701:Deployment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

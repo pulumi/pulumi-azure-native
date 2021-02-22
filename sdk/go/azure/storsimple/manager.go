@@ -46,10 +46,19 @@ func NewManager(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:Manager"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:Manager"),
 		},
 		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:Manager"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:Manager"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:Manager"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:Manager"),
@@ -57,7 +66,7 @@ func NewManager(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Manager
-	err := ctx.RegisterResource("azure-nextgen:storsimple:Manager", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple:Manager", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewManager(ctx *pulumi.Context,
 func GetManager(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagerState, opts ...pulumi.ResourceOption) (*Manager, error) {
 	var resource Manager
-	err := ctx.ReadResource("azure-nextgen:storsimple:Manager", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple:Manager", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -58,49 +58,97 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:WebApplicationFirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:WebApplicationFirewallPolicy"),
@@ -108,7 +156,7 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebApplicationFirewallPolicy
-	err := ctx.RegisterResource("azure-nextgen:network/v20200501:WebApplicationFirewallPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200501:WebApplicationFirewallPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +168,7 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 func GetWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebApplicationFirewallPolicyState, opts ...pulumi.ResourceOption) (*WebApplicationFirewallPolicy, error) {
 	var resource WebApplicationFirewallPolicy
-	err := ctx.ReadResource("azure-nextgen:network/v20200501:WebApplicationFirewallPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200501:WebApplicationFirewallPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

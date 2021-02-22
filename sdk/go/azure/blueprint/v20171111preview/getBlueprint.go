@@ -10,7 +10,7 @@ import (
 // Represents a Blueprint definition.
 func LookupBlueprint(ctx *pulumi.Context, args *LookupBlueprintArgs, opts ...pulumi.InvokeOption) (*LookupBlueprintResult, error) {
 	var rv LookupBlueprintResult
-	err := ctx.Invoke("azure-nextgen:blueprint/v20171111preview:getBlueprint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint/v20171111preview:getBlueprint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

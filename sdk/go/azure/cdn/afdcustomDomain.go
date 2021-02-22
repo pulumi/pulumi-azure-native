@@ -55,7 +55,13 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn/latest:AFDCustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:AFDCustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:AFDCustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDCustomDomain"),
@@ -63,7 +69,7 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDCustomDomain
-	err := ctx.RegisterResource("azure-nextgen:cdn:AFDCustomDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn:AFDCustomDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 func GetAFDCustomDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDCustomDomainState, opts ...pulumi.ResourceOption) (*AFDCustomDomain, error) {
 	var resource AFDCustomDomain
-	err := ctx.ReadResource("azure-nextgen:cdn:AFDCustomDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn:AFDCustomDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

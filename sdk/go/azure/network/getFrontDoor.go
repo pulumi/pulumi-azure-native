@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pulumi.InvokeOption) (*LookupFrontDoorResult, error) {
 	var rv LookupFrontDoorResult
-	err := ctx.Invoke("azure-nextgen:network:getFrontDoor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getFrontDoor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

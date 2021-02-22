@@ -10,10 +10,10 @@ import (
 // Batch AI Workspace information.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

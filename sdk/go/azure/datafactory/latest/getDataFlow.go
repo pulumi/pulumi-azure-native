@@ -10,10 +10,10 @@ import (
 // Data flow resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataFlow'.
 func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulumi.InvokeOption) (*LookupDataFlowResult, error) {
 	var rv LookupDataFlowResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getDataFlow", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getDataFlow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

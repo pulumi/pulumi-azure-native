@@ -45,16 +45,31 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:VirtualApplianceSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualApplianceSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualApplianceSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualApplianceSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualApplianceSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualApplianceSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualApplianceSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualApplianceSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualApplianceSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualApplianceSite"),
@@ -62,7 +77,7 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualApplianceSite
-	err := ctx.RegisterResource("azure-nextgen:network:VirtualApplianceSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:VirtualApplianceSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +89,7 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 func GetVirtualApplianceSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualApplianceSiteState, opts ...pulumi.ResourceOption) (*VirtualApplianceSite, error) {
 	var resource VirtualApplianceSite
-	err := ctx.ReadResource("azure-nextgen:network:VirtualApplianceSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:VirtualApplianceSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

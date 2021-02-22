@@ -10,10 +10,10 @@ import (
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listOpenIdConnectProviderSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listOpenIdConnectProviderSecrets'.
 func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConnectProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListOpenIdConnectProviderSecretsResult, error) {
 	var rv ListOpenIdConnectProviderSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:listOpenIdConnectProviderSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:listOpenIdConnectProviderSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

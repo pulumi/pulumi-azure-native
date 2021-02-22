@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupDiagnosticSetting(ctx *pulumi.Context, args *LookupDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticSettingResult, error) {
 	var rv LookupDiagnosticSettingResult
-	err := ctx.Invoke("azure-nextgen:aadiam:getDiagnosticSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aadiam:getDiagnosticSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -50,10 +50,19 @@ func NewDataStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybriddata/latest:DataStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata/latest:DataStore"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybriddata/v20160601:DataStore"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:DataStore"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybriddata/v20190601:DataStore"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:DataStore"),
@@ -61,7 +70,7 @@ func NewDataStore(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataStore
-	err := ctx.RegisterResource("azure-nextgen:hybriddata:DataStore", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybriddata:DataStore", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewDataStore(ctx *pulumi.Context,
 func GetDataStore(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataStoreState, opts ...pulumi.ResourceOption) (*DataStore, error) {
 	var resource DataStore
-	err := ctx.ReadResource("azure-nextgen:hybriddata:DataStore", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybriddata:DataStore", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

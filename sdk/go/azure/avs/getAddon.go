@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-17-preview.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
-	err := ctx.Invoke("azure-nextgen:avs:getAddon", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getAddon", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

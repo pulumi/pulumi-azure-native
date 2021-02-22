@@ -10,7 +10,7 @@ import (
 // Dedicated cloud node model
 func LookupDedicatedCloudNode(ctx *pulumi.Context, args *LookupDedicatedCloudNodeArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudNodeResult, error) {
 	var rv LookupDedicatedCloudNodeResult
-	err := ctx.Invoke("azure-nextgen:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

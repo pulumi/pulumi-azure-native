@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupSynchronizationSettingResult, error) {
 	var rv LookupSynchronizationSettingResult
-	err := ctx.Invoke("azure-nextgen:datashare:getSynchronizationSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare:getSynchronizationSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -59,10 +59,19 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:ManagedDatabaseSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:ManagedDatabaseSensitivityLabel"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedDatabaseSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel"),
@@ -70,7 +79,7 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedDatabaseSensitivityLabel
-	err := ctx.RegisterResource("azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 func GetManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedDatabaseSensitivityLabelState, opts ...pulumi.ResourceOption) (*ManagedDatabaseSensitivityLabel, error) {
 	var resource ManagedDatabaseSensitivityLabel
-	err := ctx.ReadResource("azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

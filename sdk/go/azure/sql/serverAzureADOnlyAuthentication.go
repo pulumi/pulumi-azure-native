@@ -42,7 +42,13 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication"),
@@ -50,7 +56,7 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerAzureADOnlyAuthentication
-	err := ctx.RegisterResource("azure-nextgen:sql:ServerAzureADOnlyAuthentication", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ServerAzureADOnlyAuthentication", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 func GetServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerAzureADOnlyAuthenticationState, opts ...pulumi.ResourceOption) (*ServerAzureADOnlyAuthentication, error) {
 	var resource ServerAzureADOnlyAuthentication
-	err := ctx.ReadResource("azure-nextgen:sql:ServerAzureADOnlyAuthentication", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ServerAzureADOnlyAuthentication", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

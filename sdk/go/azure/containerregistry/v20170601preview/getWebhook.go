@@ -10,7 +10,7 @@ import (
 // An object that represents a webhook for a container registry.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20170601preview:getWebhook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20170601preview:getWebhook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,7 +44,13 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:PartnerNamespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:PartnerNamespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:PartnerNamespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:PartnerNamespace"),
@@ -52,7 +58,7 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PartnerNamespace
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20200401preview:PartnerNamespace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 func GetPartnerNamespace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerNamespaceState, opts ...pulumi.ResourceOption) (*PartnerNamespace, error) {
 	var resource PartnerNamespace
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20200401preview:PartnerNamespace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

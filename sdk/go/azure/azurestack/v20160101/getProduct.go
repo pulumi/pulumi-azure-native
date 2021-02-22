@@ -10,7 +10,7 @@ import (
 // Product information.
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20160101:getProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20160101:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

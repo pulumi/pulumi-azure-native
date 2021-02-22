@@ -14,7 +14,7 @@ import (
 // Gateway hostname configuration details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayHostnameConfiguration'.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -48,13 +48,25 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:GatewayHostnameConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GatewayHostnameConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"),
@@ -62,7 +74,7 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GatewayHostnameConfiguration
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:GatewayHostnameConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 func GetGatewayHostnameConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayHostnameConfigurationState, opts ...pulumi.ResourceOption) (*GatewayHostnameConfiguration, error) {
 	var resource GatewayHostnameConfiguration
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:GatewayHostnameConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

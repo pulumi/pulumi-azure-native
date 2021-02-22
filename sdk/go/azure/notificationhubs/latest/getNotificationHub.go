@@ -10,10 +10,10 @@ import (
 // Description of a NotificationHub Resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNotificationHub'.
 func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubResult, error) {
 	var rv LookupNotificationHubResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/latest:getNotificationHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/latest:getNotificationHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

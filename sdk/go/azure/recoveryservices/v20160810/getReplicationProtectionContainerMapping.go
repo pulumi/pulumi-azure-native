@@ -10,7 +10,7 @@ import (
 // Protection container mapping object.
 func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *LookupReplicationProtectionContainerMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectionContainerMappingResult, error) {
 	var rv LookupReplicationProtectionContainerMappingResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20160810:getReplicationProtectionContainerMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20160810:getReplicationProtectionContainerMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

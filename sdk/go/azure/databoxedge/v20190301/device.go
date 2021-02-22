@@ -67,22 +67,43 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Device"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Device"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/latest:Device"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:Device"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:Device"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Device"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Device"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Device"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Device"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Device"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Device"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Device"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Device"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Device"),
@@ -90,7 +111,7 @@ func NewDevice(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Device
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/v20190301:Device", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/v20190301:Device", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +123,7 @@ func NewDevice(ctx *pulumi.Context,
 func GetDevice(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceState, opts ...pulumi.ResourceOption) (*Device, error) {
 	var resource Device
-	err := ctx.ReadResource("azure-nextgen:databoxedge/v20190301:Device", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/v20190301:Device", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

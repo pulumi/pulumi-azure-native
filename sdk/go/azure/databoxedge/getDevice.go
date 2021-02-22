@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getDevice", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getDevice", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -72,13 +72,25 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kubernetes/latest:ConnectedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kubernetes/latest:ConnectedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kubernetes/v20200101preview:ConnectedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:kubernetes/v20210301:ConnectedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kubernetes/v20210301:ConnectedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:kubernetes/v20210401preview:ConnectedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetes/v20210401preview:ConnectedCluster"),
@@ -86,7 +98,7 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectedCluster
-	err := ctx.RegisterResource("azure-nextgen:kubernetes:ConnectedCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kubernetes:ConnectedCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +110,7 @@ func NewConnectedCluster(ctx *pulumi.Context,
 func GetConnectedCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectedClusterState, opts ...pulumi.ResourceOption) (*ConnectedCluster, error) {
 	var resource ConnectedCluster
-	err := ctx.ReadResource("azure-nextgen:kubernetes:ConnectedCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kubernetes:ConnectedCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

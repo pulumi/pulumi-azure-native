@@ -53,25 +53,49 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlTrigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"),
@@ -79,7 +103,7 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlTrigger
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20191212:SqlResourceSqlTrigger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +115,7 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 func GetSqlResourceSqlTrigger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlTriggerState, opts ...pulumi.ResourceOption) (*SqlResourceSqlTrigger, error) {
 	var resource SqlResourceSqlTrigger
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20191212:SqlResourceSqlTrigger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

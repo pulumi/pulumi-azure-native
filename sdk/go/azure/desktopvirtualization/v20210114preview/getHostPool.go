@@ -10,7 +10,7 @@ import (
 // Represents a HostPool definition.
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
 	var rv LookupHostPoolResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization/v20210114preview:getHostPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization/v20210114preview:getHostPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

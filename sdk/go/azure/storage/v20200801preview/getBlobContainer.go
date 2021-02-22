@@ -10,7 +10,7 @@ import (
 // Properties of the blob container, including Id, resource name, resource type, Etag.
 func LookupBlobContainer(ctx *pulumi.Context, args *LookupBlobContainerArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerResult, error) {
 	var rv LookupBlobContainerResult
-	err := ctx.Invoke("azure-nextgen:storage/v20200801preview:getBlobContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20200801preview:getBlobContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

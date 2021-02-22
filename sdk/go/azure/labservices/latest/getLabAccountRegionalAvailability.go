@@ -10,10 +10,10 @@ import (
 // The response model from the GetRegionalAvailability action
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccountRegionalAvailability'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccountRegionalAvailability'.
 func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountRegionalAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetLabAccountRegionalAvailabilityResult, error) {
 	var rv GetLabAccountRegionalAvailabilityResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:getLabAccountRegionalAvailability", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:getLabAccountRegionalAvailability", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

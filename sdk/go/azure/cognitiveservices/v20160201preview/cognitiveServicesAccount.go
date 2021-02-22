@@ -53,10 +53,19 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cognitiveservices:CognitiveServicesAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cognitiveservices:CognitiveServicesAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:cognitiveservices/latest:CognitiveServicesAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cognitiveservices/latest:CognitiveServicesAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cognitiveservices/v20170418:CognitiveServicesAccount"),
@@ -64,7 +73,7 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CognitiveServicesAccount
-	err := ctx.RegisterResource("azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 func GetCognitiveServicesAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CognitiveServicesAccountState, opts ...pulumi.ResourceOption) (*CognitiveServicesAccount, error) {
 	var resource CognitiveServicesAccount
-	err := ctx.ReadResource("azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

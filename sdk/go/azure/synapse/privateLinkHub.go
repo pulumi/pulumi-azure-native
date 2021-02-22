@@ -42,10 +42,19 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:PrivateLinkHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:PrivateLinkHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:PrivateLinkHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:PrivateLinkHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:PrivateLinkHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:PrivateLinkHub"),
@@ -53,7 +62,7 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkHub
-	err := ctx.RegisterResource("azure-nextgen:synapse:PrivateLinkHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:PrivateLinkHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 func GetPrivateLinkHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkHubState, opts ...pulumi.ResourceOption) (*PrivateLinkHub, error) {
 	var resource PrivateLinkHub
-	err := ctx.ReadResource("azure-nextgen:synapse:PrivateLinkHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:PrivateLinkHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,12 +44,15 @@ func NewFile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180715preview:File"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:File"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource File
-	err := ctx.RegisterResource("azure-nextgen:datamigration:File", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration:File", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +64,7 @@ func NewFile(ctx *pulumi.Context,
 func GetFile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileState, opts ...pulumi.ResourceOption) (*File, error) {
 	var resource File
-	err := ctx.ReadResource("azure-nextgen:datamigration:File", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration:File", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

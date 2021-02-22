@@ -10,7 +10,7 @@ import (
 // A database geo backup policy.
 func LookupGeoBackupPolicy(ctx *pulumi.Context, args *LookupGeoBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupGeoBackupPolicyResult, error) {
 	var rv LookupGeoBackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql/v20140401:getGeoBackupPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20140401:getGeoBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

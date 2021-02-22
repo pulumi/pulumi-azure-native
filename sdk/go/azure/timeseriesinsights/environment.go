@@ -48,16 +48,31 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/latest:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:Environment"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:Environment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:Environment"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:Environment"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:Environment"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:Environment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:Environment"),
@@ -65,7 +80,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Environment
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights:Environment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights:Environment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +92,7 @@ func NewEnvironment(ctx *pulumi.Context,
 func GetEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnvironmentState, opts ...pulumi.ResourceOption) (*Environment, error) {
 	var resource Environment
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights:Environment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights:Environment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

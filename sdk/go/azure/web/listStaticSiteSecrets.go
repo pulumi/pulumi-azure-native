@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteSecretsResult, error) {
 	var rv ListStaticSiteSecretsResult
-	err := ctx.Invoke("azure-nextgen:web:listStaticSiteSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listStaticSiteSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

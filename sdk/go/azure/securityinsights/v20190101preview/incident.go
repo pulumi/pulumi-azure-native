@@ -87,7 +87,7 @@ func NewIncident(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource Incident
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Incident", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:Incident", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func NewIncident(ctx *pulumi.Context,
 func GetIncident(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IncidentState, opts ...pulumi.ResourceOption) (*Incident, error) {
 	var resource Incident
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:Incident", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:Incident", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

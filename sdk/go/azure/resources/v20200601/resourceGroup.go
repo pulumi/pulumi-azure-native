@@ -37,52 +37,103 @@ func NewResourceGroup(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/latest:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/latest:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20151101:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20151101:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20160201:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20160201:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20160701:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20160701:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20160901:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20160901:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20170510:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20170510:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20180201:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20180201:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20180501:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20180501:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190301:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190301:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190501:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190501:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190510:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190510:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190701:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190801:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20191001:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:ResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:ResourceGroup"),
@@ -90,7 +141,7 @@ func NewResourceGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ResourceGroup
-	err := ctx.RegisterResource("azure-nextgen:resources/v20200601:ResourceGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/v20200601:ResourceGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +153,7 @@ func NewResourceGroup(ctx *pulumi.Context,
 func GetResourceGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceGroupState, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
 	var resource ResourceGroup
-	err := ctx.ReadResource("azure-nextgen:resources/v20200601:ResourceGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/v20200601:ResourceGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

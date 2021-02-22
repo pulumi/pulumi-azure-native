@@ -10,10 +10,10 @@ import (
 // A Media Services account.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getMediaService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'.
 func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
 	var rv LookupMediaServiceResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getMediaService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getMediaService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

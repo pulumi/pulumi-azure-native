@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConnectProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListOpenIdConnectProviderSecretsResult, error) {
 	var rv ListOpenIdConnectProviderSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:listOpenIdConnectProviderSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:listOpenIdConnectProviderSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

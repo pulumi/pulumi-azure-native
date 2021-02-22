@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {
 	var rv LookupOrderResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getOrder", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getOrder", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

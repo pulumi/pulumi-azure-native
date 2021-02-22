@@ -21,39 +21,39 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:security:AdaptiveApplicationControl":
+	case "azure-native:security:AdaptiveApplicationControl":
 		r, err = NewAdaptiveApplicationControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:AlertsSuppressionRule":
+	case "azure-native:security:AlertsSuppressionRule":
 		r, err = NewAlertsSuppressionRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:Assessment":
+	case "azure-native:security:Assessment":
 		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:AssessmentMetadataInSubscription":
+	case "azure-native:security:AssessmentMetadataInSubscription":
 		r, err = NewAssessmentMetadataInSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:Automation":
+	case "azure-native:security:Automation":
 		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:Connector":
+	case "azure-native:security:Connector":
 		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:DeviceSecurityGroup":
+	case "azure-native:security:DeviceSecurityGroup":
 		r, err = NewDeviceSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:IotDefenderSetting":
+	case "azure-native:security:IotDefenderSetting":
 		r, err = NewIotDefenderSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:IotSecuritySolution":
+	case "azure-native:security:IotSecuritySolution":
 		r, err = NewIotSecuritySolution(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:IotSensor":
+	case "azure-native:security:IotSensor":
 		r, err = NewIotSensor(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:IotSite":
+	case "azure-native:security:IotSite":
 		r, err = NewIotSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:JitNetworkAccessPolicy":
+	case "azure-native:security:JitNetworkAccessPolicy":
 		r, err = NewJitNetworkAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:OnPremiseIotSensor":
+	case "azure-native:security:OnPremiseIotSensor":
 		r, err = NewOnPremiseIotSensor(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:SecurityContact":
+	case "azure-native:security:SecurityContact":
 		r, err = NewSecurityContact(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:ServerVulnerabilityAssessment":
+	case "azure-native:security:ServerVulnerabilityAssessment":
 		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:SqlVulnerabilityAssessmentBaselineRule":
+	case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
 		r, err = NewSqlVulnerabilityAssessmentBaselineRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security:WorkspaceSetting":
+	case "azure-native:security:WorkspaceSetting":
 		r, err = NewWorkspaceSetting(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -68,7 +68,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"security",
 		&module{version},
 	)

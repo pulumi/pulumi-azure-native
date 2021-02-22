@@ -10,7 +10,7 @@ import (
 // Collection of the API key payload which is exposed in the response of the resource provider.
 func ListTransactionNodeApiKeys(ctx *pulumi.Context, args *ListTransactionNodeApiKeysArgs, opts ...pulumi.InvokeOption) (*ListTransactionNodeApiKeysResult, error) {
 	var rv ListTransactionNodeApiKeysResult
-	err := ctx.Invoke("azure-nextgen:blockchain/v20180601preview:listTransactionNodeApiKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain/v20180601preview:listTransactionNodeApiKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

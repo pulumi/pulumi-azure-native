@@ -10,10 +10,10 @@ import (
 // A hostname binding object.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHostNameBinding'.
 func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingResult, error) {
 	var rv LookupWebAppHostNameBindingResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppHostNameBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppHostNameBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

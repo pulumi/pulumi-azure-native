@@ -10,7 +10,7 @@ import (
 // Network watcher in a resource group.
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
-	err := ctx.Invoke("azure-nextgen:network/v20190401:getNetworkWatcher", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190401:getNetworkWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

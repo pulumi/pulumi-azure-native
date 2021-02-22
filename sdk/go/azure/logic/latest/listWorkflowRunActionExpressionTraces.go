@@ -10,10 +10,10 @@ import (
 // The expression traces.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionExpressionTraces'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionExpressionTraces'.
 func ListWorkflowRunActionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionExpressionTracesResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

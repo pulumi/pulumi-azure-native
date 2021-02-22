@@ -21,41 +21,41 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:devtestlab/v20180915:ArtifactSource":
+	case "azure-native:devtestlab/v20180915:ArtifactSource":
 		r, err = NewArtifactSource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:CustomImage":
+	case "azure-native:devtestlab/v20180915:CustomImage":
 		r, err = NewCustomImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Disk":
+	case "azure-native:devtestlab/v20180915:Disk":
 		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Environment":
+	case "azure-native:devtestlab/v20180915:Environment":
 		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Formula":
+	case "azure-native:devtestlab/v20180915:Formula":
 		r, err = NewFormula(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:GlobalSchedule":
+	case "azure-native:devtestlab/v20180915:GlobalSchedule":
 		r, err = NewGlobalSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Lab":
+	case "azure-native:devtestlab/v20180915:Lab":
 		r, err = NewLab(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:NotificationChannel":
+	case "azure-native:devtestlab/v20180915:NotificationChannel":
 		r, err = NewNotificationChannel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Policy":
+	case "azure-native:devtestlab/v20180915:Policy":
 		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Schedule":
+	case "azure-native:devtestlab/v20180915:Schedule":
 		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:Secret":
+	case "azure-native:devtestlab/v20180915:Secret":
 		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:ServiceFabric":
+	case "azure-native:devtestlab/v20180915:ServiceFabric":
 		r, err = NewServiceFabric(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule":
+	case "azure-native:devtestlab/v20180915:ServiceFabricSchedule":
 		r, err = NewServiceFabricSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:ServiceRunner":
+	case "azure-native:devtestlab/v20180915:ServiceRunner":
 		r, err = NewServiceRunner(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:User":
+	case "azure-native:devtestlab/v20180915:User":
 		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:VirtualMachine":
+	case "azure-native:devtestlab/v20180915:VirtualMachine":
 		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule":
+	case "azure-native:devtestlab/v20180915:VirtualMachineSchedule":
 		r, err = NewVirtualMachineSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20180915:VirtualNetwork":
+	case "azure-native:devtestlab/v20180915:VirtualNetwork":
 		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -70,7 +70,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"devtestlab/v20180915",
 		&module{version},
 	)

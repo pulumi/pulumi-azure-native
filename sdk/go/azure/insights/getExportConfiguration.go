@@ -11,7 +11,7 @@ import (
 // API Version: 2015-05-01.
 func LookupExportConfiguration(ctx *pulumi.Context, args *LookupExportConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupExportConfigurationResult, error) {
 	var rv LookupExportConfigurationResult
-	err := ctx.Invoke("azure-nextgen:insights:getExportConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getExportConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

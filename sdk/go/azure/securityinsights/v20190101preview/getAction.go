@@ -10,7 +10,7 @@ import (
 // Action for alert rule.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getAction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getAction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

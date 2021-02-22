@@ -10,7 +10,7 @@ import (
 // The key-value resource along with all resource properties.
 func LookupKeyValue(ctx *pulumi.Context, args *LookupKeyValueArgs, opts ...pulumi.InvokeOption) (*LookupKeyValueResult, error) {
 	var rv LookupKeyValueResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/v20200701preview:getKeyValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/v20200701preview:getKeyValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

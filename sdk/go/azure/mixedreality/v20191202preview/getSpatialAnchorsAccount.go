@@ -10,7 +10,7 @@ import (
 // SpatialAnchorsAccount Response.
 func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupSpatialAnchorsAccountResult, error) {
 	var rv LookupSpatialAnchorsAccountResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/v20191202preview:getSpatialAnchorsAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/v20191202preview:getSpatialAnchorsAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListStorageAccountServiceSAS(ctx *pulumi.Context, args *ListStorageAccountServiceSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountServiceSASResult, error) {
 	var rv ListStorageAccountServiceSASResult
-	err := ctx.Invoke("azure-nextgen:storage:listStorageAccountServiceSAS", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:listStorageAccountServiceSAS", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

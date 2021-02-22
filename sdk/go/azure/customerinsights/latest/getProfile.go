@@ -10,10 +10,10 @@ import (
 // The profile resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getProfile'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getProfile'.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

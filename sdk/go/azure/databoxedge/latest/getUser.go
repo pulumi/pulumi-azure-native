@@ -10,10 +10,10 @@ import (
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

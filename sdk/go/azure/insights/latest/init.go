@@ -21,35 +21,35 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:insights/latest:ActionGroup":
+	case "azure-native:insights/latest:ActionGroup":
 		r, err = NewActionGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:ActivityLogAlert":
+	case "azure-native:insights/latest:ActivityLogAlert":
 		r, err = NewActivityLogAlert(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:AlertRule":
+	case "azure-native:insights/latest:AlertRule":
 		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:AnalyticsItem":
+	case "azure-native:insights/latest:AnalyticsItem":
 		r, err = NewAnalyticsItem(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:AutoscaleSetting":
+	case "azure-native:insights/latest:AutoscaleSetting":
 		r, err = NewAutoscaleSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:Component":
+	case "azure-native:insights/latest:Component":
 		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:ComponentCurrentBillingFeature":
+	case "azure-native:insights/latest:ComponentCurrentBillingFeature":
 		r, err = NewComponentCurrentBillingFeature(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:ExportConfiguration":
+	case "azure-native:insights/latest:ExportConfiguration":
 		r, err = NewExportConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:Favorite":
+	case "azure-native:insights/latest:Favorite":
 		r, err = NewFavorite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:LogProfile":
+	case "azure-native:insights/latest:LogProfile":
 		r, err = NewLogProfile(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:MetricAlert":
+	case "azure-native:insights/latest:MetricAlert":
 		r, err = NewMetricAlert(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:MyWorkbook":
+	case "azure-native:insights/latest:MyWorkbook":
 		r, err = NewMyWorkbook(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:ScheduledQueryRule":
+	case "azure-native:insights/latest:ScheduledQueryRule":
 		r, err = NewScheduledQueryRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:WebTest":
+	case "azure-native:insights/latest:WebTest":
 		r, err = NewWebTest(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:insights/latest:Workbook":
+	case "azure-native:insights/latest:Workbook":
 		r, err = NewWorkbook(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -64,7 +64,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"insights/latest",
 		&module{version},
 	)

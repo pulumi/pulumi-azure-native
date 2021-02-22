@@ -10,10 +10,10 @@ import (
 // Volume resource
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getVolume'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getVolume'.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
-	err := ctx.Invoke("azure-nextgen:netapp/latest:getVolume", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/latest:getVolume", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

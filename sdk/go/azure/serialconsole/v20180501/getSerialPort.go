@@ -10,7 +10,7 @@ import (
 // Represents the serial port of the parent resource.
 func LookupSerialPort(ctx *pulumi.Context, args *LookupSerialPortArgs, opts ...pulumi.InvokeOption) (*LookupSerialPortResult, error) {
 	var rv LookupSerialPortResult
-	err := ctx.Invoke("azure-nextgen:serialconsole/v20180501:getSerialPort", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:serialconsole/v20180501:getSerialPort", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

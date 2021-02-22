@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	var rv LookupActionGroupResult
-	err := ctx.Invoke("azure-nextgen:insights:getActionGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getActionGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

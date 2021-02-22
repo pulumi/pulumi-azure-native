@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getFactory", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getFactory", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

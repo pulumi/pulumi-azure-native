@@ -10,7 +10,7 @@ import (
 // Registration information.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20160101:getRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20160101:getRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

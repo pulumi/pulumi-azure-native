@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

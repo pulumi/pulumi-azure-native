@@ -10,7 +10,7 @@ import (
 // Resource information with extended details.
 func LookupManagedHsm(ctx *pulumi.Context, args *LookupManagedHsmArgs, opts ...pulumi.InvokeOption) (*LookupManagedHsmResult, error) {
 	var rv LookupManagedHsmResult
-	err := ctx.Invoke("azure-nextgen:keyvault/v20200401preview:getManagedHsm", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault/v20200401preview:getManagedHsm", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

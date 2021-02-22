@@ -10,7 +10,7 @@ import (
 // Linked workspace.
 func LookupLinkedWorkspace(ctx *pulumi.Context, args *LookupLinkedWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedWorkspaceResult, error) {
 	var rv LookupLinkedWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200501preview:getLinkedWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200501preview:getLinkedWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

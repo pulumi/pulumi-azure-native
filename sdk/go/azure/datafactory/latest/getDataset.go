@@ -10,10 +10,10 @@ import (
 // Dataset resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataset'.
 func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.InvokeOption) (*LookupDatasetResult, error) {
 	var rv LookupDatasetResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getDataset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getDataset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // API Version: 2021-01-01.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
-	err := ctx.Invoke("azure-nextgen:storage:getQueue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getQueue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

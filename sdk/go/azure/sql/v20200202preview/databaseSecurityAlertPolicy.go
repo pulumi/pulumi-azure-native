@@ -43,16 +43,31 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:DatabaseSecurityAlertPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:DatabaseSecurityAlertPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/latest:DatabaseSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"),
@@ -60,7 +75,7 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseSecurityAlertPolicy
-	err := ctx.RegisterResource("azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +87,7 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 func GetDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseSecurityAlertPolicyState, opts ...pulumi.ResourceOption) (*DatabaseSecurityAlertPolicy, error) {
 	var resource DatabaseSecurityAlertPolicy
-	err := ctx.ReadResource("azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

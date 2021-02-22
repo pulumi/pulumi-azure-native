@@ -10,10 +10,10 @@ import (
 // The connector mapping resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnectorMapping'.
 func LookupConnectorMapping(ctx *pulumi.Context, args *LookupConnectorMappingArgs, opts ...pulumi.InvokeOption) (*LookupConnectorMappingResult, error) {
 	var rv LookupConnectorMappingResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getConnectorMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getConnectorMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

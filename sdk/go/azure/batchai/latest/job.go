@@ -14,7 +14,7 @@ import (
 // Information about a Job.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -112,7 +112,13 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/v20180501:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Job"),
@@ -120,7 +126,7 @@ func NewJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:batchai/latest:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/latest:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -132,7 +138,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:batchai/latest:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/latest:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

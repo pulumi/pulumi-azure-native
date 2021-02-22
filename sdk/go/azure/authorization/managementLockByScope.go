@@ -43,7 +43,13 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization/latest:ManagementLockByScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLockByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockByScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockByScope"),
@@ -51,7 +57,7 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockByScope
-	err := ctx.RegisterResource("azure-nextgen:authorization:ManagementLockByScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization:ManagementLockByScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 func GetManagementLockByScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementLockByScopeState, opts ...pulumi.ResourceOption) (*ManagementLockByScope, error) {
 	var resource ManagementLockByScope
-	err := ctx.ReadResource("azure-nextgen:authorization:ManagementLockByScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization:ManagementLockByScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Description of queue Resource.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:getQueue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getQueue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

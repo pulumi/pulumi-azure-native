@@ -57,10 +57,19 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:SqlPoolWorkloadClassifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadClassifier"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/latest:SqlPoolWorkloadClassifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
@@ -68,7 +77,7 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadClassifier
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +89,7 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 func GetSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolWorkloadClassifierState, opts ...pulumi.ResourceOption) (*SqlPoolWorkloadClassifier, error) {
 	var resource SqlPoolWorkloadClassifier
-	err := ctx.ReadResource("azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

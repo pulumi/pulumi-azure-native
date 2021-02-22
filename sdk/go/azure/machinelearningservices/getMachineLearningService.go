@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices:getMachineLearningService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:getMachineLearningService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

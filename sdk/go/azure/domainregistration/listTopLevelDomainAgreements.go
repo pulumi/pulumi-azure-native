@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListTopLevelDomainAgreements(ctx *pulumi.Context, args *ListTopLevelDomainAgreementsArgs, opts ...pulumi.InvokeOption) (*ListTopLevelDomainAgreementsResult, error) {
 	var rv ListTopLevelDomainAgreementsResult
-	err := ctx.Invoke("azure-nextgen:domainregistration:listTopLevelDomainAgreements", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration:listTopLevelDomainAgreements", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

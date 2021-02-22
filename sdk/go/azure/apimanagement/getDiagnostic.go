@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupDiagnostic(ctx *pulumi.Context, args *LookupDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticResult, error) {
 	var rv LookupDiagnosticResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getDiagnostic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getDiagnostic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

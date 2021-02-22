@@ -10,7 +10,7 @@ import (
 // A private link scoped resource
 func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLinkScopedResourceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopedResourceResult, error) {
 	var rv LookupPrivateLinkScopedResourceResult
-	err := ctx.Invoke("azure-nextgen:insights/v20191017preview:getPrivateLinkScopedResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20191017preview:getPrivateLinkScopedResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

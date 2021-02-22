@@ -10,7 +10,7 @@ import (
 // An Azure Monitor PrivateLinkScope definition.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
-	err := ctx.Invoke("azure-nextgen:insights/v20191017preview:getPrivateLinkScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20191017preview:getPrivateLinkScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

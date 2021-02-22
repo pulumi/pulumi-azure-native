@@ -83,7 +83,13 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple:DedicatedCloudNode"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"),
+		},
+		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:DedicatedCloudNode"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode"),
@@ -91,7 +97,7 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedCloudNode
-	err := ctx.RegisterResource("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +109,7 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 func GetDedicatedCloudNode(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedCloudNodeState, opts ...pulumi.ResourceOption) (*DedicatedCloudNode, error) {
 	var resource DedicatedCloudNode
-	err := ctx.ReadResource("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

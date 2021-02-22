@@ -46,25 +46,49 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace"),
@@ -72,7 +96,7 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraKeyspace
-	err := ctx.RegisterResource("azure-nextgen:documentdb:CassandraResourceCassandraKeyspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:CassandraResourceCassandraKeyspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +108,7 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 func GetCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CassandraResourceCassandraKeyspaceState, opts ...pulumi.ResourceOption) (*CassandraResourceCassandraKeyspace, error) {
 	var resource CassandraResourceCassandraKeyspace
-	err := ctx.ReadResource("azure-nextgen:documentdb:CassandraResourceCassandraKeyspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:CassandraResourceCassandraKeyspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

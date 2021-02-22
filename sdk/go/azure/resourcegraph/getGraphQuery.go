@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupGraphQuery(ctx *pulumi.Context, args *LookupGraphQueryArgs, opts ...pulumi.InvokeOption) (*LookupGraphQueryResult, error) {
 	var rv LookupGraphQueryResult
-	err := ctx.Invoke("azure-nextgen:resourcegraph:getGraphQuery", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resourcegraph:getGraphQuery", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

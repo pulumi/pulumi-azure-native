@@ -10,7 +10,7 @@ import (
 // Default rollout definition.
 func LookupDefaultRollout(ctx *pulumi.Context, args *LookupDefaultRolloutArgs, opts ...pulumi.InvokeOption) (*LookupDefaultRolloutResult, error) {
 	var rv LookupDefaultRolloutResult
-	err := ctx.Invoke("azure-nextgen:providerhub/v20201120:getDefaultRollout", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/v20201120:getDefaultRollout", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

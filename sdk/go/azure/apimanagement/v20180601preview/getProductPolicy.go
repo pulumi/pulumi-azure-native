@@ -10,7 +10,7 @@ import (
 // Policy Contract details.
 func LookupProductPolicy(ctx *pulumi.Context, args *LookupProductPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProductPolicyResult, error) {
 	var rv LookupProductPolicyResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180601preview:getProductPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180601preview:getProductPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

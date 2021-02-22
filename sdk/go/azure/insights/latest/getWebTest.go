@@ -10,10 +10,10 @@ import (
 // An Application Insights web test definition.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getWebTest'.
 func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.InvokeOption) (*LookupWebTestResult, error) {
 	var rv LookupWebTestResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getWebTest", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getWebTest", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

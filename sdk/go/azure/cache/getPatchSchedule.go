@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
-	err := ctx.Invoke("azure-nextgen:cache:getPatchSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache:getPatchSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

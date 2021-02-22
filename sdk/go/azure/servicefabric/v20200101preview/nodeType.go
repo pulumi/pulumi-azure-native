@@ -77,12 +77,15 @@ func NewNodeType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:NodeType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:NodeType"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource NodeType
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:NodeType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/v20200101preview:NodeType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +97,7 @@ func NewNodeType(ctx *pulumi.Context,
 func GetNodeType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NodeTypeState, opts ...pulumi.ResourceOption) (*NodeType, error) {
 	var resource NodeType
-	err := ctx.ReadResource("azure-nextgen:servicefabric/v20200101preview:NodeType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/v20200101preview:NodeType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

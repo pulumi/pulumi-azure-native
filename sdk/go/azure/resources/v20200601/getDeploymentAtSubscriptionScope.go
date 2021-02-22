@@ -10,7 +10,7 @@ import (
 // Deployment information.
 func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploymentAtSubscriptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtSubscriptionScopeResult, error) {
 	var rv LookupDeploymentAtSubscriptionScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/v20200601:getDeploymentAtSubscriptionScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20200601:getDeploymentAtSubscriptionScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

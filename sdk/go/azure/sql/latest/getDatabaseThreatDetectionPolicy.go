@@ -10,10 +10,10 @@ import (
 // Contains information about a database Threat Detection policy.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDatabaseThreatDetectionPolicy'.
 func LookupDatabaseThreatDetectionPolicy(ctx *pulumi.Context, args *LookupDatabaseThreatDetectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseThreatDetectionPolicyResult, error) {
 	var rv LookupDatabaseThreatDetectionPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The lock information.
 func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLockByScopeArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockByScopeResult, error) {
 	var rv LookupManagementLockByScopeResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20160901:getManagementLockByScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20160901:getManagementLockByScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

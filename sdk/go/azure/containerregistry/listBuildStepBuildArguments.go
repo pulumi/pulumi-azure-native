@@ -11,7 +11,7 @@ import (
 // API Version: 2018-02-01-preview.
 func ListBuildStepBuildArguments(ctx *pulumi.Context, args *ListBuildStepBuildArgumentsArgs, opts ...pulumi.InvokeOption) (*ListBuildStepBuildArgumentsResult, error) {
 	var rv ListBuildStepBuildArgumentsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listBuildStepBuildArguments", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listBuildStepBuildArguments", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

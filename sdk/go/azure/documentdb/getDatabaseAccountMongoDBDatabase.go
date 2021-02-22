@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-31.
 func LookupDatabaseAccountMongoDBDatabase(ctx *pulumi.Context, args *LookupDatabaseAccountMongoDBDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountMongoDBDatabaseResult, error) {
 	var rv LookupDatabaseAccountMongoDBDatabaseResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountMongoDBDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccountMongoDBDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-08-01-preview.
 func LookupOperationalizationCluster(ctx *pulumi.Context, args *LookupOperationalizationClusterArgs, opts ...pulumi.InvokeOption) (*LookupOperationalizationClusterResult, error) {
 	var rv LookupOperationalizationClusterResult
-	err := ctx.Invoke("azure-nextgen:machinelearningcompute:getOperationalizationCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningcompute:getOperationalizationCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

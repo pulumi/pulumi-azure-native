@@ -10,7 +10,7 @@ import (
 // An Azure SQL Database sync member.
 func LookupSyncMember(ctx *pulumi.Context, args *LookupSyncMemberArgs, opts ...pulumi.InvokeOption) (*LookupSyncMemberResult, error) {
 	var rv LookupSyncMemberResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200801preview:getSyncMember", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200801preview:getSyncMember", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

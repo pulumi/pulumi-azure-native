@@ -10,10 +10,10 @@ import (
 // Namespace/ServiceBus Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listTopicKeys'.
 func ListTopicKeys(ctx *pulumi.Context, args *ListTopicKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicKeysResult, error) {
 	var rv ListTopicKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus/latest:listTopicKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/latest:listTopicKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

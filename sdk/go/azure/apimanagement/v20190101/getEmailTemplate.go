@@ -10,7 +10,7 @@ import (
 // Email Template details.
 func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opts ...pulumi.InvokeOption) (*LookupEmailTemplateResult, error) {
 	var rv LookupEmailTemplateResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20190101:getEmailTemplate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20190101:getEmailTemplate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

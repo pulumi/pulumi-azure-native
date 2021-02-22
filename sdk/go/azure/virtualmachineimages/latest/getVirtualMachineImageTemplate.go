@@ -10,10 +10,10 @@ import (
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 // Latest API Version: 2020-02-14.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:virtualmachineimages:getVirtualMachineImageTemplate'.
 func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualMachineImageTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineImageTemplateResult, error) {
 	var rv LookupVirtualMachineImageTemplateResult
-	err := ctx.Invoke("azure-nextgen:virtualmachineimages/latest:getVirtualMachineImageTemplate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:virtualmachineimages/latest:getVirtualMachineImageTemplate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

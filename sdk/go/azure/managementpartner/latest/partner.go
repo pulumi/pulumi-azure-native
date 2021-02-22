@@ -13,7 +13,7 @@ import (
 // this is the management partner operations response
 // Latest API Version: 2018-02-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managementpartner:Partner'.
 type Partner struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewPartner(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managementpartner:Partner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managementpartner:Partner"),
+		},
+		{
+			Type: pulumi.String("azure-native:managementpartner/v20180201:Partner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managementpartner/v20180201:Partner"),
@@ -56,7 +62,7 @@ func NewPartner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Partner
-	err := ctx.RegisterResource("azure-nextgen:managementpartner/latest:Partner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managementpartner/latest:Partner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewPartner(ctx *pulumi.Context,
 func GetPartner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerState, opts ...pulumi.ResourceOption) (*Partner, error) {
 	var resource Partner
-	err := ctx.ReadResource("azure-nextgen:managementpartner/latest:Partner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managementpartner/latest:Partner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

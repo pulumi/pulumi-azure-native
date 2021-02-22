@@ -10,7 +10,7 @@ import (
 // The top level data export resource container.
 func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...pulumi.InvokeOption) (*LookupDataExportResult, error) {
 	var rv LookupDataExportResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20200301preview:getDataExport", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20200301preview:getDataExport", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

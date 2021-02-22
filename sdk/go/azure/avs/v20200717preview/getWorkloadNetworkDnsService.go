@@ -10,7 +10,7 @@ import (
 // NSX DNS Service
 func LookupWorkloadNetworkDnsService(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsServiceArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsServiceResult, error) {
 	var rv LookupWorkloadNetworkDnsServiceResult
-	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getWorkloadNetworkDnsService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20200717preview:getWorkloadNetworkDnsService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

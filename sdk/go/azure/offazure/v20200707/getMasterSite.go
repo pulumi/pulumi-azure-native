@@ -10,7 +10,7 @@ import (
 // Site REST Resource.
 func LookupMasterSite(ctx *pulumi.Context, args *LookupMasterSiteArgs, opts ...pulumi.InvokeOption) (*LookupMasterSiteResult, error) {
 	var rv LookupMasterSiteResult
-	err := ctx.Invoke("azure-nextgen:offazure/v20200707:getMasterSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:offazure/v20200707:getMasterSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

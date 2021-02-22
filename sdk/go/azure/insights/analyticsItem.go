@@ -52,7 +52,13 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:AnalyticsItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:AnalyticsItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:AnalyticsItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:AnalyticsItem"),
@@ -60,7 +66,7 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AnalyticsItem
-	err := ctx.RegisterResource("azure-nextgen:insights:AnalyticsItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:AnalyticsItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 func GetAnalyticsItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AnalyticsItemState, opts ...pulumi.ResourceOption) (*AnalyticsItem, error) {
 	var resource AnalyticsItem
-	err := ctx.ReadResource("azure-nextgen:insights:AnalyticsItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:AnalyticsItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

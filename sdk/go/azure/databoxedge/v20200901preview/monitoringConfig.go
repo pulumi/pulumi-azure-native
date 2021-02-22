@@ -44,10 +44,19 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:MonitoringConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:MonitoringConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/latest:MonitoringConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:MonitoringConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:MonitoringConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:MonitoringConfig"),
@@ -55,7 +64,7 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MonitoringConfig
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/v20200901preview:MonitoringConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/v20200901preview:MonitoringConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 func GetMonitoringConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MonitoringConfigState, opts ...pulumi.ResourceOption) (*MonitoringConfig, error) {
 	var resource MonitoringConfig
-	err := ctx.ReadResource("azure-nextgen:databoxedge/v20200901preview:MonitoringConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/v20200901preview:MonitoringConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

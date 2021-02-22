@@ -10,10 +10,10 @@ import (
 // The policy set definition.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinitionAtManagementGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicySetDefinitionAtManagementGroup'.
 func LookupPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context, args *LookupPolicySetDefinitionAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPolicySetDefinitionAtManagementGroupResult, error) {
 	var rv LookupPolicySetDefinitionAtManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getPolicySetDefinitionAtManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getPolicySetDefinitionAtManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

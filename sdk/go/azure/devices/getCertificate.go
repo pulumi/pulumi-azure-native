@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-31.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:devices:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

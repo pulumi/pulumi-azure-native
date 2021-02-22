@@ -10,10 +10,10 @@ import (
 // VirtualRouter Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouter'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualRouter'.
 func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRouterResult, error) {
 	var rv LookupVirtualRouterResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualRouter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualRouter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

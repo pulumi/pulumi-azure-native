@@ -43,7 +43,13 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hdinsight/v20150301preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hdinsight/v20150301preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:hdinsight/v20180601preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hdinsight/v20180601preview:Application"),
@@ -51,7 +57,7 @@ func NewApplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Application
-	err := ctx.RegisterResource("azure-nextgen:hdinsight:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hdinsight:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("azure-nextgen:hdinsight:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hdinsight:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

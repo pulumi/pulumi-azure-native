@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupWorkspaceAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceAadAdminArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceAadAdminResult, error) {
 	var rv LookupWorkspaceAadAdminResult
-	err := ctx.Invoke("azure-nextgen:synapse:getWorkspaceAadAdmin", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getWorkspaceAadAdmin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

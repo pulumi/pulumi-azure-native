@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.
 type OperationByProviderRegistration struct {
 	pulumi.CustomResourceState
 
@@ -45,7 +45,13 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:OperationByProviderRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:OperationByProviderRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:OperationByProviderRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration"),
@@ -53,7 +59,7 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OperationByProviderRegistration
-	err := ctx.RegisterResource("azure-nextgen:providerhub/latest:OperationByProviderRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/latest:OperationByProviderRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 func GetOperationByProviderRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OperationByProviderRegistrationState, opts ...pulumi.ResourceOption) (*OperationByProviderRegistration, error) {
 	var resource OperationByProviderRegistration
-	err := ctx.ReadResource("azure-nextgen:providerhub/latest:OperationByProviderRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/latest:OperationByProviderRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

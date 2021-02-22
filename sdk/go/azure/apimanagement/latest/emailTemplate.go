@@ -14,7 +14,7 @@ import (
 // Email Template details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:EmailTemplate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:EmailTemplate'.
 type EmailTemplate struct {
 	pulumi.CustomResourceState
 
@@ -51,25 +51,49 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:EmailTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:EmailTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:EmailTemplate"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:EmailTemplate"),
@@ -77,7 +101,7 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EmailTemplate
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:EmailTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:EmailTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +113,7 @@ func NewEmailTemplate(ctx *pulumi.Context,
 func GetEmailTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EmailTemplateState, opts ...pulumi.ResourceOption) (*EmailTemplate, error) {
 	var resource EmailTemplate
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:EmailTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:EmailTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

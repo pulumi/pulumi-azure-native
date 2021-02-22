@@ -10,7 +10,7 @@ import (
 // Represents a web app
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	var rv LookupSiteResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

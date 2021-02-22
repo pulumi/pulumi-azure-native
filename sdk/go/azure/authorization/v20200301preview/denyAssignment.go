@@ -67,12 +67,15 @@ func NewDenyAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:DenyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:DenyAssignment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DenyAssignment
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20200301preview:DenyAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20200301preview:DenyAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +87,7 @@ func NewDenyAssignment(ctx *pulumi.Context,
 func GetDenyAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DenyAssignmentState, opts ...pulumi.ResourceOption) (*DenyAssignment, error) {
 	var resource DenyAssignment
-	err := ctx.ReadResource("azure-nextgen:authorization/v20200301preview:DenyAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20200301preview:DenyAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

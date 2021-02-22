@@ -10,10 +10,10 @@ import (
 // The top level storage insight resource container.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getStorageInsightConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getStorageInsightConfig'.
 func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightConfigArgs, opts ...pulumi.InvokeOption) (*LookupStorageInsightConfigResult, error) {
 	var rv LookupStorageInsightConfigResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getStorageInsightConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getStorageInsightConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

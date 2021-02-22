@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func ListManagerPublicEncryptionKey(ctx *pulumi.Context, args *ListManagerPublicEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerPublicEncryptionKeyResult, error) {
 	var rv ListManagerPublicEncryptionKeyResult
-	err := ctx.Invoke("azure-nextgen:storsimple:listManagerPublicEncryptionKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:listManagerPublicEncryptionKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Data needed to decrypt asset files encrypted with legacy storage encryption.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetEncryptionKey'.
 func GetAssetEncryptionKey(ctx *pulumi.Context, args *GetAssetEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetAssetEncryptionKeyResult, error) {
 	var rv GetAssetEncryptionKeyResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getAssetEncryptionKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getAssetEncryptionKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

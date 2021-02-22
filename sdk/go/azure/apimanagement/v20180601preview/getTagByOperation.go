@@ -10,7 +10,7 @@ import (
 // Tag Contract details.
 func LookupTagByOperation(ctx *pulumi.Context, args *LookupTagByOperationArgs, opts ...pulumi.InvokeOption) (*LookupTagByOperationResult, error) {
 	var rv LookupTagByOperationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180601preview:getTagByOperation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180601preview:getTagByOperation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // An application security group in a resource group.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationSecurityGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationSecurityGroup'.
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplicationSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSecurityGroupResult, error) {
 	var rv LookupApplicationSecurityGroupResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getApplicationSecurityGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getApplicationSecurityGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

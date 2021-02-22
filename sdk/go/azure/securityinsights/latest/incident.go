@@ -14,7 +14,7 @@ import (
 // Represents an incident in Azure Security Insights.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'.
 type Incident struct {
 	pulumi.CustomResourceState
 
@@ -84,7 +84,13 @@ func NewIncident(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:Incident"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Incident"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:Incident"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Incident"),
@@ -92,7 +98,7 @@ func NewIncident(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Incident
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/latest:Incident", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/latest:Incident", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +110,7 @@ func NewIncident(ctx *pulumi.Context,
 func GetIncident(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IncidentState, opts ...pulumi.ResourceOption) (*Incident, error) {
 	var resource Incident
-	err := ctx.ReadResource("azure-nextgen:securityinsights/latest:Incident", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/latest:Incident", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

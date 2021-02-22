@@ -51,16 +51,31 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountCertificate"),
@@ -68,7 +83,7 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountCertificate
-	err := ctx.RegisterResource("azure-nextgen:logic:IntegrationAccountCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:IntegrationAccountCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +95,7 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 func GetIntegrationAccountCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountCertificateState, opts ...pulumi.ResourceOption) (*IntegrationAccountCertificate, error) {
 	var resource IntegrationAccountCertificate
-	err := ctx.ReadResource("azure-nextgen:logic:IntegrationAccountCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:IntegrationAccountCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

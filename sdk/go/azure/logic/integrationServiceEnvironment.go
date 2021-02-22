@@ -42,7 +42,13 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:IntegrationServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationServiceEnvironment"),
@@ -50,7 +56,7 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironment
-	err := ctx.RegisterResource("azure-nextgen:logic:IntegrationServiceEnvironment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:IntegrationServiceEnvironment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 func GetIntegrationServiceEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationServiceEnvironmentState, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironment, error) {
 	var resource IntegrationServiceEnvironment
-	err := ctx.ReadResource("azure-nextgen:logic:IntegrationServiceEnvironment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:IntegrationServiceEnvironment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

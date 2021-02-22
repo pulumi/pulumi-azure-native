@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtualApplianceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkVirtualApplianceResult, error) {
 	var rv LookupNetworkVirtualApplianceResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkVirtualAppliance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkVirtualAppliance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

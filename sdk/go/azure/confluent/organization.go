@@ -50,10 +50,19 @@ func NewOrganization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:confluent/latest:Organization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confluent/latest:Organization"),
 		},
 		{
+			Type: pulumi.String("azure-native:confluent/v20200301:Organization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confluent/v20200301:Organization"),
+		},
+		{
+			Type: pulumi.String("azure-native:confluent/v20200301preview:Organization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:confluent/v20200301preview:Organization"),
@@ -61,7 +70,7 @@ func NewOrganization(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Organization
-	err := ctx.RegisterResource("azure-nextgen:confluent:Organization", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:confluent:Organization", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewOrganization(ctx *pulumi.Context,
 func GetOrganization(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrganizationState, opts ...pulumi.ResourceOption) (*Organization, error) {
 	var resource Organization
-	err := ctx.ReadResource("azure-nextgen:confluent:Organization", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:confluent:Organization", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

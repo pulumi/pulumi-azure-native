@@ -10,10 +10,10 @@ import (
 // P2SVpnServerConfiguration Resource.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnServerConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnServerConfiguration'.
 func LookupP2sVpnServerConfiguration(ctx *pulumi.Context, args *LookupP2sVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupP2sVpnServerConfigurationResult, error) {
 	var rv LookupP2sVpnServerConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getP2sVpnServerConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getP2sVpnServerConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

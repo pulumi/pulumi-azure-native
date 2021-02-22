@@ -43,12 +43,15 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache/v20170201:PatchSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:PatchSchedule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PatchSchedule
-	err := ctx.RegisterResource("azure-nextgen:cache/v20160401:PatchSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/v20160401:PatchSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewPatchSchedule(ctx *pulumi.Context,
 func GetPatchSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PatchScheduleState, opts ...pulumi.ResourceOption) (*PatchSchedule, error) {
 	var resource PatchSchedule
-	err := ctx.ReadResource("azure-nextgen:cache/v20160401:PatchSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/v20160401:PatchSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

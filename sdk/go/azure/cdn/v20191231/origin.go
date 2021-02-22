@@ -60,22 +60,43 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20150601:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20160402:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20160402:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200415:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Origin"),
@@ -83,7 +104,7 @@ func NewOrigin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Origin
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20191231:Origin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20191231:Origin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +116,7 @@ func NewOrigin(ctx *pulumi.Context,
 func GetOrigin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OriginState, opts ...pulumi.ResourceOption) (*Origin, error) {
 	var resource Origin
-	err := ctx.ReadResource("azure-nextgen:cdn/v20191231:Origin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20191231:Origin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

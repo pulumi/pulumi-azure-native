@@ -14,7 +14,7 @@ import (
 // Security assessment on a resource
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:Assessment'.
 type Assessment struct {
 	pulumi.CustomResourceState
 
@@ -56,10 +56,19 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:Assessment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:Assessment"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20190101preview:Assessment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20190101preview:Assessment"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101:Assessment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:Assessment"),
@@ -67,7 +76,7 @@ func NewAssessment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Assessment
-	err := ctx.RegisterResource("azure-nextgen:security/latest:Assessment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/latest:Assessment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewAssessment(ctx *pulumi.Context,
 func GetAssessment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssessmentState, opts ...pulumi.ResourceOption) (*Assessment, error) {
 	var resource Assessment
-	err := ctx.ReadResource("azure-nextgen:security/latest:Assessment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/latest:Assessment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

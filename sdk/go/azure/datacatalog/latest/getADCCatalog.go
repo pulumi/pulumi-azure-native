@@ -10,10 +10,10 @@ import (
 // Azure Data Catalog.
 // Latest API Version: 2016-03-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'.
 func LookupADCCatalog(ctx *pulumi.Context, args *LookupADCCatalogArgs, opts ...pulumi.InvokeOption) (*LookupADCCatalogResult, error) {
 	var rv LookupADCCatalogResult
-	err := ctx.Invoke("azure-nextgen:datacatalog/latest:getADCCatalog", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datacatalog/latest:getADCCatalog", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Specifies information about the Dedicated host.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHost'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDedicatedHost'.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getDedicatedHost", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getDedicatedHost", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

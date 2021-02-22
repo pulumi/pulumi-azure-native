@@ -10,7 +10,7 @@ import (
 // The properties of the source code repository.
 func ListBuildTaskSourceRepositoryProperties(ctx *pulumi.Context, args *ListBuildTaskSourceRepositoryPropertiesArgs, opts ...pulumi.InvokeOption) (*ListBuildTaskSourceRepositoryPropertiesResult, error) {
 	var rv ListBuildTaskSourceRepositoryPropertiesResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

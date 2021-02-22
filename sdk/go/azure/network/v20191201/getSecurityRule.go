@@ -10,7 +10,7 @@ import (
 // Network security rule.
 func LookupSecurityRule(ctx *pulumi.Context, args *LookupSecurityRuleArgs, opts ...pulumi.InvokeOption) (*LookupSecurityRuleResult, error) {
 	var rv LookupSecurityRuleResult
-	err := ctx.Invoke("azure-nextgen:network/v20191201:getSecurityRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20191201:getSecurityRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

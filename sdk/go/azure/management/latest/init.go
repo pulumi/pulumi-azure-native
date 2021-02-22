@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:management/latest:HierarchySetting":
+	case "azure-native:management/latest:HierarchySetting":
 		r, err = NewHierarchySetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:management/latest:ManagementGroup":
+	case "azure-native:management/latest:ManagementGroup":
 		r, err = NewManagementGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:management/latest:ManagementGroupSubscription":
+	case "azure-native:management/latest:ManagementGroupSubscription":
 		r, err = NewManagementGroupSubscription(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"management/latest",
 		&module{version},
 	)

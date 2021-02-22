@@ -56,12 +56,15 @@ func NewBookmarkRelation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:BookmarkRelation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BookmarkRelation
-	err := ctx.RegisterResource("azure-nextgen:securityinsights:BookmarkRelation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights:BookmarkRelation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +76,7 @@ func NewBookmarkRelation(ctx *pulumi.Context,
 func GetBookmarkRelation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BookmarkRelationState, opts ...pulumi.ResourceOption) (*BookmarkRelation, error) {
 	var resource BookmarkRelation
-	err := ctx.ReadResource("azure-nextgen:securityinsights:BookmarkRelation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights:BookmarkRelation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'.
 type ReplicationNetworkMapping struct {
 	pulumi.CustomResourceState
 
@@ -49,13 +49,25 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationNetworkMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping"),
@@ -63,7 +75,7 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationNetworkMapping
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationNetworkMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 func GetReplicationNetworkMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationNetworkMappingState, opts ...pulumi.ResourceOption) (*ReplicationNetworkMapping, error) {
 	var resource ReplicationNetworkMapping
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationNetworkMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

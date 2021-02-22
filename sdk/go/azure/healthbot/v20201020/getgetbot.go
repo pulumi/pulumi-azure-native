@@ -10,7 +10,7 @@ import (
 // Bot resource definition
 func Getgetbot(ctx *pulumi.Context, args *GetgetbotArgs, opts ...pulumi.InvokeOption) (*GetgetbotResult, error) {
 	var rv GetgetbotResult
-	err := ctx.Invoke("azure-nextgen:healthbot/v20201020:getgetbot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:healthbot/v20201020:getgetbot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

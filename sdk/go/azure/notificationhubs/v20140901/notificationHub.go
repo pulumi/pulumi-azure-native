@@ -45,13 +45,25 @@ func NewNotificationHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs:NotificationHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/latest:NotificationHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NotificationHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:NotificationHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NotificationHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20170401:NotificationHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:NotificationHub"),
@@ -59,7 +71,7 @@ func NewNotificationHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationHub
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs/v20140901:NotificationHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs/v20140901:NotificationHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +83,7 @@ func NewNotificationHub(ctx *pulumi.Context,
 func GetNotificationHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationHubState, opts ...pulumi.ResourceOption) (*NotificationHub, error) {
 	var resource NotificationHub
-	err := ctx.ReadResource("azure-nextgen:notificationhubs/v20140901:NotificationHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs/v20140901:NotificationHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

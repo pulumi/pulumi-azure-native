@@ -10,10 +10,10 @@ import (
 // Function secrets.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionSecrets'.
 func ListWebAppFunctionSecrets(ctx *pulumi.Context, args *ListWebAppFunctionSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsResult, error) {
 	var rv ListWebAppFunctionSecretsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppFunctionSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppFunctionSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

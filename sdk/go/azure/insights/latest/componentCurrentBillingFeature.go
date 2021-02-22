@@ -14,7 +14,7 @@ import (
 // An Application Insights component billing features
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ComponentCurrentBillingFeature'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ComponentCurrentBillingFeature'.
 type ComponentCurrentBillingFeature struct {
 	pulumi.CustomResourceState
 
@@ -39,7 +39,13 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ComponentCurrentBillingFeature"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ComponentCurrentBillingFeature"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:ComponentCurrentBillingFeature"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature"),
@@ -47,7 +53,7 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ComponentCurrentBillingFeature
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:ComponentCurrentBillingFeature", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:ComponentCurrentBillingFeature", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +65,7 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 func GetComponentCurrentBillingFeature(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentCurrentBillingFeatureState, opts ...pulumi.ResourceOption) (*ComponentCurrentBillingFeature, error) {
 	var resource ComponentCurrentBillingFeature
-	err := ctx.ReadResource("azure-nextgen:insights/latest:ComponentCurrentBillingFeature", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:ComponentCurrentBillingFeature", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

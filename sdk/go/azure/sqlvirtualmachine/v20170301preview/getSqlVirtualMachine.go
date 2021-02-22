@@ -10,7 +10,7 @@ import (
 // A SQL virtual machine.
 func LookupSqlVirtualMachine(ctx *pulumi.Context, args *LookupSqlVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineResult, error) {
 	var rv LookupSqlVirtualMachineResult
-	err := ctx.Invoke("azure-nextgen:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -61,22 +61,43 @@ func NewBudget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:consumption:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption:Budget"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/latest:Budget"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/latest:Budget"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20190101:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20190101:Budget"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20190401preview:Budget"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20190401preview:Budget"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20190501preview:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20190501preview:Budget"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20190601:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20190601:Budget"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20191001:Budget"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20191001:Budget"),
@@ -84,7 +105,7 @@ func NewBudget(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Budget
-	err := ctx.RegisterResource("azure-nextgen:consumption/v20190501:Budget", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:consumption/v20190501:Budget", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +117,7 @@ func NewBudget(ctx *pulumi.Context,
 func GetBudget(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BudgetState, opts ...pulumi.ResourceOption) (*Budget, error) {
 	var resource Budget
-	err := ctx.ReadResource("azure-nextgen:consumption/v20190501:Budget", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:consumption/v20190501:Budget", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

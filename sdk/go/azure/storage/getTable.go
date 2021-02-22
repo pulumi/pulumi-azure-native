@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
-	err := ctx.Invoke("azure-nextgen:storage:getTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

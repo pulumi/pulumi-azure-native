@@ -10,10 +10,10 @@ import (
 // NetworkVirtualAppliance Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkVirtualAppliance'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkVirtualAppliance'.
 func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtualApplianceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkVirtualApplianceResult, error) {
 	var rv LookupNetworkVirtualApplianceResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkVirtualAppliance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNetworkVirtualAppliance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

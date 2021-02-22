@@ -14,7 +14,7 @@ import (
 // The properties of a storage account’s Blob service.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -59,22 +59,43 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180701:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20181101:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobServiceProperties"),
@@ -82,7 +103,7 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage/latest:BlobServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/latest:BlobServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +115,7 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 func GetBlobServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobServicePropertiesState, opts ...pulumi.ResourceOption) (*BlobServiceProperties, error) {
 	var resource BlobServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage/latest:BlobServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/latest:BlobServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

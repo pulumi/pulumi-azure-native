@@ -43,16 +43,31 @@ func NewGetbot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:healthbot:getbot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot:getbot"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthbot/latest:getbot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/latest:getbot"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthbot/v20201020preview:getbot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201020preview:getbot"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthbot/v20201208:getbot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201208:getbot"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthbot/v20201208preview:getbot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201208preview:getbot"),
@@ -60,7 +75,7 @@ func NewGetbot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Getbot
-	err := ctx.RegisterResource("azure-nextgen:healthbot/v20201020:getbot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:healthbot/v20201020:getbot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +87,7 @@ func NewGetbot(ctx *pulumi.Context,
 func GetGetbot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GetbotState, opts ...pulumi.ResourceOption) (*Getbot, error) {
 	var resource Getbot
-	err := ctx.ReadResource("azure-nextgen:healthbot/v20201020:getbot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:healthbot/v20201020:getbot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupLiveOutput(ctx *pulumi.Context, args *LookupLiveOutputArgs, opts ...pulumi.InvokeOption) (*LookupLiveOutputResult, error) {
 	var rv LookupLiveOutputResult
-	err := ctx.Invoke("azure-nextgen:media:getLiveOutput", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getLiveOutput", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

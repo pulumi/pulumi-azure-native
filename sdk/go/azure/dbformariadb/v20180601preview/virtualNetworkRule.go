@@ -45,10 +45,19 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:VirtualNetworkRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/latest:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/latest:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:VirtualNetworkRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule"),
@@ -56,7 +65,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/v20180601preview:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	var resource VirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/v20180601preview:VirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // API Version: 2019-06-01.
 func ListKeyByAutomationAccount(ctx *pulumi.Context, args *ListKeyByAutomationAccountArgs, opts ...pulumi.InvokeOption) (*ListKeyByAutomationAccountResult, error) {
 	var rv ListKeyByAutomationAccountResult
-	err := ctx.Invoke("azure-nextgen:automation:listKeyByAutomationAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:listKeyByAutomationAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The metric setting details for the role
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getMonitoringConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getMonitoringConfig'.
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getMonitoringConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getMonitoringConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -47,7 +47,7 @@ func NewAction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource Action
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Action", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:Action", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewAction(ctx *pulumi.Context,
 func GetAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionState, opts ...pulumi.ResourceOption) (*Action, error) {
 	var resource Action
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:Action", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:Action", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

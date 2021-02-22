@@ -74,16 +74,31 @@ func NewShareSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare:ShareSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare:ShareSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/latest:ShareSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:ShareSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20181101preview:ShareSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:ShareSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20191101:ShareSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:ShareSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:ShareSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ShareSubscription"),
@@ -91,7 +106,7 @@ func NewShareSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ShareSubscription
-	err := ctx.RegisterResource("azure-nextgen:datashare/v20200901:ShareSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare/v20200901:ShareSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +118,7 @@ func NewShareSubscription(ctx *pulumi.Context,
 func GetShareSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ShareSubscriptionState, opts ...pulumi.ResourceOption) (*ShareSubscription, error) {
 	var resource ShareSubscription
-	err := ctx.ReadResource("azure-nextgen:datashare/v20200901:ShareSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare/v20200901:ShareSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

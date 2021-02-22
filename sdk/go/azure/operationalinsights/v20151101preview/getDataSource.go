@@ -10,7 +10,7 @@ import (
 // Datasources under OMS Workspace.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	var rv LookupDataSourceResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20151101preview:getDataSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20151101preview:getDataSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

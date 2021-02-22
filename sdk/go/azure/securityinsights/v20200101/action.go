@@ -48,7 +48,13 @@ func NewAction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:Action"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Action"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/latest:Action"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/latest:Action"),
@@ -56,7 +62,7 @@ func NewAction(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Action
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20200101:Action", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20200101:Action", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewAction(ctx *pulumi.Context,
 func GetAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionState, opts ...pulumi.ResourceOption) (*Action, error) {
 	var resource Action
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20200101:Action", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20200101:Action", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

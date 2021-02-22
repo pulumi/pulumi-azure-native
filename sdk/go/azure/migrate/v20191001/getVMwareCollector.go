@@ -9,7 +9,7 @@ import (
 
 func LookupVMwareCollector(ctx *pulumi.Context, args *LookupVMwareCollectorArgs, opts ...pulumi.InvokeOption) (*LookupVMwareCollectorResult, error) {
 	var rv LookupVMwareCollectorResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20191001:getVMwareCollector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20191001:getVMwareCollector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

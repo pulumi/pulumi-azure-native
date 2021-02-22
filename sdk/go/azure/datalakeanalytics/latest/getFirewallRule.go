@@ -10,10 +10,10 @@ import (
 // Data Lake Analytics firewall rule information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getFirewallRule'.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics/latest:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics/latest:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

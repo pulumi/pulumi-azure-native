@@ -62,10 +62,19 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/latest:AssessmentMetadataInSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/latest:AssessmentMetadataInSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20190101preview:AssessmentMetadataInSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101:AssessmentMetadataInSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"),
@@ -73,7 +82,7 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AssessmentMetadataInSubscription
-	err := ctx.RegisterResource("azure-nextgen:security:AssessmentMetadataInSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:AssessmentMetadataInSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +94,7 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 func GetAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssessmentMetadataInSubscriptionState, opts ...pulumi.ResourceOption) (*AssessmentMetadataInSubscription, error) {
 	var resource AssessmentMetadataInSubscription
-	err := ctx.ReadResource("azure-nextgen:security:AssessmentMetadataInSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:AssessmentMetadataInSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

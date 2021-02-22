@@ -10,7 +10,7 @@ import (
 // The list of bot service providers response.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {
 	var rv ListBotConnectionServiceProvidersResult
-	err := ctx.Invoke("azure-nextgen:botservice/v20171201:listBotConnectionServiceProviders", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/v20171201:listBotConnectionServiceProviders", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

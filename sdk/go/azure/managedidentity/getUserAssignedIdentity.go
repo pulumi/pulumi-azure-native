@@ -11,7 +11,7 @@ import (
 // API Version: 2018-11-30.
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	var rv LookupUserAssignedIdentityResult
-	err := ctx.Invoke("azure-nextgen:managedidentity:getUserAssignedIdentity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedidentity:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupSyncMember(ctx *pulumi.Context, args *LookupSyncMemberArgs, opts ...pulumi.InvokeOption) (*LookupSyncMemberResult, error) {
 	var rv LookupSyncMemberResult
-	err := ctx.Invoke("azure-nextgen:sql:getSyncMember", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getSyncMember", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

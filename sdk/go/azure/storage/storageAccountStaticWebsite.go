@@ -37,7 +37,7 @@ func NewStorageAccountStaticWebsite(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource StorageAccountStaticWebsite
-	err := ctx.RegisterResource("azure-nextgen:storage:StorageAccountStaticWebsite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:StorageAccountStaticWebsite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewStorageAccountStaticWebsite(ctx *pulumi.Context,
 func GetStorageAccountStaticWebsite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountStaticWebsiteState, opts ...pulumi.ResourceOption) (*StorageAccountStaticWebsite, error) {
 	var resource StorageAccountStaticWebsite
-	err := ctx.ReadResource("azure-nextgen:storage:StorageAccountStaticWebsite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:StorageAccountStaticWebsite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

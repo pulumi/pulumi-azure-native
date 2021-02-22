@@ -10,7 +10,7 @@ import (
 // Android Policy entity for Intune MAM.
 func LookupAndroidMAMPolicyByName(ctx *pulumi.Context, args *LookupAndroidMAMPolicyByNameArgs, opts ...pulumi.InvokeOption) (*LookupAndroidMAMPolicyByNameResult, error) {
 	var rv LookupAndroidMAMPolicyByNameResult
-	err := ctx.Invoke("azure-nextgen:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

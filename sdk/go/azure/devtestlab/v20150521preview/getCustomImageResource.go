@@ -10,7 +10,7 @@ import (
 // A custom image.
 func LookupCustomImageResource(ctx *pulumi.Context, args *LookupCustomImageResourceArgs, opts ...pulumi.InvokeOption) (*LookupCustomImageResourceResult, error) {
 	var rv LookupCustomImageResourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getCustomImageResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getCustomImageResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

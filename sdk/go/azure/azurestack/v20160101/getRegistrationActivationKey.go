@@ -10,7 +10,7 @@ import (
 // The resource containing the Azure Stack activation key.
 func GetRegistrationActivationKey(ctx *pulumi.Context, args *GetRegistrationActivationKeyArgs, opts ...pulumi.InvokeOption) (*GetRegistrationActivationKeyResult, error) {
 	var rv GetRegistrationActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20160101:getRegistrationActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20160101:getRegistrationActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

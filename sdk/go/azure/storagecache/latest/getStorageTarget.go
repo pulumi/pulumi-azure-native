@@ -10,10 +10,10 @@ import (
 // Type of the Storage Target.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getStorageTarget'.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
-	err := ctx.Invoke("azure-nextgen:storagecache/latest:getStorageTarget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagecache/latest:getStorageTarget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,10 +44,19 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Trigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Trigger"),
@@ -55,7 +64,7 @@ func NewTrigger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Trigger
-	err := ctx.RegisterResource("azure-nextgen:datafactory:Trigger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory:Trigger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewTrigger(ctx *pulumi.Context,
 func GetTrigger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TriggerState, opts ...pulumi.ResourceOption) (*Trigger, error) {
 	var resource Trigger
-	err := ctx.ReadResource("azure-nextgen:datafactory:Trigger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory:Trigger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

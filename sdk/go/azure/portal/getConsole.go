@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-01.
 func LookupConsole(ctx *pulumi.Context, args *LookupConsoleArgs, opts ...pulumi.InvokeOption) (*LookupConsoleResult, error) {
 	var rv LookupConsoleResult
-	err := ctx.Invoke("azure-nextgen:portal:getConsole", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal:getConsole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

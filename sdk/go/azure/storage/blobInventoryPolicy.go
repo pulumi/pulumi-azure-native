@@ -46,13 +46,25 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage/latest:BlobInventoryPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobInventoryPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobInventoryPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobInventoryPolicy"),
@@ -60,7 +72,7 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobInventoryPolicy
-	err := ctx.RegisterResource("azure-nextgen:storage:BlobInventoryPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:BlobInventoryPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 func GetBlobInventoryPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobInventoryPolicyState, opts ...pulumi.ResourceOption) (*BlobInventoryPolicy, error) {
 	var resource BlobInventoryPolicy
-	err := ctx.ReadResource("azure-nextgen:storage:BlobInventoryPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:BlobInventoryPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

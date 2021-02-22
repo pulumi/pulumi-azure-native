@@ -11,7 +11,7 @@ import (
 // API Version: 2015-11-01-preview.
 func LookupMachineGroup(ctx *pulumi.Context, args *LookupMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupMachineGroupResult, error) {
 	var rv LookupMachineGroupResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights:getMachineGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights:getMachineGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

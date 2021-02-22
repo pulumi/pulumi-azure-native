@@ -10,7 +10,7 @@ import (
 // Trigger details.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200501preview:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200501preview:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

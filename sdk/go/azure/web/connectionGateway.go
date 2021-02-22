@@ -41,7 +41,13 @@ func NewConnectionGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:ConnectionGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:ConnectionGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160601:ConnectionGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160601:ConnectionGateway"),
@@ -49,7 +55,7 @@ func NewConnectionGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionGateway
-	err := ctx.RegisterResource("azure-nextgen:web:ConnectionGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:ConnectionGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +67,7 @@ func NewConnectionGateway(ctx *pulumi.Context,
 func GetConnectionGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionGatewayState, opts ...pulumi.ResourceOption) (*ConnectionGateway, error) {
 	var resource ConnectionGateway
-	err := ctx.ReadResource("azure-nextgen:web:ConnectionGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:ConnectionGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAdaptiveApplicationControl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAdaptiveApplicationControl'.
 func LookupAdaptiveApplicationControl(ctx *pulumi.Context, args *LookupAdaptiveApplicationControlArgs, opts ...pulumi.InvokeOption) (*LookupAdaptiveApplicationControlResult, error) {
 	var rv LookupAdaptiveApplicationControlResult
-	err := ctx.Invoke("azure-nextgen:security/latest:getAdaptiveApplicationControl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/latest:getAdaptiveApplicationControl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

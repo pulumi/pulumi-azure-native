@@ -42,12 +42,15 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlRoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlRoleAssignment
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 func GetSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlRoleAssignmentState, opts ...pulumi.ResourceOption) (*SqlResourceSqlRoleAssignment, error) {
 	var resource SqlResourceSqlRoleAssignment
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The diagnostic setting resource.
 func LookupDiagnosticSetting(ctx *pulumi.Context, args *LookupDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticSettingResult, error) {
 	var rv LookupDiagnosticSettingResult
-	err := ctx.Invoke("azure-nextgen:aadiam/v20170401:getDiagnosticSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aadiam/v20170401:getDiagnosticSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

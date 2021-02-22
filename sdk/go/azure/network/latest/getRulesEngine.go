@@ -10,10 +10,10 @@ import (
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRulesEngine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'.
 func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ...pulumi.InvokeOption) (*LookupRulesEngineResult, error) {
 	var rv LookupRulesEngineResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getRulesEngine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getRulesEngine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

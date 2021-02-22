@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-08-preview.
 func LookupOrchestratorInstanceServiceDetails(ctx *pulumi.Context, args *LookupOrchestratorInstanceServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratorInstanceServiceDetailsResult, error) {
 	var rv LookupOrchestratorInstanceServiceDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork:getOrchestratorInstanceServiceDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

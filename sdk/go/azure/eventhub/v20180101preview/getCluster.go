@@ -10,7 +10,7 @@ import (
 // Single Event Hubs Cluster resource in List or Get operations.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20180101preview:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20180101preview:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

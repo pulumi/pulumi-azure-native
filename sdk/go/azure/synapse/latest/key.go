@@ -14,7 +14,7 @@ import (
 // A workspace key
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:Key'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:Key'.
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -43,10 +43,19 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:Key"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:Key"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:Key"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:Key"),
@@ -54,7 +63,7 @@ func NewKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Key
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:Key", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:Key", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewKey(ctx *pulumi.Context,
 func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
 	var resource Key
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:Key", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:Key", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

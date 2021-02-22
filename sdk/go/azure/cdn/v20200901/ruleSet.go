@@ -41,7 +41,13 @@ func NewRuleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:RuleSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:RuleSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:RuleSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:RuleSet"),
@@ -49,7 +55,7 @@ func NewRuleSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RuleSet
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20200901:RuleSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20200901:RuleSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +67,7 @@ func NewRuleSet(ctx *pulumi.Context,
 func GetRuleSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RuleSetState, opts ...pulumi.ResourceOption) (*RuleSet, error) {
 	var resource RuleSet
-	err := ctx.ReadResource("azure-nextgen:cdn/v20200901:RuleSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20200901:RuleSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

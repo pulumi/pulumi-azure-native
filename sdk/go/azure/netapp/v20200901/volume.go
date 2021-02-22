@@ -117,49 +117,97 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/latest:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20170815:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20170815:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190501:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190501:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190601:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190601:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190701:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190701:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190801:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190801:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20191001:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191001:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20191101:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191101:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200201:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200201:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200301:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200301:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200501:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200601:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200701:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:Volume"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200801:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Volume"),
@@ -167,7 +215,7 @@ func NewVolume(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Volume
-	err := ctx.RegisterResource("azure-nextgen:netapp/v20200901:Volume", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp/v20200901:Volume", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -179,7 +227,7 @@ func NewVolume(ctx *pulumi.Context,
 func GetVolume(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VolumeState, opts ...pulumi.ResourceOption) (*Volume, error) {
 	var resource Volume
-	err := ctx.ReadResource("azure-nextgen:netapp/v20200901:Volume", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp/v20200901:Volume", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

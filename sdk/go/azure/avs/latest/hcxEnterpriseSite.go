@@ -14,7 +14,7 @@ import (
 // An HCX Enterprise Site resource
 // Latest API Version: 2020-03-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:HcxEnterpriseSite'.
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 
@@ -43,13 +43,25 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:HcxEnterpriseSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:HcxEnterpriseSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200320:HcxEnterpriseSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:HcxEnterpriseSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:HcxEnterpriseSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:HcxEnterpriseSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:HcxEnterpriseSite"),
@@ -57,7 +69,7 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HcxEnterpriseSite
-	err := ctx.RegisterResource("azure-nextgen:avs/latest:HcxEnterpriseSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/latest:HcxEnterpriseSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 func GetHcxEnterpriseSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HcxEnterpriseSiteState, opts ...pulumi.ResourceOption) (*HcxEnterpriseSite, error) {
 	var resource HcxEnterpriseSite
-	err := ctx.ReadResource("azure-nextgen:avs/latest:HcxEnterpriseSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/latest:HcxEnterpriseSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

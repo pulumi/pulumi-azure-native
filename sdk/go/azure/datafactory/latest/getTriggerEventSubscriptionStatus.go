@@ -10,10 +10,10 @@ import (
 // Defines the response of a trigger subscription operation.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTriggerEventSubscriptionStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTriggerEventSubscriptionStatus'.
 func GetTriggerEventSubscriptionStatus(ctx *pulumi.Context, args *GetTriggerEventSubscriptionStatusArgs, opts ...pulumi.InvokeOption) (*GetTriggerEventSubscriptionStatusResult, error) {
 	var rv GetTriggerEventSubscriptionStatusResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getTriggerEventSubscriptionStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getTriggerEventSubscriptionStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

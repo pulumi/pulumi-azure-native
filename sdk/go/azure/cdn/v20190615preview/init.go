@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:cdn/v20190615preview:CustomDomain":
+	case "azure-native:cdn/v20190615preview:CustomDomain":
 		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20190615preview:Endpoint":
+	case "azure-native:cdn/v20190615preview:Endpoint":
 		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20190615preview:Policy":
+	case "azure-native:cdn/v20190615preview:Policy":
 		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cdn/v20190615preview:Profile":
+	case "azure-native:cdn/v20190615preview:Profile":
 		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"cdn/v20190615preview",
 		&module{version},
 	)

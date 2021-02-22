@@ -11,7 +11,7 @@ import (
 // API Version: 2016-09-01-preview.
 func LookupAppliance(ctx *pulumi.Context, args *LookupApplianceArgs, opts ...pulumi.InvokeOption) (*LookupApplianceResult, error) {
 	var rv LookupApplianceResult
-	err := ctx.Invoke("azure-nextgen:solutions:getAppliance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions:getAppliance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

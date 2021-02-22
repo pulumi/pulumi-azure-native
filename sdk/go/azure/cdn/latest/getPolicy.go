@@ -10,10 +10,10 @@ import (
 // Defines web application firewall policy for Azure CDN.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getPolicy'.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
-	err := ctx.Invoke("azure-nextgen:cdn/latest:getPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/latest:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -41,10 +41,19 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:guestconfiguration/latest:GuestConfigurationHCRPAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"),
@@ -52,7 +61,7 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GuestConfigurationHCRPAssignment
-	err := ctx.RegisterResource("azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:guestconfiguration:GuestConfigurationHCRPAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 func GetGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GuestConfigurationHCRPAssignmentState, opts ...pulumi.ResourceOption) (*GuestConfigurationHCRPAssignment, error) {
 	var resource GuestConfigurationHCRPAssignment
-	err := ctx.ReadResource("azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:guestconfiguration:GuestConfigurationHCRPAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

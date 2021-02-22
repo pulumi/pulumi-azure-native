@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLocatorContentKeysArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorContentKeysResult, error) {
 	var rv ListStreamingLocatorContentKeysResult
-	err := ctx.Invoke("azure-nextgen:media:listStreamingLocatorContentKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:listStreamingLocatorContentKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

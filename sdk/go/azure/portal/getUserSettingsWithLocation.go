@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-01.
 func LookupUserSettingsWithLocation(ctx *pulumi.Context, args *LookupUserSettingsWithLocationArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsWithLocationResult, error) {
 	var rv LookupUserSettingsWithLocationResult
-	err := ctx.Invoke("azure-nextgen:portal:getUserSettingsWithLocation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal:getUserSettingsWithLocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

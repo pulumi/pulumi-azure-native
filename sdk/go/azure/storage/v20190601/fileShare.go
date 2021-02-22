@@ -64,16 +64,31 @@ func NewFileShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:FileShare"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:FileShare"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190401:FileShare"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:FileShare"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:FileShare"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
@@ -81,7 +96,7 @@ func NewFileShare(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FileShare
-	err := ctx.RegisterResource("azure-nextgen:storage/v20190601:FileShare", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20190601:FileShare", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +108,7 @@ func NewFileShare(ctx *pulumi.Context,
 func GetFileShare(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileShareState, opts ...pulumi.ResourceOption) (*FileShare, error) {
 	var resource FileShare
-	err := ctx.ReadResource("azure-nextgen:storage/v20190601:FileShare", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20190601:FileShare", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

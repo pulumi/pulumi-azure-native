@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01-preview.
 func LookupManagedNetwork(ctx *pulumi.Context, args *LookupManagedNetworkArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkResult, error) {
 	var rv LookupManagedNetworkResult
-	err := ctx.Invoke("azure-nextgen:managednetwork:getManagedNetwork", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managednetwork:getManagedNetwork", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

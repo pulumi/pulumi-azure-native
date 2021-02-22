@@ -14,7 +14,7 @@ import (
 // Resource information with extended details.
 // Latest API Version: 2019-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Secret'.
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -48,19 +48,37 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20161001:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20180214:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20180214preview:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20190901:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20200401preview:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Secret"),
@@ -68,7 +86,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:keyvault/latest:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault/latest:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +98,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:keyvault/latest:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault/latest:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

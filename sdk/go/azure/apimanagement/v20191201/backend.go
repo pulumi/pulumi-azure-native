@@ -60,31 +60,61 @@ func NewBackend(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Backend"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Backend"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Backend"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Backend"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Backend"),
@@ -92,7 +122,7 @@ func NewBackend(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Backend
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20191201:Backend", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20191201:Backend", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +134,7 @@ func NewBackend(ctx *pulumi.Context,
 func GetBackend(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackendState, opts ...pulumi.ResourceOption) (*Backend, error) {
 	var resource Backend
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20191201:Backend", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20191201:Backend", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

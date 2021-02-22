@@ -44,7 +44,13 @@ func NewChapSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:ChapSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:ChapSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:ChapSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:ChapSetting"),
@@ -52,7 +58,7 @@ func NewChapSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ChapSetting
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20161001:ChapSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20161001:ChapSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewChapSetting(ctx *pulumi.Context,
 func GetChapSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ChapSettingState, opts ...pulumi.ResourceOption) (*ChapSetting, error) {
 	var resource ChapSetting
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20161001:ChapSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20161001:ChapSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

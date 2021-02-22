@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-10-preview.
 func GetTestResultFile(ctx *pulumi.Context, args *GetTestResultFileArgs, opts ...pulumi.InvokeOption) (*GetTestResultFileResult, error) {
 	var rv GetTestResultFileResult
-	err := ctx.Invoke("azure-nextgen:insights:getTestResultFile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getTestResultFile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

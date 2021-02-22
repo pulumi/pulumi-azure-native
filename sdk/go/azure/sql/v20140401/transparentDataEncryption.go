@@ -43,13 +43,25 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:TransparentDataEncryption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:TransparentDataEncryption"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/latest:TransparentDataEncryption"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/latest:TransparentDataEncryption"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:TransparentDataEncryption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:TransparentDataEncryption"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:TransparentDataEncryption"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:TransparentDataEncryption"),
@@ -57,7 +69,7 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TransparentDataEncryption
-	err := ctx.RegisterResource("azure-nextgen:sql/v20140401:TransparentDataEncryption", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20140401:TransparentDataEncryption", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 func GetTransparentDataEncryption(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransparentDataEncryptionState, opts ...pulumi.ResourceOption) (*TransparentDataEncryption, error) {
 	var resource TransparentDataEncryption
-	err := ctx.ReadResource("azure-nextgen:sql/v20140401:TransparentDataEncryption", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20140401:TransparentDataEncryption", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

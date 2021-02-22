@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppAuthSettings(ctx *pulumi.Context, args *ListWebAppAuthSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppAuthSettingsResult, error) {
 	var rv ListWebAppAuthSettingsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppAuthSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppAuthSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

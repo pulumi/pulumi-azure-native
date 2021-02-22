@@ -49,10 +49,19 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql/latest:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/latest:Configuration"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Configuration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:Configuration"),
@@ -60,7 +69,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Configuration
-	err := ctx.RegisterResource("azure-nextgen:dbformysql:Configuration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql:Configuration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewConfiguration(ctx *pulumi.Context,
 func GetConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	var resource Configuration
-	err := ctx.ReadResource("azure-nextgen:dbformysql:Configuration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql:Configuration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

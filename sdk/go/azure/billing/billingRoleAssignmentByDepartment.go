@@ -57,12 +57,15 @@ func NewBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BillingRoleAssignmentByDepartment
-	err := ctx.RegisterResource("azure-nextgen:billing:BillingRoleAssignmentByDepartment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:billing:BillingRoleAssignmentByDepartment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +77,7 @@ func NewBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 func GetBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BillingRoleAssignmentByDepartmentState, opts ...pulumi.ResourceOption) (*BillingRoleAssignmentByDepartment, error) {
 	var resource BillingRoleAssignmentByDepartment
-	err := ctx.ReadResource("azure-nextgen:billing:BillingRoleAssignmentByDepartment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:billing:BillingRoleAssignmentByDepartment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

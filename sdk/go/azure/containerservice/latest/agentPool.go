@@ -14,7 +14,7 @@ import (
 // Agent Pool.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
@@ -99,49 +99,97 @@ func NewAgentPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerservice:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20190201:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190201:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20190401:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190401:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20190601:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190601:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20190801:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20190801:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20191001:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20191001:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20191101:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20191101:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200101:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200101:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20200201:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200201:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200301:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200301:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20200401:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200401:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200601:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200601:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20200701:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200701:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200901:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:AgentPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20201101:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201101:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20201201:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:AgentPool"),
@@ -149,7 +197,7 @@ func NewAgentPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
-	err := ctx.RegisterResource("azure-nextgen:containerservice/latest:AgentPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerservice/latest:AgentPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -161,7 +209,7 @@ func NewAgentPool(ctx *pulumi.Context,
 func GetAgentPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AgentPoolState, opts ...pulumi.ResourceOption) (*AgentPool, error) {
 	var resource AgentPool
-	err := ctx.ReadResource("azure-nextgen:containerservice/latest:AgentPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerservice/latest:AgentPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

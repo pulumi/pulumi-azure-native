@@ -10,7 +10,7 @@ import (
 // An Application Insights workbook definition.
 func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupWorkbookResult, error) {
 	var rv LookupWorkbookResult
-	err := ctx.Invoke("azure-nextgen:insights/v20201020:getWorkbook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20201020:getWorkbook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

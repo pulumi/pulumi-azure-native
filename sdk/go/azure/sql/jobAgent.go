@@ -50,10 +50,19 @@ func NewJobAgent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:JobAgent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobAgent"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:JobAgent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobAgent"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:JobAgent"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobAgent"),
@@ -61,7 +70,7 @@ func NewJobAgent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobAgent
-	err := ctx.RegisterResource("azure-nextgen:sql:JobAgent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:JobAgent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewJobAgent(ctx *pulumi.Context,
 func GetJobAgent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobAgentState, opts ...pulumi.ResourceOption) (*JobAgent, error) {
 	var resource JobAgent
-	err := ctx.ReadResource("azure-nextgen:sql:JobAgent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:JobAgent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

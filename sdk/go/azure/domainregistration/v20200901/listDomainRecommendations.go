@@ -10,7 +10,7 @@ import (
 // Collection of domain name identifiers.
 func ListDomainRecommendations(ctx *pulumi.Context, args *ListDomainRecommendationsArgs, opts ...pulumi.InvokeOption) (*ListDomainRecommendationsResult, error) {
 	var rv ListDomainRecommendationsResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/v20200901:listDomainRecommendations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/v20200901:listDomainRecommendations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // A web app, a mobile app backend, or an API app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebApp'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebApp'.
 func LookupWebApp(ctx *pulumi.Context, args *LookupWebAppArgs, opts ...pulumi.InvokeOption) (*LookupWebAppResult, error) {
 	var rv LookupWebAppResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebApp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

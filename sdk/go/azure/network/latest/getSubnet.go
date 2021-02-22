@@ -10,10 +10,10 @@ import (
 // Subnet in a virtual network resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getSubnet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getSubnet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

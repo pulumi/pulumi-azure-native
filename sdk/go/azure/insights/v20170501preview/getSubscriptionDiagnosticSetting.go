@@ -10,7 +10,7 @@ import (
 // The subscription diagnostic setting resource.
 func LookupSubscriptionDiagnosticSetting(ctx *pulumi.Context, args *LookupSubscriptionDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionDiagnosticSettingResult, error) {
 	var rv LookupSubscriptionDiagnosticSettingResult
-	err := ctx.Invoke("azure-nextgen:insights/v20170501preview:getSubscriptionDiagnosticSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20170501preview:getSubscriptionDiagnosticSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

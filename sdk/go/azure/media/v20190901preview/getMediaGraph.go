@@ -10,7 +10,7 @@ import (
 // The Media Graph.
 func LookupMediaGraph(ctx *pulumi.Context, args *LookupMediaGraphArgs, opts ...pulumi.InvokeOption) (*LookupMediaGraphResult, error) {
 	var rv LookupMediaGraphResult
-	err := ctx.Invoke("azure-nextgen:media/v20190901preview:getMediaGraph", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20190901preview:getMediaGraph", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

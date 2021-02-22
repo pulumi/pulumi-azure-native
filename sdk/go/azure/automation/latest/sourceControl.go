@@ -14,7 +14,7 @@ import (
 // Definition of the source control.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SourceControl'.
 type SourceControl struct {
 	pulumi.CustomResourceState
 
@@ -57,13 +57,25 @@ func NewSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:SourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20170515preview:SourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20170515preview:SourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:SourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:SourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:SourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:SourceControl"),
@@ -71,7 +83,7 @@ func NewSourceControl(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SourceControl
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:SourceControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:SourceControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +95,7 @@ func NewSourceControl(ctx *pulumi.Context,
 func GetSourceControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SourceControlState, opts ...pulumi.ResourceOption) (*SourceControl, error) {
 	var resource SourceControl
-	err := ctx.ReadResource("azure-nextgen:automation/latest:SourceControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:SourceControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

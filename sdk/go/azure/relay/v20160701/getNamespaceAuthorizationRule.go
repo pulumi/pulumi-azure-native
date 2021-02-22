@@ -10,7 +10,7 @@ import (
 // Description of a Namespace AuthorizationRules.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay/v20160701:getNamespaceAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20160701:getNamespaceAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

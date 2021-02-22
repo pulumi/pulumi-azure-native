@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -45,25 +45,49 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase"),
@@ -71,7 +95,7 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlDatabase
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20200901:SqlResourceSqlDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +107,7 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 func GetSqlResourceSqlDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlDatabaseState, opts ...pulumi.ResourceOption) (*SqlResourceSqlDatabase, error) {
 	var resource SqlResourceSqlDatabase
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20200901:SqlResourceSqlDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

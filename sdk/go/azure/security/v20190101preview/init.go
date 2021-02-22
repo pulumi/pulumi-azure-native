@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:security/v20190101preview:AlertsSuppressionRule":
+	case "azure-native:security/v20190101preview:AlertsSuppressionRule":
 		r, err = NewAlertsSuppressionRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20190101preview:Assessment":
+	case "azure-native:security/v20190101preview:Assessment":
 		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription":
+	case "azure-native:security/v20190101preview:AssessmentsMetadataSubscription":
 		r, err = NewAssessmentsMetadataSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20190101preview:Automation":
+	case "azure-native:security/v20190101preview:Automation":
 		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"security/v20190101preview",
 		&module{version},
 	)

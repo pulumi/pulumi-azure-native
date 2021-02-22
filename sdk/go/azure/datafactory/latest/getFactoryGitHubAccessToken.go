@@ -10,10 +10,10 @@ import (
 // Get GitHub access token response definition.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryGitHubAccessToken'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryGitHubAccessToken'.
 func GetFactoryGitHubAccessToken(ctx *pulumi.Context, args *GetFactoryGitHubAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetFactoryGitHubAccessTokenResult, error) {
 	var rv GetFactoryGitHubAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getFactoryGitHubAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getFactoryGitHubAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

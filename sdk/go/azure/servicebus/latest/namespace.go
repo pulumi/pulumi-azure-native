@@ -14,7 +14,7 @@ import (
 // Description of a namespace resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Namespace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Namespace'.
 type Namespace struct {
 	pulumi.CustomResourceState
 
@@ -52,16 +52,31 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Namespace"),
@@ -69,7 +84,7 @@ func NewNamespace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Namespace
-	err := ctx.RegisterResource("azure-nextgen:servicebus/latest:Namespace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/latest:Namespace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +96,7 @@ func NewNamespace(ctx *pulumi.Context,
 func GetNamespace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	var resource Namespace
-	err := ctx.ReadResource("azure-nextgen:servicebus/latest:Namespace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/latest:Namespace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

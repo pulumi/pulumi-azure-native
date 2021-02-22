@@ -14,7 +14,7 @@ import (
 // Integration runtime resource type.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 
@@ -46,10 +46,19 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:IntegrationRuntime"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IntegrationRuntime"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:IntegrationRuntime"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:IntegrationRuntime"),
@@ -57,7 +66,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationRuntime
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:IntegrationRuntime", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 func GetIntegrationRuntime(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationRuntimeState, opts ...pulumi.ResourceOption) (*IntegrationRuntime, error) {
 	var resource IntegrationRuntime
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:IntegrationRuntime", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:IntegrationRuntime", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

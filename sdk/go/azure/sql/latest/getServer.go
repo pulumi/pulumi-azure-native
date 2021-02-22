@@ -10,10 +10,10 @@ import (
 // Represents a server.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServer'.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

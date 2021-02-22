@@ -10,10 +10,10 @@ import (
 // The integration account agreement.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountAgreement'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountAgreement'.
 func LookupIntegrationAccountAgreement(ctx *pulumi.Context, args *LookupIntegrationAccountAgreementArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountAgreementResult, error) {
 	var rv LookupIntegrationAccountAgreementResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationAccountAgreement", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationAccountAgreement", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

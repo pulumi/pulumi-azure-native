@@ -47,7 +47,13 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup"),
@@ -55,7 +61,7 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkVMGroup
-	err := ctx.RegisterResource("azure-nextgen:avs:WorkloadNetworkVMGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs:WorkloadNetworkVMGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 func GetWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkVMGroupState, opts ...pulumi.ResourceOption) (*WorkloadNetworkVMGroup, error) {
 	var resource WorkloadNetworkVMGroup
-	err := ctx.ReadResource("azure-nextgen:avs:WorkloadNetworkVMGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs:WorkloadNetworkVMGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

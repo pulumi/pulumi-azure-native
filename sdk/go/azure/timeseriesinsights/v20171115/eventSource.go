@@ -42,16 +42,31 @@ func NewEventSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:EventSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/latest:EventSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:EventSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:EventSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:EventSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:EventSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:EventSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:EventSource"),
@@ -59,7 +74,7 @@ func NewEventSource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventSource
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/v20171115:EventSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/v20171115:EventSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +86,7 @@ func NewEventSource(ctx *pulumi.Context,
 func GetEventSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventSourceState, opts ...pulumi.ResourceOption) (*EventSource, error) {
 	var resource EventSource
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/v20171115:EventSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/v20171115:EventSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

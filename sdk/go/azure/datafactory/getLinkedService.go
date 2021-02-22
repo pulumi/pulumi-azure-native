@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getLinkedService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getLinkedService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

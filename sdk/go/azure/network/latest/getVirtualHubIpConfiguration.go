@@ -10,10 +10,10 @@ import (
 // IpConfigurations.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubIpConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHubIpConfiguration'.
 func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHubIpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubIpConfigurationResult, error) {
 	var rv LookupVirtualHubIpConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualHubIpConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualHubIpConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

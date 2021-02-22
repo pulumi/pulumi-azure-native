@@ -9,7 +9,7 @@ import (
 
 func ListWorkspaceCollectionAccessKeys(ctx *pulumi.Context, args *ListWorkspaceCollectionAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceCollectionAccessKeysResult, error) {
 	var rv ListWorkspaceCollectionAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

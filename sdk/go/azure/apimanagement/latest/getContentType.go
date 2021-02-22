@@ -10,10 +10,10 @@ import (
 // Content type contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentType'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentType'.
 func LookupContentType(ctx *pulumi.Context, args *LookupContentTypeArgs, opts ...pulumi.InvokeOption) (*LookupContentTypeResult, error) {
 	var rv LookupContentTypeResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getContentType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getContentType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

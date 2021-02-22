@@ -51,13 +51,25 @@ func NewStorageInsight(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:StorageInsight"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:StorageInsight"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/latest:StorageInsight"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:StorageInsight"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:StorageInsight"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:StorageInsight"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:StorageInsight"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:StorageInsight"),
@@ -65,7 +77,7 @@ func NewStorageInsight(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageInsight
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20150320:StorageInsight", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +89,7 @@ func NewStorageInsight(ctx *pulumi.Context,
 func GetStorageInsight(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageInsightState, opts ...pulumi.ResourceOption) (*StorageInsight, error) {
 	var resource StorageInsight
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20150320:StorageInsight", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

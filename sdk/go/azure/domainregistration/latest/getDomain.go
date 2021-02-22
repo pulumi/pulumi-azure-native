@@ -10,10 +10,10 @@ import (
 // Information about a domain.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomain'.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/latest:getDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/latest:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

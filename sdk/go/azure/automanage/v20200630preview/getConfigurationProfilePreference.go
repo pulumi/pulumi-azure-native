@@ -10,7 +10,7 @@ import (
 // Definition of the configuration profile preference.
 func LookupConfigurationProfilePreference(ctx *pulumi.Context, args *LookupConfigurationProfilePreferenceArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfilePreferenceResult, error) {
 	var rv LookupConfigurationProfilePreferenceResult
-	err := ctx.Invoke("azure-nextgen:automanage/v20200630preview:getConfigurationProfilePreference", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

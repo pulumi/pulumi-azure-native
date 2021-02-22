@@ -10,7 +10,7 @@ import (
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 func LookupNodeType(ctx *pulumi.Context, args *LookupNodeTypeArgs, opts ...pulumi.InvokeOption) (*LookupNodeTypeResult, error) {
 	var rv LookupNodeTypeResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/v20200101preview:getNodeType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/v20200101preview:getNodeType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

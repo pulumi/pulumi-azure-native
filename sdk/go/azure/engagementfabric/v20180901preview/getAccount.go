@@ -10,7 +10,7 @@ import (
 // The EngagementFabric account
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:engagementfabric/v20180901preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:engagementfabric/v20180901preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

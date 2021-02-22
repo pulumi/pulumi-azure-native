@@ -48,10 +48,19 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:Configuration"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/latest:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:Configuration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:Configuration"),
@@ -59,7 +68,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Configuration
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/v20180601:Configuration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/v20180601:Configuration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewConfiguration(ctx *pulumi.Context,
 func GetConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	var resource Configuration
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/v20180601:Configuration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/v20180601:Configuration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

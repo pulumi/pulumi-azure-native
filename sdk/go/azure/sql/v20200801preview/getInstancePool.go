@@ -10,7 +10,7 @@ import (
 // An Azure SQL instance pool.
 func LookupInstancePool(ctx *pulumi.Context, args *LookupInstancePoolArgs, opts ...pulumi.InvokeOption) (*LookupInstancePoolResult, error) {
 	var rv LookupInstancePoolResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200801preview:getInstancePool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200801preview:getInstancePool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,28 +44,55 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteConnectionStrings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteConnectionStrings"),
@@ -73,7 +100,7 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteConnectionStrings
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteConnectionStrings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteConnectionStrings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +112,7 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 func GetSiteConnectionStrings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteConnectionStringsState, opts ...pulumi.ResourceOption) (*SiteConnectionStrings, error) {
 	var resource SiteConnectionStrings
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteConnectionStrings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteConnectionStrings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

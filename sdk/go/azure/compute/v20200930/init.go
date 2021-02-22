@@ -21,25 +21,25 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:compute/v20200930:Disk":
+	case "azure-native:compute/v20200930:Disk":
 		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:DiskAccess":
+	case "azure-native:compute/v20200930:DiskAccess":
 		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection":
+	case "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection":
 		r, err = NewDiskAccessAPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:DiskEncryptionSet":
+	case "azure-native:compute/v20200930:DiskEncryptionSet":
 		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:Gallery":
+	case "azure-native:compute/v20200930:Gallery":
 		r, err = NewGallery(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:GalleryApplication":
+	case "azure-native:compute/v20200930:GalleryApplication":
 		r, err = NewGalleryApplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:GalleryApplicationVersion":
+	case "azure-native:compute/v20200930:GalleryApplicationVersion":
 		r, err = NewGalleryApplicationVersion(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:GalleryImage":
+	case "azure-native:compute/v20200930:GalleryImage":
 		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:GalleryImageVersion":
+	case "azure-native:compute/v20200930:GalleryImageVersion":
 		r, err = NewGalleryImageVersion(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20200930:Snapshot":
+	case "azure-native:compute/v20200930:Snapshot":
 		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -54,7 +54,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"compute/v20200930",
 		&module{version},
 	)

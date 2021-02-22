@@ -10,7 +10,7 @@ import (
 // String dictionary resource.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20200901:listWebAppConnectionStringsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200901:listWebAppConnectionStringsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

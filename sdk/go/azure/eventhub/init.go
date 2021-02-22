@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:eventhub:Cluster":
+	case "azure-native:eventhub:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:ConsumerGroup":
+	case "azure-native:eventhub:ConsumerGroup":
 		r, err = NewConsumerGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:DisasterRecoveryConfig":
+	case "azure-native:eventhub:DisasterRecoveryConfig":
 		r, err = NewDisasterRecoveryConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:EventHub":
+	case "azure-native:eventhub:EventHub":
 		r, err = NewEventHub(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:EventHubAuthorizationRule":
+	case "azure-native:eventhub:EventHubAuthorizationRule":
 		r, err = NewEventHubAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:Namespace":
+	case "azure-native:eventhub:Namespace":
 		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:NamespaceAuthorizationRule":
+	case "azure-native:eventhub:NamespaceAuthorizationRule":
 		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:NamespaceIpFilterRule":
+	case "azure-native:eventhub:NamespaceIpFilterRule":
 		r, err = NewNamespaceIpFilterRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:NamespaceNetworkRuleSet":
+	case "azure-native:eventhub:NamespaceNetworkRuleSet":
 		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:NamespaceVirtualNetworkRule":
+	case "azure-native:eventhub:NamespaceVirtualNetworkRule":
 		r, err = NewNamespaceVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:eventhub:PrivateEndpointConnection":
+	case "azure-native:eventhub:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"eventhub",
 		&module{version},
 	)

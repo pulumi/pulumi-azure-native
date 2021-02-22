@@ -10,10 +10,10 @@ import (
 // Namespace/ServiceBus Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listQueueKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listQueueKeys'.
 func ListQueueKeys(ctx *pulumi.Context, args *ListQueueKeysArgs, opts ...pulumi.InvokeOption) (*ListQueueKeysResult, error) {
 	var rv ListQueueKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus/latest:listQueueKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/latest:listQueueKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

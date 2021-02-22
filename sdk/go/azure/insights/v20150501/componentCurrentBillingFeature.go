@@ -36,7 +36,13 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ComponentCurrentBillingFeature"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ComponentCurrentBillingFeature"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/latest:ComponentCurrentBillingFeature"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ComponentCurrentBillingFeature"),
@@ -44,7 +50,7 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ComponentCurrentBillingFeature
-	err := ctx.RegisterResource("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20150501:ComponentCurrentBillingFeature", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +62,7 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 func GetComponentCurrentBillingFeature(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentCurrentBillingFeatureState, opts ...pulumi.ResourceOption) (*ComponentCurrentBillingFeature, error) {
 	var resource ComponentCurrentBillingFeature
-	err := ctx.ReadResource("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20150501:ComponentCurrentBillingFeature", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

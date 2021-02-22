@@ -38,12 +38,15 @@ func NewSaasSubscriptionLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:saas/v20180301beta:SaasSubscriptionLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SaasSubscriptionLevel
-	err := ctx.RegisterResource("azure-nextgen:saas:SaasSubscriptionLevel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:saas:SaasSubscriptionLevel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +58,7 @@ func NewSaasSubscriptionLevel(ctx *pulumi.Context,
 func GetSaasSubscriptionLevel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SaasSubscriptionLevelState, opts ...pulumi.ResourceOption) (*SaasSubscriptionLevel, error) {
 	var resource SaasSubscriptionLevel
-	err := ctx.ReadResource("azure-nextgen:saas:SaasSubscriptionLevel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:saas:SaasSubscriptionLevel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

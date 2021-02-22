@@ -10,7 +10,7 @@ import (
 // Represents a Workspace definition.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization/v20201019preview:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization/v20201019preview:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

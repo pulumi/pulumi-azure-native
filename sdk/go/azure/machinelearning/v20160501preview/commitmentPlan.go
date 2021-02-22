@@ -43,12 +43,15 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearning:CommitmentPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearning:CommitmentPlan"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CommitmentPlan
-	err := ctx.RegisterResource("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearning/v20160501preview:CommitmentPlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 func GetCommitmentPlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CommitmentPlanState, opts ...pulumi.ResourceOption) (*CommitmentPlan, error) {
 	var resource CommitmentPlan
-	err := ctx.ReadResource("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearning/v20160501preview:CommitmentPlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

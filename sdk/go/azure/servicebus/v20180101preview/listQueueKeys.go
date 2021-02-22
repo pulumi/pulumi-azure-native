@@ -10,7 +10,7 @@ import (
 // Namespace/ServiceBus Connection String
 func ListQueueKeys(ctx *pulumi.Context, args *ListQueueKeysArgs, opts ...pulumi.InvokeOption) (*ListQueueKeysResult, error) {
 	var rv ListQueueKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:listQueueKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:listQueueKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

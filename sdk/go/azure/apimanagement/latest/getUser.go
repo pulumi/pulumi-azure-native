@@ -10,10 +10,10 @@ import (
 // User details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getUser'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getUser'.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

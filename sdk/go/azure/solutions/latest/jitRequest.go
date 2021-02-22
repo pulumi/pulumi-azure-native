@@ -14,7 +14,7 @@ import (
 // Information about JIT request definition.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:JitRequest'.
 type JitRequest struct {
 	pulumi.CustomResourceState
 
@@ -65,10 +65,19 @@ func NewJitRequest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:solutions:JitRequest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions:JitRequest"),
 		},
 		{
+			Type: pulumi.String("azure-native:solutions/v20190701:JitRequest"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:solutions/v20190701:JitRequest"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20200821preview:JitRequest"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:JitRequest"),
@@ -76,7 +85,7 @@ func NewJitRequest(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JitRequest
-	err := ctx.RegisterResource("azure-nextgen:solutions/latest:JitRequest", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:solutions/latest:JitRequest", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +97,7 @@ func NewJitRequest(ctx *pulumi.Context,
 func GetJitRequest(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JitRequestState, opts ...pulumi.ResourceOption) (*JitRequest, error) {
 	var resource JitRequest
-	err := ctx.ReadResource("azure-nextgen:solutions/latest:JitRequest", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:solutions/latest:JitRequest", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

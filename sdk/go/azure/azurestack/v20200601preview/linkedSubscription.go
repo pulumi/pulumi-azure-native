@@ -63,12 +63,15 @@ func NewLinkedSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azurestack:LinkedSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack:LinkedSubscription"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedSubscription
-	err := ctx.RegisterResource("azure-nextgen:azurestack/v20200601preview:LinkedSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azurestack/v20200601preview:LinkedSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +83,7 @@ func NewLinkedSubscription(ctx *pulumi.Context,
 func GetLinkedSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedSubscriptionState, opts ...pulumi.ResourceOption) (*LinkedSubscription, error) {
 	var resource LinkedSubscription
-	err := ctx.ReadResource("azure-nextgen:azurestack/v20200601preview:LinkedSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azurestack/v20200601preview:LinkedSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

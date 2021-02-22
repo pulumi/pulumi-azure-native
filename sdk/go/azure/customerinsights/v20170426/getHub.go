@@ -10,7 +10,7 @@ import (
 // Hub resource.
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	var rv LookupHubResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,29 +21,29 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:avs:Addon":
+	case "azure-native:avs:Addon":
 		r, err = NewAddon(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:Authorization":
+	case "azure-native:avs:Authorization":
 		r, err = NewAuthorization(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:Cluster":
+	case "azure-native:avs:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:GlobalReachConnection":
+	case "azure-native:avs:GlobalReachConnection":
 		r, err = NewGlobalReachConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:HcxEnterpriseSite":
+	case "azure-native:avs:HcxEnterpriseSite":
 		r, err = NewHcxEnterpriseSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:PrivateCloud":
+	case "azure-native:avs:PrivateCloud":
 		r, err = NewPrivateCloud(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkDhcp":
+	case "azure-native:avs:WorkloadNetworkDhcp":
 		r, err = NewWorkloadNetworkDhcp(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkDnsService":
+	case "azure-native:avs:WorkloadNetworkDnsService":
 		r, err = NewWorkloadNetworkDnsService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkDnsZone":
+	case "azure-native:avs:WorkloadNetworkDnsZone":
 		r, err = NewWorkloadNetworkDnsZone(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkPortMirroring":
+	case "azure-native:avs:WorkloadNetworkPortMirroring":
 		r, err = NewWorkloadNetworkPortMirroring(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkSegment":
+	case "azure-native:avs:WorkloadNetworkSegment":
 		r, err = NewWorkloadNetworkSegment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs:WorkloadNetworkVMGroup":
+	case "azure-native:avs:WorkloadNetworkVMGroup":
 		r, err = NewWorkloadNetworkVMGroup(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -58,7 +58,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"avs",
 		&module{version},
 	)

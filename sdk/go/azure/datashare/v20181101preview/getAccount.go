@@ -10,7 +10,7 @@ import (
 // An account data transfer object.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

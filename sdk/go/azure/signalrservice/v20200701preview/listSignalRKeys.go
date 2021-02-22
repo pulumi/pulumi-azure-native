@@ -10,7 +10,7 @@ import (
 // A class represents the access keys of the resource.
 func ListSignalRKeys(ctx *pulumi.Context, args *ListSignalRKeysArgs, opts ...pulumi.InvokeOption) (*ListSignalRKeysResult, error) {
 	var rv ListSignalRKeysResult
-	err := ctx.Invoke("azure-nextgen:signalrservice/v20200701preview:listSignalRKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:signalrservice/v20200701preview:listSignalRKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

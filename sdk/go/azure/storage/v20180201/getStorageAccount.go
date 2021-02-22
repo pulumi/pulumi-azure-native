@@ -10,7 +10,7 @@ import (
 // The storage account.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:storage/v20180201:getStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20180201:getStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

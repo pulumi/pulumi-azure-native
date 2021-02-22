@@ -14,7 +14,7 @@ import (
 // Site REST Resource.
 // Latest API Version: 2020-07-07.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:HyperVSite'.
 type HyperVSite struct {
 	pulumi.CustomResourceState
 
@@ -43,10 +43,19 @@ func NewHyperVSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:offazure:HyperVSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure:HyperVSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:offazure/v20200101:HyperVSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200101:HyperVSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:offazure/v20200707:HyperVSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200707:HyperVSite"),
@@ -54,7 +63,7 @@ func NewHyperVSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HyperVSite
-	err := ctx.RegisterResource("azure-nextgen:offazure/latest:HyperVSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:offazure/latest:HyperVSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewHyperVSite(ctx *pulumi.Context,
 func GetHyperVSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HyperVSiteState, opts ...pulumi.ResourceOption) (*HyperVSite, error) {
 	var resource HyperVSite
-	err := ctx.ReadResource("azure-nextgen:offazure/latest:HyperVSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:offazure/latest:HyperVSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

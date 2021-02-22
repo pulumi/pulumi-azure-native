@@ -10,7 +10,7 @@ import (
 // Premier add-on.
 func LookupWebAppPremierAddOnSlot(ctx *pulumi.Context, args *LookupWebAppPremierAddOnSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnSlotResult, error) {
 	var rv LookupWebAppPremierAddOnSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:getWebAppPremierAddOnSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:getWebAppPremierAddOnSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -53,28 +53,55 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteBackupConfiguration"),
@@ -82,7 +109,7 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteBackupConfiguration
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteBackupConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteBackupConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +121,7 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 func GetSiteBackupConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteBackupConfigurationState, opts ...pulumi.ResourceOption) (*SiteBackupConfiguration, error) {
 	var resource SiteBackupConfiguration
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteBackupConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteBackupConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

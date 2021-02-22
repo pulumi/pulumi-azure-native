@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-25.
 func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationAssignmentResult, error) {
 	var rv LookupGuestConfigurationAssignmentResult
-	err := ctx.Invoke("azure-nextgen:guestconfiguration:getGuestConfigurationAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:guestconfiguration:getGuestConfigurationAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

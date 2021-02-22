@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupJobCredential(ctx *pulumi.Context, args *LookupJobCredentialArgs, opts ...pulumi.InvokeOption) (*LookupJobCredentialResult, error) {
 	var rv LookupJobCredentialResult
-	err := ctx.Invoke("azure-nextgen:sql:getJobCredential", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getJobCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

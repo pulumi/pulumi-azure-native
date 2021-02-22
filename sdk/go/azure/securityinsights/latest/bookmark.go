@@ -14,7 +14,7 @@ import (
 // Represents a bookmark in Azure Security Insights.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Bookmark'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Bookmark'.
 type Bookmark struct {
 	pulumi.CustomResourceState
 
@@ -73,7 +73,13 @@ func NewBookmark(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:Bookmark"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Bookmark"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:Bookmark"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Bookmark"),
@@ -81,7 +87,7 @@ func NewBookmark(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Bookmark
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/latest:Bookmark", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/latest:Bookmark", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +99,7 @@ func NewBookmark(ctx *pulumi.Context,
 func GetBookmark(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BookmarkState, opts ...pulumi.ResourceOption) (*Bookmark, error) {
 	var resource Bookmark
-	err := ctx.ReadResource("azure-nextgen:securityinsights/latest:Bookmark", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/latest:Bookmark", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // An Azure SQL managed instance administrator.
 func LookupManagedInstanceAdministrator(ctx *pulumi.Context, args *LookupManagedInstanceAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceAdministratorResult, error) {
 	var rv LookupManagedInstanceAdministratorResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getManagedInstanceAdministrator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getManagedInstanceAdministrator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

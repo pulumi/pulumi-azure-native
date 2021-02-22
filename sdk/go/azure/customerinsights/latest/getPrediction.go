@@ -10,10 +10,10 @@ import (
 // The prediction resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPrediction'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPrediction'.
 func LookupPrediction(ctx *pulumi.Context, args *LookupPredictionArgs, opts ...pulumi.InvokeOption) (*LookupPredictionResult, error) {
 	var rv LookupPredictionResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getPrediction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getPrediction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

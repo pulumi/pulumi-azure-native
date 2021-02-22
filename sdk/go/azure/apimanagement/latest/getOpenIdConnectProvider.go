@@ -10,10 +10,10 @@ import (
 // OpenId Connect Provider details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getOpenIdConnectProvider'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getOpenIdConnectProvider'.
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	var rv LookupOpenIdConnectProviderResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getOpenIdConnectProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getOpenIdConnectProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

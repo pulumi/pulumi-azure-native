@@ -10,7 +10,7 @@ import (
 // A container group.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
-	err := ctx.Invoke("azure-nextgen:containerinstance/v20210301:getContainerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerinstance/v20210301:getContainerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -39,12 +39,15 @@ func NewMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datadog/v20200201preview:Monitor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datadog/v20200201preview:Monitor"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Monitor
-	err := ctx.RegisterResource("azure-nextgen:datadog:Monitor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datadog:Monitor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +59,7 @@ func NewMonitor(ctx *pulumi.Context,
 func GetMonitor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MonitorState, opts ...pulumi.ResourceOption) (*Monitor, error) {
 	var resource Monitor
-	err := ctx.ReadResource("azure-nextgen:datadog:Monitor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datadog:Monitor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

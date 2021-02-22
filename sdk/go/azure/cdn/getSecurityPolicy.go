@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupSecurityPolicy(ctx *pulumi.Context, args *LookupSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPolicyResult, error) {
 	var rv LookupSecurityPolicyResult
-	err := ctx.Invoke("azure-nextgen:cdn:getSecurityPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getSecurityPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

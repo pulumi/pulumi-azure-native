@@ -40,12 +40,15 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:WorkspaceSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:WorkspaceSetting"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceSetting
-	err := ctx.RegisterResource("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/v20170801preview:WorkspaceSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 func GetWorkspaceSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceSettingState, opts ...pulumi.ResourceOption) (*WorkspaceSetting, error) {
 	var resource WorkspaceSetting
-	err := ctx.ReadResource("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/v20170801preview:WorkspaceSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

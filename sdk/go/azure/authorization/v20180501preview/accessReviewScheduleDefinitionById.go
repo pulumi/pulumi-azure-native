@@ -79,12 +79,15 @@ func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:AccessReviewScheduleDefinitionById"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:AccessReviewScheduleDefinitionById"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessReviewScheduleDefinitionById
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +99,7 @@ func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 func GetAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessReviewScheduleDefinitionByIdState, opts ...pulumi.ResourceOption) (*AccessReviewScheduleDefinitionById, error) {
 	var resource AccessReviewScheduleDefinitionById
-	err := ctx.ReadResource("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

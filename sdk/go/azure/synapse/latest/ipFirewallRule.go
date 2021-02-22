@@ -14,7 +14,7 @@ import (
 // IP firewall rule
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IpFirewallRule'.
 type IpFirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -45,10 +45,19 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:IpFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:IpFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:IpFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IpFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:IpFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:IpFirewallRule"),
@@ -56,7 +65,7 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IpFirewallRule
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:IpFirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:IpFirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 func GetIpFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IpFirewallRuleState, opts ...pulumi.ResourceOption) (*IpFirewallRule, error) {
 	var resource IpFirewallRule
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:IpFirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:IpFirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

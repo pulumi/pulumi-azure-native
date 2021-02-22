@@ -10,7 +10,7 @@ import (
 // maintenance configuration.
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
-	err := ctx.Invoke("azure-nextgen:containerservice/v20201201:getMaintenanceConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/v20201201:getMaintenanceConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

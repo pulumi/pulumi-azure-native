@@ -10,7 +10,7 @@ import (
 // The access control record
 func LookupAccessControlRecord(ctx *pulumi.Context, args *LookupAccessControlRecordArgs, opts ...pulumi.InvokeOption) (*LookupAccessControlRecordResult, error) {
 	var rv LookupAccessControlRecordResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getAccessControlRecord", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getAccessControlRecord", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

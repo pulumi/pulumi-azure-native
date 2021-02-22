@@ -10,7 +10,7 @@ import (
 // SAP monitor info on Azure (ARM properties and SAP monitor properties)
 func LookupSapMonitor(ctx *pulumi.Context, args *LookupSapMonitorArgs, opts ...pulumi.InvokeOption) (*LookupSapMonitorResult, error) {
 	var rv LookupSapMonitorResult
-	err := ctx.Invoke("azure-nextgen:hanaonazure/v20200207preview:getSapMonitor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hanaonazure/v20200207preview:getSapMonitor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

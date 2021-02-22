@@ -14,7 +14,7 @@ import (
 // Definition of the certificate.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Certificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Certificate'.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -57,13 +57,25 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Certificate"),
@@ -71,7 +83,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +95,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:automation/latest:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

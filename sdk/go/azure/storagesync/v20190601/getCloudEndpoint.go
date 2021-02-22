@@ -10,7 +10,7 @@ import (
 // Cloud Endpoint object.
 func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opts ...pulumi.InvokeOption) (*LookupCloudEndpointResult, error) {
 	var rv LookupCloudEndpointResult
-	err := ctx.Invoke("azure-nextgen:storagesync/v20190601:getCloudEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/v20190601:getCloudEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

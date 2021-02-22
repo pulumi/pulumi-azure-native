@@ -10,10 +10,10 @@ import (
 // Namespace/Relay Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listHybridConnectionKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listHybridConnectionKeys'.
 func ListHybridConnectionKeys(ctx *pulumi.Context, args *ListHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListHybridConnectionKeysResult, error) {
 	var rv ListHybridConnectionKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/latest:listHybridConnectionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/latest:listHybridConnectionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

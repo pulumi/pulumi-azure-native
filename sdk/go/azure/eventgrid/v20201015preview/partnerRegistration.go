@@ -73,7 +73,13 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:PartnerRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:PartnerRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:PartnerRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration"),
@@ -81,7 +87,7 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PartnerRegistration
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20201015preview:PartnerRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20201015preview:PartnerRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +99,7 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 func GetPartnerRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerRegistrationState, opts ...pulumi.ResourceOption) (*PartnerRegistration, error) {
 	var resource PartnerRegistration
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20201015preview:PartnerRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20201015preview:PartnerRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

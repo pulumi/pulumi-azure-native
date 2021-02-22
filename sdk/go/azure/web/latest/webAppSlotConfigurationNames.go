@@ -14,7 +14,7 @@ import (
 // Slot Config names azure resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlotConfigurationNames'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSlotConfigurationNames'.
 type WebAppSlotConfigurationNames struct {
 	pulumi.CustomResourceState
 
@@ -49,28 +49,55 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSlotConfigurationNames"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSlotConfigurationNames"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSlotConfigurationNames"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSlotConfigurationNames"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSlotConfigurationNames"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSlotConfigurationNames"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSlotConfigurationNames"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSlotConfigurationNames"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlotConfigurationNames"),
@@ -78,7 +105,7 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlotConfigurationNames
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppSlotConfigurationNames", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppSlotConfigurationNames", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +117,7 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 func GetWebAppSlotConfigurationNames(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSlotConfigurationNamesState, opts ...pulumi.ResourceOption) (*WebAppSlotConfigurationNames, error) {
 	var resource WebAppSlotConfigurationNames
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppSlotConfigurationNames", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppSlotConfigurationNames", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

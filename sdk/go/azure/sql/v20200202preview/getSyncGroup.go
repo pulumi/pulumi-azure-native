@@ -10,7 +10,7 @@ import (
 // An Azure SQL Database sync group.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getSyncGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getSyncGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

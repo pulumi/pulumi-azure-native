@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01-preview.
 func LookupDenyAssignment(ctx *pulumi.Context, args *LookupDenyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDenyAssignmentResult, error) {
 	var rv LookupDenyAssignmentResult
-	err := ctx.Invoke("azure-nextgen:authorization:getDenyAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getDenyAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

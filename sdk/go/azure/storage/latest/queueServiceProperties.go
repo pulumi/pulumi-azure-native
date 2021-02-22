@@ -14,7 +14,7 @@ import (
 // The properties of a storage account’s Queue service.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:QueueServiceProperties'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.
 type QueueServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -41,13 +41,25 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:QueueServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:QueueServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:QueueServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:QueueServiceProperties"),
@@ -55,7 +67,7 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource QueueServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage/latest:QueueServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/latest:QueueServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +79,7 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 func GetQueueServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueueServicePropertiesState, opts ...pulumi.ResourceOption) (*QueueServiceProperties, error) {
 	var resource QueueServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage/latest:QueueServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/latest:QueueServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

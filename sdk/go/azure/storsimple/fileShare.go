@@ -65,7 +65,13 @@ func NewFileShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:FileShare"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:FileShare"),
@@ -73,7 +79,7 @@ func NewFileShare(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FileShare
-	err := ctx.RegisterResource("azure-nextgen:storsimple:FileShare", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple:FileShare", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +91,7 @@ func NewFileShare(ctx *pulumi.Context,
 func GetFileShare(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileShareState, opts ...pulumi.ResourceOption) (*FileShare, error) {
 	var resource FileShare
-	err := ctx.ReadResource("azure-nextgen:storsimple:FileShare", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple:FileShare", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

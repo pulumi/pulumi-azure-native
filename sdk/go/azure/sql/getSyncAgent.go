@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pulumi.InvokeOption) (*LookupSyncAgentResult, error) {
 	var rv LookupSyncAgentResult
-	err := ctx.Invoke("azure-nextgen:sql:getSyncAgent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getSyncAgent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

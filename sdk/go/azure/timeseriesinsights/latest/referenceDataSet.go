@@ -14,7 +14,7 @@ import (
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:ReferenceDataSet'.
 type ReferenceDataSet struct {
 	pulumi.CustomResourceState
 
@@ -54,16 +54,31 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:ReferenceDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"),
@@ -71,7 +86,7 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReferenceDataSet
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/latest:ReferenceDataSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +98,7 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 func GetReferenceDataSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReferenceDataSetState, opts ...pulumi.ResourceOption) (*ReferenceDataSet, error) {
 	var resource ReferenceDataSet
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/latest:ReferenceDataSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

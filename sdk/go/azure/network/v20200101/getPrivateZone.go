@@ -10,7 +10,7 @@ import (
 // Describes a Private DNS zone.
 func LookupPrivateZone(ctx *pulumi.Context, args *LookupPrivateZoneArgs, opts ...pulumi.InvokeOption) (*LookupPrivateZoneResult, error) {
 	var rv LookupPrivateZoneResult
-	err := ctx.Invoke("azure-nextgen:network/v20200101:getPrivateZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200101:getPrivateZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The Role Assignment resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRoleAssignment'.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

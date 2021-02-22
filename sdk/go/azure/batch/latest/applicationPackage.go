@@ -14,7 +14,7 @@ import (
 // An application package which represents a particular version of an application.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:ApplicationPackage'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:ApplicationPackage'.
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 
@@ -54,37 +54,73 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batch:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20151201:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20151201:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170101:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170101:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20170501:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170501:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170901:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20181201:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20181201:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20190401:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20190401:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20190801:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20190801:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200301:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20200501:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200901:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20210101:ApplicationPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20210101:ApplicationPackage"),
@@ -92,7 +128,7 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationPackage
-	err := ctx.RegisterResource("azure-nextgen:batch/latest:ApplicationPackage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batch/latest:ApplicationPackage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +140,7 @@ func NewApplicationPackage(ctx *pulumi.Context,
 func GetApplicationPackage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationPackageState, opts ...pulumi.ResourceOption) (*ApplicationPackage, error) {
 	var resource ApplicationPackage
-	err := ctx.ReadResource("azure-nextgen:batch/latest:ApplicationPackage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batch/latest:ApplicationPackage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

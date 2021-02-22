@@ -14,7 +14,7 @@ import (
 // A privateLinkHub
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:PrivateLinkHub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:PrivateLinkHub'.
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
 
@@ -44,10 +44,19 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:PrivateLinkHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:PrivateLinkHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:PrivateLinkHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:PrivateLinkHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:PrivateLinkHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:PrivateLinkHub"),
@@ -55,7 +64,7 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkHub
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:PrivateLinkHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:PrivateLinkHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 func GetPrivateLinkHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkHubState, opts ...pulumi.ResourceOption) (*PrivateLinkHub, error) {
 	var resource PrivateLinkHub
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:PrivateLinkHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:PrivateLinkHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListBatchAccountKeys(ctx *pulumi.Context, args *ListBatchAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchAccountKeysResult, error) {
 	var rv ListBatchAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:batch:listBatchAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch:listBatchAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

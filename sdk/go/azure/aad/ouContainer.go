@@ -59,10 +59,19 @@ func NewOuContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:aad/latest:OuContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad/latest:OuContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:aad/v20170601:OuContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad/v20170601:OuContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:aad/v20200101:OuContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20200101:OuContainer"),
@@ -70,7 +79,7 @@ func NewOuContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OuContainer
-	err := ctx.RegisterResource("azure-nextgen:aad:OuContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:aad:OuContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewOuContainer(ctx *pulumi.Context,
 func GetOuContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OuContainerState, opts ...pulumi.ResourceOption) (*OuContainer, error) {
 	var resource OuContainer
-	err := ctx.ReadResource("azure-nextgen:aad:OuContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:aad:OuContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

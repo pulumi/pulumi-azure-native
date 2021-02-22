@@ -40,49 +40,97 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/latest:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/latest:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20170701:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20170701:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20180122:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20180122:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20180401:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20180401:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20181201preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20181201preview:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20190322:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20190322preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322preview:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20190701preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20190701preview:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20191104:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20191104:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200401:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200401:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200615:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200615:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200710preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200710preview:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200801:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200831:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200831preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831preview:Certificate"),
@@ -90,7 +138,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:devices/v20200301:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/v20200301:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +150,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:devices/v20200301:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/v20200301:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Job Resource.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:databox/v20180101:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databox/v20180101:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -62,7 +62,13 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningcompute:OperationalizationCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningcompute:OperationalizationCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster"),
@@ -70,7 +76,7 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OperationalizationCluster
-	err := ctx.RegisterResource("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +88,7 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 func GetOperationalizationCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OperationalizationClusterState, opts ...pulumi.ResourceOption) (*OperationalizationCluster, error) {
 	var resource OperationalizationCluster
-	err := ctx.ReadResource("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

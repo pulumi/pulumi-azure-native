@@ -10,10 +10,10 @@ import (
 // A Policy.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getPolicy'.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

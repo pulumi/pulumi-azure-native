@@ -49,16 +49,31 @@ func NewTransform(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:Transform"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:Transform"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:Transform"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:Transform"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180330preview:Transform"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Transform"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:Transform"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:Transform"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180701:Transform"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:Transform"),
@@ -66,7 +81,7 @@ func NewTransform(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Transform
-	err := ctx.RegisterResource("azure-nextgen:media/v20200501:Transform", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20200501:Transform", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewTransform(ctx *pulumi.Context,
 func GetTransform(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransformState, opts ...pulumi.ResourceOption) (*Transform, error) {
 	var resource Transform
-	err := ctx.ReadResource("azure-nextgen:media/v20200501:Transform", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20200501:Transform", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A flow log resource.
 func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.InvokeOption) (*LookupFlowLogResult, error) {
 	var rv LookupFlowLogResult
-	err := ctx.Invoke("azure-nextgen:network/v20200401:getFlowLog", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200401:getFlowLog", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

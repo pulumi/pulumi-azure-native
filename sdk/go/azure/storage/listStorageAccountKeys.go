@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:storage:listStorageAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:listStorageAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

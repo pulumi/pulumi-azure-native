@@ -10,7 +10,7 @@ import (
 // Represents an instance of a orchestrator.
 func LookupOrchestratorInstanceServiceDetails(ctx *pulumi.Context, args *LookupOrchestratorInstanceServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratorInstanceServiceDetailsResult, error) {
 	var rv LookupOrchestratorInstanceServiceDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

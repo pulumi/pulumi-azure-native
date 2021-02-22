@@ -10,10 +10,10 @@ import (
 // An object that represents a replication for a container registry.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getReplication'.
 func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ...pulumi.InvokeOption) (*LookupReplicationResult, error) {
 	var rv LookupReplicationResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:getReplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:getReplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

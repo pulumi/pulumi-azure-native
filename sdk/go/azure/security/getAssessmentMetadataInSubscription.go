@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAssessmentMetadataInSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentMetadataInSubscriptionResult, error) {
 	var rv LookupAssessmentMetadataInSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:security:getAssessmentMetadataInSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getAssessmentMetadataInSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

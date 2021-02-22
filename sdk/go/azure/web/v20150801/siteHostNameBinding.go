@@ -54,28 +54,55 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteHostNameBinding"),
@@ -83,7 +110,7 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteHostNameBinding
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteHostNameBinding", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteHostNameBinding", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +122,7 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 func GetSiteHostNameBinding(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteHostNameBindingState, opts ...pulumi.ResourceOption) (*SiteHostNameBinding, error) {
 	var resource SiteHostNameBinding
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteHostNameBinding", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteHostNameBinding", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

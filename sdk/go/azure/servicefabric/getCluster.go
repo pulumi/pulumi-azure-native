@@ -12,7 +12,7 @@ import (
 // API Version: 2020-03-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:servicefabric:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

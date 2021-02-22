@@ -10,10 +10,10 @@ import (
 // Peerings in a virtual network resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkPeering'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkPeering'.
 func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetworkPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkPeeringResult, error) {
 	var rv LookupVirtualNetworkPeeringResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetworkPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetworkPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

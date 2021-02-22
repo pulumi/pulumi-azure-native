@@ -53,12 +53,15 @@ func NewSapMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hanaonazure:SapMonitor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hanaonazure:SapMonitor"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SapMonitor
-	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hanaonazure/v20200207preview:SapMonitor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +73,7 @@ func NewSapMonitor(ctx *pulumi.Context,
 func GetSapMonitor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SapMonitorState, opts ...pulumi.ResourceOption) (*SapMonitor, error) {
 	var resource SapMonitor
-	err := ctx.ReadResource("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hanaonazure/v20200207preview:SapMonitor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

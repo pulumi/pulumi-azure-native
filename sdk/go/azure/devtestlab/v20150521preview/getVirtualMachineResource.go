@@ -10,7 +10,7 @@ import (
 // A virtual machine.
 func LookupVirtualMachineResource(ctx *pulumi.Context, args *LookupVirtualMachineResourceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResourceResult, error) {
 	var rv LookupVirtualMachineResourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getVirtualMachineResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

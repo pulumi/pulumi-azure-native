@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
 	var rv LookupSqlPoolWorkloadClassifierResult
-	err := ctx.Invoke("azure-nextgen:synapse:getSqlPoolWorkloadClassifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getSqlPoolWorkloadClassifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // An object that represents a scope map for a container registry.
 func LookupScopeMap(ctx *pulumi.Context, args *LookupScopeMapArgs, opts ...pulumi.InvokeOption) (*LookupScopeMapResult, error) {
 	var rv LookupScopeMapResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20190501preview:getScopeMap", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20190501preview:getScopeMap", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

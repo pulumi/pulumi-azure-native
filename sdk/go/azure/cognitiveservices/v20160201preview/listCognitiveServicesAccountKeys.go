@@ -10,7 +10,7 @@ import (
 // The access keys for the cognitive services account.
 func ListCognitiveServicesAccountKeys(ctx *pulumi.Context, args *ListCognitiveServicesAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListCognitiveServicesAccountKeysResult, error) {
 	var rv ListCognitiveServicesAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

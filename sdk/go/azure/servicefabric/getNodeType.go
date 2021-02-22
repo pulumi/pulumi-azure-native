@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupNodeType(ctx *pulumi.Context, args *LookupNodeTypeArgs, opts ...pulumi.InvokeOption) (*LookupNodeTypeResult, error) {
 	var rv LookupNodeTypeResult
-	err := ctx.Invoke("azure-nextgen:servicefabric:getNodeType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric:getNodeType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

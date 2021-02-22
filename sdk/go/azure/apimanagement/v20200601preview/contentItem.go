@@ -41,10 +41,19 @@ func NewContentItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ContentItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentItem"),
@@ -52,7 +61,7 @@ func NewContentItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContentItem
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20200601preview:ContentItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewContentItem(ctx *pulumi.Context,
 func GetContentItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContentItemState, opts ...pulumi.ResourceOption) (*ContentItem, error) {
 	var resource ContentItem
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20200601preview:ContentItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

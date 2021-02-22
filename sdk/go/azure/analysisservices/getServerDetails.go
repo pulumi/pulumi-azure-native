@@ -11,7 +11,7 @@ import (
 // API Version: 2017-08-01.
 func LookupServerDetails(ctx *pulumi.Context, args *LookupServerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupServerDetailsResult, error) {
 	var rv LookupServerDetailsResult
-	err := ctx.Invoke("azure-nextgen:analysisservices:getServerDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:analysisservices:getServerDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

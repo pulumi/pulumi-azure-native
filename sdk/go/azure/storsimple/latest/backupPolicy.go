@@ -14,7 +14,7 @@ import (
 // The backup policy.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -61,7 +61,13 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:BackupPolicy"),
@@ -69,7 +75,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:BackupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +87,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 func GetBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
 	var resource BackupPolicy
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:BackupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:BackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

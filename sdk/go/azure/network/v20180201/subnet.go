@@ -50,109 +50,217 @@ func NewSubnet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171101:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180101:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:Subnet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:Subnet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:Subnet"),
@@ -160,7 +268,7 @@ func NewSubnet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Subnet
-	err := ctx.RegisterResource("azure-nextgen:network/v20180201:Subnet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180201:Subnet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -172,7 +280,7 @@ func NewSubnet(ctx *pulumi.Context,
 func GetSubnet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SubnetState, opts ...pulumi.ResourceOption) (*Subnet, error) {
 	var resource Subnet
-	err := ctx.ReadResource("azure-nextgen:network/v20180201:Subnet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180201:Subnet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

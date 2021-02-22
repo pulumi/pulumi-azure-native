@@ -58,12 +58,15 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningDataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningDataset"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource MachineLearningDataset
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +78,7 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 func GetMachineLearningDataset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineLearningDatasetState, opts ...pulumi.ResourceOption) (*MachineLearningDataset, error) {
 	var resource MachineLearningDataset
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Description of an API Management service resource.
 func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementServiceArgs, opts ...pulumi.InvokeOption) (*LookupApiManagementServiceResult, error) {
 	var rv LookupApiManagementServiceResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20160707:getApiManagementService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20160707:getApiManagementService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

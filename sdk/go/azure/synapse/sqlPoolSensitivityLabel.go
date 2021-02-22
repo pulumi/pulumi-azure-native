@@ -68,10 +68,19 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:SqlPoolSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolSensitivityLabel"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel"),
@@ -79,7 +88,7 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolSensitivityLabel
-	err := ctx.RegisterResource("azure-nextgen:synapse:SqlPoolSensitivityLabel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:SqlPoolSensitivityLabel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +100,7 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 func GetSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolSensitivityLabelState, opts ...pulumi.ResourceOption) (*SqlPoolSensitivityLabel, error) {
 	var resource SqlPoolSensitivityLabel
-	err := ctx.ReadResource("azure-nextgen:synapse:SqlPoolSensitivityLabel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:SqlPoolSensitivityLabel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

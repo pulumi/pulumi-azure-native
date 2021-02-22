@@ -48,13 +48,25 @@ func NewBotConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:BotConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/latest:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/latest:BotConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:botservice/v20171201:BotConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/v20171201:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20180712:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:BotConnection"),
@@ -62,7 +74,7 @@ func NewBotConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BotConnection
-	err := ctx.RegisterResource("azure-nextgen:botservice/v20200602:BotConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/v20200602:BotConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewBotConnection(ctx *pulumi.Context,
 func GetBotConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BotConnectionState, opts ...pulumi.ResourceOption) (*BotConnection, error) {
 	var resource BotConnection
-	err := ctx.ReadResource("azure-nextgen:botservice/v20200602:BotConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/v20200602:BotConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

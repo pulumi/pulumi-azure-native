@@ -10,7 +10,7 @@ import (
 // Describes the suppression rule
 func LookupAlertsSuppressionRule(ctx *pulumi.Context, args *LookupAlertsSuppressionRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertsSuppressionRuleResult, error) {
 	var rv LookupAlertsSuppressionRuleResult
-	err := ctx.Invoke("azure-nextgen:security/v20190101preview:getAlertsSuppressionRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20190101preview:getAlertsSuppressionRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

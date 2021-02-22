@@ -10,7 +10,7 @@ import (
 // The management group details.
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
 	var rv LookupManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:management/v20180301preview:getManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/v20180301preview:getManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

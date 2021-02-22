@@ -10,7 +10,7 @@ import (
 // Represents a lab account.
 func LookupLabAccount(ctx *pulumi.Context, args *LookupLabAccountArgs, opts ...pulumi.InvokeOption) (*LookupLabAccountResult, error) {
 	var rv LookupLabAccountResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getLabAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getLabAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

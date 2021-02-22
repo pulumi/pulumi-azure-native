@@ -10,10 +10,10 @@ import (
 // Integration runtime resource type.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntime'.
 func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntimeArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationRuntimeResult, error) {
 	var rv LookupIntegrationRuntimeResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getIntegrationRuntime", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getIntegrationRuntime", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:sql/v20171001preview:Database":
+	case "azure-native:sql/v20171001preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20171001preview:ElasticPool":
+	case "azure-native:sql/v20171001preview:ElasticPool":
 		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup":
+	case "azure-native:sql/v20171001preview:InstanceFailoverGroup":
 		r, err = NewInstanceFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessment":
+	case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessment":
 		r, err = NewManagedDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+	case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
 		r, err = NewManagedDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20171001preview:ManagedInstanceKey":
+	case "azure-native:sql/v20171001preview:ManagedInstanceKey":
 		r, err = NewManagedInstanceKey(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"sql/v20171001preview",
 		&module{version},
 	)

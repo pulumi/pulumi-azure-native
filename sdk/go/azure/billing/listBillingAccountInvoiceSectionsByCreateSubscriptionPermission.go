@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx *pulumi.Context, args *ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts ...pulumi.InvokeOption) (*ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, error) {
 	var rv ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult
-	err := ctx.Invoke("azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

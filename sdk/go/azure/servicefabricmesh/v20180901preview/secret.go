@@ -42,12 +42,15 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabricmesh:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh:Secret"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabricmesh/v20180901preview:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:servicefabricmesh/v20180901preview:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabricmesh/v20180901preview:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

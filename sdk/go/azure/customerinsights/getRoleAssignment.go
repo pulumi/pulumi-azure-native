@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

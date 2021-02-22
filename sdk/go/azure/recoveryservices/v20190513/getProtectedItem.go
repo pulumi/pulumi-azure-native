@@ -10,7 +10,7 @@ import (
 // Base class for backup items.
 func LookupProtectedItem(ctx *pulumi.Context, args *LookupProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupProtectedItemResult, error) {
 	var rv LookupProtectedItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20190513:getProtectedItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20190513:getProtectedItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

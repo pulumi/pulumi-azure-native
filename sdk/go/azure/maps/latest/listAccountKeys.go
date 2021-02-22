@@ -10,10 +10,10 @@ import (
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:maps:listAccountKeys'.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:maps/latest:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maps/latest:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

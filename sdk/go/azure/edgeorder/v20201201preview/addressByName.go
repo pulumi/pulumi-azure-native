@@ -46,12 +46,15 @@ func NewAddressByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:edgeorder:AddressByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:edgeorder:AddressByName"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AddressByName
-	err := ctx.RegisterResource("azure-nextgen:edgeorder/v20201201preview:AddressByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:edgeorder/v20201201preview:AddressByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewAddressByName(ctx *pulumi.Context,
 func GetAddressByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AddressByNameState, opts ...pulumi.ResourceOption) (*AddressByName, error) {
 	var resource AddressByName
-	err := ctx.ReadResource("azure-nextgen:edgeorder/v20201201preview:AddressByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:edgeorder/v20201201preview:AddressByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

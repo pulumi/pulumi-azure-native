@@ -14,7 +14,7 @@ import (
 // Virtual Appliance Site resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubBgpConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHubBgpConnection'.
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,16 +49,31 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualHubBgpConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualHubBgpConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualHubBgpConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHubBgpConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualHubBgpConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubBgpConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualHubBgpConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubBgpConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualHubBgpConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubBgpConnection"),
@@ -66,7 +81,7 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubBgpConnection
-	err := ctx.RegisterResource("azure-nextgen:network/latest:VirtualHubBgpConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:VirtualHubBgpConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 func GetVirtualHubBgpConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualHubBgpConnectionState, opts ...pulumi.ResourceOption) (*VirtualHubBgpConnection, error) {
 	var resource VirtualHubBgpConnection
-	err := ctx.ReadResource("azure-nextgen:network/latest:VirtualHubBgpConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:VirtualHubBgpConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

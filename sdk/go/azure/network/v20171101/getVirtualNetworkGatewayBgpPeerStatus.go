@@ -10,7 +10,7 @@ import (
 // Response for list BGP peer status API service call
 func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtualNetworkGatewayBgpPeerStatusArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 	var rv GetVirtualNetworkGatewayBgpPeerStatusResult
-	err := ctx.Invoke("azure-nextgen:network/v20171101:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20171101:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

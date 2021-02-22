@@ -10,7 +10,7 @@ import (
 // Custom IP prefix resource.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getCustomIPPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getCustomIPPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

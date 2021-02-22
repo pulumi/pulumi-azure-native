@@ -10,10 +10,10 @@ import (
 // Define the move collection.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'.
 func LookupMoveCollection(ctx *pulumi.Context, args *LookupMoveCollectionArgs, opts ...pulumi.InvokeOption) (*LookupMoveCollectionResult, error) {
 	var rv LookupMoveCollectionResult
-	err := ctx.Invoke("azure-nextgen:migrate/latest:getMoveCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/latest:getMoveCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

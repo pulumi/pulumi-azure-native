@@ -11,7 +11,7 @@ import (
 // API Version: 2019-09-16-preview.
 func LookupMultipleActivationKey(ctx *pulumi.Context, args *LookupMultipleActivationKeyArgs, opts ...pulumi.InvokeOption) (*LookupMultipleActivationKeyResult, error) {
 	var rv LookupMultipleActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:windowsesu:getMultipleActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:windowsesu:getMultipleActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

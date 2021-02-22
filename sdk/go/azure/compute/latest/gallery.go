@@ -14,7 +14,7 @@ import (
 // Specifies information about the Shared Image Gallery that you want to create or update.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Gallery'.
 type Gallery struct {
 	pulumi.CustomResourceState
 
@@ -48,19 +48,37 @@ func NewGallery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:Gallery"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:Gallery"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180601:Gallery"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:Gallery"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:Gallery"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:Gallery"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:Gallery"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:Gallery"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:Gallery"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:Gallery"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:Gallery"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:Gallery"),
@@ -68,7 +86,7 @@ func NewGallery(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Gallery
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:Gallery", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:Gallery", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +98,7 @@ func NewGallery(ctx *pulumi.Context,
 func GetGallery(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GalleryState, opts ...pulumi.ResourceOption) (*Gallery, error) {
 	var resource Gallery
-	err := ctx.ReadResource("azure-nextgen:compute/latest:Gallery", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:Gallery", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

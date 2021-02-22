@@ -45,16 +45,31 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub/latest:EventHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:EventHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20140901:EventHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20150801:EventHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:EventHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule"),
@@ -62,7 +77,7 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventHubAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:eventhub:EventHubAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub:EventHubAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +89,7 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 func GetEventHubAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventHubAuthorizationRuleState, opts ...pulumi.ResourceOption) (*EventHubAuthorizationRule, error) {
 	var resource EventHubAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:eventhub:EventHubAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub:EventHubAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

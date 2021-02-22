@@ -48,13 +48,25 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/latest:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/latest:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/v20160701:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/v20160701:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20170401:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20170401:Namespace"),
@@ -62,7 +74,7 @@ func NewNamespace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Namespace
-	err := ctx.RegisterResource("azure-nextgen:relay/v20180101preview:Namespace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/v20180101preview:Namespace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewNamespace(ctx *pulumi.Context,
 func GetNamespace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	var resource Namespace
-	err := ctx.ReadResource("azure-nextgen:relay/v20180101preview:Namespace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/v20180101preview:Namespace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

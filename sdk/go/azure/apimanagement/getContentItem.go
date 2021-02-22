@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentItemResult, error) {
 	var rv LookupContentItemResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getContentItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getContentItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

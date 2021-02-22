@@ -14,7 +14,7 @@ import (
 // Define the move collection.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveCollection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveCollection'.
 type MoveCollection struct {
 	pulumi.CustomResourceState
 
@@ -46,10 +46,19 @@ func NewMoveCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:MoveCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:MoveCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:migrate/v20191001preview:MoveCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001preview:MoveCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20210101:MoveCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20210101:MoveCollection"),
@@ -57,7 +66,7 @@ func NewMoveCollection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MoveCollection
-	err := ctx.RegisterResource("azure-nextgen:migrate/latest:MoveCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/latest:MoveCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewMoveCollection(ctx *pulumi.Context,
 func GetMoveCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MoveCollectionState, opts ...pulumi.ResourceOption) (*MoveCollection, error) {
 	var resource MoveCollection
-	err := ctx.ReadResource("azure-nextgen:migrate/latest:MoveCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/latest:MoveCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

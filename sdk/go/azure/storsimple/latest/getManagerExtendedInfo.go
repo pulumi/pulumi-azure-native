@@ -10,10 +10,10 @@ import (
 // The extended info of the manager.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerExtendedInfo'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManagerExtendedInfo'.
 func LookupManagerExtendedInfo(ctx *pulumi.Context, args *LookupManagerExtendedInfoArgs, opts ...pulumi.InvokeOption) (*LookupManagerExtendedInfoResult, error) {
 	var rv LookupManagerExtendedInfoResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getManagerExtendedInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getManagerExtendedInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

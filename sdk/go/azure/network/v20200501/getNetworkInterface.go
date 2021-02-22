@@ -10,7 +10,7 @@ import (
 // A network interface in a resource group.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getNetworkInterface", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // List of list of items that violate tenant's configuration.
 func ListListTenantConfigurationViolation(ctx *pulumi.Context, args *ListListTenantConfigurationViolationArgs, opts ...pulumi.InvokeOption) (*ListListTenantConfigurationViolationResult, error) {
 	var rv ListListTenantConfigurationViolationResult
-	err := ctx.Invoke("azure-nextgen:portal/v20200901preview:listListTenantConfigurationViolation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/v20200901preview:listListTenantConfigurationViolation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArgs, opts ...pulumi.InvokeOption) (*LookupHierarchySettingResult, error) {
 	var rv LookupHierarchySettingResult
-	err := ctx.Invoke("azure-nextgen:management:getHierarchySetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management:getHierarchySetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

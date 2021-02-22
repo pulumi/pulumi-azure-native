@@ -10,7 +10,7 @@ import (
 // Represents user credentials used for publishing activity
 func LookupSiteDeploymentSlot(ctx *pulumi.Context, args *LookupSiteDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentSlotResult, error) {
 	var rv LookupSiteDeploymentSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteDeploymentSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteDeploymentSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

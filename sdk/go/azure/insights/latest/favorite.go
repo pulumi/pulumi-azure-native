@@ -14,7 +14,7 @@ import (
 // Properties that define a favorite that is associated to an Application Insights component.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.
 type Favorite struct {
 	pulumi.CustomResourceState
 
@@ -57,7 +57,13 @@ func NewFavorite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:Favorite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:Favorite"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:Favorite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Favorite"),
@@ -65,7 +71,7 @@ func NewFavorite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Favorite
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:Favorite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:Favorite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +83,7 @@ func NewFavorite(ctx *pulumi.Context,
 func GetFavorite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FavoriteState, opts ...pulumi.ResourceOption) (*Favorite, error) {
 	var resource Favorite
-	err := ctx.ReadResource("azure-nextgen:insights/latest:Favorite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:Favorite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

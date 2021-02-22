@@ -35,7 +35,13 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub/latest:NotificationRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:NotificationRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:NotificationRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:NotificationRegistration"),
@@ -43,7 +49,7 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationRegistration
-	err := ctx.RegisterResource("azure-nextgen:providerhub:NotificationRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub:NotificationRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +61,7 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 func GetNotificationRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationRegistrationState, opts ...pulumi.ResourceOption) (*NotificationRegistration, error) {
 	var resource NotificationRegistration
-	err := ctx.ReadResource("azure-nextgen:providerhub:NotificationRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub:NotificationRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

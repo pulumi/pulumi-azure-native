@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-31.
 func LookupDatabaseAccountSqlContainer(ctx *pulumi.Context, args *LookupDatabaseAccountSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountSqlContainerResult, error) {
 	var rv LookupDatabaseAccountSqlContainerResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountSqlContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccountSqlContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

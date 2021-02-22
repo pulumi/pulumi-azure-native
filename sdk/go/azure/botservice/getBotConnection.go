@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-02.
 func LookupBotConnection(ctx *pulumi.Context, args *LookupBotConnectionArgs, opts ...pulumi.InvokeOption) (*LookupBotConnectionResult, error) {
 	var rv LookupBotConnectionResult
-	err := ctx.Invoke("azure-nextgen:botservice:getBotConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice:getBotConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

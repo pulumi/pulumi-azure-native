@@ -42,10 +42,19 @@ func NewAccountFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:AccountFilter"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/latest:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/latest:AccountFilter"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:AccountFilter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:AccountFilter"),
@@ -53,7 +62,7 @@ func NewAccountFilter(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AccountFilter
-	err := ctx.RegisterResource("azure-nextgen:media/v20180701:AccountFilter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20180701:AccountFilter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewAccountFilter(ctx *pulumi.Context,
 func GetAccountFilter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountFilterState, opts ...pulumi.ResourceOption) (*AccountFilter, error) {
 	var resource AccountFilter
-	err := ctx.ReadResource("azure-nextgen:media/v20180701:AccountFilter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20180701:AccountFilter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

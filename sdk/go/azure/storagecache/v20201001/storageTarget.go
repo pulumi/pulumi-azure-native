@@ -55,16 +55,31 @@ func NewStorageTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagecache:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/latest:StorageTarget"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/latest:StorageTarget"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20190801preview:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:StorageTarget"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagecache/v20191101:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20191101:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20200301:StorageTarget"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20200301:StorageTarget"),
@@ -72,7 +87,7 @@ func NewStorageTarget(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageTarget
-	err := ctx.RegisterResource("azure-nextgen:storagecache/v20201001:StorageTarget", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagecache/v20201001:StorageTarget", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +99,7 @@ func NewStorageTarget(ctx *pulumi.Context,
 func GetStorageTarget(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageTargetState, opts ...pulumi.ResourceOption) (*StorageTarget, error) {
 	var resource StorageTarget
-	err := ctx.ReadResource("azure-nextgen:storagecache/v20201001:StorageTarget", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagecache/v20201001:StorageTarget", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

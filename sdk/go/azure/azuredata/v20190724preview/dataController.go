@@ -44,7 +44,13 @@ func NewDataController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata:DataController"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata:DataController"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20200908preview:DataController"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:DataController"),
@@ -52,7 +58,7 @@ func NewDataController(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataController
-	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:DataController", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata/v20190724preview:DataController", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewDataController(ctx *pulumi.Context,
 func GetDataController(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataControllerState, opts ...pulumi.ResourceOption) (*DataController, error) {
 	var resource DataController
-	err := ctx.ReadResource("azure-nextgen:azuredata/v20190724preview:DataController", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata/v20190724preview:DataController", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

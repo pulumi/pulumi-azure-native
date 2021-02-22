@@ -10,7 +10,7 @@ import (
 // Route Filter Resource.
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	var rv LookupRouteFilterResult
-	err := ctx.Invoke("azure-nextgen:network/v20170901:getRouteFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20170901:getRouteFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

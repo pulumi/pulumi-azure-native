@@ -10,10 +10,10 @@ import (
 // Route resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRoute'.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getRoute", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getRoute", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

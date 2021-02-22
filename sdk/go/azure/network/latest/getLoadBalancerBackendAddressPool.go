@@ -10,10 +10,10 @@ import (
 // Pool of backend IP addresses.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancerBackendAddressPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancerBackendAddressPool'.
 func LookupLoadBalancerBackendAddressPool(ctx *pulumi.Context, args *LookupLoadBalancerBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerBackendAddressPoolResult, error) {
 	var rv LookupLoadBalancerBackendAddressPoolResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getLoadBalancerBackendAddressPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getLoadBalancerBackendAddressPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

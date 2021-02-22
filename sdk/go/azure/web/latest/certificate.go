@@ -14,7 +14,7 @@ import (
 // SSL certificate for an app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Certificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Certificate'.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -87,28 +87,55 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160301:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160301:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:Certificate"),
@@ -116,7 +143,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:web/latest:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -128,7 +155,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:web/latest:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

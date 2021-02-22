@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:dbformariadb/v20180601preview:Configuration":
+	case "azure-native:dbformariadb/v20180601preview:Configuration":
 		r, err = NewConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformariadb/v20180601preview:Database":
+	case "azure-native:dbformariadb/v20180601preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformariadb/v20180601preview:FirewallRule":
+	case "azure-native:dbformariadb/v20180601preview:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformariadb/v20180601preview:Server":
+	case "azure-native:dbformariadb/v20180601preview:Server":
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule":
+	case "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule":
 		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"dbformariadb/v20180601preview",
 		&module{version},
 	)

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppPremierAddOn(ctx *pulumi.Context, args *LookupWebAppPremierAddOnArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnResult, error) {
 	var rv LookupWebAppPremierAddOnResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppPremierAddOn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppPremierAddOn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

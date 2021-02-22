@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:containerregistry/v20191201preview:ExportPipeline":
+	case "azure-native:containerregistry/v20191201preview:ExportPipeline":
 		r, err = NewExportPipeline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:ImportPipeline":
+	case "azure-native:containerregistry/v20191201preview:ImportPipeline":
 		r, err = NewImportPipeline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:PipelineRun":
+	case "azure-native:containerregistry/v20191201preview:PipelineRun":
 		r, err = NewPipelineRun(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection":
+	case "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:Registry":
+	case "azure-native:containerregistry/v20191201preview:Registry":
 		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:Replication":
+	case "azure-native:containerregistry/v20191201preview:Replication":
 		r, err = NewReplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:containerregistry/v20191201preview:Webhook":
+	case "azure-native:containerregistry/v20191201preview:Webhook":
 		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"containerregistry/v20191201preview",
 		&module{version},
 	)

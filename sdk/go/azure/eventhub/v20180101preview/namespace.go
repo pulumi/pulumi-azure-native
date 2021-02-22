@@ -63,16 +63,31 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/latest:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20140901:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20140901:Namespace"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20150801:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20150801:Namespace"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:Namespace"),
@@ -80,7 +95,7 @@ func NewNamespace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Namespace
-	err := ctx.RegisterResource("azure-nextgen:eventhub/v20180101preview:Namespace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub/v20180101preview:Namespace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +107,7 @@ func NewNamespace(ctx *pulumi.Context,
 func GetNamespace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	var resource Namespace
-	err := ctx.ReadResource("azure-nextgen:eventhub/v20180101preview:Namespace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub/v20180101preview:Namespace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

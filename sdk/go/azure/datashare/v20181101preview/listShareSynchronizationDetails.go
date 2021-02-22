@@ -10,7 +10,7 @@ import (
 // details of synchronization
 func ListShareSynchronizationDetails(ctx *pulumi.Context, args *ListShareSynchronizationDetailsArgs, opts ...pulumi.InvokeOption) (*ListShareSynchronizationDetailsResult, error) {
 	var rv ListShareSynchronizationDetailsResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:listShareSynchronizationDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:listShareSynchronizationDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

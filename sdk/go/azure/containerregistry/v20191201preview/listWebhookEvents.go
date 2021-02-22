@@ -10,7 +10,7 @@ import (
 // The result of a request to list events for a webhook.
 func ListWebhookEvents(ctx *pulumi.Context, args *ListWebhookEventsArgs, opts ...pulumi.InvokeOption) (*ListWebhookEventsResult, error) {
 	var rv ListWebhookEventsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20191201preview:listWebhookEvents", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20191201preview:listWebhookEvents", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

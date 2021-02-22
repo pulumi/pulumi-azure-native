@@ -11,7 +11,7 @@ import (
 // API Version: 2019-04-01.
 func ListRunLogSasUrl(ctx *pulumi.Context, args *ListRunLogSasUrlArgs, opts ...pulumi.InvokeOption) (*ListRunLogSasUrlResult, error) {
 	var rv ListRunLogSasUrlResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listRunLogSasUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listRunLogSasUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

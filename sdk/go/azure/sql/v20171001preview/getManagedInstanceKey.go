@@ -10,7 +10,7 @@ import (
 // A managed instance key.
 func LookupManagedInstanceKey(ctx *pulumi.Context, args *LookupManagedInstanceKeyArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceKeyResult, error) {
 	var rv LookupManagedInstanceKeyResult
-	err := ctx.Invoke("azure-nextgen:sql/v20171001preview:getManagedInstanceKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20171001preview:getManagedInstanceKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

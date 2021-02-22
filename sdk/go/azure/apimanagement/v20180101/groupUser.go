@@ -55,25 +55,49 @@ func NewGroupUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:GroupUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GroupUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:GroupUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:GroupUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:GroupUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:GroupUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:GroupUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:GroupUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:GroupUser"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:GroupUser"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:GroupUser"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GroupUser"),
@@ -81,7 +105,7 @@ func NewGroupUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GroupUser
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20180101:GroupUser", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20180101:GroupUser", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +117,7 @@ func NewGroupUser(ctx *pulumi.Context,
 func GetGroupUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GroupUserState, opts ...pulumi.ResourceOption) (*GroupUser, error) {
 	var resource GroupUser
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20180101:GroupUser", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20180101:GroupUser", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

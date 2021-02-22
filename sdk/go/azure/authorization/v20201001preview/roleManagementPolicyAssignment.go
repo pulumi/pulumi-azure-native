@@ -38,7 +38,7 @@ func NewRoleManagementPolicyAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource RoleManagementPolicyAssignment
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewRoleManagementPolicyAssignment(ctx *pulumi.Context,
 func GetRoleManagementPolicyAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleManagementPolicyAssignmentState, opts ...pulumi.ResourceOption) (*RoleManagementPolicyAssignment, error) {
 	var resource RoleManagementPolicyAssignment
-	err := ctx.ReadResource("azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

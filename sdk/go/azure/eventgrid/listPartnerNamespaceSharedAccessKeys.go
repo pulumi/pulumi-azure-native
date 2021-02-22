@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func ListPartnerNamespaceSharedAccessKeys(ctx *pulumi.Context, args *ListPartnerNamespaceSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListPartnerNamespaceSharedAccessKeysResult, error) {
 	var rv ListPartnerNamespaceSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:listPartnerNamespaceSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

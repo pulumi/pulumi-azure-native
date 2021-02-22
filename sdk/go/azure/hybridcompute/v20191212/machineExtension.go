@@ -56,19 +56,37 @@ func NewMachineExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridcompute:MachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/latest:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/latest:MachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20190802preview:MachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200730preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200730preview:MachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200802:MachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200802:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:MachineExtension"),
@@ -76,7 +94,7 @@ func NewMachineExtension(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MachineExtension
-	err := ctx.RegisterResource("azure-nextgen:hybridcompute/v20191212:MachineExtension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridcompute/v20191212:MachineExtension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +106,7 @@ func NewMachineExtension(ctx *pulumi.Context,
 func GetMachineExtension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineExtensionState, opts ...pulumi.ResourceOption) (*MachineExtension, error) {
 	var resource MachineExtension
-	err := ctx.ReadResource("azure-nextgen:hybridcompute/v20191212:MachineExtension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridcompute/v20191212:MachineExtension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

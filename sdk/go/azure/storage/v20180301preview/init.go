@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storage/v20180301preview:BlobContainer":
+	case "azure-native:storage/v20180301preview:BlobContainer":
 		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy":
+	case "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy":
 		r, err = NewBlobContainerImmutabilityPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20180301preview:ManagementPolicy":
+	case "azure-native:storage/v20180301preview:ManagementPolicy":
 		r, err = NewManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20180301preview:StorageAccount":
+	case "azure-native:storage/v20180301preview:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies":
+	case "azure-native:storage/v20180301preview:StorageAccountManagementPolicies":
 		r, err = NewStorageAccountManagementPolicies(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storage/v20180301preview",
 		&module{version},
 	)

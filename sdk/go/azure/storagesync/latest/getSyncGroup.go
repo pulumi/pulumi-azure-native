@@ -10,10 +10,10 @@ import (
 // Sync Group object.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getSyncGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getSyncGroup'.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
-	err := ctx.Invoke("azure-nextgen:storagesync/latest:getSyncGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/latest:getSyncGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func GetFactoryGitHubAccessToken(ctx *pulumi.Context, args *GetFactoryGitHubAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetFactoryGitHubAccessTokenResult, error) {
 	var rv GetFactoryGitHubAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getFactoryGitHubAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getFactoryGitHubAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

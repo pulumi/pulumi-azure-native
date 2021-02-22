@@ -10,10 +10,10 @@ import (
 // Role Assignments
 // Latest API Version: 2015-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleAssignment'.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

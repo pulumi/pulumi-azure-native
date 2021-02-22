@@ -73,16 +73,31 @@ func NewAgreement(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:Agreement"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:Agreement"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/latest:Agreement"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Agreement"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:Agreement"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Agreement"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:Agreement"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Agreement"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:Agreement"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:Agreement"),
@@ -90,7 +105,7 @@ func NewAgreement(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Agreement
-	err := ctx.RegisterResource("azure-nextgen:logic/v20160601:Agreement", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/v20160601:Agreement", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +117,7 @@ func NewAgreement(ctx *pulumi.Context,
 func GetAgreement(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AgreementState, opts ...pulumi.ResourceOption) (*Agreement, error) {
 	var resource Agreement
-	err := ctx.ReadResource("azure-nextgen:logic/v20160601:Agreement", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/v20160601:Agreement", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

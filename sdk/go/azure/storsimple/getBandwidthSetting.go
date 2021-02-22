@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func LookupBandwidthSetting(ctx *pulumi.Context, args *LookupBandwidthSettingArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthSettingResult, error) {
 	var rv LookupBandwidthSettingResult
-	err := ctx.Invoke("azure-nextgen:storsimple:getBandwidthSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:getBandwidthSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

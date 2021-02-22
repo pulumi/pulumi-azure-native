@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01-preview.
 func LookupComponentLinkedStorageAccount(ctx *pulumi.Context, args *LookupComponentLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupComponentLinkedStorageAccountResult, error) {
 	var rv LookupComponentLinkedStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:insights:getComponentLinkedStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getComponentLinkedStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

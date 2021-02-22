@@ -10,7 +10,7 @@ import (
 // A Streaming Policy resource
 func LookupStreamingPolicy(ctx *pulumi.Context, args *LookupStreamingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupStreamingPolicyResult, error) {
 	var rv LookupStreamingPolicyResult
-	err := ctx.Invoke("azure-nextgen:media/v20180701:getStreamingPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180701:getStreamingPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

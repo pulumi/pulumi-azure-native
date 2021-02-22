@@ -10,10 +10,10 @@ import (
 // Represents user credentials used for publishing activity
 // Latest API Version: 2015-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'.
 func LookupSiteInstanceDeployment(ctx *pulumi.Context, args *LookupSiteInstanceDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteInstanceDeploymentResult, error) {
 	var rv LookupSiteInstanceDeploymentResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getSiteInstanceDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getSiteInstanceDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

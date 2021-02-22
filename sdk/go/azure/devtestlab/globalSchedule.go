@@ -60,10 +60,19 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:GlobalSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:GlobalSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:GlobalSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:GlobalSchedule"),
@@ -71,7 +80,7 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GlobalSchedule
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:GlobalSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:GlobalSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +92,7 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 func GetGlobalSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalScheduleState, opts ...pulumi.ResourceOption) (*GlobalSchedule, error) {
 	var resource GlobalSchedule
-	err := ctx.ReadResource("azure-nextgen:devtestlab:GlobalSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:GlobalSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

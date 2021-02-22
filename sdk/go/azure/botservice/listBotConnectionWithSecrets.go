@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-02.
 func ListBotConnectionWithSecrets(ctx *pulumi.Context, args *ListBotConnectionWithSecretsArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionWithSecretsResult, error) {
 	var rv ListBotConnectionWithSecretsResult
-	err := ctx.Invoke("azure-nextgen:botservice:listBotConnectionWithSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice:listBotConnectionWithSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
