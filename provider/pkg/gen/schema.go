@@ -1020,10 +1020,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 		} else {
 			if m.isEnum(&propertySpec.TypeSpec) {
-				apiProperty = resources.AzureAPIProperty{
-					Type: "string",
-					Enum: m.getEnumValues(resolvedProperty.Schema),
-				}
+				apiProperty = resources.AzureAPIProperty{ Type: "string" }
 			} else {
 				apiProperty = resources.AzureAPIProperty{
 					Type:                 propertySpec.Type,

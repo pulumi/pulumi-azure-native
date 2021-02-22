@@ -33,7 +33,6 @@ type AzureAPIProperty struct {
 	Type                 string            `json:"type,omitempty"`
 	Items                *AzureAPIProperty `json:"items,omitempty"`
 	AdditionalProperties *AzureAPIProperty `json:"additionalProperties,omitempty"`
-	Enum                 []string          `json:"enum,omitempty"`
 	OneOf                []string          `json:"oneOf,omitempty"`
 	Ref                  string            `json:"$ref,omitempty"`
 	Const                interface{}       `json:"const,omitempty"`
