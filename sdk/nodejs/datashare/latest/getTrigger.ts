@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Trigger data transfer object.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getTrigger'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getTrigger'. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getTrigger'.")
+    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getTrigger'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:getTrigger", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:getTrigger", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,

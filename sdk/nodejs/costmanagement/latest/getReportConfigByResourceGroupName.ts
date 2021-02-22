@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A report config resource.
  * Latest API Version: 2018-05-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfigByResourceGroupName'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfigByResourceGroupName'. */
 export function getReportConfigByResourceGroupName(args: GetReportConfigByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigByResourceGroupNameResult> {
-    pulumi.log.warn("getReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfigByResourceGroupName'.")
+    pulumi.log.warn("getReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfigByResourceGroupName'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReportConfigByResourceGroupName(args: GetReportConfigByResour
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getReportConfigByResourceGroupName", {
+    return pulumi.runtime.invoke("azure-native:costmanagement/latest:getReportConfigByResourceGroupName", {
         "reportConfigName": args.reportConfigName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener';
+    public static readonly __pulumiType = 'azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener';
 
     /**
      * Returns true if the given object is an instance of AvailabilityGroupListener.  This is designed to work even
@@ -106,7 +106,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }, { type: "azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AvailabilityGroupListener.__pulumiType, name, inputs, opts);
     }

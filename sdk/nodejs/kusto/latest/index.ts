@@ -36,21 +36,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:kusto/latest:AttachedDatabaseConfiguration":
+            case "azure-native:kusto/latest:AttachedDatabaseConfiguration":
                 return new AttachedDatabaseConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/latest:Cluster":
+            case "azure-native:kusto/latest:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/latest:ClusterPrincipalAssignment":
+            case "azure-native:kusto/latest:ClusterPrincipalAssignment":
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/latest:DataConnection":
+            case "azure-native:kusto/latest:DataConnection":
                 return new DataConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/latest:Database":
+            case "azure-native:kusto/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/latest:DatabasePrincipalAssignment":
+            case "azure-native:kusto/latest:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "kusto/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "kusto/latest", _module)

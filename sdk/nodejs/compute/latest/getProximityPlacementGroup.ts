@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the proximity placement group.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getProximityPlacementGroup'. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
-    pulumi.log.warn("getProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'.")
+    pulumi.log.warn("getProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getProximityPlacementGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getProximityPlacementGroup", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,
         "proximityPlacementGroupName": args.proximityPlacementGroupName,
         "resourceGroupName": args.resourceGroupName,

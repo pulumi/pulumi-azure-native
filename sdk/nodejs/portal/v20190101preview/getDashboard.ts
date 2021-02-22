@@ -16,7 +16,7 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:portal/v20190101preview:getDashboard", {
+    return pulumi.runtime.invoke("azure-native:portal/v20190101preview:getDashboard", {
         "dashboardName": args.dashboardName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

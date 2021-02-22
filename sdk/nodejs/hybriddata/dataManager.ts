@@ -23,7 +23,7 @@ export class DataManager extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybriddata:DataManager';
+    public static readonly __pulumiType = 'azure-native:hybriddata:DataManager';
 
     /**
      * Returns true if the given object is an instance of DataManager.  This is designed to work even
@@ -100,7 +100,7 @@ export class DataManager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata/latest:DataManager" }, { type: "azure-nextgen:hybriddata/v20160601:DataManager" }, { type: "azure-nextgen:hybriddata/v20190601:DataManager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata/latest:DataManager" }, { type: "azure-nextgen:hybriddata/latest:DataManager" }, { type: "azure-native:hybriddata/v20160601:DataManager" }, { type: "azure-nextgen:hybriddata/v20160601:DataManager" }, { type: "azure-native:hybriddata/v20190601:DataManager" }, { type: "azure-nextgen:hybriddata/v20190601:DataManager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataManager.__pulumiType, name, inputs, opts);
     }

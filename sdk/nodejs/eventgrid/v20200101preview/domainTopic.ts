@@ -21,7 +21,7 @@ export class DomainTopic extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20200101preview:DomainTopic';
+    public static readonly __pulumiType = 'azure-native:eventgrid/v20200101preview:DomainTopic';
 
     /**
      * Returns true if the given object is an instance of DomainTopic.  This is designed to work even
@@ -81,7 +81,7 @@ export class DomainTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:DomainTopic" }, { type: "azure-nextgen:eventgrid/latest:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20201015preview:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainTopic" }, { type: "azure-nextgen:eventgrid:DomainTopic" }, { type: "azure-native:eventgrid/latest:DomainTopic" }, { type: "azure-nextgen:eventgrid/latest:DomainTopic" }, { type: "azure-native:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-native:eventgrid/v20190601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190601:DomainTopic" }, { type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20201015preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20201015preview:DomainTopic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }

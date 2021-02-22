@@ -22,7 +22,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20171201preview:Server';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql/v20171201preview:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -190,7 +190,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql/latest:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-native:dbforpostgresql/latest:Server" }, { type: "azure-nextgen:dbforpostgresql/latest:Server" }, { type: "azure-native:dbforpostgresql/v20171201:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

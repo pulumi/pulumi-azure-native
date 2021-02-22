@@ -22,7 +22,7 @@ export class ServerKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey';
+    public static readonly __pulumiType = 'azure-native:dbformariadb/v20200101privatepreview:ServerKey';
 
     /**
      * Returns true if the given object is an instance of ServerKey.  This is designed to work even

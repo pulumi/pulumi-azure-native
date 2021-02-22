@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Route Filter Rule Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilterRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteFilterRule'. */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
-    pulumi.log.warn("getRouteFilterRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilterRule'.")
+    pulumi.log.warn("getRouteFilterRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteFilterRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRouteFilterRule", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,
         "routeFilterName": args.routeFilterName,
         "ruleName": args.ruleName,

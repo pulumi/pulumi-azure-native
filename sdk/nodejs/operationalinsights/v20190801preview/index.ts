@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:operationalinsights/v20190801preview:DataExport":
+            case "azure-native:operationalinsights/v20190801preview:DataExport":
                 return new DataExport(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20190801preview:LinkedService":
+            case "azure-native:operationalinsights/v20190801preview:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount":
+            case "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "operationalinsights/v20190801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "operationalinsights/v20190801preview", _module)

@@ -89,43 +89,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:security:AdaptiveApplicationControl":
+            case "azure-native:security:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
-            case "azure-nextgen:security:AlertsSuppressionRule":
+            case "azure-native:security:AlertsSuppressionRule":
                 return new AlertsSuppressionRule(name, <any>undefined, { urn })
-            case "azure-nextgen:security:Assessment":
+            case "azure-native:security:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-nextgen:security:AssessmentMetadataInSubscription":
+            case "azure-native:security:AssessmentMetadataInSubscription":
                 return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:security:Automation":
+            case "azure-native:security:Automation":
                 return new Automation(name, <any>undefined, { urn })
-            case "azure-nextgen:security:Connector":
+            case "azure-native:security:Connector":
                 return new Connector(name, <any>undefined, { urn })
-            case "azure-nextgen:security:DeviceSecurityGroup":
+            case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:security:IotDefenderSetting":
+            case "azure-native:security:IotDefenderSetting":
                 return new IotDefenderSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:security:IotSecuritySolution":
+            case "azure-native:security:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
-            case "azure-nextgen:security:IotSensor":
+            case "azure-native:security:IotSensor":
                 return new IotSensor(name, <any>undefined, { urn })
-            case "azure-nextgen:security:IotSite":
+            case "azure-native:security:IotSite":
                 return new IotSite(name, <any>undefined, { urn })
-            case "azure-nextgen:security:JitNetworkAccessPolicy":
+            case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:security:OnPremiseIotSensor":
+            case "azure-native:security:OnPremiseIotSensor":
                 return new OnPremiseIotSensor(name, <any>undefined, { urn })
-            case "azure-nextgen:security:SecurityContact":
+            case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
-            case "azure-nextgen:security:ServerVulnerabilityAssessment":
+            case "azure-native:security:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:security:SqlVulnerabilityAssessmentBaselineRule":
+            case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
                 return new SqlVulnerabilityAssessmentBaselineRule(name, <any>undefined, { urn })
-            case "azure-nextgen:security:WorkspaceSetting":
+            case "azure-native:security:WorkspaceSetting":
                 return new WorkspaceSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "security", _module)
+pulumi.runtime.registerResourceModule("azure-native", "security", _module)

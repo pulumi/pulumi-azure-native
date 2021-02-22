@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the webhook type.
  * Latest API Version: 2015-10-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWebhook'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWebhook'. */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
-    pulumi.log.warn("getWebhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWebhook'.")
+    pulumi.log.warn("getWebhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWebhook'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getWebhook", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getWebhook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

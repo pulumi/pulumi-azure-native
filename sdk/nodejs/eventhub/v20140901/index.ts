@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:eventhub/v20140901:ConsumerGroup":
+            case "azure-native:eventhub/v20140901:ConsumerGroup":
                 return new ConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20140901:EventHub":
+            case "azure-native:eventhub/v20140901:EventHub":
                 return new EventHub(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule":
+            case "azure-native:eventhub/v20140901:EventHubAuthorizationRule":
                 return new EventHubAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20140901:Namespace":
+            case "azure-native:eventhub/v20140901:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule":
+            case "azure-native:eventhub/v20140901:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "eventhub/v20140901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "eventhub/v20140901", _module)

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:TopicAuthorizationRule'.
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TopicAuthorizationRule {
-        pulumi.log.warn("TopicAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.")
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:TopicAuthorizationRule'.")
         return new TopicAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/latest:TopicAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:servicebus/latest:TopicAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of TopicAuthorizationRule.  This is designed to work even
@@ -59,9 +59,9 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:TopicAuthorizationRule'. */
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TopicAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.")
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:TopicAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }

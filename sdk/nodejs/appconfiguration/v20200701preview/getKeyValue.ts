@@ -16,7 +16,7 @@ export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appconfiguration/v20200701preview:getKeyValue", {
+    return pulumi.runtime.invoke("azure-native:appconfiguration/v20200701preview:getKeyValue", {
         "configStoreName": args.configStoreName,
         "keyValueName": args.keyValueName,
         "resourceGroupName": args.resourceGroupName,

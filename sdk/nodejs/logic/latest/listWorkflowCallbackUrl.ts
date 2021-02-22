@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The workflow trigger callback URL.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowCallbackUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowCallbackUrl'. */
 export function listWorkflowCallbackUrl(args: ListWorkflowCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowCallbackUrlResult> {
-    pulumi.log.warn("listWorkflowCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowCallbackUrl'.")
+    pulumi.log.warn("listWorkflowCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowCallbackUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWorkflowCallbackUrl(args: ListWorkflowCallbackUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listWorkflowCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:listWorkflowCallbackUrl", {
         "keyType": args.keyType,
         "notAfter": args.notAfter,
         "resourceGroupName": args.resourceGroupName,

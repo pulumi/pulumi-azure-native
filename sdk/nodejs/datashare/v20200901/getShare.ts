@@ -16,7 +16,7 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/v20200901:getShare", {
+    return pulumi.runtime.invoke("azure-native:datashare/v20200901:getShare", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,

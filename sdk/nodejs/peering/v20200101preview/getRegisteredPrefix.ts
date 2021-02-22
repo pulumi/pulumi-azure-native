@@ -16,7 +16,7 @@ export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/v20200101preview:getRegisteredPrefix", {
+    return pulumi.runtime.invoke("azure-native:peering/v20200101preview:getRegisteredPrefix", {
         "peeringName": args.peeringName,
         "registeredPrefixName": args.registeredPrefixName,
         "resourceGroupName": args.resourceGroupName,

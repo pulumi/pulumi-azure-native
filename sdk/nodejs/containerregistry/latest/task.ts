@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
  * The task will have all information to schedule a run against it.
  * Latest API Version: 2019-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -22,12 +22,12 @@ export class Task extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Task {
-        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.")
+        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.")
         return new Task(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/latest:Task';
+    public static readonly __pulumiType = 'azure-native:containerregistry/latest:Task';
 
     /**
      * Returns true if the given object is an instance of Task.  This is designed to work even
@@ -104,9 +104,9 @@ export class Task extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'. */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.")
+        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
@@ -161,7 +161,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Task" }, { type: "azure-nextgen:containerregistry/v20180901:Task" }, { type: "azure-nextgen:containerregistry/v20190401:Task" }, { type: "azure-nextgen:containerregistry/v20190601preview:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Task" }, { type: "azure-nextgen:containerregistry:Task" }, { type: "azure-native:containerregistry/v20180901:Task" }, { type: "azure-nextgen:containerregistry/v20180901:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-nextgen:containerregistry/v20190401:Task" }, { type: "azure-native:containerregistry/v20190601preview:Task" }, { type: "azure-nextgen:containerregistry/v20190601preview:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

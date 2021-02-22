@@ -16,7 +16,7 @@ export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:solutions/v20200821preview:getJitRequest", {
+    return pulumi.runtime.invoke("azure-native:solutions/v20200821preview:getJitRequest", {
         "jitRequestName": args.jitRequestName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -62,27 +62,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:migrate:Assessment":
+            case "azure-native:migrate:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:Group":
+            case "azure-native:migrate:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:HyperVCollector":
+            case "azure-native:migrate:HyperVCollector":
                 return new HyperVCollector(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:MigrateProject":
+            case "azure-native:migrate:MigrateProject":
                 return new MigrateProject(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:MoveCollection":
+            case "azure-native:migrate:MoveCollection":
                 return new MoveCollection(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:MoveResource":
+            case "azure-native:migrate:MoveResource":
                 return new MoveResource(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:Project":
+            case "azure-native:migrate:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:Solution":
+            case "azure-native:migrate:Solution":
                 return new Solution(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate:VMwareCollector":
+            case "azure-native:migrate:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "migrate", _module)
+pulumi.runtime.registerResourceModule("azure-native", "migrate", _module)

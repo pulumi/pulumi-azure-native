@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A schedule.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachineSchedule'.
  */
 export class VirtualMachineSchedule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineSchedule {
-        pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.")
+        pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachineSchedule'.")
         return new VirtualMachineSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:VirtualMachineSchedule';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:VirtualMachineSchedule';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineSchedule.  This is designed to work even
@@ -107,9 +107,9 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachineSchedule'. */
     constructor(name: string, args: VirtualMachineScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.")
+        pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachineSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -163,7 +163,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineSchedule.__pulumiType, name, inputs, opts);
     }

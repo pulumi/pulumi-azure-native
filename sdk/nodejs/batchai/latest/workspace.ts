@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Batch AI Workspace information.
  * Latest API Version: 2018-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Workspace'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Workspace'.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Workspace'.")
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Workspace'.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batchai/latest:Workspace';
+    public static readonly __pulumiType = 'azure-native:batchai/latest:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -74,9 +74,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Workspace'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Workspace'. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Workspace'.")
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Workspace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +107,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai:Workspace" }, { type: "azure-nextgen:batchai/v20180501:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batchai:Workspace" }, { type: "azure-nextgen:batchai:Workspace" }, { type: "azure-native:batchai/v20180501:Workspace" }, { type: "azure-nextgen:batchai/v20180501:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

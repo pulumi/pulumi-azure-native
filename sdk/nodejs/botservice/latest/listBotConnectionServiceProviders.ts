@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of bot service providers response.
  * Latest API Version: 2020-06-02.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionServiceProviders'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'. */
 export function listBotConnectionServiceProviders(args?: ListBotConnectionServiceProvidersArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionServiceProvidersResult> {
-    pulumi.log.warn("listBotConnectionServiceProviders is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionServiceProviders'.")
+    pulumi.log.warn("listBotConnectionServiceProviders is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function listBotConnectionServiceProviders(args?: ListBotConnectionServic
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:listBotConnectionServiceProviders", {
+    return pulumi.runtime.invoke("azure-native:botservice/latest:listBotConnectionServiceProviders", {
     }, opts);
 }
 

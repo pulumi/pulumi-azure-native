@@ -16,7 +16,7 @@ export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/v20210301preview:getObjectAnchorsAccount", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

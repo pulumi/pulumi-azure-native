@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The result of a request to list API keys.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeys'. */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
-    pulumi.log.warn("listConfigurationStoreKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeys'.")
+    pulumi.log.warn("listConfigurationStoreKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeys", {
+    return pulumi.runtime.invoke("azure-native:appconfiguration/latest:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,

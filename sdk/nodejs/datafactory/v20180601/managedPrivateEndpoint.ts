@@ -22,7 +22,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint';
+    public static readonly __pulumiType = 'azure-native:datafactory/v20180601:ManagedPrivateEndpoint';
 
     /**
      * Returns true if the given object is an instance of ManagedPrivateEndpoint.  This is designed to work even
@@ -95,7 +95,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory:ManagedPrivateEndpoint" }, { type: "azure-native:datafactory/latest:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
     }

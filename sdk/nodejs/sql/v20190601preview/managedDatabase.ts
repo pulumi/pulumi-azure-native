@@ -22,7 +22,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20190601preview:ManagedDatabase';
+    public static readonly __pulumiType = 'azure-native:sql/v20190601preview:ManagedDatabase';
 
     /**
      * Returns true if the given object is an instance of ManagedDatabase.  This is designed to work even
@@ -178,7 +178,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedDatabase" }, { type: "azure-nextgen:sql/v20170301preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabase" }, { type: "azure-nextgen:sql:ManagedDatabase" }, { type: "azure-native:sql/v20170301preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20170301preview:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200202preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabase.__pulumiType, name, inputs, opts);
     }

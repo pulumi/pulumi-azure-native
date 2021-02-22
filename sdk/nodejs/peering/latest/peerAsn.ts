@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The essential information related to the peer's ASN.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PeerAsn {
-        pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.")
+        pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.")
         return new PeerAsn(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/latest:PeerAsn';
+    public static readonly __pulumiType = 'azure-native:peering/latest:PeerAsn';
 
     /**
      * Returns true if the given object is an instance of PeerAsn.  This is designed to work even
@@ -75,9 +75,9 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'. */
     constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.")
+        pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             inputs["peerAsn"] = args ? args.peerAsn : undefined;
@@ -104,7 +104,7 @@ export class PeerAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190901preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }, { type: "azure-nextgen:peering/v20201001:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeerAsn" }, { type: "azure-nextgen:peering:PeerAsn" }, { type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-nextgen:peering/v20201001:PeerAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }

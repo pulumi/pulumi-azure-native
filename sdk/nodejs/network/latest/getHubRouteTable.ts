@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * RouteTable resource in a virtual hub.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubRouteTable'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubRouteTable'. */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
-    pulumi.log.warn("getHubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubRouteTable'.")
+    pulumi.log.warn("getHubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubRouteTable'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getHubRouteTable", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getHubRouteTable", {
         "resourceGroupName": args.resourceGroupName,
         "routeTableName": args.routeTableName,
         "virtualHubName": args.virtualHubName,

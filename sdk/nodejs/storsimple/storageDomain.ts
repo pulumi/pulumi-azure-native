@@ -23,7 +23,7 @@ export class StorageDomain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:StorageDomain';
+    public static readonly __pulumiType = 'azure-native:storsimple:StorageDomain';
 
     /**
      * Returns true if the given object is an instance of StorageDomain.  This is designed to work even
@@ -101,7 +101,7 @@ export class StorageDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:StorageDomain" }, { type: "azure-nextgen:storsimple/latest:StorageDomain" }, { type: "azure-native:storsimple/v20161001:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageDomain.__pulumiType, name, inputs, opts);
     }

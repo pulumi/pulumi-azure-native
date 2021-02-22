@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * ApiRelease details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiRelease'.
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiRelease {
-        pulumi.log.warn("ApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.")
+        pulumi.log.warn("ApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiRelease'.")
         return new ApiRelease(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:ApiRelease';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:ApiRelease';
 
     /**
      * Returns true if the given object is an instance of ApiRelease.  This is designed to work even
@@ -70,9 +70,9 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiRelease'. */
     constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.")
+        pulumi.log.warn("ApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiRelease'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
@@ -108,7 +108,7 @@ export class ApiRelease extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20170301:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20180101:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20190101:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20191201:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiRelease" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiRelease" }, { type: "azure-nextgen:apimanagement:ApiRelease" }, { type: "azure-native:apimanagement/v20170301:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20170301:ApiRelease" }, { type: "azure-native:apimanagement/v20180101:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20180101:ApiRelease" }, { type: "azure-native:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20190101:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20190101:ApiRelease" }, { type: "azure-native:apimanagement/v20191201:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20191201:ApiRelease" }, { type: "azure-native:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20200601preview:ApiRelease" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiRelease" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiRelease.__pulumiType, name, inputs, opts);
     }

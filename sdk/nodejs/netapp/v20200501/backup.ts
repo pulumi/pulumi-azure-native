@@ -21,7 +21,7 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20200501:Backup';
+    public static readonly __pulumiType = 'azure-native:netapp/v20200501:Backup';
 
     /**
      * Returns true if the given object is an instance of Backup.  This is designed to work even
@@ -119,7 +119,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Backup" }, { type: "azure-nextgen:netapp/latest:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Backup" }, { type: "azure-nextgen:netapp:Backup" }, { type: "azure-native:netapp/latest:Backup" }, { type: "azure-nextgen:netapp/latest:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

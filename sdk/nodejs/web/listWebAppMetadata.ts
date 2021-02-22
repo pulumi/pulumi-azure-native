@@ -17,7 +17,7 @@ export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listWebAppMetadata", {
+    return pulumi.runtime.invoke("azure-native:web:listWebAppMetadata", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:kusto/v20200215:Cluster';
+    public static readonly __pulumiType = 'azure-native:kusto/v20200215:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -183,7 +183,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Cluster" }, { type: "azure-nextgen:kusto/latest:Cluster" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:Cluster" }, { type: "azure-nextgen:kusto:Cluster" }, { type: "azure-native:kusto/latest:Cluster" }, { type: "azure-nextgen:kusto/latest:Cluster" }, { type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

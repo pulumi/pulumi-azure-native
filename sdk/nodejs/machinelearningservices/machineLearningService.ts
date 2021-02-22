@@ -23,7 +23,7 @@ export class MachineLearningService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices:MachineLearningService';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices:MachineLearningService';
 
     /**
      * Returns true if the given object is an instance of MachineLearningService.  This is designed to work even
@@ -121,7 +121,7 @@ export class MachineLearningService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/latest:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/latest:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/latest:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningService.__pulumiType, name, inputs, opts);
     }

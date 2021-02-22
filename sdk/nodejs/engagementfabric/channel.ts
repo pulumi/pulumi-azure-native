@@ -22,7 +22,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:engagementfabric:Channel';
+    public static readonly __pulumiType = 'azure-native:engagementfabric:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even
@@ -97,7 +97,7 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:engagementfabric/v20180901preview:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric/v20180901preview:Channel" }, { type: "azure-nextgen:engagementfabric/v20180901preview:Channel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Channel.__pulumiType, name, inputs, opts);
     }

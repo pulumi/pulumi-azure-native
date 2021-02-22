@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The policy assignment.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyAssignment'.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyAssignment {
-        pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")
+        pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyAssignment'.")
         return new PolicyAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/latest:PolicyAssignment';
+    public static readonly __pulumiType = 'azure-native:authorization/latest:PolicyAssignment';
 
     /**
      * Returns true if the given object is an instance of PolicyAssignment.  This is designed to work even
@@ -99,9 +99,9 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyAssignment'. */
     constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")
+        pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
@@ -143,7 +143,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200901:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyAssignment" }, { type: "azure-nextgen:authorization:PolicyAssignment" }, { type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }, { type: "azure-native:authorization/v20200901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200901:PolicyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }

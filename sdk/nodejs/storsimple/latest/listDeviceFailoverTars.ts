@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of all devices in a resource and their eligibility status as a failover target device.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'. */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
-    pulumi.log.warn("listDeviceFailoverTars is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.")
+    pulumi.log.warn("listDeviceFailoverTars is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listDeviceFailoverTars", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:listDeviceFailoverTars", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
         "sourceDeviceName": args.sourceDeviceName,

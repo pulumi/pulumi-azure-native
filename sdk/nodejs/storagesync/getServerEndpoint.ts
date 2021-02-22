@@ -17,7 +17,7 @@ export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync:getServerEndpoint", {
+    return pulumi.runtime.invoke("azure-native:storagesync:getServerEndpoint", {
         "resourceGroupName": args.resourceGroupName,
         "serverEndpointName": args.serverEndpointName,
         "storageSyncServiceName": args.storageSyncServiceName,

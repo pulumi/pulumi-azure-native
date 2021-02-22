@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Log Search Rule resource.
  * Latest API Version: 2018-04-16.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getScheduledQueryRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getScheduledQueryRule'. */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
-    pulumi.log.warn("getScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getScheduledQueryRule'.")
+    pulumi.log.warn("getScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getScheduledQueryRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getScheduledQueryRule", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getScheduledQueryRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
     }, opts);

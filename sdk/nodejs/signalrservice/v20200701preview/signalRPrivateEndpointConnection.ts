@@ -22,7 +22,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of SignalRPrivateEndpointConnection.  This is designed to work even
@@ -94,7 +94,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalRPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

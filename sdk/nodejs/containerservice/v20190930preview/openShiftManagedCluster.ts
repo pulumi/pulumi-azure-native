@@ -22,7 +22,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster';
+    public static readonly __pulumiType = 'azure-native:containerservice/v20190930preview:OpenShiftManagedCluster';
 
     /**
      * Returns true if the given object is an instance of OpenShiftManagedCluster.  This is designed to work even
@@ -159,7 +159,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/latest:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/latest:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/latest:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenShiftManagedCluster.__pulumiType, name, inputs, opts);
     }

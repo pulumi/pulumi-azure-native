@@ -16,7 +16,7 @@ export function listNotebookProxyCredentials(args: ListNotebookProxyCredentialsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notebooks/v20191011preview:listNotebookProxyCredentials", {
+    return pulumi.runtime.invoke("azure-native:notebooks/v20191011preview:listNotebookProxyCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

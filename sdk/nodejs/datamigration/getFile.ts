@@ -17,7 +17,7 @@ export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datamigration:getFile", {
+    return pulumi.runtime.invoke("azure-native:datamigration:getFile", {
         "fileName": args.fileName,
         "groupName": args.groupName,
         "projectName": args.projectName,

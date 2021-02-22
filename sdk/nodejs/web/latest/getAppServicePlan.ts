@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * App Service plan.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServicePlan'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServicePlan'. */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
-    pulumi.log.warn("getAppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServicePlan'.")
+    pulumi.log.warn("getAppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServicePlan'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getAppServicePlan", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

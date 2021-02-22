@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The X509 Certificate.
  * Latest API Version: 2020-08-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getCertificate'. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'.")
+    pulumi.log.warn("getCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getCertificate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:getCertificate", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:getCertificate", {
         "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

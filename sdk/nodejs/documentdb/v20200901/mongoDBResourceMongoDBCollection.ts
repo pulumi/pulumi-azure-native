@@ -22,7 +22,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection';
 
     /**
      * Returns true if the given object is an instance of MongoDBResourceMongoDBCollection.  This is designed to work even
@@ -101,7 +101,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, inputs, opts);
     }

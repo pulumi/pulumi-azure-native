@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * HealthBot resource definition
  * Latest API Version: 2020-12-08.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthbot:Bot'.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Bot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Bot {
-        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.")
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthbot:Bot'.")
         return new Bot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:healthbot/latest:Bot';
+    public static readonly __pulumiType = 'azure-native:healthbot/latest:Bot';
 
     /**
      * Returns true if the given object is an instance of Bot.  This is designed to work even
@@ -75,9 +75,9 @@ export class Bot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthbot:Bot'. */
     constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.")
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthbot:Bot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -111,7 +111,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthbot:Bot" }, { type: "azure-nextgen:healthbot/v20201020:Bot" }, { type: "azure-nextgen:healthbot/v20201020preview:Bot" }, { type: "azure-nextgen:healthbot/v20201208:Bot" }, { type: "azure-nextgen:healthbot/v20201208preview:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot:Bot" }, { type: "azure-nextgen:healthbot:Bot" }, { type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-nextgen:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-nextgen:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-nextgen:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-nextgen:healthbot/v20201208preview:Bot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bot.__pulumiType, name, inputs, opts);
     }

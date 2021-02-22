@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storagecache/v20190801preview:Cache":
+            case "azure-native:storagecache/v20190801preview:Cache":
                 return new Cache(name, <any>undefined, { urn })
-            case "azure-nextgen:storagecache/v20190801preview:StorageTarget":
+            case "azure-native:storagecache/v20190801preview:StorageTarget":
                 return new StorageTarget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storagecache/v20190801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storagecache/v20190801preview", _module)

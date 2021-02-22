@@ -22,7 +22,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/v20210101:WorkspaceConnection';
 
     /**
      * Returns true if the given object is an instance of WorkspaceConnection.  This is designed to work even
@@ -106,7 +106,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/latest:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/latest:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/latest:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceConnection.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getConfigurationAssignment(args: GetConfigurationAssignmentArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignment", {
+    return pulumi.runtime.invoke("azure-native:maintenance/v20210401preview:getConfigurationAssignment", {
         "configurationAssignmentName": args.configurationAssignmentName,
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

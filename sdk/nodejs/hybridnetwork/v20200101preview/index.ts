@@ -31,19 +31,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hybridnetwork/v20200101preview:Device":
+            case "azure-native:hybridnetwork/v20200101preview:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction":
+            case "azure-native:hybridnetwork/v20200101preview:NetworkFunction":
                 return new NetworkFunction(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridnetwork/v20200101preview:Vendor":
+            case "azure-native:hybridnetwork/v20200101preview:Vendor":
                 return new Vendor(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview":
+            case "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview":
                 return new VendorSkuPreview(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridnetwork/v20200101preview:VendorSkus":
+            case "azure-native:hybridnetwork/v20200101preview:VendorSkus":
                 return new VendorSkus(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hybridnetwork/v20200101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hybridnetwork/v20200101preview", _module)

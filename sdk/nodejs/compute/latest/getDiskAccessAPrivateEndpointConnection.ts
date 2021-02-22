@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccessAPrivateEndpointConnection'. */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getDiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection'.")
+    pulumi.log.warn("getDiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccessAPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPriv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getDiskAccessAPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getDiskAccessAPrivateEndpointConnection", {
         "diskAccessName": args.diskAccessName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

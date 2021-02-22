@@ -16,7 +16,7 @@ export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200801:getBastionHost", {
+    return pulumi.runtime.invoke("azure-native:network/v20200801:getBastionHost", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

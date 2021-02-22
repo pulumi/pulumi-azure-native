@@ -27,15 +27,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerregistry/v20170601preview:Registry":
+            case "azure-native:containerregistry/v20170601preview:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20170601preview:Replication":
+            case "azure-native:containerregistry/v20170601preview:Replication":
                 return new Replication(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20170601preview:Webhook":
+            case "azure-native:containerregistry/v20170601preview:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerregistry/v20170601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerregistry/v20170601preview", _module)

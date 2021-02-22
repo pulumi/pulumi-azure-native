@@ -17,7 +17,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getConnection", {
+    return pulumi.runtime.invoke("azure-native:web:getConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionId": args.subscriptionId,

@@ -22,7 +22,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql:FirewallRule';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -94,7 +94,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/latest:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/latest:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/latest:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201preview:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azuredata/v20190724preview:getSqlServer", {
+    return pulumi.runtime.invoke("azure-native:azuredata/v20190724preview:getSqlServer", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "sqlServerName": args.sqlServerName,

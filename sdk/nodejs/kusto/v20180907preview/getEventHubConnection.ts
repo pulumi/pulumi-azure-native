@@ -16,7 +16,7 @@ export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/v20180907preview:getEventHubConnection", {
+    return pulumi.runtime.invoke("azure-native:kusto/v20180907preview:getEventHubConnection", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "eventHubConnectionName": args.eventHubConnectionName,

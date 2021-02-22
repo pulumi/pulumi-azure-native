@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getImage'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getImage'. */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    pulumi.log.warn("getImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getImage'.")
+    pulumi.log.warn("getImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getImage'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getImage", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getImage", {
         "expand": args.expand,
         "imageName": args.imageName,
         "resourceGroupName": args.resourceGroupName,

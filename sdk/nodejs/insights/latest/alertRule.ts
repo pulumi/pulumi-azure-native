@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The alert rule resource.
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AlertRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AlertRule'.
  */
 export class AlertRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AlertRule {
-        pulumi.log.warn("AlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AlertRule'.")
+        pulumi.log.warn("AlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AlertRule'.")
         return new AlertRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:AlertRule';
+    public static readonly __pulumiType = 'azure-native:insights/latest:AlertRule';
 
     /**
      * Returns true if the given object is an instance of AlertRule.  This is designed to work even
@@ -91,9 +91,9 @@ export class AlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AlertRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AlertRule'. */
     constructor(name: string, args: AlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AlertRule'.")
+        pulumi.log.warn("AlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AlertRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
@@ -141,7 +141,7 @@ export class AlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AlertRule" }, { type: "azure-nextgen:insights/v20140401:AlertRule" }, { type: "azure-nextgen:insights/v20160301:AlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:AlertRule" }, { type: "azure-nextgen:insights:AlertRule" }, { type: "azure-native:insights/v20140401:AlertRule" }, { type: "azure-nextgen:insights/v20140401:AlertRule" }, { type: "azure-native:insights/v20160301:AlertRule" }, { type: "azure-nextgen:insights/v20160301:AlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AlertRule.__pulumiType, name, inputs, opts);
     }

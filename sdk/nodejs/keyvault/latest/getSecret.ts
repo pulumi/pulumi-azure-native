@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource information with extended details.
  * Latest API Version: 2019-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getSecret'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getSecret'. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    pulumi.log.warn("getSecret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getSecret'.")
+    pulumi.log.warn("getSecret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getSecret'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault/latest:getSecret", {
+    return pulumi.runtime.invoke("azure-native:keyvault/latest:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretName": args.secretName,
         "vaultName": args.vaultName,

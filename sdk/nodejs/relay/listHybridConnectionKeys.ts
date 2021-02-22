@@ -17,7 +17,7 @@ export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay:listHybridConnectionKeys", {
+    return pulumi.runtime.invoke("azure-native:relay:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,

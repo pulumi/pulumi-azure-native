@@ -22,7 +22,7 @@ export class Partner extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managementpartner:Partner';
+    public static readonly __pulumiType = 'azure-native:managementpartner:Partner';
 
     /**
      * Returns true if the given object is an instance of Partner.  This is designed to work even
@@ -115,7 +115,7 @@ export class Partner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managementpartner/latest:Partner" }, { type: "azure-nextgen:managementpartner/v20180201:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managementpartner/latest:Partner" }, { type: "azure-nextgen:managementpartner/latest:Partner" }, { type: "azure-native:managementpartner/v20180201:Partner" }, { type: "azure-nextgen:managementpartner/v20180201:Partner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Partner.__pulumiType, name, inputs, opts);
     }

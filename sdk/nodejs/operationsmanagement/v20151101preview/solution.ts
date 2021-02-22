@@ -22,7 +22,7 @@ export class Solution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationsmanagement/v20151101preview:Solution';
+    public static readonly __pulumiType = 'azure-native:operationsmanagement/v20151101preview:Solution';
 
     /**
      * Returns true if the given object is an instance of Solution.  This is designed to work even
@@ -96,7 +96,7 @@ export class Solution extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationsmanagement:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement:Solution" }, { type: "azure-nextgen:operationsmanagement:Solution" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Solution.__pulumiType, name, inputs, opts);
     }

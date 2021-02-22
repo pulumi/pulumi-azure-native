@@ -16,7 +16,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:getMap", {
+    return pulumi.runtime.invoke("azure-native:logic/v20160601:getMap", {
         "integrationAccountName": args.integrationAccountName,
         "mapName": args.mapName,
         "resourceGroupName": args.resourceGroupName,

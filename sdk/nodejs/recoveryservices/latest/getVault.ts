@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource information, as returned by the resource provider.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getVault'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getVault'. */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
-    pulumi.log.warn("getVault is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getVault'.")
+    pulumi.log.warn("getVault is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getVault'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getVault", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);

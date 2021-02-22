@@ -16,7 +16,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/v20171201preview:getServer", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20171201preview:getServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

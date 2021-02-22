@@ -23,7 +23,7 @@ export class BackupSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:BackupSchedule';
+    public static readonly __pulumiType = 'azure-native:storsimple:BackupSchedule';
 
     /**
      * Returns true if the given object is an instance of BackupSchedule.  This is designed to work even
@@ -142,7 +142,7 @@ export class BackupSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:BackupSchedule" }, { type: "azure-nextgen:storsimple/v20170601:BackupSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:BackupSchedule" }, { type: "azure-nextgen:storsimple/latest:BackupSchedule" }, { type: "azure-native:storsimple/v20170601:BackupSchedule" }, { type: "azure-nextgen:storsimple/v20170601:BackupSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupSchedule.__pulumiType, name, inputs, opts);
     }

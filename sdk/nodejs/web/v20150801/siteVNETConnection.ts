@@ -22,7 +22,7 @@ export class SiteVNETConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteVNETConnection';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteVNETConnection';
 
     /**
      * Returns true if the given object is an instance of SiteVNETConnection.  This is designed to work even
@@ -131,7 +131,7 @@ export class SiteVNETConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteVNETConnection" }, { type: "azure-nextgen:web/latest:SiteVNETConnection" }, { type: "azure-nextgen:web/v20160801:SiteVNETConnection" }, { type: "azure-nextgen:web/v20180201:SiteVNETConnection" }, { type: "azure-nextgen:web/v20181101:SiteVNETConnection" }, { type: "azure-nextgen:web/v20190801:SiteVNETConnection" }, { type: "azure-nextgen:web/v20200601:SiteVNETConnection" }, { type: "azure-nextgen:web/v20200901:SiteVNETConnection" }, { type: "azure-nextgen:web/v20201001:SiteVNETConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteVNETConnection" }, { type: "azure-nextgen:web:SiteVNETConnection" }, { type: "azure-native:web/latest:SiteVNETConnection" }, { type: "azure-nextgen:web/latest:SiteVNETConnection" }, { type: "azure-native:web/v20160801:SiteVNETConnection" }, { type: "azure-nextgen:web/v20160801:SiteVNETConnection" }, { type: "azure-native:web/v20180201:SiteVNETConnection" }, { type: "azure-nextgen:web/v20180201:SiteVNETConnection" }, { type: "azure-native:web/v20181101:SiteVNETConnection" }, { type: "azure-nextgen:web/v20181101:SiteVNETConnection" }, { type: "azure-native:web/v20190801:SiteVNETConnection" }, { type: "azure-nextgen:web/v20190801:SiteVNETConnection" }, { type: "azure-native:web/v20200601:SiteVNETConnection" }, { type: "azure-nextgen:web/v20200601:SiteVNETConnection" }, { type: "azure-native:web/v20200901:SiteVNETConnection" }, { type: "azure-nextgen:web/v20200901:SiteVNETConnection" }, { type: "azure-native:web/v20201001:SiteVNETConnection" }, { type: "azure-nextgen:web/v20201001:SiteVNETConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteVNETConnection.__pulumiType, name, inputs, opts);
     }

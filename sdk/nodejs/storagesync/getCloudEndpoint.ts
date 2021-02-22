@@ -17,7 +17,7 @@ export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync:getCloudEndpoint", {
+    return pulumi.runtime.invoke("azure-native:storagesync:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,

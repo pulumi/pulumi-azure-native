@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Dedicated cloud node model
  * Latest API Version: 2019-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedCloudNode {
-        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.")
+        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.")
         return new DedicatedCloudNode(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode';
+    public static readonly __pulumiType = 'azure-native:vmwarecloudsimple/latest:DedicatedCloudNode';
 
     /**
      * Returns true if the given object is an instance of DedicatedCloudNode.  This is designed to work even
@@ -119,9 +119,9 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'. */
     constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.")
+        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.availabilityZoneId === undefined) && !(opts && opts.urn)) {
@@ -193,7 +193,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudNode" }, { type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode" }, { type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedCloudNode.__pulumiType, name, inputs, opts);
     }

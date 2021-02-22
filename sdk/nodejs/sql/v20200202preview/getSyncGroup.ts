@@ -16,7 +16,7 @@ export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getSyncGroup", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getSyncGroup", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

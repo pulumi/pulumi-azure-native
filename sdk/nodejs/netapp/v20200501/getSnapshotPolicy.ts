@@ -16,7 +16,7 @@ export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/v20200501:getSnapshotPolicy", {
+    return pulumi.runtime.invoke("azure-native:netapp/v20200501:getSnapshotPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "snapshotPolicyName": args.snapshotPolicyName,

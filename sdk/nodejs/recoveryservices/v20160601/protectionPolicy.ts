@@ -22,7 +22,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20160601:ProtectionPolicy';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20160601:ProtectionPolicy';
 
     /**
      * Returns true if the given object is an instance of ProtectionPolicy.  This is designed to work even
@@ -101,7 +101,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices:ProtectionPolicy" }, { type: "azure-native:recoveryservices/latest:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210101:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionPolicy.__pulumiType, name, inputs, opts);
     }

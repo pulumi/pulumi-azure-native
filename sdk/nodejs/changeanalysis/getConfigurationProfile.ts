@@ -17,7 +17,7 @@ export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:changeanalysis:getConfigurationProfile", {
+    return pulumi.runtime.invoke("azure-native:changeanalysis:getConfigurationProfile", {
         "profileName": args.profileName,
     }, opts);
 }

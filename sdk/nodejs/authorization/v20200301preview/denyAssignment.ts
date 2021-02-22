@@ -22,7 +22,7 @@ export class DenyAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20200301preview:DenyAssignment';
+    public static readonly __pulumiType = 'azure-native:authorization/v20200301preview:DenyAssignment';
 
     /**
      * Returns true if the given object is an instance of DenyAssignment.  This is designed to work even
@@ -160,7 +160,7 @@ export class DenyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:DenyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:DenyAssignment" }, { type: "azure-nextgen:authorization:DenyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DenyAssignment.__pulumiType, name, inputs, opts);
     }

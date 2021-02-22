@@ -17,7 +17,7 @@ export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn:getAFDEndpoint", {
+    return pulumi.runtime.invoke("azure-native:cdn:getAFDEndpoint", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a backup which will be performed.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupConfiguration'. */
 export function listWebAppBackupConfiguration(args: ListWebAppBackupConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationResult> {
-    pulumi.log.warn("listWebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfiguration'.")
+    pulumi.log.warn("listWebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppBackupConfiguration(args: ListWebAppBackupConfiguratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppBackupConfiguration", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppBackupConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

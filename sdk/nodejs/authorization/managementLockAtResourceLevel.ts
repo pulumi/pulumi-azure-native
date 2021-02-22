@@ -23,7 +23,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization:ManagementLockAtResourceLevel';
+    public static readonly __pulumiType = 'azure-native:authorization:ManagementLockAtResourceLevel';
 
     /**
      * Returns true if the given object is an instance of ManagementLockAtResourceLevel.  This is designed to work even
@@ -110,7 +110,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/latest:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
     }

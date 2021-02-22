@@ -16,7 +16,7 @@ export function listRemediationDeploymentsAtSubscription(args: ListRemediationDe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/v20190701:listRemediationDeploymentsAtSubscription", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/v20190701:listRemediationDeploymentsAtSubscription", {
         "remediationName": args.remediationName,
         "top": args.top,
     }, opts);

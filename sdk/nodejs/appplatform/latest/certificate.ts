@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Certificate resource payload.
  * Latest API Version: 2020-07-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Certificate'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Certificate'.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Certificate'.")
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Certificate'.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform/latest:Certificate';
+    public static readonly __pulumiType = 'azure-native:appplatform/latest:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -59,9 +59,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Certificate'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Certificate'. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Certificate'.")
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Certificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -88,7 +88,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20200701:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Certificate" }, { type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-native:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-native:appplatform/v20200701:Certificate" }, { type: "azure-nextgen:appplatform/v20200701:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

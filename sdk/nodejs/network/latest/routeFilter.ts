@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Route Filter Resource.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilter'.
  */
 export class RouteFilter extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RouteFilter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteFilter {
-        pulumi.log.warn("RouteFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'.")
+        pulumi.log.warn("RouteFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilter'.")
         return new RouteFilter(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:RouteFilter';
+    public static readonly __pulumiType = 'azure-native:network/latest:RouteFilter';
 
     /**
      * Returns true if the given object is an instance of RouteFilter.  This is designed to work even
@@ -83,9 +83,9 @@ export class RouteFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilter'. */
     constructor(name: string, args: RouteFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RouteFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'.")
+        pulumi.log.warn("RouteFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilter'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -121,7 +121,7 @@ export class RouteFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RouteFilter" }, { type: "azure-nextgen:network/v20161201:RouteFilter" }, { type: "azure-nextgen:network/v20170301:RouteFilter" }, { type: "azure-nextgen:network/v20170601:RouteFilter" }, { type: "azure-nextgen:network/v20170801:RouteFilter" }, { type: "azure-nextgen:network/v20170901:RouteFilter" }, { type: "azure-nextgen:network/v20171001:RouteFilter" }, { type: "azure-nextgen:network/v20171101:RouteFilter" }, { type: "azure-nextgen:network/v20180101:RouteFilter" }, { type: "azure-nextgen:network/v20180201:RouteFilter" }, { type: "azure-nextgen:network/v20180401:RouteFilter" }, { type: "azure-nextgen:network/v20180601:RouteFilter" }, { type: "azure-nextgen:network/v20180701:RouteFilter" }, { type: "azure-nextgen:network/v20180801:RouteFilter" }, { type: "azure-nextgen:network/v20181001:RouteFilter" }, { type: "azure-nextgen:network/v20181101:RouteFilter" }, { type: "azure-nextgen:network/v20181201:RouteFilter" }, { type: "azure-nextgen:network/v20190201:RouteFilter" }, { type: "azure-nextgen:network/v20190401:RouteFilter" }, { type: "azure-nextgen:network/v20190601:RouteFilter" }, { type: "azure-nextgen:network/v20190701:RouteFilter" }, { type: "azure-nextgen:network/v20190801:RouteFilter" }, { type: "azure-nextgen:network/v20190901:RouteFilter" }, { type: "azure-nextgen:network/v20191101:RouteFilter" }, { type: "azure-nextgen:network/v20191201:RouteFilter" }, { type: "azure-nextgen:network/v20200301:RouteFilter" }, { type: "azure-nextgen:network/v20200401:RouteFilter" }, { type: "azure-nextgen:network/v20200501:RouteFilter" }, { type: "azure-nextgen:network/v20200601:RouteFilter" }, { type: "azure-nextgen:network/v20200701:RouteFilter" }, { type: "azure-nextgen:network/v20200801:RouteFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteFilter" }, { type: "azure-nextgen:network:RouteFilter" }, { type: "azure-native:network/v20161201:RouteFilter" }, { type: "azure-nextgen:network/v20161201:RouteFilter" }, { type: "azure-native:network/v20170301:RouteFilter" }, { type: "azure-nextgen:network/v20170301:RouteFilter" }, { type: "azure-native:network/v20170601:RouteFilter" }, { type: "azure-nextgen:network/v20170601:RouteFilter" }, { type: "azure-native:network/v20170801:RouteFilter" }, { type: "azure-nextgen:network/v20170801:RouteFilter" }, { type: "azure-native:network/v20170901:RouteFilter" }, { type: "azure-nextgen:network/v20170901:RouteFilter" }, { type: "azure-native:network/v20171001:RouteFilter" }, { type: "azure-nextgen:network/v20171001:RouteFilter" }, { type: "azure-native:network/v20171101:RouteFilter" }, { type: "azure-nextgen:network/v20171101:RouteFilter" }, { type: "azure-native:network/v20180101:RouteFilter" }, { type: "azure-nextgen:network/v20180101:RouteFilter" }, { type: "azure-native:network/v20180201:RouteFilter" }, { type: "azure-nextgen:network/v20180201:RouteFilter" }, { type: "azure-native:network/v20180401:RouteFilter" }, { type: "azure-nextgen:network/v20180401:RouteFilter" }, { type: "azure-native:network/v20180601:RouteFilter" }, { type: "azure-nextgen:network/v20180601:RouteFilter" }, { type: "azure-native:network/v20180701:RouteFilter" }, { type: "azure-nextgen:network/v20180701:RouteFilter" }, { type: "azure-native:network/v20180801:RouteFilter" }, { type: "azure-nextgen:network/v20180801:RouteFilter" }, { type: "azure-native:network/v20181001:RouteFilter" }, { type: "azure-nextgen:network/v20181001:RouteFilter" }, { type: "azure-native:network/v20181101:RouteFilter" }, { type: "azure-nextgen:network/v20181101:RouteFilter" }, { type: "azure-native:network/v20181201:RouteFilter" }, { type: "azure-nextgen:network/v20181201:RouteFilter" }, { type: "azure-native:network/v20190201:RouteFilter" }, { type: "azure-nextgen:network/v20190201:RouteFilter" }, { type: "azure-native:network/v20190401:RouteFilter" }, { type: "azure-nextgen:network/v20190401:RouteFilter" }, { type: "azure-native:network/v20190601:RouteFilter" }, { type: "azure-nextgen:network/v20190601:RouteFilter" }, { type: "azure-native:network/v20190701:RouteFilter" }, { type: "azure-nextgen:network/v20190701:RouteFilter" }, { type: "azure-native:network/v20190801:RouteFilter" }, { type: "azure-nextgen:network/v20190801:RouteFilter" }, { type: "azure-native:network/v20190901:RouteFilter" }, { type: "azure-nextgen:network/v20190901:RouteFilter" }, { type: "azure-native:network/v20191101:RouteFilter" }, { type: "azure-nextgen:network/v20191101:RouteFilter" }, { type: "azure-native:network/v20191201:RouteFilter" }, { type: "azure-nextgen:network/v20191201:RouteFilter" }, { type: "azure-native:network/v20200301:RouteFilter" }, { type: "azure-nextgen:network/v20200301:RouteFilter" }, { type: "azure-native:network/v20200401:RouteFilter" }, { type: "azure-nextgen:network/v20200401:RouteFilter" }, { type: "azure-native:network/v20200501:RouteFilter" }, { type: "azure-nextgen:network/v20200501:RouteFilter" }, { type: "azure-native:network/v20200601:RouteFilter" }, { type: "azure-nextgen:network/v20200601:RouteFilter" }, { type: "azure-native:network/v20200701:RouteFilter" }, { type: "azure-nextgen:network/v20200701:RouteFilter" }, { type: "azure-native:network/v20200801:RouteFilter" }, { type: "azure-nextgen:network/v20200801:RouteFilter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RouteFilter.__pulumiType, name, inputs, opts);
     }

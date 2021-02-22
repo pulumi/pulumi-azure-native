@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * EnterpriseKnowledgeGraph resource definition
  * Latest API Version: 2018-12-03.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'. */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
-    pulumi.log.warn("getEnterpriseKnowledgeGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")
+    pulumi.log.warn("getEnterpriseKnowledgeGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:enterpriseknowledgegraph/latest:getEnterpriseKnowledgeGraph", {
+    return pulumi.runtime.invoke("azure-native:enterpriseknowledgegraph/latest:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

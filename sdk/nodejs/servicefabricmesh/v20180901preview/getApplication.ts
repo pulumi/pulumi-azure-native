@@ -16,7 +16,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh/v20180901preview:getApplication", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getApplication", {
         "applicationResourceName": args.applicationResourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

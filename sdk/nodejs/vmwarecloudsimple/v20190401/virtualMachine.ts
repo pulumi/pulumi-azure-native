@@ -22,7 +22,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine';
+    public static readonly __pulumiType = 'azure-native:vmwarecloudsimple/v20190401:VirtualMachine';
 
     /**
      * Returns true if the given object is an instance of VirtualMachine.  This is designed to work even
@@ -225,7 +225,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple:VirtualMachine" }, { type: "azure-native:vmwarecloudsimple/latest:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

@@ -85,35 +85,35 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:media:AccountFilter":
+            case "azure-native:media:AccountFilter":
                 return new AccountFilter(name, <any>undefined, { urn })
-            case "azure-nextgen:media:Asset":
+            case "azure-native:media:Asset":
                 return new Asset(name, <any>undefined, { urn })
-            case "azure-nextgen:media:AssetFilter":
+            case "azure-native:media:AssetFilter":
                 return new AssetFilter(name, <any>undefined, { urn })
-            case "azure-nextgen:media:ContentKeyPolicy":
+            case "azure-native:media:ContentKeyPolicy":
                 return new ContentKeyPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:media:Job":
+            case "azure-native:media:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-nextgen:media:LiveEvent":
+            case "azure-native:media:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
-            case "azure-nextgen:media:LiveOutput":
+            case "azure-native:media:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
-            case "azure-nextgen:media:MediaService":
+            case "azure-native:media:MediaService":
                 return new MediaService(name, <any>undefined, { urn })
-            case "azure-nextgen:media:PrivateEndpointConnection":
+            case "azure-native:media:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:media:StreamingEndpoint":
+            case "azure-native:media:StreamingEndpoint":
                 return new StreamingEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:media:StreamingLocator":
+            case "azure-native:media:StreamingLocator":
                 return new StreamingLocator(name, <any>undefined, { urn })
-            case "azure-nextgen:media:StreamingPolicy":
+            case "azure-native:media:StreamingPolicy":
                 return new StreamingPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:media:Transform":
+            case "azure-native:media:Transform":
                 return new Transform(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "media", _module)
+pulumi.runtime.registerResourceModule("azure-native", "media", _module)

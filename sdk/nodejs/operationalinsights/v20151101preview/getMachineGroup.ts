@@ -16,7 +16,7 @@ export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20151101preview:getMachineGroup", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
         "endTime": args.endTime,
         "machineGroupName": args.machineGroupName,
         "resourceGroupName": args.resourceGroupName,

@@ -33,21 +33,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:desktopvirtualization/v20201110preview:Application":
+            case "azure-native:desktopvirtualization/v20201110preview:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup":
+            case "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20201110preview:HostPool":
+            case "azure-native:desktopvirtualization/v20201110preview:HostPool":
                 return new HostPool(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage":
+            case "azure-native:desktopvirtualization/v20201110preview:MSIXPackage":
                 return new MSIXPackage(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan":
+            case "azure-native:desktopvirtualization/v20201110preview:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20201110preview:Workspace":
+            case "azure-native:desktopvirtualization/v20201110preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "desktopvirtualization/v20201110preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "desktopvirtualization/v20201110preview", _module)

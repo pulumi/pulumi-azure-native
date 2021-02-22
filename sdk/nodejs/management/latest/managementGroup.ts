@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The management group details.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementGroup {
-        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")
+        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.")
         return new ManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:management/latest:ManagementGroup';
+    public static readonly __pulumiType = 'azure-native:management/latest:ManagementGroup';
 
     /**
      * Returns true if the given object is an instance of ManagementGroup.  This is designed to work even
@@ -75,9 +75,9 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'. */
     constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")
+        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             inputs["details"] = args ? args.details : undefined;
@@ -104,7 +104,7 @@ export class ManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management:ManagementGroup" }, { type: "azure-nextgen:management/v20171101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180301preview:ManagementGroup" }, { type: "azure-nextgen:management/v20191101:ManagementGroup" }, { type: "azure-nextgen:management/v20200201:ManagementGroup" }, { type: "azure-nextgen:management/v20200501:ManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroup" }, { type: "azure-nextgen:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-nextgen:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-nextgen:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-nextgen:management/v20200501:ManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }

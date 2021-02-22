@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Managed cluster.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getManagedCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getManagedCluster'. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
-    pulumi.log.warn("getManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getManagedCluster'.")
+    pulumi.log.warn("getManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getManagedCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:getManagedCluster", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:getManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

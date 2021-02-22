@@ -21,7 +21,7 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180601preview:Tag';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20180601preview:Tag';
 
     /**
      * Returns true if the given object is an instance of Tag.  This is designed to work even
@@ -84,7 +84,7 @@ export class Tag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Tag" }, { type: "azure-nextgen:apimanagement/latest:Tag" }, { type: "azure-nextgen:apimanagement/v20170301:Tag" }, { type: "azure-nextgen:apimanagement/v20180101:Tag" }, { type: "azure-nextgen:apimanagement/v20190101:Tag" }, { type: "azure-nextgen:apimanagement/v20191201:Tag" }, { type: "azure-nextgen:apimanagement/v20191201preview:Tag" }, { type: "azure-nextgen:apimanagement/v20200601preview:Tag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Tag" }, { type: "azure-nextgen:apimanagement:Tag" }, { type: "azure-native:apimanagement/latest:Tag" }, { type: "azure-nextgen:apimanagement/latest:Tag" }, { type: "azure-native:apimanagement/v20170301:Tag" }, { type: "azure-nextgen:apimanagement/v20170301:Tag" }, { type: "azure-native:apimanagement/v20180101:Tag" }, { type: "azure-nextgen:apimanagement/v20180101:Tag" }, { type: "azure-native:apimanagement/v20190101:Tag" }, { type: "azure-nextgen:apimanagement/v20190101:Tag" }, { type: "azure-native:apimanagement/v20191201:Tag" }, { type: "azure-nextgen:apimanagement/v20191201:Tag" }, { type: "azure-native:apimanagement/v20191201preview:Tag" }, { type: "azure-nextgen:apimanagement/v20191201preview:Tag" }, { type: "azure-native:apimanagement/v20200601preview:Tag" }, { type: "azure-nextgen:apimanagement/v20200601preview:Tag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Tag.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/v20210101:FileServiceProperties';
+    public static readonly __pulumiType = 'azure-native:storage/v20210101:FileServiceProperties';
 
     /**
      * Returns true if the given object is an instance of FileServiceProperties.  This is designed to work even
@@ -100,7 +100,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:FileServiceProperties" }, { type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-native:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aad/v20200101:getOuContainer", {
+    return pulumi.runtime.invoke("azure-native:aad/v20200101:getOuContainer", {
         "domainServiceName": args.domainServiceName,
         "ouContainerName": args.ouContainerName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Gateway hostname configuration details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGatewayHostnameConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGatewayHostnameConfiguration'. */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
-    pulumi.log.warn("getGatewayHostnameConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGatewayHostnameConfiguration'.")
+    pulumi.log.warn("getGatewayHostnameConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGatewayHostnameConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigur
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getGatewayHostnameConfiguration", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,
         "hcId": args.hcId,
         "resourceGroupName": args.resourceGroupName,

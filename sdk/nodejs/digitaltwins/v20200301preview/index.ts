@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin":
+            case "azure-native:digitaltwins/v20200301preview:DigitalTwin":
                 return new DigitalTwin(name, <any>undefined, { urn })
-            case "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint":
+            case "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint":
                 return new DigitalTwinsEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "digitaltwins/v20200301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "digitaltwins/v20200301preview", _module)

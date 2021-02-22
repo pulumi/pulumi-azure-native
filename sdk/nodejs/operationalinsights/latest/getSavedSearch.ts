@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Value object for saved search results.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getSavedSearch'. */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
-    pulumi.log.warn("getSavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'.")
+    pulumi.log.warn("getSavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getSavedSearch'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/latest:getSavedSearch", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/latest:getSavedSearch", {
         "resourceGroupName": args.resourceGroupName,
         "savedSearchId": args.savedSearchId,
         "workspaceName": args.workspaceName,

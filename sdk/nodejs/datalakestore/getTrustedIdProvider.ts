@@ -17,7 +17,7 @@ export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakestore:getTrustedIdProvider", {
+    return pulumi.runtime.invoke("azure-native:datalakestore:getTrustedIdProvider", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "trustedIdProviderName": args.trustedIdProviderName,

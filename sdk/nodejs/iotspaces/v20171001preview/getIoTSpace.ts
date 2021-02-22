@@ -16,7 +16,7 @@ export function getIoTSpace(args: GetIoTSpaceArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:iotspaces/v20171001preview:getIoTSpace", {
+    return pulumi.runtime.invoke("azure-native:iotspaces/v20171001preview:getIoTSpace", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

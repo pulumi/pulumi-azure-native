@@ -17,7 +17,7 @@ export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewSched
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getAccessReviewScheduleDefinitionById", {
+    return pulumi.runtime.invoke("azure-native:authorization:getAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
     }, opts);
 }

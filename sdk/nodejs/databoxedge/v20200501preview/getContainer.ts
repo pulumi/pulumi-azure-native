@@ -16,7 +16,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200501preview:getContainer", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200501preview:getContainer", {
         "containerName": args.containerName,
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class DataFlow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory:DataFlow';
+    public static readonly __pulumiType = 'azure-native:datafactory:DataFlow';
 
     /**
      * Returns true if the given object is an instance of DataFlow.  This is designed to work even
@@ -92,7 +92,7 @@ export class DataFlow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/latest:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/latest:DataFlow" }, { type: "azure-nextgen:datafactory/latest:DataFlow" }, { type: "azure-native:datafactory/v20180601:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataFlow.__pulumiType, name, inputs, opts);
     }

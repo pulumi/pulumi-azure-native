@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the automation account type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getAutomationAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getAutomationAccount'. */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
-    pulumi.log.warn("getAutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getAutomationAccount'.")
+    pulumi.log.warn("getAutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getAutomationAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getAutomationAccount", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class ScopeMap extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190501preview:ScopeMap';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20190501preview:ScopeMap';
 
     /**
      * Returns true if the given object is an instance of ScopeMap.  This is designed to work even
@@ -111,7 +111,7 @@ export class ScopeMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20201101preview:ScopeMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ScopeMap" }, { type: "azure-nextgen:containerregistry:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-nextgen:containerregistry/v20201101preview:ScopeMap" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScopeMap.__pulumiType, name, inputs, opts);
     }

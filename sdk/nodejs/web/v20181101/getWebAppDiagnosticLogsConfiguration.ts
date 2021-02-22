@@ -16,7 +16,7 @@ export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebAppDiagnosticLogsConfiguration", {
+    return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppDiagnosticLogsConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

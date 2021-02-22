@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeering'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeering'. */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
-    pulumi.log.warn("getPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeering'.")
+    pulumi.log.warn("getPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeering'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/latest:getPeering", {
+    return pulumi.runtime.invoke("azure-native:peering/latest:getPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

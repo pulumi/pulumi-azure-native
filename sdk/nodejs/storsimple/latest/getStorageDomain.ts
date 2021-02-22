@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The storage domain.
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getStorageDomain'. */
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
-    pulumi.log.warn("getStorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.")
+    pulumi.log.warn("getStorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getStorageDomain'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getStorageDomain", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getStorageDomain", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
         "storageDomainName": args.storageDomainName,

@@ -13,7 +13,7 @@ export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/v20201120:getSkus", {
+    return pulumi.runtime.invoke("azure-native:providerhub/v20201120:getSkus", {
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,
         "sku": args.sku,

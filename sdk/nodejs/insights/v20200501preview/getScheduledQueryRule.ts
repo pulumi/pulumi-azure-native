@@ -16,7 +16,7 @@ export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20200501preview:getScheduledQueryRule", {
+    return pulumi.runtime.invoke("azure-native:insights/v20200501preview:getScheduledQueryRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
     }, opts);

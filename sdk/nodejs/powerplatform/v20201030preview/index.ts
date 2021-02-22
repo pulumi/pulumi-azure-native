@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy":
+            case "azure-native:powerplatform/v20201030preview:EnterprisePolicy":
                 return new EnterprisePolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:powerplatform/v20201030preview:PrivateEndpointConnection":
+            case "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "powerplatform/v20201030preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "powerplatform/v20201030preview", _module)

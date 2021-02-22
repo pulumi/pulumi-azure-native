@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of NetworkRuleSet resource.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceNetworkRuleSet'.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceNetworkRuleSet {
-        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'.")
+        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceNetworkRuleSet'.")
         return new NamespaceNetworkRuleSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet';
+    public static readonly __pulumiType = 'azure-native:eventhub/latest:NamespaceNetworkRuleSet';
 
     /**
      * Returns true if the given object is an instance of NamespaceNetworkRuleSet.  This is designed to work even
@@ -67,9 +67,9 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceNetworkRuleSet'. */
     constructor(name: string, args: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'.")
+        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceNetworkRuleSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }

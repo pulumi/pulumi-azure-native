@@ -22,7 +22,7 @@ export class BuildTask extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20180201preview:BuildTask';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20180201preview:BuildTask';
 
     /**
      * Returns true if the given object is an instance of BuildTask.  This is designed to work even
@@ -139,7 +139,7 @@ export class BuildTask extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:BuildTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BuildTask.__pulumiType, name, inputs, opts);
     }

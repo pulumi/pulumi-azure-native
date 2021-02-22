@@ -17,7 +17,7 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getDiskEncryptionSet", {
+    return pulumi.runtime.invoke("azure-native:compute:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

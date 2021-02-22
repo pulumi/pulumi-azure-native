@@ -22,7 +22,7 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20160601:Schema';
+    public static readonly __pulumiType = 'azure-native:logic/v20160601:Schema';
 
     /**
      * Returns true if the given object is an instance of Schema.  This is designed to work even
@@ -151,7 +151,7 @@ export class Schema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:Schema" }, { type: "azure-nextgen:logic/latest:Schema" }, { type: "azure-nextgen:logic/v20150801preview:Schema" }, { type: "azure-nextgen:logic/v20180701preview:Schema" }, { type: "azure-nextgen:logic/v20190501:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:Schema" }, { type: "azure-nextgen:logic:Schema" }, { type: "azure-native:logic/latest:Schema" }, { type: "azure-nextgen:logic/latest:Schema" }, { type: "azure-native:logic/v20150801preview:Schema" }, { type: "azure-nextgen:logic/v20150801preview:Schema" }, { type: "azure-native:logic/v20180701preview:Schema" }, { type: "azure-nextgen:logic/v20180701preview:Schema" }, { type: "azure-native:logic/v20190501:Schema" }, { type: "azure-nextgen:logic/v20190501:Schema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schema.__pulumiType, name, inputs, opts);
     }

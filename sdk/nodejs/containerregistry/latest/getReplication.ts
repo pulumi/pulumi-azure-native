@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An object that represents a replication for a container registry.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getReplication'. */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
-    pulumi.log.warn("getReplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'.")
+    pulumi.log.warn("getReplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getReplication'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getReplication", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:getReplication", {
         "registryName": args.registryName,
         "replicationName": args.replicationName,
         "resourceGroupName": args.resourceGroupName,

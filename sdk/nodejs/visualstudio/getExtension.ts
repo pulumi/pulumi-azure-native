@@ -17,7 +17,7 @@ export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:visualstudio:getExtension", {
+    return pulumi.runtime.invoke("azure-native:visualstudio:getExtension", {
         "accountResourceName": args.accountResourceName,
         "extensionResourceName": args.extensionResourceName,
         "resourceGroupName": args.resourceGroupName,

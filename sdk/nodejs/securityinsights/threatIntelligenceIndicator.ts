@@ -23,7 +23,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights:ThreatIntelligenceIndicator';
+    public static readonly __pulumiType = 'azure-native:securityinsights:ThreatIntelligenceIndicator';
 
     /**
      * Returns true if the given object is an instance of ThreatIntelligenceIndicator.  This is designed to work even
@@ -119,7 +119,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ThreatIntelligenceIndicator.__pulumiType, name, inputs, opts);
     }

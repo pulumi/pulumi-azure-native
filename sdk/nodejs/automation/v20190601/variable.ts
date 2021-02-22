@@ -21,7 +21,7 @@ export class Variable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/v20190601:Variable';
+    public static readonly __pulumiType = 'azure-native:automation/v20190601:Variable';
 
     /**
      * Returns true if the given object is an instance of Variable.  This is designed to work even
@@ -108,7 +108,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Variable" }, { type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Variable" }, { type: "azure-nextgen:automation:Variable" }, { type: "azure-native:automation/latest:Variable" }, { type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-native:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Variable.__pulumiType, name, inputs, opts);
     }

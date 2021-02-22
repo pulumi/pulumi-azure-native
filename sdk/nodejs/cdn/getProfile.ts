@@ -17,7 +17,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn:getProfile", {
+    return pulumi.runtime.invoke("azure-native:cdn:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

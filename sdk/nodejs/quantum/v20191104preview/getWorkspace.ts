@@ -16,7 +16,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:quantum/v20191104preview:getWorkspace", {
+    return pulumi.runtime.invoke("azure-native:quantum/v20191104preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

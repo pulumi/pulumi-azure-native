@@ -23,7 +23,7 @@ export class IncidentComment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights:IncidentComment';
+    public static readonly __pulumiType = 'azure-native:securityinsights:IncidentComment';
 
     /**
      * Returns true if the given object is an instance of IncidentComment.  This is designed to work even
@@ -118,7 +118,7 @@ export class IncidentComment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IncidentComment.__pulumiType, name, inputs, opts);
     }

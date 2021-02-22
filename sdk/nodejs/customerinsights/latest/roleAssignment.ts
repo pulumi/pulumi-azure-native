@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The Role Assignment resource format.
  * Latest API Version: 2017-04-26.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'.
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RoleAssignment {
-        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.")
+        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'.")
         return new RoleAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights/latest:RoleAssignment';
+    public static readonly __pulumiType = 'azure-native:customerinsights/latest:RoleAssignment';
 
     /**
      * Returns true if the given object is an instance of RoleAssignment.  This is designed to work even
@@ -135,9 +135,9 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'. */
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.")
+        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
@@ -207,7 +207,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170101:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170426:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RoleAssignment" }, { type: "azure-nextgen:customerinsights:RoleAssignment" }, { type: "azure-native:customerinsights/v20170101:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170101:RoleAssignment" }, { type: "azure-native:customerinsights/v20170426:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170426:RoleAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }

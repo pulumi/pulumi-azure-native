@@ -46,27 +46,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storsimple/v20170601:AccessControlRecord":
+            case "azure-native:storsimple/v20170601:AccessControlRecord":
                 return new AccessControlRecord(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:BackupPolicy":
+            case "azure-native:storsimple/v20170601:BackupPolicy":
                 return new BackupPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:BackupSchedule":
+            case "azure-native:storsimple/v20170601:BackupSchedule":
                 return new BackupSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:BandwidthSetting":
+            case "azure-native:storsimple/v20170601:BandwidthSetting":
                 return new BandwidthSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:Manager":
+            case "azure-native:storsimple/v20170601:Manager":
                 return new Manager(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo":
+            case "azure-native:storsimple/v20170601:ManagerExtendedInfo":
                 return new ManagerExtendedInfo(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:StorageAccountCredential":
+            case "azure-native:storsimple/v20170601:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:Volume":
+            case "azure-native:storsimple/v20170601:Volume":
                 return new Volume(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20170601:VolumeContainer":
+            case "azure-native:storsimple/v20170601:VolumeContainer":
                 return new VolumeContainer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storsimple/v20170601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storsimple/v20170601", _module)

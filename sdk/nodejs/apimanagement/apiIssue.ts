@@ -23,7 +23,7 @@ export class ApiIssue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement:ApiIssue';
+    public static readonly __pulumiType = 'azure-native:apimanagement:ApiIssue';
 
     /**
      * Returns true if the given object is an instance of ApiIssue.  This is designed to work even
@@ -125,7 +125,7 @@ export class ApiIssue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/latest:ApiIssue" }, { type: "azure-nextgen:apimanagement/latest:ApiIssue" }, { type: "azure-native:apimanagement/v20170301:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssue" }, { type: "azure-native:apimanagement/v20180101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssue" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20190101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssue" }, { type: "azure-native:apimanagement/v20191201:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssue" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssue.__pulumiType, name, inputs, opts);
     }

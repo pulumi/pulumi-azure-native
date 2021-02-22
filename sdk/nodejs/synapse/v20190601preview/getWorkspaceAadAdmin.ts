@@ -16,7 +16,7 @@ export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getWorkspaceAadAdmin", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

@@ -21,7 +21,7 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/v20180601preview:Configuration';
+    public static readonly __pulumiType = 'azure-native:dbformariadb/v20180601preview:Configuration';
 
     /**
      * Returns true if the given object is an instance of Configuration.  This is designed to work even
@@ -111,7 +111,7 @@ export class Configuration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:Configuration" }, { type: "azure-nextgen:dbformariadb/latest:Configuration" }, { type: "azure-nextgen:dbformariadb/v20180601:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:Configuration" }, { type: "azure-nextgen:dbformariadb:Configuration" }, { type: "azure-native:dbformariadb/latest:Configuration" }, { type: "azure-nextgen:dbformariadb/latest:Configuration" }, { type: "azure-native:dbformariadb/v20180601:Configuration" }, { type: "azure-nextgen:dbformariadb/v20180601:Configuration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Configuration.__pulumiType, name, inputs, opts);
     }

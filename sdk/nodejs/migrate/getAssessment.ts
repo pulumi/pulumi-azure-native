@@ -17,7 +17,7 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate:getAssessment", {
+    return pulumi.runtime.invoke("azure-native:migrate:getAssessment", {
         "assessmentName": args.assessmentName,
         "groupName": args.groupName,
         "projectName": args.projectName,

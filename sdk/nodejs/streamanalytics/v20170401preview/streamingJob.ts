@@ -22,7 +22,7 @@ export class StreamingJob extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:streamanalytics/v20170401preview:StreamingJob';
+    public static readonly __pulumiType = 'azure-native:streamanalytics/v20170401preview:StreamingJob';
 
     /**
      * Returns true if the given object is an instance of StreamingJob.  This is designed to work even
@@ -234,7 +234,7 @@ export class StreamingJob extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-nextgen:streamanalytics/latest:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:StreamingJob" }, { type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-native:streamanalytics/latest:StreamingJob" }, { type: "azure-nextgen:streamanalytics/latest:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingJob.__pulumiType, name, inputs, opts);
     }

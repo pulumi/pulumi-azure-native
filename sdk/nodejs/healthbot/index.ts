@@ -33,11 +33,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:healthbot:Bot":
+            case "azure-native:healthbot:Bot":
                 return new Bot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "healthbot", _module)
+pulumi.runtime.registerResourceModule("azure-native", "healthbot", _module)

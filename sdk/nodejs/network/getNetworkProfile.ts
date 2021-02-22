@@ -17,7 +17,7 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getNetworkProfile", {
+    return pulumi.runtime.invoke("azure-native:network:getNetworkProfile", {
         "expand": args.expand,
         "networkProfileName": args.networkProfileName,
         "resourceGroupName": args.resourceGroupName,

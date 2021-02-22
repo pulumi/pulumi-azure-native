@@ -17,7 +17,7 @@ export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getAddon", {
+    return pulumi.runtime.invoke("azure-native:avs:getAddon", {
         "addonName": args.addonName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

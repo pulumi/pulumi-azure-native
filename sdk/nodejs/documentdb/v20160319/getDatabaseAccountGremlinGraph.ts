@@ -16,7 +16,7 @@ export function getDatabaseAccountGremlinGraph(args: GetDatabaseAccountGremlinGr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20160319:getDatabaseAccountGremlinGraph", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20160319:getDatabaseAccountGremlinGraph", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "graphName": args.graphName,

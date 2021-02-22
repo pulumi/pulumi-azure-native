@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Deployment script object.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'.
  */
 export class DeploymentScript extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DeploymentScript extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentScript {
-        pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.")
+        pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'.")
         return new DeploymentScript(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources/latest:DeploymentScript';
+    public static readonly __pulumiType = 'azure-native:resources/latest:DeploymentScript';
 
     /**
      * Returns true if the given object is an instance of DeploymentScript.  This is designed to work even
@@ -75,9 +75,9 @@ export class DeploymentScript extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'. */
     constructor(name: string, args: DeploymentScriptArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.")
+        pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
@@ -111,7 +111,7 @@ export class DeploymentScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentScript" }, { type: "azure-nextgen:resources:DeploymentScript" }, { type: "azure-native:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-native:resources/v20201001:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentScript.__pulumiType, name, inputs, opts);
     }

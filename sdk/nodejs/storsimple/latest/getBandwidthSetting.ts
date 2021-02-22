@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The bandwidth setting.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBandwidthSetting'. */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
-    pulumi.log.warn("getBandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'.")
+    pulumi.log.warn("getBandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBandwidthSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getBandwidthSetting", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getBandwidthSetting", {
         "bandwidthSettingName": args.bandwidthSettingName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

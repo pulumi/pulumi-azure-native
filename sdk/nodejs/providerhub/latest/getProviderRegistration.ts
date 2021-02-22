@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getProviderRegistration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getProviderRegistration'. */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
-    pulumi.log.warn("getProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getProviderRegistration'.")
+    pulumi.log.warn("getProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getProviderRegistration'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/latest:getProviderRegistration", {
+    return pulumi.runtime.invoke("azure-native:providerhub/latest:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
     }, opts);
 }

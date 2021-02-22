@@ -16,7 +16,7 @@ export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20190801:getSqlResourceSqlTrigger", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20190801:getSqlResourceSqlTrigger", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,

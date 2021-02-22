@@ -49,19 +49,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hybridcompute:Machine":
+            case "azure-native:hybridcompute:Machine":
                 return new Machine(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridcompute:MachineExtension":
+            case "azure-native:hybridcompute:MachineExtension":
                 return new MachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridcompute:PrivateEndpointConnection":
+            case "azure-native:hybridcompute:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridcompute:PrivateLinkScope":
+            case "azure-native:hybridcompute:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
-            case "azure-nextgen:hybridcompute:PrivateLinkScopedResource":
+            case "azure-native:hybridcompute:PrivateLinkScopedResource":
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hybridcompute", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hybridcompute", _module)

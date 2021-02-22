@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents an incident in Azure Security Insights.
  * Latest API Version: 2020-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'.
  */
 export class Incident extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Incident extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Incident {
-        pulumi.log.warn("Incident is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.")
+        pulumi.log.warn("Incident is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'.")
         return new Incident(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/latest:Incident';
+    public static readonly __pulumiType = 'azure-native:securityinsights/latest:Incident';
 
     /**
      * Returns true if the given object is an instance of Incident.  This is designed to work even
@@ -127,9 +127,9 @@ export class Incident extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'. */
     constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Incident is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.")
+        pulumi.log.warn("Incident is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -199,7 +199,7 @@ export class Incident extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Incident" }, { type: "azure-nextgen:securityinsights/v20200101:Incident" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Incident" }, { type: "azure-nextgen:securityinsights:Incident" }, { type: "azure-native:securityinsights/v20200101:Incident" }, { type: "azure-nextgen:securityinsights/v20200101:Incident" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Incident.__pulumiType, name, inputs, opts);
     }

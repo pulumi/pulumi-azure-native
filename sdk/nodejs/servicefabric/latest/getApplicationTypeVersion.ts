@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An application type version resource for the specified application type name resource.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationTypeVersion'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getApplicationTypeVersion'. */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
-    pulumi.log.warn("getApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationTypeVersion'.")
+    pulumi.log.warn("getApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getApplicationTypeVersion'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabric/latest:getApplicationTypeVersion", {
+    return pulumi.runtime.invoke("azure-native:servicefabric/latest:getApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

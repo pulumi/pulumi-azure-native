@@ -16,7 +16,7 @@ export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:getMediaService", {
+    return pulumi.runtime.invoke("azure-native:media/v20180701:getMediaService", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

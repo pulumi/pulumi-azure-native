@@ -16,7 +16,7 @@ export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getSqlPoolWorkloadGroup", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPoolWorkloadGroup", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "workloadGroupName": args.workloadGroupName,

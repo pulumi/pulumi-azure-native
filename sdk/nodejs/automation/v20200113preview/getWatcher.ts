@@ -16,7 +16,7 @@ export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20200113preview:getWatcher", {
+    return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getWatcher", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "watcherName": args.watcherName,

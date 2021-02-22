@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2019-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'. */
 export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVMwareCollectorResult> {
-    pulumi.log.warn("getVMwareCollector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'.")
+    pulumi.log.warn("getVMwareCollector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getVMwareCollector", {
+    return pulumi.runtime.invoke("azure-native:migrate/latest:getVMwareCollector", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
         "vmWareCollectorName": args.vmWareCollectorName,

@@ -16,7 +16,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/v20140901:getNamespace", {
+    return pulumi.runtime.invoke("azure-native:notificationhubs/v20140901:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of hybrid connection resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getHybridConnection'. */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
-    pulumi.log.warn("getHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnection'.")
+    pulumi.log.warn("getHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getHybridConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:getHybridConnection", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:getHybridConnection", {
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

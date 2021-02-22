@@ -17,7 +17,7 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge:getShare", {
+    return pulumi.runtime.invoke("azure-native:databoxedge:getShare", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

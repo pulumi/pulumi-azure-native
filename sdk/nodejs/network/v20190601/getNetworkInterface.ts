@@ -16,7 +16,7 @@ export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190601:getNetworkInterface", {
+    return pulumi.runtime.invoke("azure-native:network/v20190601:getNetworkInterface", {
         "expand": args.expand,
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,

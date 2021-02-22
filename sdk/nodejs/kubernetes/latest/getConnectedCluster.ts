@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a connected cluster.
  * Latest API Version: 2021-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetes:getConnectedCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetes:getConnectedCluster'. */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
-    pulumi.log.warn("getConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetes:getConnectedCluster'.")
+    pulumi.log.warn("getConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetes:getConnectedCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kubernetes/latest:getConnectedCluster", {
+    return pulumi.runtime.invoke("azure-native:kubernetes/latest:getConnectedCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

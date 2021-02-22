@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The live event.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveEvent'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveEvent'. */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
-    pulumi.log.warn("getLiveEvent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveEvent'.")
+    pulumi.log.warn("getLiveEvent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveEvent'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getLiveEvent", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getLiveEvent", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,
         "resourceGroupName": args.resourceGroupName,

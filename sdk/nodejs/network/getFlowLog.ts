@@ -17,7 +17,7 @@ export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getFlowLog", {
+    return pulumi.runtime.invoke("azure-native:network:getFlowLog", {
         "flowLogName": args.flowLogName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

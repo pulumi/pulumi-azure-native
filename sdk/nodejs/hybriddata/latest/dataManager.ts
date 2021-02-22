@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The DataManager resource.
  * Latest API Version: 2019-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataManager'.
  */
 export class DataManager extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DataManager extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataManager {
-        pulumi.log.warn("DataManager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.")
+        pulumi.log.warn("DataManager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataManager'.")
         return new DataManager(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybriddata/latest:DataManager';
+    public static readonly __pulumiType = 'azure-native:hybriddata/latest:DataManager';
 
     /**
      * Returns true if the given object is an instance of DataManager.  This is designed to work even
@@ -74,9 +74,9 @@ export class DataManager extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataManager'. */
     constructor(name: string, args: DataManagerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataManager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.")
+        pulumi.log.warn("DataManager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataManager'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -105,7 +105,7 @@ export class DataManager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata:DataManager" }, { type: "azure-nextgen:hybriddata/v20160601:DataManager" }, { type: "azure-nextgen:hybriddata/v20190601:DataManager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataManager" }, { type: "azure-nextgen:hybriddata:DataManager" }, { type: "azure-native:hybriddata/v20160601:DataManager" }, { type: "azure-nextgen:hybriddata/v20160601:DataManager" }, { type: "azure-native:hybriddata/v20190601:DataManager" }, { type: "azure-nextgen:hybriddata/v20190601:DataManager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataManager.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about packet capture session.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPacketCapture'. */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
-    pulumi.log.warn("getPacketCapture is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'.")
+    pulumi.log.warn("getPacketCapture is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPacketCapture'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getPacketCapture", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getPacketCapture", {
         "networkWatcherName": args.networkWatcherName,
         "packetCaptureName": args.packetCaptureName,
         "resourceGroupName": args.resourceGroupName,

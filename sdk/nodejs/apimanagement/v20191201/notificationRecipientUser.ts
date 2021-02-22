@@ -21,7 +21,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:NotificationRecipientUser';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201:NotificationRecipientUser';
 
     /**
      * Returns true if the given object is an instance of NotificationRecipientUser.  This is designed to work even
@@ -84,7 +84,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/latest:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement:NotificationRecipientUser" }, { type: "azure-native:apimanagement/latest:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/latest:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationRecipientUser.__pulumiType, name, inputs, opts);
     }

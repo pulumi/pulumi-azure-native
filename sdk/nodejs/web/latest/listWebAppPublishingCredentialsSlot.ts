@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * User credentials used for publishing activity.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentialsSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentialsSlot'. */
 export function listWebAppPublishingCredentialsSlot(args: ListWebAppPublishingCredentialsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsSlotResult> {
-    pulumi.log.warn("listWebAppPublishingCredentialsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentialsSlot'.")
+    pulumi.log.warn("listWebAppPublishingCredentialsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentialsSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppPublishingCredentialsSlot(args: ListWebAppPublishingCr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppPublishingCredentialsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppPublishingCredentialsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Contains information about an Azure Batch account.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'.
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BatchAccount {
-        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.")
+        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'.")
         return new BatchAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batch/latest:BatchAccount';
+    public static readonly __pulumiType = 'azure-native:batch/latest:BatchAccount';
 
     /**
      * Returns true if the given object is an instance of BatchAccount.  This is designed to work even
@@ -117,9 +117,9 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'. */
     constructor(name: string, args: BatchAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.")
+        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -174,7 +174,7 @@ export class BatchAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch:BatchAccount" }, { type: "azure-nextgen:batch/v20151201:BatchAccount" }, { type: "azure-nextgen:batch/v20170101:BatchAccount" }, { type: "azure-nextgen:batch/v20170501:BatchAccount" }, { type: "azure-nextgen:batch/v20170901:BatchAccount" }, { type: "azure-nextgen:batch/v20181201:BatchAccount" }, { type: "azure-nextgen:batch/v20190401:BatchAccount" }, { type: "azure-nextgen:batch/v20190801:BatchAccount" }, { type: "azure-nextgen:batch/v20200301:BatchAccount" }, { type: "azure-nextgen:batch/v20200501:BatchAccount" }, { type: "azure-nextgen:batch/v20200901:BatchAccount" }, { type: "azure-nextgen:batch/v20210101:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:BatchAccount" }, { type: "azure-nextgen:batch:BatchAccount" }, { type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-nextgen:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-nextgen:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-nextgen:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-nextgen:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-nextgen:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190401:BatchAccount" }, { type: "azure-nextgen:batch/v20190401:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-nextgen:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-nextgen:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-nextgen:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-nextgen:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-nextgen:batch/v20210101:BatchAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BatchAccount.__pulumiType, name, inputs, opts);
     }

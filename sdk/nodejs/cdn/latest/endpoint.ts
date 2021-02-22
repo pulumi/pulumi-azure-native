@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Endpoint'.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Endpoint {
-        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.")
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Endpoint'.")
         return new Endpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/latest:Endpoint';
+    public static readonly __pulumiType = 'azure-native:cdn/latest:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even
@@ -143,9 +143,9 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Endpoint'. */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.")
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Endpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
@@ -217,7 +217,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Endpoint" }, { type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20190415:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-nextgen:cdn:Endpoint" }, { type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190415:Endpoint" }, { type: "azure-nextgen:cdn/v20190415:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

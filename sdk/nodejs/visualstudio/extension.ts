@@ -23,7 +23,7 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:visualstudio:Extension';
+    public static readonly __pulumiType = 'azure-native:visualstudio:Extension';
 
     /**
      * Returns true if the given object is an instance of Extension.  This is designed to work even
@@ -101,7 +101,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio/v20140401preview:Extension" }, { type: "azure-nextgen:visualstudio/v20171101preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio/v20140401preview:Extension" }, { type: "azure-nextgen:visualstudio/v20140401preview:Extension" }, { type: "azure-native:visualstudio/v20171101preview:Extension" }, { type: "azure-nextgen:visualstudio/v20171101preview:Extension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Extension.__pulumiType, name, inputs, opts);
     }

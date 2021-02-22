@@ -22,7 +22,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200701:PrivateDnsZoneGroup';
+    public static readonly __pulumiType = 'azure-native:network/v20200701:PrivateDnsZoneGroup';
 
     /**
      * Returns true if the given object is an instance of PrivateDnsZoneGroup.  This is designed to work even
@@ -89,7 +89,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/latest:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200801:PrivateDnsZoneGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network:PrivateDnsZoneGroup" }, { type: "azure-native:network/latest:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/latest:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200801:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200801:PrivateDnsZoneGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateDnsZoneGroup.__pulumiType, name, inputs, opts);
     }

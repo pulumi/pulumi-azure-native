@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The KPI resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getKpi'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getKpi'. */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
-    pulumi.log.warn("getKpi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getKpi'.")
+    pulumi.log.warn("getKpi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getKpi'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getKpi", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getKpi", {
         "hubName": args.hubName,
         "kpiName": args.kpiName,
         "resourceGroupName": args.resourceGroupName,

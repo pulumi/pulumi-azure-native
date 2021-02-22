@@ -17,7 +17,7 @@ export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:listDeviceFailoverTars", {
+    return pulumi.runtime.invoke("azure-native:storsimple:listDeviceFailoverTars", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
         "sourceDeviceName": args.sourceDeviceName,

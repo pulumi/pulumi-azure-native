@@ -22,7 +22,7 @@ export class StorageTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storagecache/v20190801preview:StorageTarget';
+    public static readonly __pulumiType = 'azure-native:storagecache/v20190801preview:StorageTarget';
 
     /**
      * Returns true if the given object is an instance of StorageTarget.  This is designed to work even
@@ -112,7 +112,7 @@ export class StorageTarget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache:StorageTarget" }, { type: "azure-nextgen:storagecache/latest:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-nextgen:storagecache:StorageTarget" }, { type: "azure-native:storagecache/latest:StorageTarget" }, { type: "azure-nextgen:storagecache/latest:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageTarget.__pulumiType, name, inputs, opts);
     }

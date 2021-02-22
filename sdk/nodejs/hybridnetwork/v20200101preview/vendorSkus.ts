@@ -22,7 +22,7 @@ export class VendorSkus extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:VendorSkus';
+    public static readonly __pulumiType = 'azure-native:hybridnetwork/v20200101preview:VendorSkus';
 
     /**
      * Returns true if the given object is an instance of VendorSkus.  This is designed to work even
@@ -114,7 +114,7 @@ export class VendorSkus extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridnetwork:VendorSkus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:VendorSkus" }, { type: "azure-nextgen:hybridnetwork:VendorSkus" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VendorSkus.__pulumiType, name, inputs, opts);
     }

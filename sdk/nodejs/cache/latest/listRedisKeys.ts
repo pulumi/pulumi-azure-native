@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Redis cache access keys.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listRedisKeys'. */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
-    pulumi.log.warn("listRedisKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.")
+    pulumi.log.warn("listRedisKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listRedisKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/latest:listRedisKeys", {
+    return pulumi.runtime.invoke("azure-native:cache/latest:listRedisKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

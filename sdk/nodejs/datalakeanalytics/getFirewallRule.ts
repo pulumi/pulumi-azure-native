@@ -17,7 +17,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:datalakeanalytics:getFirewallRule", {
         "accountName": args.accountName,
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a Sql pool transparent data encryption configuration.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolTransparentDataEncryption'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolTransparentDataEncryption'. */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
-    pulumi.log.warn("getSqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolTransparentDataEncryption'.")
+    pulumi.log.warn("getSqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolTransparentDataEncryption'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentD
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getSqlPoolTransparentDataEncryption", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getSqlPoolTransparentDataEncryption", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "transparentDataEncryptionName": args.transparentDataEncryptionName,

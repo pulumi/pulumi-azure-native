@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A set of Azure Batch account keys.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:listBatchAccountKeys'. */
 export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchAccountKeysResult> {
-    pulumi.log.warn("listBatchAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'.")
+    pulumi.log.warn("listBatchAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:listBatchAccountKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:listBatchAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:listBatchAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class Component extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20150501:Component';
+    public static readonly __pulumiType = 'azure-native:insights/v20150501:Component';
 
     /**
      * Returns true if the given object is an instance of Component.  This is designed to work even
@@ -204,7 +204,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Component" }, { type: "azure-nextgen:insights/latest:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:Component" }, { type: "azure-nextgen:insights:Component" }, { type: "azure-native:insights/latest:Component" }, { type: "azure-nextgen:insights/latest:Component" }, { type: "azure-native:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-native:insights/v20200202preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

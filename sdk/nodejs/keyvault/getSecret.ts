@@ -17,7 +17,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault:getSecret", {
+    return pulumi.runtime.invoke("azure-native:keyvault:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretName": args.secretName,
         "vaultName": args.vaultName,

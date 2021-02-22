@@ -22,7 +22,7 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20191212:GremlinResourceGremlinDatabase';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20191212:GremlinResourceGremlinDatabase';
 
     /**
      * Returns true if the given object is an instance of GremlinResourceGremlinDatabase.  This is designed to work even
@@ -98,7 +98,7 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/latest:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinDatabase.__pulumiType, name, inputs, opts);
     }

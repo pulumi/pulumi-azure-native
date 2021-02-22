@@ -60,31 +60,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:logic/v20160601:Agreement":
+            case "azure-native:logic/v20160601:Agreement":
                 return new Agreement(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Certificate":
+            case "azure-native:logic/v20160601:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:IntegrationAccount":
+            case "azure-native:logic/v20160601:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:IntegrationAccountAssembly":
+            case "azure-native:logic/v20160601:IntegrationAccountAssembly":
                 return new IntegrationAccountAssembly(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration":
+            case "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration":
                 return new IntegrationAccountBatchConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Map":
+            case "azure-native:logic/v20160601:Map":
                 return new Map(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Partner":
+            case "azure-native:logic/v20160601:Partner":
                 return new Partner(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration":
+            case "azure-native:logic/v20160601:RosettaNetProcessConfiguration":
                 return new RosettaNetProcessConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Schema":
+            case "azure-native:logic/v20160601:Schema":
                 return new Schema(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Session":
+            case "azure-native:logic/v20160601:Session":
                 return new Session(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20160601:Workflow":
+            case "azure-native:logic/v20160601:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "logic/v20160601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "logic/v20160601", _module)

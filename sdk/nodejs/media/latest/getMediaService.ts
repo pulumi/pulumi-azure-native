@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Media Services account.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getMediaService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'. */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
-    pulumi.log.warn("getMediaService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getMediaService'.")
+    pulumi.log.warn("getMediaService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getMediaService", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getMediaService", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

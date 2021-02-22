@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The iSCSI disk.
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiDisk'. */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
-    pulumi.log.warn("getIscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'.")
+    pulumi.log.warn("getIscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiDisk'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getIscsiDisk", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getIscsiDisk", {
         "deviceName": args.deviceName,
         "diskName": args.diskName,
         "iscsiServerName": args.iscsiServerName,

@@ -22,7 +22,7 @@ export class Skus extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub:Skus';
+    public static readonly __pulumiType = 'azure-native:providerhub:Skus';
 
     /**
      * Returns true if the given object is an instance of Skus.  This is designed to work even
@@ -83,7 +83,7 @@ export class Skus extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:Skus" }, { type: "azure-nextgen:providerhub/v20201120:Skus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:Skus" }, { type: "azure-nextgen:providerhub/latest:Skus" }, { type: "azure-native:providerhub/v20201120:Skus" }, { type: "azure-nextgen:providerhub/v20201120:Skus" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Skus.__pulumiType, name, inputs, opts);
     }

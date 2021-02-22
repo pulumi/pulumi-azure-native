@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A custom API
  * Latest API Version: 2016-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCustomApi'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'. */
 export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomApiResult> {
-    pulumi.log.warn("getCustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCustomApi'.")
+    pulumi.log.warn("getCustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getCustomApi", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getCustomApi", {
         "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionId": args.subscriptionId,

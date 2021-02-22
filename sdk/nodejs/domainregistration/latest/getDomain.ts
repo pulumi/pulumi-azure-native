@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about a domain.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomain'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomain'. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    pulumi.log.warn("getDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomain'.")
+    pulumi.log.warn("getDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomain'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration/latest:getDomain", {
+    return pulumi.runtime.invoke("azure-native:domainregistration/latest:getDomain", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

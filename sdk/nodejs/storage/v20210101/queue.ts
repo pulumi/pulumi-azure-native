@@ -18,7 +18,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/v20210101:Queue';
+    public static readonly __pulumiType = 'azure-native:storage/v20210101:Queue';
 
     /**
      * Returns true if the given object is an instance of Queue.  This is designed to work even
@@ -84,7 +84,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Queue" }, { type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }, { type: "azure-nextgen:storage/v20200801preview:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:Queue" }, { type: "azure-nextgen:storage:Queue" }, { type: "azure-native:storage/latest:Queue" }, { type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-native:storage/v20190601:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-nextgen:storage/v20200801preview:Queue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Queue.__pulumiType, name, inputs, opts);
     }

@@ -45,29 +45,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20200930:Disk":
+            case "azure-native:compute/v20200930:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:DiskAccess":
+            case "azure-native:compute/v20200930:DiskAccess":
                 return new DiskAccess(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection":
+            case "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection":
                 return new DiskAccessAPrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:DiskEncryptionSet":
+            case "azure-native:compute/v20200930:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:Gallery":
+            case "azure-native:compute/v20200930:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:GalleryApplication":
+            case "azure-native:compute/v20200930:GalleryApplication":
                 return new GalleryApplication(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:GalleryApplicationVersion":
+            case "azure-native:compute/v20200930:GalleryApplicationVersion":
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:GalleryImage":
+            case "azure-native:compute/v20200930:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:GalleryImageVersion":
+            case "azure-native:compute/v20200930:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200930:Snapshot":
+            case "azure-native:compute/v20200930:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20200930", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20200930", _module)

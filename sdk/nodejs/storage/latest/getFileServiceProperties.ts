@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of File services in storage account.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileServiceProperties'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'. */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
-    pulumi.log.warn("getFileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileServiceProperties'.")
+    pulumi.log.warn("getFileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getFileServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getFileServiceProperties", {
         "accountName": args.accountName,
         "fileServicesName": args.fileServicesName,
         "resourceGroupName": args.resourceGroupName,

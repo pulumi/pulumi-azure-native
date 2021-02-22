@@ -16,7 +16,7 @@ export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntime
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getIntegrationRuntimeObjectMetadatum", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getIntegrationRuntimeObjectMetadatum", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "metadataPath": args.metadataPath,
         "resourceGroupName": args.resourceGroupName,

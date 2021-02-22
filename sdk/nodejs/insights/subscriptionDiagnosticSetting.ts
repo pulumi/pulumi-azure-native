@@ -23,7 +23,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:SubscriptionDiagnosticSetting';
+    public static readonly __pulumiType = 'azure-native:insights:SubscriptionDiagnosticSetting';
 
     /**
      * Returns true if the given object is an instance of SubscriptionDiagnosticSetting.  This is designed to work even
@@ -110,7 +110,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting" }, { type: "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SubscriptionDiagnosticSetting.__pulumiType, name, inputs, opts);
     }

@@ -30,17 +30,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:eventgrid/v20190601:Domain":
+            case "azure-native:eventgrid/v20190601:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20190601:DomainTopic":
+            case "azure-native:eventgrid/v20190601:DomainTopic":
                 return new DomainTopic(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20190601:EventSubscription":
+            case "azure-native:eventgrid/v20190601:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20190601:Topic":
+            case "azure-native:eventgrid/v20190601:Topic":
                 return new Topic(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "eventgrid/v20190601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "eventgrid/v20190601", _module)

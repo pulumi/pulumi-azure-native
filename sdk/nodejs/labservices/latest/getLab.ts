@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a lab.
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLab'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLab'. */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
-    pulumi.log.warn("getLab is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLab'.")
+    pulumi.log.warn("getLab is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLab'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getLab", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getLab", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,

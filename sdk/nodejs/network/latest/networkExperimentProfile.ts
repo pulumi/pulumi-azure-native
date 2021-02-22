@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Defines an Network Experiment Profile and lists of Experiments
  * Latest API Version: 2019-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'.
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkExperimentProfile {
-        pulumi.log.warn("NetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.")
+        pulumi.log.warn("NetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'.")
         return new NetworkExperimentProfile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:NetworkExperimentProfile';
+    public static readonly __pulumiType = 'azure-native:network/latest:NetworkExperimentProfile';
 
     /**
      * Returns true if the given object is an instance of NetworkExperimentProfile.  This is designed to work even
@@ -75,9 +75,9 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'. */
     constructor(name: string, args: NetworkExperimentProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.")
+        pulumi.log.warn("NetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +108,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkExperimentProfile" }, { type: "azure-nextgen:network/v20191101:NetworkExperimentProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkExperimentProfile" }, { type: "azure-nextgen:network:NetworkExperimentProfile" }, { type: "azure-native:network/v20191101:NetworkExperimentProfile" }, { type: "azure-nextgen:network/v20191101:NetworkExperimentProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkExperimentProfile.__pulumiType, name, inputs, opts);
     }

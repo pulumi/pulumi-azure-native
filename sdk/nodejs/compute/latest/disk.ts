@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Disk resource.
  * Latest API Version: 2020-09-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Disk extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Disk {
-        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.")
+        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'.")
         return new Disk(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:Disk';
+    public static readonly __pulumiType = 'azure-native:compute/latest:Disk';
 
     /**
      * Returns true if the given object is an instance of Disk.  This is designed to work even
@@ -171,9 +171,9 @@ export class Disk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'. */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.")
+        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.creationData === undefined) && !(opts && opts.urn)) {
@@ -255,7 +255,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-nextgen:compute:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getPrivateEndpointConnection'. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getPrivateEndpointConnection'.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:search/latest:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:search/latest:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,

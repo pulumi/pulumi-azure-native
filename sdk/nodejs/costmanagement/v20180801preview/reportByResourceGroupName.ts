@@ -22,7 +22,7 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName';
+    public static readonly __pulumiType = 'azure-native:costmanagement/v20180801preview:ReportByResourceGroupName';
 
     /**
      * Returns true if the given object is an instance of ReportByResourceGroupName.  This is designed to work even
@@ -108,7 +108,7 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:ReportByResourceGroupName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportByResourceGroupName" }, { type: "azure-nextgen:costmanagement:ReportByResourceGroupName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportByResourceGroupName.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A schedule.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabricSchedule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabricSchedule'. */
 export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricScheduleResult> {
-    pulumi.log.warn("getServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabricSchedule'.")
+    pulumi.log.warn("getServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabricSchedule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getServiceFabricSchedule", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getServiceFabricSchedule", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

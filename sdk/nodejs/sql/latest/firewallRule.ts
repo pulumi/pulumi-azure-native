@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents a server firewall rule.
  * Latest API Version: 2014-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:FirewallRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:FirewallRule'.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallRule {
-        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:FirewallRule'.")
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:FirewallRule'.")
         return new FirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/latest:FirewallRule';
+    public static readonly __pulumiType = 'azure-native:sql/latest:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -70,9 +70,9 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:FirewallRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:FirewallRule'. */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:FirewallRule'.")
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:FirewallRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
@@ -111,7 +111,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:FirewallRule" }, { type: "azure-nextgen:sql/v20140401:FirewallRule" }, { type: "azure-nextgen:sql/v20150501preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200202preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200801preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:FirewallRule" }, { type: "azure-nextgen:sql:FirewallRule" }, { type: "azure-native:sql/v20140401:FirewallRule" }, { type: "azure-nextgen:sql/v20140401:FirewallRule" }, { type: "azure-native:sql/v20150501preview:FirewallRule" }, { type: "azure-nextgen:sql/v20150501preview:FirewallRule" }, { type: "azure-native:sql/v20200202preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200202preview:FirewallRule" }, { type: "azure-native:sql/v20200801preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200801preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

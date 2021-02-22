@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Virtual Appliance Site resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualApplianceSite'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualApplianceSite'. */
 export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualApplianceSiteResult> {
-    pulumi.log.warn("getVirtualApplianceSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualApplianceSite'.")
+    pulumi.log.warn("getVirtualApplianceSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualApplianceSite'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualApplianceSite", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualApplianceSite", {
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,

@@ -16,7 +16,7 @@ export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getProductSetting", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getProductSetting", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,

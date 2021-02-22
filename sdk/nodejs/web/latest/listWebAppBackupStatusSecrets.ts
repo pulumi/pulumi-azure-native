@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Backup description.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupStatusSecrets'. */
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
-    pulumi.log.warn("listWebAppBackupStatusSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecrets'.")
+    pulumi.log.warn("listWebAppBackupStatusSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupStatusSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecret
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppBackupStatusSecrets", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppBackupStatusSecrets", {
         "backupId": args.backupId,
         "backupName": args.backupName,
         "backupSchedule": args.backupSchedule,

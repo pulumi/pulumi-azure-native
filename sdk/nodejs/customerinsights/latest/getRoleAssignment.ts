@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Role Assignment resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRoleAssignment'. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
-    pulumi.log.warn("getRoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'.")
+    pulumi.log.warn("getRoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRoleAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getRoleAssignment", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getRoleAssignment", {
         "assignmentName": args.assignmentName,
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

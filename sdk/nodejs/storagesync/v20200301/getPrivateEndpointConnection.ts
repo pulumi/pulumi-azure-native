@@ -16,7 +16,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync/v20200301:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:storagesync/v20200301:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,

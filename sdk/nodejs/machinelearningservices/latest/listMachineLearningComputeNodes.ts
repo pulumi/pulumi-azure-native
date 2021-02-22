@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Compute node information related to a AmlCompute.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeNodes'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listMachineLearningComputeNodes'. */
 export function listMachineLearningComputeNodes(args: ListMachineLearningComputeNodesArgs, opts?: pulumi.InvokeOptions): Promise<ListMachineLearningComputeNodesResult> {
-    pulumi.log.warn("listMachineLearningComputeNodes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeNodes'.")
+    pulumi.log.warn("listMachineLearningComputeNodes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listMachineLearningComputeNodes'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listMachineLearningComputeNodes(args: ListMachineLearningCompute
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:listMachineLearningComputeNodes", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:listMachineLearningComputeNodes", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

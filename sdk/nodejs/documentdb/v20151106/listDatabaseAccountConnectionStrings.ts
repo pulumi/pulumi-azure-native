@@ -16,7 +16,7 @@ export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountCo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20151106:listDatabaseAccountConnectionStrings", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20151106:listDatabaseAccountConnectionStrings", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

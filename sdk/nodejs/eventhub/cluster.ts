@@ -23,7 +23,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub:Cluster';
+    public static readonly __pulumiType = 'azure-native:eventhub:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -115,7 +115,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20180101preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-nextgen:eventhub/v20180101preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

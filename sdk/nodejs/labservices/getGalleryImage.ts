@@ -17,7 +17,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices:getGalleryImage", {
+    return pulumi.runtime.invoke("azure-native:labservices:getGalleryImage", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,
         "labAccountName": args.labAccountName,

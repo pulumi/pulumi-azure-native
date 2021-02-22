@@ -16,7 +16,7 @@ export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/v20190601preview:getTemplateSpec", {
+    return pulumi.runtime.invoke("azure-native:resources/v20190601preview:getTemplateSpec", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,

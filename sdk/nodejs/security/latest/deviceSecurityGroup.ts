@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The device security group resource
  * Latest API Version: 2019-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeviceSecurityGroup {
-        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.")
+        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.")
         return new DeviceSecurityGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/latest:DeviceSecurityGroup';
+    public static readonly __pulumiType = 'azure-native:security/latest:DeviceSecurityGroup';
 
     /**
      * Returns true if the given object is an instance of DeviceSecurityGroup.  This is designed to work even
@@ -71,9 +71,9 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'. */
     constructor(name: string, args: DeviceSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.")
+        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20190801:DeviceSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-native:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-native:security/v20190801:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20190801:DeviceSecurityGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }

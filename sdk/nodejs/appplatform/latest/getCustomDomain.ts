@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Custom domain resource payload.
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCustomDomain'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getCustomDomain'. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
-    pulumi.log.warn("getCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCustomDomain'.")
+    pulumi.log.warn("getCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getCustomDomain'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getCustomDomain", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:getCustomDomain", {
         "appName": args.appName,
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,

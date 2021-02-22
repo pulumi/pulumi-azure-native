@@ -23,7 +23,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:changeanalysis:ConfigurationProfile';
+    public static readonly __pulumiType = 'azure-native:changeanalysis:ConfigurationProfile';
 
     /**
      * Returns true if the given object is an instance of ConfigurationProfile.  This is designed to work even
@@ -87,7 +87,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:changeanalysis/v20200401preview:ConfigurationProfile" }, { type: "azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationProfile.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:IntegrationRuntime';
+    public static readonly __pulumiType = 'azure-native:synapse/v20190601preview:IntegrationRuntime';
 
     /**
      * Returns true if the given object is an instance of IntegrationRuntime.  This is designed to work even
@@ -91,7 +91,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:IntegrationRuntime" }, { type: "azure-nextgen:synapse/latest:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20201201:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:IntegrationRuntime" }, { type: "azure-nextgen:synapse:IntegrationRuntime" }, { type: "azure-native:synapse/latest:IntegrationRuntime" }, { type: "azure-nextgen:synapse/latest:IntegrationRuntime" }, { type: "azure-native:synapse/v20201201:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20201201:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

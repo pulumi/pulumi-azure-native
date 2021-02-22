@@ -16,7 +16,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbformysql/v20200701privatepreview:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:dbformysql/v20200701privatepreview:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -17,7 +17,7 @@ export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork:getVendorSkuPreview", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,
         "skuName": args.skuName,
         "vendorName": args.vendorName,

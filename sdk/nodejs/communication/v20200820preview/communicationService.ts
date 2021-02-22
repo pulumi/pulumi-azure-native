@@ -21,7 +21,7 @@ export class CommunicationService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:communication/v20200820preview:CommunicationService';
+    public static readonly __pulumiType = 'azure-native:communication/v20200820preview:CommunicationService';
 
     /**
      * Returns true if the given object is an instance of CommunicationService.  This is designed to work even
@@ -122,7 +122,7 @@ export class CommunicationService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:communication:CommunicationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication:CommunicationService" }, { type: "azure-nextgen:communication:CommunicationService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CommunicationService.__pulumiType, name, inputs, opts);
     }

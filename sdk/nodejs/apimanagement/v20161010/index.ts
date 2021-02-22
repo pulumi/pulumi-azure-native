@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:apimanagement/v20161010:ApiManagementService":
+            case "azure-native:apimanagement/v20161010:ApiManagementService":
                 return new ApiManagementService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "apimanagement/v20161010", _module)
+pulumi.runtime.registerResourceModule("azure-native", "apimanagement/v20161010", _module)

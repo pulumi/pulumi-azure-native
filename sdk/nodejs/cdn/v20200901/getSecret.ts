@@ -16,7 +16,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200901:getSecret", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200901:getSecret", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "secretName": args.secretName,

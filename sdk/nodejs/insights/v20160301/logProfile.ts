@@ -22,7 +22,7 @@ export class LogProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20160301:LogProfile';
+    public static readonly __pulumiType = 'azure-native:insights/v20160301:LogProfile';
 
     /**
      * Returns true if the given object is an instance of LogProfile.  This is designed to work even
@@ -119,7 +119,7 @@ export class LogProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:LogProfile" }, { type: "azure-nextgen:insights/latest:LogProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:LogProfile" }, { type: "azure-nextgen:insights:LogProfile" }, { type: "azure-native:insights/latest:LogProfile" }, { type: "azure-nextgen:insights/latest:LogProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LogProfile.__pulumiType, name, inputs, opts);
     }

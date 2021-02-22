@@ -17,7 +17,7 @@ export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork:getVendor", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendor", {
         "vendorName": args.vendorName,
     }, opts);
 }

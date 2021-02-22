@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a Namespace AuthorizationRules.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNotificationHubAuthorizationRule'. */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
-    pulumi.log.warn("getNotificationHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule'.")
+    pulumi.log.warn("getNotificationHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNotificationHubAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuth
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/latest:getNotificationHubAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:notificationhubs/latest:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

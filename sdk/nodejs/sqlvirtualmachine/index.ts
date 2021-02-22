@@ -31,15 +31,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener":
+            case "azure-native:sqlvirtualmachine:AvailabilityGroupListener":
                 return new AvailabilityGroupListener(name, <any>undefined, { urn })
-            case "azure-nextgen:sqlvirtualmachine:SqlVirtualMachine":
+            case "azure-native:sqlvirtualmachine:SqlVirtualMachine":
                 return new SqlVirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:sqlvirtualmachine:SqlVirtualMachineGroup":
+            case "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup":
                 return new SqlVirtualMachineGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sqlvirtualmachine", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sqlvirtualmachine", _module)

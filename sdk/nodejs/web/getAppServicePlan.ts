@@ -17,7 +17,7 @@ export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getAppServicePlan", {
+    return pulumi.runtime.invoke("azure-native:web:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class ManagedNetwork extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managednetwork/v20190601preview:ManagedNetwork';
+    public static readonly __pulumiType = 'azure-native:managednetwork/v20190601preview:ManagedNetwork';
 
     /**
      * Returns true if the given object is an instance of ManagedNetwork.  This is designed to work even
@@ -108,7 +108,7 @@ export class ManagedNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managednetwork:ManagedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetwork:ManagedNetwork" }, { type: "azure-nextgen:managednetwork:ManagedNetwork" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedNetwork.__pulumiType, name, inputs, opts);
     }

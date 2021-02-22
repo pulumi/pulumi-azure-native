@@ -16,7 +16,7 @@ export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/v20191101:getDataSetMapping", {
+    return pulumi.runtime.invoke("azure-native:datashare/v20191101:getDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,
         "resourceGroupName": args.resourceGroupName,

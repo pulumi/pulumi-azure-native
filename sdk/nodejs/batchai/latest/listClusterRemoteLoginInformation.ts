@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Values returned by the List operation.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listClusterRemoteLoginInformation'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listClusterRemoteLoginInformation'. */
 export function listClusterRemoteLoginInformation(args: ListClusterRemoteLoginInformationArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterRemoteLoginInformationResult> {
-    pulumi.log.warn("listClusterRemoteLoginInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listClusterRemoteLoginInformation'.")
+    pulumi.log.warn("listClusterRemoteLoginInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listClusterRemoteLoginInformation'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listClusterRemoteLoginInformation(args: ListClusterRemoteLoginIn
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:listClusterRemoteLoginInformation", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:listClusterRemoteLoginInformation", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

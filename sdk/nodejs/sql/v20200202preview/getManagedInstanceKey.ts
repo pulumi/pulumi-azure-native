@@ -16,7 +16,7 @@ export function getManagedInstanceKey(args: GetManagedInstanceKeyArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getManagedInstanceKey", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getManagedInstanceKey", {
         "keyName": args.keyName,
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,

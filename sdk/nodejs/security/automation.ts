@@ -23,7 +23,7 @@ export class Automation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security:Automation';
+    public static readonly __pulumiType = 'azure-native:security:Automation';
 
     /**
      * Returns true if the given object is an instance of Automation.  This is designed to work even
@@ -127,7 +127,7 @@ export class Automation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20190101preview:Automation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:Automation" }, { type: "azure-nextgen:security/v20190101preview:Automation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Automation.__pulumiType, name, inputs, opts);
     }

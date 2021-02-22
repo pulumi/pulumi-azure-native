@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Definition of the runbook type.
  * Latest API Version: 2019-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.
  */
 export class Runbook extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Runbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Runbook {
-        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.")
+        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.")
         return new Runbook(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/latest:Runbook';
+    public static readonly __pulumiType = 'azure-native:automation/latest:Runbook';
 
     /**
      * Returns true if the given object is an instance of Runbook.  This is designed to work even
@@ -127,9 +127,9 @@ export class Runbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'. */
     constructor(name: string, args: RunbookArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.")
+        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -193,7 +193,7 @@ export class Runbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Runbook" }, { type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }, { type: "azure-nextgen:automation/v20190601:Runbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Runbook" }, { type: "azure-nextgen:automation:Runbook" }, { type: "azure-native:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-native:automation/v20180630:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }, { type: "azure-native:automation/v20190601:Runbook" }, { type: "azure-nextgen:automation/v20190601:Runbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Runbook.__pulumiType, name, inputs, opts);
     }

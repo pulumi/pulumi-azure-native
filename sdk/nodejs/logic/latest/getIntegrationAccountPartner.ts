@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration account partner.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountPartner'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountPartner'. */
 export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountPartnerResult> {
-    pulumi.log.warn("getIntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountPartner'.")
+    pulumi.log.warn("getIntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountPartner'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountPartner", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getIntegrationAccountPartner", {
         "integrationAccountName": args.integrationAccountName,
         "partnerName": args.partnerName,
         "resourceGroupName": args.resourceGroupName,

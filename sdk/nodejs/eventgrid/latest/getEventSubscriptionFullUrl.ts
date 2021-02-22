@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Full endpoint url of an event subscription
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscriptionFullUrl'. */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
-    pulumi.log.warn("getEventSubscriptionFullUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'.")
+    pulumi.log.warn("getEventSubscriptionFullUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscriptionFullUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:getEventSubscriptionFullUrl", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/latest:getEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);

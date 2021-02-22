@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The link resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getLink'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getLink'. */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-    pulumi.log.warn("getLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getLink'.")
+    pulumi.log.warn("getLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getLink'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getLink", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getLink", {
         "hubName": args.hubName,
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,

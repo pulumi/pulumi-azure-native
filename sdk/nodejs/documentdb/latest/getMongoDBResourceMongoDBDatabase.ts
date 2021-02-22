@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB MongoDB database.
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getMongoDBResourceMongoDBDatabase'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBDatabase'. */
 export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBDatabaseResult> {
-    pulumi.log.warn("getMongoDBResourceMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getMongoDBResourceMongoDBDatabase'.")
+    pulumi.log.warn("getMongoDBResourceMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBDatabase'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoD
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getMongoDBResourceMongoDBDatabase", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getMongoDBResourceMongoDBDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

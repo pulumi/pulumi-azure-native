@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Big Data pool
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getBigDataPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getBigDataPool'. */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
-    pulumi.log.warn("getBigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getBigDataPool'.")
+    pulumi.log.warn("getBigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getBigDataPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getBigDataPool", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

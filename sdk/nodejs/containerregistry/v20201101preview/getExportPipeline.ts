@@ -16,7 +16,7 @@ export function getExportPipeline(args: GetExportPipelineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20201101preview:getExportPipeline", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/v20201101preview:getExportPipeline", {
         "exportPipelineName": args.exportPipelineName,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

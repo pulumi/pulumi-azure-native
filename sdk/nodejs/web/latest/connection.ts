@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * API connection
  * Latest API Version: 2016-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'.
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Connection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Connection {
-        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.")
+        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'.")
         return new Connection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:Connection';
+    public static readonly __pulumiType = 'azure-native:web/latest:Connection';
 
     /**
      * Returns true if the given object is an instance of Connection.  This is designed to work even
@@ -68,9 +68,9 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'. */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.")
+        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +100,7 @@ export class Connection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:Connection" }, { type: "azure-nextgen:web/v20150801preview:Connection" }, { type: "azure-nextgen:web/v20160601:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:Connection" }, { type: "azure-nextgen:web:Connection" }, { type: "azure-native:web/v20150801preview:Connection" }, { type: "azure-nextgen:web/v20150801preview:Connection" }, { type: "azure-native:web/v20160601:Connection" }, { type: "azure-nextgen:web/v20160601:Connection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connection.__pulumiType, name, inputs, opts);
     }

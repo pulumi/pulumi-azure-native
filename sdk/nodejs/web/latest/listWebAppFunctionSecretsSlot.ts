@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Function secrets.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionSecretsSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionSecretsSlot'. */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
-    pulumi.log.warn("listWebAppFunctionSecretsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionSecretsSlot'.")
+    pulumi.log.warn("listWebAppFunctionSecretsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionSecretsSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppFunctionSecretsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppFunctionSecretsSlot", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

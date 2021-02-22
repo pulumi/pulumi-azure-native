@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about a Job.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getJob'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getJob'. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getJob'.")
+    pulumi.log.warn("getJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getJob'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:getJob", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:getJob", {
         "experimentName": args.experimentName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

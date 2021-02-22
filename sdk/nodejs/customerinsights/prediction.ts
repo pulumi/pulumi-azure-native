@@ -23,7 +23,7 @@ export class Prediction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights:Prediction';
+    public static readonly __pulumiType = 'azure-native:customerinsights:Prediction';
 
     /**
      * Returns true if the given object is an instance of Prediction.  This is designed to work even
@@ -199,7 +199,7 @@ export class Prediction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/latest:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:Prediction" }, { type: "azure-nextgen:customerinsights/latest:Prediction" }, { type: "azure-native:customerinsights/v20170426:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prediction.__pulumiType, name, inputs, opts);
     }

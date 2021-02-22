@@ -26,15 +26,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:edgeorder/v20201201preview:AddressByName":
+            case "azure-native:edgeorder/v20201201preview:AddressByName":
                 return new AddressByName(name, <any>undefined, { urn })
-            case "azure-nextgen:edgeorder/v20201201preview:OrderByName":
+            case "azure-native:edgeorder/v20201201preview:OrderByName":
                 return new OrderByName(name, <any>undefined, { urn })
-            case "azure-nextgen:edgeorder/v20201201preview:OrderCollectionByName":
+            case "azure-native:edgeorder/v20201201preview:OrderCollectionByName":
                 return new OrderCollectionByName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "edgeorder/v20201201preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "edgeorder/v20201201preview", _module)

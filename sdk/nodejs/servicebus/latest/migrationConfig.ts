@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Migration Config operation
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.
  */
 export class MigrationConfig extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class MigrationConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MigrationConfig {
-        pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.")
+        pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.")
         return new MigrationConfig(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/latest:MigrationConfig';
+    public static readonly __pulumiType = 'azure-native:servicebus/latest:MigrationConfig';
 
     /**
      * Returns true if the given object is an instance of MigrationConfig.  This is designed to work even
@@ -74,9 +74,9 @@ export class MigrationConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'. */
     constructor(name: string, args: MigrationConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.")
+        pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -117,7 +117,7 @@ export class MigrationConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20170401:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:MigrationConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:MigrationConfig" }, { type: "azure-nextgen:servicebus:MigrationConfig" }, { type: "azure-native:servicebus/v20170401:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20170401:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:MigrationConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MigrationConfig.__pulumiType, name, inputs, opts);
     }

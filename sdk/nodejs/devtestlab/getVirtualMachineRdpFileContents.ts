@@ -17,7 +17,7 @@ export function getVirtualMachineRdpFileContents(args: GetVirtualMachineRdpFileC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:getVirtualMachineRdpFileContents", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:getVirtualMachineRdpFileContents", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

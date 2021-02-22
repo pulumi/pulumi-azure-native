@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Pageable list of products.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProducts'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'. */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
-    pulumi.log.warn("getProducts is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProducts'.")
+    pulumi.log.warn("getProducts is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:getProducts", {
+    return pulumi.runtime.invoke("azure-native:azurestack/latest:getProducts", {
         "productName": args.productName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

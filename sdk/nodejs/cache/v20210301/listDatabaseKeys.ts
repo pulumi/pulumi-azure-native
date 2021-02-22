@@ -16,7 +16,7 @@ export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/v20210301:listDatabaseKeys", {
+    return pulumi.runtime.invoke("azure-native:cache/v20210301:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Source control configuration for an app.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControlSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControlSlot'. */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
-    pulumi.log.warn("getWebAppSourceControlSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControlSlot'.")
+    pulumi.log.warn("getWebAppSourceControlSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControlSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSourceControlSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSourceControlSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Agent Pool.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
-    pulumi.log.warn("getAgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.")
+    pulumi.log.warn("getAgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:getAgentPool", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:getAgentPool", {
         "agentPoolName": args.agentPoolName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

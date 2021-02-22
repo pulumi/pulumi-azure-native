@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Integration runtime resource type.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IntegrationRuntime extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationRuntime {
-        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.")
+        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.")
         return new IntegrationRuntime(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:IntegrationRuntime';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:IntegrationRuntime';
 
     /**
      * Returns true if the given object is an instance of IntegrationRuntime.  This is designed to work even
@@ -63,9 +63,9 @@ export class IntegrationRuntime extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'. */
     constructor(name: string, args: IntegrationRuntimeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.")
+        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20201201:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:IntegrationRuntime" }, { type: "azure-nextgen:synapse:IntegrationRuntime" }, { type: "azure-native:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-native:synapse/v20201201:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20201201:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

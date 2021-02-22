@@ -16,7 +16,7 @@ export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190701:getPublicIPPrefix", {
+    return pulumi.runtime.invoke("azure-native:network/v20190701:getPublicIPPrefix", {
         "expand": args.expand,
         "publicIpPrefixName": args.publicIpPrefixName,
         "resourceGroupName": args.resourceGroupName,

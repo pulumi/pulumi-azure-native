@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * P2SVpnGateway Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGateway'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGateway'. */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
-    pulumi.log.warn("getP2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGateway'.")
+    pulumi.log.warn("getP2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGateway'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getP2sVpnGateway", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getP2sVpnGateway", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

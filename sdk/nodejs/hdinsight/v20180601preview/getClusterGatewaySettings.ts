@@ -16,7 +16,7 @@ export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hdinsight/v20180601preview:getClusterGatewaySettings", {
+    return pulumi.runtime.invoke("azure-native:hdinsight/v20180601preview:getClusterGatewaySettings", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

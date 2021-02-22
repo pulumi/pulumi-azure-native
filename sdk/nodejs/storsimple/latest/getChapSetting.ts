@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Challenge-Handshake Authentication Protocol (CHAP) setting
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getChapSetting'. */
 export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetChapSettingResult> {
-    pulumi.log.warn("getChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.")
+    pulumi.log.warn("getChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getChapSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getChapSetting", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getChapSetting", {
         "chapUserName": args.chapUserName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,

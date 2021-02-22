@@ -23,7 +23,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:streamanalytics:Cluster';
+    public static readonly __pulumiType = 'azure-native:streamanalytics:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -103,7 +103,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/v20200301preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/v20200301preview:Cluster" }, { type: "azure-nextgen:streamanalytics/v20200301preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

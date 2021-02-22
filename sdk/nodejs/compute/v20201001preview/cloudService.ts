@@ -22,7 +22,7 @@ export class CloudService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/v20201001preview:CloudService';
+    public static readonly __pulumiType = 'azure-native:compute/v20201001preview:CloudService';
 
     /**
      * Returns true if the given object is an instance of CloudService.  This is designed to work even

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Gremlin graph.
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinGraph'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getGremlinResourceGremlinGraph'. */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
-    pulumi.log.warn("getGremlinResourceGremlinGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinGraph'.")
+    pulumi.log.warn("getGremlinResourceGremlinGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getGremlinResourceGremlinGraph'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getGremlinResourceGremlinGraph", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getGremlinResourceGremlinGraph", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "graphName": args.graphName,

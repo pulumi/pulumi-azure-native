@@ -16,7 +16,7 @@ export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/v20200701:getBackup", {
+    return pulumi.runtime.invoke("azure-native:netapp/v20200701:getBackup", {
         "accountName": args.accountName,
         "backupName": args.backupName,
         "poolName": args.poolName,

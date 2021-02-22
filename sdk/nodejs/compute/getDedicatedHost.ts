@@ -17,7 +17,7 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getDedicatedHost", {
+    return pulumi.runtime.invoke("azure-native:compute:getDedicatedHost", {
         "expand": args.expand,
         "hostGroupName": args.hostGroupName,
         "hostName": args.hostName,

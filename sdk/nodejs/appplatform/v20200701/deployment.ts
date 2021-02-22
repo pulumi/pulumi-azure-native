@@ -22,7 +22,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform/v20200701:Deployment';
+    public static readonly __pulumiType = 'azure-native:appplatform/v20200701:Deployment';
 
     /**
      * Returns true if the given object is an instance of Deployment.  This is designed to work even
@@ -92,7 +92,7 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Deployment" }, { type: "azure-nextgen:appplatform/latest:Deployment" }, { type: "azure-nextgen:appplatform/v20190501preview:Deployment" }, { type: "azure-nextgen:appplatform/v20201101preview:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Deployment" }, { type: "azure-nextgen:appplatform:Deployment" }, { type: "azure-native:appplatform/latest:Deployment" }, { type: "azure-nextgen:appplatform/latest:Deployment" }, { type: "azure-native:appplatform/v20190501preview:Deployment" }, { type: "azure-nextgen:appplatform/v20190501preview:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-nextgen:appplatform/v20201101preview:Deployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Deployment.__pulumiType, name, inputs, opts);
     }

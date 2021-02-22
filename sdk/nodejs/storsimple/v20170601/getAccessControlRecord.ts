@@ -16,7 +16,7 @@ export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/v20170601:getAccessControlRecord", {
+    return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getAccessControlRecord", {
         "accessControlRecordName": args.accessControlRecordName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

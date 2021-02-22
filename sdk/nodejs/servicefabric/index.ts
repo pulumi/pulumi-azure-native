@@ -61,23 +61,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:servicefabric:Application":
+            case "azure-native:servicefabric:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:ApplicationType":
+            case "azure-native:servicefabric:ApplicationType":
                 return new ApplicationType(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:ApplicationTypeVersion":
+            case "azure-native:servicefabric:ApplicationTypeVersion":
                 return new ApplicationTypeVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:Cluster":
+            case "azure-native:servicefabric:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:ManagedCluster":
+            case "azure-native:servicefabric:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:NodeType":
+            case "azure-native:servicefabric:NodeType":
                 return new NodeType(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabric:Service":
+            case "azure-native:servicefabric:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "servicefabric", _module)
+pulumi.runtime.registerResourceModule("azure-native", "servicefabric", _module)

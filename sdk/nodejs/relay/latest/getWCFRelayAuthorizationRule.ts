@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelayAuthorizationRule'. */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
-    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'.")
+    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelayAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:getWCFRelayAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:getWCFRelayAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

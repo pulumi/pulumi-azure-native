@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Replication protected item.
  * Latest API Version: 2018-07-10.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationProtectedItem'.
  */
 export class ReplicationProtectedItem extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationProtectedItem {
-        pulumi.log.warn("ReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'.")
+        pulumi.log.warn("ReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationProtectedItem'.")
         return new ReplicationProtectedItem(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ReplicationProtectedItem';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/latest:ReplicationProtectedItem';
 
     /**
      * Returns true if the given object is an instance of ReplicationProtectedItem.  This is designed to work even
@@ -63,9 +63,9 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationProtectedItem'. */
     constructor(name: string, args: ReplicationProtectedItemArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'.")
+        pulumi.log.warn("ReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationProtectedItem'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationProtectedItem.__pulumiType, name, inputs, opts);
     }

@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbforpostgresql/latest:Configuration":
+            case "azure-native:dbforpostgresql/latest:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:Database":
+            case "azure-native:dbforpostgresql/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:FirewallRule":
+            case "azure-native:dbforpostgresql/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection":
+            case "azure-native:dbforpostgresql/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:Server":
+            case "azure-native:dbforpostgresql/latest:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:ServerAdministrator":
+            case "azure-native:dbforpostgresql/latest:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:ServerKey":
+            case "azure-native:dbforpostgresql/latest:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule":
+            case "azure-native:dbforpostgresql/latest:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbforpostgresql/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbforpostgresql/latest", _module)

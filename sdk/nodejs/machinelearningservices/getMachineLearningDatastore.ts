@@ -17,7 +17,7 @@ export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:getMachineLearningDatastore", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningDatastore", {
         "datastoreName": args.datastoreName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

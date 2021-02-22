@@ -23,7 +23,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi';
+    public static readonly __pulumiType = 'azure-native:logic:IntegrationServiceEnvironmentManagedApi';
 
     /**
      * Returns true if the given object is an instance of IntegrationServiceEnvironmentManagedApi.  This is designed to work even
@@ -95,7 +95,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The log profile resource.
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'.
  */
 export class LogProfile extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class LogProfile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LogProfile {
-        pulumi.log.warn("LogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.")
+        pulumi.log.warn("LogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'.")
         return new LogProfile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:LogProfile';
+    public static readonly __pulumiType = 'azure-native:insights/latest:LogProfile';
 
     /**
      * Returns true if the given object is an instance of LogProfile.  This is designed to work even
@@ -83,9 +83,9 @@ export class LogProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'. */
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.")
+        pulumi.log.warn("LogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
@@ -125,7 +125,7 @@ export class LogProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:LogProfile" }, { type: "azure-nextgen:insights/v20160301:LogProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:LogProfile" }, { type: "azure-nextgen:insights:LogProfile" }, { type: "azure-native:insights/v20160301:LogProfile" }, { type: "azure-nextgen:insights/v20160301:LogProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LogProfile.__pulumiType, name, inputs, opts);
     }

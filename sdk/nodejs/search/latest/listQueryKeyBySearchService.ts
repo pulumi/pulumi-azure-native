@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response containing the query API keys for a given Azure Cognitive Search service.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listQueryKeyBySearchService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:listQueryKeyBySearchService'. */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
-    pulumi.log.warn("listQueryKeyBySearchService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listQueryKeyBySearchService'.")
+    pulumi.log.warn("listQueryKeyBySearchService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:listQueryKeyBySearchService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:search/latest:listQueryKeyBySearchService", {
+    return pulumi.runtime.invoke("azure-native:search/latest:listQueryKeyBySearchService", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
     }, opts);

@@ -17,7 +17,7 @@ export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:intune:getIoMAMPolicyByName", {
+    return pulumi.runtime.invoke("azure-native:intune:getIoMAMPolicyByName", {
         "hostName": args.hostName,
         "policyName": args.policyName,
         "select": args.select,

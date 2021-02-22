@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:costmanagement/v20191001:Export":
+            case "azure-native:costmanagement/v20191001:Export":
                 return new Export(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "costmanagement/v20191001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "costmanagement/v20191001", _module)

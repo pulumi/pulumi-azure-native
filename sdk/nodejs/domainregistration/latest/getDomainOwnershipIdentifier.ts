@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Domain ownership Identifier.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomainOwnershipIdentifier'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomainOwnershipIdentifier'. */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
-    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomainOwnershipIdentifier'.")
+    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomainOwnershipIdentifier'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration/latest:getDomainOwnershipIdentifier", {
+    return pulumi.runtime.invoke("azure-native:domainregistration/latest:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -21,7 +21,7 @@ export class QueryPack extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20190901preview:QueryPack';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/v20190901preview:QueryPack';
 
     /**
      * Returns true if the given object is an instance of QueryPack.  This is designed to work even

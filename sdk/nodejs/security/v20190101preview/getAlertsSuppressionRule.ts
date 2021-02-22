@@ -16,7 +16,7 @@ export function getAlertsSuppressionRule(args: GetAlertsSuppressionRuleArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/v20190101preview:getAlertsSuppressionRule", {
+    return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAlertsSuppressionRule", {
         "alertsSuppressionRuleName": args.alertsSuppressionRuleName,
     }, opts);
 }

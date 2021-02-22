@@ -16,7 +16,7 @@ export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170426:getConnectorMapping", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getConnectorMapping", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,
         "mappingName": args.mappingName,

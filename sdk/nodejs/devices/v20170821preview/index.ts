@@ -23,13 +23,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devices/v20170821preview:DpsCertificate":
+            case "azure-native:devices/v20170821preview:DpsCertificate":
                 return new DpsCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20170821preview:IotDpsResource":
+            case "azure-native:devices/v20170821preview:IotDpsResource":
                 return new IotDpsResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devices/v20170821preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devices/v20170821preview", _module)

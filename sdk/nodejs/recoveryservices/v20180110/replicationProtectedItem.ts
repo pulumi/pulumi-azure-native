@@ -22,7 +22,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20180110:ReplicationProtectedItem';
 
     /**
      * Returns true if the given object is an instance of ReplicationProtectedItem.  This is designed to work even
@@ -96,7 +96,7 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/latest:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationProtectedItem.__pulumiType, name, inputs, opts);
     }

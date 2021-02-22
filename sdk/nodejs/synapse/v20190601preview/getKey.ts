@@ -16,7 +16,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getKey", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

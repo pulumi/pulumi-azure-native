@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * vCenter definition.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationvCenter'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationvCenter'. */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
-    pulumi.log.warn("getReplicationvCenter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationvCenter'.")
+    pulumi.log.warn("getReplicationvCenter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationvCenter'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationvCenter", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationvCenter", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

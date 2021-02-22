@@ -22,7 +22,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp';
+    public static readonly __pulumiType = 'azure-native:avs/v20210101preview:WorkloadNetworkDhcp';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkDhcp.  This is designed to work even
@@ -109,7 +109,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkDhcp.__pulumiType, name, inputs, opts);
     }

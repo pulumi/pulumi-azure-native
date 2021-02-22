@@ -17,7 +17,7 @@ export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:getPartnerNamespace", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:getPartnerNamespace", {
         "partnerNamespaceName": args.partnerNamespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

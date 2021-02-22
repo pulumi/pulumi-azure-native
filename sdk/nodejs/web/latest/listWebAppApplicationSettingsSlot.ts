@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettingsSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettingsSlot'. */
 export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsSlotResult> {
-    pulumi.log.warn("listWebAppApplicationSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettingsSlot'.")
+    pulumi.log.warn("listWebAppApplicationSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettingsSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSet
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppApplicationSettingsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppApplicationSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

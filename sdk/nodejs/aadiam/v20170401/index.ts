@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:aadiam/v20170401:DiagnosticSetting":
+            case "azure-native:aadiam/v20170401:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "aadiam/v20170401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "aadiam/v20170401", _module)

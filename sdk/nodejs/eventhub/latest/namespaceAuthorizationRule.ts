@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get AuthorizationRule operation
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceAuthorizationRule'.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceAuthorizationRule {
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.")
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceAuthorizationRule'.")
         return new NamespaceAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/latest:NamespaceAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:eventhub/latest:NamespaceAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of NamespaceAuthorizationRule.  This is designed to work even
@@ -59,9 +59,9 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceAuthorizationRule'. */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.")
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -91,7 +91,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }

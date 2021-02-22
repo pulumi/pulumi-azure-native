@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Backend details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Backend'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'.
  */
 export class Backend extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Backend extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backend {
-        pulumi.log.warn("Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Backend'.")
+        pulumi.log.warn("Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'.")
         return new Backend(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:Backend';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:Backend';
 
     /**
      * Returns true if the given object is an instance of Backend.  This is designed to work even
@@ -91,9 +91,9 @@ export class Backend extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Backend'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'. */
     constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Backend'.")
+        pulumi.log.warn("Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
@@ -142,7 +142,7 @@ export class Backend extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Backend" }, { type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20170301:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }, { type: "azure-nextgen:apimanagement/v20200601preview:Backend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Backend" }, { type: "azure-nextgen:apimanagement:Backend" }, { type: "azure-native:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-native:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-native:apimanagement/v20170301:Backend" }, { type: "azure-nextgen:apimanagement/v20170301:Backend" }, { type: "azure-native:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-native:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-native:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-native:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-native:apimanagement/v20191201preview:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }, { type: "azure-native:apimanagement/v20200601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20200601preview:Backend" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backend.__pulumiType, name, inputs, opts);
     }

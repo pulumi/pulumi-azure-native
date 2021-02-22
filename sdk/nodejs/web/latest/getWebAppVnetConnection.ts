@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Virtual Network information contract.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnection'. */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
-    pulumi.log.warn("getWebAppVnetConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnection'.")
+    pulumi.log.warn("getWebAppVnetConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppVnetConnection", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppVnetConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vnetName": args.vnetName,

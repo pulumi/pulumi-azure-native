@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of the Content Key Policy.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicyPropertiesWithSecrets'. */
 export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPolicyPropertiesWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyPropertiesWithSecretsResult> {
-    pulumi.log.warn("getContentKeyPolicyPropertiesWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets'.")
+    pulumi.log.warn("getContentKeyPolicyPropertiesWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicyPropertiesWithSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPoli
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getContentKeyPolicyPropertiesWithSecrets", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getContentKeyPolicyPropertiesWithSecrets", {
         "accountName": args.accountName,
         "contentKeyPolicyName": args.contentKeyPolicyName,
         "resourceGroupName": args.resourceGroupName,

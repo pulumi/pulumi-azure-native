@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Security assessment on a resource
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessment'. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    pulumi.log.warn("getAssessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.")
+    pulumi.log.warn("getAssessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/latest:getAssessment", {
+    return pulumi.runtime.invoke("azure-native:security/latest:getAssessment", {
         "assessmentName": args.assessmentName,
         "expand": args.expand,
         "resourceId": args.resourceId,

@@ -22,7 +22,7 @@ export class ApiOperation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201preview:ApiOperation';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201preview:ApiOperation';
 
     /**
      * Returns true if the given object is an instance of ApiOperation.  This is designed to work even
@@ -137,7 +137,7 @@ export class ApiOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiOperation" }, { type: "azure-nextgen:apimanagement/latest:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20160707:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20161010:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperation" }, { type: "azure-nextgen:apimanagement:ApiOperation" }, { type: "azure-native:apimanagement/latest:ApiOperation" }, { type: "azure-nextgen:apimanagement/latest:ApiOperation" }, { type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }

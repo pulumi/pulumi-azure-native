@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of failover sets.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverSets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverSets'. */
 export function listDeviceFailoverSets(args: ListDeviceFailoverSetsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverSetsResult> {
-    pulumi.log.warn("listDeviceFailoverSets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverSets'.")
+    pulumi.log.warn("listDeviceFailoverSets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverSets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDeviceFailoverSets(args: ListDeviceFailoverSetsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listDeviceFailoverSets", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:listDeviceFailoverSets", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

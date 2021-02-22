@@ -21,7 +21,7 @@ export class Action extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20200101:Action';
+    public static readonly __pulumiType = 'azure-native:securityinsights/v20200101:Action';
 
     /**
      * Returns true if the given object is an instance of Action.  This is designed to work even
@@ -101,7 +101,7 @@ export class Action extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Action" }, { type: "azure-nextgen:securityinsights/latest:Action" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-nextgen:securityinsights:Action" }, { type: "azure-native:securityinsights/latest:Action" }, { type: "azure-nextgen:securityinsights/latest:Action" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Action.__pulumiType, name, inputs, opts);
     }

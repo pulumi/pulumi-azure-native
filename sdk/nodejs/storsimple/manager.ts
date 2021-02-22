@@ -23,7 +23,7 @@ export class Manager extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:Manager';
+    public static readonly __pulumiType = 'azure-native:storsimple:Manager';
 
     /**
      * Returns true if the given object is an instance of Manager.  This is designed to work even
@@ -109,7 +109,7 @@ export class Manager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:Manager" }, { type: "azure-nextgen:storsimple/v20161001:Manager" }, { type: "azure-nextgen:storsimple/v20170601:Manager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:Manager" }, { type: "azure-nextgen:storsimple/latest:Manager" }, { type: "azure-native:storsimple/v20161001:Manager" }, { type: "azure-nextgen:storsimple/v20161001:Manager" }, { type: "azure-native:storsimple/v20170601:Manager" }, { type: "azure-nextgen:storsimple/v20170601:Manager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Manager.__pulumiType, name, inputs, opts);
     }

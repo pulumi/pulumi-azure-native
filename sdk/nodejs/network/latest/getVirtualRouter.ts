@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VirtualRouter Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouter'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualRouter'. */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
-    pulumi.log.warn("getVirtualRouter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouter'.")
+    pulumi.log.warn("getVirtualRouter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualRouter'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualRouter", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualRouter", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "virtualRouterName": args.virtualRouterName,

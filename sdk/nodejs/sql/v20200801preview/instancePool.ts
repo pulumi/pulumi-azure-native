@@ -22,7 +22,7 @@ export class InstancePool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:InstancePool';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:InstancePool';
 
     /**
      * Returns true if the given object is an instance of InstancePool.  This is designed to work even
@@ -117,7 +117,7 @@ export class InstancePool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:InstancePool" }, { type: "azure-nextgen:sql/v20180601preview:InstancePool" }, { type: "azure-nextgen:sql/v20200202preview:InstancePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstancePool" }, { type: "azure-nextgen:sql:InstancePool" }, { type: "azure-native:sql/v20180601preview:InstancePool" }, { type: "azure-nextgen:sql/v20180601preview:InstancePool" }, { type: "azure-native:sql/v20200202preview:InstancePool" }, { type: "azure-nextgen:sql/v20200202preview:InstancePool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InstancePool.__pulumiType, name, inputs, opts);
     }

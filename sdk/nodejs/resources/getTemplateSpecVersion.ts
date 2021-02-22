@@ -17,7 +17,7 @@ export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources:getTemplateSpecVersion", {
+    return pulumi.runtime.invoke("azure-native:resources:getTemplateSpecVersion", {
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,
         "templateSpecVersion": args.templateSpecVersion,

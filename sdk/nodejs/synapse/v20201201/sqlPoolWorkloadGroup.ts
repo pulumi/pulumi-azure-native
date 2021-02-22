@@ -21,7 +21,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup';
+    public static readonly __pulumiType = 'azure-native:synapse/v20201201:SqlPoolWorkloadGroup';
 
     /**
      * Returns true if the given object is an instance of SqlPoolWorkloadGroup.  This is designed to work even
@@ -124,7 +124,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/latest:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
     }

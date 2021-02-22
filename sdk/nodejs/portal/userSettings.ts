@@ -23,7 +23,7 @@ export class UserSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal:UserSettings';
+    public static readonly __pulumiType = 'azure-native:portal:UserSettings';
 
     /**
      * Returns true if the given object is an instance of UserSettings.  This is designed to work even
@@ -66,7 +66,7 @@ export class UserSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/latest:UserSettings" }, { type: "azure-nextgen:portal/v20181001:UserSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/latest:UserSettings" }, { type: "azure-nextgen:portal/latest:UserSettings" }, { type: "azure-native:portal/v20181001:UserSettings" }, { type: "azure-nextgen:portal/v20181001:UserSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserSettings.__pulumiType, name, inputs, opts);
     }

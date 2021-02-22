@@ -22,7 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:powerplatform/v20201030preview:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:powerplatform/v20201030preview:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The lock information.
  * Latest API Version: 2016-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockByScope'. */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
-    pulumi.log.warn("getManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'.")
+    pulumi.log.warn("getManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockByScope'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getManagementLockByScope", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getManagementLockByScope", {
         "lockName": args.lockName,
         "scope": args.scope,
     }, opts);

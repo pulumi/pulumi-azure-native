@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getDisasterRecoveryConfig'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getDisasterRecoveryConfig'. */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
-    pulumi.log.warn("getDisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getDisasterRecoveryConfig'.")
+    pulumi.log.warn("getDisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getDisasterRecoveryConfig'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getDisasterRecoveryConfig", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getDisasterRecoveryConfig", {
         "alias": args.alias,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VirtualWAN Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualWan'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualWan'. */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
-    pulumi.log.warn("getVirtualWan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualWan'.")
+    pulumi.log.warn("getVirtualWan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualWan'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualWan", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualWan", {
         "resourceGroupName": args.resourceGroupName,
         "virtualWANName": args.virtualWANName,
     }, opts);

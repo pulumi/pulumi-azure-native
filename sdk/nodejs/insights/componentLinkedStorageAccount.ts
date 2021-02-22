@@ -22,7 +22,7 @@ export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:ComponentLinkedStorageAccount';
+    public static readonly __pulumiType = 'azure-native:insights:ComponentLinkedStorageAccount';
 
     /**
      * Returns true if the given object is an instance of ComponentLinkedStorageAccount.  This is designed to work even
@@ -82,7 +82,7 @@ export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20200301preview:ComponentLinkedStorageAccount" }, { type: "azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ComponentLinkedStorageAccount.__pulumiType, name, inputs, opts);
     }

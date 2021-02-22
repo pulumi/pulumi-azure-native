@@ -63,39 +63,39 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace":
+            case "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace":
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable":
+            case "azure-native:documentdb/v20210115:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:DatabaseAccount":
+            case "azure-native:documentdb/v20210115:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase":
+            case "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph":
+            case "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph":
                 return new GremlinResourceGremlinGraph(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection":
+            case "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection":
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBDatabase":
+            case "azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:NotebookWorkspace":
+            case "azure-native:documentdb/v20210115:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection":
+            case "azure-native:documentdb/v20210115:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer":
+            case "azure-native:documentdb/v20210115:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase":
+            case "azure-native:documentdb/v20210115:SqlResourceSqlDatabase":
                 return new SqlResourceSqlDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure":
+            case "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure":
                 return new SqlResourceSqlStoredProcedure(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger":
+            case "azure-native:documentdb/v20210115:SqlResourceSqlTrigger":
                 return new SqlResourceSqlTrigger(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction":
+            case "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction":
                 return new SqlResourceSqlUserDefinedFunction(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20210115:TableResourceTable":
+            case "azure-native:documentdb/v20210115:TableResourceTable":
                 return new TableResourceTable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "documentdb/v20210115", _module)
+pulumi.runtime.registerResourceModule("azure-native", "documentdb/v20210115", _module)

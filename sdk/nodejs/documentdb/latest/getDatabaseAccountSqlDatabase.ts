@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB SQL database.
  * Latest API Version: 2016-03-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountSqlDatabase'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountSqlDatabase'. */
 export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountSqlDatabase'.")
+    pulumi.log.warn("getDatabaseAccountSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountSqlDatabase'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabas
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountSqlDatabase", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getDatabaseAccountSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

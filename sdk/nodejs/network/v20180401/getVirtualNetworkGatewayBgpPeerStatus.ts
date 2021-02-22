@@ -16,7 +16,7 @@ export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGat
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20180401:getVirtualNetworkGatewayBgpPeerStatus", {
+    return pulumi.runtime.invoke("azure-native:network/v20180401:getVirtualNetworkGatewayBgpPeerStatus", {
         "peer": args.peer,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,

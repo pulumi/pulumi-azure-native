@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Capacity pool resource
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getPool'. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    pulumi.log.warn("getPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getPool'.")
+    pulumi.log.warn("getPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getPool", {
+    return pulumi.runtime.invoke("azure-native:netapp/latest:getPool", {
         "accountName": args.accountName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,

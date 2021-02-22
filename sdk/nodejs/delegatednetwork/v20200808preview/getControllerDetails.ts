@@ -16,7 +16,7 @@ export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:delegatednetwork/v20200808preview:getControllerDetails", {
+    return pulumi.runtime.invoke("azure-native:delegatednetwork/v20200808preview:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

@@ -22,7 +22,7 @@ export class DataConnector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:DataConnector';
+    public static readonly __pulumiType = 'azure-native:securityinsights/v20190101preview:DataConnector';
 
     /**
      * Returns true if the given object is an instance of DataConnector.  This is designed to work even

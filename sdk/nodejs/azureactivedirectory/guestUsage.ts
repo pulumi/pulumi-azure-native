@@ -22,7 +22,7 @@ export class GuestUsage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azureactivedirectory:GuestUsage';
+    public static readonly __pulumiType = 'azure-native:azureactivedirectory:GuestUsage';
 
     /**
      * Returns true if the given object is an instance of GuestUsage.  This is designed to work even
@@ -90,7 +90,7 @@ export class GuestUsage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20200501preview:GuestUsage" }, { type: "azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestUsage.__pulumiType, name, inputs, opts);
     }

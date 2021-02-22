@@ -17,7 +17,7 @@ export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata:getDataStore", {
+    return pulumi.runtime.invoke("azure-native:hybriddata:getDataStore", {
         "dataManagerName": args.dataManagerName,
         "dataStoreName": args.dataStoreName,
         "resourceGroupName": args.resourceGroupName,

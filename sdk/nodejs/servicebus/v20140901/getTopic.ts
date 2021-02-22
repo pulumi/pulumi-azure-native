@@ -16,7 +16,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20140901:getTopic", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20140901:getTopic", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,

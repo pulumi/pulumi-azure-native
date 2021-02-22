@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a database.
  * Latest API Version: 2014-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/latest:Database';
+    public static readonly __pulumiType = 'azure-native:sql/latest:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -209,9 +209,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -294,7 +294,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:Database" }, { type: "azure-nextgen:sql/v20140401:Database" }, { type: "azure-nextgen:sql/v20170301preview:Database" }, { type: "azure-nextgen:sql/v20171001preview:Database" }, { type: "azure-nextgen:sql/v20190601preview:Database" }, { type: "azure-nextgen:sql/v20200202preview:Database" }, { type: "azure-nextgen:sql/v20200801preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:Database" }, { type: "azure-nextgen:sql:Database" }, { type: "azure-native:sql/v20140401:Database" }, { type: "azure-nextgen:sql/v20140401:Database" }, { type: "azure-native:sql/v20170301preview:Database" }, { type: "azure-nextgen:sql/v20170301preview:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-nextgen:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-nextgen:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-nextgen:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-nextgen:sql/v20200801preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

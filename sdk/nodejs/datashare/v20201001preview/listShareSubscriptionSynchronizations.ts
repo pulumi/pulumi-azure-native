@@ -16,7 +16,7 @@ export function listShareSubscriptionSynchronizations(args: ListShareSubscriptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/v20201001preview:listShareSubscriptionSynchronizations", {
+    return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:listShareSubscriptionSynchronizations", {
         "accountName": args.accountName,
         "filter": args.filter,
         "orderby": args.orderby,

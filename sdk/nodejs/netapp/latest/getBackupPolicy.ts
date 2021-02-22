@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Backup policy information
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackupPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackupPolicy'. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-    pulumi.log.warn("getBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackupPolicy'.")
+    pulumi.log.warn("getBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackupPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getBackupPolicy", {
+    return pulumi.runtime.invoke("azure-native:netapp/latest:getBackupPolicy", {
         "accountName": args.accountName,
         "backupPolicyName": args.backupPolicyName,
         "resourceGroupName": args.resourceGroupName,

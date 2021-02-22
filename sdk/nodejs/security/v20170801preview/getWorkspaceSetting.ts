@@ -16,7 +16,7 @@ export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/v20170801preview:getWorkspaceSetting", {
+    return pulumi.runtime.invoke("azure-native:security/v20170801preview:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,
     }, opts);
 }

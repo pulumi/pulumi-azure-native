@@ -64,41 +64,41 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:automation/v20190601:AutomationAccount":
+            case "azure-native:automation/v20190601:AutomationAccount":
                 return new AutomationAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Certificate":
+            case "azure-native:automation/v20190601:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Connection":
+            case "azure-native:automation/v20190601:Connection":
                 return new Connection(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:ConnectionType":
+            case "azure-native:automation/v20190601:ConnectionType":
                 return new ConnectionType(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Credential":
+            case "azure-native:automation/v20190601:Credential":
                 return new Credential(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:DscConfiguration":
+            case "azure-native:automation/v20190601:DscConfiguration":
                 return new DscConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:DscNodeConfiguration":
+            case "azure-native:automation/v20190601:DscNodeConfiguration":
                 return new DscNodeConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:JobSchedule":
+            case "azure-native:automation/v20190601:JobSchedule":
                 return new JobSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Module":
+            case "azure-native:automation/v20190601:Module":
                 return new Module(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Python2Package":
+            case "azure-native:automation/v20190601:Python2Package":
                 return new Python2Package(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Runbook":
+            case "azure-native:automation/v20190601:Runbook":
                 return new Runbook(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Schedule":
+            case "azure-native:automation/v20190601:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName":
+            case "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName":
                 return new SoftwareUpdateConfigurationByName(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:SourceControl":
+            case "azure-native:automation/v20190601:SourceControl":
                 return new SourceControl(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Variable":
+            case "azure-native:automation/v20190601:Variable":
                 return new Variable(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20190601:Watcher":
+            case "azure-native:automation/v20190601:Watcher":
                 return new Watcher(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "automation/v20190601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "automation/v20190601", _module)

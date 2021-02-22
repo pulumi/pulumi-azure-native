@@ -16,7 +16,7 @@ export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180330preview:listStreamingLocatorPaths", {
+    return pulumi.runtime.invoke("azure-native:media/v20180330preview:listStreamingLocatorPaths", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingLocatorName": args.streamingLocatorName,

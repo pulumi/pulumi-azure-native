@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Workspace authorization keys for a workspace.
  * Latest API Version: 2016-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:listWorkspaceKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:listWorkspaceKeys'. */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
-    pulumi.log.warn("listWorkspaceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:listWorkspaceKeys'.")
+    pulumi.log.warn("listWorkspaceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:listWorkspaceKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearning/latest:listWorkspaceKeys", {
+    return pulumi.runtime.invoke("azure-native:machinelearning/latest:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

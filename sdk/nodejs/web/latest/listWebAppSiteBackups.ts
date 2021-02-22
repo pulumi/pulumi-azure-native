@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of backup items.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackups'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSiteBackups'. */
 export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsResult> {
-    pulumi.log.warn("listWebAppSiteBackups is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackups'.")
+    pulumi.log.warn("listWebAppSiteBackups is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSiteBackups'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSiteBackups", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppSiteBackups", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

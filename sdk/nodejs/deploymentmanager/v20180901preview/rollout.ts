@@ -22,7 +22,7 @@ export class Rollout extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:deploymentmanager/v20180901preview:Rollout';
+    public static readonly __pulumiType = 'azure-native:deploymentmanager/v20180901preview:Rollout';
 
     /**
      * Returns true if the given object is an instance of Rollout.  This is designed to work even
@@ -126,7 +126,7 @@ export class Rollout extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager:Rollout" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:Rollout" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Rollout" }, { type: "azure-nextgen:deploymentmanager:Rollout" }, { type: "azure-native:deploymentmanager/v20191101preview:Rollout" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:Rollout" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Rollout.__pulumiType, name, inputs, opts);
     }

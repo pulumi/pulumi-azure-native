@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:maintenance/v20210401preview:ConfigurationAssignment":
+            case "azure-native:maintenance/v20210401preview:ConfigurationAssignment":
                 return new ConfigurationAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent":
+            case "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent":
                 return new ConfigurationAssignmentParent(name, <any>undefined, { urn })
-            case "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration":
+            case "azure-native:maintenance/v20210401preview:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "maintenance/v20210401preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "maintenance/v20210401preview", _module)

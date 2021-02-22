@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Event Hub operation
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.
  */
 export class EventHub extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class EventHub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHub {
-        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.")
+        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.")
         return new EventHub(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/latest:EventHub';
+    public static readonly __pulumiType = 'azure-native:eventhub/latest:EventHub';
 
     /**
      * Returns true if the given object is an instance of EventHub.  This is designed to work even
@@ -83,9 +83,9 @@ export class EventHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'. */
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.")
+        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +124,7 @@ export class EventHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHub" }, { type: "azure-nextgen:eventhub/v20140901:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHub" }, { type: "azure-nextgen:eventhub:EventHub" }, { type: "azure-native:eventhub/v20140901:EventHub" }, { type: "azure-nextgen:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventHub.__pulumiType, name, inputs, opts);
     }

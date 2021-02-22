@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A data set mapping data transfer object.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'. */
 export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetMappingResult> {
-    pulumi.log.warn("getDataSetMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'.")
+    pulumi.log.warn("getDataSetMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:getDataSetMapping", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:getDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,
         "resourceGroupName": args.resourceGroupName,

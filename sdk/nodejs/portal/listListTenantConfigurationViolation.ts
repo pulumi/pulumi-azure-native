@@ -18,7 +18,7 @@ export function listListTenantConfigurationViolation(args?: ListListTenantConfig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:portal:listListTenantConfigurationViolation", {
+    return pulumi.runtime.invoke("azure-native:portal:listListTenantConfigurationViolation", {
     }, opts);
 }
 

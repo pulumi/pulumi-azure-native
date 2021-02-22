@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A schedule.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getGlobalSchedule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getGlobalSchedule'. */
 export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalScheduleResult> {
-    pulumi.log.warn("getGlobalSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getGlobalSchedule'.")
+    pulumi.log.warn("getGlobalSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getGlobalSchedule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getGlobalSchedule", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getGlobalSchedule", {
         "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

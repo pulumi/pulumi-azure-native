@@ -16,7 +16,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh/v20180901preview:getSecret", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretResourceName": args.secretResourceName,
     }, opts);

@@ -36,23 +36,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:security/latest:AdaptiveApplicationControl":
+            case "azure-native:security/latest:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:Assessment":
+            case "azure-native:security/latest:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:AssessmentMetadataInSubscription":
+            case "azure-native:security/latest:AssessmentMetadataInSubscription":
                 return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:DeviceSecurityGroup":
+            case "azure-native:security/latest:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:IotSecuritySolution":
+            case "azure-native:security/latest:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:JitNetworkAccessPolicy":
+            case "azure-native:security/latest:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:security/latest:ServerVulnerabilityAssessment":
+            case "azure-native:security/latest:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "security/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "security/latest", _module)

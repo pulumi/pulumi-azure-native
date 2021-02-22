@@ -22,7 +22,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/v20210301:RedisEnterprise';
+    public static readonly __pulumiType = 'azure-native:cache/v20210301:RedisEnterprise';
 
     /**
      * Returns true if the given object is an instance of RedisEnterprise.  This is designed to work even
@@ -135,7 +135,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:RedisEnterprise" }, { type: "azure-nextgen:cache/latest:RedisEnterprise" }, { type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisEnterprise" }, { type: "azure-nextgen:cache:RedisEnterprise" }, { type: "azure-native:cache/latest:RedisEnterprise" }, { type: "azure-nextgen:cache/latest:RedisEnterprise" }, { type: "azure-native:cache/v20201001preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisEnterprise.__pulumiType, name, inputs, opts);
     }

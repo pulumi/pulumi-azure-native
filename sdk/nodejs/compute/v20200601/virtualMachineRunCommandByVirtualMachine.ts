@@ -22,7 +22,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine';
+    public static readonly __pulumiType = 'azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineRunCommandByVirtualMachine.  This is designed to work even
@@ -154,7 +154,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, inputs, opts);
     }

@@ -43,21 +43,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:servicefabricmesh:Application":
+            case "azure-native:servicefabricmesh:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabricmesh:Gateway":
+            case "azure-native:servicefabricmesh:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabricmesh:Network":
+            case "azure-native:servicefabricmesh:Network":
                 return new Network(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabricmesh:Secret":
+            case "azure-native:servicefabricmesh:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabricmesh:SecretValue":
+            case "azure-native:servicefabricmesh:SecretValue":
                 return new SecretValue(name, <any>undefined, { urn })
-            case "azure-nextgen:servicefabricmesh:Volume":
+            case "azure-native:servicefabricmesh:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "servicefabricmesh", _module)
+pulumi.runtime.registerResourceModule("azure-native", "servicefabricmesh", _module)

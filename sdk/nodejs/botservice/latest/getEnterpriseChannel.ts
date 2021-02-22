@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Enterprise Channel resource definition
  * Latest API Version: 2018-07-12.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getEnterpriseChannel'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getEnterpriseChannel'. */
 export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseChannelResult> {
-    pulumi.log.warn("getEnterpriseChannel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getEnterpriseChannel'.")
+    pulumi.log.warn("getEnterpriseChannel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getEnterpriseChannel'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:getEnterpriseChannel", {
+    return pulumi.runtime.invoke("azure-native:botservice/latest:getEnterpriseChannel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

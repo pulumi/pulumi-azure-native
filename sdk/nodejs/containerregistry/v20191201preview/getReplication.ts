@@ -16,7 +16,7 @@ export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20191201preview:getReplication", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/v20191201preview:getReplication", {
         "registryName": args.registryName,
         "replicationName": args.replicationName,
         "resourceGroupName": args.resourceGroupName,

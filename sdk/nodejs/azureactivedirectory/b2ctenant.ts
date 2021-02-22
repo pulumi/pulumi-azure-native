@@ -22,7 +22,7 @@ export class B2CTenant extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azureactivedirectory:B2CTenant';
+    public static readonly __pulumiType = 'azure-native:azureactivedirectory:B2CTenant';
 
     /**
      * Returns true if the given object is an instance of B2CTenant.  This is designed to work even
@@ -109,7 +109,7 @@ export class B2CTenant extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20190101preview:B2CTenant" }, { type: "azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(B2CTenant.__pulumiType, name, inputs, opts);
     }

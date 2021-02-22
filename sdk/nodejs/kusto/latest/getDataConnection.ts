@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing an data connection.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDataConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDataConnection'. */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
-    pulumi.log.warn("getDataConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDataConnection'.")
+    pulumi.log.warn("getDataConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDataConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getDataConnection", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:getDataConnection", {
         "clusterName": args.clusterName,
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedHostGroup {
-        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.")
+        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'.")
         return new DedicatedHostGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:DedicatedHostGroup';
+    public static readonly __pulumiType = 'azure-native:compute/latest:DedicatedHostGroup';
 
     /**
      * Returns true if the given object is an instance of DedicatedHostGroup.  This is designed to work even
@@ -83,9 +83,9 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'. */
     constructor(name: string, args: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.")
+        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.platformFaultDomainCount === undefined) && !(opts && opts.urn)) {
@@ -123,7 +123,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190301:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190701:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20201201:DedicatedHostGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHostGroup" }, { type: "azure-nextgen:compute:DedicatedHostGroup" }, { type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20190701:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190701:DedicatedHostGroup" }, { type: "azure-native:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20201201:DedicatedHostGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
     }

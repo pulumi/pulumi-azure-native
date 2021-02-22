@@ -17,7 +17,7 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getRegistry", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getRegistry", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

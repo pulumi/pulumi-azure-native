@@ -17,7 +17,7 @@ export function getServerAzureADOnlyAuthentication(args: GetServerAzureADOnlyAut
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getServerAzureADOnlyAuthentication", {
+    return pulumi.runtime.invoke("azure-native:sql:getServerAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

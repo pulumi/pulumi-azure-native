@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of NetworkRuleSet resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getNamespaceNetworkRuleSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceNetworkRuleSet'. */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
-    pulumi.log.warn("getNamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getNamespaceNetworkRuleSet'.")
+    pulumi.log.warn("getNamespaceNetworkRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceNetworkRuleSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/latest:getNamespaceNetworkRuleSet", {
+    return pulumi.runtime.invoke("azure-native:eventhub/latest:getNamespaceNetworkRuleSet", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

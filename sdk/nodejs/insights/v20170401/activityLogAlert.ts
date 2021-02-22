@@ -22,7 +22,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20170401:ActivityLogAlert';
+    public static readonly __pulumiType = 'azure-native:insights/v20170401:ActivityLogAlert';
 
     /**
      * Returns true if the given object is an instance of ActivityLogAlert.  This is designed to work even
@@ -123,7 +123,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ActivityLogAlert" }, { type: "azure-nextgen:insights/latest:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-nextgen:insights:ActivityLogAlert" }, { type: "azure-native:insights/latest:ActivityLogAlert" }, { type: "azure-nextgen:insights/latest:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }

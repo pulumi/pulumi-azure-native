@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The customer's prefix that is registered by the peering service provider.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredPrefix'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredPrefix'. */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
-    pulumi.log.warn("getRegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredPrefix'.")
+    pulumi.log.warn("getRegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredPrefix'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/latest:getRegisteredPrefix", {
+    return pulumi.runtime.invoke("azure-native:peering/latest:getRegisteredPrefix", {
         "peeringName": args.peeringName,
         "registeredPrefixName": args.registeredPrefixName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An assessment created for a group in the Migration project.
  * Latest API Version: 2019-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getAssessment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getAssessment'. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    pulumi.log.warn("getAssessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getAssessment'.")
+    pulumi.log.warn("getAssessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getAssessment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getAssessment", {
+    return pulumi.runtime.invoke("azure-native:migrate/latest:getAssessment", {
         "assessmentName": args.assessmentName,
         "groupName": args.groupName,
         "projectName": args.projectName,

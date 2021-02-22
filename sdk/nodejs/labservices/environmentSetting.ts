@@ -23,7 +23,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:labservices:EnvironmentSetting';
+    public static readonly __pulumiType = 'azure-native:labservices:EnvironmentSetting';
 
     /**
      * Returns true if the given object is an instance of EnvironmentSetting.  This is designed to work even
@@ -156,7 +156,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/latest:EnvironmentSetting" }, { type: "azure-nextgen:labservices/latest:EnvironmentSetting" }, { type: "azure-native:labservices/v20181015:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnvironmentSetting.__pulumiType, name, inputs, opts);
     }

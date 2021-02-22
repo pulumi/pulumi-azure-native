@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A virtual machine.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
-        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'.")
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'.")
         return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:VirtualMachine';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:VirtualMachine';
 
     /**
      * Returns true if the given object is an instance of VirtualMachine.  This is designed to work even
@@ -203,9 +203,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'. */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'.")
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -303,7 +303,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachine" }, { type: "azure-nextgen:devtestlab:VirtualMachine" }, { type: "azure-native:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-native:devtestlab/v20160515:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachine" }, { type: "azure-native:devtestlab/v20180915:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

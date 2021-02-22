@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getFirewallRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getFirewallRule'. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    pulumi.log.warn("getFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getFirewallRule'.")
+    pulumi.log.warn("getFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getFirewallRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/latest:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:cache/latest:getFirewallRule", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

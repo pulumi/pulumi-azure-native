@@ -22,7 +22,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse:WorkspaceAadAdmin';
+    public static readonly __pulumiType = 'azure-native:synapse:WorkspaceAadAdmin';
 
     /**
      * Returns true if the given object is an instance of WorkspaceAadAdmin.  This is designed to work even
@@ -99,7 +99,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20201201:WorkspaceAadAdmin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20201201:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20201201:WorkspaceAadAdmin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
     }

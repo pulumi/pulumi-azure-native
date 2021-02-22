@@ -22,7 +22,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:relay/v20170401:Namespace';
+    public static readonly __pulumiType = 'azure-native:relay/v20170401:Namespace';
 
     /**
      * Returns true if the given object is an instance of Namespace.  This is designed to work even
@@ -117,7 +117,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay:Namespace" }, { type: "azure-nextgen:relay/latest:Namespace" }, { type: "azure-nextgen:relay/v20160701:Namespace" }, { type: "azure-nextgen:relay/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay:Namespace" }, { type: "azure-nextgen:relay:Namespace" }, { type: "azure-native:relay/latest:Namespace" }, { type: "azure-nextgen:relay/latest:Namespace" }, { type: "azure-native:relay/v20160701:Namespace" }, { type: "azure-nextgen:relay/v20160701:Namespace" }, { type: "azure-native:relay/v20180101preview:Namespace" }, { type: "azure-nextgen:relay/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

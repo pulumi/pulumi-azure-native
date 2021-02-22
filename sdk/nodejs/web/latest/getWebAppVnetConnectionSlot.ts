@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Virtual Network information contract.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnectionSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnectionSlot'. */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
-    pulumi.log.warn("getWebAppVnetConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnectionSlot'.")
+    pulumi.log.warn("getWebAppVnetConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnectionSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppVnetConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppVnetConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

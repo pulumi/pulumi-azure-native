@@ -16,7 +16,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault/v20180214:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:keyvault/v20180214:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

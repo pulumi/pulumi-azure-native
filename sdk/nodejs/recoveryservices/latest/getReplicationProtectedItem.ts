@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Replication protected item.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectedItem'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectedItem'. */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
-    pulumi.log.warn("getReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectedItem'.")
+    pulumi.log.warn("getReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectedItem'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationProtectedItem(args: GetReplicationProtectedItemArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationProtectedItem", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationProtectedItem", {
         "fabricName": args.fabricName,
         "protectionContainerName": args.protectionContainerName,
         "replicatedProtectedItemName": args.replicatedProtectedItemName,

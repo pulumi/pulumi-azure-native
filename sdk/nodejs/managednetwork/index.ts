@@ -34,17 +34,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:managednetwork:ManagedNetwork":
+            case "azure-native:managednetwork:ManagedNetwork":
                 return new ManagedNetwork(name, <any>undefined, { urn })
-            case "azure-nextgen:managednetwork:ManagedNetworkGroup":
+            case "azure-native:managednetwork:ManagedNetworkGroup":
                 return new ManagedNetworkGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy":
+            case "azure-native:managednetwork:ManagedNetworkPeeringPolicy":
                 return new ManagedNetworkPeeringPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:managednetwork:ScopeAssignment":
+            case "azure-native:managednetwork:ScopeAssignment":
                 return new ScopeAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "managednetwork", _module)
+pulumi.runtime.registerResourceModule("azure-native", "managednetwork", _module)

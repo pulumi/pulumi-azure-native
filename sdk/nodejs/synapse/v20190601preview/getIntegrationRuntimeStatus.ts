@@ -16,7 +16,7 @@ export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getIntegrationRuntimeStatus", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getIntegrationRuntimeStatus", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

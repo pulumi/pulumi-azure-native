@@ -22,7 +22,7 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:labservices/v20181015:Lab';
+    public static readonly __pulumiType = 'azure-native:labservices/v20181015:Lab';
 
     /**
      * Returns true if the given object is an instance of Lab.  This is designed to work even
@@ -154,7 +154,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:Lab" }, { type: "azure-nextgen:labservices/latest:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices:Lab" }, { type: "azure-nextgen:labservices:Lab" }, { type: "azure-native:labservices/latest:Lab" }, { type: "azure-nextgen:labservices/latest:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A database geo backup policy.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'. */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
-    pulumi.log.warn("getGeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.")
+    pulumi.log.warn("getGeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getGeoBackupPolicy", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getGeoBackupPolicy", {
         "databaseName": args.databaseName,
         "geoBackupPolicyName": args.geoBackupPolicyName,
         "resourceGroupName": args.resourceGroupName,

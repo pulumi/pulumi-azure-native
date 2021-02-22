@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Application Insights private workbook definition.
  * Latest API Version: 2020-10-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMyWorkbook'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMyWorkbook'. */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
-    pulumi.log.warn("getMyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMyWorkbook'.")
+    pulumi.log.warn("getMyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMyWorkbook'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getMyWorkbook", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getMyWorkbook", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

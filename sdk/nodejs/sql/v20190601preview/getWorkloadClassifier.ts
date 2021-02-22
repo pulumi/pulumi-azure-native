@@ -16,7 +16,7 @@ export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20190601preview:getWorkloadClassifier", {
+    return pulumi.runtime.invoke("azure-native:sql/v20190601preview:getWorkloadClassifier", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

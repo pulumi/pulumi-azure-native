@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB MongoDB collection.
  * Latest API Version: 2016-03-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountMongoDBCollection'. */
 export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBCollectionResult> {
-    pulumi.log.warn("getDatabaseAccountMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection'.")
+    pulumi.log.warn("getDatabaseAccountMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountMongoDBCollection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMong
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountMongoDBCollection", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getDatabaseAccountMongoDBCollection", {
         "accountName": args.accountName,
         "collectionName": args.collectionName,
         "databaseName": args.databaseName,

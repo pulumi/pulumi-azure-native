@@ -16,7 +16,7 @@ export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getEntityInsights", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getEntityInsights", {
         "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
         "endTime": args.endTime,
         "entityId": args.entityId,

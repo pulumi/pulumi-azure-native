@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A formula for creating a VM, specifying an image base and other parameters
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getFormula'. */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
-    pulumi.log.warn("getFormula is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'.")
+    pulumi.log.warn("getFormula is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getFormula'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getFormula", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getFormula", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

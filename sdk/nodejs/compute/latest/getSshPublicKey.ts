@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the SSH public key.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSshPublicKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSshPublicKey'. */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
-    pulumi.log.warn("getSshPublicKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSshPublicKey'.")
+    pulumi.log.warn("getSshPublicKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSshPublicKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getSshPublicKey", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getSshPublicKey", {
         "resourceGroupName": args.resourceGroupName,
         "sshPublicKeyName": args.sshPublicKeyName,
     }, opts);

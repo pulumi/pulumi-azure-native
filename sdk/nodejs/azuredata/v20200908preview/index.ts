@@ -24,17 +24,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:azuredata/v20200908preview:DataController":
+            case "azure-native:azuredata/v20200908preview:DataController":
                 return new DataController(name, <any>undefined, { urn })
-            case "azure-nextgen:azuredata/v20200908preview:PostgresInstance":
+            case "azure-native:azuredata/v20200908preview:PostgresInstance":
                 return new PostgresInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance":
+            case "azure-native:azuredata/v20200908preview:SqlManagedInstance":
                 return new SqlManagedInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:azuredata/v20200908preview:SqlServerInstance":
+            case "azure-native:azuredata/v20200908preview:SqlServerInstance":
                 return new SqlServerInstance(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "azuredata/v20200908preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "azuredata/v20200908preview", _module)

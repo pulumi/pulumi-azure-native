@@ -16,7 +16,7 @@ export function listSiteBackupConfigurationSlot(args: ListSiteBackupConfiguratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteBackupConfigurationSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteBackupConfigurationSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

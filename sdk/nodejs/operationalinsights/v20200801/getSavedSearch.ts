@@ -16,7 +16,7 @@ export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20200801:getSavedSearch", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getSavedSearch", {
         "resourceGroupName": args.resourceGroupName,
         "savedSearchId": args.savedSearchId,
         "workspaceName": args.workspaceName,

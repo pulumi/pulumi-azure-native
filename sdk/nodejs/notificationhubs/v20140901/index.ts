@@ -23,13 +23,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:notificationhubs/v20140901:Namespace":
+            case "azure-native:notificationhubs/v20140901:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:notificationhubs/v20140901:NotificationHub":
+            case "azure-native:notificationhubs/v20140901:NotificationHub":
                 return new NotificationHub(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "notificationhubs/v20140901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "notificationhubs/v20140901", _module)

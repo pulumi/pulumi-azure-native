@@ -22,13 +22,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cognitiveservices/v20170418:Account":
+            case "azure-native:cognitiveservices/v20170418:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection":
+            case "azure-native:cognitiveservices/v20170418:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cognitiveservices/v20170418", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cognitiveservices/v20170418", _module)

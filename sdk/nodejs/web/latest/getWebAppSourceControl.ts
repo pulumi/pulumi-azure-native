@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Source control configuration for an app.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControl'. */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
-    pulumi.log.warn("getWebAppSourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControl'.")
+    pulumi.log.warn("getWebAppSourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSourceControl", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSourceControl", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Values returned by the List operation.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobRemoteLoginInformation'. */
 export function listJobRemoteLoginInformation(args: ListJobRemoteLoginInformationArgs, opts?: pulumi.InvokeOptions): Promise<ListJobRemoteLoginInformationResult> {
-    pulumi.log.warn("listJobRemoteLoginInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'.")
+    pulumi.log.warn("listJobRemoteLoginInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobRemoteLoginInformation'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listJobRemoteLoginInformation(args: ListJobRemoteLoginInformatio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:listJobRemoteLoginInformation", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:listJobRemoteLoginInformation", {
         "experimentName": args.experimentName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

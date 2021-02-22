@@ -22,7 +22,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:migrate/v20171111preview:Project';
+    public static readonly __pulumiType = 'azure-native:migrate/v20171111preview:Project';
 
     /**
      * Returns true if the given object is an instance of Project.  This is designed to work even
@@ -138,7 +138,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20180202:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180202:Project" }, { type: "azure-nextgen:migrate/v20180202:Project" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Project.__pulumiType, name, inputs, opts);
     }

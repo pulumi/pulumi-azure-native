@@ -16,7 +16,7 @@ export function listLocationConsortiums(args: ListLocationConsortiumsArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blockchain/v20180601preview:listLocationConsortiums", {
+    return pulumi.runtime.invoke("azure-native:blockchain/v20180601preview:listLocationConsortiums", {
         "locationName": args.locationName,
     }, opts);
 }

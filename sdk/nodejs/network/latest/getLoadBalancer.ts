@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * LoadBalancer resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    pulumi.log.warn("getLoadBalancer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancer'.")
+    pulumi.log.warn("getLoadBalancer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getLoadBalancer", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getLoadBalancer", {
         "expand": args.expand,
         "loadBalancerName": args.loadBalancerName,
         "resourceGroupName": args.resourceGroupName,

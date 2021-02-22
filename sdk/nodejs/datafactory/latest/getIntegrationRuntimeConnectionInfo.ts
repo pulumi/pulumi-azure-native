@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Connection information for encrypting the on-premises data source credentials.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeConnectionInfo'. */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
-    pulumi.log.warn("getIntegrationRuntimeConnectionInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.")
+    pulumi.log.warn("getIntegrationRuntimeConnectionInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeConnectionInfo'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getIntegrationRuntimeConnectionInfo", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getIntegrationRuntimeConnectionInfo", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

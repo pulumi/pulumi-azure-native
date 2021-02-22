@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource upload definition payload
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getAppResourceUploadUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getAppResourceUploadUrl'. */
 export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResourceUploadUrlResult> {
-    pulumi.log.warn("getAppResourceUploadUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getAppResourceUploadUrl'.")
+    pulumi.log.warn("getAppResourceUploadUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getAppResourceUploadUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getAppResourceUploadUrl", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:getAppResourceUploadUrl", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

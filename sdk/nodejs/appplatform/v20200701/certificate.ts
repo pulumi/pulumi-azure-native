@@ -22,7 +22,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform/v20200701:Certificate';
+    public static readonly __pulumiType = 'azure-native:appplatform/v20200701:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -82,7 +82,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-nextgen:appplatform/latest:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Certificate" }, { type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-native:appplatform/latest:Certificate" }, { type: "azure-nextgen:appplatform/latest:Certificate" }, { type: "azure-native:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

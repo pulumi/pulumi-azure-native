@@ -22,7 +22,7 @@ export class LinkedServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/v20171001:LinkedServer';
+    public static readonly __pulumiType = 'azure-native:cache/v20171001:LinkedServer';
 
     /**
      * Returns true if the given object is an instance of LinkedServer.  This is designed to work even
@@ -108,7 +108,7 @@ export class LinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:LinkedServer" }, { type: "azure-nextgen:cache/latest:LinkedServer" }, { type: "azure-nextgen:cache/v20170201:LinkedServer" }, { type: "azure-nextgen:cache/v20180301:LinkedServer" }, { type: "azure-nextgen:cache/v20190701:LinkedServer" }, { type: "azure-nextgen:cache/v20200601:LinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:LinkedServer" }, { type: "azure-nextgen:cache:LinkedServer" }, { type: "azure-native:cache/latest:LinkedServer" }, { type: "azure-nextgen:cache/latest:LinkedServer" }, { type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-nextgen:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-nextgen:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-nextgen:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-nextgen:cache/v20200601:LinkedServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedServer.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class Vendor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:Vendor';
+    public static readonly __pulumiType = 'azure-native:hybridnetwork/v20200101preview:Vendor';
 
     /**
      * Returns true if the given object is an instance of Vendor.  This is designed to work even
@@ -80,7 +80,7 @@ export class Vendor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridnetwork:Vendor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:Vendor" }, { type: "azure-nextgen:hybridnetwork:Vendor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vendor.__pulumiType, name, inputs, opts);
     }

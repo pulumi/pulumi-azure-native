@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getSharedPrivateLinkResource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getSharedPrivateLinkResource'. */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
-    pulumi.log.warn("getSharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getSharedPrivateLinkResource'.")
+    pulumi.log.warn("getSharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getSharedPrivateLinkResource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:search/latest:getSharedPrivateLinkResource", {
+    return pulumi.runtime.invoke("azure-native:search/latest:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
         "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,

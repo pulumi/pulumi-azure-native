@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Registration assignment.
  * Latest API Version: 2019-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationAssignment'.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationAssignment {
-        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")
+        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationAssignment'.")
         return new RegistrationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managedservices/latest:RegistrationAssignment';
+    public static readonly __pulumiType = 'azure-native:managedservices/latest:RegistrationAssignment';
 
     /**
      * Returns true if the given object is an instance of RegistrationAssignment.  This is designed to work even
@@ -59,9 +59,9 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationAssignment'. */
     constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")
+        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
@@ -84,7 +84,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationAssignment" }, { type: "azure-nextgen:managedservices:RegistrationAssignment" }, { type: "azure-native:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-native:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-native:managedservices/v20200201preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

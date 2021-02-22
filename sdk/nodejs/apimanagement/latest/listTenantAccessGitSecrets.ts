@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Tenant access information contract of the API Management service.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessGitSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listTenantAccessGitSecrets'. */
 export function listTenantAccessGitSecrets(args: ListTenantAccessGitSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessGitSecretsResult> {
-    pulumi.log.warn("listTenantAccessGitSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessGitSecrets'.")
+    pulumi.log.warn("listTenantAccessGitSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listTenantAccessGitSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listTenantAccessGitSecrets(args: ListTenantAccessGitSecretsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listTenantAccessGitSecrets", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:listTenantAccessGitSecrets", {
         "accessName": args.accessName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

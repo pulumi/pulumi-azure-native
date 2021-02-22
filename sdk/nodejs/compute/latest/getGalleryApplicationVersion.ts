@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery Application Version that you want to create or update.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplicationVersion'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplicationVersion'. */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
-    pulumi.log.warn("getGalleryApplicationVersion is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplicationVersion'.")
+    pulumi.log.warn("getGalleryApplicationVersion is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplicationVersion'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getGalleryApplicationVersion", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getGalleryApplicationVersion", {
         "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,
         "galleryApplicationVersionName": args.galleryApplicationVersionName,

@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:azuredata/v20170301preview:SqlServer":
+            case "azure-native:azuredata/v20170301preview:SqlServer":
                 return new SqlServer(name, <any>undefined, { urn })
-            case "azure-nextgen:azuredata/v20170301preview:SqlServerRegistration":
+            case "azure-native:azuredata/v20170301preview:SqlServerRegistration":
                 return new SqlServerRegistration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "azuredata/v20170301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "azuredata/v20170301preview", _module)

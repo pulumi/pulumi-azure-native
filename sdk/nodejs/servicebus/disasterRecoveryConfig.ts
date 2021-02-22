@@ -22,7 +22,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:DisasterRecoveryConfig';
+    public static readonly __pulumiType = 'azure-native:servicebus:DisasterRecoveryConfig';
 
     /**
      * Returns true if the given object is an instance of DisasterRecoveryConfig.  This is designed to work even
@@ -106,7 +106,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class MultipleActivationKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:windowsesu:MultipleActivationKey';
+    public static readonly __pulumiType = 'azure-native:windowsesu:MultipleActivationKey';
 
     /**
      * Returns true if the given object is an instance of MultipleActivationKey.  This is designed to work even
@@ -130,7 +130,7 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:windowsesu/v20190916preview:MultipleActivationKey" }, { type: "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MultipleActivationKey.__pulumiType, name, inputs, opts);
     }

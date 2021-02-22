@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:maps:listAccountKeys'. */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
-    pulumi.log.warn("listAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.")
+    pulumi.log.warn("listAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:maps:listAccountKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:maps/latest:listAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:maps/latest:listAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

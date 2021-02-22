@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * NetworkSecurityGroup resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkSecurityGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkSecurityGroup'. */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
-    pulumi.log.warn("getNetworkSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkSecurityGroup'.")
+    pulumi.log.warn("getNetworkSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkSecurityGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkSecurityGroup", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkSecurityGroup", {
         "expand": args.expand,
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,

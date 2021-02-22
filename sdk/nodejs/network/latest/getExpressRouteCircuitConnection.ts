@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitConnection'. */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
-    pulumi.log.warn("getExpressRouteCircuitConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitConnection'.")
+    pulumi.log.warn("getExpressRouteCircuitConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitCon
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteCircuitConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getExpressRouteCircuitConnection", {
         "circuitName": args.circuitName,
         "connectionName": args.connectionName,
         "peeringName": args.peeringName,

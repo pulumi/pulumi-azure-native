@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The essential information related to the peer's ASN.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeerAsn'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'. */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
-    pulumi.log.warn("getPeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeerAsn'.")
+    pulumi.log.warn("getPeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/latest:getPeerAsn", {
+    return pulumi.runtime.invoke("azure-native:peering/latest:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
     }, opts);
 }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
  * Latest API Version: 2020-05-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'. */
 export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
-    pulumi.log.warn("getEventSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'.")
+    pulumi.log.warn("getEventSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights/latest:getEventSource", {
+    return pulumi.runtime.invoke("azure-native:timeseriesinsights/latest:getEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,
         "resourceGroupName": args.resourceGroupName,

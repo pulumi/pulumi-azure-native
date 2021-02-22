@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:scheduler/v20160301:Job":
+            case "azure-native:scheduler/v20160301:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-nextgen:scheduler/v20160301:JobCollection":
+            case "azure-native:scheduler/v20160301:JobCollection":
                 return new JobCollection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "scheduler/v20160301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "scheduler/v20160301", _module)

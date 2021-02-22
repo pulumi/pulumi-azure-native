@@ -45,29 +45,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/latest:Database":
+            case "azure-native:sql/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy":
+            case "azure-native:sql/latest:DatabaseThreatDetectionPolicy":
                 return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:DisasterRecoveryConfiguration":
+            case "azure-native:sql/latest:DisasterRecoveryConfiguration":
                 return new DisasterRecoveryConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:ElasticPool":
+            case "azure-native:sql/latest:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:FirewallRule":
+            case "azure-native:sql/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:GeoBackupPolicy":
+            case "azure-native:sql/latest:GeoBackupPolicy":
                 return new GeoBackupPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:Server":
+            case "azure-native:sql/latest:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:ServerAzureADAdministrator":
+            case "azure-native:sql/latest:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:ServerCommunicationLink":
+            case "azure-native:sql/latest:ServerCommunicationLink":
                 return new ServerCommunicationLink(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/latest:TransparentDataEncryption":
+            case "azure-native:sql/latest:TransparentDataEncryption":
                 return new TransparentDataEncryption(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/latest", _module)

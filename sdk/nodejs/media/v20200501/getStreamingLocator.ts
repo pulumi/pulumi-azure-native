@@ -16,7 +16,7 @@ export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20200501:getStreamingLocator", {
+    return pulumi.runtime.invoke("azure-native:media/v20200501:getStreamingLocator", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingLocatorName": args.streamingLocatorName,

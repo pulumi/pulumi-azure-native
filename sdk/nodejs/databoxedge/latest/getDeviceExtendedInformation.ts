@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The extended Info of the Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDeviceExtendedInformation'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDeviceExtendedInformation'. */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
-    pulumi.log.warn("getDeviceExtendedInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDeviceExtendedInformation'.")
+    pulumi.log.warn("getDeviceExtendedInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDeviceExtendedInformation'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getDeviceExtendedInformation", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

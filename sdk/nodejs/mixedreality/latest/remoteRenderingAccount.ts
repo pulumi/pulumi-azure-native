@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * RemoteRenderingAccount Response.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.
  */
 export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemoteRenderingAccount {
-        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.")
+        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.")
         return new RemoteRenderingAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:mixedreality/latest:RemoteRenderingAccount';
+    public static readonly __pulumiType = 'azure-native:mixedreality/latest:RemoteRenderingAccount';
 
     /**
      * Returns true if the given object is an instance of RemoteRenderingAccount.  This is designed to work even
@@ -95,9 +95,9 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'. */
     constructor(name: string, args: RemoteRenderingAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.")
+        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -138,7 +138,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:mixedreality:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemoteRenderingAccount.__pulumiType, name, inputs, opts);
     }

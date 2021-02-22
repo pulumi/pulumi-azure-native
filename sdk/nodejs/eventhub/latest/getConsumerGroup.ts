@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Consumer group operation
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getConsumerGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getConsumerGroup'. */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-    pulumi.log.warn("getConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getConsumerGroup'.")
+    pulumi.log.warn("getConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getConsumerGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/latest:getConsumerGroup", {
+    return pulumi.runtime.invoke("azure-native:eventhub/latest:getConsumerGroup", {
         "consumerGroupName": args.consumerGroupName,
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

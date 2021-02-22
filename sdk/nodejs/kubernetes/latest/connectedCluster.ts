@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a connected cluster.
  * Latest API Version: 2021-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetes:ConnectedCluster'.
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectedCluster {
-        pulumi.log.warn("ConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.")
+        pulumi.log.warn("ConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetes:ConnectedCluster'.")
         return new ConnectedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:kubernetes/latest:ConnectedCluster';
+    public static readonly __pulumiType = 'azure-native:kubernetes/latest:ConnectedCluster';
 
     /**
      * Returns true if the given object is an instance of ConnectedCluster.  This is designed to work even
@@ -119,9 +119,9 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetes:ConnectedCluster'. */
     constructor(name: string, args: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.")
+        pulumi.log.warn("ConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetes:ConnectedCluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.agentPublicKeyCertificate === undefined) && !(opts && opts.urn)) {
@@ -180,7 +180,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kubernetes:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes:ConnectedCluster" }, { type: "azure-nextgen:kubernetes:ConnectedCluster" }, { type: "azure-native:kubernetes/v20200101preview:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectedCluster.__pulumiType, name, inputs, opts);
     }

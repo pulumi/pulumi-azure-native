@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datamigration/v20180331preview:Project":
+            case "azure-native:datamigration/v20180331preview:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "azure-nextgen:datamigration/v20180331preview:Service":
+            case "azure-native:datamigration/v20180331preview:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "azure-nextgen:datamigration/v20180331preview:Task":
+            case "azure-native:datamigration/v20180331preview:Task":
                 return new Task(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datamigration/v20180331preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datamigration/v20180331preview", _module)

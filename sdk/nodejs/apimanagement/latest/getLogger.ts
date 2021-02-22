@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Logger details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getLogger'. */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
-    pulumi.log.warn("getLogger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'.")
+    pulumi.log.warn("getLogger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getLogger'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getLogger", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getLogger", {
         "loggerId": args.loggerId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

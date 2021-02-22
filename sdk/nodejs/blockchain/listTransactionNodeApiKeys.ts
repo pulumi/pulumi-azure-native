@@ -17,7 +17,7 @@ export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blockchain:listTransactionNodeApiKeys", {
+    return pulumi.runtime.invoke("azure-native:blockchain:listTransactionNodeApiKeys", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,
         "transactionNodeName": args.transactionNodeName,

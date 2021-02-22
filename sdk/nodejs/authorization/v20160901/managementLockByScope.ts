@@ -22,7 +22,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20160901:ManagementLockByScope';
+    public static readonly __pulumiType = 'azure-native:authorization/v20160901:ManagementLockByScope';
 
     /**
      * Returns true if the given object is an instance of ManagementLockByScope.  This is designed to work even
@@ -93,7 +93,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-nextgen:authorization/latest:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockByScope" }, { type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-native:authorization/latest:ManagementLockByScope" }, { type: "azure-nextgen:authorization/latest:ManagementLockByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }

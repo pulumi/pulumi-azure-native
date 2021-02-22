@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceEdgePolicies'. */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
-    pulumi.log.warn("listMediaServiceEdgePolicies is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'.")
+    pulumi.log.warn("listMediaServiceEdgePolicies is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceEdgePolicies'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listMediaServiceEdgePolicies", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
         "deviceId": args.deviceId,
         "resourceGroupName": args.resourceGroupName,

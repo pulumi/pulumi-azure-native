@@ -13,7 +13,7 @@ export function listWorkflowAccessKeySecretKeys(args: ListWorkflowAccessKeySecre
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20150201preview:listWorkflowAccessKeySecretKeys", {
+    return pulumi.runtime.invoke("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", {
         "accessKeyName": args.accessKeyName,
         "resourceGroupName": args.resourceGroupName,
         "workflowName": args.workflowName,

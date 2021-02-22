@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Properties of the table, including Id, resource name, resource type.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Table extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Table {
-        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.")
+        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'.")
         return new Table(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:Table';
+    public static readonly __pulumiType = 'azure-native:storage/latest:Table';
 
     /**
      * Returns true if the given object is an instance of Table.  This is designed to work even
@@ -58,9 +58,9 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'. */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.")
+        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -86,7 +86,7 @@ export class Table extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }, { type: "azure-nextgen:storage/v20210101:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:Table" }, { type: "azure-nextgen:storage:Table" }, { type: "azure-native:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-native:storage/v20200801preview:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }, { type: "azure-native:storage/v20210101:Table" }, { type: "azure-nextgen:storage/v20210101:Table" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Table.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Properties of the file share, including Id, resource name, resource type, Etag.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileShare'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileShare'. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    pulumi.log.warn("getFileShare is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileShare'.")
+    pulumi.log.warn("getFileShare is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileShare'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getFileShare", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getFileShare", {
         "accountName": args.accountName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

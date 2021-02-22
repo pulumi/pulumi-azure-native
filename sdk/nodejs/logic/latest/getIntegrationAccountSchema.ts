@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration account schema.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSchema'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountSchema'. */
 export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSchemaResult> {
-    pulumi.log.warn("getIntegrationAccountSchema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSchema'.")
+    pulumi.log.warn("getIntegrationAccountSchema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountSchema'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountSchema", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getIntegrationAccountSchema", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,

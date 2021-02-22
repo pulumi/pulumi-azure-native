@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The X509 Certificate.
  * Latest API Version: 2020-08-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:Certificate'.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.")
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:Certificate'.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devices/latest:Certificate';
+    public static readonly __pulumiType = 'azure-native:devices/latest:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -63,9 +63,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:Certificate'. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.")
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:Certificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +94,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices:Certificate" }, { type: "azure-nextgen:devices/v20170701:Certificate" }, { type: "azure-nextgen:devices/v20180122:Certificate" }, { type: "azure-nextgen:devices/v20180401:Certificate" }, { type: "azure-nextgen:devices/v20181201preview:Certificate" }, { type: "azure-nextgen:devices/v20190322:Certificate" }, { type: "azure-nextgen:devices/v20190322preview:Certificate" }, { type: "azure-nextgen:devices/v20190701preview:Certificate" }, { type: "azure-nextgen:devices/v20191104:Certificate" }, { type: "azure-nextgen:devices/v20200301:Certificate" }, { type: "azure-nextgen:devices/v20200401:Certificate" }, { type: "azure-nextgen:devices/v20200615:Certificate" }, { type: "azure-nextgen:devices/v20200710preview:Certificate" }, { type: "azure-nextgen:devices/v20200801:Certificate" }, { type: "azure-nextgen:devices/v20200831:Certificate" }, { type: "azure-nextgen:devices/v20200831preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices:Certificate" }, { type: "azure-nextgen:devices:Certificate" }, { type: "azure-native:devices/v20170701:Certificate" }, { type: "azure-nextgen:devices/v20170701:Certificate" }, { type: "azure-native:devices/v20180122:Certificate" }, { type: "azure-nextgen:devices/v20180122:Certificate" }, { type: "azure-native:devices/v20180401:Certificate" }, { type: "azure-nextgen:devices/v20180401:Certificate" }, { type: "azure-native:devices/v20181201preview:Certificate" }, { type: "azure-nextgen:devices/v20181201preview:Certificate" }, { type: "azure-native:devices/v20190322:Certificate" }, { type: "azure-nextgen:devices/v20190322:Certificate" }, { type: "azure-native:devices/v20190322preview:Certificate" }, { type: "azure-nextgen:devices/v20190322preview:Certificate" }, { type: "azure-native:devices/v20190701preview:Certificate" }, { type: "azure-nextgen:devices/v20190701preview:Certificate" }, { type: "azure-native:devices/v20191104:Certificate" }, { type: "azure-nextgen:devices/v20191104:Certificate" }, { type: "azure-native:devices/v20200301:Certificate" }, { type: "azure-nextgen:devices/v20200301:Certificate" }, { type: "azure-native:devices/v20200401:Certificate" }, { type: "azure-nextgen:devices/v20200401:Certificate" }, { type: "azure-native:devices/v20200615:Certificate" }, { type: "azure-nextgen:devices/v20200615:Certificate" }, { type: "azure-native:devices/v20200710preview:Certificate" }, { type: "azure-nextgen:devices/v20200710preview:Certificate" }, { type: "azure-native:devices/v20200801:Certificate" }, { type: "azure-nextgen:devices/v20200801:Certificate" }, { type: "azure-native:devices/v20200831:Certificate" }, { type: "azure-nextgen:devices/v20200831:Certificate" }, { type: "azure-native:devices/v20200831preview:Certificate" }, { type: "azure-nextgen:devices/v20200831preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

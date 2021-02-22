@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data Lake Store virtual network rule information.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getVirtualNetworkRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getVirtualNetworkRule'. */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
-    pulumi.log.warn("getVirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getVirtualNetworkRule'.")
+    pulumi.log.warn("getVirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getVirtualNetworkRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakestore/latest:getVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:datalakestore/latest:getVirtualNetworkRule", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

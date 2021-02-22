@@ -23,7 +23,7 @@ export class PublishedBlueprint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:blueprint:PublishedBlueprint';
+    public static readonly __pulumiType = 'azure-native:blueprint:PublishedBlueprint';
 
     /**
      * Returns true if the given object is an instance of PublishedBlueprint.  This is designed to work even
@@ -124,7 +124,7 @@ export class PublishedBlueprint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint/v20181101preview:PublishedBlueprint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:PublishedBlueprint" }, { type: "azure-nextgen:blueprint/v20181101preview:PublishedBlueprint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PublishedBlueprint.__pulumiType, name, inputs, opts);
     }

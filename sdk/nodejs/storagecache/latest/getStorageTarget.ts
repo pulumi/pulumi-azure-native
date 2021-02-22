@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Type of the Storage Target.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getStorageTarget'. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
-    pulumi.log.warn("getStorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'.")
+    pulumi.log.warn("getStorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getStorageTarget'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagecache/latest:getStorageTarget", {
+    return pulumi.runtime.invoke("azure-native:storagecache/latest:getStorageTarget", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
         "storageTargetName": args.storageTargetName,

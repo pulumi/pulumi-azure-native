@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a share on the  Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getShare'. */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
-    pulumi.log.warn("getShare is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'.")
+    pulumi.log.warn("getShare is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getShare'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getShare", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getShare", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

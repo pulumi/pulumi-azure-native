@@ -23,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerservice:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:containerservice:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -98,7 +98,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/latest:PrivateEndpointConnection" }, { type: "azure-native:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-native:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-native:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-native:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-native:containerservice/v20201201:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

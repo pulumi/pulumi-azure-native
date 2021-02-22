@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The storage account credential.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccountCredential'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccountCredential'. */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
-    pulumi.log.warn("getStorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccountCredential'.")
+    pulumi.log.warn("getStorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccountCredential'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStorageAccountCredential(args: GetStorageAccountCredentialArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getStorageAccountCredential", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getStorageAccountCredential", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

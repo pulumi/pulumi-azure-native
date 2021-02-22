@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Email Template details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getEmailTemplate'. */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
-    pulumi.log.warn("getEmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'.")
+    pulumi.log.warn("getEmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getEmailTemplate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getEmailTemplate", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getEmailTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "templateName": args.templateName,

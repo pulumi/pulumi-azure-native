@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra keyspace.
  * Latest API Version: 2016-03-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraKeyspace'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'. */
 export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraKeyspaceResult> {
-    pulumi.log.warn("getDatabaseAccountCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraKeyspace'.")
+    pulumi.log.warn("getDatabaseAccountCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCass
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraKeyspace", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getDatabaseAccountCassandraKeyspace", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,

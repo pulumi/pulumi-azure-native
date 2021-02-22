@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource for OuContainer.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
-    pulumi.log.warn("getOuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.")
+    pulumi.log.warn("getOuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aad/latest:getOuContainer", {
+    return pulumi.runtime.invoke("azure-native:aad/latest:getOuContainer", {
         "domainServiceName": args.domainServiceName,
         "ouContainerName": args.ouContainerName,
         "resourceGroupName": args.resourceGroupName,

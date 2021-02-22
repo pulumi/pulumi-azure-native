@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The privateStore offer data structure.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:marketplace:getPrivateStoreOffer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:marketplace:getPrivateStoreOffer'. */
 export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreOfferResult> {
-    pulumi.log.warn("getPrivateStoreOffer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:marketplace:getPrivateStoreOffer'.")
+    pulumi.log.warn("getPrivateStoreOffer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:marketplace:getPrivateStoreOffer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:marketplace/latest:getPrivateStoreOffer", {
+    return pulumi.runtime.invoke("azure-native:marketplace/latest:getPrivateStoreOffer", {
         "offerId": args.offerId,
         "privateStoreId": args.privateStoreId,
     }, opts);

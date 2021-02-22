@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The SourceControl Configuration object returned in Get & Put response.
  * Latest API Version: 2021-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetesconfiguration:getSourceControlConfiguration'. */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-    pulumi.log.warn("getSourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.")
+    pulumi.log.warn("getSourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetesconfiguration:getSourceControlConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSourceControlConfiguration(args: GetSourceControlConfiguratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kubernetesconfiguration/latest:getSourceControlConfiguration", {
+    return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/latest:getSourceControlConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,
         "clusterRp": args.clusterRp,

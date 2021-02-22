@@ -22,7 +22,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription';
+    public static readonly __pulumiType = 'azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription';
 
     /**
      * Returns true if the given object is an instance of SystemTopicEventSubscription.  This is designed to work even
@@ -146,7 +146,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SystemTopicEventSubscription.__pulumiType, name, inputs, opts);
     }

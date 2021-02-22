@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Property details.
  * Latest API Version: 2019-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProperty'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProperty'. */
 export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions): Promise<GetPropertyResult> {
-    pulumi.log.warn("getProperty is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProperty'.")
+    pulumi.log.warn("getProperty is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProperty'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getProperty", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getProperty", {
         "propId": args.propId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

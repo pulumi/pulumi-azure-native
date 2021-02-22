@@ -16,7 +16,7 @@ export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20180115:getDscNodeConfiguration", {
+    return pulumi.runtime.invoke("azure-native:automation/v20180115:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,
         "nodeConfigurationName": args.nodeConfigurationName,
         "resourceGroupName": args.resourceGroupName,

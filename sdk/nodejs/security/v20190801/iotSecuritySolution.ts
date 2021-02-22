@@ -22,7 +22,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20190801:IotSecuritySolution';
+    public static readonly __pulumiType = 'azure-native:security/v20190801:IotSecuritySolution';
 
     /**
      * Returns true if the given object is an instance of IotSecuritySolution.  This is designed to work even
@@ -162,7 +162,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-nextgen:security/latest:IotSecuritySolution" }, { type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:IotSecuritySolution" }, { type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-native:security/latest:IotSecuritySolution" }, { type: "azure-nextgen:security/latest:IotSecuritySolution" }, { type: "azure-native:security/v20170801preview:IotSecuritySolution" }, { type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotSecuritySolution.__pulumiType, name, inputs, opts);
     }

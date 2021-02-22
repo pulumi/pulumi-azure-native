@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a hybrid machine.
  * Latest API Version: 2020-08-02.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:Machine'.
  */
 export class Machine extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Machine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Machine {
-        pulumi.log.warn("Machine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.")
+        pulumi.log.warn("Machine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:Machine'.")
         return new Machine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridcompute/latest:Machine';
+    public static readonly __pulumiType = 'azure-native:hybridcompute/latest:Machine';
 
     /**
      * Returns true if the given object is an instance of Machine.  This is designed to work even
@@ -140,9 +140,9 @@ export class Machine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:Machine'. */
     constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Machine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.")
+        pulumi.log.warn("Machine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:Machine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -206,7 +206,7 @@ export class Machine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute:Machine" }, { type: "azure-nextgen:hybridcompute/v20190318preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20190802preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20191212:Machine" }, { type: "azure-nextgen:hybridcompute/v20200730preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20200802:Machine" }, { type: "azure-nextgen:hybridcompute/v20200815preview:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Machine" }, { type: "azure-nextgen:hybridcompute:Machine" }, { type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-nextgen:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-nextgen:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20200815preview:Machine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Machine.__pulumiType, name, inputs, opts);
     }

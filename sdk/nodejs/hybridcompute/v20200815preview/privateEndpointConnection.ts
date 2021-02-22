@@ -22,7 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -94,7 +94,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateEndpointConnection" }, { type: "azure-nextgen:hybridcompute:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

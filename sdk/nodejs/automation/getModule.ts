@@ -17,7 +17,7 @@ export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation:getModule", {
+    return pulumi.runtime.invoke("azure-native:automation:getModule", {
         "automationAccountName": args.automationAccountName,
         "moduleName": args.moduleName,
         "resourceGroupName": args.resourceGroupName,

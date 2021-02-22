@@ -22,7 +22,7 @@ export class ManagedInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20180601preview:ManagedInstance';
+    public static readonly __pulumiType = 'azure-native:sql/v20180601preview:ManagedInstance';
 
     /**
      * Returns true if the given object is an instance of ManagedInstance.  This is designed to work even
@@ -225,7 +225,7 @@ export class ManagedInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstance" }, { type: "azure-nextgen:sql/v20150501preview:ManagedInstance" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstance" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstance" }, { type: "azure-nextgen:sql:ManagedInstance" }, { type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-nextgen:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstance.__pulumiType, name, inputs, opts);
     }

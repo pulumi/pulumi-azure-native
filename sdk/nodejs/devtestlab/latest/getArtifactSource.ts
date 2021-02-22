@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Properties of an artifact source.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getArtifactSource'. */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
-    pulumi.log.warn("getArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'.")
+    pulumi.log.warn("getArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getArtifactSource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getArtifactSource", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getArtifactSource", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

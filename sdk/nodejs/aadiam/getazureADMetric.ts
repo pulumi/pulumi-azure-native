@@ -17,7 +17,7 @@ export function getazureADMetric(args: GetazureADMetricArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aadiam:getazureADMetric", {
+    return pulumi.runtime.invoke("azure-native:aadiam:getazureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

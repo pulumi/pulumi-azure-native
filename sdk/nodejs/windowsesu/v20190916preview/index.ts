@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey":
+            case "azure-native:windowsesu/v20190916preview:MultipleActivationKey":
                 return new MultipleActivationKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "windowsesu/v20190916preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "windowsesu/v20190916preview", _module)

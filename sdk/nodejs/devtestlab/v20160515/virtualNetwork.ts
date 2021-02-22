@@ -22,7 +22,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20160515:VirtualNetwork';
+    public static readonly __pulumiType = 'azure-native:devtestlab/v20160515:VirtualNetwork';
 
     /**
      * Returns true if the given object is an instance of VirtualNetwork.  This is designed to work even
@@ -135,7 +135,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetwork" }, { type: "azure-nextgen:devtestlab:VirtualNetwork" }, { type: "azure-native:devtestlab/latest:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetwork" }, { type: "azure-native:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-native:devtestlab/v20180915:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetwork" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

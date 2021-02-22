@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformysql/latest:Configuration":
+            case "azure-native:dbformysql/latest:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:Database":
+            case "azure-native:dbformysql/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:FirewallRule":
+            case "azure-native:dbformysql/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:PrivateEndpointConnection":
+            case "azure-native:dbformysql/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:Server":
+            case "azure-native:dbformysql/latest:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:ServerAdministrator":
+            case "azure-native:dbformysql/latest:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:ServerKey":
+            case "azure-native:dbformysql/latest:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/latest:VirtualNetworkRule":
+            case "azure-native:dbformysql/latest:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformysql/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformysql/latest", _module)

@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:serialconsole/v20180501:SerialPort":
+            case "azure-native:serialconsole/v20180501:SerialPort":
                 return new SerialPort(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "serialconsole/v20180501", _module)
+pulumi.runtime.registerResourceModule("azure-native", "serialconsole/v20180501", _module)

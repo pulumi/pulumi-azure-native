@@ -16,7 +16,7 @@ export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20190801:listWebAppSiteBackups", {
+    return pulumi.runtime.invoke("azure-native:web/v20190801:listWebAppSiteBackups", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

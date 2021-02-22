@@ -16,7 +16,7 @@ export function getDatabaseAccountMongoDBDatabase(args: GetDatabaseAccountMongoD
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20150401:getDatabaseAccountMongoDBDatabase", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20150401:getDatabaseAccountMongoDBDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

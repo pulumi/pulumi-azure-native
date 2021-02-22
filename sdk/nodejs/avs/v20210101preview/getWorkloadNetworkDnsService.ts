@@ -16,7 +16,7 @@ export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/v20210101preview:getWorkloadNetworkDnsService", {
+    return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkDnsService", {
         "dnsServiceId": args.dnsServiceId,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

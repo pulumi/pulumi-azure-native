@@ -42,27 +42,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy":
+            case "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy":
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:InstancePool":
+            case "azure-native:sql/v20180601preview:InstancePool":
                 return new InstancePool(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ManagedDatabase":
+            case "azure-native:sql/v20180601preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
+            case "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
                 return new ManagedDatabaseSensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ManagedInstance":
+            case "azure-native:sql/v20180601preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
+            case "azure-native:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:PrivateEndpointConnection":
+            case "azure-native:sql/v20180601preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator":
+            case "azure-native:sql/v20180601preview:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20180601preview:ServerVulnerabilityAssessment":
+            case "azure-native:sql/v20180601preview:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20180601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20180601preview", _module)

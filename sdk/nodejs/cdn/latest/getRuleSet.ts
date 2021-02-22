@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRuleSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRuleSet'. */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
-    pulumi.log.warn("getRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRuleSet'.")
+    pulumi.log.warn("getRuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRuleSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getRuleSet", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getRuleSet", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "ruleSetName": args.ruleSetName,

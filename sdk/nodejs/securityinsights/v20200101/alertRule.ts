@@ -22,7 +22,7 @@ export class AlertRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20200101:AlertRule';
+    public static readonly __pulumiType = 'azure-native:securityinsights/v20200101:AlertRule';
 
     /**
      * Returns true if the given object is an instance of AlertRule.  This is designed to work even
@@ -91,7 +91,7 @@ export class AlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:AlertRule" }, { type: "azure-nextgen:securityinsights/latest:AlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AlertRule" }, { type: "azure-nextgen:securityinsights:AlertRule" }, { type: "azure-native:securityinsights/latest:AlertRule" }, { type: "azure-nextgen:securityinsights/latest:AlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AlertRule.__pulumiType, name, inputs, opts);
     }

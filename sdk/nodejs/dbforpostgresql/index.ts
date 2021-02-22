@@ -66,25 +66,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbforpostgresql:Configuration":
+            case "azure-native:dbforpostgresql:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:Database":
+            case "azure-native:dbforpostgresql:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:FirewallRule":
+            case "azure-native:dbforpostgresql:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:PrivateEndpointConnection":
+            case "azure-native:dbforpostgresql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:Server":
+            case "azure-native:dbforpostgresql:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:ServerAdministrator":
+            case "azure-native:dbforpostgresql:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:ServerKey":
+            case "azure-native:dbforpostgresql:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:VirtualNetworkRule":
+            case "azure-native:dbforpostgresql:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbforpostgresql", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbforpostgresql", _module)

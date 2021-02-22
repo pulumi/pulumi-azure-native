@@ -22,7 +22,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicePrivateEndpointConnection.  This is designed to work even
@@ -107,7 +107,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/latest:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkServicePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

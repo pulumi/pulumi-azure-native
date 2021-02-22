@@ -21,7 +21,7 @@ export class IotDefenderSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20200806preview:IotDefenderSetting';
+    public static readonly __pulumiType = 'azure-native:security/v20200806preview:IotDefenderSetting';
 
     /**
      * Returns true if the given object is an instance of IotDefenderSetting.  This is designed to work even
@@ -84,7 +84,7 @@ export class IotDefenderSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:IotDefenderSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:IotDefenderSetting" }, { type: "azure-nextgen:security:IotDefenderSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDefenderSetting.__pulumiType, name, inputs, opts);
     }

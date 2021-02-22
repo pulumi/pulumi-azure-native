@@ -17,7 +17,7 @@ export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights:getMyWorkbook", {
+    return pulumi.runtime.invoke("azure-native:insights:getMyWorkbook", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

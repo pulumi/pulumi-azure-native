@@ -66,43 +66,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20160601:ApplicationGateway":
+            case "azure-native:network/v20160601:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:ExpressRouteCircuit":
+            case "azure-native:network/v20160601:ExpressRouteCircuit":
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:ExpressRouteCircuitAuthorization":
+            case "azure-native:network/v20160601:ExpressRouteCircuitAuthorization":
                 return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:ExpressRouteCircuitPeering":
+            case "azure-native:network/v20160601:ExpressRouteCircuitPeering":
                 return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:LoadBalancer":
+            case "azure-native:network/v20160601:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:LocalNetworkGateway":
+            case "azure-native:network/v20160601:LocalNetworkGateway":
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:NetworkInterface":
+            case "azure-native:network/v20160601:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:NetworkSecurityGroup":
+            case "azure-native:network/v20160601:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:PublicIPAddress":
+            case "azure-native:network/v20160601:PublicIPAddress":
                 return new PublicIPAddress(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:Route":
+            case "azure-native:network/v20160601:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:RouteTable":
+            case "azure-native:network/v20160601:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:SecurityRule":
+            case "azure-native:network/v20160601:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:Subnet":
+            case "azure-native:network/v20160601:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:VirtualNetwork":
+            case "azure-native:network/v20160601:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:VirtualNetworkGateway":
+            case "azure-native:network/v20160601:VirtualNetworkGateway":
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection":
+            case "azure-native:network/v20160601:VirtualNetworkGatewayConnection":
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20160601:VirtualNetworkPeering":
+            case "azure-native:network/v20160601:VirtualNetworkPeering":
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20160601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20160601", _module)

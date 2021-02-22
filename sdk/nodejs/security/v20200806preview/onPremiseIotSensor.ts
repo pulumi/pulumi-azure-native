@@ -21,7 +21,7 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20200806preview:OnPremiseIotSensor';
+    public static readonly __pulumiType = 'azure-native:security/v20200806preview:OnPremiseIotSensor';
 
     /**
      * Returns true if the given object is an instance of OnPremiseIotSensor.  This is designed to work even
@@ -67,7 +67,7 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:OnPremiseIotSensor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:OnPremiseIotSensor" }, { type: "azure-nextgen:security:OnPremiseIotSensor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OnPremiseIotSensor.__pulumiType, name, inputs, opts);
     }

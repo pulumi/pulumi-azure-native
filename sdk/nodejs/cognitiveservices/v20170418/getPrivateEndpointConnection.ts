@@ -16,7 +16,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cognitiveservices/v20170418:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:cognitiveservices/v20170418:getPrivateEndpointConnection", {
         "accountName": args.accountName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

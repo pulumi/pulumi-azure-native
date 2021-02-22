@@ -22,7 +22,7 @@ export class CustomResourceProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customproviders/v20180901preview:CustomResourceProvider';
+    public static readonly __pulumiType = 'azure-native:customproviders/v20180901preview:CustomResourceProvider';
 
     /**
      * Returns true if the given object is an instance of CustomResourceProvider.  This is designed to work even
@@ -108,7 +108,7 @@ export class CustomResourceProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customproviders:CustomResourceProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customproviders:CustomResourceProvider" }, { type: "azure-nextgen:customproviders:CustomResourceProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomResourceProvider.__pulumiType, name, inputs, opts);
     }

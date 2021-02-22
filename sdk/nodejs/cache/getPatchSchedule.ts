@@ -17,7 +17,7 @@ export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache:getPatchSchedule", {
+    return pulumi.runtime.invoke("azure-native:cache:getPatchSchedule", {
         "default": args.default,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20160801:getWebAppVnetConnection", {
+    return pulumi.runtime.invoke("azure-native:web/v20160801:getWebAppVnetConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vnetName": args.vnetName,

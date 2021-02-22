@@ -30,13 +30,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:databricks:Workspace":
+            case "azure-native:databricks:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-nextgen:databricks:vNetPeering":
+            case "azure-native:databricks:vNetPeering":
                 return new VNetPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "databricks", _module)
+pulumi.runtime.registerResourceModule("azure-native", "databricks", _module)

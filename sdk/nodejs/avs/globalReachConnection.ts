@@ -22,7 +22,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs:GlobalReachConnection';
+    public static readonly __pulumiType = 'azure-native:avs:GlobalReachConnection';
 
     /**
      * Returns true if the given object is an instance of GlobalReachConnection.  This is designed to work even
@@ -106,7 +106,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-nextgen:avs/v20210101preview:GlobalReachConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-nextgen:avs/v20200717preview:GlobalReachConnection" }, { type: "azure-native:avs/v20210101preview:GlobalReachConnection" }, { type: "azure-nextgen:avs/v20210101preview:GlobalReachConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GlobalReachConnection.__pulumiType, name, inputs, opts);
     }

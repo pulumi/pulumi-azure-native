@@ -22,7 +22,7 @@ export class Association extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customproviders:Association';
+    public static readonly __pulumiType = 'azure-native:customproviders:Association';
 
     /**
      * Returns true if the given object is an instance of Association.  This is designed to work even
@@ -84,7 +84,7 @@ export class Association extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customproviders/v20180901preview:Association" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customproviders/v20180901preview:Association" }, { type: "azure-nextgen:customproviders/v20180901preview:Association" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Association.__pulumiType, name, inputs, opts);
     }

@@ -18,7 +18,7 @@ export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getTaskRun", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getTaskRun", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskRunName": args.taskRunName,

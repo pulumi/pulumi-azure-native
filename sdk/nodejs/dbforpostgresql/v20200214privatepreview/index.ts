@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule":
+            case "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server":
+            case "azure-native:dbforpostgresql/v20200214privatepreview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20200214privatepreview:ServerKey":
+            case "azure-native:dbforpostgresql/v20200214privatepreview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbforpostgresql/v20200214privatepreview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbforpostgresql/v20200214privatepreview", _module)

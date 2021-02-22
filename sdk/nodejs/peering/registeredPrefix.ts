@@ -22,7 +22,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering:RegisteredPrefix';
+    public static readonly __pulumiType = 'azure-native:peering:RegisteredPrefix';
 
     /**
      * Returns true if the given object is an instance of RegisteredPrefix.  This is designed to work even
@@ -106,7 +106,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/latest:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/latest:RegisteredPrefix" }, { type: "azure-nextgen:peering/latest:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }

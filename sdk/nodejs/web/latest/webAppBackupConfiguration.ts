@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of a backup which will be performed.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.
  */
 export class WebAppBackupConfiguration extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppBackupConfiguration {
-        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.")
+        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.")
         return new WebAppBackupConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppBackupConfiguration';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppBackupConfiguration';
 
     /**
      * Returns true if the given object is an instance of WebAppBackupConfiguration.  This is designed to work even
@@ -83,9 +83,9 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'. */
     constructor(name: string, args: WebAppBackupConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.")
+        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -125,7 +125,7 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppBackupConfiguration" }, { type: "azure-nextgen:web:WebAppBackupConfiguration" }, { type: "azure-native:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-native:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-native:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201001:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppBackupConfiguration.__pulumiType, name, inputs, opts);
     }

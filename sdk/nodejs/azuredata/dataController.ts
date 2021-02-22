@@ -23,7 +23,7 @@ export class DataController extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azuredata:DataController';
+    public static readonly __pulumiType = 'azure-native:azuredata:DataController';
 
     /**
      * Returns true if the given object is an instance of DataController.  This is designed to work even
@@ -112,7 +112,7 @@ export class DataController extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azuredata/v20190724preview:DataController" }, { type: "azure-nextgen:azuredata/v20200908preview:DataController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20190724preview:DataController" }, { type: "azure-nextgen:azuredata/v20190724preview:DataController" }, { type: "azure-native:azuredata/v20200908preview:DataController" }, { type: "azure-nextgen:azuredata/v20200908preview:DataController" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataController.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule';
+    public static readonly __pulumiType = 'azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule';
 
     /**
      * Returns true if the given object is an instance of SmartDetectorAlertRule.  This is designed to work even
@@ -150,7 +150,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function getStorageAccountCredential(args: GetStorageAccountCredentialArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge:getStorageAccountCredential", {
+    return pulumi.runtime.invoke("azure-native:databoxedge:getStorageAccountCredential", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

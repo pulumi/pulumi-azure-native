@@ -51,31 +51,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:eventhub/v20180101preview:Cluster":
+            case "azure-native:eventhub/v20180101preview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:ConsumerGroup":
+            case "azure-native:eventhub/v20180101preview:ConsumerGroup":
                 return new ConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig":
+            case "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig":
                 return new DisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:EventHub":
+            case "azure-native:eventhub/v20180101preview:EventHub":
                 return new EventHub(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule":
+            case "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule":
                 return new EventHubAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:Namespace":
+            case "azure-native:eventhub/v20180101preview:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule":
+            case "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule":
+            case "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule":
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet":
+            case "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:NamespaceVirtualNetworkRule":
+            case "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection":
+            case "azure-native:eventhub/v20180101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "eventhub/v20180101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "eventhub/v20180101preview", _module)

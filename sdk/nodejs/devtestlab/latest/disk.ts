@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A Disk.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Disk'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Disk'.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Disk extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Disk {
-        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Disk'.")
+        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Disk'.")
         return new Disk(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Disk';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Disk';
 
     /**
      * Returns true if the given object is an instance of Disk.  This is designed to work even
@@ -103,9 +103,9 @@ export class Disk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Disk'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Disk'. */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Disk'.")
+        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Disk'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -157,7 +157,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }, { type: "azure-nextgen:devtestlab/v20180915:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Disk" }, { type: "azure-nextgen:devtestlab:Disk" }, { type: "azure-native:devtestlab/v20160515:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }, { type: "azure-native:devtestlab/v20180915:Disk" }, { type: "azure-nextgen:devtestlab/v20180915:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }

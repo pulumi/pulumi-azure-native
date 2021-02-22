@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Sync Group object.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getSyncGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getSyncGroup'. */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
-    pulumi.log.warn("getSyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getSyncGroup'.")
+    pulumi.log.warn("getSyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getSyncGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync/latest:getSyncGroup", {
+    return pulumi.runtime.invoke("azure-native:storagesync/latest:getSyncGroup", {
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
         "syncGroupName": args.syncGroupName,

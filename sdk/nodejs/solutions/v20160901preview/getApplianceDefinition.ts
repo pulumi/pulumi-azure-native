@@ -16,7 +16,7 @@ export function getApplianceDefinition(args: GetApplianceDefinitionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:solutions/v20160901preview:getApplianceDefinition", {
+    return pulumi.runtime.invoke("azure-native:solutions/v20160901preview:getApplianceDefinition", {
         "applianceDefinitionName": args.applianceDefinitionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

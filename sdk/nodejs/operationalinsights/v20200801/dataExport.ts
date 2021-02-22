@@ -21,7 +21,7 @@ export class DataExport extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20200801:DataExport';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/v20200801:DataExport';
 
     /**
      * Returns true if the given object is an instance of DataExport.  This is designed to work even
@@ -123,7 +123,7 @@ export class DataExport extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:DataExport" }, { type: "azure-nextgen:operationalinsights/latest:DataExport" }, { type: "azure-nextgen:operationalinsights/v20190801preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:DataExport" }, { type: "azure-nextgen:operationalinsights:DataExport" }, { type: "azure-native:operationalinsights/latest:DataExport" }, { type: "azure-nextgen:operationalinsights/latest:DataExport" }, { type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataExport.__pulumiType, name, inputs, opts);
     }

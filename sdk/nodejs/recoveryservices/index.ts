@@ -96,41 +96,41 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:recoveryservices:PrivateEndpointConnection":
+            case "azure-native:recoveryservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ProtectedItem":
+            case "azure-native:recoveryservices:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ProtectionContainer":
+            case "azure-native:recoveryservices:ProtectionContainer":
                 return new ProtectionContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ProtectionIntent":
+            case "azure-native:recoveryservices:ProtectionIntent":
                 return new ProtectionIntent(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ProtectionPolicy":
+            case "azure-native:recoveryservices:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationFabric":
+            case "azure-native:recoveryservices:ReplicationFabric":
                 return new ReplicationFabric(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationMigrationItem":
+            case "azure-native:recoveryservices:ReplicationMigrationItem":
                 return new ReplicationMigrationItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationNetworkMapping":
+            case "azure-native:recoveryservices:ReplicationNetworkMapping":
                 return new ReplicationNetworkMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationPolicy":
+            case "azure-native:recoveryservices:ReplicationPolicy":
                 return new ReplicationPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationProtectedItem":
+            case "azure-native:recoveryservices:ReplicationProtectedItem":
                 return new ReplicationProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping":
+            case "azure-native:recoveryservices:ReplicationProtectionContainerMapping":
                 return new ReplicationProtectionContainerMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationRecoveryPlan":
+            case "azure-native:recoveryservices:ReplicationRecoveryPlan":
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider":
+            case "azure-native:recoveryservices:ReplicationRecoveryServicesProvider":
                 return new ReplicationRecoveryServicesProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping":
+            case "azure-native:recoveryservices:ReplicationStorageClassificationMapping":
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:ReplicationvCenter":
+            case "azure-native:recoveryservices:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices:Vault":
+            case "azure-native:recoveryservices:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "recoveryservices", _module)
+pulumi.runtime.registerResourceModule("azure-native", "recoveryservices", _module)

@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hybridcompute/v20190318preview:Machine":
+            case "azure-native:hybridcompute/v20190318preview:Machine":
                 return new Machine(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hybridcompute/v20190318preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hybridcompute/v20190318preview", _module)

@@ -13,7 +13,7 @@ export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/v20200101:getJitNetworkAccessPolicy", {
+    return pulumi.runtime.invoke("azure-native:security/v20200101:getJitNetworkAccessPolicy", {
         "ascLocation": args.ascLocation,
         "jitNetworkAccessPolicyName": args.jitNetworkAccessPolicyName,
         "resourceGroupName": args.resourceGroupName,

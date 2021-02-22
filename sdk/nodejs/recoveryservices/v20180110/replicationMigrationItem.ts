@@ -22,7 +22,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20180110:ReplicationMigrationItem';
 
     /**
      * Returns true if the given object is an instance of ReplicationMigrationItem.  This is designed to work even
@@ -99,7 +99,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/latest:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationMigrationItem.__pulumiType, name, inputs, opts);
     }

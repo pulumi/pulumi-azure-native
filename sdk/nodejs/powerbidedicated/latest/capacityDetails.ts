@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents an instance of a Dedicated Capacity resource.
  * Latest API Version: 2017-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.
  */
 export class CapacityDetails extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class CapacityDetails extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CapacityDetails {
-        pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.")
+        pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.")
         return new CapacityDetails(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:powerbidedicated/latest:CapacityDetails';
+    public static readonly __pulumiType = 'azure-native:powerbidedicated/latest:CapacityDetails';
 
     /**
      * Returns true if the given object is an instance of CapacityDetails.  This is designed to work even
@@ -79,9 +79,9 @@ export class CapacityDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'. */
     constructor(name: string, args: CapacityDetailsArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.")
+        pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -117,7 +117,7 @@ export class CapacityDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteConnectionStrings';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteConnectionStrings';
 
     /**
      * Returns true if the given object is an instance of SiteConnectionStrings.  This is designed to work even
@@ -99,7 +99,7 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteConnectionStrings" }, { type: "azure-nextgen:web/latest:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20160801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20180201:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20181101:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20190801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200601:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200901:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20201001:SiteConnectionStrings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteConnectionStrings" }, { type: "azure-nextgen:web:SiteConnectionStrings" }, { type: "azure-native:web/latest:SiteConnectionStrings" }, { type: "azure-nextgen:web/latest:SiteConnectionStrings" }, { type: "azure-native:web/v20160801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20160801:SiteConnectionStrings" }, { type: "azure-native:web/v20180201:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20180201:SiteConnectionStrings" }, { type: "azure-native:web/v20181101:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20181101:SiteConnectionStrings" }, { type: "azure-native:web/v20190801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20190801:SiteConnectionStrings" }, { type: "azure-native:web/v20200601:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200601:SiteConnectionStrings" }, { type: "azure-native:web/v20200901:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200901:SiteConnectionStrings" }, { type: "azure-native:web/v20201001:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20201001:SiteConnectionStrings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteConnectionStrings.__pulumiType, name, inputs, opts);
     }

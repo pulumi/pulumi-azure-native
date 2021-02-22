@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Status Details of the long running operation for an environment
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationBatchStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationBatchStatus'. */
 export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBatchStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationBatchStatusResult> {
-    pulumi.log.warn("getGlobalUserOperationBatchStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationBatchStatus'.")
+    pulumi.log.warn("getGlobalUserOperationBatchStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationBatchStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getGlobalUserOperationBatchStatus", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getGlobalUserOperationBatchStatus", {
         "urls": args.urls,
         "userName": args.userName,
     }, opts);

@@ -16,7 +16,7 @@ export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/v20201001:getPrefix", {
+    return pulumi.runtime.invoke("azure-native:peering/v20201001:getPrefix", {
         "expand": args.expand,
         "peeringServiceName": args.peeringServiceName,
         "prefixName": args.prefixName,

@@ -62,25 +62,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformysql:Configuration":
+            case "azure-native:dbformysql:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:Database":
+            case "azure-native:dbformysql:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:FirewallRule":
+            case "azure-native:dbformysql:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:PrivateEndpointConnection":
+            case "azure-native:dbformysql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:Server":
+            case "azure-native:dbformysql:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:ServerAdministrator":
+            case "azure-native:dbformysql:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:ServerKey":
+            case "azure-native:dbformysql:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql:VirtualNetworkRule":
+            case "azure-native:dbformysql:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformysql", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformysql", _module)

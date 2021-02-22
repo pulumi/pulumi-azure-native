@@ -22,7 +22,7 @@ export class Creator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:maps/v20200201preview:Creator';
+    public static readonly __pulumiType = 'azure-native:maps/v20200201preview:Creator';
 
     /**
      * Returns true if the given object is an instance of Creator.  This is designed to work even
@@ -94,7 +94,7 @@ export class Creator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maps:Creator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps:Creator" }, { type: "azure-nextgen:maps:Creator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Creator.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Gateway details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGateway'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGateway'. */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-    pulumi.log.warn("getGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGateway'.")
+    pulumi.log.warn("getGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGateway'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getGateway", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getGateway", {
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

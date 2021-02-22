@@ -17,7 +17,7 @@ export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation:getWebhook", {
+    return pulumi.runtime.invoke("azure-native:automation:getWebhook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

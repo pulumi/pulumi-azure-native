@@ -23,7 +23,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:IscsiDisk';
+    public static readonly __pulumiType = 'azure-native:storsimple:IscsiDisk';
 
     /**
      * Returns true if the given object is an instance of IscsiDisk.  This is designed to work even
@@ -148,7 +148,7 @@ export class IscsiDisk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:IscsiDisk" }, { type: "azure-nextgen:storsimple/v20161001:IscsiDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:IscsiDisk" }, { type: "azure-nextgen:storsimple/latest:IscsiDisk" }, { type: "azure-native:storsimple/v20161001:IscsiDisk" }, { type: "azure-nextgen:storsimple/v20161001:IscsiDisk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiDisk.__pulumiType, name, inputs, opts);
     }

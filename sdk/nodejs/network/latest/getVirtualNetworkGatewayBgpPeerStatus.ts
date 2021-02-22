@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response for list BGP peer status API service call.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayBgpPeerStatus'. */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
-    pulumi.log.warn("getVirtualNetworkGatewayBgpPeerStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus'.")
+    pulumi.log.warn("getVirtualNetworkGatewayBgpPeerStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayBgpPeerStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGat
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayBgpPeerStatus", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkGatewayBgpPeerStatus", {
         "peer": args.peer,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,

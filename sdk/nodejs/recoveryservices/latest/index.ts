@@ -63,41 +63,41 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:recoveryservices/latest:PrivateEndpointConnection":
+            case "azure-native:recoveryservices/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ProtectedItem":
+            case "azure-native:recoveryservices/latest:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ProtectionContainer":
+            case "azure-native:recoveryservices/latest:ProtectionContainer":
                 return new ProtectionContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ProtectionIntent":
+            case "azure-native:recoveryservices/latest:ProtectionIntent":
                 return new ProtectionIntent(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ProtectionPolicy":
+            case "azure-native:recoveryservices/latest:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationFabric":
+            case "azure-native:recoveryservices/latest:ReplicationFabric":
                 return new ReplicationFabric(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem":
+            case "azure-native:recoveryservices/latest:ReplicationMigrationItem":
                 return new ReplicationMigrationItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping":
+            case "azure-native:recoveryservices/latest:ReplicationNetworkMapping":
                 return new ReplicationNetworkMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationPolicy":
+            case "azure-native:recoveryservices/latest:ReplicationPolicy":
                 return new ReplicationPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem":
+            case "azure-native:recoveryservices/latest:ReplicationProtectedItem":
                 return new ReplicationProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping":
+            case "azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping":
                 return new ReplicationProtectionContainerMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan":
+            case "azure-native:recoveryservices/latest:ReplicationRecoveryPlan":
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider":
+            case "azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider":
                 return new ReplicationRecoveryServicesProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping":
+            case "azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping":
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:ReplicationvCenter":
+            case "azure-native:recoveryservices/latest:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/latest:Vault":
+            case "azure-native:recoveryservices/latest:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "recoveryservices/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "recoveryservices/latest", _module)

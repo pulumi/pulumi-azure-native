@@ -16,7 +16,7 @@ export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/v20200301:listBatchAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:batch/v20200301:listBatchAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

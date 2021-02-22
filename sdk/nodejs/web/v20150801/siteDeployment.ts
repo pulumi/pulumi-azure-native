@@ -21,7 +21,7 @@ export class SiteDeployment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteDeployment';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteDeployment';
 
     /**
      * Returns true if the given object is an instance of SiteDeployment.  This is designed to work even
@@ -146,7 +146,7 @@ export class SiteDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteDeployment" }, { type: "azure-nextgen:web/latest:SiteDeployment" }, { type: "azure-nextgen:web/v20160801:SiteDeployment" }, { type: "azure-nextgen:web/v20180201:SiteDeployment" }, { type: "azure-nextgen:web/v20181101:SiteDeployment" }, { type: "azure-nextgen:web/v20190801:SiteDeployment" }, { type: "azure-nextgen:web/v20200601:SiteDeployment" }, { type: "azure-nextgen:web/v20200901:SiteDeployment" }, { type: "azure-nextgen:web/v20201001:SiteDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteDeployment" }, { type: "azure-nextgen:web:SiteDeployment" }, { type: "azure-native:web/latest:SiteDeployment" }, { type: "azure-nextgen:web/latest:SiteDeployment" }, { type: "azure-native:web/v20160801:SiteDeployment" }, { type: "azure-nextgen:web/v20160801:SiteDeployment" }, { type: "azure-native:web/v20180201:SiteDeployment" }, { type: "azure-nextgen:web/v20180201:SiteDeployment" }, { type: "azure-native:web/v20181101:SiteDeployment" }, { type: "azure-nextgen:web/v20181101:SiteDeployment" }, { type: "azure-native:web/v20190801:SiteDeployment" }, { type: "azure-nextgen:web/v20190801:SiteDeployment" }, { type: "azure-native:web/v20200601:SiteDeployment" }, { type: "azure-nextgen:web/v20200601:SiteDeployment" }, { type: "azure-native:web/v20200901:SiteDeployment" }, { type: "azure-nextgen:web/v20200901:SiteDeployment" }, { type: "azure-native:web/v20201001:SiteDeployment" }, { type: "azure-nextgen:web/v20201001:SiteDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteDeployment.__pulumiType, name, inputs, opts);
     }

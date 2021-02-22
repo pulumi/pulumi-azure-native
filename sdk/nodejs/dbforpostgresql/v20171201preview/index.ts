@@ -33,21 +33,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbforpostgresql/v20171201preview:Configuration":
+            case "azure-native:dbforpostgresql/v20171201preview:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20171201preview:Database":
+            case "azure-native:dbforpostgresql/v20171201preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule":
+            case "azure-native:dbforpostgresql/v20171201preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20171201preview:Server":
+            case "azure-native:dbforpostgresql/v20171201preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator":
+            case "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule":
+            case "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbforpostgresql/v20171201preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbforpostgresql/v20171201preview", _module)

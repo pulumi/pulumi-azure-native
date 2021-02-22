@@ -23,7 +23,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs:WorkloadNetworkDnsService';
+    public static readonly __pulumiType = 'azure-native:avs:WorkloadNetworkDnsService';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkDnsService.  This is designed to work even
@@ -125,7 +125,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDnsService" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkDnsService.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * details of synchronization
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizationDetails'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSynchronizationDetails'. */
 export function listShareSynchronizationDetails(args: ListShareSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationDetailsResult> {
-    pulumi.log.warn("listShareSynchronizationDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizationDetails'.")
+    pulumi.log.warn("listShareSynchronizationDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSynchronizationDetails'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listShareSynchronizationDetails(args: ListShareSynchronizationDe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:listShareSynchronizationDetails", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:listShareSynchronizationDetails", {
         "accountName": args.accountName,
         "consumerEmail": args.consumerEmail,
         "consumerName": args.consumerName,

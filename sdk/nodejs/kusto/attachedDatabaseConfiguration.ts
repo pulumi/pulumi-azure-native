@@ -23,7 +23,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:kusto:AttachedDatabaseConfiguration';
+    public static readonly __pulumiType = 'azure-native:kusto:AttachedDatabaseConfiguration';
 
     /**
      * Returns true if the given object is an instance of AttachedDatabaseConfiguration.  This is designed to work even
@@ -122,7 +122,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/latest:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/latest:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
     }

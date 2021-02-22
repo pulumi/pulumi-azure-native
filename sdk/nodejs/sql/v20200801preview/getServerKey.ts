@@ -16,7 +16,7 @@ export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200801preview:getServerKey", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

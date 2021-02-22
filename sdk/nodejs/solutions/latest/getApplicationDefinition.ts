@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about managed application definition.
  * Latest API Version: 2019-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getApplicationDefinition'. */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
-    pulumi.log.warn("getApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'.")
+    pulumi.log.warn("getApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getApplicationDefinition'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:solutions/latest:getApplicationDefinition", {
+    return pulumi.runtime.invoke("azure-native:solutions/latest:getApplicationDefinition", {
         "applicationDefinitionName": args.applicationDefinitionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

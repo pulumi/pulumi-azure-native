@@ -16,7 +16,7 @@ export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20170801:getPublicIPAddress", {
+    return pulumi.runtime.invoke("azure-native:network/v20170801:getPublicIPAddress", {
         "expand": args.expand,
         "publicIpAddressName": args.publicIpAddressName,
         "resourceGroupName": args.resourceGroupName,

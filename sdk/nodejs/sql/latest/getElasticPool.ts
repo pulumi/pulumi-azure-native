@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a database elastic pool.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getElasticPool'. */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
-    pulumi.log.warn("getElasticPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'.")
+    pulumi.log.warn("getElasticPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getElasticPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getElasticPool", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getElasticPool", {
         "elasticPoolName": args.elasticPoolName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

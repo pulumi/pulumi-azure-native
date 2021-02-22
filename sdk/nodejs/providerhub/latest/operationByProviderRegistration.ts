@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.
  */
 export class OperationByProviderRegistration extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OperationByProviderRegistration {
-        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.")
+        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.")
         return new OperationByProviderRegistration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub/latest:OperationByProviderRegistration';
+    public static readonly __pulumiType = 'azure-native:providerhub/latest:OperationByProviderRegistration';
 
     /**
      * Returns true if the given object is an instance of OperationByProviderRegistration.  This is designed to work even
@@ -65,9 +65,9 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'. */
     constructor(name: string, args: OperationByProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.")
+        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.contents === undefined) && !(opts && opts.urn)) {
@@ -101,7 +101,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub:OperationByProviderRegistration" }, { type: "azure-native:providerhub/v20201120:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OperationByProviderRegistration.__pulumiType, name, inputs, opts);
     }

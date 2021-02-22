@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A privateLinkHub
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getPrivateLinkHub'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getPrivateLinkHub'. */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
-    pulumi.log.warn("getPrivateLinkHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getPrivateLinkHub'.")
+    pulumi.log.warn("getPrivateLinkHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getPrivateLinkHub'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getPrivateLinkHub", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getPrivateLinkHub", {
         "privateLinkHubName": args.privateLinkHubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

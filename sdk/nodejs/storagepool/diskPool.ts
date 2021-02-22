@@ -23,7 +23,7 @@ export class DiskPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storagepool:DiskPool';
+    public static readonly __pulumiType = 'azure-native:storagepool:DiskPool';
 
     /**
      * Returns true if the given object is an instance of DiskPool.  This is designed to work even
@@ -142,7 +142,7 @@ export class DiskPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagepool/v20200315preview:DiskPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagepool/v20200315preview:DiskPool" }, { type: "azure-nextgen:storagepool/v20200315preview:DiskPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskPool.__pulumiType, name, inputs, opts);
     }

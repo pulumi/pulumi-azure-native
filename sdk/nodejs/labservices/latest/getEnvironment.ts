@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents an environment instance
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironment'. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironment'.")
+    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getEnvironment", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getEnvironment", {
         "environmentName": args.environmentName,
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,

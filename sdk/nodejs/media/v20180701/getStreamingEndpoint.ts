@@ -16,7 +16,7 @@ export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:getStreamingEndpoint", {
+    return pulumi.runtime.invoke("azure-native:media/v20180701:getStreamingEndpoint", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingEndpointName": args.streamingEndpointName,

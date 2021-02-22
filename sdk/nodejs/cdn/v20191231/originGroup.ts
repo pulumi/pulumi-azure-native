@@ -22,7 +22,7 @@ export class OriginGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/v20191231:OriginGroup';
+    public static readonly __pulumiType = 'azure-native:cdn/v20191231:OriginGroup';
 
     /**
      * Returns true if the given object is an instance of OriginGroup.  This is designed to work even
@@ -119,7 +119,7 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:OriginGroup" }, { type: "azure-nextgen:cdn/latest:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:OriginGroup" }, { type: "azure-nextgen:cdn:OriginGroup" }, { type: "azure-native:cdn/latest:OriginGroup" }, { type: "azure-nextgen:cdn/latest:OriginGroup" }, { type: "azure-native:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-native:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }

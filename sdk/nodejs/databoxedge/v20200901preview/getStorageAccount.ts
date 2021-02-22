@@ -16,7 +16,7 @@ export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200901preview:getStorageAccount", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getStorageAccount", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
         "storageAccountName": args.storageAccountName,

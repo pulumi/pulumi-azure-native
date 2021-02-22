@@ -17,7 +17,7 @@ export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getToken", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getToken", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "tokenName": args.tokenName,

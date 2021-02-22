@@ -16,7 +16,7 @@ export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20201005preview:getWebTest", {
+    return pulumi.runtime.invoke("azure-native:insights/v20201005preview:getWebTest", {
         "resourceGroupName": args.resourceGroupName,
         "webTestName": args.webTestName,
     }, opts);

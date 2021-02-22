@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Snapshot policy information
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshotPolicy'. */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
-    pulumi.log.warn("getSnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'.")
+    pulumi.log.warn("getSnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshotPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getSnapshotPolicy", {
+    return pulumi.runtime.invoke("azure-native:netapp/latest:getSnapshotPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "snapshotPolicyName": args.snapshotPolicyName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Backup of a Volume
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'. */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
-    pulumi.log.warn("getBackup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackup'.")
+    pulumi.log.warn("getBackup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getBackup", {
+    return pulumi.runtime.invoke("azure-native:netapp/latest:getBackup", {
         "accountName": args.accountName,
         "backupName": args.backupName,
         "poolName": args.poolName,

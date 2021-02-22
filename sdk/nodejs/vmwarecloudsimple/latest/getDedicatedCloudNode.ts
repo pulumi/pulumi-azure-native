@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Dedicated cloud node model
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudNode'. */
 export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudNodeResult> {
-    pulumi.log.warn("getDedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'.")
+    pulumi.log.warn("getDedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudNode'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudNode", {
+    return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/latest:getDedicatedCloudNode", {
         "dedicatedCloudNodeName": args.dedicatedCloudNodeName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

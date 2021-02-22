@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Definition of the credential.
  * Latest API Version: 2019-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.
  */
 export class Credential extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Credential extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Credential {
-        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.")
+        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.")
         return new Credential(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/latest:Credential';
+    public static readonly __pulumiType = 'azure-native:automation/latest:Credential';
 
     /**
      * Returns true if the given object is an instance of Credential.  This is designed to work even
@@ -70,9 +70,9 @@ export class Credential extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'. */
     constructor(name: string, args: CredentialArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.")
+        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -115,7 +115,7 @@ export class Credential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Credential" }, { type: "azure-nextgen:automation/v20151031:Credential" }, { type: "azure-nextgen:automation/v20190601:Credential" }, { type: "azure-nextgen:automation/v20200113preview:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Credential" }, { type: "azure-nextgen:automation:Credential" }, { type: "azure-native:automation/v20151031:Credential" }, { type: "azure-nextgen:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-nextgen:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-nextgen:automation/v20200113preview:Credential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Credential.__pulumiType, name, inputs, opts);
     }

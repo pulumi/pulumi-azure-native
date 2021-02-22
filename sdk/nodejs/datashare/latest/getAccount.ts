@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An account data transfer object.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getAccount'. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'.")
+    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:getAccount", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

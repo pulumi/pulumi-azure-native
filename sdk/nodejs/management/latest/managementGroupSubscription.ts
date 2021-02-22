@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The details of subscription under management group.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroupSubscription'.
  */
 export class ManagementGroupSubscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementGroupSubscription {
-        pulumi.log.warn("ManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.")
+        pulumi.log.warn("ManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroupSubscription'.")
         return new ManagementGroupSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:management/latest:ManagementGroupSubscription';
+    public static readonly __pulumiType = 'azure-native:management/latest:ManagementGroupSubscription';
 
     /**
      * Returns true if the given object is an instance of ManagementGroupSubscription.  This is designed to work even
@@ -71,9 +71,9 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroupSubscription'. */
     constructor(name: string, args: ManagementGroupSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.")
+        pulumi.log.warn("ManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroupSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management:ManagementGroupSubscription" }, { type: "azure-nextgen:management/v20200501:ManagementGroupSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroupSubscription" }, { type: "azure-nextgen:management:ManagementGroupSubscription" }, { type: "azure-native:management/v20200501:ManagementGroupSubscription" }, { type: "azure-nextgen:management/v20200501:ManagementGroupSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroupSubscription.__pulumiType, name, inputs, opts);
     }

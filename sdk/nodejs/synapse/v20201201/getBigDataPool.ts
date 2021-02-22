@@ -16,7 +16,7 @@ export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getBigDataPool", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

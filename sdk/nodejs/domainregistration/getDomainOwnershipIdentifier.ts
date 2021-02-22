@@ -17,7 +17,7 @@ export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration:getDomainOwnershipIdentifier", {
+    return pulumi.runtime.invoke("azure-native:domainregistration:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

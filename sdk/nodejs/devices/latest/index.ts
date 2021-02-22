@@ -40,23 +40,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devices/latest:Certificate":
+            case "azure-native:devices/latest:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:DpsCertificate":
+            case "azure-native:devices/latest:DpsCertificate":
                 return new DpsCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:IotDpsResource":
+            case "azure-native:devices/latest:IotDpsResource":
                 return new IotDpsResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection":
+            case "azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection":
                 return new IotDpsResourcePrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:IotHubResource":
+            case "azure-native:devices/latest:IotHubResource":
                 return new IotHubResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup":
+            case "azure-native:devices/latest:IotHubResourceEventHubConsumerGroup":
                 return new IotHubResourceEventHubConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/latest:PrivateEndpointConnection":
+            case "azure-native:devices/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devices/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devices/latest", _module)

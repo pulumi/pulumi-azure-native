@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Trigger details.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getTrigger'. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'.")
+    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getTrigger'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getTrigger", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getTrigger", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

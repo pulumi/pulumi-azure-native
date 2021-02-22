@@ -16,7 +16,7 @@ export function getMonitorDefaultKey(args: GetMonitorDefaultKeyArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datadog:getMonitorDefaultKey", {
+    return pulumi.runtime.invoke("azure-native:datadog:getMonitorDefaultKey", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

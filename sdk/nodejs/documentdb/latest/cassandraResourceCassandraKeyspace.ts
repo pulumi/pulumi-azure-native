@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra keyspace.
  * Latest API Version: 2021-01-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraKeyspace'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraKeyspace'.
  */
 export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CassandraResourceCassandraKeyspace {
-        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraKeyspace'.")
+        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraKeyspace'.")
         return new CassandraResourceCassandraKeyspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:CassandraResourceCassandraKeyspace';
 
     /**
      * Returns true if the given object is an instance of CassandraResourceCassandraKeyspace.  This is designed to work even
@@ -65,9 +65,9 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraKeyspace'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraKeyspace'. */
     constructor(name: string, args: CassandraResourceCassandraKeyspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraKeyspace'.")
+        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraKeyspace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraKeyspace.__pulumiType, name, inputs, opts);
     }

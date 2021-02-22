@@ -22,7 +22,7 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic:IntegrationAccountSession';
+    public static readonly __pulumiType = 'azure-native:logic:IntegrationAccountSession';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountSession.  This is designed to work even
@@ -106,7 +106,7 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSession" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/latest:IntegrationAccountSession" }, { type: "azure-nextgen:logic/latest:IntegrationAccountSession" }, { type: "azure-native:logic/v20160601:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSession" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-native:logic/v20190501:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSession" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSession.__pulumiType, name, inputs, opts);
     }

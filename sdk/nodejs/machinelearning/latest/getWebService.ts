@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Instance of an Azure ML web service resource.
  * Latest API Version: 2017-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'. */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
-    pulumi.log.warn("getWebService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.")
+    pulumi.log.warn("getWebService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearning/latest:getWebService", {
+    return pulumi.runtime.invoke("azure-native:machinelearning/latest:getWebService", {
         "region": args.region,
         "resourceGroupName": args.resourceGroupName,
         "webServiceName": args.webServiceName,

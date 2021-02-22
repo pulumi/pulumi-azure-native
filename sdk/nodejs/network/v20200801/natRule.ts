@@ -22,7 +22,7 @@ export class NatRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200801:NatRule';
+    public static readonly __pulumiType = 'azure-native:network/v20200801:NatRule';
 
     /**
      * Returns true if the given object is an instance of NatRule.  This is designed to work even
@@ -125,7 +125,7 @@ export class NatRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NatRule" }, { type: "azure-nextgen:network/latest:NatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-nextgen:network:NatRule" }, { type: "azure-native:network/latest:NatRule" }, { type: "azure-nextgen:network/latest:NatRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NatRule.__pulumiType, name, inputs, opts);
     }

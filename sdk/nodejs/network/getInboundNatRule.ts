@@ -17,7 +17,7 @@ export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getInboundNatRule", {
+    return pulumi.runtime.invoke("azure-native:network:getInboundNatRule", {
         "expand": args.expand,
         "inboundNatRuleName": args.inboundNatRuleName,
         "loadBalancerName": args.loadBalancerName,

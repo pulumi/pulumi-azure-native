@@ -17,7 +17,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault:getVault", {
+    return pulumi.runtime.invoke("azure-native:keyvault:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);

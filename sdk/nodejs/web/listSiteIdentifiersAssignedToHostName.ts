@@ -18,7 +18,7 @@ export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiers
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listSiteIdentifiersAssignedToHostName", {
+    return pulumi.runtime.invoke("azure-native:web:listSiteIdentifiersAssignedToHostName", {
         "name": args.name,
     }, opts);
 }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Machine Extension.
  * Latest API Version: 2020-08-02.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachineExtension'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachineExtension'. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-    pulumi.log.warn("getMachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachineExtension'.")
+    pulumi.log.warn("getMachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachineExtension'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridcompute/latest:getMachineExtension", {
+    return pulumi.runtime.invoke("azure-native:hybridcompute/latest:getMachineExtension", {
         "extensionName": args.extensionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

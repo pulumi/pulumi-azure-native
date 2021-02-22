@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager profile.
  * Latest API Version: 2018-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getProfile'. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getProfile'.")
+    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getProfile", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

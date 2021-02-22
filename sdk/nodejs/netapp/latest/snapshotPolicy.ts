@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Snapshot policy information
  * Latest API Version: 2020-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:SnapshotPolicy'.
  */
 export class SnapshotPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SnapshotPolicy {
-        pulumi.log.warn("SnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.")
+        pulumi.log.warn("SnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:SnapshotPolicy'.")
         return new SnapshotPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:SnapshotPolicy';
+    public static readonly __pulumiType = 'azure-native:netapp/latest:SnapshotPolicy';
 
     /**
      * Returns true if the given object is an instance of SnapshotPolicy.  This is designed to work even
@@ -87,9 +87,9 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:SnapshotPolicy'. */
     constructor(name: string, args: SnapshotPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.")
+        pulumi.log.warn("SnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:SnapshotPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -130,7 +130,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20201101:SnapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:SnapshotPolicy" }, { type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20201101:SnapshotPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

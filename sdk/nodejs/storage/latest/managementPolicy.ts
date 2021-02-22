@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The Get Storage Account ManagementPolicies operation response.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ManagementPolicy'.
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ManagementPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementPolicy {
-        pulumi.log.warn("ManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.")
+        pulumi.log.warn("ManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ManagementPolicy'.")
         return new ManagementPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:ManagementPolicy';
+    public static readonly __pulumiType = 'azure-native:storage/latest:ManagementPolicy';
 
     /**
      * Returns true if the given object is an instance of ManagementPolicy.  This is designed to work even
@@ -63,9 +63,9 @@ export class ManagementPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ManagementPolicy'. */
     constructor(name: string, args: ManagementPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.")
+        pulumi.log.warn("ManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ManagementPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:ManagementPolicy" }, { type: "azure-nextgen:storage/v20180301preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20181101:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190401:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190601:ManagementPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20210101:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:ManagementPolicy" }, { type: "azure-nextgen:storage:ManagementPolicy" }, { type: "azure-native:storage/v20180301preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20180301preview:ManagementPolicy" }, { type: "azure-native:storage/v20181101:ManagementPolicy" }, { type: "azure-nextgen:storage/v20181101:ManagementPolicy" }, { type: "azure-native:storage/v20190401:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190401:ManagementPolicy" }, { type: "azure-native:storage/v20190601:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190601:ManagementPolicy" }, { type: "azure-native:storage/v20200801preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ManagementPolicy" }, { type: "azure-native:storage/v20210101:ManagementPolicy" }, { type: "azure-nextgen:storage/v20210101:ManagementPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementPolicy.__pulumiType, name, inputs, opts);
     }

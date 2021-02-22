@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.
  */
 export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSwiftVirtualNetworkConnectionSlot {
-        pulumi.log.warn("WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot'.")
+        pulumi.log.warn("WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.")
         return new WebAppSwiftVirtualNetworkConnectionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppSwiftVirtualNetworkConnectionSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSwiftVirtualNetworkConnectionSlot.  This is designed to work even
@@ -71,9 +71,9 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'. */
     constructor(name: string, args: WebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot'.")
+        pulumi.log.warn("WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -108,7 +108,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
     }

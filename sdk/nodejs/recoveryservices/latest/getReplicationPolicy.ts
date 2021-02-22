@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Protection profile details.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationPolicy'. */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
-    pulumi.log.warn("getReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationPolicy'.")
+    pulumi.log.warn("getReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationPolicy", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

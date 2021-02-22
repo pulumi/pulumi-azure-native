@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The assembly definition.
  * Latest API Version: 2019-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'.
  */
 export class IntegrationAccountAssembly extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountAssembly {
-        pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.")
+        pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'.")
         return new IntegrationAccountAssembly(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/latest:IntegrationAccountAssembly';
+    public static readonly __pulumiType = 'azure-native:logic/latest:IntegrationAccountAssembly';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountAssembly.  This is designed to work even
@@ -67,9 +67,9 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'. */
     constructor(name: string, args: IntegrationAccountAssemblyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.")
+        pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountAssembly" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic:IntegrationAccountAssembly" }, { type: "azure-native:logic/v20160601:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAssembly" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly" }, { type: "azure-native:logic/v20190501:IntegrationAccountAssembly" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountAssembly" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountAssembly.__pulumiType, name, inputs, opts);
     }

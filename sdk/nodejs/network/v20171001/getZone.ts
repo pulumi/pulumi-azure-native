@@ -16,7 +16,7 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20171001:getZone", {
+    return pulumi.runtime.invoke("azure-native:network/v20171001:getZone", {
         "resourceGroupName": args.resourceGroupName,
         "zoneName": args.zoneName,
     }, opts);

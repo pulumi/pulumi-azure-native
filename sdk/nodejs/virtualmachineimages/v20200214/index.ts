@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate":
+            case "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate":
                 return new VirtualMachineImageTemplate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "virtualmachineimages/v20200214", _module)
+pulumi.runtime.registerResourceModule("azure-native", "virtualmachineimages/v20200214", _module)

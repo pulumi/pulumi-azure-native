@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Guest configuration assignment is an association between a machine and guest configuration.
  * Latest API Version: 2020-06-25.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment'. */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
-    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment'.")
+    pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationH
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:guestconfiguration/latest:getGuestConfigurationHCRPAssignment", {
+    return pulumi.runtime.invoke("azure-native:guestconfiguration/latest:getGuestConfigurationHCRPAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,

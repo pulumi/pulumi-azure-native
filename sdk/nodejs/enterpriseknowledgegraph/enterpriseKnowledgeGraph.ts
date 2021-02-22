@@ -23,7 +23,7 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph';
+    public static readonly __pulumiType = 'azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph';
 
     /**
      * Returns true if the given object is an instance of EnterpriseKnowledgeGraph.  This is designed to work even
@@ -97,7 +97,7 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph" }, { type: "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph" }, { type: "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph" }, { type: "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }, { type: "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseKnowledgeGraph.__pulumiType, name, inputs, opts);
     }

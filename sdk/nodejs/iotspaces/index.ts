@@ -25,11 +25,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:iotspaces:IoTSpace":
+            case "azure-native:iotspaces:IoTSpace":
                 return new IoTSpace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "iotspaces", _module)
+pulumi.runtime.registerResourceModule("azure-native", "iotspaces", _module)

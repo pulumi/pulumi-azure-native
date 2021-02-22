@@ -16,7 +16,7 @@ export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationContro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security:getAdaptiveApplicationControl", {
+    return pulumi.runtime.invoke("azure-native:security:getAdaptiveApplicationControl", {
         "ascLocation": args.ascLocation,
         "groupName": args.groupName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getObjectReplicationPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getObjectReplicationPolicy'. */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
-    pulumi.log.warn("getObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getObjectReplicationPolicy'.")
+    pulumi.log.warn("getObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getObjectReplicationPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getObjectReplicationPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getObjectReplicationPolicy", {
         "accountName": args.accountName,
         "objectReplicationPolicyId": args.objectReplicationPolicyId,
         "resourceGroupName": args.resourceGroupName,

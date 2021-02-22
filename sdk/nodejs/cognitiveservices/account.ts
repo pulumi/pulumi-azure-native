@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cognitiveservices:Account';
+    public static readonly __pulumiType = 'azure-native:cognitiveservices:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -115,7 +115,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cognitiveservices/latest:Account" }, { type: "azure-nextgen:cognitiveservices/v20160201preview:Account" }, { type: "azure-nextgen:cognitiveservices/v20170418:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/latest:Account" }, { type: "azure-nextgen:cognitiveservices/latest:Account" }, { type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-nextgen:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20170418:Account" }, { type: "azure-nextgen:cognitiveservices/v20170418:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

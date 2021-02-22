@@ -23,7 +23,7 @@ export class HealthAlert extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:alertsmanagement:HealthAlert';
+    public static readonly __pulumiType = 'azure-native:alertsmanagement:HealthAlert';
 
     /**
      * Returns true if the given object is an instance of HealthAlert.  This is designed to work even
@@ -130,7 +130,7 @@ export class HealthAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20200804preview:HealthAlert" }, { type: "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HealthAlert.__pulumiType, name, inputs, opts);
     }

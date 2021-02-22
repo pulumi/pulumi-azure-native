@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Function secrets.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggersSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggersSlot'. */
 export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionTriggersSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersSlotResult> {
-    pulumi.log.warn("listWebAppSyncFunctionTriggersSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggersSlot'.")
+    pulumi.log.warn("listWebAppSyncFunctionTriggersSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggersSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionT
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSyncFunctionTriggersSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppSyncFunctionTriggersSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -42,21 +42,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:deploymentmanager:ArtifactSource":
+            case "azure-native:deploymentmanager:ArtifactSource":
                 return new ArtifactSource(name, <any>undefined, { urn })
-            case "azure-nextgen:deploymentmanager:Rollout":
+            case "azure-native:deploymentmanager:Rollout":
                 return new Rollout(name, <any>undefined, { urn })
-            case "azure-nextgen:deploymentmanager:Service":
+            case "azure-native:deploymentmanager:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "azure-nextgen:deploymentmanager:ServiceTopology":
+            case "azure-native:deploymentmanager:ServiceTopology":
                 return new ServiceTopology(name, <any>undefined, { urn })
-            case "azure-nextgen:deploymentmanager:ServiceUnit":
+            case "azure-native:deploymentmanager:ServiceUnit":
                 return new ServiceUnit(name, <any>undefined, { urn })
-            case "azure-nextgen:deploymentmanager:Step":
+            case "azure-native:deploymentmanager:Step":
                 return new Step(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "deploymentmanager", _module)
+pulumi.runtime.registerResourceModule("azure-native", "deploymentmanager", _module)

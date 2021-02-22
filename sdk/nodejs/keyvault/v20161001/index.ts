@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:keyvault/v20161001:Secret":
+            case "azure-native:keyvault/v20161001:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:keyvault/v20161001:Vault":
+            case "azure-native:keyvault/v20161001:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "keyvault/v20161001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "keyvault/v20161001", _module)

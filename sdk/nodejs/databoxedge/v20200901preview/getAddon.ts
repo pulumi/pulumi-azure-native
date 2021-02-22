@@ -16,7 +16,7 @@ export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200901preview:getAddon", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getAddon", {
         "addonName": args.addonName,
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

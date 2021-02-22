@@ -17,7 +17,7 @@ export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getCustomApi", {
+    return pulumi.runtime.invoke("azure-native:web:getCustomApi", {
         "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionId": args.subscriptionId,

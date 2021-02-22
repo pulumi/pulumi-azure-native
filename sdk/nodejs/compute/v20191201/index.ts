@@ -68,43 +68,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20191201:AvailabilitySet":
+            case "azure-native:compute/v20191201:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:DedicatedHost":
+            case "azure-native:compute/v20191201:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:DedicatedHostGroup":
+            case "azure-native:compute/v20191201:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:Gallery":
+            case "azure-native:compute/v20191201:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:GalleryApplication":
+            case "azure-native:compute/v20191201:GalleryApplication":
                 return new GalleryApplication(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:GalleryApplicationVersion":
+            case "azure-native:compute/v20191201:GalleryApplicationVersion":
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:GalleryImage":
+            case "azure-native:compute/v20191201:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:GalleryImageVersion":
+            case "azure-native:compute/v20191201:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:Image":
+            case "azure-native:compute/v20191201:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:ProximityPlacementGroup":
+            case "azure-native:compute/v20191201:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:SshPublicKey":
+            case "azure-native:compute/v20191201:SshPublicKey":
                 return new SshPublicKey(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachine":
+            case "azure-native:compute/v20191201:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachineExtension":
+            case "azure-native:compute/v20191201:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachineScaleSet":
+            case "azure-native:compute/v20191201:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension":
+            case "azure-native:compute/v20191201:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM":
+            case "azure-native:compute/v20191201:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension":
+            case "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension":
                 return new VirtualMachineScaleSetVMExtension(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20191201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20191201", _module)

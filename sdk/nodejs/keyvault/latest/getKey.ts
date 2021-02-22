@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The key resource.
  * Latest API Version: 2019-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getKey'. */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    pulumi.log.warn("getKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getKey'.")
+    pulumi.log.warn("getKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault/latest:getKey", {
+    return pulumi.runtime.invoke("azure-native:keyvault/latest:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

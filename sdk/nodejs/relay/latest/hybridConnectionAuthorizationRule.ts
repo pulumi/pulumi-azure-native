@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnectionAuthorizationRule'.
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HybridConnectionAuthorizationRule {
-        pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.")
+        pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnectionAuthorizationRule'.")
         return new HybridConnectionAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:relay/latest:HybridConnectionAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:relay/latest:HybridConnectionAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of HybridConnectionAuthorizationRule.  This is designed to work even
@@ -59,9 +59,9 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnectionAuthorizationRule'. */
     constructor(name: string, args: HybridConnectionAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.")
+        pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnectionAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hybridConnectionName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnectionAuthorizationRule.__pulumiType, name, inputs, opts);
     }

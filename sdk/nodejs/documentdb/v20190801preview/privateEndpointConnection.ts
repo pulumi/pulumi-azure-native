@@ -22,7 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20190801preview:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -100,7 +100,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb:PrivateEndpointConnection" }, { type: "azure-native:documentdb/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/latest:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210115:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

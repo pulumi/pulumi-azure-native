@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Peerings in a VirtualNetwork resource
  * Latest API Version: 2018-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VNetPeering {
-        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.")
+        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.")
         return new VNetPeering(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databricks/latest:vNetPeering';
+    public static readonly __pulumiType = 'azure-native:databricks/latest:vNetPeering';
 
     /**
      * Returns true if the given object is an instance of VNetPeering.  This is designed to work even
@@ -95,9 +95,9 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'. */
     constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.")
+        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.remoteVirtualNetwork === undefined) && !(opts && opts.urn)) {
@@ -145,7 +145,7 @@ export class VNetPeering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databricks:vNetPeering" }, { type: "azure-nextgen:databricks/v20180401:vNetPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks:vNetPeering" }, { type: "azure-nextgen:databricks:vNetPeering" }, { type: "azure-native:databricks/v20180401:vNetPeering" }, { type: "azure-nextgen:databricks/v20180401:vNetPeering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VNetPeering.__pulumiType, name, inputs, opts);
     }

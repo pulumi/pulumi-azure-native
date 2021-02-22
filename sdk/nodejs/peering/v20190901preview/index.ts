@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:peering/v20190901preview:PeerAsn":
+            case "azure-native:peering/v20190901preview:PeerAsn":
                 return new PeerAsn(name, <any>undefined, { urn })
-            case "azure-nextgen:peering/v20190901preview:Peering":
+            case "azure-native:peering/v20190901preview:Peering":
                 return new Peering(name, <any>undefined, { urn })
-            case "azure-nextgen:peering/v20190901preview:PeeringService":
+            case "azure-native:peering/v20190901preview:PeeringService":
                 return new PeeringService(name, <any>undefined, { urn })
-            case "azure-nextgen:peering/v20190901preview:Prefix":
+            case "azure-native:peering/v20190901preview:Prefix":
                 return new Prefix(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "peering/v20190901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "peering/v20190901preview", _module)

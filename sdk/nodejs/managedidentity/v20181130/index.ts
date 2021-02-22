@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity":
+            case "azure-native:managedidentity/v20181130:UserAssignedIdentity":
                 return new UserAssignedIdentity(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "managedidentity/v20181130", _module)
+pulumi.runtime.registerResourceModule("azure-native", "managedidentity/v20181130", _module)

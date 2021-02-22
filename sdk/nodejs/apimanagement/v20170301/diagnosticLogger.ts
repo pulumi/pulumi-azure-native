@@ -22,7 +22,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:DiagnosticLogger';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20170301:DiagnosticLogger';
 
     /**
      * Returns true if the given object is an instance of DiagnosticLogger.  This is designed to work even
@@ -111,7 +111,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/latest:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:DiagnosticLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-native:apimanagement/latest:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/latest:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20180101:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:DiagnosticLogger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticLogger.__pulumiType, name, inputs, opts);
     }

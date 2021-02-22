@@ -22,7 +22,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azurestack/v20200601preview:CustomerSubscription';
+    public static readonly __pulumiType = 'azure-native:azurestack/v20200601preview:CustomerSubscription';
 
     /**
      * Returns true if the given object is an instance of CustomerSubscription.  This is designed to work even
@@ -94,7 +94,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack/latest:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-native:azurestack/latest:CustomerSubscription" }, { type: "azure-nextgen:azurestack/latest:CustomerSubscription" }, { type: "azure-native:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomerSubscription.__pulumiType, name, inputs, opts);
     }

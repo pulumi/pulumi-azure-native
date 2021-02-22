@@ -16,7 +16,7 @@ export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticEx
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20191201:getLogAnalyticExportRequestRateByInterval", {
+    return pulumi.runtime.invoke("azure-native:compute/v20191201:getLogAnalyticExportRequestRateByInterval", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,
         "groupByOperationName": args.groupByOperationName,

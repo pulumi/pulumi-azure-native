@@ -16,7 +16,7 @@ export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:getGlobalUserOperationBatchStatus", {
+    return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus", {
         "urls": args.urls,
         "userName": args.userName,
     }, opts);

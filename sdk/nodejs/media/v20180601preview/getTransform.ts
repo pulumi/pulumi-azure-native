@@ -16,7 +16,7 @@ export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180601preview:getTransform", {
+    return pulumi.runtime.invoke("azure-native:media/v20180601preview:getTransform", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "transformName": args.transformName,

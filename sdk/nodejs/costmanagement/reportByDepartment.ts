@@ -23,7 +23,7 @@ export class ReportByDepartment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement:ReportByDepartment';
+    public static readonly __pulumiType = 'azure-native:costmanagement:ReportByDepartment';
 
     /**
      * Returns true if the given object is an instance of ReportByDepartment.  This is designed to work even
@@ -109,7 +109,7 @@ export class ReportByDepartment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20180801preview:ReportByDepartment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:ReportByDepartment" }, { type: "azure-nextgen:costmanagement/v20180801preview:ReportByDepartment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportByDepartment.__pulumiType, name, inputs, opts);
     }

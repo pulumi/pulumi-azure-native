@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Public certificate object
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificateSlot'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.
  */
 export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppPublicCertificateSlot {
-        pulumi.log.warn("WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificateSlot'.")
+        pulumi.log.warn("WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.")
         return new WebAppPublicCertificateSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppPublicCertificateSlot';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppPublicCertificateSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppPublicCertificateSlot.  This is designed to work even
@@ -75,9 +75,9 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificateSlot'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'. */
     constructor(name: string, args: WebAppPublicCertificateSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificateSlot'.")
+        pulumi.log.warn("WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -115,7 +115,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201001:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
     }

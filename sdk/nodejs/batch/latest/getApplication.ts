@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contains information about an application in a Batch account.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplication'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplication'. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplication'.")
+    pulumi.log.warn("getApplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplication'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:getApplication", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:getApplication", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

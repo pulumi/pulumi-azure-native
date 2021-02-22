@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeys'. */
 export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysResult> {
-    pulumi.log.warn("listWebAppFunctionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionKeys'.")
+    pulumi.log.warn("listWebAppFunctionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppFunctionKeys", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppFunctionKeys", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

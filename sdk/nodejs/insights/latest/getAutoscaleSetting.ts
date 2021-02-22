@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The autoscale setting resource.
  * Latest API Version: 2015-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAutoscaleSetting'. */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
-    pulumi.log.warn("getAutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'.")
+    pulumi.log.warn("getAutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAutoscaleSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getAutoscaleSetting", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

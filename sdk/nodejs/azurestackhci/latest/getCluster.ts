@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Cluster details.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestackhci:getCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestackhci:getCluster'. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestackhci:getCluster'.")
+    pulumi.log.warn("getCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestackhci:getCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestackhci/latest:getCluster", {
+    return pulumi.runtime.invoke("azure-native:azurestackhci/latest:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

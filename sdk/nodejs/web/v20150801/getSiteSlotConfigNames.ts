@@ -16,7 +16,7 @@ export function getSiteSlotConfigNames(args: GetSiteSlotConfigNamesArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteSlotConfigNames", {
+    return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteSlotConfigNames", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

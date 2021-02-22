@@ -16,7 +16,7 @@ export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customproviders/v20180901preview:getCustomResourceProvider", {
+    return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,
         "resourceProviderName": args.resourceProviderName,
     }, opts);

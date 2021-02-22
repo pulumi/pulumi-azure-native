@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Software update configuration properties.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSoftwareUpdateConfigurationByName'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSoftwareUpdateConfigurationByName'. */
 export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConfigurationByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwareUpdateConfigurationByNameResult> {
-    pulumi.log.warn("getSoftwareUpdateConfigurationByName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSoftwareUpdateConfigurationByName'.")
+    pulumi.log.warn("getSoftwareUpdateConfigurationByName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSoftwareUpdateConfigurationByName'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConf
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getSoftwareUpdateConfigurationByName", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "softwareUpdateConfigurationName": args.softwareUpdateConfigurationName,

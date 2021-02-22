@@ -16,7 +16,7 @@ export function getTransactionNode(args: GetTransactionNodeArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blockchain/v20180601preview:getTransactionNode", {
+    return pulumi.runtime.invoke("azure-native:blockchain/v20180601preview:getTransactionNode", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,
         "transactionNodeName": args.transactionNodeName,

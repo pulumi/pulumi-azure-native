@@ -22,7 +22,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy';
+    public static readonly __pulumiType = 'azure-native:timeseriesinsights/v20170228preview:AccessPolicy';
 
     /**
      * Returns true if the given object is an instance of AccessPolicy.  This is designed to work even
@@ -94,7 +94,7 @@ export class AccessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20200515:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }

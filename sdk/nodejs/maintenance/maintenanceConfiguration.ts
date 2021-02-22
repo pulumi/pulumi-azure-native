@@ -23,7 +23,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:maintenance:MaintenanceConfiguration';
+    public static readonly __pulumiType = 'azure-native:maintenance:MaintenanceConfiguration';
 
     /**
      * Returns true if the given object is an instance of MaintenanceConfiguration.  This is designed to work even
@@ -103,7 +103,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

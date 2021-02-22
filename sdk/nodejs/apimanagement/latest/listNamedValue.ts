@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'. */
 export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListNamedValueResult> {
-    pulumi.log.warn("listNamedValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'.")
+    pulumi.log.warn("listNamedValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listNamedValue", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:listNamedValue", {
         "namedValueId": args.namedValueId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

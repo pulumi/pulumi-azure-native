@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getInput'. */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
-    pulumi.log.warn("getInput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.")
+    pulumi.log.warn("getInput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getInput'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/latest:getInput", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/latest:getInput", {
         "inputName": args.inputName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

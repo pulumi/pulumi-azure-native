@@ -17,7 +17,7 @@ export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getManagerExtendedInfo", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getManagerExtendedInfo", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

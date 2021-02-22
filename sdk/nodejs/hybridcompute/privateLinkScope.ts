@@ -23,7 +23,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridcompute:PrivateLinkScope';
+    public static readonly __pulumiType = 'azure-native:hybridcompute:PrivateLinkScope';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkScope.  This is designed to work even
@@ -103,7 +103,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkScope.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Server Endpoint object.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getServerEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getServerEndpoint'. */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
-    pulumi.log.warn("getServerEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getServerEndpoint'.")
+    pulumi.log.warn("getServerEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getServerEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync/latest:getServerEndpoint", {
+    return pulumi.runtime.invoke("azure-native:storagesync/latest:getServerEndpoint", {
         "resourceGroupName": args.resourceGroupName,
         "serverEndpointName": args.serverEndpointName,
         "storageSyncServiceName": args.storageSyncServiceName,

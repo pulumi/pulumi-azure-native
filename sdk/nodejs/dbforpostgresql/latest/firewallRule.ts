@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents a server firewall rule.
  * Latest API Version: 2017-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:FirewallRule'.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallRule {
-        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.")
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:FirewallRule'.")
         return new FirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/latest:FirewallRule';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql/latest:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -62,9 +62,9 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:FirewallRule'. */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.")
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:FirewallRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201preview:FirewallRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

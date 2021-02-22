@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Deployment information.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtSubscriptionScope'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'.
  */
 export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentAtSubscriptionScope {
-        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtSubscriptionScope'.")
+        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'.")
         return new DeploymentAtSubscriptionScope(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources/latest:DeploymentAtSubscriptionScope';
+    public static readonly __pulumiType = 'azure-native:resources/latest:DeploymentAtSubscriptionScope';
 
     /**
      * Returns true if the given object is an instance of DeploymentAtSubscriptionScope.  This is designed to work even
@@ -67,9 +67,9 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtSubscriptionScope'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'. */
     constructor(name: string, args: DeploymentAtSubscriptionScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtSubscriptionScope'.")
+        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20201001:DeploymentAtSubscriptionScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtSubscriptionScope.__pulumiType, name, inputs, opts);
     }

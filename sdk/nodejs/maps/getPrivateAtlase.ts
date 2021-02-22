@@ -17,7 +17,7 @@ export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:maps:getPrivateAtlase", {
+    return pulumi.runtime.invoke("azure-native:maps:getPrivateAtlase", {
         "accountName": args.accountName,
         "privateAtlasName": args.privateAtlasName,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:subscription/v20191001preview:getSubscriptionAlias", {
+    return pulumi.runtime.invoke("azure-native:subscription/v20191001preview:getSubscriptionAlias", {
         "aliasName": args.aliasName,
     }, opts);
 }

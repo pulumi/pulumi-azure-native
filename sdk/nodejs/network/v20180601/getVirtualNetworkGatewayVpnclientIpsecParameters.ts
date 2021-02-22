@@ -16,7 +16,7 @@ export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtua
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20180601:getVirtualNetworkGatewayVpnclientIpsecParameters", {
+    return pulumi.runtime.invoke("azure-native:network/v20180601:getVirtualNetworkGatewayVpnclientIpsecParameters", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Issue Attachment Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueAttachment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueAttachment'. */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
-    pulumi.log.warn("getApiIssueAttachment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueAttachment'.")
+    pulumi.log.warn("getApiIssueAttachment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueAttachment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiIssueAttachment", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiIssueAttachment", {
         "apiId": args.apiId,
         "attachmentId": args.attachmentId,
         "issueId": args.issueId,

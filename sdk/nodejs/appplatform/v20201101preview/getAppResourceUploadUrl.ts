@@ -16,7 +16,7 @@ export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/v20201101preview:getAppResourceUploadUrl", {
+    return pulumi.runtime.invoke("azure-native:appplatform/v20201101preview:getAppResourceUploadUrl", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

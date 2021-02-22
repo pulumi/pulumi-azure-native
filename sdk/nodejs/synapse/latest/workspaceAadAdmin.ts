@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Workspace active directory administrator
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceAadAdmin'.
  */
 export class WorkspaceAadAdmin extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceAadAdmin {
-        pulumi.log.warn("WorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'.")
+        pulumi.log.warn("WorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceAadAdmin'.")
         return new WorkspaceAadAdmin(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:WorkspaceAadAdmin';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:WorkspaceAadAdmin';
 
     /**
      * Returns true if the given object is an instance of WorkspaceAadAdmin.  This is designed to work even
@@ -70,9 +70,9 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceAadAdmin'. */
     constructor(name: string, args: WorkspaceAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'.")
+        pulumi.log.warn("WorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceAadAdmin'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -104,7 +104,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20201201:WorkspaceAadAdmin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20201201:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20201201:WorkspaceAadAdmin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
     }

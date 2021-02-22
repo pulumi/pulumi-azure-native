@@ -41,25 +41,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20181001:AvailabilitySet":
+            case "azure-native:compute/v20181001:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:Image":
+            case "azure-native:compute/v20181001:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:ProximityPlacementGroup":
+            case "azure-native:compute/v20181001:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:VirtualMachine":
+            case "azure-native:compute/v20181001:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:VirtualMachineExtension":
+            case "azure-native:compute/v20181001:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:VirtualMachineScaleSet":
+            case "azure-native:compute/v20181001:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension":
+            case "azure-native:compute/v20181001:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM":
+            case "azure-native:compute/v20181001:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20181001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20181001", _module)

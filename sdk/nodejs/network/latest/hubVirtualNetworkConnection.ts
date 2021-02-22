@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * HubVirtualNetworkConnection Resource.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HubVirtualNetworkConnection {
-        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.")
+        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.")
         return new HubVirtualNetworkConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:HubVirtualNetworkConnection';
+    public static readonly __pulumiType = 'azure-native:network/latest:HubVirtualNetworkConnection';
 
     /**
      * Returns true if the given object is an instance of HubVirtualNetworkConnection.  This is designed to work even
@@ -79,9 +79,9 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'. */
     constructor(name: string, args: HubVirtualNetworkConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.")
+        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +119,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200801:HubVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200801:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200801:HubVirtualNetworkConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }

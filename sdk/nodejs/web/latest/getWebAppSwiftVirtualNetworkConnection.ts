@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSwiftVirtualNetworkConnection'. */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
-    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'.")
+    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSwiftVirtualNetworkConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSwiftVirtualNetworkConnection", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSwiftVirtualNetworkConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteBuildFunctionAppSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteBuildFunctionAppSettings'. */
 export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuildFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildFunctionAppSettingsResult> {
-    pulumi.log.warn("listStaticSiteBuildFunctionAppSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteBuildFunctionAppSettings'.")
+    pulumi.log.warn("listStaticSiteBuildFunctionAppSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteBuildFunctionAppSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuild
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listStaticSiteBuildFunctionAppSettings", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listStaticSiteBuildFunctionAppSettings", {
         "name": args.name,
         "prId": args.prId,
         "resourceGroupName": args.resourceGroupName,

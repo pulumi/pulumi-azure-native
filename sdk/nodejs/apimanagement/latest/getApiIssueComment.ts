@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Issue Comment Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueComment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueComment'. */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
-    pulumi.log.warn("getApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueComment'.")
+    pulumi.log.warn("getApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueComment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiIssueComment", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiIssueComment", {
         "apiId": args.apiId,
         "commentId": args.commentId,
         "issueId": args.issueId,

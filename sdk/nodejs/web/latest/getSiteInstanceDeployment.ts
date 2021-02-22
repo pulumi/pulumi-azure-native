@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents user credentials used for publishing activity
  * Latest API Version: 2015-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'. */
 export function getSiteInstanceDeployment(args: GetSiteInstanceDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteInstanceDeploymentResult> {
-    pulumi.log.warn("getSiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.")
+    pulumi.log.warn("getSiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSiteInstanceDeployment(args: GetSiteInstanceDeploymentArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getSiteInstanceDeployment", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getSiteInstanceDeployment", {
         "id": args.id,
         "instanceId": args.instanceId,
         "name": args.name,

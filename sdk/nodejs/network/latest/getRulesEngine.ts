@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRulesEngine'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'. */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
-    pulumi.log.warn("getRulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRulesEngine'.")
+    pulumi.log.warn("getRulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRulesEngine", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,
         "rulesEngineName": args.rulesEngineName,

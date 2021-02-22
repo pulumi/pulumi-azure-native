@@ -17,7 +17,7 @@ export function getClientToken(args?: GetClientTokenArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getClientToken", {
+    return pulumi.runtime.invoke("azure-native:authorization:getClientToken", {
         "endpoint": args.endpoint,
     }, opts);
 }

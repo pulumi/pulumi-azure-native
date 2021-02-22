@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The resource containing the Azure Stack activation key.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistrationActivationKey'. */
 export function getRegistrationActivationKey(args: GetRegistrationActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationActivationKeyResult> {
-    pulumi.log.warn("getRegistrationActivationKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.")
+    pulumi.log.warn("getRegistrationActivationKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistrationActivationKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegistrationActivationKey(args: GetRegistrationActivationKeyA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:getRegistrationActivationKey", {
+    return pulumi.runtime.invoke("azure-native:azurestack/latest:getRegistrationActivationKey", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);

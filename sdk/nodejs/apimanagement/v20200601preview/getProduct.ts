@@ -16,7 +16,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20200601preview:getProduct", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getProduct", {
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

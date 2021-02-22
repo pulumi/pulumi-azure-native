@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB container.
  * Latest API Version: 2016-03-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountSqlContainer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountSqlContainer'. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
-    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountSqlContainer'.")
+    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountSqlContainer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContai
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountSqlContainer", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getDatabaseAccountSqlContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,

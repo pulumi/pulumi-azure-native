@@ -61,31 +61,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:securityinsights:Action":
+            case "azure-native:securityinsights:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:AlertRule":
+            case "azure-native:securityinsights:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:Bookmark":
+            case "azure-native:securityinsights:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:BookmarkRelation":
+            case "azure-native:securityinsights:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:DataConnector":
+            case "azure-native:securityinsights:DataConnector":
                 return new DataConnector(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:Incident":
+            case "azure-native:securityinsights:Incident":
                 return new Incident(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:IncidentComment":
+            case "azure-native:securityinsights:IncidentComment":
                 return new IncidentComment(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:IncidentRelation":
+            case "azure-native:securityinsights:IncidentRelation":
                 return new IncidentRelation(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:ProductSetting":
+            case "azure-native:securityinsights:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:ThreatIntelligenceIndicator":
+            case "azure-native:securityinsights:ThreatIntelligenceIndicator":
                 return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights:Watchlist":
+            case "azure-native:securityinsights:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "securityinsights", _module)
+pulumi.runtime.registerResourceModule("azure-native", "securityinsights", _module)

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listDelegationSettingSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'. */
 export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDelegationSettingSecretsResult> {
-    pulumi.log.warn("listDelegationSettingSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listDelegationSettingSecrets'.")
+    pulumi.log.warn("listDelegationSettingSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listDelegationSettingSecrets", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:listDelegationSettingSecrets", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

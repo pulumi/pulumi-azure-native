@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The workflow type.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getWorkflow'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'. */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
-    pulumi.log.warn("getWorkflow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getWorkflow'.")
+    pulumi.log.warn("getWorkflow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getWorkflow", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getWorkflow", {
         "resourceGroupName": args.resourceGroupName,
         "workflowName": args.workflowName,
     }, opts);

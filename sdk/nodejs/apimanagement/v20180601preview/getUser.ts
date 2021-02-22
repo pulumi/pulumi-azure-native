@@ -16,7 +16,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getUser", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getUser", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "userId": args.userId,

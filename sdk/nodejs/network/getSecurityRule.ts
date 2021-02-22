@@ -17,7 +17,7 @@ export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getSecurityRule", {
+    return pulumi.runtime.invoke("azure-native:network:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
         "securityRuleName": args.securityRuleName,

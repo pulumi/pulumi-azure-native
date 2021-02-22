@@ -16,7 +16,7 @@ export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azureactivedirectory:getB2CTenant", {
+    return pulumi.runtime.invoke("azure-native:azureactivedirectory:getB2CTenant", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

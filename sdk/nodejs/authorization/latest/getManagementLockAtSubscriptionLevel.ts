@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The lock information.
  * Latest API Version: 2016-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtSubscriptionLevel'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtSubscriptionLevel'. */
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
-    pulumi.log.warn("getManagementLockAtSubscriptionLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtSubscriptionLevel'.")
+    pulumi.log.warn("getManagementLockAtSubscriptionLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtSubscriptionLevel'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getManagementLockAtSubscriptionLevel", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getManagementLockAtSubscriptionLevel", {
         "lockName": args.lockName,
     }, opts);
 }

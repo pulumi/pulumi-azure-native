@@ -23,7 +23,7 @@ export class DigitalTwin extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:digitaltwins:DigitalTwin';
+    public static readonly __pulumiType = 'azure-native:digitaltwins:DigitalTwin';
 
     /**
      * Returns true if the given object is an instance of DigitalTwin.  This is designed to work even
@@ -124,7 +124,7 @@ export class DigitalTwin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins/latest:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/latest:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwin" }, { type: "azure-native:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }

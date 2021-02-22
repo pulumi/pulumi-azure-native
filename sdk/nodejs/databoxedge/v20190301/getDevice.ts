@@ -16,7 +16,7 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20190301:getDevice", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20190301:getDevice", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

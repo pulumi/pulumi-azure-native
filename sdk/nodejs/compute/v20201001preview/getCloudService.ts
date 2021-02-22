@@ -16,7 +16,7 @@ export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20201001preview:getCloudService", {
+    return pulumi.runtime.invoke("azure-native:compute/v20201001preview:getCloudService", {
         "cloudServiceName": args.cloudServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

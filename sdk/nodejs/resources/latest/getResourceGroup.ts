@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource group information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResourceGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResourceGroup'. */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-    pulumi.log.warn("getResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResourceGroup'.")
+    pulumi.log.warn("getResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResourceGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getResourceGroup", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }

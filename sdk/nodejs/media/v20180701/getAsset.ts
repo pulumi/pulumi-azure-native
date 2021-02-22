@@ -16,7 +16,7 @@ export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:getAsset", {
+    return pulumi.runtime.invoke("azure-native:media/v20180701:getAsset", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The remediation definition.
  * Latest API Version: 2019-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtManagementGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtManagementGroup'. */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
-    pulumi.log.warn("getRemediationAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtManagementGroup'.")
+    pulumi.log.warn("getRemediationAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtManagementGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRemediationAtManagementGroup(args: GetRemediationAtManagement
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/latest:getRemediationAtManagementGroup", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/latest:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "managementGroupsNamespace": args.managementGroupsNamespace,
         "remediationName": args.remediationName,

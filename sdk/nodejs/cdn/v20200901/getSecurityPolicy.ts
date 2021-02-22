@@ -16,7 +16,7 @@ export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200901:getSecurityPolicy", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200901:getSecurityPolicy", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "securityPolicyName": args.securityPolicyName,

@@ -23,7 +23,7 @@ export class IoTSpace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:iotspaces:IoTSpace';
+    public static readonly __pulumiType = 'azure-native:iotspaces:IoTSpace';
 
     /**
      * Returns true if the given object is an instance of IoTSpace.  This is designed to work even
@@ -100,7 +100,7 @@ export class IoTSpace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotspaces/v20171001preview:IoTSpace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotspaces/v20171001preview:IoTSpace" }, { type: "azure-nextgen:iotspaces/v20171001preview:IoTSpace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IoTSpace.__pulumiType, name, inputs, opts);
     }

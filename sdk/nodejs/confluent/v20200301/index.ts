@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:confluent/v20200301:Organization":
+            case "azure-native:confluent/v20200301:Organization":
                 return new Organization(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "confluent/v20200301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "confluent/v20200301", _module)

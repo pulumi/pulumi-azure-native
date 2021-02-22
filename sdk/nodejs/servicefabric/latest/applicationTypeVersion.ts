@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * An application type version resource for the specified application type name resource.
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationTypeVersion'.
  */
 export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationTypeVersion {
-        pulumi.log.warn("ApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.")
+        pulumi.log.warn("ApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationTypeVersion'.")
         return new ApplicationTypeVersion(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric/latest:ApplicationTypeVersion';
+    public static readonly __pulumiType = 'azure-native:servicefabric/latest:ApplicationTypeVersion';
 
     /**
      * Returns true if the given object is an instance of ApplicationTypeVersion.  This is designed to work even
@@ -78,9 +78,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationTypeVersion'. */
     constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.")
+        pulumi.log.warn("ApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationTypeVersion'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.appPackageUrl === undefined) && !(opts && opts.urn)) {
@@ -124,7 +124,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20170701preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190301:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20200301:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationTypeVersion.__pulumiType, name, inputs, opts);
     }

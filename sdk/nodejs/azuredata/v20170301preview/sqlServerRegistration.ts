@@ -21,7 +21,7 @@ export class SqlServerRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azuredata/v20170301preview:SqlServerRegistration';
+    public static readonly __pulumiType = 'azure-native:azuredata/v20170301preview:SqlServerRegistration';
 
     /**
      * Returns true if the given object is an instance of SqlServerRegistration.  This is designed to work even
@@ -101,7 +101,7 @@ export class SqlServerRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azuredata:SqlServerRegistration" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServerRegistration" }, { type: "azure-nextgen:azuredata:SqlServerRegistration" }, { type: "azure-native:azuredata/v20190724preview:SqlServerRegistration" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlServerRegistration.__pulumiType, name, inputs, opts);
     }

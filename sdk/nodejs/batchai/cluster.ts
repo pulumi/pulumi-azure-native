@@ -23,7 +23,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batchai:Cluster';
+    public static readonly __pulumiType = 'azure-native:batchai:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -173,7 +173,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/latest:Cluster" }, { type: "azure-nextgen:batchai/v20180501:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batchai/latest:Cluster" }, { type: "azure-nextgen:batchai/latest:Cluster" }, { type: "azure-native:batchai/v20180501:Cluster" }, { type: "azure-nextgen:batchai/v20180501:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

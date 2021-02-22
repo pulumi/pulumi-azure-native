@@ -22,7 +22,7 @@ export class Share extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20200501preview:Share';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20200501preview:Share';
 
     /**
      * Returns true if the given object is an instance of Share.  This is designed to work even
@@ -144,7 +144,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Share" }, { type: "azure-nextgen:databoxedge/latest:Share" }, { type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190701:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Share" }, { type: "azure-nextgen:databoxedge:Share" }, { type: "azure-native:databoxedge/latest:Share" }, { type: "azure-nextgen:databoxedge/latest:Share" }, { type: "azure-native:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-native:databoxedge/v20190701:Share" }, { type: "azure-nextgen:databoxedge/v20190701:Share" }, { type: "azure-native:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-native:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-native:databoxedge/v20200901preview:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

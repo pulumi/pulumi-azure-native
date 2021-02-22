@@ -23,7 +23,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datashare:SynchronizationSetting';
+    public static readonly __pulumiType = 'azure-native:datashare:SynchronizationSetting';
 
     /**
      * Returns true if the given object is an instance of SynchronizationSetting.  This is designed to work even
@@ -96,7 +96,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20201001preview:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/latest:SynchronizationSetting" }, { type: "azure-nextgen:datashare/latest:SynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-native:datashare/v20200901:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20201001preview:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

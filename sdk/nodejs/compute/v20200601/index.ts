@@ -59,37 +59,37 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20200601:AvailabilitySet":
+            case "azure-native:compute/v20200601:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:DedicatedHost":
+            case "azure-native:compute/v20200601:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:DedicatedHostGroup":
+            case "azure-native:compute/v20200601:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:Image":
+            case "azure-native:compute/v20200601:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:ProximityPlacementGroup":
+            case "azure-native:compute/v20200601:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:SshPublicKey":
+            case "azure-native:compute/v20200601:SshPublicKey":
                 return new SshPublicKey(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachine":
+            case "azure-native:compute/v20200601:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineExtension":
+            case "azure-native:compute/v20200601:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine":
+            case "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine":
                 return new VirtualMachineRunCommandByVirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineScaleSet":
+            case "azure-native:compute/v20200601:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension":
+            case "azure-native:compute/v20200601:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM":
+            case "azure-native:compute/v20200601:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension":
+            case "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension":
                 return new VirtualMachineScaleSetVMExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand":
+            case "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand":
                 return new VirtualMachineScaleSetVMRunCommand(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20200601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20200601", _module)

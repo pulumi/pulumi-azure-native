@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a container on the  Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getContainer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getContainer'. */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-    pulumi.log.warn("getContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getContainer'.")
+    pulumi.log.warn("getContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getContainer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getContainer", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getContainer", {
         "containerName": args.containerName,
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

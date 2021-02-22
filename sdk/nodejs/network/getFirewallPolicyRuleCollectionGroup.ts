@@ -17,7 +17,7 @@ export function getFirewallPolicyRuleCollectionGroup(args: GetFirewallPolicyRule
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getFirewallPolicyRuleCollectionGroup", {
+    return pulumi.runtime.invoke("azure-native:network:getFirewallPolicyRuleCollectionGroup", {
         "firewallPolicyName": args.firewallPolicyName,
         "resourceGroupName": args.resourceGroupName,
         "ruleCollectionGroupName": args.ruleCollectionGroupName,

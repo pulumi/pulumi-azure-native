@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * List response for get source share Synchronization settings
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSourceShareSynchronizationSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings'. */
 export function listShareSubscriptionSourceShareSynchronizationSettings(args: ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
-    pulumi.log.warn("listShareSubscriptionSourceShareSynchronizationSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.")
+    pulumi.log.warn("listShareSubscriptionSourceShareSynchronizationSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listShareSubscriptionSourceShareSynchronizationSettings(args: Li
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:listShareSubscriptionSourceShareSynchronizationSettings", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:listShareSubscriptionSourceShareSynchronizationSettings", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,

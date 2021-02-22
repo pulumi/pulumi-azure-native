@@ -31,19 +31,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:batch/v20210101:Application":
+            case "azure-native:batch/v20210101:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:batch/v20210101:ApplicationPackage":
+            case "azure-native:batch/v20210101:ApplicationPackage":
                 return new ApplicationPackage(name, <any>undefined, { urn })
-            case "azure-nextgen:batch/v20210101:BatchAccount":
+            case "azure-native:batch/v20210101:BatchAccount":
                 return new BatchAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:batch/v20210101:Certificate":
+            case "azure-native:batch/v20210101:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:batch/v20210101:Pool":
+            case "azure-native:batch/v20210101:Pool":
                 return new Pool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "batch/v20210101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "batch/v20210101", _module)

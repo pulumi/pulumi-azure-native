@@ -52,23 +52,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:relay:HybridConnection":
+            case "azure-native:relay:HybridConnection":
                 return new HybridConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:HybridConnectionAuthorizationRule":
+            case "azure-native:relay:HybridConnectionAuthorizationRule":
                 return new HybridConnectionAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:Namespace":
+            case "azure-native:relay:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:NamespaceAuthorizationRule":
+            case "azure-native:relay:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:PrivateEndpointConnection":
+            case "azure-native:relay:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:WCFRelay":
+            case "azure-native:relay:WCFRelay":
                 return new WCFRelay(name, <any>undefined, { urn })
-            case "azure-nextgen:relay:WCFRelayAuthorizationRule":
+            case "azure-native:relay:WCFRelayAuthorizationRule":
                 return new WCFRelayAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "relay", _module)
+pulumi.runtime.registerResourceModule("azure-native", "relay", _module)

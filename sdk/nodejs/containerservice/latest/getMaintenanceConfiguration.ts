@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * maintenance configuration.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getMaintenanceConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getMaintenanceConfiguration'. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
-    pulumi.log.warn("getMaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getMaintenanceConfiguration'.")
+    pulumi.log.warn("getMaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getMaintenanceConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:getMaintenanceConfiguration", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:getMaintenanceConfiguration", {
         "configName": args.configName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

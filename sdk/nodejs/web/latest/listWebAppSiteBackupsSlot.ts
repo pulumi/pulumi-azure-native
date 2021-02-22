@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of backup items.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackupsSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSiteBackupsSlot'. */
 export function listWebAppSiteBackupsSlot(args: ListWebAppSiteBackupsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsSlotResult> {
-    pulumi.log.warn("listWebAppSiteBackupsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackupsSlot'.")
+    pulumi.log.warn("listWebAppSiteBackupsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSiteBackupsSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppSiteBackupsSlot(args: ListWebAppSiteBackupsSlotArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSiteBackupsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppSiteBackupsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

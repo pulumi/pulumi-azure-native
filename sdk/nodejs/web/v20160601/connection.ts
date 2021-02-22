@@ -22,7 +22,7 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20160601:Connection';
+    public static readonly __pulumiType = 'azure-native:web/v20160601:Connection';
 
     /**
      * Returns true if the given object is an instance of Connection.  This is designed to work even
@@ -94,7 +94,7 @@ export class Connection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:Connection" }, { type: "azure-nextgen:web/latest:Connection" }, { type: "azure-nextgen:web/v20150801preview:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:Connection" }, { type: "azure-nextgen:web:Connection" }, { type: "azure-native:web/latest:Connection" }, { type: "azure-nextgen:web/latest:Connection" }, { type: "azure-native:web/v20150801preview:Connection" }, { type: "azure-nextgen:web/v20150801preview:Connection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connection.__pulumiType, name, inputs, opts);
     }

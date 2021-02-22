@@ -22,13 +22,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:signalrservice/latest:SignalR":
+            case "azure-native:signalrservice/latest:SignalR":
                 return new SignalR(name, <any>undefined, { urn })
-            case "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection":
+            case "azure-native:signalrservice/latest:SignalRPrivateEndpointConnection":
                 return new SignalRPrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "signalrservice/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "signalrservice/latest", _module)

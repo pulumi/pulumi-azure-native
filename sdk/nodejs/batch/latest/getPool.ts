@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contains information about a pool.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getPool'. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    pulumi.log.warn("getPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getPool'.")
+    pulumi.log.warn("getPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:getPool", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:getPool", {
         "accountName": args.accountName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,

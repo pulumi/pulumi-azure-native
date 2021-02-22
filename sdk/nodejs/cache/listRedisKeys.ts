@@ -17,7 +17,7 @@ export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache:listRedisKeys", {
+    return pulumi.runtime.invoke("azure-native:cache:listRedisKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

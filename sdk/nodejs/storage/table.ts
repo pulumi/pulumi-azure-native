@@ -22,7 +22,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:Table';
+    public static readonly __pulumiType = 'azure-native:storage:Table';
 
     /**
      * Returns true if the given object is an instance of Table.  This is designed to work even
@@ -81,7 +81,7 @@ export class Table extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }, { type: "azure-nextgen:storage/v20210101:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:Table" }, { type: "azure-nextgen:storage/latest:Table" }, { type: "azure-native:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-native:storage/v20200801preview:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }, { type: "azure-native:storage/v20210101:Table" }, { type: "azure-nextgen:storage/v20210101:Table" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Table.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform:getService", {
+    return pulumi.runtime.invoke("azure-native:appplatform:getService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

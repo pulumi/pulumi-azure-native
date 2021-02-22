@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getEndpoint'. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getEndpoint'.")
+    pulumi.log.warn("getEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getEndpoint", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getEndpoint", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

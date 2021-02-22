@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration account RosettaNet process configuration.
  * Latest API Version: 2016-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getRosettaNetProcessConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getRosettaNetProcessConfiguration'. */
 export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRosettaNetProcessConfigurationResult> {
-    pulumi.log.warn("getRosettaNetProcessConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getRosettaNetProcessConfiguration'.")
+    pulumi.log.warn("getRosettaNetProcessConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getRosettaNetProcessConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConf
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getRosettaNetProcessConfiguration", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "rosettaNetProcessConfigurationName": args.rosettaNetProcessConfigurationName,

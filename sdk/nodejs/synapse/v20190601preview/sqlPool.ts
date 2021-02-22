@@ -22,7 +22,7 @@ export class SqlPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:SqlPool';
+    public static readonly __pulumiType = 'azure-native:synapse/v20190601preview:SqlPool';
 
     /**
      * Returns true if the given object is an instance of SqlPool.  This is designed to work even
@@ -148,7 +148,7 @@ export class SqlPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPool" }, { type: "azure-nextgen:synapse/latest:SqlPool" }, { type: "azure-nextgen:synapse/v20200401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20201201:SqlPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPool" }, { type: "azure-nextgen:synapse:SqlPool" }, { type: "azure-native:synapse/latest:SqlPool" }, { type: "azure-nextgen:synapse/latest:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-nextgen:synapse/v20201201:SqlPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPool.__pulumiType, name, inputs, opts);
     }

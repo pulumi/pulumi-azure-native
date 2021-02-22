@@ -22,7 +22,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/v20200901:AFDEndpoint';
+    public static readonly __pulumiType = 'azure-native:cdn/v20200901:AFDEndpoint';
 
     /**
      * Returns true if the given object is an instance of AFDEndpoint.  This is designed to work even
@@ -121,7 +121,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDEndpoint" }, { type: "azure-nextgen:cdn/latest:AFDEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDEndpoint" }, { type: "azure-nextgen:cdn:AFDEndpoint" }, { type: "azure-native:cdn/latest:AFDEndpoint" }, { type: "azure-nextgen:cdn/latest:AFDEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDEndpoint.__pulumiType, name, inputs, opts);
     }

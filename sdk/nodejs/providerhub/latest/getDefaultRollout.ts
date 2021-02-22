@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Default rollout definition.
  * Latest API Version: 2020-11-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getDefaultRollout'. */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
-    pulumi.log.warn("getDefaultRollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'.")
+    pulumi.log.warn("getDefaultRollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getDefaultRollout'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/latest:getDefaultRollout", {
+    return pulumi.runtime.invoke("azure-native:providerhub/latest:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,
         "rolloutName": args.rolloutName,
     }, opts);

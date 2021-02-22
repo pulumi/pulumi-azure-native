@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A private endpoint connection to SignalR resource
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:getSignalRPrivateEndpointConnection'. */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getSignalRPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection'.")
+    pulumi.log.warn("getSignalRPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:getSignalRPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:signalrservice/latest:getSignalRPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:signalrservice/latest:getSignalRPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

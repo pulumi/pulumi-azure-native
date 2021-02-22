@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Factory resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactory'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactory'. */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
-    pulumi.log.warn("getFactory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactory'.")
+    pulumi.log.warn("getFactory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactory'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getFactory", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getFactory", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

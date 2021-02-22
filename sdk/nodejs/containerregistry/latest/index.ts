@@ -33,17 +33,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerregistry/latest:Registry":
+            case "azure-native:containerregistry/latest:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/latest:Replication":
+            case "azure-native:containerregistry/latest:Replication":
                 return new Replication(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/latest:Task":
+            case "azure-native:containerregistry/latest:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/latest:Webhook":
+            case "azure-native:containerregistry/latest:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerregistry/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerregistry/latest", _module)

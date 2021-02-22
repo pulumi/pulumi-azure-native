@@ -22,7 +22,7 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/v20190801preview:PeeringServicePrefix';
+    public static readonly __pulumiType = 'azure-native:peering/v20190801preview:PeeringServicePrefix';
 
     /**
      * Returns true if the given object is an instance of PeeringServicePrefix.  This is designed to work even
@@ -100,7 +100,7 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:PeeringServicePrefix" }, { type: "azure-nextgen:peering/latest:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200401:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20201001:PeeringServicePrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringServicePrefix" }, { type: "azure-nextgen:peering:PeeringServicePrefix" }, { type: "azure-native:peering/latest:PeeringServicePrefix" }, { type: "azure-nextgen:peering/latest:PeeringServicePrefix" }, { type: "azure-native:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200401:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200401:PeeringServicePrefix" }, { type: "azure-native:peering/v20201001:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20201001:PeeringServicePrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeeringServicePrefix.__pulumiType, name, inputs, opts);
     }

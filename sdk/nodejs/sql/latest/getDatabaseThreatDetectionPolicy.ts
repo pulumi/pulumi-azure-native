@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contains information about a database Threat Detection policy.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDatabaseThreatDetectionPolicy'. */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
-    pulumi.log.warn("getDatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'.")
+    pulumi.log.warn("getDatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDatabaseThreatDetectionPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getDatabaseThreatDetectionPolicy", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "securityAlertPolicyName": args.securityAlertPolicyName,

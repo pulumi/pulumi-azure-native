@@ -16,7 +16,7 @@ export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/v20180712:getEnterpriseChannel", {
+    return pulumi.runtime.invoke("azure-native:botservice/v20180712:getEnterpriseChannel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

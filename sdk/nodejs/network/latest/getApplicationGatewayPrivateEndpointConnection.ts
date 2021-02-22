@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Private Endpoint connection on an application gateway.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayPrivateEndpointConnection'. */
 export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayPrivateEndpointConnection'.")
+    pulumi.log.warn("getApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicat
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getApplicationGatewayPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getApplicationGatewayPrivateEndpointConnection", {
         "applicationGatewayName": args.applicationGatewayName,
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

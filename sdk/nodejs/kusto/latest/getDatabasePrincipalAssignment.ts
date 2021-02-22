@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing a database principal assignment.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabasePrincipalAssignment'. */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-    pulumi.log.warn("getDatabasePrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'.")
+    pulumi.log.warn("getDatabasePrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabasePrincipalAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignm
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getDatabasePrincipalAssignment", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "principalAssignmentName": args.principalAssignmentName,

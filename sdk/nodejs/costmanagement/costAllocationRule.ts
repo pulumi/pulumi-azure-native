@@ -23,7 +23,7 @@ export class CostAllocationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement:CostAllocationRule';
+    public static readonly __pulumiType = 'azure-native:costmanagement:CostAllocationRule';
 
     /**
      * Returns true if the given object is an instance of CostAllocationRule.  This is designed to work even
@@ -79,7 +79,7 @@ export class CostAllocationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20200301preview:CostAllocationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }, { type: "azure-nextgen:costmanagement/v20200301preview:CostAllocationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CostAllocationRule.__pulumiType, name, inputs, opts);
     }

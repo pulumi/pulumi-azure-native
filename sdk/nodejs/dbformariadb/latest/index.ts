@@ -33,21 +33,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformariadb/latest:Configuration":
+            case "azure-native:dbformariadb/latest:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/latest:Database":
+            case "azure-native:dbformariadb/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/latest:FirewallRule":
+            case "azure-native:dbformariadb/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/latest:PrivateEndpointConnection":
+            case "azure-native:dbformariadb/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/latest:Server":
+            case "azure-native:dbformariadb/latest:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/latest:VirtualNetworkRule":
+            case "azure-native:dbformariadb/latest:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformariadb/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformariadb/latest", _module)

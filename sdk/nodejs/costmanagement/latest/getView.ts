@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * States and configurations of Cost Analysis.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getView'. */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-    pulumi.log.warn("getView is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'.")
+    pulumi.log.warn("getView is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getView'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getView", {
+    return pulumi.runtime.invoke("azure-native:costmanagement/latest:getView", {
         "viewName": args.viewName,
     }, opts);
 }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Bot channel resource definition
  * Latest API Version: 2020-06-02.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listChannelWithKeys'. */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
-    pulumi.log.warn("listChannelWithKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'.")
+    pulumi.log.warn("listChannelWithKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listChannelWithKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:listChannelWithKeys", {
+    return pulumi.runtime.invoke("azure-native:botservice/latest:listChannelWithKeys", {
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

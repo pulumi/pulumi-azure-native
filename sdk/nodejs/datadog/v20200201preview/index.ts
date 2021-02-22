@@ -23,11 +23,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datadog/v20200201preview:Monitor":
+            case "azure-native:datadog/v20200201preview:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datadog/v20200201preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datadog/v20200201preview", _module)

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The diagnostic setting resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aadiam:getDiagnosticSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aadiam:getDiagnosticSetting'. */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
-    pulumi.log.warn("getDiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aadiam:getDiagnosticSetting'.")
+    pulumi.log.warn("getDiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aadiam:getDiagnosticSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aadiam/latest:getDiagnosticSetting", {
+    return pulumi.runtime.invoke("azure-native:aadiam/latest:getDiagnosticSetting", {
         "name": args.name,
     }, opts);
 }

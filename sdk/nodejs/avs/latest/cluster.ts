@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A cluster resource
  * Latest API Version: 2020-03-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Cluster'.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.")
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Cluster'.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/latest:Cluster';
+    public static readonly __pulumiType = 'azure-native:avs/latest:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -75,9 +75,9 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Cluster'. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.")
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.clusterSize === undefined) && !(opts && opts.urn)) {
@@ -118,7 +118,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Cluster" }, { type: "azure-nextgen:avs/v20200320:Cluster" }, { type: "azure-nextgen:avs/v20200717preview:Cluster" }, { type: "azure-nextgen:avs/v20210101preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:Cluster" }, { type: "azure-nextgen:avs:Cluster" }, { type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-nextgen:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20200717preview:Cluster" }, { type: "azure-nextgen:avs/v20200717preview:Cluster" }, { type: "azure-native:avs/v20210101preview:Cluster" }, { type: "azure-nextgen:avs/v20210101preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

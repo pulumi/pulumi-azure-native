@@ -17,7 +17,7 @@ export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation:getSourceControl", {
+    return pulumi.runtime.invoke("azure-native:automation:getSourceControl", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "sourceControlName": args.sourceControlName,

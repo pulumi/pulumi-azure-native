@@ -17,7 +17,7 @@ export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCert
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:certificateregistration:getAppServiceCertificateOrderCertificate", {
+    return pulumi.runtime.invoke("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", {
         "certificateOrderName": args.certificateOrderName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Logger details.
  * Latest API Version: 2018-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:DiagnosticLogger'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:DiagnosticLogger'.
  */
 export class DiagnosticLogger extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class DiagnosticLogger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiagnosticLogger {
-        pulumi.log.warn("DiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:DiagnosticLogger'.")
+        pulumi.log.warn("DiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:DiagnosticLogger'.")
         return new DiagnosticLogger(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:DiagnosticLogger';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:DiagnosticLogger';
 
     /**
      * Returns true if the given object is an instance of DiagnosticLogger.  This is designed to work even
@@ -71,9 +71,9 @@ export class DiagnosticLogger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:DiagnosticLogger'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:DiagnosticLogger'. */
     constructor(name: string, args: DiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:DiagnosticLogger'.")
+        pulumi.log.warn("DiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:DiagnosticLogger'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
@@ -110,7 +110,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:DiagnosticLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20170301:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20180101:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:DiagnosticLogger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticLogger.__pulumiType, name, inputs, opts);
     }

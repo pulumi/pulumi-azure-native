@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Test keys payload
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:listServiceTestKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:listServiceTestKeys'. */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
-    pulumi.log.warn("listServiceTestKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:listServiceTestKeys'.")
+    pulumi.log.warn("listServiceTestKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:listServiceTestKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:listServiceTestKeys", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:listServiceTestKeys", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

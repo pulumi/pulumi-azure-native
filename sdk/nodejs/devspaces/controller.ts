@@ -22,7 +22,7 @@ export class Controller extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devspaces:Controller';
+    public static readonly __pulumiType = 'azure-native:devspaces:Controller';
 
     /**
      * Returns true if the given object is an instance of Controller.  This is designed to work even
@@ -134,7 +134,7 @@ export class Controller extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devspaces/latest:Controller" }, { type: "azure-nextgen:devspaces/v20190401:Controller" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devspaces/latest:Controller" }, { type: "azure-nextgen:devspaces/latest:Controller" }, { type: "azure-native:devspaces/v20190401:Controller" }, { type: "azure-nextgen:devspaces/v20190401:Controller" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Controller.__pulumiType, name, inputs, opts);
     }

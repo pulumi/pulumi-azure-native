@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Namespace/NotificationHub Connection String
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNotificationHubKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNotificationHubKeys'. */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
-    pulumi.log.warn("listNotificationHubKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNotificationHubKeys'.")
+    pulumi.log.warn("listNotificationHubKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNotificationHubKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/latest:listNotificationHubKeys", {
+    return pulumi.runtime.invoke("azure-native:notificationhubs/latest:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

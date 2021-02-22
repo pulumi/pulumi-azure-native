@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing a Kusto cluster.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getCluster'. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getCluster'.")
+    pulumi.log.warn("getCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getCluster", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

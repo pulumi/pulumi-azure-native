@@ -22,7 +22,7 @@ export class TableResourceTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200301:TableResourceTable';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20200301:TableResourceTable';
 
     /**
      * Returns true if the given object is an instance of TableResourceTable.  This is designed to work even
@@ -100,7 +100,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:TableResourceTable" }, { type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:TableResourceTable" }, { type: "azure-nextgen:documentdb:TableResourceTable" }, { type: "azure-native:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-native:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-native:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-native:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-native:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-native:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-native:documentdb/v20210115:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

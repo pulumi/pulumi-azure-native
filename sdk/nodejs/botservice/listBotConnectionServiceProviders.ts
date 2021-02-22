@@ -18,7 +18,7 @@ export function listBotConnectionServiceProviders(args?: ListBotConnectionServic
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice:listBotConnectionServiceProviders", {
+    return pulumi.runtime.invoke("azure-native:botservice:listBotConnectionServiceProviders", {
     }, opts);
 }
 

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Pool of backend IP addresses.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancerBackendAddressPool'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancerBackendAddressPool'. */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
-    pulumi.log.warn("getLoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancerBackendAddressPool'.")
+    pulumi.log.warn("getLoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancerBackendAddressPool'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAd
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getLoadBalancerBackendAddressPool", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getLoadBalancerBackendAddressPool", {
         "backendAddressPoolName": args.backendAddressPoolName,
         "loadBalancerName": args.loadBalancerName,
         "resourceGroupName": args.resourceGroupName,

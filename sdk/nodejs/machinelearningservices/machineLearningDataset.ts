@@ -23,7 +23,7 @@ export class MachineLearningDataset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices:MachineLearningDataset';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices:MachineLearningDataset';
 
     /**
      * Returns true if the given object is an instance of MachineLearningDataset.  This is designed to work even
@@ -121,7 +121,7 @@ export class MachineLearningDataset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDataset" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningDataset.__pulumiType, name, inputs, opts);
     }

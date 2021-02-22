@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A private endpoint connection
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getPrivateEndpointConnection'. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getPrivateEndpointConnection'.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/latest:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/latest:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

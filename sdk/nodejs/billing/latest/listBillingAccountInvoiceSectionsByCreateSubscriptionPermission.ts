@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of invoice section properties with create subscription permission.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'. */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
-    pulumi.log.warn("listBillingAccountInvoiceSectionsByCreateSubscriptionPermission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.")
+    pulumi.log.warn("listBillingAccountInvoiceSectionsByCreateSubscriptionPermission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
+    return pulumi.runtime.invoke("azure-native:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
         "billingAccountName": args.billingAccountName,
     }, opts);
 }

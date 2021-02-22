@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Virtual Network Tap resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkTap'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkTap'. */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
-    pulumi.log.warn("getVirtualNetworkTap is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkTap'.")
+    pulumi.log.warn("getVirtualNetworkTap is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkTap'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkTap", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkTap", {
         "resourceGroupName": args.resourceGroupName,
         "tapName": args.tapName,
     }, opts);

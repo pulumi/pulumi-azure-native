@@ -22,7 +22,7 @@ export class FileShare extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/v20200801preview:FileShare';
+    public static readonly __pulumiType = 'azure-native:storage/v20200801preview:FileShare';
 
     /**
      * Returns true if the given object is an instance of FileShare.  This is designed to work even
@@ -167,7 +167,7 @@ export class FileShare extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileShare" }, { type: "azure-nextgen:storage/latest:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:FileShare" }, { type: "azure-nextgen:storage:FileShare" }, { type: "azure-native:storage/latest:FileShare" }, { type: "azure-nextgen:storage/latest:FileShare" }, { type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileShare.__pulumiType, name, inputs, opts);
     }

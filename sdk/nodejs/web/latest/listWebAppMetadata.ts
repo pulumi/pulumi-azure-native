@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppMetadata'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppMetadata'. */
 export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataResult> {
-    pulumi.log.warn("listWebAppMetadata is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppMetadata'.")
+    pulumi.log.warn("listWebAppMetadata is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppMetadata'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppMetadata", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppMetadata", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

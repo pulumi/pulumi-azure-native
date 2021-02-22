@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:databox/v20200401:Job":
+            case "azure-native:databox/v20200401:Job":
                 return new Job(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "databox/v20200401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "databox/v20200401", _module)

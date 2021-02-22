@@ -22,7 +22,7 @@ export class DefenderSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:iotsecurity:DefenderSetting';
+    public static readonly __pulumiType = 'azure-native:iotsecurity:DefenderSetting';
 
     /**
      * Returns true if the given object is an instance of DefenderSetting.  This is designed to work even
@@ -85,7 +85,7 @@ export class DefenderSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }, { type: "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DefenderSetting.__pulumiType, name, inputs, opts);
     }

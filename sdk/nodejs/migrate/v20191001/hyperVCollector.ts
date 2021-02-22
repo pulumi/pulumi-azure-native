@@ -19,7 +19,7 @@ export class HyperVCollector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:migrate/v20191001:HyperVCollector';
+    public static readonly __pulumiType = 'azure-native:migrate/v20191001:HyperVCollector';
 
     /**
      * Returns true if the given object is an instance of HyperVCollector.  This is designed to work even
@@ -73,7 +73,7 @@ export class HyperVCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:HyperVCollector" }, { type: "azure-nextgen:migrate/latest:HyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:HyperVCollector" }, { type: "azure-nextgen:migrate:HyperVCollector" }, { type: "azure-native:migrate/latest:HyperVCollector" }, { type: "azure-nextgen:migrate/latest:HyperVCollector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HyperVCollector.__pulumiType, name, inputs, opts);
     }

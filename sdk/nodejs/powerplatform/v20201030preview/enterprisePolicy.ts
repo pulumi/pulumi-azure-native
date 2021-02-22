@@ -22,7 +22,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy';
+    public static readonly __pulumiType = 'azure-native:powerplatform/v20201030preview:EnterprisePolicy';
 
     /**
      * Returns true if the given object is an instance of EnterprisePolicy.  This is designed to work even

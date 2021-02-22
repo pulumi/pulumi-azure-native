@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The remediation definition.
  * Latest API Version: 2019-07-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'.
  */
 export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtResourceGroup {
-        pulumi.log.warn("RemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.")
+        pulumi.log.warn("RemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'.")
         return new RemediationAtResourceGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights/latest:RemediationAtResourceGroup';
+    public static readonly __pulumiType = 'azure-native:policyinsights/latest:RemediationAtResourceGroup';
 
     /**
      * Returns true if the given object is an instance of RemediationAtResourceGroup.  This is designed to work even
@@ -87,9 +87,9 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'. */
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.")
+        pulumi.log.warn("RemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -126,7 +126,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtResourceGroup.__pulumiType, name, inputs, opts);
     }

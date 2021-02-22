@@ -17,7 +17,7 @@ export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscript
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory:getTriggerEventSubscriptionStatus", {
+    return pulumi.runtime.invoke("azure-native:datafactory:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
         "triggerName": args.triggerName,

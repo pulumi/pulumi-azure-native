@@ -17,7 +17,7 @@ export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getExpressRoutePort", {
+    return pulumi.runtime.invoke("azure-native:network:getExpressRoutePort", {
         "expressRoutePortName": args.expressRoutePortName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

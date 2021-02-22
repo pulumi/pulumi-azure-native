@@ -16,7 +16,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200501:getRoute", {
+    return pulumi.runtime.invoke("azure-native:network/v20200501:getRoute", {
         "resourceGroupName": args.resourceGroupName,
         "routeName": args.routeName,
         "routeTableName": args.routeTableName,

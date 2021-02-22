@@ -16,7 +16,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getCache", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getCache", {
         "cacheId": args.cacheId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

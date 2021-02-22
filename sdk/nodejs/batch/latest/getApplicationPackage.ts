@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An application package which represents a particular version of an application.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplicationPackage'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplicationPackage'. */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
-    pulumi.log.warn("getApplicationPackage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplicationPackage'.")
+    pulumi.log.warn("getApplicationPackage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplicationPackage'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:getApplicationPackage", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

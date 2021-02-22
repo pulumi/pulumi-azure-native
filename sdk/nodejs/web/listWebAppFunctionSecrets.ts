@@ -17,7 +17,7 @@ export function listWebAppFunctionSecrets(args: ListWebAppFunctionSecretsArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listWebAppFunctionSecrets", {
+    return pulumi.runtime.invoke("azure-native:web:listWebAppFunctionSecrets", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

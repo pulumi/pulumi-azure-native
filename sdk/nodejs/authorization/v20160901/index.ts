@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel":
+            case "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel":
+            case "azure-native:authorization/v20160901:ManagementLockAtResourceLevel":
                 return new ManagementLockAtResourceLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel":
+            case "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel":
                 return new ManagementLockAtSubscriptionLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20160901:ManagementLockByScope":
+            case "azure-native:authorization/v20160901:ManagementLockByScope":
                 return new ManagementLockByScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "authorization/v20160901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "authorization/v20160901", _module)

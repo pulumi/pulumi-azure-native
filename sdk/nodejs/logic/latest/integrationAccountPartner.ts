@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The integration account partner.
  * Latest API Version: 2019-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.
  */
 export class IntegrationAccountPartner extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountPartner {
-        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.")
+        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.")
         return new IntegrationAccountPartner(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/latest:IntegrationAccountPartner';
+    public static readonly __pulumiType = 'azure-native:logic/latest:IntegrationAccountPartner';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountPartner.  This is designed to work even
@@ -83,9 +83,9 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'. */
     constructor(name: string, args: IntegrationAccountPartnerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.")
+        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.content === undefined) && !(opts && opts.urn)) {
@@ -130,7 +130,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountPartner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountPartner" }, { type: "azure-nextgen:logic:IntegrationAccountPartner" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-native:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azure-native:logic/v20190501:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountPartner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountPartner.__pulumiType, name, inputs, opts);
     }

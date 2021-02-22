@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Push settings for the App.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSitePushSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSitePushSettings'. */
 export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsResult> {
-    pulumi.log.warn("listWebAppSitePushSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSitePushSettings'.")
+    pulumi.log.warn("listWebAppSitePushSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSitePushSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSitePushSettings", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppSitePushSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

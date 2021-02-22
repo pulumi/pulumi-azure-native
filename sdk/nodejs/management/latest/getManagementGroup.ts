@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The management group details.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroup'. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    pulumi.log.warn("getManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'.")
+    pulumi.log.warn("getManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:management/latest:getManagementGroup", {
+    return pulumi.runtime.invoke("azure-native:management/latest:getManagementGroup", {
         "expand": args.expand,
         "filter": args.filter,
         "groupId": args.groupId,

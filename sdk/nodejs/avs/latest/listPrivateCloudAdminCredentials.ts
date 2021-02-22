@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Administrative credentials for accessing vCenter and NSX-T
  * Latest API Version: 2020-03-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:listPrivateCloudAdminCredentials'. */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
-    pulumi.log.warn("listPrivateCloudAdminCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.")
+    pulumi.log.warn("listPrivateCloudAdminCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:listPrivateCloudAdminCredentials'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCred
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/latest:listPrivateCloudAdminCredentials", {
+    return pulumi.runtime.invoke("azure-native:avs/latest:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

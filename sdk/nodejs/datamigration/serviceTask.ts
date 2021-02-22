@@ -23,7 +23,7 @@ export class ServiceTask extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datamigration:ServiceTask';
+    public static readonly __pulumiType = 'azure-native:datamigration:ServiceTask';
 
     /**
      * Returns true if the given object is an instance of ServiceTask.  This is designed to work even
@@ -89,7 +89,7 @@ export class ServiceTask extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20180715preview:ServiceTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:ServiceTask" }, { type: "azure-nextgen:datamigration/v20180715preview:ServiceTask" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceTask.__pulumiType, name, inputs, opts);
     }

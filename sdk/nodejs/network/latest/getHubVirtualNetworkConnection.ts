@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * HubVirtualNetworkConnection Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubVirtualNetworkConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubVirtualNetworkConnection'. */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
-    pulumi.log.warn("getHubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubVirtualNetworkConnection'.")
+    pulumi.log.warn("getHubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubVirtualNetworkConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnect
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getHubVirtualNetworkConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getHubVirtualNetworkConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,

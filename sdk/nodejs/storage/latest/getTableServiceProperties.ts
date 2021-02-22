@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Table service.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTableServiceProperties'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getTableServiceProperties'. */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
-    pulumi.log.warn("getTableServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTableServiceProperties'.")
+    pulumi.log.warn("getTableServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getTableServiceProperties'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTableServiceProperties(args: GetTableServicePropertiesArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getTableServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getTableServiceProperties", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableServiceName": args.tableServiceName,

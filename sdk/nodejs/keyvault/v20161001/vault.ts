@@ -22,7 +22,7 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:keyvault/v20161001:Vault';
+    public static readonly __pulumiType = 'azure-native:keyvault/v20161001:Vault';
 
     /**
      * Returns true if the given object is an instance of Vault.  This is designed to work even
@@ -93,7 +93,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault:Vault" }, { type: "azure-nextgen:keyvault/latest:Vault" }, { type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20180214:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }, { type: "azure-nextgen:keyvault/v20200401preview:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Vault" }, { type: "azure-nextgen:keyvault:Vault" }, { type: "azure-native:keyvault/latest:Vault" }, { type: "azure-nextgen:keyvault/latest:Vault" }, { type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20180214:Vault" }, { type: "azure-nextgen:keyvault/v20180214:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-nextgen:keyvault/v20200401preview:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

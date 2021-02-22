@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnection'. */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
-    pulumi.log.warn("getWebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnection'.")
+    pulumi.log.warn("getWebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHybridConnection", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppHybridConnection", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

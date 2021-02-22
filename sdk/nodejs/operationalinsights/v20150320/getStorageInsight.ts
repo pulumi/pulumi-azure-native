@@ -16,7 +16,7 @@ export function getStorageInsight(args: GetStorageInsightArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20150320:getStorageInsight", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20150320:getStorageInsight", {
         "resourceGroupName": args.resourceGroupName,
         "storageInsightName": args.storageInsightName,
         "workspaceName": args.workspaceName,

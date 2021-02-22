@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Binding resource payload
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getBinding'. */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
-    pulumi.log.warn("getBinding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.")
+    pulumi.log.warn("getBinding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getBinding'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getBinding", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:getBinding", {
         "appName": args.appName,
         "bindingName": args.bindingName,
         "resourceGroupName": args.resourceGroupName,

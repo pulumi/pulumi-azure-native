@@ -48,25 +48,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datafactory/latest:DataFlow":
+            case "azure-native:datafactory/latest:DataFlow":
                 return new DataFlow(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:Dataset":
+            case "azure-native:datafactory/latest:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:Factory":
+            case "azure-native:datafactory/latest:Factory":
                 return new Factory(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:IntegrationRuntime":
+            case "azure-native:datafactory/latest:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:LinkedService":
+            case "azure-native:datafactory/latest:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint":
+            case "azure-native:datafactory/latest:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:Pipeline":
+            case "azure-native:datafactory/latest:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/latest:Trigger":
+            case "azure-native:datafactory/latest:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datafactory/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datafactory/latest", _module)

@@ -22,7 +22,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment';
+    public static readonly __pulumiType = 'azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment';
 
     /**
      * Returns true if the given object is an instance of GuestConfigurationAssignment.  This is designed to work even
@@ -88,7 +88,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }

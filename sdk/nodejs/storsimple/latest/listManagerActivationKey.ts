@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The key.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerActivationKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerActivationKey'. */
 export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerActivationKeyResult> {
-    pulumi.log.warn("listManagerActivationKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerActivationKey'.")
+    pulumi.log.warn("listManagerActivationKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerActivationKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listManagerActivationKey", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:listManagerActivationKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

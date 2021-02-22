@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents an instance of an Analysis Services resource.
  * Latest API Version: 2017-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ServerDetails extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerDetails {
-        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.")
+        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.")
         return new ServerDetails(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:analysisservices/latest:ServerDetails';
+    public static readonly __pulumiType = 'azure-native:analysisservices/latest:ServerDetails';
 
     /**
      * Returns true if the given object is an instance of ServerDetails.  This is designed to work even
@@ -107,9 +107,9 @@ export class ServerDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'. */
     constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.")
+        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -159,7 +159,7 @@ export class ServerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:analysisservices:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20160516:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170714:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801beta:ServerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:analysisservices:ServerDetails" }, { type: "azure-nextgen:analysisservices:ServerDetails" }, { type: "azure-native:analysisservices/v20160516:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20160516:ServerDetails" }, { type: "azure-native:analysisservices/v20170714:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170714:ServerDetails" }, { type: "azure-native:analysisservices/v20170801:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801:ServerDetails" }, { type: "azure-native:analysisservices/v20170801beta:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801beta:ServerDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerDetails.__pulumiType, name, inputs, opts);
     }

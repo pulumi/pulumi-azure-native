@@ -17,7 +17,7 @@ export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getServerCommunicationLink", {
+    return pulumi.runtime.invoke("azure-native:sql:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

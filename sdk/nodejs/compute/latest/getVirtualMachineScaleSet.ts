@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine Scale Set.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSet'. */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
-    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSet'.")
+    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getVirtualMachineScaleSet", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getVirtualMachineScaleSet", {
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
     }, opts);

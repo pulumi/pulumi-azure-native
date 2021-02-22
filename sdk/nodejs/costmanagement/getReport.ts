@@ -17,7 +17,7 @@ export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement:getReport", {
+    return pulumi.runtime.invoke("azure-native:costmanagement:getReport", {
         "reportName": args.reportName,
     }, opts);
 }

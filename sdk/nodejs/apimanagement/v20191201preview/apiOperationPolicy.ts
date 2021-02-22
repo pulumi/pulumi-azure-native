@@ -22,7 +22,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201preview:ApiOperationPolicy';
 
     /**
      * Returns true if the given object is an instance of ApiOperationPolicy.  This is designed to work even
@@ -99,7 +99,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/latest:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement:ApiOperationPolicy" }, { type: "azure-native:apimanagement/latest:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/latest:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiOperationPolicy.__pulumiType, name, inputs, opts);
     }

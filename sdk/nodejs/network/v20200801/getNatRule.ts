@@ -16,7 +16,7 @@ export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200801:getNatRule", {
+    return pulumi.runtime.invoke("azure-native:network/v20200801:getNatRule", {
         "gatewayName": args.gatewayName,
         "natRuleName": args.natRuleName,
         "resourceGroupName": args.resourceGroupName,

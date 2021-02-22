@@ -17,7 +17,7 @@ export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getManagementLockAtSubscriptionLevel", {
+    return pulumi.runtime.invoke("azure-native:authorization:getManagementLockAtSubscriptionLevel", {
         "lockName": args.lockName,
     }, opts);
 }

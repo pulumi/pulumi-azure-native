@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:security/v20190101preview:AlertsSuppressionRule":
+            case "azure-native:security/v20190101preview:AlertsSuppressionRule":
                 return new AlertsSuppressionRule(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20190101preview:Assessment":
+            case "azure-native:security/v20190101preview:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription":
+            case "azure-native:security/v20190101preview:AssessmentsMetadataSubscription":
                 return new AssessmentsMetadataSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20190101preview:Automation":
+            case "azure-native:security/v20190101preview:Automation":
                 return new Automation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "security/v20190101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "security/v20190101preview", _module)

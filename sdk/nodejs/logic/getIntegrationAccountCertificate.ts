@@ -17,7 +17,7 @@ export function getIntegrationAccountCertificate(args: GetIntegrationAccountCert
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic:getIntegrationAccountCertificate", {
+    return pulumi.runtime.invoke("azure-native:logic:getIntegrationAccountCertificate", {
         "certificateName": args.certificateName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Managed private endpoint resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getManagedPrivateEndpoint'. */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
-    pulumi.log.warn("getManagedPrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'.")
+    pulumi.log.warn("getManagedPrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getManagedPrivateEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getManagedPrivateEndpoint", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
         "managedPrivateEndpointName": args.managedPrivateEndpointName,
         "managedVirtualNetworkName": args.managedVirtualNetworkName,

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A lab.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Lab'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Lab'.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Lab extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lab {
-        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Lab'.")
+        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Lab'.")
         return new Lab(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Lab';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Lab';
 
     /**
      * Returns true if the given object is an instance of Lab.  This is designed to work even
@@ -145,9 +145,9 @@ export class Lab extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Lab'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Lab'. */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Lab'.")
+        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Lab'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -211,7 +211,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Lab" }, { type: "azure-nextgen:devtestlab/v20150521preview:Lab" }, { type: "azure-nextgen:devtestlab/v20160515:Lab" }, { type: "azure-nextgen:devtestlab/v20180915:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Lab" }, { type: "azure-nextgen:devtestlab:Lab" }, { type: "azure-native:devtestlab/v20150521preview:Lab" }, { type: "azure-nextgen:devtestlab/v20150521preview:Lab" }, { type: "azure-native:devtestlab/v20160515:Lab" }, { type: "azure-nextgen:devtestlab/v20160515:Lab" }, { type: "azure-native:devtestlab/v20180915:Lab" }, { type: "azure-nextgen:devtestlab/v20180915:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

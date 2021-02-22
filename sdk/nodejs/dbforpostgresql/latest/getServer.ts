@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a server.
  * Latest API Version: 2017-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getServer'. */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    pulumi.log.warn("getServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServer'.")
+    pulumi.log.warn("getServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getServer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/latest:getServer", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/latest:getServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

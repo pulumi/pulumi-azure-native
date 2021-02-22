@@ -22,13 +22,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:machinelearning/latest:WebService":
+            case "azure-native:machinelearning/latest:WebService":
                 return new WebService(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearning/latest:Workspace":
+            case "azure-native:machinelearning/latest:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "machinelearning/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "machinelearning/latest", _module)

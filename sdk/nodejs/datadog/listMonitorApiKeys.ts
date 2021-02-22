@@ -17,7 +17,7 @@ export function listMonitorApiKeys(args: ListMonitorApiKeysArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datadog:listMonitorApiKeys", {
+    return pulumi.runtime.invoke("azure-native:datadog:listMonitorApiKeys", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

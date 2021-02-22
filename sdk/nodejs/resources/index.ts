@@ -91,31 +91,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:resources:Deployment":
+            case "azure-native:resources:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:DeploymentAtManagementGroupScope":
+            case "azure-native:resources:DeploymentAtManagementGroupScope":
                 return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:DeploymentAtScope":
+            case "azure-native:resources:DeploymentAtScope":
                 return new DeploymentAtScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:DeploymentAtSubscriptionScope":
+            case "azure-native:resources:DeploymentAtSubscriptionScope":
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:DeploymentAtTenantScope":
+            case "azure-native:resources:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:DeploymentScript":
+            case "azure-native:resources:DeploymentScript":
                 return new DeploymentScript(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:Resource":
+            case "azure-native:resources:Resource":
                 return new Resource(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:ResourceGroup":
+            case "azure-native:resources:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:TagAtScope":
+            case "azure-native:resources:TagAtScope":
                 return new TagAtScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:TemplateSpec":
+            case "azure-native:resources:TemplateSpec":
                 return new TemplateSpec(name, <any>undefined, { urn })
-            case "azure-nextgen:resources:TemplateSpecVersion":
+            case "azure-native:resources:TemplateSpecVersion":
                 return new TemplateSpecVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "resources", _module)
+pulumi.runtime.registerResourceModule("azure-native", "resources", _module)

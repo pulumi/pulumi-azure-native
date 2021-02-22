@@ -17,7 +17,7 @@ export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:windowsesu:getMultipleActivationKey", {
+    return pulumi.runtime.invoke("azure-native:windowsesu:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

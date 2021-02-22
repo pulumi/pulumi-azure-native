@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration account certificate.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountCertificate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountCertificate'. */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
-    pulumi.log.warn("getIntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountCertificate'.")
+    pulumi.log.warn("getIntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountCertificate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationAccountCertificate(args: GetIntegrationAccountCert
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountCertificate", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getIntegrationAccountCertificate", {
         "certificateName": args.certificateName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

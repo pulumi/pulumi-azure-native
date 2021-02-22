@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrderCertificate'.
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceCertificateOrderCertificate {
-        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.")
+        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrderCertificate'.")
         return new AppServiceCertificateOrderCertificate(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate';
+    public static readonly __pulumiType = 'azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate';
 
     /**
      * Returns true if the given object is an instance of AppServiceCertificateOrderCertificate.  This is designed to work even
@@ -83,9 +83,9 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrderCertificate'. */
     constructor(name: string, args: AppServiceCertificateOrderCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.")
+        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrderCertificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.certificateOrderName === undefined) && !(opts && opts.urn)) {
@@ -123,7 +123,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrderCertificate.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/v20180101preview:listEventHubKeys", {
+    return pulumi.runtime.invoke("azure-native:eventhub/v20180101preview:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

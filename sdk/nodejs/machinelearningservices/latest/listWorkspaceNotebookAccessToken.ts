@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'. */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
-    pulumi.log.warn("listWorkspaceNotebookAccessToken is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'.")
+    pulumi.log.warn("listWorkspaceNotebookAccessToken is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAcce
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:listWorkspaceNotebookAccessToken", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:listWorkspaceNotebookAccessToken", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

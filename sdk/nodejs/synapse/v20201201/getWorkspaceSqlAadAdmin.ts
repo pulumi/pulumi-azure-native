@@ -16,7 +16,7 @@ export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getWorkspaceSqlAadAdmin", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getWorkspaceSqlAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

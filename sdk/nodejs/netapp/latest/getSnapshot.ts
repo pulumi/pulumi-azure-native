@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Snapshot of a Volume
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshot'. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'.")
+    pulumi.log.warn("getSnapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getSnapshot", {
+    return pulumi.runtime.invoke("azure-native:netapp/latest:getSnapshot", {
         "accountName": args.accountName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,

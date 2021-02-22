@@ -22,7 +22,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule';
+    public static readonly __pulumiType = 'azure-native:devtestlab/v20160515:VirtualMachineSchedule';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineSchedule.  This is designed to work even
@@ -157,7 +157,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/latest:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/latest:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/latest:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineSchedule.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about JIT request definition.
  * Latest API Version: 2019-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getJitRequest'. */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
-    pulumi.log.warn("getJitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'.")
+    pulumi.log.warn("getJitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getJitRequest'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:solutions/latest:getJitRequest", {
+    return pulumi.runtime.invoke("azure-native:solutions/latest:getJitRequest", {
         "jitRequestName": args.jitRequestName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

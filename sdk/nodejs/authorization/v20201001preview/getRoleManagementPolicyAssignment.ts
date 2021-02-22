@@ -16,7 +16,7 @@ export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/v20201001preview:getRoleManagementPolicyAssignment", {
+    return pulumi.runtime.invoke("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", {
         "roleManagementPolicyAssignmentName": args.roleManagementPolicyAssignmentName,
         "scope": args.scope,
     }, opts);

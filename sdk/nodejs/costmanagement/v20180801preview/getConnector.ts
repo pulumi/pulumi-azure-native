@@ -16,7 +16,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement/v20180801preview:getConnector", {
+    return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getConnector", {
         "connectorName": args.connectorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

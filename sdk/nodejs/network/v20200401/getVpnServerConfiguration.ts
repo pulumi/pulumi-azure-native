@@ -16,7 +16,7 @@ export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200401:getVpnServerConfiguration", {
+    return pulumi.runtime.invoke("azure-native:network/v20200401:getVpnServerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "vpnServerConfigurationName": args.vpnServerConfigurationName,
     }, opts);

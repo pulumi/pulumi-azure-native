@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Linked service resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getLinkedService'. */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
-    pulumi.log.warn("getLinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'.")
+    pulumi.log.warn("getLinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getLinkedService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getLinkedService", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getLinkedService", {
         "factoryName": args.factoryName,
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,

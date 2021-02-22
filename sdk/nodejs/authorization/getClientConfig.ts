@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this function to access the current configuration of the Azure NextGen provider.
+ * Use this function to access the current configuration of the native Azure provider.
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     if (!opts) {
@@ -16,7 +16,7 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getClientConfig", {
+    return pulumi.runtime.invoke("azure-native:authorization:getClientConfig", {
     }, opts);
 }
 

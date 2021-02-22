@@ -39,21 +39,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:machinelearningservices/latest:LinkedWorkspace":
+            case "azure-native:machinelearningservices/latest:LinkedWorkspace":
                 return new LinkedWorkspace(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/latest:MachineLearningCompute":
+            case "azure-native:machinelearningservices/latest:MachineLearningCompute":
                 return new MachineLearningCompute(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/latest:MachineLearningService":
+            case "azure-native:machinelearningservices/latest:MachineLearningService":
                 return new MachineLearningService(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection":
+            case "azure-native:machinelearningservices/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/latest:Workspace":
+            case "azure-native:machinelearningservices/latest:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/latest:WorkspaceConnection":
+            case "azure-native:machinelearningservices/latest:WorkspaceConnection":
                 return new WorkspaceConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "machinelearningservices/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "machinelearningservices/latest", _module)

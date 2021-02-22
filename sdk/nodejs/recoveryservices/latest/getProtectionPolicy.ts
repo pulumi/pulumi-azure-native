@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Base class for backup policy. Workload-specific backup policies are derived from this class.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionPolicy'. */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
-    pulumi.log.warn("getProtectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'.")
+    pulumi.log.warn("getProtectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getProtectionPolicy", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getProtectionPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

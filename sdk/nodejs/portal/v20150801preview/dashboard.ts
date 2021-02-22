@@ -22,7 +22,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal/v20150801preview:Dashboard';
+    public static readonly __pulumiType = 'azure-native:portal/v20150801preview:Dashboard';
 
     /**
      * Returns true if the given object is an instance of Dashboard.  This is designed to work even
@@ -96,7 +96,7 @@ export class Dashboard extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:Dashboard" }, { type: "azure-nextgen:portal/v20181001preview:Dashboard" }, { type: "azure-nextgen:portal/v20190101preview:Dashboard" }, { type: "azure-nextgen:portal/v20200901preview:Dashboard" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal:Dashboard" }, { type: "azure-nextgen:portal:Dashboard" }, { type: "azure-native:portal/v20181001preview:Dashboard" }, { type: "azure-nextgen:portal/v20181001preview:Dashboard" }, { type: "azure-native:portal/v20190101preview:Dashboard" }, { type: "azure-nextgen:portal/v20190101preview:Dashboard" }, { type: "azure-native:portal/v20200901preview:Dashboard" }, { type: "azure-nextgen:portal/v20200901preview:Dashboard" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dashboard.__pulumiType, name, inputs, opts);
     }

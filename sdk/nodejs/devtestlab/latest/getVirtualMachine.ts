@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A virtual machine.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachine'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachine'. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachine'.")
+    pulumi.log.warn("getVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachine'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getVirtualMachine", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getVirtualMachine", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

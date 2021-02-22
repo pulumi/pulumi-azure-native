@@ -17,7 +17,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:getSecret", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:getSecret", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

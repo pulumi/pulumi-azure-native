@@ -16,7 +16,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20160515:getPolicy", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getPolicy", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

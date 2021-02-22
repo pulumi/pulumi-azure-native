@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SharedPrivateLinkResource {
-        pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.")
+        pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.")
         return new SharedPrivateLinkResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:search/latest:SharedPrivateLinkResource';
+    public static readonly __pulumiType = 'azure-native:search/latest:SharedPrivateLinkResource';
 
     /**
      * Returns true if the given object is an instance of SharedPrivateLinkResource.  This is designed to work even
@@ -59,9 +59,9 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'. */
     constructor(name: string, args: SharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.")
+        pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -88,7 +88,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:search:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search:SharedPrivateLinkResource" }, { type: "azure-nextgen:search:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }

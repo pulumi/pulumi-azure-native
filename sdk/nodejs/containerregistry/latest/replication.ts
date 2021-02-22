@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An object that represents a replication for a container registry.
  * Latest API Version: 2019-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Replication'.
  */
 export class Replication extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Replication extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Replication {
-        pulumi.log.warn("Replication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.")
+        pulumi.log.warn("Replication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Replication'.")
         return new Replication(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/latest:Replication';
+    public static readonly __pulumiType = 'azure-native:containerregistry/latest:Replication';
 
     /**
      * Returns true if the given object is an instance of Replication.  This is designed to work even
@@ -71,9 +71,9 @@ export class Replication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Replication'. */
     constructor(name: string, args: ReplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Replication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.")
+        pulumi.log.warn("Replication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Replication'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
@@ -106,7 +106,7 @@ export class Replication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Replication" }, { type: "azure-nextgen:containerregistry/v20170601preview:Replication" }, { type: "azure-nextgen:containerregistry/v20171001:Replication" }, { type: "azure-nextgen:containerregistry/v20190501:Replication" }, { type: "azure-nextgen:containerregistry/v20191201preview:Replication" }, { type: "azure-nextgen:containerregistry/v20201101preview:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Replication" }, { type: "azure-nextgen:containerregistry:Replication" }, { type: "azure-native:containerregistry/v20170601preview:Replication" }, { type: "azure-nextgen:containerregistry/v20170601preview:Replication" }, { type: "azure-native:containerregistry/v20171001:Replication" }, { type: "azure-nextgen:containerregistry/v20171001:Replication" }, { type: "azure-native:containerregistry/v20190501:Replication" }, { type: "azure-nextgen:containerregistry/v20190501:Replication" }, { type: "azure-native:containerregistry/v20191201preview:Replication" }, { type: "azure-nextgen:containerregistry/v20191201preview:Replication" }, { type: "azure-native:containerregistry/v20201101preview:Replication" }, { type: "azure-nextgen:containerregistry/v20201101preview:Replication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Replication.__pulumiType, name, inputs, opts);
     }

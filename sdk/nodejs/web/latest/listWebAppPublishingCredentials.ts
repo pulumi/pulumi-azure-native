@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * User credentials used for publishing activity.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentials'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentials'. */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
-    pulumi.log.warn("listWebAppPublishingCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentials'.")
+    pulumi.log.warn("listWebAppPublishingCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentials'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppPublishingCredentials(args: ListWebAppPublishingCreden
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppPublishingCredentials", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppPublishingCredentials", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

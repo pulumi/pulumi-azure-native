@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VpnConnection Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnConnection'. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
-    pulumi.log.warn("getVpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'.")
+    pulumi.log.warn("getVpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVpnConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVpnConnection", {
         "connectionName": args.connectionName,
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

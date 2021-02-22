@@ -23,7 +23,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub:Namespace';
+    public static readonly __pulumiType = 'azure-native:eventhub:Namespace';
 
     /**
      * Returns true if the given object is an instance of Namespace.  This is designed to work even
@@ -139,7 +139,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/latest:Namespace" }, { type: "azure-nextgen:eventhub/latest:Namespace" }, { type: "azure-native:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-native:eventhub/v20150801:Namespace" }, { type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-native:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-native:eventhub/v20180101preview:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

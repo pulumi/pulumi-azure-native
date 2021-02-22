@@ -17,7 +17,7 @@ export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:desktopvirtualization:getScalingPlan", {
+    return pulumi.runtime.invoke("azure-native:desktopvirtualization:getScalingPlan", {
         "resourceGroupName": args.resourceGroupName,
         "scalingPlanName": args.scalingPlanName,
     }, opts);

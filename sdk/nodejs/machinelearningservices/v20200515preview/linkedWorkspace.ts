@@ -22,7 +22,7 @@ export class LinkedWorkspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200515preview:LinkedWorkspace';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/v20200515preview:LinkedWorkspace';
 
     /**
      * Returns true if the given object is an instance of LinkedWorkspace.  This is designed to work even
@@ -82,7 +82,7 @@ export class LinkedWorkspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedWorkspace.__pulumiType, name, inputs, opts);
     }

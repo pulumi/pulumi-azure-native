@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:costmanagement/v20180801preview:Connector":
+            case "azure-native:costmanagement/v20180801preview:Connector":
                 return new Connector(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/v20180801preview:Report":
+            case "azure-native:costmanagement/v20180801preview:Report":
                 return new Report(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount":
+            case "azure-native:costmanagement/v20180801preview:ReportByBillingAccount":
                 return new ReportByBillingAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/v20180801preview:ReportByDepartment":
+            case "azure-native:costmanagement/v20180801preview:ReportByDepartment":
                 return new ReportByDepartment(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName":
+            case "azure-native:costmanagement/v20180801preview:ReportByResourceGroupName":
                 return new ReportByResourceGroupName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "costmanagement/v20180801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "costmanagement/v20180801preview", _module)

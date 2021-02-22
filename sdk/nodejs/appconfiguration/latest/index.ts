@@ -23,13 +23,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:appconfiguration/latest:ConfigurationStore":
+            case "azure-native:appconfiguration/latest:ConfigurationStore":
                 return new ConfigurationStore(name, <any>undefined, { urn })
-            case "azure-nextgen:appconfiguration/latest:PrivateEndpointConnection":
+            case "azure-native:appconfiguration/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "appconfiguration/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "appconfiguration/latest", _module)

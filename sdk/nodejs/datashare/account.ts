@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datashare:Account';
+    public static readonly __pulumiType = 'azure-native:datashare:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -124,7 +124,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/latest:Account" }, { type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-native:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

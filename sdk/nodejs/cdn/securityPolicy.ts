@@ -23,7 +23,7 @@ export class SecurityPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn:SecurityPolicy';
+    public static readonly __pulumiType = 'azure-native:cdn:SecurityPolicy';
 
     /**
      * Returns true if the given object is an instance of SecurityPolicy.  This is designed to work even
@@ -98,7 +98,7 @@ export class SecurityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:SecurityPolicy" }, { type: "azure-nextgen:cdn/v20200901:SecurityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:SecurityPolicy" }, { type: "azure-nextgen:cdn/latest:SecurityPolicy" }, { type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-nextgen:cdn/v20200901:SecurityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityPolicy.__pulumiType, name, inputs, opts);
     }

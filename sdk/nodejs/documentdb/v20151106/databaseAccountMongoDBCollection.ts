@@ -22,7 +22,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBCollection';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountMongoDBCollection.  This is designed to work even
@@ -112,7 +112,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountMongoDBCollection.__pulumiType, name, inputs, opts);
     }

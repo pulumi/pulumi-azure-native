@@ -17,7 +17,7 @@ export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getDdosProtectionPlan", {
+    return pulumi.runtime.invoke("azure-native:network:getDdosProtectionPlan", {
         "ddosProtectionPlanName": args.ddosProtectionPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

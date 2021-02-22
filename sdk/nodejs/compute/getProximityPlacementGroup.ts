@@ -17,7 +17,7 @@ export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getProximityPlacementGroup", {
+    return pulumi.runtime.invoke("azure-native:compute:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,
         "proximityPlacementGroupName": args.proximityPlacementGroupName,
         "resourceGroupName": args.resourceGroupName,

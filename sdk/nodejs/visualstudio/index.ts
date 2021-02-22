@@ -30,13 +30,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:visualstudio:Account":
+            case "azure-native:visualstudio:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:visualstudio:Extension":
+            case "azure-native:visualstudio:Extension":
                 return new Extension(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "visualstudio", _module)
+pulumi.runtime.registerResourceModule("azure-native", "visualstudio", _module)

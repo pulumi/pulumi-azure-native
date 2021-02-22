@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueueAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getQueueAuthorizationRule'. */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
-    pulumi.log.warn("getQueueAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueueAuthorizationRule'.")
+    pulumi.log.warn("getQueueAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getQueueAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getQueueAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getQueueAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,

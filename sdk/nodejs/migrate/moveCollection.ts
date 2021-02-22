@@ -23,7 +23,7 @@ export class MoveCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:migrate:MoveCollection';
+    public static readonly __pulumiType = 'azure-native:migrate:MoveCollection';
 
     /**
      * Returns true if the given object is an instance of MoveCollection.  This is designed to work even
@@ -103,7 +103,7 @@ export class MoveCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/latest:MoveCollection" }, { type: "azure-nextgen:migrate/v20191001preview:MoveCollection" }, { type: "azure-nextgen:migrate/v20210101:MoveCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/latest:MoveCollection" }, { type: "azure-nextgen:migrate/latest:MoveCollection" }, { type: "azure-native:migrate/v20191001preview:MoveCollection" }, { type: "azure-nextgen:migrate/v20191001preview:MoveCollection" }, { type: "azure-native:migrate/v20210101:MoveCollection" }, { type: "azure-nextgen:migrate/v20210101:MoveCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MoveCollection.__pulumiType, name, inputs, opts);
     }

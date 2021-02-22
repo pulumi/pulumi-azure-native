@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  * Latest API Version: 2017-04-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:getPrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:getPrivateEndpointConnection'. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:getPrivateEndpointConnection'.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:getPrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cognitiveservices/latest:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:cognitiveservices/latest:getPrivateEndpointConnection", {
         "accountName": args.accountName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class MachineExtension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridcompute:MachineExtension';
+    public static readonly __pulumiType = 'azure-native:hybridcompute:MachineExtension';
 
     /**
      * Returns true if the given object is an instance of MachineExtension.  This is designed to work even
@@ -136,7 +136,7 @@ export class MachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute/latest:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20191212:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200802:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200815preview:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/latest:MachineExtension" }, { type: "azure-nextgen:hybridcompute/latest:MachineExtension" }, { type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20191212:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20191212:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200815preview:MachineExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }

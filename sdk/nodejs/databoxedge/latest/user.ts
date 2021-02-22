@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): User {
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.")
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.")
         return new User(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:User';
+    public static readonly __pulumiType = 'azure-native:databoxedge/latest:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -71,9 +71,9 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.")
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -105,7 +105,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-nextgen:databoxedge:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

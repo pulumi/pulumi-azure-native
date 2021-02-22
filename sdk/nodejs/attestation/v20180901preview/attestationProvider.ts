@@ -22,7 +22,7 @@ export class AttestationProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:attestation/v20180901preview:AttestationProvider';
+    public static readonly __pulumiType = 'azure-native:attestation/v20180901preview:AttestationProvider';
 
     /**
      * Returns true if the given object is an instance of AttestationProvider.  This is designed to work even
@@ -106,7 +106,7 @@ export class AttestationProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:attestation:AttestationProvider" }, { type: "azure-nextgen:attestation/latest:AttestationProvider" }, { type: "azure-nextgen:attestation/v20201001:AttestationProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:attestation:AttestationProvider" }, { type: "azure-nextgen:attestation:AttestationProvider" }, { type: "azure-native:attestation/latest:AttestationProvider" }, { type: "azure-nextgen:attestation/latest:AttestationProvider" }, { type: "azure-native:attestation/v20201001:AttestationProvider" }, { type: "azure-nextgen:attestation/v20201001:AttestationProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AttestationProvider.__pulumiType, name, inputs, opts);
     }

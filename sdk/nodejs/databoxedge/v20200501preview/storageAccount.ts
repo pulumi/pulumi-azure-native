@@ -22,7 +22,7 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20200501preview:StorageAccount';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20200501preview:StorageAccount';
 
     /**
      * Returns true if the given object is an instance of StorageAccount.  This is designed to work even
@@ -112,7 +112,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:StorageAccount" }, { type: "azure-nextgen:databoxedge/latest:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccount" }, { type: "azure-nextgen:databoxedge:StorageAccount" }, { type: "azure-native:databoxedge/latest:StorageAccount" }, { type: "azure-nextgen:databoxedge/latest:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

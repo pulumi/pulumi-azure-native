@@ -23,7 +23,7 @@ export class PolicyExemption extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization:PolicyExemption';
+    public static readonly __pulumiType = 'azure-native:authorization:PolicyExemption';
 
     /**
      * Returns true if the given object is an instance of PolicyExemption.  This is designed to work even
@@ -127,7 +127,7 @@ export class PolicyExemption extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20200701preview:PolicyExemption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200701preview:PolicyExemption" }, { type: "azure-nextgen:authorization/v20200701preview:PolicyExemption" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyExemption.__pulumiType, name, inputs, opts);
     }

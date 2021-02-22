@@ -16,7 +16,7 @@ export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20180201:getWebAppVnetConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20180201:getWebAppVnetConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

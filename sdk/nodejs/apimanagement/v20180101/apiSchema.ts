@@ -21,7 +21,7 @@ export class ApiSchema extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180101:ApiSchema';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20180101:ApiSchema';
 
     /**
      * Returns true if the given object is an instance of ApiSchema.  This is designed to work even
@@ -94,7 +94,7 @@ export class ApiSchema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiSchema" }, { type: "azure-nextgen:apimanagement/latest:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20170301:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20190101:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20191201:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiSchema" }, { type: "azure-nextgen:apimanagement:ApiSchema" }, { type: "azure-native:apimanagement/latest:ApiSchema" }, { type: "azure-nextgen:apimanagement/latest:ApiSchema" }, { type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiSchema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiSchema.__pulumiType, name, inputs, opts);
     }

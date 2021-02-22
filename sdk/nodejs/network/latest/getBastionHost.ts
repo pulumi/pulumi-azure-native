@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Bastion Host resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionHost'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionHost'. */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
-    pulumi.log.warn("getBastionHost is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionHost'.")
+    pulumi.log.warn("getBastionHost is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionHost'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getBastionHost", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getBastionHost", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

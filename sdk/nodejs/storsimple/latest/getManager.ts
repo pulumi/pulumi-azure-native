@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The StorSimple Manager.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManager'. */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
-    pulumi.log.warn("getManager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'.")
+    pulumi.log.warn("getManager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManager'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getManager", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getManager", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

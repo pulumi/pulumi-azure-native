@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * NetworkVirtualAppliance Resource.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.
  */
 export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkVirtualAppliance {
-        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.")
+        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.")
         return new NetworkVirtualAppliance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:NetworkVirtualAppliance';
+    public static readonly __pulumiType = 'azure-native:network/latest:NetworkVirtualAppliance';
 
     /**
      * Returns true if the given object is an instance of NetworkVirtualAppliance.  This is designed to work even
@@ -115,9 +115,9 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'. */
     constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.")
+        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -169,7 +169,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200801:NetworkVirtualAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualAppliance" }, { type: "azure-nextgen:network:NetworkVirtualAppliance" }, { type: "azure-native:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200801:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200801:NetworkVirtualAppliance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
     }

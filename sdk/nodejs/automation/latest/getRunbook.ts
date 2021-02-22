@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the runbook type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getRunbook'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getRunbook'. */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
-    pulumi.log.warn("getRunbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getRunbook'.")
+    pulumi.log.warn("getRunbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getRunbook'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getRunbook", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getRunbook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "runbookName": args.runbookName,

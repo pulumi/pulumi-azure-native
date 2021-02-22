@@ -22,7 +22,7 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights/v20210101:AttestationAtResourceGroup';
+    public static readonly __pulumiType = 'azure-native:policyinsights/v20210101:AttestationAtResourceGroup';
 
     /**
      * Returns true if the given object is an instance of AttestationAtResourceGroup.  This is designed to work even

@@ -22,7 +22,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20190801:WebAppAuthSettings';
+    public static readonly __pulumiType = 'azure-native:web/v20190801:WebAppAuthSettings';
 
     /**
      * Returns true if the given object is an instance of WebAppAuthSettings.  This is designed to work even
@@ -272,7 +272,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-nextgen:web/latest:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAuthSettings" }, { type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-native:web/latest:WebAppAuthSettings" }, { type: "azure-nextgen:web/latest:WebAppAuthSettings" }, { type: "azure-native:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-native:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-native:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-native:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-native:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-native:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-native:web/v20201001:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettings.__pulumiType, name, inputs, opts);
     }

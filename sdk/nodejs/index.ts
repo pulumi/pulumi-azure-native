@@ -328,10 +328,10 @@ export {
 
 import { Provider } from "./provider";
 
-pulumi.runtime.registerResourcePackage("azure-nextgen", {
+pulumi.runtime.registerResourcePackage("azure-native", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:azure-nextgen") {
+        if (type !== "pulumi:providers:azure-native") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

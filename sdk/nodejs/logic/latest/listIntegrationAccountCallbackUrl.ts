@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The callback url.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountCallbackUrl'. */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
-    pulumi.log.warn("listIntegrationAccountCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'.")
+    pulumi.log.warn("listIntegrationAccountCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountCallbackUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listIntegrationAccountCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:listIntegrationAccountCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "notAfter": args.notAfter,

@@ -50,27 +50,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:providerhub:DefaultRollout":
+            case "azure-native:providerhub:DefaultRollout":
                 return new DefaultRollout(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:NotificationRegistration":
+            case "azure-native:providerhub:NotificationRegistration":
                 return new NotificationRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:OperationByProviderRegistration":
+            case "azure-native:providerhub:OperationByProviderRegistration":
                 return new OperationByProviderRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:ProviderRegistration":
+            case "azure-native:providerhub:ProviderRegistration":
                 return new ProviderRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:ResourceTypeRegistration":
+            case "azure-native:providerhub:ResourceTypeRegistration":
                 return new ResourceTypeRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:Skus":
+            case "azure-native:providerhub:Skus":
                 return new Skus(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:SkusNestedResourceTypeFirst":
+            case "azure-native:providerhub:SkusNestedResourceTypeFirst":
                 return new SkusNestedResourceTypeFirst(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:SkusNestedResourceTypeSecond":
+            case "azure-native:providerhub:SkusNestedResourceTypeSecond":
                 return new SkusNestedResourceTypeSecond(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub:SkusNestedResourceTypeThird":
+            case "azure-native:providerhub:SkusNestedResourceTypeThird":
                 return new SkusNestedResourceTypeThird(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "providerhub", _module)
+pulumi.runtime.registerResourceModule("azure-native", "providerhub", _module)

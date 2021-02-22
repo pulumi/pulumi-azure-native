@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Blob service.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.
  */
 export class BlobServiceProperties extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobServiceProperties {
-        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.")
+        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.")
         return new BlobServiceProperties(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:BlobServiceProperties';
+    public static readonly __pulumiType = 'azure-native:storage/latest:BlobServiceProperties';
 
     /**
      * Returns true if the given object is an instance of BlobServiceProperties.  This is designed to work even
@@ -95,9 +95,9 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'. */
     constructor(name: string, args: BlobServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.")
+        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -142,7 +142,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20210101:BlobServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobServiceProperties" }, { type: "azure-nextgen:storage:BlobServiceProperties" }, { type: "azure-native:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-native:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-native:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-native:storage/v20190601:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }, { type: "azure-native:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-native:storage/v20210101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20210101:BlobServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobServiceProperties.__pulumiType, name, inputs, opts);
     }

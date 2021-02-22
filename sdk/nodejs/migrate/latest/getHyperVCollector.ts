@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2019-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getHyperVCollector'. */
 export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVCollectorResult> {
-    pulumi.log.warn("getHyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'.")
+    pulumi.log.warn("getHyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getHyperVCollector'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getHyperVCollector", {
+    return pulumi.runtime.invoke("azure-native:migrate/latest:getHyperVCollector", {
         "hyperVCollectorName": args.hyperVCollectorName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

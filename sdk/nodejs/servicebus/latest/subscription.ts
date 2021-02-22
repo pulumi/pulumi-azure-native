@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of subscription resource.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subscription {
-        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'.")
+        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.")
         return new Subscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/latest:Subscription';
+    public static readonly __pulumiType = 'azure-native:servicebus/latest:Subscription';
 
     /**
      * Returns true if the given object is an instance of Subscription.  This is designed to work even
@@ -123,9 +123,9 @@ export class Subscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'. */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'.")
+        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -188,7 +188,7 @@ export class Subscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:Subscription" }, { type: "azure-nextgen:servicebus/v20140901:Subscription" }, { type: "azure-nextgen:servicebus/v20150801:Subscription" }, { type: "azure-nextgen:servicebus/v20170401:Subscription" }, { type: "azure-nextgen:servicebus/v20180101preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Subscription" }, { type: "azure-nextgen:servicebus:Subscription" }, { type: "azure-native:servicebus/v20140901:Subscription" }, { type: "azure-nextgen:servicebus/v20140901:Subscription" }, { type: "azure-native:servicebus/v20150801:Subscription" }, { type: "azure-nextgen:servicebus/v20150801:Subscription" }, { type: "azure-native:servicebus/v20170401:Subscription" }, { type: "azure-nextgen:servicebus/v20170401:Subscription" }, { type: "azure-native:servicebus/v20180101preview:Subscription" }, { type: "azure-nextgen:servicebus/v20180101preview:Subscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subscription.__pulumiType, name, inputs, opts);
     }

@@ -104,39 +104,39 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerregistry:AgentPool":
+            case "azure-native:containerregistry:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:BuildStep":
+            case "azure-native:containerregistry:BuildStep":
                 return new BuildStep(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:BuildTask":
+            case "azure-native:containerregistry:BuildTask":
                 return new BuildTask(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:ConnectedRegistry":
+            case "azure-native:containerregistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:ExportPipeline":
+            case "azure-native:containerregistry:ExportPipeline":
                 return new ExportPipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:ImportPipeline":
+            case "azure-native:containerregistry:ImportPipeline":
                 return new ImportPipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:PipelineRun":
+            case "azure-native:containerregistry:PipelineRun":
                 return new PipelineRun(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:PrivateEndpointConnection":
+            case "azure-native:containerregistry:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:Registry":
+            case "azure-native:containerregistry:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:Replication":
+            case "azure-native:containerregistry:Replication":
                 return new Replication(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:ScopeMap":
+            case "azure-native:containerregistry:ScopeMap":
                 return new ScopeMap(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:Task":
+            case "azure-native:containerregistry:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:TaskRun":
+            case "azure-native:containerregistry:TaskRun":
                 return new TaskRun(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:Token":
+            case "azure-native:containerregistry:Token":
                 return new Token(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry:Webhook":
+            case "azure-native:containerregistry:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerregistry", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerregistry", _module)

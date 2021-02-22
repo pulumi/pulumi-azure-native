@@ -17,7 +17,7 @@ export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthor
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getGatewayCertificateAuthority", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getGatewayCertificateAuthority", {
         "certificateId": args.certificateId,
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,

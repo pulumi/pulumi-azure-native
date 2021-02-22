@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VirtualHub Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHub'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHub'. */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
-    pulumi.log.warn("getVirtualHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHub'.")
+    pulumi.log.warn("getVirtualHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHub'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualHub", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualHub", {
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,
     }, opts);

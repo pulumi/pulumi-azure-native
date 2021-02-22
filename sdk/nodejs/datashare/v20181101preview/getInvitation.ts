@@ -16,7 +16,7 @@ export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:getInvitation", {
+    return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getInvitation", {
         "accountName": args.accountName,
         "invitationName": args.invitationName,
         "resourceGroupName": args.resourceGroupName,

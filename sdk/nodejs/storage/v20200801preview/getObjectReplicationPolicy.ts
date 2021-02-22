@@ -16,7 +16,7 @@ export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20200801preview:getObjectReplicationPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getObjectReplicationPolicy", {
         "accountName": args.accountName,
         "objectReplicationPolicyId": args.objectReplicationPolicyId,
         "resourceGroupName": args.resourceGroupName,

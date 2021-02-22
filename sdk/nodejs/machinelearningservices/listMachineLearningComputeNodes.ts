@@ -17,7 +17,7 @@ export function listMachineLearningComputeNodes(args: ListMachineLearningCompute
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:listMachineLearningComputeNodes", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:listMachineLearningComputeNodes", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -16,7 +16,7 @@ export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190401:getVirtualNetworkTap", {
+    return pulumi.runtime.invoke("azure-native:network/v20190401:getVirtualNetworkTap", {
         "resourceGroupName": args.resourceGroupName,
         "tapName": args.tapName,
     }, opts);

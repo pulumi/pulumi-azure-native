@@ -48,31 +48,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel":
+            case "azure-native:authorization/latest:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel":
+            case "azure-native:authorization/latest:ManagementLockAtResourceLevel":
                 return new ManagementLockAtResourceLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel":
+            case "azure-native:authorization/latest:ManagementLockAtSubscriptionLevel":
                 return new ManagementLockAtSubscriptionLevel(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:ManagementLockByScope":
+            case "azure-native:authorization/latest:ManagementLockByScope":
                 return new ManagementLockByScope(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:PolicyAssignment":
+            case "azure-native:authorization/latest:PolicyAssignment":
                 return new PolicyAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:PolicyDefinition":
+            case "azure-native:authorization/latest:PolicyDefinition":
                 return new PolicyDefinition(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup":
+            case "azure-native:authorization/latest:PolicyDefinitionAtManagementGroup":
                 return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:PolicySetDefinition":
+            case "azure-native:authorization/latest:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup":
+            case "azure-native:authorization/latest:PolicySetDefinitionAtManagementGroup":
                 return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:RoleAssignment":
+            case "azure-native:authorization/latest:RoleAssignment":
                 return new RoleAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/latest:RoleDefinition":
+            case "azure-native:authorization/latest:RoleDefinition":
                 return new RoleDefinition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "authorization/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "authorization/latest", _module)

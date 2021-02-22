@@ -16,7 +16,7 @@ export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getSqlPoolSensitivityLabel", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getSqlPoolSensitivityLabel", {
         "columnName": args.columnName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Settings defined at the Management Group scope.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.
  */
 export class HierarchySetting extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class HierarchySetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HierarchySetting {
-        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.")
+        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.")
         return new HierarchySetting(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:management/latest:HierarchySetting';
+    public static readonly __pulumiType = 'azure-native:management/latest:HierarchySetting';
 
     /**
      * Returns true if the given object is an instance of HierarchySetting.  This is designed to work even
@@ -66,9 +66,9 @@ export class HierarchySetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'. */
     constructor(name: string, args: HierarchySettingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.")
+        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
@@ -94,7 +94,7 @@ export class HierarchySetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management:HierarchySetting" }, { type: "azure-nextgen:management/v20200201:HierarchySetting" }, { type: "azure-nextgen:management/v20200501:HierarchySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management:HierarchySetting" }, { type: "azure-nextgen:management:HierarchySetting" }, { type: "azure-native:management/v20200201:HierarchySetting" }, { type: "azure-nextgen:management/v20200201:HierarchySetting" }, { type: "azure-native:management/v20200501:HierarchySetting" }, { type: "azure-nextgen:management/v20200501:HierarchySetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HierarchySetting.__pulumiType, name, inputs, opts);
     }

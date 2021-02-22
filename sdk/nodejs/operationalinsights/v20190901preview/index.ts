@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:operationalinsights/v20190901preview:Query":
+            case "azure-native:operationalinsights/v20190901preview:Query":
                 return new Query(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20190901preview:QueryPack":
+            case "azure-native:operationalinsights/v20190901preview:QueryPack":
                 return new QueryPack(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "operationalinsights/v20190901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "operationalinsights/v20190901preview", _module)

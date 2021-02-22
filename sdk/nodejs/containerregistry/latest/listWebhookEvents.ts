@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The result of a request to list events for a webhook.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listWebhookEvents'. */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
-    pulumi.log.warn("listWebhookEvents is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'.")
+    pulumi.log.warn("listWebhookEvents is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listWebhookEvents'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listWebhookEvents", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:listWebhookEvents", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

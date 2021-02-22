@@ -34,21 +34,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccount":
+            case "azure-native:logic/v20150801preview:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement":
+            case "azure-native:logic/v20150801preview:IntegrationAccountAgreement":
                 return new IntegrationAccountAgreement(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate":
+            case "azure-native:logic/v20150801preview:IntegrationAccountCertificate":
                 return new IntegrationAccountCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccountMap":
+            case "azure-native:logic/v20150801preview:IntegrationAccountMap":
                 return new IntegrationAccountMap(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner":
+            case "azure-native:logic/v20150801preview:IntegrationAccountPartner":
                 return new IntegrationAccountPartner(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/v20150801preview:IntegrationAccountSchema":
+            case "azure-native:logic/v20150801preview:IntegrationAccountSchema":
                 return new IntegrationAccountSchema(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "logic/v20150801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "logic/v20150801preview", _module)

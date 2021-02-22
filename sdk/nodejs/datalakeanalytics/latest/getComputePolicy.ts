@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data Lake Analytics compute policy information.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'. */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
-    pulumi.log.warn("getComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.")
+    pulumi.log.warn("getComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics/latest:getComputePolicy", {
+    return pulumi.runtime.invoke("azure-native:datalakeanalytics/latest:getComputePolicy", {
         "accountName": args.accountName,
         "computePolicyName": args.computePolicyName,
         "resourceGroupName": args.resourceGroupName,

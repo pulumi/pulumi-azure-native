@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * RemoteRenderingAccount Response.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getRemoteRenderingAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:getRemoteRenderingAccount'. */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
-    pulumi.log.warn("getRemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getRemoteRenderingAccount'.")
+    pulumi.log.warn("getRemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:getRemoteRenderingAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/latest:getRemoteRenderingAccount", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/latest:getRemoteRenderingAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

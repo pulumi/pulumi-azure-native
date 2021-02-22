@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A virtual network rule.
  * Latest API Version: 2017-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getVirtualNetworkRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getVirtualNetworkRule'. */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
-    pulumi.log.warn("getVirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getVirtualNetworkRule'.")
+    pulumi.log.warn("getVirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getVirtualNetworkRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/latest:getVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/latest:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

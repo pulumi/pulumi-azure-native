@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Recovery plan details.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryPlan'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryPlan'. */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
-    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryPlan'.")
+    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryPlan'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationRecoveryPlan", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationRecoveryPlan", {
         "recoveryPlanName": args.recoveryPlanName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

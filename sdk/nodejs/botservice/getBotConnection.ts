@@ -17,7 +17,7 @@ export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice:getBotConnection", {
+    return pulumi.runtime.invoke("azure-native:botservice:getBotConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

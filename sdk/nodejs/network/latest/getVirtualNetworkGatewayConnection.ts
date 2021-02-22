@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A common class for general resource information.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'. */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
-    pulumi.log.warn("getVirtualNetworkGatewayConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayConnection'.")
+    pulumi.log.warn("getVirtualNetworkGatewayConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkGatewayConnection", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,
     }, opts);

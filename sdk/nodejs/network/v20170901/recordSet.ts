@@ -22,7 +22,7 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20170901:RecordSet';
+    public static readonly __pulumiType = 'azure-native:network/v20170901:RecordSet';
 
     /**
      * Returns true if the given object is an instance of RecordSet.  This is designed to work even
@@ -164,7 +164,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150504preview:RecordSet" }, { type: "azure-nextgen:network/v20160401:RecordSet" }, { type: "azure-nextgen:network/v20171001:RecordSet" }, { type: "azure-nextgen:network/v20180301preview:RecordSet" }, { type: "azure-nextgen:network/v20180501:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-nextgen:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-nextgen:network/v20160401:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-nextgen:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180301preview:RecordSet" }, { type: "azure-nextgen:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-nextgen:network/v20180501:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

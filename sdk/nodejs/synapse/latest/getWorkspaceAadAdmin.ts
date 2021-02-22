@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Workspace active directory administrator
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceAadAdmin'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspaceAadAdmin'. */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
-    pulumi.log.warn("getWorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceAadAdmin'.")
+    pulumi.log.warn("getWorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspaceAadAdmin'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getWorkspaceAadAdmin", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

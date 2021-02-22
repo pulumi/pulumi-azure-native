@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Properties of the file share, including Id, resource name, resource type, Etag.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.
  */
 export class FileShare extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class FileShare extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileShare {
-        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'.")
+        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.")
         return new FileShare(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:FileShare';
+    public static readonly __pulumiType = 'azure-native:storage/latest:FileShare';
 
     /**
      * Returns true if the given object is an instance of FileShare.  This is designed to work even
@@ -115,9 +115,9 @@ export class FileShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'. */
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'.")
+        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -173,7 +173,7 @@ export class FileShare extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20200801preview:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:FileShare" }, { type: "azure-nextgen:storage:FileShare" }, { type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-nextgen:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileShare.__pulumiType, name, inputs, opts);
     }

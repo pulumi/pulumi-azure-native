@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:keyvault/v20200401preview:ManagedHsm":
+            case "azure-native:keyvault/v20200401preview:ManagedHsm":
                 return new ManagedHsm(name, <any>undefined, { urn })
-            case "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection":
+            case "azure-native:keyvault/v20200401preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:keyvault/v20200401preview:Secret":
+            case "azure-native:keyvault/v20200401preview:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:keyvault/v20200401preview:Vault":
+            case "azure-native:keyvault/v20200401preview:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "keyvault/v20200401preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "keyvault/v20200401preview", _module)

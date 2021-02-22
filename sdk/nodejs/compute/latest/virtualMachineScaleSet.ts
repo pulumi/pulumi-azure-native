@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine Scale Set.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSet {
-        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.")
+        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'.")
         return new VirtualMachineScaleSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:VirtualMachineScaleSet';
+    public static readonly __pulumiType = 'azure-native:compute/latest:VirtualMachineScaleSet';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSet.  This is designed to work even
@@ -143,9 +143,9 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'. */
     constructor(name: string, args: VirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.")
+        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -210,7 +210,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSet.__pulumiType, name, inputs, opts);
     }

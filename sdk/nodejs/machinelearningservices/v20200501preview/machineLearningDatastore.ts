@@ -22,7 +22,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore';
 
     /**
      * Returns true if the given object is an instance of MachineLearningDatastore.  This is designed to work even
@@ -139,7 +139,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:MachineLearningDatastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningDatastore" }, { type: "azure-nextgen:machinelearningservices:MachineLearningDatastore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningDatastore.__pulumiType, name, inputs, opts);
     }

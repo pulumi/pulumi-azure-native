@@ -16,7 +16,7 @@ export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20170901preview:getIntegrationRuntimeStatus", {
+    return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getIntegrationRuntimeStatus", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

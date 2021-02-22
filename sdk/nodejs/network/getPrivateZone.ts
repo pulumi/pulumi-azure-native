@@ -17,7 +17,7 @@ export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getPrivateZone", {
+    return pulumi.runtime.invoke("azure-native:network:getPrivateZone", {
         "privateZoneName": args.privateZoneName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

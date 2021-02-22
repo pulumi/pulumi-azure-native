@@ -22,7 +22,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub:ConsumerGroup';
+    public static readonly __pulumiType = 'azure-native:eventhub:ConsumerGroup';
 
     /**
      * Returns true if the given object is an instance of ConsumerGroup.  This is designed to work even
@@ -98,7 +98,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/latest:ConsumerGroup" }, { type: "azure-nextgen:eventhub/latest:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }

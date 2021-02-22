@@ -23,7 +23,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:BlobServiceProperties';
+    public static readonly __pulumiType = 'azure-native:storage:BlobServiceProperties';
 
     /**
      * Returns true if the given object is an instance of BlobServiceProperties.  This is designed to work even
@@ -137,7 +137,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20210101:BlobServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:BlobServiceProperties" }, { type: "azure-nextgen:storage/latest:BlobServiceProperties" }, { type: "azure-native:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-native:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-native:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-native:storage/v20190601:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }, { type: "azure-native:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-native:storage/v20210101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20210101:BlobServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobServiceProperties.__pulumiType, name, inputs, opts);
     }

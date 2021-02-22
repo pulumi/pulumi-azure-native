@@ -16,7 +16,7 @@ export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170426:getPredictionModelStatus", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getPredictionModelStatus", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,
         "resourceGroupName": args.resourceGroupName,

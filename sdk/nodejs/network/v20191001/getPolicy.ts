@@ -16,7 +16,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20191001:getPolicy", {
+    return pulumi.runtime.invoke("azure-native:network/v20191001:getPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devspaces/v20190401:Controller":
+            case "azure-native:devspaces/v20190401:Controller":
                 return new Controller(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devspaces/v20190401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devspaces/v20190401", _module)

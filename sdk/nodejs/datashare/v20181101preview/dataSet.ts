@@ -22,7 +22,7 @@ export class DataSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datashare/v20181101preview:DataSet';
+    public static readonly __pulumiType = 'azure-native:datashare/v20181101preview:DataSet';
 
     /**
      * Returns true if the given object is an instance of DataSet.  This is designed to work even
@@ -89,7 +89,7 @@ export class DataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:DataSet" }, { type: "azure-nextgen:datashare/latest:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }, { type: "azure-nextgen:datashare/v20200901:DataSet" }, { type: "azure-nextgen:datashare/v20201001preview:DataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSet" }, { type: "azure-nextgen:datashare:DataSet" }, { type: "azure-native:datashare/latest:DataSet" }, { type: "azure-nextgen:datashare/latest:DataSet" }, { type: "azure-native:datashare/v20191101:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }, { type: "azure-native:datashare/v20200901:DataSet" }, { type: "azure-nextgen:datashare/v20200901:DataSet" }, { type: "azure-native:datashare/v20201001preview:DataSet" }, { type: "azure-nextgen:datashare/v20201001preview:DataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSet.__pulumiType, name, inputs, opts);
     }

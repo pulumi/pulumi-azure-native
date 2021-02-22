@@ -22,7 +22,7 @@ export class HostPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:desktopvirtualization/v20191210preview:HostPool';
+    public static readonly __pulumiType = 'azure-native:desktopvirtualization/v20191210preview:HostPool';
 
     /**
      * Returns true if the given object is an instance of HostPool.  This is designed to work even
@@ -177,7 +177,7 @@ export class HostPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:HostPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:HostPool" }, { type: "azure-nextgen:desktopvirtualization:HostPool" }, { type: "azure-native:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:HostPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HostPool.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/v20191001preview:getMoveCollection", {
+    return pulumi.runtime.invoke("azure-native:migrate/v20191001preview:getMoveCollection", {
         "moveCollectionName": args.moveCollectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

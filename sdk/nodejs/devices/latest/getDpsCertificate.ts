@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The X509 Certificate.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getDpsCertificate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getDpsCertificate'. */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
-    pulumi.log.warn("getDpsCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getDpsCertificate'.")
+    pulumi.log.warn("getDpsCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getDpsCertificate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:getDpsCertificate", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:getDpsCertificate", {
         "certificateName": args.certificateName,
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,

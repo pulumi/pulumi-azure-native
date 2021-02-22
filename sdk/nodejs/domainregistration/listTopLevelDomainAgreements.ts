@@ -17,7 +17,7 @@ export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration:listTopLevelDomainAgreements", {
+    return pulumi.runtime.invoke("azure-native:domainregistration:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,
         "includePrivacy": args.includePrivacy,
         "name": args.name,

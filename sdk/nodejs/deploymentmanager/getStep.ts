@@ -17,7 +17,7 @@ export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager:getStep", {
+    return pulumi.runtime.invoke("azure-native:deploymentmanager:getStep", {
         "resourceGroupName": args.resourceGroupName,
         "stepName": args.stepName,
     }, opts);

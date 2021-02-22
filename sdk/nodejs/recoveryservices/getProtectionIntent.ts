@@ -17,7 +17,7 @@ export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices:getProtectionIntent", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices:getProtectionIntent", {
         "fabricName": args.fabricName,
         "intentObjectName": args.intentObjectName,
         "resourceGroupName": args.resourceGroupName,

@@ -17,7 +17,7 @@ export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigur
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getGatewayHostnameConfiguration", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,
         "hcId": args.hcId,
         "resourceGroupName": args.resourceGroupName,

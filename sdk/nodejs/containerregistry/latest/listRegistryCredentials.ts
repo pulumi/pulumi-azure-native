@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The response from the ListCredentials operation.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'. */
 export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryCredentialsResult> {
-    pulumi.log.warn("listRegistryCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.")
+    pulumi.log.warn("listRegistryCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listRegistryCredentials", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:listRegistryCredentials", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Activity Log Alert rule resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActivityLogAlert'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActivityLogAlert'. */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
-    pulumi.log.warn("getActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActivityLogAlert'.")
+    pulumi.log.warn("getActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActivityLogAlert'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getActivityLogAlert", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

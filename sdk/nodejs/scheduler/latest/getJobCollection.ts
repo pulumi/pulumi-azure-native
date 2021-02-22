@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:scheduler:getJobCollection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:scheduler:getJobCollection'. */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
-    pulumi.log.warn("getJobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:scheduler:getJobCollection'.")
+    pulumi.log.warn("getJobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:scheduler:getJobCollection'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:scheduler/latest:getJobCollection", {
+    return pulumi.runtime.invoke("azure-native:scheduler/latest:getJobCollection", {
         "jobCollectionName": args.jobCollectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

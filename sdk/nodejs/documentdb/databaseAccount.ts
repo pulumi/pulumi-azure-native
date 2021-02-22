@@ -23,7 +23,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb:DatabaseAccount';
+    public static readonly __pulumiType = 'azure-native:documentdb:DatabaseAccount';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccount.  This is designed to work even
@@ -265,7 +265,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210115:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-native:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-native:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-native:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-native:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-native:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-native:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-native:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-native:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-native:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20200901:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }, { type: "azure-native:documentdb/v20210115:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210115:DatabaseAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }

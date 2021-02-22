@@ -16,7 +16,7 @@ export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSso
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20190101:getApiManagementServiceSsoToken", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getApiManagementServiceSsoToken", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

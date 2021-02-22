@@ -21,7 +21,7 @@ export class SyncAgent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:SyncAgent';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:SyncAgent';
 
     /**
      * Returns true if the given object is an instance of SyncAgent.  This is designed to work even
@@ -111,7 +111,7 @@ export class SyncAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:SyncAgent" }, { type: "azure-nextgen:sql/v20150501preview:SyncAgent" }, { type: "azure-nextgen:sql/v20200202preview:SyncAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncAgent" }, { type: "azure-nextgen:sql:SyncAgent" }, { type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-nextgen:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200202preview:SyncAgent" }, { type: "azure-nextgen:sql/v20200202preview:SyncAgent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncAgent.__pulumiType, name, inputs, opts);
     }

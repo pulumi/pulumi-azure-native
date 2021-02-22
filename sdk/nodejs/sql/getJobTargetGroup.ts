@@ -17,7 +17,7 @@ export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getJobTargetGroup", {
+    return pulumi.runtime.invoke("azure-native:sql:getJobTargetGroup", {
         "jobAgentName": args.jobAgentName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -23,7 +23,7 @@ export class NotificationHub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:notificationhubs:NotificationHub';
+    public static readonly __pulumiType = 'azure-native:notificationhubs:NotificationHub';
 
     /**
      * Returns true if the given object is an instance of NotificationHub.  This is designed to work even
@@ -143,7 +143,7 @@ export class NotificationHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationHub.__pulumiType, name, inputs, opts);
     }

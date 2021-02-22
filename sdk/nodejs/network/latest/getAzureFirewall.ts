@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Azure Firewall resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getAzureFirewall'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getAzureFirewall'. */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
-    pulumi.log.warn("getAzureFirewall is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getAzureFirewall'.")
+    pulumi.log.warn("getAzureFirewall is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getAzureFirewall'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getAzureFirewall", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getAzureFirewall", {
         "azureFirewallName": args.azureFirewallName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

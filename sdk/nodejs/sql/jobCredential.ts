@@ -22,7 +22,7 @@ export class JobCredential extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:JobCredential';
+    public static readonly __pulumiType = 'azure-native:sql:JobCredential';
 
     /**
      * Returns true if the given object is an instance of JobCredential.  This is designed to work even
@@ -98,7 +98,7 @@ export class JobCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobCredential" }, { type: "azure-nextgen:sql/v20200202preview:JobCredential" }, { type: "azure-nextgen:sql/v20200801preview:JobCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobCredential" }, { type: "azure-nextgen:sql/v20170301preview:JobCredential" }, { type: "azure-native:sql/v20200202preview:JobCredential" }, { type: "azure-nextgen:sql/v20200202preview:JobCredential" }, { type: "azure-native:sql/v20200801preview:JobCredential" }, { type: "azure-nextgen:sql/v20200801preview:JobCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobCredential.__pulumiType, name, inputs, opts);
     }

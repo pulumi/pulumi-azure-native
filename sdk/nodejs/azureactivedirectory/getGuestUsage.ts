@@ -17,7 +17,7 @@ export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azureactivedirectory:getGuestUsage", {
+    return pulumi.runtime.invoke("azure-native:azureactivedirectory:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

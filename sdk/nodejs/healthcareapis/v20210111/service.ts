@@ -22,7 +22,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:healthcareapis/v20210111:Service';
+    public static readonly __pulumiType = 'azure-native:healthcareapis/v20210111:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -117,7 +117,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis:Service" }, { type: "azure-nextgen:healthcareapis/latest:Service" }, { type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:Service" }, { type: "azure-nextgen:healthcareapis:Service" }, { type: "azure-native:healthcareapis/latest:Service" }, { type: "azure-nextgen:healthcareapis/latest:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A share subscription data transfer object.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:ShareSubscription'.
  */
 export class ShareSubscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ShareSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ShareSubscription {
-        pulumi.log.warn("ShareSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.")
+        pulumi.log.warn("ShareSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:ShareSubscription'.")
         return new ShareSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datashare/latest:ShareSubscription';
+    public static readonly __pulumiType = 'azure-native:datashare/latest:ShareSubscription';
 
     /**
      * Returns true if the given object is an instance of ShareSubscription.  This is designed to work even
@@ -119,9 +119,9 @@ export class ShareSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:ShareSubscription'. */
     constructor(name: string, args: ShareSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ShareSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.")
+        pulumi.log.warn("ShareSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:ShareSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -184,7 +184,7 @@ export class ShareSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20200901:ShareSubscription" }, { type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ShareSubscription" }, { type: "azure-nextgen:datashare:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-nextgen:datashare/v20200901:ShareSubscription" }, { type: "azure-native:datashare/v20201001preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }

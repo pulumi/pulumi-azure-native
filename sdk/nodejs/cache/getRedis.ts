@@ -17,7 +17,7 @@ export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache:getRedis", {
+    return pulumi.runtime.invoke("azure-native:cache:getRedis", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

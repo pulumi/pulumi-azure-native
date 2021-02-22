@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Protection container mapping object.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectionContainerMapping'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectionContainerMapping'. */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
-    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectionContainerMapping'.")
+    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectionContainerMapping'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationProtectionContainerMapping(args: GetReplicationPro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationProtectionContainerMapping", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationProtectionContainerMapping", {
         "fabricName": args.fabricName,
         "mappingName": args.mappingName,
         "protectionContainerName": args.protectionContainerName,

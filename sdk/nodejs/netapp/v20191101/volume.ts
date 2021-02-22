@@ -22,7 +22,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20191101:Volume';
+    public static readonly __pulumiType = 'azure-native:netapp/v20191101:Volume';
 
     /**
      * Returns true if the given object is an instance of Volume.  This is designed to work even
@@ -191,7 +191,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Volume" }, { type: "azure-nextgen:netapp/latest:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-nextgen:netapp:Volume" }, { type: "azure-native:netapp/latest:Volume" }, { type: "azure-nextgen:netapp/latest:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

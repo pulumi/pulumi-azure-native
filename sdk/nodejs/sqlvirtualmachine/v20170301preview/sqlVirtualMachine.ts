@@ -22,7 +22,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine';
+    public static readonly __pulumiType = 'azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine';
 
     /**
      * Returns true if the given object is an instance of SqlVirtualMachine.  This is designed to work even
@@ -168,7 +168,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sqlvirtualmachine:SqlVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-nextgen:sqlvirtualmachine:SqlVirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlVirtualMachine.__pulumiType, name, inputs, opts);
     }

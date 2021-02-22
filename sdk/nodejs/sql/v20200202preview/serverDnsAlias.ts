@@ -21,7 +21,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ServerDnsAlias';
+    public static readonly __pulumiType = 'azure-native:sql/v20200202preview:ServerDnsAlias';
 
     /**
      * Returns true if the given object is an instance of ServerDnsAlias.  This is designed to work even
@@ -81,7 +81,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20200801preview:ServerDnsAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerDnsAlias" }, { type: "azure-nextgen:sql:ServerDnsAlias" }, { type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20200801preview:ServerDnsAlias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerDnsAlias.__pulumiType, name, inputs, opts);
     }

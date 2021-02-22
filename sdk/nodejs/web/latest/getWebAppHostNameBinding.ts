@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A hostname binding object.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHostNameBinding'. */
 export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingResult> {
-    pulumi.log.warn("getWebAppHostNameBinding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'.")
+    pulumi.log.warn("getWebAppHostNameBinding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHostNameBinding'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHostNameBinding", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppHostNameBinding", {
         "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

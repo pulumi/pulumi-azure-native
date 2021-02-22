@@ -22,7 +22,7 @@ export class IotSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security:IotSite';
+    public static readonly __pulumiType = 'azure-native:security:IotSite';
 
     /**
      * Returns true if the given object is an instance of IotSite.  This is designed to work even
@@ -86,7 +86,7 @@ export class IotSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20200806preview:IotSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20200806preview:IotSite" }, { type: "azure-nextgen:security/v20200806preview:IotSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotSite.__pulumiType, name, inputs, opts);
     }

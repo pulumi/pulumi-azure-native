@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The expression traces.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionRepetitionExpressionTraces'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces'. */
 export function listWorkflowRunActionRepetitionExpressionTraces(args: ListWorkflowRunActionRepetitionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionRepetitionExpressionTracesResult> {
-    pulumi.log.warn("listWorkflowRunActionRepetitionExpressionTraces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionRepetitionExpressionTraces'.")
+    pulumi.log.warn("listWorkflowRunActionRepetitionExpressionTraces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWorkflowRunActionRepetitionExpressionTraces(args: ListWorkfl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listWorkflowRunActionRepetitionExpressionTraces", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:listWorkflowRunActionRepetitionExpressionTraces", {
         "actionName": args.actionName,
         "repetitionName": args.repetitionName,
         "resourceGroupName": args.resourceGroupName,

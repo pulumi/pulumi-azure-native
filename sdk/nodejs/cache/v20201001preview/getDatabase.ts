@@ -16,7 +16,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/v20201001preview:getDatabase", {
+    return pulumi.runtime.invoke("azure-native:cache/v20201001preview:getDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

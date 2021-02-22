@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/v20150501:AnalyticsItem":
+            case "azure-native:insights/v20150501:AnalyticsItem":
                 return new AnalyticsItem(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:Component":
+            case "azure-native:insights/v20150501:Component":
                 return new Component(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature":
+            case "azure-native:insights/v20150501:ComponentCurrentBillingFeature":
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:ExportConfiguration":
+            case "azure-native:insights/v20150501:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:Favorite":
+            case "azure-native:insights/v20150501:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:MyWorkbook":
+            case "azure-native:insights/v20150501:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:WebTest":
+            case "azure-native:insights/v20150501:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20150501:Workbook":
+            case "azure-native:insights/v20150501:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/v20150501", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/v20150501", _module)

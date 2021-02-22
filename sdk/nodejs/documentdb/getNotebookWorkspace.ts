@@ -17,7 +17,7 @@ export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getNotebookWorkspace", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getNotebookWorkspace", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,
         "resourceGroupName": args.resourceGroupName,

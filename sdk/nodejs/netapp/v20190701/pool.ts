@@ -22,7 +22,7 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20190701:Pool';
+    public static readonly __pulumiType = 'azure-native:netapp/v20190701:Pool';
 
     /**
      * Returns true if the given object is an instance of Pool.  This is designed to work even
@@ -118,7 +118,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Pool" }, { type: "azure-nextgen:netapp/latest:Pool" }, { type: "azure-nextgen:netapp/v20170815:Pool" }, { type: "azure-nextgen:netapp/v20190501:Pool" }, { type: "azure-nextgen:netapp/v20190601:Pool" }, { type: "azure-nextgen:netapp/v20190801:Pool" }, { type: "azure-nextgen:netapp/v20191001:Pool" }, { type: "azure-nextgen:netapp/v20191101:Pool" }, { type: "azure-nextgen:netapp/v20200201:Pool" }, { type: "azure-nextgen:netapp/v20200301:Pool" }, { type: "azure-nextgen:netapp/v20200501:Pool" }, { type: "azure-nextgen:netapp/v20200601:Pool" }, { type: "azure-nextgen:netapp/v20200701:Pool" }, { type: "azure-nextgen:netapp/v20200801:Pool" }, { type: "azure-nextgen:netapp/v20200901:Pool" }, { type: "azure-nextgen:netapp/v20201101:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Pool" }, { type: "azure-nextgen:netapp:Pool" }, { type: "azure-native:netapp/latest:Pool" }, { type: "azure-nextgen:netapp/latest:Pool" }, { type: "azure-native:netapp/v20170815:Pool" }, { type: "azure-nextgen:netapp/v20170815:Pool" }, { type: "azure-native:netapp/v20190501:Pool" }, { type: "azure-nextgen:netapp/v20190501:Pool" }, { type: "azure-native:netapp/v20190601:Pool" }, { type: "azure-nextgen:netapp/v20190601:Pool" }, { type: "azure-native:netapp/v20190801:Pool" }, { type: "azure-nextgen:netapp/v20190801:Pool" }, { type: "azure-native:netapp/v20191001:Pool" }, { type: "azure-nextgen:netapp/v20191001:Pool" }, { type: "azure-native:netapp/v20191101:Pool" }, { type: "azure-nextgen:netapp/v20191101:Pool" }, { type: "azure-native:netapp/v20200201:Pool" }, { type: "azure-nextgen:netapp/v20200201:Pool" }, { type: "azure-native:netapp/v20200301:Pool" }, { type: "azure-nextgen:netapp/v20200301:Pool" }, { type: "azure-native:netapp/v20200501:Pool" }, { type: "azure-nextgen:netapp/v20200501:Pool" }, { type: "azure-native:netapp/v20200601:Pool" }, { type: "azure-nextgen:netapp/v20200601:Pool" }, { type: "azure-native:netapp/v20200701:Pool" }, { type: "azure-nextgen:netapp/v20200701:Pool" }, { type: "azure-native:netapp/v20200801:Pool" }, { type: "azure-nextgen:netapp/v20200801:Pool" }, { type: "azure-native:netapp/v20200901:Pool" }, { type: "azure-nextgen:netapp/v20200901:Pool" }, { type: "azure-native:netapp/v20201101:Pool" }, { type: "azure-nextgen:netapp/v20201101:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }

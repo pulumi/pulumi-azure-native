@@ -24,13 +24,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:blockchain/v20180601preview:BlockchainMember":
+            case "azure-native:blockchain/v20180601preview:BlockchainMember":
                 return new BlockchainMember(name, <any>undefined, { urn })
-            case "azure-nextgen:blockchain/v20180601preview:TransactionNode":
+            case "azure-native:blockchain/v20180601preview:TransactionNode":
                 return new TransactionNode(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "blockchain/v20180601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "blockchain/v20180601preview", _module)

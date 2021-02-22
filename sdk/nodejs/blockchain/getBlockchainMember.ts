@@ -17,7 +17,7 @@ export function getBlockchainMember(args: GetBlockchainMemberArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blockchain:getBlockchainMember", {
+    return pulumi.runtime.invoke("azure-native:blockchain:getBlockchainMember", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

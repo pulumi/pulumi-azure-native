@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager endpoint.
  * Latest API Version: 2018-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getEndpoint'.")
+    pulumi.log.warn("getEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getEndpoint", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getEndpoint", {
         "endpointName": args.endpointName,
         "endpointType": args.endpointType,
         "profileName": args.profileName,

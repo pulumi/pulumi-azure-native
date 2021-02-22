@@ -16,7 +16,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200601:getLoadBalancer", {
+    return pulumi.runtime.invoke("azure-native:network/v20200601:getLoadBalancer", {
         "expand": args.expand,
         "loadBalancerName": args.loadBalancerName,
         "resourceGroupName": args.resourceGroupName,

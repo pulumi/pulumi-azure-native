@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The storage account blob inventory policy.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobInventoryPolicy'. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
-    pulumi.log.warn("getBlobInventoryPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'.")
+    pulumi.log.warn("getBlobInventoryPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobInventoryPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getBlobInventoryPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getBlobInventoryPolicy", {
         "accountName": args.accountName,
         "blobInventoryPolicyName": args.blobInventoryPolicyName,
         "resourceGroupName": args.resourceGroupName,

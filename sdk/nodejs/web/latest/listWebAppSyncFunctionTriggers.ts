@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Function secrets.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggers'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggers'. */
 export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTriggersArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersResult> {
-    pulumi.log.warn("listWebAppSyncFunctionTriggers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggers'.")
+    pulumi.log.warn("listWebAppSyncFunctionTriggers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggers'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTrigg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSyncFunctionTriggers", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppSyncFunctionTriggers", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

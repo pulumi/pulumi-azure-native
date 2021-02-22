@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Security assessment metadata
  * Latest API Version: 2020-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AssessmentMetadataInSubscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'.
  */
 export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AssessmentMetadataInSubscription {
-        pulumi.log.warn("AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AssessmentMetadataInSubscription'.")
+        pulumi.log.warn("AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'.")
         return new AssessmentMetadataInSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/latest:AssessmentMetadataInSubscription';
+    public static readonly __pulumiType = 'azure-native:security/latest:AssessmentMetadataInSubscription';
 
     /**
      * Returns true if the given object is an instance of AssessmentMetadataInSubscription.  This is designed to work even
@@ -97,9 +97,9 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AssessmentMetadataInSubscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'. */
     constructor(name: string, args: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AssessmentMetadataInSubscription'.")
+        pulumi.log.warn("AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.assessmentType === undefined) && !(opts && opts.urn)) {
@@ -149,7 +149,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20200101:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssessmentMetadataInSubscription.__pulumiType, name, inputs, opts);
     }

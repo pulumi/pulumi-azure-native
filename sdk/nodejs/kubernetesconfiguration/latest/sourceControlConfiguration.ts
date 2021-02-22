@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The SourceControl Configuration object returned in Get & Put response.
  * Latest API Version: 2021-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetesconfiguration:SourceControlConfiguration'.
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControlConfiguration {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.")
+        pulumi.log.warn("SourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetesconfiguration:SourceControlConfiguration'.")
         return new SourceControlConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration';
+    public static readonly __pulumiType = 'azure-native:kubernetesconfiguration/latest:SourceControlConfiguration';
 
     /**
      * Returns true if the given object is an instance of SourceControlConfiguration.  This is designed to work even
@@ -111,9 +111,9 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetesconfiguration:SourceControlConfiguration'. */
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.")
+        pulumi.log.warn("SourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetesconfiguration:SourceControlConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
@@ -174,7 +174,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SourceControlConfiguration.__pulumiType, name, inputs, opts);
     }

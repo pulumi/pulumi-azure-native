@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * GetBitLockerKeys response
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:listBitLockerKey'. */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
-    pulumi.log.warn("listBitLockerKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.")
+    pulumi.log.warn("listBitLockerKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:listBitLockerKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:importexport/latest:listBitLockerKey", {
+    return pulumi.runtime.invoke("azure-native:importexport/latest:listBitLockerKey", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

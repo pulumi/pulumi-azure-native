@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Application Insights web test definition.
  * Latest API Version: 2015-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getWebTest'. */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
-    pulumi.log.warn("getWebTest is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.")
+    pulumi.log.warn("getWebTest is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getWebTest'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getWebTest", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getWebTest", {
         "resourceGroupName": args.resourceGroupName,
         "webTestName": args.webTestName,
     }, opts);

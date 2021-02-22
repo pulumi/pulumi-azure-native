@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Role definition.
  * Latest API Version: 2015-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleDefinition'. */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
-    pulumi.log.warn("getRoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'.")
+    pulumi.log.warn("getRoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleDefinition'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getRoleDefinition", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);

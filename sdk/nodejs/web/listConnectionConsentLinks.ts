@@ -17,7 +17,7 @@ export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listConnectionConsentLinks", {
+    return pulumi.runtime.invoke("azure-native:web:listConnectionConsentLinks", {
         "connectionName": args.connectionName,
         "parameters": args.parameters,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfiguration
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebAppSlotConfigurationNames", {
+    return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppSlotConfigurationNames", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

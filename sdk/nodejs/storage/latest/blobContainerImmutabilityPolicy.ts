@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainerImmutabilityPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainerImmutabilityPolicy'.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobContainerImmutabilityPolicy {
-        pulumi.log.warn("BlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainerImmutabilityPolicy'.")
+        pulumi.log.warn("BlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainerImmutabilityPolicy'.")
         return new BlobContainerImmutabilityPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy';
+    public static readonly __pulumiType = 'azure-native:storage/latest:BlobContainerImmutabilityPolicy';
 
     /**
      * Returns true if the given object is an instance of BlobContainerImmutabilityPolicy.  This is designed to work even
@@ -70,9 +70,9 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainerImmutabilityPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainerImmutabilityPolicy'. */
     constructor(name: string, args: BlobContainerImmutabilityPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainerImmutabilityPolicy'.")
+        pulumi.log.warn("BlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainerImmutabilityPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -109,7 +109,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, inputs, opts);
     }

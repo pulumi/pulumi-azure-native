@@ -22,7 +22,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteLogsConfig';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteLogsConfig';
 
     /**
      * Returns true if the given object is an instance of SiteLogsConfig.  This is designed to work even
@@ -117,7 +117,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteLogsConfig" }, { type: "azure-nextgen:web/latest:SiteLogsConfig" }, { type: "azure-nextgen:web/v20160801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20180201:SiteLogsConfig" }, { type: "azure-nextgen:web/v20181101:SiteLogsConfig" }, { type: "azure-nextgen:web/v20190801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200601:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200901:SiteLogsConfig" }, { type: "azure-nextgen:web/v20201001:SiteLogsConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteLogsConfig" }, { type: "azure-nextgen:web:SiteLogsConfig" }, { type: "azure-native:web/latest:SiteLogsConfig" }, { type: "azure-nextgen:web/latest:SiteLogsConfig" }, { type: "azure-native:web/v20160801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20160801:SiteLogsConfig" }, { type: "azure-native:web/v20180201:SiteLogsConfig" }, { type: "azure-nextgen:web/v20180201:SiteLogsConfig" }, { type: "azure-native:web/v20181101:SiteLogsConfig" }, { type: "azure-nextgen:web/v20181101:SiteLogsConfig" }, { type: "azure-native:web/v20190801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20190801:SiteLogsConfig" }, { type: "azure-native:web/v20200601:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200601:SiteLogsConfig" }, { type: "azure-native:web/v20200901:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200901:SiteLogsConfig" }, { type: "azure-native:web/v20201001:SiteLogsConfig" }, { type: "azure-nextgen:web/v20201001:SiteLogsConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteLogsConfig.__pulumiType, name, inputs, opts);
     }

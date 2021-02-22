@@ -17,7 +17,7 @@ export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights:getDataSource", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights:getDataSource", {
         "dataSourceName": args.dataSourceName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

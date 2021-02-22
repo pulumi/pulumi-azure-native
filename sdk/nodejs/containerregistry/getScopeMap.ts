@@ -17,7 +17,7 @@ export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getScopeMap", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getScopeMap", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "scopeMapName": args.scopeMapName,

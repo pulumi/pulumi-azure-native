@@ -23,7 +23,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azuredata:SqlServerInstance';
+    public static readonly __pulumiType = 'azure-native:azuredata:SqlServerInstance';
 
     /**
      * Returns true if the given object is an instance of SqlServerInstance.  This is designed to work even
@@ -148,7 +148,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlServerInstance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlServerInstance.__pulumiType, name, inputs, opts);
     }

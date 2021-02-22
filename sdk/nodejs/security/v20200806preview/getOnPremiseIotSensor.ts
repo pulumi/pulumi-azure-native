@@ -16,7 +16,7 @@ export function getOnPremiseIotSensor(args: GetOnPremiseIotSensorArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/v20200806preview:getOnPremiseIotSensor", {
+    return pulumi.runtime.invoke("azure-native:security/v20200806preview:getOnPremiseIotSensor", {
         "onPremiseIotSensorName": args.onPremiseIotSensorName,
     }, opts);
 }

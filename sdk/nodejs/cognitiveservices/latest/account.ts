@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  * Latest API Version: 2017-04-18.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:Account'.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
-        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'.")
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:Account'.")
         return new Account(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cognitiveservices/latest:Account';
+    public static readonly __pulumiType = 'azure-native:cognitiveservices/latest:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -83,9 +83,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:Account'. */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'.")
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:Account'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -120,7 +120,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cognitiveservices:Account" }, { type: "azure-nextgen:cognitiveservices/v20160201preview:Account" }, { type: "azure-nextgen:cognitiveservices/v20170418:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:Account" }, { type: "azure-nextgen:cognitiveservices:Account" }, { type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-nextgen:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20170418:Account" }, { type: "azure-nextgen:cognitiveservices/v20170418:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

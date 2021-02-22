@@ -16,7 +16,7 @@ export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

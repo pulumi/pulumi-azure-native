@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A domain specific resource identifier.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDomainOwnershipIdentifierSlot'. */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
-    pulumi.log.warn("getWebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot'.")
+    pulumi.log.warn("getWebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDomainOwnershipIdentifierSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwne
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppDomainOwnershipIdentifierSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppDomainOwnershipIdentifierSlot", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

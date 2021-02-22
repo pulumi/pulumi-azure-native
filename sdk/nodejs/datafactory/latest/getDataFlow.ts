@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data flow resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataFlow'. */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
-    pulumi.log.warn("getDataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'.")
+    pulumi.log.warn("getDataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataFlow'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getDataFlow", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getDataFlow", {
         "dataFlowName": args.dataFlowName,
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

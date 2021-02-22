@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Disk resource.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDisk'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDisk'.")
+    pulumi.log.warn("getDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getDisk", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getDisk", {
         "diskName": args.diskName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

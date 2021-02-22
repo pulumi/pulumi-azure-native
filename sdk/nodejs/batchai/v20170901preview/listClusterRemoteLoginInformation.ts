@@ -16,7 +16,7 @@ export function listClusterRemoteLoginInformation(args: ListClusterRemoteLoginIn
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/v20170901preview:listClusterRemoteLoginInformation", {
+    return pulumi.runtime.invoke("azure-native:batchai/v20170901preview:listClusterRemoteLoginInformation", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

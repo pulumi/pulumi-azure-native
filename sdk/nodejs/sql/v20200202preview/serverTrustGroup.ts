@@ -22,7 +22,7 @@ export class ServerTrustGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ServerTrustGroup';
+    public static readonly __pulumiType = 'azure-native:sql/v20200202preview:ServerTrustGroup';
 
     /**
      * Returns true if the given object is an instance of ServerTrustGroup.  This is designed to work even
@@ -94,7 +94,7 @@ export class ServerTrustGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20200801preview:ServerTrustGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustGroup" }, { type: "azure-nextgen:sql:ServerTrustGroup" }, { type: "azure-native:sql/v20200801preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20200801preview:ServerTrustGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerTrustGroup.__pulumiType, name, inputs, opts);
     }

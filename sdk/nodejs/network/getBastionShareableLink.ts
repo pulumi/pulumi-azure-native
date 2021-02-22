@@ -17,7 +17,7 @@ export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getBastionShareableLink", {
+    return pulumi.runtime.invoke("azure-native:network:getBastionShareableLink", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
         "vms": args.vms,

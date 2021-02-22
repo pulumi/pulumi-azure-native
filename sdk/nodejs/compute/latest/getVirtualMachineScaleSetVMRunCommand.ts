@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine run command.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVMRunCommand'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMRunCommand'. */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
-    pulumi.log.warn("getVirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVMRunCommand'.")
+    pulumi.log.warn("getVirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMRunCommand'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineSca
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getVirtualMachineScaleSetVMRunCommand", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getVirtualMachineScaleSetVMRunCommand", {
         "expand": args.expand,
         "instanceId": args.instanceId,
         "resourceGroupName": args.resourceGroupName,

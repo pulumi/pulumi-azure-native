@@ -17,7 +17,7 @@ export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hardwaresecuritymodules:getDedicatedHsm", {
+    return pulumi.runtime.invoke("azure-native:hardwaresecuritymodules:getDedicatedHsm", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

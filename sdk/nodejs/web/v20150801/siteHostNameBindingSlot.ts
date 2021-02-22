@@ -22,7 +22,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteHostNameBindingSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteHostNameBindingSlot';
 
     /**
      * Returns true if the given object is an instance of SiteHostNameBindingSlot.  This is designed to work even
@@ -134,7 +134,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/latest:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:SiteHostNameBindingSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web:SiteHostNameBindingSlot" }, { type: "azure-native:web/latest:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/latest:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20160801:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20180201:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20181101:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20190801:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20200601:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20200901:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBindingSlot" }, { type: "azure-native:web/v20201001:SiteHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:SiteHostNameBindingSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }

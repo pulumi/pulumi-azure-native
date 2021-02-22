@@ -22,7 +22,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement:ApiTagDescription';
+    public static readonly __pulumiType = 'azure-native:apimanagement:ApiTagDescription';
 
     /**
      * Returns true if the given object is an instance of ApiTagDescription.  This is designed to work even
@@ -110,7 +110,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/latest:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/latest:ApiTagDescription" }, { type: "azure-native:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20200601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiTagDescription.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Site Extension Information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtensionSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtensionSlot'. */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
-    pulumi.log.warn("getWebAppSiteExtensionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtensionSlot'.")
+    pulumi.log.warn("getWebAppSiteExtensionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtensionSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSiteExtensionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSiteExtensionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteExtensionId": args.siteExtensionId,

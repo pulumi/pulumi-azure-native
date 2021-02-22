@@ -17,7 +17,7 @@ export function getNamespaceIpFilterRule(args: GetNamespaceIpFilterRuleArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus:getNamespaceIpFilterRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus:getNamespaceIpFilterRule", {
         "ipFilterRuleName": args.ipFilterRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

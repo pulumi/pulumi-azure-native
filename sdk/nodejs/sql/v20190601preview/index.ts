@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20190601preview:Database":
+            case "azure-native:sql/v20190601preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:ManagedDatabase":
+            case "azure-native:sql/v20190601preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:Server":
+            case "azure-native:sql/v20190601preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator":
+            case "azure-native:sql/v20190601preview:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:SyncGroup":
+            case "azure-native:sql/v20190601preview:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:SyncMember":
+            case "azure-native:sql/v20190601preview:SyncMember":
                 return new SyncMember(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:WorkloadClassifier":
+            case "azure-native:sql/v20190601preview:WorkloadClassifier":
                 return new WorkloadClassifier(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20190601preview:WorkloadGroup":
+            case "azure-native:sql/v20190601preview:WorkloadGroup":
                 return new WorkloadGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20190601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20190601preview", _module)

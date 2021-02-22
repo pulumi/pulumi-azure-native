@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The policy definition.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyDefinitionAtManagementGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinitionAtManagementGroup'. */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
-    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyDefinitionAtManagementGroup'.")
+    pulumi.log.warn("getPolicyDefinitionAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinitionAtManagementGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getPolicyDefinitionAtManagementGroup", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getPolicyDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);

@@ -23,7 +23,7 @@ export class CapacityDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:powerbidedicated:CapacityDetails';
+    public static readonly __pulumiType = 'azure-native:powerbidedicated:CapacityDetails';
 
     /**
      * Returns true if the given object is an instance of CapacityDetails.  This is designed to work even
@@ -112,7 +112,7 @@ export class CapacityDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/latest:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }

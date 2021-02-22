@@ -17,7 +17,7 @@ export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo", {
+    return pulumi.runtime.invoke("azure-native:datafactory:getIntegrationRuntimeConnectionInfo", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

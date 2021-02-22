@@ -17,7 +17,7 @@ export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getPrivateEndpoint", {
+    return pulumi.runtime.invoke("azure-native:network:getPrivateEndpoint", {
         "expand": args.expand,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,

@@ -22,7 +22,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql/v20171201:ServerAdministrator';
 
     /**
      * Returns true if the given object is an instance of ServerAdministrator.  This is designed to work even
@@ -111,7 +111,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql/latest:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql:ServerAdministrator" }, { type: "azure-native:dbforpostgresql/latest:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql/latest:ServerAdministrator" }, { type: "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }

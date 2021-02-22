@@ -23,7 +23,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute:DiskEncryptionSet';
+    public static readonly __pulumiType = 'azure-native:compute:DiskEncryptionSet';
 
     /**
      * Returns true if the given object is an instance of DiskEncryptionSet.  This is designed to work even
@@ -115,7 +115,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/latest:DiskEncryptionSet" }, { type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

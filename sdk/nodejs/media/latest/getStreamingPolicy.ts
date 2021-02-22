@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Streaming Policy resource
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingPolicy'. */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
-    pulumi.log.warn("getStreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingPolicy'.")
+    pulumi.log.warn("getStreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getStreamingPolicy", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getStreamingPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingPolicyName": args.streamingPolicyName,

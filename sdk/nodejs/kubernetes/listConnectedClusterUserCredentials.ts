@@ -17,7 +17,7 @@ export function listConnectedClusterUserCredentials(args: ListConnectedClusterUs
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kubernetes:listConnectedClusterUserCredentials", {
+    return pulumi.runtime.invoke("azure-native:kubernetes:listConnectedClusterUserCredentials", {
         "authenticationMethod": args.authenticationMethod,
         "clientProxy": args.clientProxy,
         "clusterName": args.clusterName,

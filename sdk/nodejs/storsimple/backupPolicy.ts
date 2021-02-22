@@ -23,7 +23,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:BackupPolicy';
+    public static readonly __pulumiType = 'azure-native:storsimple:BackupPolicy';
 
     /**
      * Returns true if the given object is an instance of BackupPolicy.  This is designed to work even
@@ -132,7 +132,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:BackupPolicy" }, { type: "azure-nextgen:storsimple/latest:BackupPolicy" }, { type: "azure-native:storsimple/v20170601:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

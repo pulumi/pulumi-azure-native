@@ -16,7 +16,7 @@ export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20181201:getVpnSite", {
+    return pulumi.runtime.invoke("azure-native:network/v20181201:getVpnSite", {
         "resourceGroupName": args.resourceGroupName,
         "vpnSiteName": args.vpnSiteName,
     }, opts);

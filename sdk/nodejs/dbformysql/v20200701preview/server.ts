@@ -22,7 +22,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformysql/v20200701preview:Server';
+    public static readonly __pulumiType = 'azure-native:dbformysql/v20200701preview:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -228,7 +228,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20200701privatepreview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701privatepreview:Server" }, { type: "azure-nextgen:dbformysql/v20200701privatepreview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

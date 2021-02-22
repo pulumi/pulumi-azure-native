@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManagerEncryptionKey'. */
 export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerEncryptionKeyResult> {
-    pulumi.log.warn("getManagerEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'.")
+    pulumi.log.warn("getManagerEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManagerEncryptionKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getManagerEncryptionKey", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getManagerEncryptionKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

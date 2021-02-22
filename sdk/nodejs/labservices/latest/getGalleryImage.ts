@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents an image from the Azure Marketplace
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGalleryImage'. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
-    pulumi.log.warn("getGalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'.")
+    pulumi.log.warn("getGalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGalleryImage'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getGalleryImage", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getGalleryImage", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,
         "labAccountName": args.labAccountName,

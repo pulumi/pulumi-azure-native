@@ -16,7 +16,7 @@ export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebApp", {
+    return pulumi.runtime.invoke("azure-native:web/v20181101:getWebApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -21,7 +21,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20210101preview:HcxEnterpriseSite';
+    public static readonly __pulumiType = 'azure-native:avs/v20210101preview:HcxEnterpriseSite';
 
     /**
      * Returns true if the given object is an instance of HcxEnterpriseSite.  This is designed to work even
@@ -87,7 +87,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/latest:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/latest:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/latest:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The backup policy.
  * Latest API Version: 2017-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupPolicy {
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.")
+        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.")
         return new BackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:BackupPolicy';
+    public static readonly __pulumiType = 'azure-native:storsimple/latest:BackupPolicy';
 
     /**
      * Returns true if the given object is an instance of BackupPolicy.  This is designed to work even
@@ -87,9 +87,9 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'. */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.")
+        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -137,7 +137,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupPolicy" }, { type: "azure-nextgen:storsimple:BackupPolicy" }, { type: "azure-native:storsimple/v20170601:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

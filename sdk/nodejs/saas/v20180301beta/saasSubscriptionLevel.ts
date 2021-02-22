@@ -22,7 +22,7 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel';
+    public static readonly __pulumiType = 'azure-native:saas/v20180301beta:SaasSubscriptionLevel';
 
     /**
      * Returns true if the given object is an instance of SaasSubscriptionLevel.  This is designed to work even
@@ -84,7 +84,7 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:saas:SaasSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:saas:SaasSubscriptionLevel" }, { type: "azure-nextgen:saas:SaasSubscriptionLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SaasSubscriptionLevel.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:listAgentPoolQueueStatus", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

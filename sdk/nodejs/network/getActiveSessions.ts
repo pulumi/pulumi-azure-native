@@ -17,7 +17,7 @@ export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getActiveSessions", {
+    return pulumi.runtime.invoke("azure-native:network:getActiveSessions", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

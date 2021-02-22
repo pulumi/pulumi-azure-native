@@ -22,7 +22,7 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights/v20210101:AttestationAtSubscription';
+    public static readonly __pulumiType = 'azure-native:policyinsights/v20210101:AttestationAtSubscription';
 
     /**
      * Returns true if the given object is an instance of AttestationAtSubscription.  This is designed to work even

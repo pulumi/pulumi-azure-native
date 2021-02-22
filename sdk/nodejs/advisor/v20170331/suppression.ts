@@ -21,7 +21,7 @@ export class Suppression extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:advisor/v20170331:Suppression';
+    public static readonly __pulumiType = 'azure-native:advisor/v20170331:Suppression';
 
     /**
      * Returns true if the given object is an instance of Suppression.  This is designed to work even
@@ -86,7 +86,7 @@ export class Suppression extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:advisor:Suppression" }, { type: "azure-nextgen:advisor/latest:Suppression" }, { type: "azure-nextgen:advisor/v20160712preview:Suppression" }, { type: "azure-nextgen:advisor/v20170419:Suppression" }, { type: "azure-nextgen:advisor/v20200101:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:advisor:Suppression" }, { type: "azure-nextgen:advisor:Suppression" }, { type: "azure-native:advisor/latest:Suppression" }, { type: "azure-nextgen:advisor/latest:Suppression" }, { type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-nextgen:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-nextgen:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-nextgen:advisor/v20200101:Suppression" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Suppression.__pulumiType, name, inputs, opts);
     }

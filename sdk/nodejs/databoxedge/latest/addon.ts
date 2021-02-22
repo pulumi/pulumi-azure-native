@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Role Addon
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'.
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Addon extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Addon {
-        pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.")
+        pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'.")
         return new Addon(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:Addon';
+    public static readonly __pulumiType = 'azure-native:databoxedge/latest:Addon';
 
     /**
      * Returns true if the given object is an instance of Addon.  This is designed to work even
@@ -63,9 +63,9 @@ export class Addon extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'. */
     constructor(name: string, args: AddonArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.")
+        pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -101,7 +101,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge/v20200901:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-nextgen:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Addon.__pulumiType, name, inputs, opts);
     }

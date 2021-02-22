@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list Kusto database principals operation response.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listDatabasePrincipals'. */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
-    pulumi.log.warn("listDatabasePrincipals is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'.")
+    pulumi.log.warn("listDatabasePrincipals is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listDatabasePrincipals'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:listDatabasePrincipals", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:listDatabasePrincipals", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

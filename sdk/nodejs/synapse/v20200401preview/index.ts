@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:synapse/v20200401preview:SqlDatabase":
+            case "azure-native:synapse/v20200401preview:SqlDatabase":
                 return new SqlDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/v20200401preview:SqlPoolsV3":
+            case "azure-native:synapse/v20200401preview:SqlPoolsV3":
                 return new SqlPoolsV3(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "synapse/v20200401preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "synapse/v20200401preview", _module)

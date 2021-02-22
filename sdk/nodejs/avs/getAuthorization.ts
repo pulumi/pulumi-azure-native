@@ -17,7 +17,7 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getAuthorization", {
+    return pulumi.runtime.invoke("azure-native:avs:getAuthorization", {
         "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager/v20180901preview:getServiceTopology", {
+    return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getServiceTopology", {
         "resourceGroupName": args.resourceGroupName,
         "serviceTopologyName": args.serviceTopologyName,
     }, opts);

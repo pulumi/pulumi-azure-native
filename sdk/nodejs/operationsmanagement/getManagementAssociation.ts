@@ -17,7 +17,7 @@ export function getManagementAssociation(args: GetManagementAssociationArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationsmanagement:getManagementAssociation", {
+    return pulumi.runtime.invoke("azure-native:operationsmanagement:getManagementAssociation", {
         "managementAssociationName": args.managementAssociationName,
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

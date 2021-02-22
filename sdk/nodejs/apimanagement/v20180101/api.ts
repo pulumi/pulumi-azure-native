@@ -22,7 +22,7 @@ export class Api extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180101:Api';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20180101:Api';
 
     /**
      * Returns true if the given object is an instance of Api.  This is designed to work even
@@ -179,7 +179,7 @@ export class Api extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Api" }, { type: "azure-nextgen:apimanagement/latest:Api" }, { type: "azure-nextgen:apimanagement/v20160707:Api" }, { type: "azure-nextgen:apimanagement/v20161010:Api" }, { type: "azure-nextgen:apimanagement/v20170301:Api" }, { type: "azure-nextgen:apimanagement/v20180601preview:Api" }, { type: "azure-nextgen:apimanagement/v20190101:Api" }, { type: "azure-nextgen:apimanagement/v20191201:Api" }, { type: "azure-nextgen:apimanagement/v20191201preview:Api" }, { type: "azure-nextgen:apimanagement/v20200601preview:Api" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Api" }, { type: "azure-nextgen:apimanagement:Api" }, { type: "azure-native:apimanagement/latest:Api" }, { type: "azure-nextgen:apimanagement/latest:Api" }, { type: "azure-native:apimanagement/v20160707:Api" }, { type: "azure-nextgen:apimanagement/v20160707:Api" }, { type: "azure-native:apimanagement/v20161010:Api" }, { type: "azure-nextgen:apimanagement/v20161010:Api" }, { type: "azure-native:apimanagement/v20170301:Api" }, { type: "azure-nextgen:apimanagement/v20170301:Api" }, { type: "azure-native:apimanagement/v20180601preview:Api" }, { type: "azure-nextgen:apimanagement/v20180601preview:Api" }, { type: "azure-native:apimanagement/v20190101:Api" }, { type: "azure-nextgen:apimanagement/v20190101:Api" }, { type: "azure-native:apimanagement/v20191201:Api" }, { type: "azure-nextgen:apimanagement/v20191201:Api" }, { type: "azure-native:apimanagement/v20191201preview:Api" }, { type: "azure-nextgen:apimanagement/v20191201preview:Api" }, { type: "azure-native:apimanagement/v20200601preview:Api" }, { type: "azure-nextgen:apimanagement/v20200601preview:Api" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Api.__pulumiType, name, inputs, opts);
     }

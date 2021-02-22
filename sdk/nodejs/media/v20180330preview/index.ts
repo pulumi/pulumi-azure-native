@@ -50,29 +50,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:media/v20180330preview:Asset":
+            case "azure-native:media/v20180330preview:Asset":
                 return new Asset(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:ContentKeyPolicy":
+            case "azure-native:media/v20180330preview:ContentKeyPolicy":
                 return new ContentKeyPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:Job":
+            case "azure-native:media/v20180330preview:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:LiveEvent":
+            case "azure-native:media/v20180330preview:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:LiveOutput":
+            case "azure-native:media/v20180330preview:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:MediaService":
+            case "azure-native:media/v20180330preview:MediaService":
                 return new MediaService(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:StreamingEndpoint":
+            case "azure-native:media/v20180330preview:StreamingEndpoint":
                 return new StreamingEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:StreamingLocator":
+            case "azure-native:media/v20180330preview:StreamingLocator":
                 return new StreamingLocator(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:StreamingPolicy":
+            case "azure-native:media/v20180330preview:StreamingPolicy":
                 return new StreamingPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20180330preview:Transform":
+            case "azure-native:media/v20180330preview:Transform":
                 return new Transform(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "media/v20180330preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "media/v20180330preview", _module)

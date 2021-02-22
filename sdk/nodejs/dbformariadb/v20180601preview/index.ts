@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformariadb/v20180601preview:Configuration":
+            case "azure-native:dbformariadb/v20180601preview:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/v20180601preview:Database":
+            case "azure-native:dbformariadb/v20180601preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/v20180601preview:FirewallRule":
+            case "azure-native:dbformariadb/v20180601preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/v20180601preview:Server":
+            case "azure-native:dbformariadb/v20180601preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule":
+            case "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformariadb/v20180601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformariadb/v20180601preview", _module)

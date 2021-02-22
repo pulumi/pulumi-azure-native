@@ -23,7 +23,7 @@ export class HyperVSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:offazure:HyperVSite';
+    public static readonly __pulumiType = 'azure-native:offazure:HyperVSite';
 
     /**
      * Returns true if the given object is an instance of HyperVSite.  This is designed to work even
@@ -94,7 +94,7 @@ export class HyperVSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure/latest:HyperVSite" }, { type: "azure-nextgen:offazure/v20200101:HyperVSite" }, { type: "azure-nextgen:offazure/v20200707:HyperVSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/latest:HyperVSite" }, { type: "azure-nextgen:offazure/latest:HyperVSite" }, { type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-nextgen:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-nextgen:offazure/v20200707:HyperVSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HyperVSite.__pulumiType, name, inputs, opts);
     }

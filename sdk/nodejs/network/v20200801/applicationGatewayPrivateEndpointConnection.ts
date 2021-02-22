@@ -22,7 +22,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of ApplicationGatewayPrivateEndpointConnection.  This is designed to work even
@@ -107,7 +107,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/latest:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

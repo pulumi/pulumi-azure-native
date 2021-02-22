@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a and external administrator to be created.
  * Latest API Version: 2017-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'.
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ServerAdministrator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAdministrator {
-        pulumi.log.warn("ServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.")
+        pulumi.log.warn("ServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'.")
         return new ServerAdministrator(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformysql/latest:ServerAdministrator';
+    public static readonly __pulumiType = 'azure-native:dbformysql/latest:ServerAdministrator';
 
     /**
      * Returns true if the given object is an instance of ServerAdministrator.  This is designed to work even
@@ -71,9 +71,9 @@ export class ServerAdministrator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'. */
     constructor(name: string, args: ServerAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.")
+        pulumi.log.warn("ServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
@@ -117,7 +117,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:ServerAdministrator" }, { type: "azure-nextgen:dbformysql:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }

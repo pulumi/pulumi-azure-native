@@ -17,7 +17,7 @@ export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare:getShareSubscription", {
+    return pulumi.runtime.invoke("azure-native:datashare:getShareSubscription", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,

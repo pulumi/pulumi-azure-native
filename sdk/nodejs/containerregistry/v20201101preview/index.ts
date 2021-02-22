@@ -48,29 +48,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry":
+            case "azure-native:containerregistry/v20201101preview:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:ExportPipeline":
+            case "azure-native:containerregistry/v20201101preview:ExportPipeline":
                 return new ExportPipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:ImportPipeline":
+            case "azure-native:containerregistry/v20201101preview:ImportPipeline":
                 return new ImportPipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:PipelineRun":
+            case "azure-native:containerregistry/v20201101preview:PipelineRun":
                 return new PipelineRun(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:PrivateEndpointConnection":
+            case "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:Registry":
+            case "azure-native:containerregistry/v20201101preview:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:Replication":
+            case "azure-native:containerregistry/v20201101preview:Replication":
                 return new Replication(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:ScopeMap":
+            case "azure-native:containerregistry/v20201101preview:ScopeMap":
                 return new ScopeMap(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:Token":
+            case "azure-native:containerregistry/v20201101preview:Token":
                 return new Token(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20201101preview:Webhook":
+            case "azure-native:containerregistry/v20201101preview:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerregistry/v20201101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerregistry/v20201101preview", _module)

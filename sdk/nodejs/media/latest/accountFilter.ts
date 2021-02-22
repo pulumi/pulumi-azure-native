@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Account Filter.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AccountFilter'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AccountFilter'.
  */
 export class AccountFilter extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AccountFilter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AccountFilter {
-        pulumi.log.warn("AccountFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AccountFilter'.")
+        pulumi.log.warn("AccountFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AccountFilter'.")
         return new AccountFilter(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/latest:AccountFilter';
+    public static readonly __pulumiType = 'azure-native:media/latest:AccountFilter';
 
     /**
      * Returns true if the given object is an instance of AccountFilter.  This is designed to work even
@@ -71,9 +71,9 @@ export class AccountFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AccountFilter'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AccountFilter'. */
     constructor(name: string, args: AccountFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AccountFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AccountFilter'.")
+        pulumi.log.warn("AccountFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AccountFilter'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -106,7 +106,7 @@ export class AccountFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:AccountFilter" }, { type: "azure-nextgen:media/v20180701:AccountFilter" }, { type: "azure-nextgen:media/v20200501:AccountFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:AccountFilter" }, { type: "azure-nextgen:media:AccountFilter" }, { type: "azure-native:media/v20180701:AccountFilter" }, { type: "azure-nextgen:media/v20180701:AccountFilter" }, { type: "azure-native:media/v20200501:AccountFilter" }, { type: "azure-nextgen:media/v20200501:AccountFilter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccountFilter.__pulumiType, name, inputs, opts);
     }

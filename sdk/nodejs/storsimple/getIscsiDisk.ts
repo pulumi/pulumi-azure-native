@@ -17,7 +17,7 @@ export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getIscsiDisk", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getIscsiDisk", {
         "deviceName": args.deviceName,
         "diskName": args.diskName,
         "iscsiServerName": args.iscsiServerName,

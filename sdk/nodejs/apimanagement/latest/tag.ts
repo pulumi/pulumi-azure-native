@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Tag Contract details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Tag'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Tag'.
  */
 export class Tag extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Tag extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Tag {
-        pulumi.log.warn("Tag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Tag'.")
+        pulumi.log.warn("Tag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Tag'.")
         return new Tag(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:Tag';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:Tag';
 
     /**
      * Returns true if the given object is an instance of Tag.  This is designed to work even
@@ -58,9 +58,9 @@ export class Tag extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Tag'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Tag'. */
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Tag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Tag'.")
+        pulumi.log.warn("Tag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Tag'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
@@ -90,7 +90,7 @@ export class Tag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Tag" }, { type: "azure-nextgen:apimanagement/v20170301:Tag" }, { type: "azure-nextgen:apimanagement/v20180101:Tag" }, { type: "azure-nextgen:apimanagement/v20180601preview:Tag" }, { type: "azure-nextgen:apimanagement/v20190101:Tag" }, { type: "azure-nextgen:apimanagement/v20191201:Tag" }, { type: "azure-nextgen:apimanagement/v20191201preview:Tag" }, { type: "azure-nextgen:apimanagement/v20200601preview:Tag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Tag" }, { type: "azure-nextgen:apimanagement:Tag" }, { type: "azure-native:apimanagement/v20170301:Tag" }, { type: "azure-nextgen:apimanagement/v20170301:Tag" }, { type: "azure-native:apimanagement/v20180101:Tag" }, { type: "azure-nextgen:apimanagement/v20180101:Tag" }, { type: "azure-native:apimanagement/v20180601preview:Tag" }, { type: "azure-nextgen:apimanagement/v20180601preview:Tag" }, { type: "azure-native:apimanagement/v20190101:Tag" }, { type: "azure-nextgen:apimanagement/v20190101:Tag" }, { type: "azure-native:apimanagement/v20191201:Tag" }, { type: "azure-nextgen:apimanagement/v20191201:Tag" }, { type: "azure-native:apimanagement/v20191201preview:Tag" }, { type: "azure-nextgen:apimanagement/v20191201preview:Tag" }, { type: "azure-native:apimanagement/v20200601preview:Tag" }, { type: "azure-nextgen:apimanagement/v20200601preview:Tag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Tag.__pulumiType, name, inputs, opts);
     }

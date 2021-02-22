@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Alert rule.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAlertRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAlertRule'. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
-    pulumi.log.warn("getAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAlertRule'.")
+    pulumi.log.warn("getAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAlertRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/latest:getAlertRule", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/latest:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,
         "workspaceName": args.workspaceName,

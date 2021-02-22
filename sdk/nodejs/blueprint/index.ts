@@ -36,17 +36,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:blueprint:Artifact":
+            case "azure-native:blueprint:Artifact":
                 return new Artifact(name, <any>undefined, { urn })
-            case "azure-nextgen:blueprint:Assignment":
+            case "azure-native:blueprint:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
-            case "azure-nextgen:blueprint:Blueprint":
+            case "azure-native:blueprint:Blueprint":
                 return new Blueprint(name, <any>undefined, { urn })
-            case "azure-nextgen:blueprint:PublishedBlueprint":
+            case "azure-native:blueprint:PublishedBlueprint":
                 return new PublishedBlueprint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "blueprint", _module)
+pulumi.runtime.registerResourceModule("azure-native", "blueprint", _module)

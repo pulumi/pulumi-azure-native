@@ -23,7 +23,7 @@ export class CustomImage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab:CustomImage';
+    public static readonly __pulumiType = 'azure-native:devtestlab:CustomImage';
 
     /**
      * Returns true if the given object is an instance of CustomImage.  This is designed to work even
@@ -160,7 +160,7 @@ export class CustomImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/latest:CustomImage" }, { type: "azure-nextgen:devtestlab/latest:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }, { type: "azure-native:devtestlab/v20180915:CustomImage" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomImage.__pulumiType, name, inputs, opts);
     }

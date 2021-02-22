@@ -40,23 +40,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:machinelearningservices/v20200901preview:LabelingJob":
+            case "azure-native:machinelearningservices/v20200901preview:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:LinkedService":
+            case "azure-native:machinelearningservices/v20200901preview:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute":
+            case "azure-native:machinelearningservices/v20200901preview:MachineLearningCompute":
                 return new MachineLearningCompute(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService":
+            case "azure-native:machinelearningservices/v20200901preview:MachineLearningService":
                 return new MachineLearningService(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection":
+            case "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:Workspace":
+            case "azure-native:machinelearningservices/v20200901preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection":
+            case "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection":
                 return new WorkspaceConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "machinelearningservices/v20200901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "machinelearningservices/v20200901preview", _module)

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A schedule.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSchedule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSchedule'. */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-    pulumi.log.warn("getSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSchedule'.")
+    pulumi.log.warn("getSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSchedule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getSchedule", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getSchedule", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

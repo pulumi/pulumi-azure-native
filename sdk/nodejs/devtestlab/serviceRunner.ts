@@ -23,7 +23,7 @@ export class ServiceRunner extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab:ServiceRunner';
+    public static readonly __pulumiType = 'azure-native:devtestlab:ServiceRunner';
 
     /**
      * Returns true if the given object is an instance of ServiceRunner.  This is designed to work even
@@ -94,7 +94,7 @@ export class ServiceRunner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20160515:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceRunner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/latest:ServiceRunner" }, { type: "azure-nextgen:devtestlab/latest:ServiceRunner" }, { type: "azure-native:devtestlab/v20160515:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20160515:ServiceRunner" }, { type: "azure-native:devtestlab/v20180915:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceRunner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceRunner.__pulumiType, name, inputs, opts);
     }

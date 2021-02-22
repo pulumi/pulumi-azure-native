@@ -23,7 +23,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic:RosettaNetProcessConfiguration';
+    public static readonly __pulumiType = 'azure-native:logic:RosettaNetProcessConfiguration';
 
     /**
      * Returns true if the given object is an instance of RosettaNetProcessConfiguration.  This is designed to work even
@@ -167,7 +167,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:RosettaNetProcessConfiguration" }, { type: "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/latest:RosettaNetProcessConfiguration" }, { type: "azure-nextgen:logic/latest:RosettaNetProcessConfiguration" }, { type: "azure-native:logic/v20160601:RosettaNetProcessConfiguration" }, { type: "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RosettaNetProcessConfiguration.__pulumiType, name, inputs, opts);
     }

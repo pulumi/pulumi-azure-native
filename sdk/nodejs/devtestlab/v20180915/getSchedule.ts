@@ -16,7 +16,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20180915:getSchedule", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getSchedule", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

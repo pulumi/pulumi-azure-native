@@ -41,15 +41,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:management:HierarchySetting":
+            case "azure-native:management:HierarchySetting":
                 return new HierarchySetting(name, <any>undefined, { urn })
-            case "azure-nextgen:management:ManagementGroup":
+            case "azure-native:management:ManagementGroup":
                 return new ManagementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:management:ManagementGroupSubscription":
+            case "azure-native:management:ManagementGroupSubscription":
                 return new ManagementGroupSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "management", _module)
+pulumi.runtime.registerResourceModule("azure-native", "management", _module)

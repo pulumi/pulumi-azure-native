@@ -16,7 +16,7 @@ export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20190801preview:getDataExport", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20190801preview:getDataExport", {
         "dataExportName": args.dataExportName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

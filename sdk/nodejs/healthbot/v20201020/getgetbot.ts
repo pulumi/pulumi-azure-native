@@ -16,7 +16,7 @@ export function getgetbot(args: GetgetbotArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:healthbot/v20201020:getgetbot", {
+    return pulumi.runtime.invoke("azure-native:healthbot/v20201020:getgetbot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

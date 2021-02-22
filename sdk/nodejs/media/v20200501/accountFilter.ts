@@ -22,7 +22,7 @@ export class AccountFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/v20200501:AccountFilter';
+    public static readonly __pulumiType = 'azure-native:media/v20200501:AccountFilter';
 
     /**
      * Returns true if the given object is an instance of AccountFilter.  This is designed to work even
@@ -100,7 +100,7 @@ export class AccountFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:AccountFilter" }, { type: "azure-nextgen:media/latest:AccountFilter" }, { type: "azure-nextgen:media/v20180701:AccountFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:AccountFilter" }, { type: "azure-nextgen:media:AccountFilter" }, { type: "azure-native:media/latest:AccountFilter" }, { type: "azure-nextgen:media/latest:AccountFilter" }, { type: "azure-native:media/v20180701:AccountFilter" }, { type: "azure-nextgen:media/v20180701:AccountFilter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccountFilter.__pulumiType, name, inputs, opts);
     }

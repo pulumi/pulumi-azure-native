@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
  * The task will have all information to schedule a run against it.
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listTaskDetails'. */
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
-    pulumi.log.warn("listTaskDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'.")
+    pulumi.log.warn("listTaskDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listTaskDetails'.")
     if (!opts) {
         opts = {}
     }
@@ -20,7 +20,7 @@ export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listTaskDetails", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:listTaskDetails", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskName": args.taskName,

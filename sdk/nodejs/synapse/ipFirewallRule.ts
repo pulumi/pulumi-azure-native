@@ -22,7 +22,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse:IpFirewallRule';
+    public static readonly __pulumiType = 'azure-native:synapse:IpFirewallRule';
 
     /**
      * Returns true if the given object is an instance of IpFirewallRule.  This is designed to work even
@@ -94,7 +94,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:IpFirewallRule" }, { type: "azure-nextgen:synapse/latest:IpFirewallRule" }, { type: "azure-native:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-native:synapse/v20201201:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpFirewallRule.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200801:CustomIPPrefix';
+    public static readonly __pulumiType = 'azure-native:network/v20200801:CustomIPPrefix';
 
     /**
      * Returns true if the given object is an instance of CustomIPPrefix.  This is designed to work even
@@ -133,7 +133,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:CustomIPPrefix" }, { type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-native:network/latest:CustomIPPrefix" }, { type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }

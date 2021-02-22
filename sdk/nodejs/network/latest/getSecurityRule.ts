@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Network security rule.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSecurityRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityRule'. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-    pulumi.log.warn("getSecurityRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSecurityRule'.")
+    pulumi.log.warn("getSecurityRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getSecurityRule", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
         "securityRuleName": args.securityRuleName,

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The bandwidth schedule details.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BandwidthSchedule {
-        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.")
+        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.")
         return new BandwidthSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:BandwidthSchedule';
+    public static readonly __pulumiType = 'azure-native:databoxedge/latest:BandwidthSchedule';
 
     /**
      * Returns true if the given object is an instance of BandwidthSchedule.  This is designed to work even
@@ -75,9 +75,9 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'. */
     constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.")
+        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.days === undefined) && !(opts && opts.urn)) {
@@ -123,7 +123,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200901preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSchedule.__pulumiType, name, inputs, opts);
     }

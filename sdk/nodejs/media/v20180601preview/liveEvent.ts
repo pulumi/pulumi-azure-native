@@ -22,7 +22,7 @@ export class LiveEvent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/v20180601preview:LiveEvent';
+    public static readonly __pulumiType = 'azure-native:media/v20180601preview:LiveEvent';
 
     /**
      * Returns true if the given object is an instance of LiveEvent.  This is designed to work even
@@ -158,7 +158,7 @@ export class LiveEvent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:LiveEvent" }, { type: "azure-nextgen:media/latest:LiveEvent" }, { type: "azure-nextgen:media/v20180330preview:LiveEvent" }, { type: "azure-nextgen:media/v20180701:LiveEvent" }, { type: "azure-nextgen:media/v20190501preview:LiveEvent" }, { type: "azure-nextgen:media/v20200501:LiveEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveEvent" }, { type: "azure-nextgen:media:LiveEvent" }, { type: "azure-native:media/latest:LiveEvent" }, { type: "azure-nextgen:media/latest:LiveEvent" }, { type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-nextgen:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-nextgen:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-nextgen:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }, { type: "azure-nextgen:media/v20200501:LiveEvent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LiveEvent.__pulumiType, name, inputs, opts);
     }

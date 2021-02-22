@@ -23,7 +23,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:AppServicePlan';
+    public static readonly __pulumiType = 'azure-native:web:AppServicePlan';
 
     /**
      * Returns true if the given object is an instance of AppServicePlan.  This is designed to work even
@@ -217,7 +217,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServicePlan" }, { type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }, { type: "azure-nextgen:web/v20201001:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:AppServicePlan" }, { type: "azure-nextgen:web/latest:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-nextgen:web/v20201001:AppServicePlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }

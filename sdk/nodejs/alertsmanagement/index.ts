@@ -41,15 +41,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:alertsmanagement:ActionRuleByName":
+            case "azure-native:alertsmanagement:ActionRuleByName":
                 return new ActionRuleByName(name, <any>undefined, { urn })
-            case "azure-nextgen:alertsmanagement:HealthAlert":
+            case "azure-native:alertsmanagement:HealthAlert":
                 return new HealthAlert(name, <any>undefined, { urn })
-            case "azure-nextgen:alertsmanagement:SmartDetectorAlertRule":
+            case "azure-native:alertsmanagement:SmartDetectorAlertRule":
                 return new SmartDetectorAlertRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "alertsmanagement", _module)
+pulumi.runtime.registerResourceModule("azure-native", "alertsmanagement", _module)

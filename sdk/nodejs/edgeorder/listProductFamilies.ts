@@ -17,7 +17,7 @@ export function listProductFamilies(args: ListProductFamiliesArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:edgeorder:listProductFamilies", {
+    return pulumi.runtime.invoke("azure-native:edgeorder:listProductFamilies", {
         "customerSubscriptionDetails": args.customerSubscriptionDetails,
         "expand": args.expand,
         "filterableProperties": args.filterableProperties,

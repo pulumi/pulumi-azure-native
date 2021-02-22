@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * LogAnalytics operation status response
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportThrottledRequests'. */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
-    pulumi.log.warn("getLogAnalyticExportThrottledRequests is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.")
+    pulumi.log.warn("getLogAnalyticExportThrottledRequests is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportThrottledRequests'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExport
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getLogAnalyticExportThrottledRequests", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getLogAnalyticExportThrottledRequests", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,
         "groupByClientApplicationId": args.groupByClientApplicationId,

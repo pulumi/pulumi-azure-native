@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listVirtualMachineApplicableSchedules'. */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
-    pulumi.log.warn("listVirtualMachineApplicableSchedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules'.")
+    pulumi.log.warn("listVirtualMachineApplicableSchedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listVirtualMachineApplicableSchedules'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineAp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:listVirtualMachineApplicableSchedules", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

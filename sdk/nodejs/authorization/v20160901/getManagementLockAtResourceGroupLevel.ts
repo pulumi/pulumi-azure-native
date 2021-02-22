@@ -16,7 +16,7 @@ export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/v20160901:getManagementLockAtResourceGroupLevel", {
+    return pulumi.runtime.invoke("azure-native:authorization/v20160901:getManagementLockAtResourceGroupLevel", {
         "lockName": args.lockName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

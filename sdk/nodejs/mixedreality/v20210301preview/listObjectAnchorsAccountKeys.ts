@@ -16,7 +16,7 @@ export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

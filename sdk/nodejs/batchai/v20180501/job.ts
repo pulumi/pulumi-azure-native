@@ -22,7 +22,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batchai/v20180501:Job';
+    public static readonly __pulumiType = 'azure-native:batchai/v20180501:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -263,7 +263,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai:Job" }, { type: "azure-nextgen:batchai/latest:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batchai:Job" }, { type: "azure-nextgen:batchai:Job" }, { type: "azure-native:batchai/latest:Job" }, { type: "azure-nextgen:batchai/latest:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the module type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getModule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getModule'. */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
-    pulumi.log.warn("getModule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getModule'.")
+    pulumi.log.warn("getModule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getModule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getModule", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getModule", {
         "automationAccountName": args.automationAccountName,
         "moduleName": args.moduleName,
         "resourceGroupName": args.resourceGroupName,

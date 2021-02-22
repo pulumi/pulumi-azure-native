@@ -135,89 +135,89 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20200801preview:Database":
+            case "azure-native:sql/v20200801preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy":
+            case "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy":
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessment":
+            case "azure-native:sql/v20200801preview:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:sql/v20200801preview:DatabaseVulnerabilityAssessmentRuleBaseline":
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ElasticPool":
+            case "azure-native:sql/v20200801preview:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:FailoverGroup":
+            case "azure-native:sql/v20200801preview:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:FirewallRule":
+            case "azure-native:sql/v20200801preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup":
+            case "azure-native:sql/v20200801preview:InstanceFailoverGroup":
                 return new InstanceFailoverGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:InstancePool":
+            case "azure-native:sql/v20200801preview:InstancePool":
                 return new InstancePool(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:Job":
+            case "azure-native:sql/v20200801preview:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:JobAgent":
+            case "azure-native:sql/v20200801preview:JobAgent":
                 return new JobAgent(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:JobCredential":
+            case "azure-native:sql/v20200801preview:JobCredential":
                 return new JobCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:JobStep":
+            case "azure-native:sql/v20200801preview:JobStep":
                 return new JobStep(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:JobTargetGroup":
+            case "azure-native:sql/v20200801preview:JobTargetGroup":
                 return new JobTargetGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedDatabase":
+            case "azure-native:sql/v20200801preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel":
+            case "azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel":
                 return new ManagedDatabaseSensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessment":
+            case "azure-native:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessment":
                 return new ManagedDatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
                 return new ManagedDatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstance":
+            case "azure-native:sql/v20200801preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator":
+            case "azure-native:sql/v20200801preview:ManagedInstanceAdministrator":
                 return new ManagedInstanceAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication":
+            case "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication":
                 return new ManagedInstanceAzureADOnlyAuthentication(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstanceKey":
+            case "azure-native:sql/v20200801preview:ManagedInstanceKey":
                 return new ManagedInstanceKey(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection":
+            case "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection":
                 return new ManagedInstancePrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ManagedInstanceVulnerabilityAssessment":
+            case "azure-native:sql/v20200801preview:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:PrivateEndpointConnection":
+            case "azure-native:sql/v20200801preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:SensitivityLabel":
+            case "azure-native:sql/v20200801preview:SensitivityLabel":
                 return new SensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:Server":
+            case "azure-native:sql/v20200801preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator":
+            case "azure-native:sql/v20200801preview:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication":
+            case "azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication":
                 return new ServerAzureADOnlyAuthentication(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerDnsAlias":
+            case "azure-native:sql/v20200801preview:ServerDnsAlias":
                 return new ServerDnsAlias(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerKey":
+            case "azure-native:sql/v20200801preview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerTrustGroup":
+            case "azure-native:sql/v20200801preview:ServerTrustGroup":
                 return new ServerTrustGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:ServerVulnerabilityAssessment":
+            case "azure-native:sql/v20200801preview:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:SyncAgent":
+            case "azure-native:sql/v20200801preview:SyncAgent":
                 return new SyncAgent(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:SyncGroup":
+            case "azure-native:sql/v20200801preview:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:SyncMember":
+            case "azure-native:sql/v20200801preview:SyncMember":
                 return new SyncMember(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:TransparentDataEncryption":
+            case "azure-native:sql/v20200801preview:TransparentDataEncryption":
                 return new TransparentDataEncryption(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:VirtualNetworkRule":
+            case "azure-native:sql/v20200801preview:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:WorkloadClassifier":
+            case "azure-native:sql/v20200801preview:WorkloadClassifier":
                 return new WorkloadClassifier(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20200801preview:WorkloadGroup":
+            case "azure-native:sql/v20200801preview:WorkloadGroup":
                 return new WorkloadGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20200801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20200801preview", _module)

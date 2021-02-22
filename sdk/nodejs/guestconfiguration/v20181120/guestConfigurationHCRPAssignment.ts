@@ -22,7 +22,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment';
+    public static readonly __pulumiType = 'azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment';
 
     /**
      * Returns true if the given object is an instance of GuestConfigurationHCRPAssignment.  This is designed to work even
@@ -88,7 +88,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/latest:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationHCRPAssignment.__pulumiType, name, inputs, opts);
     }

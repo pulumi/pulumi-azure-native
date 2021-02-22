@@ -16,7 +16,7 @@ export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:solutions/v20180601:getApplicationDefinition", {
+    return pulumi.runtime.invoke("azure-native:solutions/v20180601:getApplicationDefinition", {
         "applicationDefinitionName": args.applicationDefinitionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

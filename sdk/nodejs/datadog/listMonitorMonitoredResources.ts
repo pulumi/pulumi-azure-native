@@ -17,7 +17,7 @@ export function listMonitorMonitoredResources(args: ListMonitorMonitoredResource
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datadog:listMonitorMonitoredResources", {
+    return pulumi.runtime.invoke("azure-native:datadog:listMonitorMonitoredResources", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

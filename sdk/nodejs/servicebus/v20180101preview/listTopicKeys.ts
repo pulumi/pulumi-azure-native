@@ -16,7 +16,7 @@ export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:listTopicKeys", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:listTopicKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

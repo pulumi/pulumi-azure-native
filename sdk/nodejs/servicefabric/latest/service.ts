@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The service resource.
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
-        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.")
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric/latest:Service';
+    public static readonly __pulumiType = 'azure-native:servicefabric/latest:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -111,9 +111,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.")
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
@@ -173,7 +173,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:Service" }, { type: "azure-nextgen:servicefabric/v20170701preview:Service" }, { type: "azure-nextgen:servicefabric/v20190301:Service" }, { type: "azure-nextgen:servicefabric/v20190301preview:Service" }, { type: "azure-nextgen:servicefabric/v20190601preview:Service" }, { type: "azure-nextgen:servicefabric/v20191101preview:Service" }, { type: "azure-nextgen:servicefabric/v20200301:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:Service" }, { type: "azure-nextgen:servicefabric:Service" }, { type: "azure-native:servicefabric/v20170701preview:Service" }, { type: "azure-nextgen:servicefabric/v20170701preview:Service" }, { type: "azure-native:servicefabric/v20190301:Service" }, { type: "azure-nextgen:servicefabric/v20190301:Service" }, { type: "azure-native:servicefabric/v20190301preview:Service" }, { type: "azure-nextgen:servicefabric/v20190301preview:Service" }, { type: "azure-native:servicefabric/v20190601preview:Service" }, { type: "azure-nextgen:servicefabric/v20190601preview:Service" }, { type: "azure-native:servicefabric/v20191101preview:Service" }, { type: "azure-nextgen:servicefabric/v20191101preview:Service" }, { type: "azure-native:servicefabric/v20200301:Service" }, { type: "azure-nextgen:servicefabric/v20200301:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

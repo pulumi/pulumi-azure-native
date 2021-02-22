@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Policy Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProductPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProductPolicy'. */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
-    pulumi.log.warn("getProductPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProductPolicy'.")
+    pulumi.log.warn("getProductPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProductPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getProductPolicy", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getProductPolicy", {
         "format": args.format,
         "policyId": args.policyId,
         "productId": args.productId,

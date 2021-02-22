@@ -16,7 +16,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20171001preview:getDatabase", {
+    return pulumi.runtime.invoke("azure-native:sql/v20171001preview:getDatabase", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -21,7 +21,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200501:VirtualRouterPeering';
+    public static readonly __pulumiType = 'azure-native:network/v20200501:VirtualRouterPeering';
 
     /**
      * Returns true if the given object is an instance of VirtualRouterPeering.  This is designed to work even
@@ -100,7 +100,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualRouterPeering" }, { type: "azure-nextgen:network/latest:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190701:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190801:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190901:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20191101:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20191201:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200301:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200401:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200601:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200701:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200801:VirtualRouterPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualRouterPeering" }, { type: "azure-nextgen:network:VirtualRouterPeering" }, { type: "azure-native:network/latest:VirtualRouterPeering" }, { type: "azure-nextgen:network/latest:VirtualRouterPeering" }, { type: "azure-native:network/v20190701:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190701:VirtualRouterPeering" }, { type: "azure-native:network/v20190801:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190801:VirtualRouterPeering" }, { type: "azure-native:network/v20190901:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20190901:VirtualRouterPeering" }, { type: "azure-native:network/v20191101:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20191101:VirtualRouterPeering" }, { type: "azure-native:network/v20191201:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20191201:VirtualRouterPeering" }, { type: "azure-native:network/v20200301:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200301:VirtualRouterPeering" }, { type: "azure-native:network/v20200401:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200401:VirtualRouterPeering" }, { type: "azure-native:network/v20200601:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200601:VirtualRouterPeering" }, { type: "azure-native:network/v20200701:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200701:VirtualRouterPeering" }, { type: "azure-native:network/v20200801:VirtualRouterPeering" }, { type: "azure-nextgen:network/v20200801:VirtualRouterPeering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualRouterPeering.__pulumiType, name, inputs, opts);
     }

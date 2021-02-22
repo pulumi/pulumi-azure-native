@@ -23,7 +23,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:InstanceFailoverGroup';
+    public static readonly __pulumiType = 'azure-native:sql:InstanceFailoverGroup';
 
     /**
      * Returns true if the given object is an instance of InstanceFailoverGroup.  This is designed to work even
@@ -122,7 +122,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InstanceFailoverGroup.__pulumiType, name, inputs, opts);
     }

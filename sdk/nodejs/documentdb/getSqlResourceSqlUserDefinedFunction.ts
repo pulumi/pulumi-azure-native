@@ -17,7 +17,7 @@ export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUser
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getSqlResourceSqlUserDefinedFunction", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlUserDefinedFunction", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,

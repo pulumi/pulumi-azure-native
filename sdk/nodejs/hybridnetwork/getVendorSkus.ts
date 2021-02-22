@@ -17,7 +17,7 @@ export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork:getVendorSkus", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendorSkus", {
         "skuName": args.skuName,
         "vendorName": args.vendorName,
     }, opts);

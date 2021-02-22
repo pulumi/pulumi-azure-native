@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response for GetActiveSessions.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getActiveSessions'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getActiveSessions'. */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
-    pulumi.log.warn("getActiveSessions is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getActiveSessions'.")
+    pulumi.log.warn("getActiveSessions is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getActiveSessions'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getActiveSessions", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getActiveSessions", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -36,21 +36,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datafactory/v20170901preview:Dataset":
+            case "azure-native:datafactory/v20170901preview:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20170901preview:Factory":
+            case "azure-native:datafactory/v20170901preview:Factory":
                 return new Factory(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime":
+            case "azure-native:datafactory/v20170901preview:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20170901preview:LinkedService":
+            case "azure-native:datafactory/v20170901preview:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20170901preview:Pipeline":
+            case "azure-native:datafactory/v20170901preview:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20170901preview:Trigger":
+            case "azure-native:datafactory/v20170901preview:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datafactory/v20170901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datafactory/v20170901preview", _module)

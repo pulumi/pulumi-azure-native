@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey":
+            case "azure-native:network/v20170901preview:TrafficManagerUserMetricsKey":
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20170901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20170901preview", _module)

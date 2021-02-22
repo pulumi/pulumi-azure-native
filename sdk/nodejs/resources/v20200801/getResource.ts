@@ -16,7 +16,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/v20200801:getResource", {
+    return pulumi.runtime.invoke("azure-native:resources/v20200801:getResource", {
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

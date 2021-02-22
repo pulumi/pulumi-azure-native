@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * ExpressRoute Circuit Authorization
  * Latest API Version: 2020-03-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getAuthorization'. */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
-    pulumi.log.warn("getAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'.")
+    pulumi.log.warn("getAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getAuthorization'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/latest:getAuthorization", {
+    return pulumi.runtime.invoke("azure-native:avs/latest:getAuthorization", {
         "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

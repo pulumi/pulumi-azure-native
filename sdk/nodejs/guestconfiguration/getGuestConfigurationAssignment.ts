@@ -17,7 +17,7 @@ export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:guestconfiguration:getGuestConfigurationAssignment", {
+    return pulumi.runtime.invoke("azure-native:guestconfiguration:getGuestConfigurationAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,

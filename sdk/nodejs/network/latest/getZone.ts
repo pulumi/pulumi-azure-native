@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a DNS zone.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getZone'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getZone'. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    pulumi.log.warn("getZone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getZone'.")
+    pulumi.log.warn("getZone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getZone'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getZone", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getZone", {
         "resourceGroupName": args.resourceGroupName,
         "zoneName": args.zoneName,
     }, opts);

@@ -16,7 +16,7 @@ export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/v20191202preview:getSpatialAnchorsAccount", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/v20191202preview:getSpatialAnchorsAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

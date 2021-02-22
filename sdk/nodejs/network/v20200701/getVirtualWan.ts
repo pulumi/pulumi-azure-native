@@ -16,7 +16,7 @@ export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200701:getVirtualWan", {
+    return pulumi.runtime.invoke("azure-native:network/v20200701:getVirtualWan", {
         "resourceGroupName": args.resourceGroupName,
         "virtualWANName": args.virtualWANName,
     }, opts);

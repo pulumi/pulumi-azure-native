@@ -22,7 +22,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningexperimentation/v20170501preview:Account';
+    public static readonly __pulumiType = 'azure-native:machinelearningexperimentation/v20170501preview:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -153,7 +153,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningexperimentation:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningexperimentation:Account" }, { type: "azure-nextgen:machinelearningexperimentation:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

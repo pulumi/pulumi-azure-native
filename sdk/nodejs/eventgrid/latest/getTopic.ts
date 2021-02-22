@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * EventGrid Topic
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getTopic'. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.")
+    pulumi.log.warn("getTopic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getTopic'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:getTopic", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/latest:getTopic", {
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
     }, opts);

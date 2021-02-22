@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a database transparent data encryption configuration.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getTransparentDataEncryption'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getTransparentDataEncryption'. */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
-    pulumi.log.warn("getTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getTransparentDataEncryption'.")
+    pulumi.log.warn("getTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getTransparentDataEncryption'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTransparentDataEncryption(args: GetTransparentDataEncryptionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getTransparentDataEncryption", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getTransparentDataEncryption", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

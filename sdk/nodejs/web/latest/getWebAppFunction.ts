@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Function information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppFunction'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppFunction'. */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
-    pulumi.log.warn("getWebAppFunction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppFunction'.")
+    pulumi.log.warn("getWebAppFunction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppFunction'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppFunction", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppFunction", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

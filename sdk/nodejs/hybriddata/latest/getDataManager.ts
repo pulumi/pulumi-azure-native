@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The DataManager resource.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataManager'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataManager'. */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
-    pulumi.log.warn("getDataManager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataManager'.")
+    pulumi.log.warn("getDataManager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataManager'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata/latest:getDataManager", {
+    return pulumi.runtime.invoke("azure-native:hybriddata/latest:getDataManager", {
         "dataManagerName": args.dataManagerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

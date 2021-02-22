@@ -21,11 +21,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerservice/v20180801preview:ManagedCluster":
+            case "azure-native:containerservice/v20180801preview:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerservice/v20180801preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerservice/v20180801preview", _module)

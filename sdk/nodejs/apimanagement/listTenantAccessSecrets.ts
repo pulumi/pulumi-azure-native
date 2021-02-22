@@ -17,7 +17,7 @@ export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:listTenantAccessSecrets", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:listTenantAccessSecrets", {
         "accessName": args.accessName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

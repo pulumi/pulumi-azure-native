@@ -16,7 +16,7 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

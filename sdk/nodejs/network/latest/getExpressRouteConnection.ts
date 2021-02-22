@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * ExpressRouteConnection resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteConnection'. */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
-    pulumi.log.warn("getExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteConnection'.")
+    pulumi.log.warn("getExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteConnection", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getExpressRouteConnection", {
         "connectionName": args.connectionName,
         "expressRouteGatewayName": args.expressRouteGatewayName,
         "resourceGroupName": args.resourceGroupName,

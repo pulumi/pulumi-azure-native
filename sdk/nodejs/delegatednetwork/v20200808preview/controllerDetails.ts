@@ -21,7 +21,7 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails';
+    public static readonly __pulumiType = 'azure-native:delegatednetwork/v20200808preview:ControllerDetails';
 
     /**
      * Returns true if the given object is an instance of ControllerDetails.  This is designed to work even
@@ -113,7 +113,7 @@ export class ControllerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:ControllerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:ControllerDetails" }, { type: "azure-nextgen:delegatednetwork:ControllerDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ControllerDetails.__pulumiType, name, inputs, opts);
     }

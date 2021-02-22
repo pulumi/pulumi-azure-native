@@ -17,7 +17,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault:getKey", {
+    return pulumi.runtime.invoke("azure-native:keyvault:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

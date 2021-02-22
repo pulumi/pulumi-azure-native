@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Log file URL payload
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeploymentLogFileUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getDeploymentLogFileUrl'. */
 export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentLogFileUrlResult> {
-    pulumi.log.warn("getDeploymentLogFileUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeploymentLogFileUrl'.")
+    pulumi.log.warn("getDeploymentLogFileUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getDeploymentLogFileUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getDeploymentLogFileUrl", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:getDeploymentLogFileUrl", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,

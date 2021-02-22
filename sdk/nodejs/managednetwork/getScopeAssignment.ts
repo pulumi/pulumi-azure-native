@@ -17,7 +17,7 @@ export function getScopeAssignment(args: GetScopeAssignmentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managednetwork:getScopeAssignment", {
+    return pulumi.runtime.invoke("azure-native:managednetwork:getScopeAssignment", {
         "scope": args.scope,
         "scopeAssignmentName": args.scopeAssignmentName,
     }, opts);

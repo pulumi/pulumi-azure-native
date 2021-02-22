@@ -17,7 +17,7 @@ export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notificationhubs:getNotificationHub", {
+    return pulumi.runtime.invoke("azure-native:notificationhubs:getNotificationHub", {
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,
         "resourceGroupName": args.resourceGroupName,

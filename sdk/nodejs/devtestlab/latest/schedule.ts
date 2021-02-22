@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A schedule.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Schedule'.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Schedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Schedule {
-        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.")
+        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Schedule'.")
         return new Schedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Schedule';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Schedule';
 
     /**
      * Returns true if the given object is an instance of Schedule.  This is designed to work even
@@ -107,9 +107,9 @@ export class Schedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Schedule'. */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.")
+        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Schedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -159,7 +159,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Schedule" }, { type: "azure-nextgen:devtestlab/v20150521preview:Schedule" }, { type: "azure-nextgen:devtestlab/v20160515:Schedule" }, { type: "azure-nextgen:devtestlab/v20180915:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Schedule" }, { type: "azure-nextgen:devtestlab:Schedule" }, { type: "azure-native:devtestlab/v20150521preview:Schedule" }, { type: "azure-nextgen:devtestlab/v20150521preview:Schedule" }, { type: "azure-native:devtestlab/v20160515:Schedule" }, { type: "azure-nextgen:devtestlab/v20160515:Schedule" }, { type: "azure-native:devtestlab/v20180915:Schedule" }, { type: "azure-nextgen:devtestlab/v20180915:Schedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schedule.__pulumiType, name, inputs, opts);
     }

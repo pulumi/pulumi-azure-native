@@ -22,7 +22,7 @@ export class App extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:iotcentral/v20170701privatepreview:App';
+    public static readonly __pulumiType = 'azure-native:iotcentral/v20170701privatepreview:App';
 
     /**
      * Returns true if the given object is an instance of App.  This is designed to work even
@@ -117,7 +117,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotcentral:App" }, { type: "azure-nextgen:iotcentral/latest:App" }, { type: "azure-nextgen:iotcentral/v20180901:App" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotcentral:App" }, { type: "azure-nextgen:iotcentral:App" }, { type: "azure-native:iotcentral/latest:App" }, { type: "azure-nextgen:iotcentral/latest:App" }, { type: "azure-native:iotcentral/v20180901:App" }, { type: "azure-nextgen:iotcentral/v20180901:App" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(App.__pulumiType, name, inputs, opts);
     }

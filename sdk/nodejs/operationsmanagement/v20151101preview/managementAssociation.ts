@@ -22,7 +22,7 @@ export class ManagementAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation';
+    public static readonly __pulumiType = 'azure-native:operationsmanagement/v20151101preview:ManagementAssociation';
 
     /**
      * Returns true if the given object is an instance of ManagementAssociation.  This is designed to work even
@@ -96,7 +96,7 @@ export class ManagementAssociation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationsmanagement:ManagementAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement:ManagementAssociation" }, { type: "azure-nextgen:operationsmanagement:ManagementAssociation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementAssociation.__pulumiType, name, inputs, opts);
     }

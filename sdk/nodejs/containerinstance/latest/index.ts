@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerinstance/latest:ContainerGroup":
+            case "azure-native:containerinstance/latest:ContainerGroup":
                 return new ContainerGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerinstance/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerinstance/latest", _module)

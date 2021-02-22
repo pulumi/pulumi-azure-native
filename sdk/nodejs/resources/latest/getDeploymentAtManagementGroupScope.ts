@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Deployment information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtManagementGroupScope'. */
 export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagementGroupScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtManagementGroupScopeResult> {
-    pulumi.log.warn("getDeploymentAtManagementGroupScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'.")
+    pulumi.log.warn("getDeploymentAtManagementGroupScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtManagementGroupScope'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagem
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtManagementGroupScope", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getDeploymentAtManagementGroupScope", {
         "deploymentName": args.deploymentName,
         "groupId": args.groupId,
     }, opts);

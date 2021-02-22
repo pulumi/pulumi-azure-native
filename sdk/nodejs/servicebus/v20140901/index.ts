@@ -36,23 +36,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:servicebus/v20140901:Namespace":
+            case "azure-native:servicebus/v20140901:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule":
+            case "azure-native:servicebus/v20140901:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:Queue":
+            case "azure-native:servicebus/v20140901:Queue":
                 return new Queue(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:QueueAuthorizationRule":
+            case "azure-native:servicebus/v20140901:QueueAuthorizationRule":
                 return new QueueAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:Subscription":
+            case "azure-native:servicebus/v20140901:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:Topic":
+            case "azure-native:servicebus/v20140901:Topic":
                 return new Topic(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule":
+            case "azure-native:servicebus/v20140901:TopicAuthorizationRule":
                 return new TopicAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "servicebus/v20140901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "servicebus/v20140901", _module)

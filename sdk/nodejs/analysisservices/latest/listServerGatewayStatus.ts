@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Status of gateway is live.
  * Latest API Version: 2017-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:listServerGatewayStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'. */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
-    pulumi.log.warn("listServerGatewayStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:listServerGatewayStatus'.")
+    pulumi.log.warn("listServerGatewayStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:analysisservices/latest:listServerGatewayStatus", {
+    return pulumi.runtime.invoke("azure-native:analysisservices/latest:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

@@ -22,7 +22,7 @@ export class Prefix extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/v20200101preview:Prefix';
+    public static readonly __pulumiType = 'azure-native:peering/v20200101preview:Prefix';
 
     /**
      * Returns true if the given object is an instance of Prefix.  This is designed to work even
@@ -118,7 +118,7 @@ export class Prefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:Prefix" }, { type: "azure-nextgen:peering/latest:Prefix" }, { type: "azure-nextgen:peering/v20190801preview:Prefix" }, { type: "azure-nextgen:peering/v20190901preview:Prefix" }, { type: "azure-nextgen:peering/v20200401:Prefix" }, { type: "azure-nextgen:peering/v20201001:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:Prefix" }, { type: "azure-nextgen:peering:Prefix" }, { type: "azure-native:peering/latest:Prefix" }, { type: "azure-nextgen:peering/latest:Prefix" }, { type: "azure-native:peering/v20190801preview:Prefix" }, { type: "azure-nextgen:peering/v20190801preview:Prefix" }, { type: "azure-native:peering/v20190901preview:Prefix" }, { type: "azure-nextgen:peering/v20190901preview:Prefix" }, { type: "azure-native:peering/v20200401:Prefix" }, { type: "azure-nextgen:peering/v20200401:Prefix" }, { type: "azure-native:peering/v20201001:Prefix" }, { type: "azure-nextgen:peering/v20201001:Prefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prefix.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A DataSet data transfer object.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSet'. */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
-    pulumi.log.warn("getDataSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'.")
+    pulumi.log.warn("getDataSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:getDataSet", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:getDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,
         "resourceGroupName": args.resourceGroupName,

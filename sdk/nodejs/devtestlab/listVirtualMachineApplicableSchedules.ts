@@ -17,7 +17,7 @@ export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineAp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class QueueServiceProperties extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:QueueServiceProperties';
+    public static readonly __pulumiType = 'azure-native:storage:QueueServiceProperties';
 
     /**
      * Returns true if the given object is an instance of QueueServiceProperties.  This is designed to work even
@@ -83,7 +83,7 @@ export class QueueServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210101:QueueServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:QueueServiceProperties" }, { type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210101:QueueServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(QueueServiceProperties.__pulumiType, name, inputs, opts);
     }

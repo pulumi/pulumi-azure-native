@@ -22,7 +22,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datadog:Monitor';
+    public static readonly __pulumiType = 'azure-native:datadog:Monitor';
 
     /**
      * Returns true if the given object is an instance of Monitor.  This is designed to work even
@@ -90,7 +90,7 @@ export class Monitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datadog/v20200201preview:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-nextgen:datadog/v20200201preview:Monitor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Monitor.__pulumiType, name, inputs, opts);
     }

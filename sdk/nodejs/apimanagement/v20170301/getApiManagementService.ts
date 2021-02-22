@@ -16,7 +16,7 @@ export function getApiManagementService(args: GetApiManagementServiceArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20170301:getApiManagementService", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

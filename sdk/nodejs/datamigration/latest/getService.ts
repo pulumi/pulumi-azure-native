@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Database Migration Service resource
  * Latest API Version: 2018-04-19.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getService'. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'.")
+    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datamigration/latest:getService", {
+    return pulumi.runtime.invoke("azure-native:datamigration/latest:getService", {
         "groupName": args.groupName,
         "serviceName": args.serviceName,
     }, opts);

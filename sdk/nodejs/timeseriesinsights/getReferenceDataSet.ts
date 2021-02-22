@@ -17,7 +17,7 @@ export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights:getReferenceDataSet", {
+    return pulumi.runtime.invoke("azure-native:timeseriesinsights:getReferenceDataSet", {
         "environmentName": args.environmentName,
         "referenceDataSetName": args.referenceDataSetName,
         "resourceGroupName": args.resourceGroupName,

@@ -22,7 +22,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:eventhub/v20140901:NamespaceAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of NamespaceAuthorizationRule.  This is designed to work even
@@ -91,7 +91,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/latest:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/latest:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/latest:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }

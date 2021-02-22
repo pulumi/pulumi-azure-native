@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Provider details.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryServicesProvider'. */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
-    pulumi.log.warn("getReplicationRecoveryServicesProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider'.")
+    pulumi.log.warn("getReplicationRecoveryServicesProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryServicesProvider'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationRecoveryServicesProvider(args: GetReplicationRecov
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationRecoveryServicesProvider", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

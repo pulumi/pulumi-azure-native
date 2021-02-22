@@ -17,7 +17,7 @@ export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getWebAppRelayServiceConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web:getWebAppRelayServiceConnectionSlot", {
         "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class Ledger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:confidentialledger:Ledger';
+    public static readonly __pulumiType = 'azure-native:confidentialledger:Ledger';
 
     /**
      * Returns true if the given object is an instance of Ledger.  This is designed to work even
@@ -97,7 +97,7 @@ export class Ledger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:confidentialledger/v20201201preview:Ledger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20201201preview:Ledger" }, { type: "azure-nextgen:confidentialledger/v20201201preview:Ledger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Ledger.__pulumiType, name, inputs, opts);
     }

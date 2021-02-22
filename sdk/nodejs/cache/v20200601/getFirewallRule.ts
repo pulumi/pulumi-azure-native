@@ -16,7 +16,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/v20200601:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:cache/v20200601:getFirewallRule", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

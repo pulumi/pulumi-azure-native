@@ -16,7 +16,7 @@ export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200801:getVirtualHubBgpConnection", {
+    return pulumi.runtime.invoke("azure-native:network/v20200801:getVirtualHubBgpConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.
  */
 export class RulesEngine extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RulesEngine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RulesEngine {
-        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")
+        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.")
         return new RulesEngine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:RulesEngine';
+    public static readonly __pulumiType = 'azure-native:network/latest:RulesEngine';
 
     /**
      * Returns true if the given object is an instance of RulesEngine.  This is designed to work even
@@ -63,9 +63,9 @@ export class RulesEngine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'. */
     constructor(name: string, args: RulesEngineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")
+        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +94,7 @@ export class RulesEngine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-nextgen:network:RulesEngine" }, { type: "azure-native:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20200501:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }

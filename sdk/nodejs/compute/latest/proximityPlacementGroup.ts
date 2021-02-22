@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Specifies information about the proximity placement group.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:ProximityPlacementGroup'.
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProximityPlacementGroup {
-        pulumi.log.warn("ProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'.")
+        pulumi.log.warn("ProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:ProximityPlacementGroup'.")
         return new ProximityPlacementGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:ProximityPlacementGroup';
+    public static readonly __pulumiType = 'azure-native:compute/latest:ProximityPlacementGroup';
 
     /**
      * Returns true if the given object is an instance of ProximityPlacementGroup.  This is designed to work even
@@ -83,9 +83,9 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:ProximityPlacementGroup'. */
     constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'.")
+        pulumi.log.warn("ProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:ProximityPlacementGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -120,7 +120,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20201201:ProximityPlacementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:ProximityPlacementGroup" }, { type: "azure-nextgen:compute:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-native:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-native:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20201201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20201201:ProximityPlacementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProximityPlacementGroup.__pulumiType, name, inputs, opts);
     }

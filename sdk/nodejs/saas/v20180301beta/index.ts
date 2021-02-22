@@ -20,11 +20,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel":
+            case "azure-native:saas/v20180301beta:SaasSubscriptionLevel":
                 return new SaasSubscriptionLevel(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "saas/v20180301beta", _module)
+pulumi.runtime.registerResourceModule("azure-native", "saas/v20180301beta", _module)

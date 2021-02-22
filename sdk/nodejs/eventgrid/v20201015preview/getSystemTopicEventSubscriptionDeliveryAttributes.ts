@@ -16,7 +16,7 @@ export function getSystemTopicEventSubscriptionDeliveryAttributes(args: GetSyste
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "resourceGroupName": args.resourceGroupName,
         "systemTopicName": args.systemTopicName,

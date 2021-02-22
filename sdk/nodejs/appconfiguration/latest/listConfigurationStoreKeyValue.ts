@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The result of a request to retrieve a key-value from the specified configuration store.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'. */
 export function listConfigurationStoreKeyValue(args: ListConfigurationStoreKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeyValueResult> {
-    pulumi.log.warn("listConfigurationStoreKeyValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.")
+    pulumi.log.warn("listConfigurationStoreKeyValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listConfigurationStoreKeyValue(args: ListConfigurationStoreKeyVa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeyValue", {
+    return pulumi.runtime.invoke("azure-native:appconfiguration/latest:listConfigurationStoreKeyValue", {
         "configStoreName": args.configStoreName,
         "key": args.key,
         "label": args.label,

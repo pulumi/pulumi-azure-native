@@ -22,7 +22,7 @@ export class GroupUser extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180601preview:GroupUser';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20180601preview:GroupUser';
 
     /**
      * Returns true if the given object is an instance of GroupUser.  This is designed to work even
@@ -128,7 +128,7 @@ export class GroupUser extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GroupUser" }, { type: "azure-nextgen:apimanagement/latest:GroupUser" }, { type: "azure-nextgen:apimanagement/v20170301:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20190101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:GroupUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GroupUser" }, { type: "azure-nextgen:apimanagement:GroupUser" }, { type: "azure-native:apimanagement/latest:GroupUser" }, { type: "azure-nextgen:apimanagement/latest:GroupUser" }, { type: "azure-native:apimanagement/v20170301:GroupUser" }, { type: "azure-nextgen:apimanagement/v20170301:GroupUser" }, { type: "azure-native:apimanagement/v20180101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180101:GroupUser" }, { type: "azure-native:apimanagement/v20190101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20190101:GroupUser" }, { type: "azure-native:apimanagement/v20191201:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201:GroupUser" }, { type: "azure-native:apimanagement/v20191201preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:GroupUser" }, { type: "azure-native:apimanagement/v20200601preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:GroupUser" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GroupUser.__pulumiType, name, inputs, opts);
     }

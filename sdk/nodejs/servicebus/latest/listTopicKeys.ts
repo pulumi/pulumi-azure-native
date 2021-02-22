@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Namespace/ServiceBus Connection String
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listTopicKeys'. */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
-    pulumi.log.warn("listTopicKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'.")
+    pulumi.log.warn("listTopicKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listTopicKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:listTopicKeys", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:listTopicKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

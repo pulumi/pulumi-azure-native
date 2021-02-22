@@ -16,7 +16,7 @@ export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScal
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20201201:getVirtualMachineScaleSetVMExtension", {
+    return pulumi.runtime.invoke("azure-native:compute/v20201201:getVirtualMachineScaleSetVMExtension", {
         "expand": args.expand,
         "instanceId": args.instanceId,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The lock information.
  * Latest API Version: 2016-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceLevel'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceLevel'. */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
-    pulumi.log.warn("getManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceLevel'.")
+    pulumi.log.warn("getManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceLevel'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementLockAtResourceLevel(args: GetManagementLockAtResour
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getManagementLockAtResourceLevel", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getManagementLockAtResourceLevel", {
         "lockName": args.lockName,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,

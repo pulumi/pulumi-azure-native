@@ -22,7 +22,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights/v20170101:RoleAssignment';
+    public static readonly __pulumiType = 'azure-native:customerinsights/v20170101:RoleAssignment';
 
     /**
      * Returns true if the given object is an instance of RoleAssignment.  This is designed to work even
@@ -201,7 +201,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:RoleAssignment" }, { type: "azure-nextgen:customerinsights/latest:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170426:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RoleAssignment" }, { type: "azure-nextgen:customerinsights:RoleAssignment" }, { type: "azure-native:customerinsights/latest:RoleAssignment" }, { type: "azure-nextgen:customerinsights/latest:RoleAssignment" }, { type: "azure-native:customerinsights/v20170426:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170426:RoleAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }

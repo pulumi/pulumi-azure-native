@@ -23,7 +23,7 @@ export class SerialPort extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:serialconsole:SerialPort';
+    public static readonly __pulumiType = 'azure-native:serialconsole:SerialPort';
 
     /**
      * Returns true if the given object is an instance of SerialPort.  This is designed to work even
@@ -91,7 +91,7 @@ export class SerialPort extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:serialconsole/latest:SerialPort" }, { type: "azure-nextgen:serialconsole/v20180501:SerialPort" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:serialconsole/latest:SerialPort" }, { type: "azure-nextgen:serialconsole/latest:SerialPort" }, { type: "azure-native:serialconsole/v20180501:SerialPort" }, { type: "azure-nextgen:serialconsole/v20180501:SerialPort" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SerialPort.__pulumiType, name, inputs, opts);
     }

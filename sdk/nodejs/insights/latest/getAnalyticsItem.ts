@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Properties that define an Analytics item that is associated to an Application Insights component.
  * Latest API Version: 2015-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAnalyticsItem'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAnalyticsItem'. */
 export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsItemResult> {
-    pulumi.log.warn("getAnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAnalyticsItem'.")
+    pulumi.log.warn("getAnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAnalyticsItem'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getAnalyticsItem", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getAnalyticsItem", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

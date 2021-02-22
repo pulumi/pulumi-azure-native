@@ -22,7 +22,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:quantum/v20191104preview:Workspace';
+    public static readonly __pulumiType = 'azure-native:quantum/v20191104preview:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -120,7 +120,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:quantum:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quantum:Workspace" }, { type: "azure-nextgen:quantum:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

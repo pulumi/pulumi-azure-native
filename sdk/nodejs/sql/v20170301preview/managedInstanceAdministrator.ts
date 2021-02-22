@@ -22,7 +22,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator';
+    public static readonly __pulumiType = 'azure-native:sql/v20170301preview:ManagedInstanceAdministrator';
 
     /**
      * Returns true if the given object is an instance of ManagedInstanceAdministrator.  This is designed to work even
@@ -109,7 +109,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstanceAdministrator.__pulumiType, name, inputs, opts);
     }

@@ -13,7 +13,7 @@ export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20150801preview:listIntegrationAccountCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/v20150801preview:listIntegrationAccountCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "notAfter": args.notAfter,
         "resourceGroupName": args.resourceGroupName,

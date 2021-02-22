@@ -23,7 +23,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:relay:HybridConnectionAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:relay:HybridConnectionAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of HybridConnectionAuthorizationRule.  This is designed to work even
@@ -90,7 +90,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay/latest:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/latest:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/latest:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnectionAuthorizationRule.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:WebAppSiteExtensionSlot';
+    public static readonly __pulumiType = 'azure-native:web:WebAppSiteExtensionSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSiteExtensionSlot.  This is designed to work even
@@ -209,7 +209,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSiteExtensionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/latest:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20160801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20200901:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20201001:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSiteExtensionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSiteExtensionSlot.__pulumiType, name, inputs, opts);
     }

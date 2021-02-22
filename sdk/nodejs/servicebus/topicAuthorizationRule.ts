@@ -23,7 +23,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:TopicAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:servicebus:TopicAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of TopicAuthorizationRule.  This is designed to work even
@@ -90,7 +90,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }

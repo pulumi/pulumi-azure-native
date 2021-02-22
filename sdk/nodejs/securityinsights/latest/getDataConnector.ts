@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data connector.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getDataConnector'. */
 export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectorResult> {
-    pulumi.log.warn("getDataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'.")
+    pulumi.log.warn("getDataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getDataConnector'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/latest:getDataConnector", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/latest:getDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

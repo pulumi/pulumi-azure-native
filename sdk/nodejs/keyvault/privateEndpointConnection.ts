@@ -23,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:keyvault:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:keyvault:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -113,7 +113,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20180214:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20190901:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/latest:PrivateEndpointConnection" }, { type: "azure-native:keyvault/v20180214:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20180214:PrivateEndpointConnection" }, { type: "azure-native:keyvault/v20190901:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20190901:PrivateEndpointConnection" }, { type: "azure-native:keyvault/v20200401preview:PrivateEndpointConnection" }, { type: "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

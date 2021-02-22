@@ -22,7 +22,7 @@ export class Relationship extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights/v20170426:Relationship';
+    public static readonly __pulumiType = 'azure-native:customerinsights/v20170426:Relationship';
 
     /**
      * Returns true if the given object is an instance of Relationship.  This is designed to work even
@@ -153,7 +153,7 @@ export class Relationship extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Relationship" }, { type: "azure-nextgen:customerinsights/latest:Relationship" }, { type: "azure-nextgen:customerinsights/v20170101:Relationship" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Relationship" }, { type: "azure-nextgen:customerinsights:Relationship" }, { type: "azure-native:customerinsights/latest:Relationship" }, { type: "azure-nextgen:customerinsights/latest:Relationship" }, { type: "azure-native:customerinsights/v20170101:Relationship" }, { type: "azure-nextgen:customerinsights/v20170101:Relationship" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Relationship.__pulumiType, name, inputs, opts);
     }

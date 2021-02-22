@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A Streaming Policy resource
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingPolicy'.
  */
 export class StreamingPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class StreamingPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingPolicy {
-        pulumi.log.warn("StreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.")
+        pulumi.log.warn("StreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingPolicy'.")
         return new StreamingPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/latest:StreamingPolicy';
+    public static readonly __pulumiType = 'azure-native:media/latest:StreamingPolicy';
 
     /**
      * Returns true if the given object is an instance of StreamingPolicy.  This is designed to work even
@@ -83,9 +83,9 @@ export class StreamingPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingPolicy'. */
     constructor(name: string, args: StreamingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.")
+        pulumi.log.warn("StreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +124,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:StreamingPolicy" }, { type: "azure-nextgen:media/v20180330preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180601preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180701:StreamingPolicy" }, { type: "azure-nextgen:media/v20200501:StreamingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingPolicy" }, { type: "azure-nextgen:media:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-nextgen:media/v20180701:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-nextgen:media/v20200501:StreamingPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingPolicy.__pulumiType, name, inputs, opts);
     }

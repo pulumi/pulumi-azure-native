@@ -17,7 +17,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getGroup", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getGroup", {
         "groupId": args.groupId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

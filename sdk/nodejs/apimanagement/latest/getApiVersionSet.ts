@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Api Version Set Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiVersionSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiVersionSet'. */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
-    pulumi.log.warn("getApiVersionSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiVersionSet'.")
+    pulumi.log.warn("getApiVersionSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiVersionSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiVersionSet", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "versionSetId": args.versionSetId,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Machine Learning compute object wrapped into ARM resource envelope.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningCompute'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningCompute'. */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
-    pulumi.log.warn("getMachineLearningCompute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningCompute'.")
+    pulumi.log.warn("getMachineLearningCompute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningCompute'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:getMachineLearningCompute", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:getMachineLearningCompute", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

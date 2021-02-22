@@ -17,7 +17,7 @@ export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getPolicySetDefinition", {
+    return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinition", {
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }

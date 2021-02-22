@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Value object for saved search results.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SavedSearch {
-        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.")
+        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.")
         return new SavedSearch(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/latest:SavedSearch';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/latest:SavedSearch';
 
     /**
      * Returns true if the given object is an instance of SavedSearch.  This is designed to work even
@@ -87,9 +87,9 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'. */
     constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.")
+        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.category === undefined) && !(opts && opts.urn)) {
@@ -139,7 +139,7 @@ export class SavedSearch extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200801:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:SavedSearch" }, { type: "azure-nextgen:operationalinsights:SavedSearch" }, { type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200801:SavedSearch" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }

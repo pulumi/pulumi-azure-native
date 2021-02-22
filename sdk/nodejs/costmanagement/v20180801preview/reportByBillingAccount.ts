@@ -22,7 +22,7 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount';
+    public static readonly __pulumiType = 'azure-native:costmanagement/v20180801preview:ReportByBillingAccount';
 
     /**
      * Returns true if the given object is an instance of ReportByBillingAccount.  This is designed to work even
@@ -108,7 +108,7 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:ReportByBillingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportByBillingAccount" }, { type: "azure-nextgen:costmanagement:ReportByBillingAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportByBillingAccount.__pulumiType, name, inputs, opts);
     }

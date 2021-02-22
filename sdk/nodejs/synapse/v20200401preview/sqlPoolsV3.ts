@@ -22,7 +22,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20200401preview:SqlPoolsV3';
+    public static readonly __pulumiType = 'azure-native:synapse/v20200401preview:SqlPoolsV3';
 
     /**
      * Returns true if the given object is an instance of SqlPoolsV3.  This is designed to work even
@@ -130,7 +130,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolsV3" }, { type: "azure-nextgen:synapse/latest:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolsV3" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolsV3" }, { type: "azure-nextgen:synapse:SqlPoolsV3" }, { type: "azure-native:synapse/latest:SqlPoolsV3" }, { type: "azure-nextgen:synapse/latest:SqlPoolsV3" }, { type: "azure-native:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-native:synapse/v20201201:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolsV3" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolsV3.__pulumiType, name, inputs, opts);
     }

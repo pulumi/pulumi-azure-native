@@ -22,7 +22,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping';
 
     /**
      * Returns true if the given object is an instance of ReplicationStorageClassificationMapping.  This is designed to work even
@@ -96,7 +96,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
     }

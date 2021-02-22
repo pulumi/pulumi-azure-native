@@ -16,7 +16,7 @@ export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200415:getOrigin", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200415:getOrigin", {
         "endpointName": args.endpointName,
         "originName": args.originName,
         "profileName": args.profileName,

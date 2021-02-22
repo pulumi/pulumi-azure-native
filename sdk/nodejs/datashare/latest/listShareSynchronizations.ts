@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * List response for get ShareSynchronization.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSynchronizations'. */
 export function listShareSynchronizations(args: ListShareSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationsResult> {
-    pulumi.log.warn("listShareSynchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'.")
+    pulumi.log.warn("listShareSynchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSynchronizations'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listShareSynchronizations(args: ListShareSynchronizationsArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:listShareSynchronizations", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:listShareSynchronizations", {
         "accountName": args.accountName,
         "filter": args.filter,
         "orderby": args.orderby,

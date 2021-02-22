@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection":
+            case "azure-native:healthcareapis/v20200330:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:healthcareapis/v20200330:Service":
+            case "azure-native:healthcareapis/v20200330:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "healthcareapis/v20200330", _module)
+pulumi.runtime.registerResourceModule("azure-native", "healthcareapis/v20200330", _module)

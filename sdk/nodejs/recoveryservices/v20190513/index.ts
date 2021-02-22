@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:recoveryservices/v20190513:ProtectedItem":
+            case "azure-native:recoveryservices/v20190513:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "recoveryservices/v20190513", _module)
+pulumi.runtime.registerResourceModule("azure-native", "recoveryservices/v20190513", _module)

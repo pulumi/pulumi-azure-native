@@ -22,7 +22,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20151101preview:Workspace';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/v20151101preview:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -126,7 +126,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights/latest:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/latest:Workspace" }, { type: "azure-nextgen:operationalinsights/latest:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

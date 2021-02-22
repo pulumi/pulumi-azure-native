@@ -22,7 +22,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub:OperationByProviderRegistration';
+    public static readonly __pulumiType = 'azure-native:providerhub:OperationByProviderRegistration';
 
     /**
      * Returns true if the given object is an instance of OperationByProviderRegistration.  This is designed to work even
@@ -96,7 +96,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/latest:OperationByProviderRegistration" }, { type: "azure-native:providerhub/v20201120:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OperationByProviderRegistration.__pulumiType, name, inputs, opts);
     }

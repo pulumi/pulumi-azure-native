@@ -16,7 +16,7 @@ export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200901:getAFDOriginGroup", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200901:getAFDOriginGroup", {
         "originGroupName": args.originGroupName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

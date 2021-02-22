@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Information about workspace.
  * Latest API Version: 2018-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getWorkspace'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getWorkspace'. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    pulumi.log.warn("getWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getWorkspace'.")
+    pulumi.log.warn("getWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getWorkspace'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databricks/latest:getWorkspace", {
+    return pulumi.runtime.invoke("azure-native:databricks/latest:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

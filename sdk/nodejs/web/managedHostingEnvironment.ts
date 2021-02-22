@@ -23,7 +23,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:ManagedHostingEnvironment';
+    public static readonly __pulumiType = 'azure-native:web:ManagedHostingEnvironment';
 
     /**
      * Returns true if the given object is an instance of ManagedHostingEnvironment.  This is designed to work even
@@ -275,7 +275,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:ManagedHostingEnvironment" }, { type: "azure-nextgen:web/v20150801:ManagedHostingEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:ManagedHostingEnvironment" }, { type: "azure-nextgen:web/latest:ManagedHostingEnvironment" }, { type: "azure-native:web/v20150801:ManagedHostingEnvironment" }, { type: "azure-nextgen:web/v20150801:ManagedHostingEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedHostingEnvironment.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiTagDescription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiTagDescription'. */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
-    pulumi.log.warn("getApiTagDescription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiTagDescription'.")
+    pulumi.log.warn("getApiTagDescription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiTagDescription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiTagDescription", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiTagDescription", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

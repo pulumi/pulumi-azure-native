@@ -23,7 +23,7 @@ export class BlobContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:BlobContainer';
+    public static readonly __pulumiType = 'azure-native:storage:BlobContainer';
 
     /**
      * Returns true if the given object is an instance of BlobContainer.  This is designed to work even
@@ -179,7 +179,7 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }, { type: "azure-nextgen:storage/v20210101:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:BlobContainer" }, { type: "azure-nextgen:storage/latest:BlobContainer" }, { type: "azure-native:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-native:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-native:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-native:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-native:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-native:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-native:storage/v20200801preview:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-nextgen:storage/v20210101:BlobContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Managed cluster.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedCluster {
-        pulumi.log.warn("ManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.")
+        pulumi.log.warn("ManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.")
         return new ManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerservice/latest:ManagedCluster';
+    public static readonly __pulumiType = 'azure-native:containerservice/latest:ManagedCluster';
 
     /**
      * Returns true if the given object is an instance of ManagedCluster.  This is designed to work even
@@ -163,9 +163,9 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'. */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.")
+        pulumi.log.warn("ManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -240,7 +240,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201201:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:ManagedCluster" }, { type: "azure-nextgen:containerservice:ManagedCluster" }, { type: "azure-native:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-native:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-native:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-native:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-native:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-native:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-native:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-native:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-native:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-native:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-native:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-native:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-native:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-native:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-native:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-native:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-native:containerservice/v20201101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }, { type: "azure-native:containerservice/v20201201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201201:ManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:softwareplan:HybridUseBenefit';
+    public static readonly __pulumiType = 'azure-native:softwareplan:HybridUseBenefit';
 
     /**
      * Returns true if the given object is an instance of HybridUseBenefit.  This is designed to work even
@@ -106,7 +106,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azure-nextgen:softwareplan/v20191201:HybridUseBenefit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azure-native:softwareplan/v20191201:HybridUseBenefit" }, { type: "azure-nextgen:softwareplan/v20191201:HybridUseBenefit" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridUseBenefit.__pulumiType, name, inputs, opts);
     }

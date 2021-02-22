@@ -17,7 +17,7 @@ export function getConfigurationProfileAssignment(args: GetConfigurationProfileA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automanage:getConfigurationProfileAssignment", {
+    return pulumi.runtime.invoke("azure-native:automanage:getConfigurationProfileAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,

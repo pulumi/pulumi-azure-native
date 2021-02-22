@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  * Latest API Version: 2020-04-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:getOpenShiftCluster'. */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
-    pulumi.log.warn("getOpenShiftCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'.")
+    pulumi.log.warn("getOpenShiftCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:getOpenShiftCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:redhatopenshift/latest:getOpenShiftCluster", {
+    return pulumi.runtime.invoke("azure-native:redhatopenshift/latest:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

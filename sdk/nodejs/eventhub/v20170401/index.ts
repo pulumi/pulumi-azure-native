@@ -39,23 +39,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:eventhub/v20170401:ConsumerGroup":
+            case "azure-native:eventhub/v20170401:ConsumerGroup":
                 return new ConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig":
+            case "azure-native:eventhub/v20170401:DisasterRecoveryConfig":
                 return new DisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:EventHub":
+            case "azure-native:eventhub/v20170401:EventHub":
                 return new EventHub(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule":
+            case "azure-native:eventhub/v20170401:EventHubAuthorizationRule":
                 return new EventHubAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:Namespace":
+            case "azure-native:eventhub/v20170401:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule":
+            case "azure-native:eventhub/v20170401:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet":
+            case "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "eventhub/v20170401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "eventhub/v20170401", _module)

@@ -17,7 +17,7 @@ export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:edgeorder:getAddressByName", {
+    return pulumi.runtime.invoke("azure-native:edgeorder:getAddressByName", {
         "addressName": args.addressName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

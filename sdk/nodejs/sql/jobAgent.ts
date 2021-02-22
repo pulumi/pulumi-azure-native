@@ -23,7 +23,7 @@ export class JobAgent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:JobAgent';
+    public static readonly __pulumiType = 'azure-native:sql:JobAgent';
 
     /**
      * Returns true if the given object is an instance of JobAgent.  This is designed to work even
@@ -110,7 +110,7 @@ export class JobAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobAgent" }, { type: "azure-nextgen:sql/v20200202preview:JobAgent" }, { type: "azure-nextgen:sql/v20200801preview:JobAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobAgent" }, { type: "azure-nextgen:sql/v20170301preview:JobAgent" }, { type: "azure-native:sql/v20200202preview:JobAgent" }, { type: "azure-nextgen:sql/v20200202preview:JobAgent" }, { type: "azure-native:sql/v20200801preview:JobAgent" }, { type: "azure-nextgen:sql/v20200801preview:JobAgent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobAgent.__pulumiType, name, inputs, opts);
     }

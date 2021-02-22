@@ -23,7 +23,7 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automanage:ConfigurationProfileAssignment';
+    public static readonly __pulumiType = 'azure-native:automanage:ConfigurationProfileAssignment';
 
     /**
      * Returns true if the given object is an instance of ConfigurationProfileAssignment.  This is designed to work even
@@ -83,7 +83,7 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment" }, { type: "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationProfileAssignment.__pulumiType, name, inputs, opts);
     }

@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:costmanagement/latest:Export":
+            case "azure-native:costmanagement/latest:Export":
                 return new Export(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/latest:ReportConfig":
+            case "azure-native:costmanagement/latest:ReportConfig":
                 return new ReportConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName":
+            case "azure-native:costmanagement/latest:ReportConfigByResourceGroupName":
                 return new ReportConfigByResourceGroupName(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/latest:View":
+            case "azure-native:costmanagement/latest:View":
                 return new View(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement/latest:ViewByScope":
+            case "azure-native:costmanagement/latest:ViewByScope":
                 return new ViewByScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "costmanagement/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "costmanagement/latest", _module)

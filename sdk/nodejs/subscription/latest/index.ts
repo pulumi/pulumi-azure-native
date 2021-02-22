@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:subscription/latest:Alias":
+            case "azure-native:subscription/latest:Alias":
                 return new Alias(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "subscription/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "subscription/latest", _module)

@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:powerbi/v20160129:WorkspaceCollection":
+            case "azure-native:powerbi/v20160129:WorkspaceCollection":
                 return new WorkspaceCollection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "powerbi/v20160129", _module)
+pulumi.runtime.registerResourceModule("azure-native", "powerbi/v20160129", _module)

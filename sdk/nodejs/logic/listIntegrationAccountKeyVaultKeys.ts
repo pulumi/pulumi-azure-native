@@ -17,7 +17,7 @@ export function listIntegrationAccountKeyVaultKeys(args: ListIntegrationAccountK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic:listIntegrationAccountKeyVaultKeys", {
+    return pulumi.runtime.invoke("azure-native:logic:listIntegrationAccountKeyVaultKeys", {
         "integrationAccountName": args.integrationAccountName,
         "keyVault": args.keyVault,
         "resourceGroupName": args.resourceGroupName,

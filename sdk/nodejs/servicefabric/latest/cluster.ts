@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
  *
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -22,12 +22,12 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.")
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric/latest:Cluster';
+    public static readonly __pulumiType = 'azure-native:servicefabric/latest:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -184,9 +184,9 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.")
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.managementEndpoint === undefined) && !(opts && opts.urn)) {
@@ -267,7 +267,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20170701preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20191101preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:Cluster" }, { type: "azure-nextgen:servicefabric:Cluster" }, { type: "azure-native:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-native:servicefabric/v20170701preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20170701preview:Cluster" }, { type: "azure-native:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-native:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-native:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-native:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-native:servicefabric/v20191101preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20191101preview:Cluster" }, { type: "azure-native:servicefabric/v20200301:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

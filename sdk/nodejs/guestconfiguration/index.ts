@@ -34,13 +34,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:guestconfiguration:GuestConfigurationAssignment":
+            case "azure-native:guestconfiguration:GuestConfigurationAssignment":
                 return new GuestConfigurationAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment":
+            case "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment":
                 return new GuestConfigurationHCRPAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "guestconfiguration", _module)
+pulumi.runtime.registerResourceModule("azure-native", "guestconfiguration", _module)

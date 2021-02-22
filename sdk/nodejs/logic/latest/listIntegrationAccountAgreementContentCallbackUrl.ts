@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The workflow trigger callback URL.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountAgreementContentCallbackUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl'. */
 export function listIntegrationAccountAgreementContentCallbackUrl(args: ListIntegrationAccountAgreementContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountAgreementContentCallbackUrlResult> {
-    pulumi.log.warn("listIntegrationAccountAgreementContentCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountAgreementContentCallbackUrl'.")
+    pulumi.log.warn("listIntegrationAccountAgreementContentCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIntegrationAccountAgreementContentCallbackUrl(args: ListInte
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listIntegrationAccountAgreementContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:listIntegrationAccountAgreementContentCallbackUrl", {
         "agreementName": args.agreementName,
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,

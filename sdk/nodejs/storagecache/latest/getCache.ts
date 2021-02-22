@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getCache'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
-    pulumi.log.warn("getCache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getCache'.")
+    pulumi.log.warn("getCache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagecache/latest:getCache", {
+    return pulumi.runtime.invoke("azure-native:storagecache/latest:getCache", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20200101preview:ManagedCluster';
+    public static readonly __pulumiType = 'azure-native:servicefabric/v20200101preview:ManagedCluster';
 
     /**
      * Returns true if the given object is an instance of ManagedCluster.  This is designed to work even
@@ -198,7 +198,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ManagedCluster" }, { type: "azure-nextgen:servicefabric:ManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }

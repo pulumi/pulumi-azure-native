@@ -19,7 +19,7 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppAuthSettingsV2';
+    public static readonly __pulumiType = 'azure-native:web/v20200601:WebAppAuthSettingsV2';
 
     /**
      * Returns true if the given object is an instance of WebAppAuthSettingsV2.  This is designed to work even
@@ -92,7 +92,7 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web:WebAppAuthSettingsV2" }, { type: "azure-native:web/latest:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettingsV2.__pulumiType, name, inputs, opts);
     }

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Data Lake Store trusted identity provider information.
  * Latest API Version: 2016-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.
  */
 export class TrustedIdProvider extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class TrustedIdProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TrustedIdProvider {
-        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.")
+        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.")
         return new TrustedIdProvider(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datalakestore/latest:TrustedIdProvider';
+    public static readonly __pulumiType = 'azure-native:datalakestore/latest:TrustedIdProvider';
 
     /**
      * Returns true if the given object is an instance of TrustedIdProvider.  This is designed to work even
@@ -58,9 +58,9 @@ export class TrustedIdProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'. */
     constructor(name: string, args: TrustedIdProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.")
+        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -90,7 +90,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakestore:TrustedIdProvider" }, { type: "azure-nextgen:datalakestore/v20161101:TrustedIdProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore:TrustedIdProvider" }, { type: "azure-nextgen:datalakestore:TrustedIdProvider" }, { type: "azure-native:datalakestore/v20161101:TrustedIdProvider" }, { type: "azure-nextgen:datalakestore/v20161101:TrustedIdProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TrustedIdProvider.__pulumiType, name, inputs, opts);
     }

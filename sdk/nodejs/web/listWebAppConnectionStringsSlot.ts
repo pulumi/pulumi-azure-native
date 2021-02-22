@@ -17,7 +17,7 @@ export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionString
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listWebAppConnectionStringsSlot", {
+    return pulumi.runtime.invoke("azure-native:web:listWebAppConnectionStringsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

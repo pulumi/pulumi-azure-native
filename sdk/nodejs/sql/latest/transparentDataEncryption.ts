@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a database transparent data encryption configuration.
  * Latest API Version: 2014-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'.
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TransparentDataEncryption {
-        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.")
+        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'.")
         return new TransparentDataEncryption(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/latest:TransparentDataEncryption';
+    public static readonly __pulumiType = 'azure-native:sql/latest:TransparentDataEncryption';
 
     /**
      * Returns true if the given object is an instance of TransparentDataEncryption.  This is designed to work even
@@ -63,9 +63,9 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'. */
     constructor(name: string, args: TransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.")
+        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +98,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20140401:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200801preview:TransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:TransparentDataEncryption" }, { type: "azure-nextgen:sql:TransparentDataEncryption" }, { type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200801preview:TransparentDataEncryption" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TransparentDataEncryption.__pulumiType, name, inputs, opts);
     }

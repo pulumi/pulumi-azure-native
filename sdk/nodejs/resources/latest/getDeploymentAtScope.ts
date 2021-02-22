@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Deployment information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtScope'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtScope'. */
 export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtScopeResult> {
-    pulumi.log.warn("getDeploymentAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtScope'.")
+    pulumi.log.warn("getDeploymentAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtScope'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtScope", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,
         "scope": args.scope,
     }, opts);

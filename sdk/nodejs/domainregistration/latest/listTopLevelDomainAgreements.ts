@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of top-level domain legal agreements.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listTopLevelDomainAgreements'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listTopLevelDomainAgreements'. */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
-    pulumi.log.warn("listTopLevelDomainAgreements is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listTopLevelDomainAgreements'.")
+    pulumi.log.warn("listTopLevelDomainAgreements is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listTopLevelDomainAgreements'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration/latest:listTopLevelDomainAgreements", {
+    return pulumi.runtime.invoke("azure-native:domainregistration/latest:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,
         "includePrivacy": args.includePrivacy,
         "name": args.name,

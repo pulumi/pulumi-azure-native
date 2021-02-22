@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A class represent a SignalR service resource.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalR'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:getSignalR'. */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    pulumi.log.warn("getSignalR is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalR'.")
+    pulumi.log.warn("getSignalR is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:getSignalR'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:signalrservice/latest:getSignalR", {
+    return pulumi.runtime.invoke("azure-native:signalrservice/latest:getSignalR", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

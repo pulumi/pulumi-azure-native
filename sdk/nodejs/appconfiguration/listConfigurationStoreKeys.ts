@@ -17,7 +17,7 @@ export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appconfiguration:listConfigurationStoreKeys", {
+    return pulumi.runtime.invoke("azure-native:appconfiguration:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,

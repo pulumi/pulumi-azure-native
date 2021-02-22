@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The status of the Canonical support plan.
  * Latest API Version: 2018-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:addons:getSupportPlanType'. */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
-    pulumi.log.warn("getSupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'.")
+    pulumi.log.warn("getSupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:addons:getSupportPlanType'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:addons/latest:getSupportPlanType", {
+    return pulumi.runtime.invoke("azure-native:addons/latest:getSupportPlanType", {
         "planTypeName": args.planTypeName,
         "providerName": args.providerName,
     }, opts);

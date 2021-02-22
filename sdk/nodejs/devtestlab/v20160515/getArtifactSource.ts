@@ -16,7 +16,7 @@ export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20160515:getArtifactSource", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getArtifactSource", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

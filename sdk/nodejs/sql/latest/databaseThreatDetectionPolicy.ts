@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Contains information about a database Threat Detection policy.
  * Latest API Version: 2014-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'.
  */
 export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseThreatDetectionPolicy {
-        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.")
+        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'.")
         return new DatabaseThreatDetectionPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy';
+    public static readonly __pulumiType = 'azure-native:sql/latest:DatabaseThreatDetectionPolicy';
 
     /**
      * Returns true if the given object is an instance of DatabaseThreatDetectionPolicy.  This is designed to work even
@@ -95,9 +95,9 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'. */
     constructor(name: string, args: DatabaseThreatDetectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.")
+        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
@@ -149,7 +149,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseThreatDetectionPolicy.__pulumiType, name, inputs, opts);
     }

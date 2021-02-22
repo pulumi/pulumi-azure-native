@@ -16,7 +16,7 @@ export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20190601:getEventSubscriptionFullUrl", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/v20190601:getEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);

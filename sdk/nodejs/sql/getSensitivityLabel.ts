@@ -17,7 +17,7 @@ export function getSensitivityLabel(args: GetSensitivityLabelArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getSensitivityLabel", {
+    return pulumi.runtime.invoke("azure-native:sql:getSensitivityLabel", {
         "columnName": args.columnName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

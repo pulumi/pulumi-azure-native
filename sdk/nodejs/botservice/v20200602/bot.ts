@@ -22,7 +22,7 @@ export class Bot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:botservice/v20200602:Bot';
+    public static readonly __pulumiType = 'azure-native:botservice/v20200602:Bot';
 
     /**
      * Returns true if the given object is an instance of Bot.  This is designed to work even
@@ -108,7 +108,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:Bot" }, { type: "azure-nextgen:botservice:Bot" }, { type: "azure-native:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20180712:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bot.__pulumiType, name, inputs, opts);
     }

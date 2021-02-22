@@ -16,7 +16,7 @@ export function getBillingRoleAssignmentByEnrollmentAccount(args: GetBillingRole
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", {
+    return pulumi.runtime.invoke("azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount", {
         "billingAccountName": args.billingAccountName,
         "billingRoleAssignmentName": args.billingRoleAssignmentName,
         "enrollmentAccountName": args.enrollmentAccountName,

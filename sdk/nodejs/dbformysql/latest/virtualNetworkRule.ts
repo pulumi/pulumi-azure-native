@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * A virtual network rule.
  * Latest API Version: 2017-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:VirtualNetworkRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:VirtualNetworkRule'.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkRule {
-        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:VirtualNetworkRule'.")
+        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:VirtualNetworkRule'.")
         return new VirtualNetworkRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformysql/latest:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-native:dbformysql/latest:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
@@ -66,9 +66,9 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:VirtualNetworkRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:VirtualNetworkRule'. */
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:VirtualNetworkRule'.")
+        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:VirtualNetworkRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

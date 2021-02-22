@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A private endpoint connection
  * Latest API Version: 2018-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:PrivateEndpointConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:PrivateEndpointConnection'.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:PrivateEndpointConnection'.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:PrivateEndpointConnection'.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/latest:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:dbformariadb/latest:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -67,9 +67,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:PrivateEndpointConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:PrivateEndpointConnection'. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:PrivateEndpointConnection'.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:PrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +100,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformariadb/v20180601:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformariadb:PrivateEndpointConnection" }, { type: "azure-native:dbformariadb/v20180601:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformariadb/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformariadb/v20180601privatepreview:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:relay:WCFRelayAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:relay:WCFRelayAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of WCFRelayAuthorizationRule.  This is designed to work even
@@ -90,7 +90,7 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay/latest:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/latest:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/latest:WCFRelayAuthorizationRule" }, { type: "azure-native:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azure-native:relay/v20170401:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WCFRelayAuthorizationRule.__pulumiType, name, inputs, opts);
     }

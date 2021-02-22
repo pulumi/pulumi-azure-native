@@ -17,7 +17,7 @@ export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagepool:getDiskPool", {
+    return pulumi.runtime.invoke("azure-native:storagepool:getDiskPool", {
         "diskPoolName": args.diskPoolName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:getController'. */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
-    pulumi.log.warn("getController is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'.")
+    pulumi.log.warn("getController is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:getController'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devspaces/latest:getController", {
+    return pulumi.runtime.invoke("azure-native:devspaces/latest:getController", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

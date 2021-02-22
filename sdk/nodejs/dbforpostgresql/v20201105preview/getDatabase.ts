@@ -16,7 +16,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/v20201105preview:getDatabase", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20201105preview:getDatabase", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

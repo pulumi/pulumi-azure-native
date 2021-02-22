@@ -23,7 +23,7 @@ export class DeploymentScript extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources:DeploymentScript';
+    public static readonly __pulumiType = 'azure-native:resources:DeploymentScript';
 
     /**
      * Returns true if the given object is an instance of DeploymentScript.  This is designed to work even
@@ -106,7 +106,7 @@ export class DeploymentScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/latest:DeploymentScript" }, { type: "azure-nextgen:resources/latest:DeploymentScript" }, { type: "azure-native:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-native:resources/v20201001:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentScript.__pulumiType, name, inputs, opts);
     }

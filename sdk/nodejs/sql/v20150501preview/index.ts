@@ -42,27 +42,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20150501preview:FailoverGroup":
+            case "azure-native:sql/v20150501preview:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:FirewallRule":
+            case "azure-native:sql/v20150501preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:ManagedInstance":
+            case "azure-native:sql/v20150501preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:Server":
+            case "azure-native:sql/v20150501preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:ServerKey":
+            case "azure-native:sql/v20150501preview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:SyncAgent":
+            case "azure-native:sql/v20150501preview:SyncAgent":
                 return new SyncAgent(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:SyncGroup":
+            case "azure-native:sql/v20150501preview:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:SyncMember":
+            case "azure-native:sql/v20150501preview:SyncMember":
                 return new SyncMember(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20150501preview:VirtualNetworkRule":
+            case "azure-native:sql/v20150501preview:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20150501preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20150501preview", _module)

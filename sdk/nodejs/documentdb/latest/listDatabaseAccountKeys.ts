@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The access keys for the given database account.
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountKeys'. */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
-    pulumi.log.warn("listDatabaseAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountKeys'.")
+    pulumi.log.warn("listDatabaseAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:listDatabaseAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:listDatabaseAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

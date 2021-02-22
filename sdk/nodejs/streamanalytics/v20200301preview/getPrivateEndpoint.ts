@@ -16,7 +16,7 @@ export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/v20200301preview:getPrivateEndpoint", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/v20200301preview:getPrivateEndpoint", {
         "clusterName": args.clusterName,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,

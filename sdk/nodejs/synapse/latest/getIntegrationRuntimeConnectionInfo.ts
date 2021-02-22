@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Connection information for encrypting the on-premises data source credentials.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeConnectionInfo'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeConnectionInfo'. */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
-    pulumi.log.warn("getIntegrationRuntimeConnectionInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeConnectionInfo'.")
+    pulumi.log.warn("getIntegrationRuntimeConnectionInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeConnectionInfo'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getIntegrationRuntimeConnectionInfo", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getIntegrationRuntimeConnectionInfo", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

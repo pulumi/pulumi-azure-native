@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The response model from the GetRegionalAvailability action
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccountRegionalAvailability'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccountRegionalAvailability'. */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
-    pulumi.log.warn("getLabAccountRegionalAvailability is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccountRegionalAvailability'.")
+    pulumi.log.warn("getLabAccountRegionalAvailability is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccountRegionalAvailability'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAva
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getLabAccountRegionalAvailability", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

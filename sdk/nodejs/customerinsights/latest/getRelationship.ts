@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The relationship resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationship'. */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
-    pulumi.log.warn("getRelationship is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'.")
+    pulumi.log.warn("getRelationship is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationship'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getRelationship", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getRelationship", {
         "hubName": args.hubName,
         "relationshipName": args.relationshipName,
         "resourceGroupName": args.resourceGroupName,

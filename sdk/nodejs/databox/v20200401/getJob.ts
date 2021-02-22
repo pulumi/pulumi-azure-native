@@ -16,7 +16,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databox/v20200401:getJob", {
+    return pulumi.runtime.invoke("azure-native:databox/v20200401:getJob", {
         "expand": args.expand,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

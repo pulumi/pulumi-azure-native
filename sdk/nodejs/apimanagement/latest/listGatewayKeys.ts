@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Gateway authentication keys.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listGatewayKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listGatewayKeys'. */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
-    pulumi.log.warn("listGatewayKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listGatewayKeys'.")
+    pulumi.log.warn("listGatewayKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listGatewayKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listGatewayKeys", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:listGatewayKeys", {
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

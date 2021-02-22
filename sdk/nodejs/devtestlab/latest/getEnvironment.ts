@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An environment, which is essentially an ARM template deployment.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getEnvironment'. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getEnvironment'.")
+    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getEnvironment", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getEnvironment", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

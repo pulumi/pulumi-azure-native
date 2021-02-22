@@ -55,35 +55,35 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:avs/v20210101preview:Addon":
+            case "azure-native:avs/v20210101preview:Addon":
                 return new Addon(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:Authorization":
+            case "azure-native:avs/v20210101preview:Authorization":
                 return new Authorization(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:Cluster":
+            case "azure-native:avs/v20210101preview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:Datastore":
+            case "azure-native:avs/v20210101preview:Datastore":
                 return new Datastore(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:GlobalReachConnection":
+            case "azure-native:avs/v20210101preview:GlobalReachConnection":
                 return new GlobalReachConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite":
+            case "azure-native:avs/v20210101preview:HcxEnterpriseSite":
                 return new HcxEnterpriseSite(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:PrivateCloud":
+            case "azure-native:avs/v20210101preview:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkDhcp":
                 return new WorkloadNetworkDhcp(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkDnsService":
                 return new WorkloadNetworkDnsService(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone":
                 return new WorkloadNetworkDnsZone(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring":
                 return new WorkloadNetworkPortMirroring(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkSegment":
                 return new WorkloadNetworkSegment(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup":
+            case "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup":
                 return new WorkloadNetworkVMGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "avs/v20210101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "avs/v20210101preview", _module)

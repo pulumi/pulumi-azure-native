@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data Lake Store account information.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getAccount'. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getAccount'.")
+    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakestore/latest:getAccount", {
+    return pulumi.runtime.invoke("azure-native:datalakestore/latest:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -16,7 +16,7 @@ export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20190801:getTableResourceTable", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20190801:getTableResourceTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableName": args.tableName,

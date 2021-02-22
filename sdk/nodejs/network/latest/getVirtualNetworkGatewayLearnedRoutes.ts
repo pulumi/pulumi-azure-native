@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * List of virtual network gateway routes.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayLearnedRoutes'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayLearnedRoutes'. */
 export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGatewayLearnedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayLearnedRoutesResult> {
-    pulumi.log.warn("getVirtualNetworkGatewayLearnedRoutes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayLearnedRoutes'.")
+    pulumi.log.warn("getVirtualNetworkGatewayLearnedRoutes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayLearnedRoutes'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGat
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayLearnedRoutes", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkGatewayLearnedRoutes", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

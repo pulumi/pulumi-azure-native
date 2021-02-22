@@ -16,7 +16,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20190601:getTable", {
+    return pulumi.runtime.invoke("azure-native:storage/v20190601:getTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableName": args.tableName,

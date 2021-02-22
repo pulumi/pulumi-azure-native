@@ -23,7 +23,7 @@ export class Key extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:keyvault:Key';
+    public static readonly __pulumiType = 'azure-native:keyvault:Key';
 
     /**
      * Returns true if the given object is an instance of Key.  This is designed to work even
@@ -132,7 +132,7 @@ export class Key extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault/latest:Key" }, { type: "azure-nextgen:keyvault/v20190901:Key" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/latest:Key" }, { type: "azure-nextgen:keyvault/latest:Key" }, { type: "azure-native:keyvault/v20190901:Key" }, { type: "azure-nextgen:keyvault/v20190901:Key" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Key.__pulumiType, name, inputs, opts);
     }

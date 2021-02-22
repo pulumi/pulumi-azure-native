@@ -22,7 +22,7 @@ export class Query extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20190901preview:Query';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/v20190901preview:Query';
 
     /**
      * Returns true if the given object is an instance of Query.  This is designed to work even

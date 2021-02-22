@@ -22,7 +22,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/v20190415:Endpoint';
+    public static readonly __pulumiType = 'azure-native:cdn/v20190415:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even
@@ -181,7 +181,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Endpoint" }, { type: "azure-nextgen:cdn/latest:Endpoint" }, { type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-nextgen:cdn:Endpoint" }, { type: "azure-native:cdn/latest:Endpoint" }, { type: "azure-nextgen:cdn/latest:Endpoint" }, { type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

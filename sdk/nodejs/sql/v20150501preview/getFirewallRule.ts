@@ -16,7 +16,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20150501preview:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:sql/v20150501preview:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

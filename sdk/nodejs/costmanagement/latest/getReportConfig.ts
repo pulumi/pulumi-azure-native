@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A report config resource.
  * Latest API Version: 2018-05-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfig'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfig'. */
 export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigResult> {
-    pulumi.log.warn("getReportConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfig'.")
+    pulumi.log.warn("getReportConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfig'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getReportConfig", {
+    return pulumi.runtime.invoke("azure-native:costmanagement/latest:getReportConfig", {
         "reportConfigName": args.reportConfigName,
     }, opts);
 }

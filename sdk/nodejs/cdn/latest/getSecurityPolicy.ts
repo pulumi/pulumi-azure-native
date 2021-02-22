@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * SecurityPolicy association for AzureFrontDoor profile
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getSecurityPolicy'. */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
-    pulumi.log.warn("getSecurityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'.")
+    pulumi.log.warn("getSecurityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getSecurityPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getSecurityPolicy", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getSecurityPolicy", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "securityPolicyName": args.securityPolicyName,

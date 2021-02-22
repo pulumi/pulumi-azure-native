@@ -16,7 +16,7 @@ export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPref
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:getGlobalUserPersonalPreferences", {
+    return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", {
         "addRemove": args.addRemove,
         "labAccountResourceId": args.labAccountResourceId,
         "labResourceId": args.labResourceId,

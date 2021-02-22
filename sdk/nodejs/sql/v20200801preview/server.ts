@@ -22,7 +22,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:Server';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -150,7 +150,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:Server" }, { type: "azure-nextgen:sql/latest:Server" }, { type: "azure-nextgen:sql/v20140401:Server" }, { type: "azure-nextgen:sql/v20150501preview:Server" }, { type: "azure-nextgen:sql/v20190601preview:Server" }, { type: "azure-nextgen:sql/v20200202preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:Server" }, { type: "azure-nextgen:sql:Server" }, { type: "azure-native:sql/latest:Server" }, { type: "azure-nextgen:sql/latest:Server" }, { type: "azure-native:sql/v20140401:Server" }, { type: "azure-nextgen:sql/v20140401:Server" }, { type: "azure-native:sql/v20150501preview:Server" }, { type: "azure-nextgen:sql/v20150501preview:Server" }, { type: "azure-native:sql/v20190601preview:Server" }, { type: "azure-nextgen:sql/v20190601preview:Server" }, { type: "azure-native:sql/v20200202preview:Server" }, { type: "azure-nextgen:sql/v20200202preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

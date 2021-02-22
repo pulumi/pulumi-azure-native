@@ -23,7 +23,7 @@ export class ElasticPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:ElasticPool';
+    public static readonly __pulumiType = 'azure-native:sql:ElasticPool';
 
     /**
      * Returns true if the given object is an instance of ElasticPool.  This is designed to work even
@@ -143,7 +143,7 @@ export class ElasticPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ElasticPool" }, { type: "azure-nextgen:sql/v20140401:ElasticPool" }, { type: "azure-nextgen:sql/v20171001preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200202preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200801preview:ElasticPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:ElasticPool" }, { type: "azure-nextgen:sql/latest:ElasticPool" }, { type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-nextgen:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20171001preview:ElasticPool" }, { type: "azure-nextgen:sql/v20171001preview:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200801preview:ElasticPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }

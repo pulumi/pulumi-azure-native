@@ -22,7 +22,7 @@ export class Organization extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:confluent/v20200301:Organization';
+    public static readonly __pulumiType = 'azure-native:confluent/v20200301:Organization';
 
     /**
      * Returns true if the given object is an instance of Organization.  This is designed to work even
@@ -120,7 +120,7 @@ export class Organization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:confluent:Organization" }, { type: "azure-nextgen:confluent/latest:Organization" }, { type: "azure-nextgen:confluent/v20200301preview:Organization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confluent:Organization" }, { type: "azure-nextgen:confluent:Organization" }, { type: "azure-native:confluent/latest:Organization" }, { type: "azure-nextgen:confluent/latest:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-nextgen:confluent/v20200301preview:Organization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Organization.__pulumiType, name, inputs, opts);
     }

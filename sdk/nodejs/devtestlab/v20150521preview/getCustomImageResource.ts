@@ -16,7 +16,7 @@ export function getCustomImageResource(args: GetCustomImageResourceArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getCustomImageResource", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getCustomImageResource", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

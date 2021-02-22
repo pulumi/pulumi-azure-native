@@ -37,15 +37,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:aadiam:DiagnosticSetting":
+            case "azure-native:aadiam:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:aadiam:azureADMetric":
+            case "azure-native:aadiam:azureADMetric":
                 return new AzureADMetric(name, <any>undefined, { urn })
-            case "azure-nextgen:aadiam:privateLinkForAzureAd":
+            case "azure-native:aadiam:privateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "aadiam", _module)
+pulumi.runtime.registerResourceModule("azure-native", "aadiam", _module)

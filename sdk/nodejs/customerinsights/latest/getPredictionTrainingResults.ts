@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The training results of the prediction.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionTrainingResults'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionTrainingResults'. */
 export function getPredictionTrainingResults(args: GetPredictionTrainingResultsArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionTrainingResultsResult> {
-    pulumi.log.warn("getPredictionTrainingResults is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionTrainingResults'.")
+    pulumi.log.warn("getPredictionTrainingResults is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionTrainingResults'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPredictionTrainingResults(args: GetPredictionTrainingResultsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getPredictionTrainingResults", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getPredictionTrainingResults", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,
         "resourceGroupName": args.resourceGroupName,

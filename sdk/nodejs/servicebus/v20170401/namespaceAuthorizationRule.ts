@@ -22,7 +22,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:servicebus/v20170401:NamespaceAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of NamespaceAuthorizationRule.  This is designed to work even
@@ -85,7 +85,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/latest:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }

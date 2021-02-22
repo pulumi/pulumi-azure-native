@@ -17,7 +17,7 @@ export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup", {
+    return pulumi.runtime.invoke("azure-native:devices:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20200113preview:getCertificate", {
+    return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getCertificate", {
         "automationAccountName": args.automationAccountName,
         "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,

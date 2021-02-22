@@ -22,7 +22,7 @@ export class WebAppApplicationSettingsSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20200901:WebAppApplicationSettingsSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20200901:WebAppApplicationSettingsSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppApplicationSettingsSlot.  This is designed to work even
@@ -96,7 +96,7 @@ export class WebAppApplicationSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/latest:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20150801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppApplicationSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppApplicationSettingsSlot.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A secret.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSecret'. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    pulumi.log.warn("getSecret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'.")
+    pulumi.log.warn("getSecret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSecret'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getSecret", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getSecret", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  * Latest API Version: 2020-02-14.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:virtualmachineimages:getVirtualMachineImageTemplate'. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'.")
+    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:virtualmachineimages:getVirtualMachineImageTemplate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTempl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:virtualmachineimages/latest:getVirtualMachineImageTemplate", {
+    return pulumi.runtime.invoke("azure-native:virtualmachineimages/latest:getVirtualMachineImageTemplate", {
         "imageTemplateName": args.imageTemplateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

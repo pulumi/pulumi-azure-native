@@ -47,29 +47,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccount":
+            case "azure-native:documentdb/v20151106:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace":
+            case "azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace":
                 return new DatabaseAccountCassandraKeyspace(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable":
+            case "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable":
                 return new DatabaseAccountCassandraTable(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase":
+            case "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase":
                 return new DatabaseAccountGremlinDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph":
+            case "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph":
                 return new DatabaseAccountGremlinGraph(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBCollection":
+            case "azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection":
                 return new DatabaseAccountMongoDBCollection(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase":
+            case "azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase":
                 return new DatabaseAccountMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer":
+            case "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer":
                 return new DatabaseAccountSqlContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase":
+            case "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase":
                 return new DatabaseAccountSqlDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20151106:DatabaseAccountTable":
+            case "azure-native:documentdb/v20151106:DatabaseAccountTable":
                 return new DatabaseAccountTable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "documentdb/v20151106", _module)
+pulumi.runtime.registerResourceModule("azure-native", "documentdb/v20151106", _module)

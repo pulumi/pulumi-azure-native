@@ -23,7 +23,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb:DatabaseAccountTable';
+    public static readonly __pulumiType = 'azure-native:documentdb:DatabaseAccountTable';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountTable.  This is designed to work even
@@ -97,7 +97,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/latest:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountTable.__pulumiType, name, inputs, opts);
     }

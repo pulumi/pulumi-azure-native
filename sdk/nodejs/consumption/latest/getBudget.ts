@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A budget resource.
  * Latest API Version: 2019-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudget'. */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    pulumi.log.warn("getBudget is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'.")
+    pulumi.log.warn("getBudget is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudget'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:consumption/latest:getBudget", {
+    return pulumi.runtime.invoke("azure-native:consumption/latest:getBudget", {
         "budgetName": args.budgetName,
         "scope": args.scope,
     }, opts);

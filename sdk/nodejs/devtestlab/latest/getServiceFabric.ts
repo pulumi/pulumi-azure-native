@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Service Fabric.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabric'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabric'. */
 export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricResult> {
-    pulumi.log.warn("getServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabric'.")
+    pulumi.log.warn("getServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabric'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getServiceFabric", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getServiceFabric", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

@@ -23,7 +23,7 @@ export class DataPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:autonomousdevelopmentplatform:DataPool';
+    public static readonly __pulumiType = 'azure-native:autonomousdevelopmentplatform:DataPool';
 
     /**
      * Returns true if the given object is an instance of DataPool.  This is designed to work even
@@ -104,7 +104,7 @@ export class DataPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool" }, { type: "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataPool.__pulumiType, name, inputs, opts);
     }

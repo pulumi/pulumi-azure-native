@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:media/v20190501preview:LiveEvent":
+            case "azure-native:media/v20190501preview:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20190501preview:LiveOutput":
+            case "azure-native:media/v20190501preview:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
-            case "azure-nextgen:media/v20190501preview:StreamingEndpoint":
+            case "azure-native:media/v20190501preview:StreamingEndpoint":
                 return new StreamingEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "media/v20190501preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "media/v20190501preview", _module)

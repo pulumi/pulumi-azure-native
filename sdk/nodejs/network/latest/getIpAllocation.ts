@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * IpAllocation resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpAllocation'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getIpAllocation'. */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
-    pulumi.log.warn("getIpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpAllocation'.")
+    pulumi.log.warn("getIpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getIpAllocation'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getIpAllocation", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getIpAllocation", {
         "expand": args.expand,
         "ipAllocationName": args.ipAllocationName,
         "resourceGroupName": args.resourceGroupName,

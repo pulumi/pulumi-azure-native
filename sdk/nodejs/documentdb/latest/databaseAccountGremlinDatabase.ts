@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Gremlin database.
  * Latest API Version: 2016-03-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'.
  */
 export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountGremlinDatabase {
-        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.")
+        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'.")
         return new DatabaseAccountGremlinDatabase(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:DatabaseAccountGremlinDatabase';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountGremlinDatabase.  This is designed to work even
@@ -75,9 +75,9 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'. */
     constructor(name: string, args: DatabaseAccountGremlinDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.")
+        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -120,7 +120,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountGremlinDatabase.__pulumiType, name, inputs, opts);
     }

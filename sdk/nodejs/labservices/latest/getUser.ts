@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The User registered to a lab
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getUser'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getUser'. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getUser'.")
+    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getUser'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getUser", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getUser", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,

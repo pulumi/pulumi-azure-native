@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  * Latest API Version: 2018-07-10.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationNetworkMapping {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'.")
         return new ReplicationNetworkMapping(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/latest:ReplicationNetworkMapping';
 
     /**
      * Returns true if the given object is an instance of ReplicationNetworkMapping.  This is designed to work even
@@ -63,9 +63,9 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'. */
     constructor(name: string, args: ReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationNetworkMapping.__pulumiType, name, inputs, opts);
     }

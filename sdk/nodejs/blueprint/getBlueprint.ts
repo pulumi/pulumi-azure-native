@@ -17,7 +17,7 @@ export function getBlueprint(args: GetBlueprintArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blueprint:getBlueprint", {
+    return pulumi.runtime.invoke("azure-native:blueprint:getBlueprint", {
         "blueprintName": args.blueprintName,
         "resourceScope": args.resourceScope,
     }, opts);

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A single API Management service resource in List or Get response.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiManagementService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementService'. */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
-    pulumi.log.warn("getApiManagementService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiManagementService'.")
+    pulumi.log.warn("getApiManagementService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiManagementService(args: GetApiManagementServiceArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiManagementService", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

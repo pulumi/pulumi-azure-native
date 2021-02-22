@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHostGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDedicatedHostGroup'. */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
-    pulumi.log.warn("getDedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHostGroup'.")
+    pulumi.log.warn("getDedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDedicatedHostGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getDedicatedHostGroup", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getDedicatedHostGroup", {
         "expand": args.expand,
         "hostGroupName": args.hostGroupName,
         "resourceGroupName": args.resourceGroupName,

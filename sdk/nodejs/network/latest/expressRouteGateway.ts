@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * ExpressRoute gateway resource.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteGateway'.
  */
 export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteGateway {
-        pulumi.log.warn("ExpressRouteGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.")
+        pulumi.log.warn("ExpressRouteGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteGateway'.")
         return new ExpressRouteGateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:ExpressRouteGateway';
+    public static readonly __pulumiType = 'azure-native:network/latest:ExpressRouteGateway';
 
     /**
      * Returns true if the given object is an instance of ExpressRouteGateway.  This is designed to work even
@@ -83,9 +83,9 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteGateway'. */
     constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ExpressRouteGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.")
+        pulumi.log.warn("ExpressRouteGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +124,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20180801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181001:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190901:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200301:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200501:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200801:ExpressRouteGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteGateway" }, { type: "azure-nextgen:network:ExpressRouteGateway" }, { type: "azure-native:network/v20180801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20180801:ExpressRouteGateway" }, { type: "azure-native:network/v20181001:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181001:ExpressRouteGateway" }, { type: "azure-native:network/v20181101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181101:ExpressRouteGateway" }, { type: "azure-native:network/v20181201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181201:ExpressRouteGateway" }, { type: "azure-native:network/v20190201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190201:ExpressRouteGateway" }, { type: "azure-native:network/v20190401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190401:ExpressRouteGateway" }, { type: "azure-native:network/v20190601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190601:ExpressRouteGateway" }, { type: "azure-native:network/v20190701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190701:ExpressRouteGateway" }, { type: "azure-native:network/v20190801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190801:ExpressRouteGateway" }, { type: "azure-native:network/v20190901:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190901:ExpressRouteGateway" }, { type: "azure-native:network/v20191101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191101:ExpressRouteGateway" }, { type: "azure-native:network/v20191201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191201:ExpressRouteGateway" }, { type: "azure-native:network/v20200301:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200301:ExpressRouteGateway" }, { type: "azure-native:network/v20200401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200401:ExpressRouteGateway" }, { type: "azure-native:network/v20200501:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200501:ExpressRouteGateway" }, { type: "azure-native:network/v20200601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200601:ExpressRouteGateway" }, { type: "azure-native:network/v20200701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200701:ExpressRouteGateway" }, { type: "azure-native:network/v20200801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200801:ExpressRouteGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExpressRouteGateway.__pulumiType, name, inputs, opts);
     }

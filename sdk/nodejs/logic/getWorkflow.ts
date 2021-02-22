@@ -17,7 +17,7 @@ export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic:getWorkflow", {
+    return pulumi.runtime.invoke("azure-native:logic:getWorkflow", {
         "resourceGroupName": args.resourceGroupName,
         "workflowName": args.workflowName,
     }, opts);

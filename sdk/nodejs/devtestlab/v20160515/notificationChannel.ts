@@ -22,7 +22,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20160515:NotificationChannel';
+    public static readonly __pulumiType = 'azure-native:devtestlab/v20160515:NotificationChannel';
 
     /**
      * Returns true if the given object is an instance of NotificationChannel.  This is designed to work even
@@ -123,7 +123,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:NotificationChannel" }, { type: "azure-nextgen:devtestlab/latest:NotificationChannel" }, { type: "azure-nextgen:devtestlab/v20180915:NotificationChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-nextgen:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/latest:NotificationChannel" }, { type: "azure-nextgen:devtestlab/latest:NotificationChannel" }, { type: "azure-native:devtestlab/v20180915:NotificationChannel" }, { type: "azure-nextgen:devtestlab/v20180915:NotificationChannel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationChannel.__pulumiType, name, inputs, opts);
     }

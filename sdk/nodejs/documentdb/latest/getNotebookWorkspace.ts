@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A notebook workspace resource
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getNotebookWorkspace'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getNotebookWorkspace'. */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
-    pulumi.log.warn("getNotebookWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getNotebookWorkspace'.")
+    pulumi.log.warn("getNotebookWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getNotebookWorkspace'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getNotebookWorkspace", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getNotebookWorkspace", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,
         "resourceGroupName": args.resourceGroupName,

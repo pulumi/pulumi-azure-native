@@ -22,7 +22,7 @@ export class SiteAuthSettingsSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteAuthSettingsSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteAuthSettingsSlot';
 
     /**
      * Returns true if the given object is an instance of SiteAuthSettingsSlot.  This is designed to work even
@@ -253,7 +253,7 @@ export class SiteAuthSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/latest:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web:SiteAuthSettingsSlot" }, { type: "azure-native:web/latest:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/latest:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20201001:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }

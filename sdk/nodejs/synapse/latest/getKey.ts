@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A workspace key
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getKey'. */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    pulumi.log.warn("getKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'.")
+    pulumi.log.warn("getKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getKey", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

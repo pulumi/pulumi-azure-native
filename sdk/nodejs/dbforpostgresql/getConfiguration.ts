@@ -17,7 +17,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql:getConfiguration", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql:getConfiguration", {
         "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/v20170601preview:PolicyAssignment":
+            case "azure-native:authorization/v20170601preview:PolicyAssignment":
                 return new PolicyAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20170601preview:PolicySetDefinition":
+            case "azure-native:authorization/v20170601preview:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup":
+            case "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup":
                 return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "authorization/v20170601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "authorization/v20170601preview", _module)

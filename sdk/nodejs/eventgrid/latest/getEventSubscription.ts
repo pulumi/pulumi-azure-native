@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Event Subscription
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscription'. */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    pulumi.log.warn("getEventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscription'.")
+    pulumi.log.warn("getEventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:getEventSubscription", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/latest:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);

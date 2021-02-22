@@ -16,7 +16,7 @@ export function getScheduleResource(args: GetScheduleResourceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getScheduleResource", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getScheduleResource", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

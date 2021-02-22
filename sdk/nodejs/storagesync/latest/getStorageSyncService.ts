@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Storage Sync Service object.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getStorageSyncService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getStorageSyncService'. */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
-    pulumi.log.warn("getStorageSyncService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getStorageSyncService'.")
+    pulumi.log.warn("getStorageSyncService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getStorageSyncService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync/latest:getStorageSyncService", {
+    return pulumi.runtime.invoke("azure-native:storagesync/latest:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
     }, opts);

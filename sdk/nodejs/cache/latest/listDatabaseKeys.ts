@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The secret access keys used for authenticating connections to redis
  * Latest API Version: 2021-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listDatabaseKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listDatabaseKeys'. */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
-    pulumi.log.warn("listDatabaseKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listDatabaseKeys'.")
+    pulumi.log.warn("listDatabaseKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listDatabaseKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/latest:listDatabaseKeys", {
+    return pulumi.runtime.invoke("azure-native:cache/latest:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

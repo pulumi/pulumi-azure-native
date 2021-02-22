@@ -17,7 +17,7 @@ export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getOpenIdConnectProvider", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getOpenIdConnectProvider", {
         "opid": args.opid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

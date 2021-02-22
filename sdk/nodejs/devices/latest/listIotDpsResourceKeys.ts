@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * List of shared access keys.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotDpsResourceKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeys'. */
 export function listIotDpsResourceKeys(args: ListIotDpsResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysResult> {
-    pulumi.log.warn("listIotDpsResourceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotDpsResourceKeys'.")
+    pulumi.log.warn("listIotDpsResourceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIotDpsResourceKeys(args: ListIotDpsResourceKeysArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:listIotDpsResourceKeys", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:listIotDpsResourceKeys", {
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

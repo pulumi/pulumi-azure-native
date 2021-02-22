@@ -17,7 +17,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datamigration:getProject", {
+    return pulumi.runtime.invoke("azure-native:datamigration:getProject", {
         "groupName": args.groupName,
         "projectName": args.projectName,
         "serviceName": args.serviceName,

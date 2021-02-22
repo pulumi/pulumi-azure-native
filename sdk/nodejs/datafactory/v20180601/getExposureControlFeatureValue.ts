@@ -16,7 +16,7 @@ export function getExposureControlFeatureValue(args: GetExposureControlFeatureVa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20180601:getExposureControlFeatureValue", {
+    return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValue", {
         "featureName": args.featureName,
         "featureType": args.featureType,
         "locationId": args.locationId,

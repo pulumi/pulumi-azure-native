@@ -21,7 +21,7 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone';
+    public static readonly __pulumiType = 'azure-native:avs/v20210101preview:WorkloadNetworkDnsZone';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkDnsZone.  This is designed to work even
@@ -117,7 +117,7 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDnsZone" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDnsZone" }, { type: "azure-nextgen:avs:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkDnsZone.__pulumiType, name, inputs, opts);
     }

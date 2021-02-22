@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount":
+            case "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount":
                 return new RemoteRenderingAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount":
+            case "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount":
                 return new SpatialAnchorsAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "mixedreality/v20191202preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "mixedreality/v20191202preview", _module)

@@ -17,7 +17,7 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights:listWorkspaceKeys", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

@@ -22,7 +22,7 @@ export class PrivateZone extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network:PrivateZone';
+    public static readonly __pulumiType = 'azure-native:network:PrivateZone';
 
     /**
      * Returns true if the given object is an instance of PrivateZone.  This is designed to work even
@@ -138,7 +138,7 @@ export class PrivateZone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateZone" }, { type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }, { type: "azure-nextgen:network/v20200601:PrivateZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:PrivateZone" }, { type: "azure-nextgen:network/latest:PrivateZone" }, { type: "azure-native:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-native:network/v20200101:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }, { type: "azure-native:network/v20200601:PrivateZone" }, { type: "azure-nextgen:network/v20200601:PrivateZone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateZone.__pulumiType, name, inputs, opts);
     }

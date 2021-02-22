@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Peerings in a virtual network resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkPeering'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkPeering'. */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
-    pulumi.log.warn("getVirtualNetworkPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkPeering'.")
+    pulumi.log.warn("getVirtualNetworkPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkPeering'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkPeering", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkPeering", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkName": args.virtualNetworkName,
         "virtualNetworkPeeringName": args.virtualNetworkPeeringName,

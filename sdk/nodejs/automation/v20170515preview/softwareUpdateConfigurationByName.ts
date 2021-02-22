@@ -22,7 +22,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName';
+    public static readonly __pulumiType = 'azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName';
 
     /**
      * Returns true if the given object is an instance of SoftwareUpdateConfigurationByName.  This is designed to work even
@@ -136,7 +136,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/latest:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SoftwareUpdateConfigurationByName.__pulumiType, name, inputs, opts);
     }

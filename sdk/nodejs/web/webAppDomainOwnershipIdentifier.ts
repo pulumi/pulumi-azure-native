@@ -23,7 +23,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:WebAppDomainOwnershipIdentifier';
+    public static readonly __pulumiType = 'azure-native:web:WebAppDomainOwnershipIdentifier';
 
     /**
      * Returns true if the given object is an instance of WebAppDomainOwnershipIdentifier.  This is designed to work even
@@ -94,7 +94,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

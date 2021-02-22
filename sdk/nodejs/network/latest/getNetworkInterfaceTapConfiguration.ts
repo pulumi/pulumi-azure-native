@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Tap configuration in a Network Interface.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterfaceTapConfiguration'. */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
-    pulumi.log.warn("getNetworkInterfaceTapConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.")
+    pulumi.log.warn("getNetworkInterfaceTapConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterfaceTapConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTap
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkInterfaceTapConfiguration", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkInterfaceTapConfiguration", {
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,
         "tapConfigurationName": args.tapConfigurationName,

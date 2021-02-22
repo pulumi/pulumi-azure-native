@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The volume.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolume'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getVolume'. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-    pulumi.log.warn("getVolume is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolume'.")
+    pulumi.log.warn("getVolume is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getVolume'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getVolume", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getVolume", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

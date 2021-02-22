@@ -17,7 +17,7 @@ export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getInstanceFailoverGroup", {
+    return pulumi.runtime.invoke("azure-native:sql:getInstanceFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,

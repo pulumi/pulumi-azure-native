@@ -23,7 +23,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:desktopvirtualization:ApplicationGroup';
+    public static readonly __pulumiType = 'azure-native:desktopvirtualization:ApplicationGroup';
 
     /**
      * Returns true if the given object is an instance of ApplicationGroup.  This is designed to work even
@@ -121,7 +121,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ApplicationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201019preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ApplicationGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGroup.__pulumiType, name, inputs, opts);
     }

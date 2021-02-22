@@ -17,7 +17,7 @@ export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getContentType", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getContentType", {
         "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

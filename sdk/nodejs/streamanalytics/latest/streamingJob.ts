@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A streaming job object, containing all information associated with the named streaming job.
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'.
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingJob {
-        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.")
+        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'.")
         return new StreamingJob(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:streamanalytics/latest:StreamingJob';
+    public static readonly __pulumiType = 'azure-native:streamanalytics/latest:StreamingJob';
 
     /**
      * Returns true if the given object is an instance of StreamingJob.  This is designed to work even
@@ -139,9 +139,9 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'. */
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.")
+        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -204,7 +204,7 @@ export class StreamingJob extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20170401preview:StreamingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:StreamingJob" }, { type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20170401preview:StreamingJob" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingJob.__pulumiType, name, inputs, opts);
     }

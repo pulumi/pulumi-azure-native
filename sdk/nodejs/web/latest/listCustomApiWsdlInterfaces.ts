@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A list of custom API WSDL interfaces
  * Latest API Version: 2016-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'. */
 export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<ListCustomApiWsdlInterfacesResult> {
-    pulumi.log.warn("listCustomApiWsdlInterfaces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.")
+    pulumi.log.warn("listCustomApiWsdlInterfaces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listCustomApiWsdlInterfaces", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listCustomApiWsdlInterfaces", {
         "content": args.content,
         "importMethod": args.importMethod,
         "location": args.location,

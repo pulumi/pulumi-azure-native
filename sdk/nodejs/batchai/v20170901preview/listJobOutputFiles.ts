@@ -16,7 +16,7 @@ export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/v20170901preview:listJobOutputFiles", {
+    return pulumi.runtime.invoke("azure-native:batchai/v20170901preview:listJobOutputFiles", {
         "jobName": args.jobName,
         "linkexpiryinminutes": args.linkexpiryinminutes,
         "maxResults": args.maxResults,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The storage account.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getStorageAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-    pulumi.log.warn("getStorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getStorageAccount'.")
+    pulumi.log.warn("getStorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getStorageAccount", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getStorageAccount", {
         "accountName": args.accountName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement:ApiVersionSet';
+    public static readonly __pulumiType = 'azure-native:apimanagement:ApiVersionSet';
 
     /**
      * Returns true if the given object is an instance of ApiVersionSet.  This is designed to work even
@@ -113,7 +113,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiVersionSet.__pulumiType, name, inputs, opts);
     }

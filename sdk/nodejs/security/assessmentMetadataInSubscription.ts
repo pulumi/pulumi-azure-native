@@ -23,7 +23,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security:AssessmentMetadataInSubscription';
+    public static readonly __pulumiType = 'azure-native:security:AssessmentMetadataInSubscription';
 
     /**
      * Returns true if the given object is an instance of AssessmentMetadataInSubscription.  This is designed to work even
@@ -144,7 +144,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/latest:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/latest:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20200101:AssessmentMetadataInSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssessmentMetadataInSubscription.__pulumiType, name, inputs, opts);
     }

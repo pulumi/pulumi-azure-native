@@ -22,7 +22,7 @@ export class Console extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal/v20181001:Console';
+    public static readonly __pulumiType = 'azure-native:portal/v20181001:Console';
 
     /**
      * Returns true if the given object is an instance of Console.  This is designed to work even
@@ -65,7 +65,7 @@ export class Console extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:Console" }, { type: "azure-nextgen:portal/latest:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal:Console" }, { type: "azure-nextgen:portal:Console" }, { type: "azure-native:portal/latest:Console" }, { type: "azure-nextgen:portal/latest:Console" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Console.__pulumiType, name, inputs, opts);
     }

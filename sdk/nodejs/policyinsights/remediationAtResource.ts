@@ -23,7 +23,7 @@ export class RemediationAtResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights:RemediationAtResource';
+    public static readonly __pulumiType = 'azure-native:policyinsights:RemediationAtResource';
 
     /**
      * Returns true if the given object is an instance of RemediationAtResource.  This is designed to work even
@@ -121,7 +121,7 @@ export class RemediationAtResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights/latest:RemediationAtResource" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtResource" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/latest:RemediationAtResource" }, { type: "azure-nextgen:policyinsights/latest:RemediationAtResource" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtResource" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtResource" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResource" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtResource.__pulumiType, name, inputs, opts);
     }

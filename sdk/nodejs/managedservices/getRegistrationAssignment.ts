@@ -17,7 +17,7 @@ export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managedservices:getRegistrationAssignment", {
+    return pulumi.runtime.invoke("azure-native:managedservices:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,
         "registrationAssignmentId": args.registrationAssignmentId,
         "scope": args.scope,

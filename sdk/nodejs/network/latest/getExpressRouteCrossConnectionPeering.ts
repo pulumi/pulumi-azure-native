@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Peering in an ExpressRoute Cross Connection resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCrossConnectionPeering'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCrossConnectionPeering'. */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
-    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCrossConnectionPeering'.")
+    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCrossConnectionPeering'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCross
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteCrossConnectionPeering", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getExpressRouteCrossConnectionPeering", {
         "crossConnectionName": args.crossConnectionName,
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,

@@ -22,7 +22,7 @@ export class WebTest extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20201005preview:WebTest';
+    public static readonly __pulumiType = 'azure-native:insights/v20201005preview:WebTest';
 
     /**
      * Returns true if the given object is an instance of WebTest.  This is designed to work even
@@ -200,7 +200,7 @@ export class WebTest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:WebTest" }, { type: "azure-nextgen:insights/latest:WebTest" }, { type: "azure-nextgen:insights/v20150501:WebTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:WebTest" }, { type: "azure-nextgen:insights:WebTest" }, { type: "azure-native:insights/latest:WebTest" }, { type: "azure-nextgen:insights/latest:WebTest" }, { type: "azure-native:insights/v20150501:WebTest" }, { type: "azure-nextgen:insights/v20150501:WebTest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebTest.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * DSCP Configuration in a resource group.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDscpConfiguration'. */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
-    pulumi.log.warn("getDscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'.")
+    pulumi.log.warn("getDscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDscpConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getDscpConfiguration", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getDscpConfiguration", {
         "dscpConfigurationName": args.dscpConfigurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

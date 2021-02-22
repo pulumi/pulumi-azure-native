@@ -16,7 +16,7 @@ export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/v20210101:getAttestationAtSubscription", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/v20210101:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
     }, opts);
 }

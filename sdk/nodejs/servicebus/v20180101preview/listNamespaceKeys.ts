@@ -16,7 +16,7 @@ export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:listNamespaceKeys", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

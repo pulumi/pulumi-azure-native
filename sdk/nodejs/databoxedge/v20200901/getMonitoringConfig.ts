@@ -16,7 +16,7 @@ export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200901:getMonitoringConfig", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200901:getMonitoringConfig", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
         "roleName": args.roleName,

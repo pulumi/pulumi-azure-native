@@ -16,7 +16,7 @@ export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20150501:getFavorite", {
+    return pulumi.runtime.invoke("azure-native:insights/v20150501:getFavorite", {
         "favoriteId": args.favoriteId,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

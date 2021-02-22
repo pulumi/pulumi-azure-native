@@ -16,7 +16,7 @@ export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAcce
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

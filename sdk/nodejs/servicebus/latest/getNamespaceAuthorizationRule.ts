@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getNamespaceAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getNamespaceAuthorizationRule'. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getNamespaceAuthorizationRule'.")
+    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getNamespaceAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getNamespaceAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

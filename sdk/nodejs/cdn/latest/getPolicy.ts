@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Defines web application firewall policy for Azure CDN.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getPolicy'. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    pulumi.log.warn("getPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'.")
+    pulumi.log.warn("getPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getPolicy", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

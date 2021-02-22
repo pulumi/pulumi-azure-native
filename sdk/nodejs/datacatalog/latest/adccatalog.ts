@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Azure Data Catalog.
  * Latest API Version: 2016-03-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.
  */
 export class ADCCatalog extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ADCCatalog extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ADCCatalog {
-        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.")
+        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.")
         return new ADCCatalog(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datacatalog/latest:ADCCatalog';
+    public static readonly __pulumiType = 'azure-native:datacatalog/latest:ADCCatalog';
 
     /**
      * Returns true if the given object is an instance of ADCCatalog.  This is designed to work even
@@ -91,9 +91,9 @@ export class ADCCatalog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'. */
     constructor(name: string, args: ADCCatalogArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.")
+        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -132,7 +132,7 @@ export class ADCCatalog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datacatalog:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datacatalog:ADCCatalog" }, { type: "azure-nextgen:datacatalog:ADCCatalog" }, { type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ADCCatalog.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The policy assignment.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyAssignment'. */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
-    pulumi.log.warn("getPolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyAssignment'.")
+    pulumi.log.warn("getPolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getPolicyAssignment", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);

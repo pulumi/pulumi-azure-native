@@ -16,7 +16,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:getRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getRule", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

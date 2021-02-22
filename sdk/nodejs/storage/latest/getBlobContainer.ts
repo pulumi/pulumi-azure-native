@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainer'. */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
-    pulumi.log.warn("getBlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainer'.")
+    pulumi.log.warn("getBlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getBlobContainer", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getBlobContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,

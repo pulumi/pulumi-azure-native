@@ -44,25 +44,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datashare/v20191101:Account":
+            case "azure-native:datashare/v20191101:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:DataSet":
+            case "azure-native:datashare/v20191101:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:DataSetMapping":
+            case "azure-native:datashare/v20191101:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:Invitation":
+            case "azure-native:datashare/v20191101:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:Share":
+            case "azure-native:datashare/v20191101:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:ShareSubscription":
+            case "azure-native:datashare/v20191101:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:SynchronizationSetting":
+            case "azure-native:datashare/v20191101:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20191101:Trigger":
+            case "azure-native:datashare/v20191101:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datashare/v20191101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datashare/v20191101", _module)

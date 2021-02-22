@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of an hostingEnvironment (App Service Environment)
  * Latest API Version: 2015-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getManagedHostingEnvironment'. */
 export function getManagedHostingEnvironment(args: GetManagedHostingEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHostingEnvironmentResult> {
-    pulumi.log.warn("getManagedHostingEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.")
+    pulumi.log.warn("getManagedHostingEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getManagedHostingEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagedHostingEnvironment(args: GetManagedHostingEnvironmentA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getManagedHostingEnvironment", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getManagedHostingEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

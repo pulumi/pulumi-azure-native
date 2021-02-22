@@ -17,7 +17,7 @@ export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:listDatabaseAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:documentdb:listDatabaseAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

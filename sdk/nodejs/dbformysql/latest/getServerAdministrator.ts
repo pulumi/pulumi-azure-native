@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a and external administrator to be created.
  * Latest API Version: 2017-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerAdministrator'. */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
-    pulumi.log.warn("getServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'.")
+    pulumi.log.warn("getServerAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerAdministrator'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbformysql/latest:getServerAdministrator", {
+    return pulumi.runtime.invoke("azure-native:dbformysql/latest:getServerAdministrator", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
