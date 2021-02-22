@@ -45,7 +45,7 @@ class GetTriggerResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        Kind of synchronization
+        Kind of synchronization on trigger.
         """
         return pulumi.get(self, "kind")
 

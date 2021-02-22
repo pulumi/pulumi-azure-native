@@ -31,7 +31,7 @@ type LookupTriggerArgs struct {
 type LookupTriggerResult struct {
 	// The resource id of the azure resource
 	Id string `pulumi:"id"`
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource
 	Name string `pulumi:"name"`

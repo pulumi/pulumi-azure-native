@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Kind of synchronization
+        /// Kind of synchronization setting.
         /// </summary>
         public readonly string Kind;
         /// <summary>

@@ -112,6 +112,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         public Output<double> UsageThreshold { get; private set; } = null!;
 
         /// <summary>
+        /// Resource size in bytes, current storage usage for the volume in bytes
+        /// </summary>
+        [Output("usedBytes")]
+        public Output<double> UsedBytes { get; private set; } = null!;
+
+        /// <summary>
         /// What type of volume is this
         /// </summary>
         [Output("volumeType")]

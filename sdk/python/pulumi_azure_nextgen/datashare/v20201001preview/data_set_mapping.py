@@ -19,7 +19,7 @@ class DataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DataSetMappingKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +32,7 @@ class DataSetMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
-        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of data set mapping.
+        :param pulumi.Input[Union[str, 'DataSetMappingKind']] kind: Kind of data set mapping.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         """

@@ -72689,7 +72689,7 @@
         "apiVersions": [
           "2017-10-01-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": "2017-10-01-preview",
         "locationMappings": null,
         "locations": [

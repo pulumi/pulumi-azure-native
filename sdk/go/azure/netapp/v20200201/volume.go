@@ -33,7 +33,7 @@ type Volume struct {
 	MountTargets MountTargetPropertiesResponseArrayOutput `pulumi:"mountTargets"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayOutput `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
@@ -51,6 +51,8 @@ type Volume struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.Float64Output `pulumi:"usageThreshold"`
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes pulumi.Float64Output `pulumi:"usedBytes"`
 	// What type of volume is this
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
@@ -82,6 +84,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.StringPtr("Premium")
+	}
+	if args.SnapshotDirectoryVisible == nil {
+		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
 	if args.UsageThreshold == nil {
 		args.UsageThreshold = pulumi.Float64(107374182400)
@@ -177,7 +182,7 @@ type volumeState struct {
 	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -195,6 +200,8 @@ type volumeState struct {
 	Type *string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold *float64 `pulumi:"usageThreshold"`
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes *float64 `pulumi:"usedBytes"`
 	// What type of volume is this
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -218,7 +225,7 @@ type VolumeState struct {
 	MountTargets MountTargetPropertiesResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
@@ -236,6 +243,8 @@ type VolumeState struct {
 	Type pulumi.StringPtrInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.Float64PtrInput
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes pulumi.Float64PtrInput
 	// What type of volume is this
 	VolumeType pulumi.StringPtrInput
 }
@@ -257,11 +266,9 @@ type volumeArgs struct {
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// List of mount targets
-	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -297,11 +304,9 @@ type VolumeArgs struct {
 	IsRestoring pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// List of mount targets
-	MountTargets MountTargetPropertiesArrayInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

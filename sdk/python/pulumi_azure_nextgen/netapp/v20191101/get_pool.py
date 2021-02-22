@@ -68,7 +68,7 @@ class GetPoolResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        Pool Resource name
         """
         return pulumi.get(self, "name")
 

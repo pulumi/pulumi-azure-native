@@ -45,6 +45,8 @@ type LookupPipelineResult struct {
 	Name string `pulumi:"name"`
 	// List of parameters for pipeline.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Pipeline Policy.
+	Policy *PipelinePolicyResponse `pulumi:"policy"`
 	// Dimensions emitted by Pipeline.
 	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.

@@ -5,11 +5,13 @@
 import * as latest from "./latest";
 import * as v20200320 from "./v20200320";
 import * as v20200717preview from "./v20200717preview";
+import * as v20210101preview from "./v20210101preview";
 
 export {
     latest,
     v20200320,
     v20200717preview,
+    v20210101preview,
 };
 
 export const AddonType = {

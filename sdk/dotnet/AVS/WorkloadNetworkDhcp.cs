@@ -84,6 +84,7 @@ namespace Pulumi.AzureNextGen.AVS
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

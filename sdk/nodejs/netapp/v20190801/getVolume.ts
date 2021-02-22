@@ -113,6 +113,10 @@ export interface GetVolumeResult {
      */
     readonly usageThreshold: number;
     /**
+     * Resource size in bytes, current storage usage for the volume in bytes
+     */
+    readonly usedBytes: number;
+    /**
      * What type of volume is this
      */
     readonly volumeType?: string;

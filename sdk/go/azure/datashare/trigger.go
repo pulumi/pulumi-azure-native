@@ -16,7 +16,7 @@ import (
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -85,7 +85,7 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind *string `pulumi:"kind"`
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
@@ -96,7 +96,7 @@ type triggerState struct {
 }
 
 type TriggerState struct {
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind pulumi.StringPtrInput
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (TriggerState) ElementType() reflect.Type {
 type triggerArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind string `pulumi:"kind"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -127,7 +127,7 @@ type triggerArgs struct {
 type TriggerArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
-	// Kind of synchronization
+	// Kind of synchronization on trigger.
 	Kind pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput

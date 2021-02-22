@@ -53,11 +53,11 @@ type LookupVolumeResult struct {
 	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`

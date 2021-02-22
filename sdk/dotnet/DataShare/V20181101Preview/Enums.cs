@@ -8,28 +8,78 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     /// <summary>
-    /// Kind of synchronization
+    /// Kind of data set.
     /// </summary>
     [EnumType]
-    public readonly struct Kind : IEquatable<Kind>
+    public readonly struct DataSetKind : IEquatable<DataSetKind>
     {
         private readonly string _value;
 
-        private Kind(string value)
+        private DataSetKind(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind ScheduleBased { get; } = new Kind("ScheduleBased");
+        public static DataSetKind Blob { get; } = new DataSetKind("Blob");
+        public static DataSetKind Container { get; } = new DataSetKind("Container");
+        public static DataSetKind BlobFolder { get; } = new DataSetKind("BlobFolder");
+        public static DataSetKind AdlsGen2FileSystem { get; } = new DataSetKind("AdlsGen2FileSystem");
+        public static DataSetKind AdlsGen2Folder { get; } = new DataSetKind("AdlsGen2Folder");
+        public static DataSetKind AdlsGen2File { get; } = new DataSetKind("AdlsGen2File");
+        public static DataSetKind AdlsGen1Folder { get; } = new DataSetKind("AdlsGen1Folder");
+        public static DataSetKind AdlsGen1File { get; } = new DataSetKind("AdlsGen1File");
+        public static DataSetKind KustoCluster { get; } = new DataSetKind("KustoCluster");
+        public static DataSetKind KustoDatabase { get; } = new DataSetKind("KustoDatabase");
+        public static DataSetKind SqlDBTable { get; } = new DataSetKind("SqlDBTable");
+        public static DataSetKind SqlDWTable { get; } = new DataSetKind("SqlDWTable");
 
-        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
-        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+        public static bool operator ==(DataSetKind left, DataSetKind right) => left.Equals(right);
+        public static bool operator !=(DataSetKind left, DataSetKind right) => !left.Equals(right);
 
-        public static explicit operator string(Kind value) => value._value;
+        public static explicit operator string(DataSetKind value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
-        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataSetKind other && Equals(other);
+        public bool Equals(DataSetKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of data set mapping.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSetMappingKind : IEquatable<DataSetMappingKind>
+    {
+        private readonly string _value;
+
+        private DataSetMappingKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetMappingKind Blob { get; } = new DataSetMappingKind("Blob");
+        public static DataSetMappingKind Container { get; } = new DataSetMappingKind("Container");
+        public static DataSetMappingKind BlobFolder { get; } = new DataSetMappingKind("BlobFolder");
+        public static DataSetMappingKind AdlsGen2FileSystem { get; } = new DataSetMappingKind("AdlsGen2FileSystem");
+        public static DataSetMappingKind AdlsGen2Folder { get; } = new DataSetMappingKind("AdlsGen2Folder");
+        public static DataSetMappingKind AdlsGen2File { get; } = new DataSetMappingKind("AdlsGen2File");
+        public static DataSetMappingKind KustoCluster { get; } = new DataSetMappingKind("KustoCluster");
+        public static DataSetMappingKind KustoDatabase { get; } = new DataSetMappingKind("KustoDatabase");
+        public static DataSetMappingKind SqlDBTable { get; } = new DataSetMappingKind("SqlDBTable");
+        public static DataSetMappingKind SqlDWTable { get; } = new DataSetMappingKind("SqlDWTable");
+
+        public static bool operator ==(DataSetMappingKind left, DataSetMappingKind right) => left.Equals(right);
+        public static bool operator !=(DataSetMappingKind left, DataSetMappingKind right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetMappingKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetMappingKind other && Equals(other);
+        public bool Equals(DataSetMappingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -61,6 +111,66 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ShareKind other && Equals(other);
         public bool Equals(ShareKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of synchronization setting.
+    /// </summary>
+    [EnumType]
+    public readonly struct SynchronizationSettingKind : IEquatable<SynchronizationSettingKind>
+    {
+        private readonly string _value;
+
+        private SynchronizationSettingKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SynchronizationSettingKind ScheduleBased { get; } = new SynchronizationSettingKind("ScheduleBased");
+
+        public static bool operator ==(SynchronizationSettingKind left, SynchronizationSettingKind right) => left.Equals(right);
+        public static bool operator !=(SynchronizationSettingKind left, SynchronizationSettingKind right) => !left.Equals(right);
+
+        public static explicit operator string(SynchronizationSettingKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SynchronizationSettingKind other && Equals(other);
+        public bool Equals(SynchronizationSettingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of synchronization on trigger.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerKind : IEquatable<TriggerKind>
+    {
+        private readonly string _value;
+
+        private TriggerKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerKind ScheduleBased { get; } = new TriggerKind("ScheduleBased");
+
+        public static bool operator ==(TriggerKind left, TriggerKind right) => left.Equals(right);
+        public static bool operator !=(TriggerKind left, TriggerKind right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerKind other && Equals(other);
+        public bool Equals(TriggerKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

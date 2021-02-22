@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Authorization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

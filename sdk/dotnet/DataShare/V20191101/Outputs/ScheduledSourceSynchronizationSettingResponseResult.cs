@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101.Outputs
     public sealed class ScheduledSourceSynchronizationSettingResponseResult
     {
         /// <summary>
-        /// Kind of synchronization
+        /// Kind of synchronization setting on share.
         /// Expected value is 'ScheduleBased'.
         /// </summary>
         public readonly string Kind;

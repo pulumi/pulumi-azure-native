@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
@@ -253,18 +253,6 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("mountTargets")]
-        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
-        {
-            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
-            set => _mountTargets = value;
-        }
-
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
@@ -275,7 +263,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public InputList<string> ProtocolTypes
         {

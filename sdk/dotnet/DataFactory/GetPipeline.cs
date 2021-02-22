@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// Pipeline Policy.
+        /// </summary>
+        public readonly Outputs.PipelinePolicyResponse? Policy;
+        /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RunDimensions;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.DataFactory
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Outputs.PipelinePolicyResponse? policy,
+
             ImmutableDictionary<string, object>? runDimensions,
 
             string type,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DataFactory
             Id = id;
             Name = name;
             Parameters = parameters;
+            Policy = policy;
             RunDimensions = runDimensions;
             Type = type;
             Variables = variables;

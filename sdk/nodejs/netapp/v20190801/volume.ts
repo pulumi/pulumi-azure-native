@@ -100,6 +100,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly usageThreshold!: pulumi.Output<number>;
     /**
+     * Resource size in bytes, current storage usage for the volume in bytes
+     */
+    public /*out*/ readonly usedBytes!: pulumi.Output<number>;
+    /**
      * What type of volume is this
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
@@ -153,6 +157,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["usedBytes"] = undefined /*out*/;
         } else {
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["creationToken"] = undefined /*out*/;
@@ -170,6 +175,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usageThreshold"] = undefined /*out*/;
+            inputs["usedBytes"] = undefined /*out*/;
             inputs["volumeType"] = undefined /*out*/;
         }
         if (!opts) {

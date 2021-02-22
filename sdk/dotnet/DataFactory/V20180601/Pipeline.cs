@@ -64,6 +64,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// Pipeline Policy.
+        /// </summary>
+        [Output("policy")]
+        public Output<Outputs.PipelinePolicyResponse?> Policy { get; private set; } = null!;
+
+        /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
         [Output("runDimensions")]
@@ -197,6 +203,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// Pipeline Policy.
+        /// </summary>
+        [Input("policy")]
+        public Input<Inputs.PipelinePolicyArgs>? Policy { get; set; }
 
         /// <summary>
         /// The resource group name.

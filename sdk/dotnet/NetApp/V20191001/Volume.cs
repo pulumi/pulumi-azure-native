@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
@@ -116,6 +116,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         /// </summary>
         [Output("usageThreshold")]
         public Output<double> UsageThreshold { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource size in bytes, current storage usage for the volume in bytes
+        /// </summary>
+        [Output("usedBytes")]
+        public Output<double> UsedBytes { get; private set; } = null!;
 
         /// <summary>
         /// What type of volume is this
@@ -223,18 +229,6 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("mountTargets")]
-        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
-        {
-            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
-            set => _mountTargets = value;
-        }
-
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
@@ -245,7 +239,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public InputList<string> ProtocolTypes
         {

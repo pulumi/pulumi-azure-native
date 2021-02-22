@@ -49,7 +49,7 @@ export interface GetTriggerResult {
      */
     readonly id: string;
     /**
-     * Kind of synchronization
+     * Kind of synchronization on trigger.
      */
     readonly kind: string;
     /**

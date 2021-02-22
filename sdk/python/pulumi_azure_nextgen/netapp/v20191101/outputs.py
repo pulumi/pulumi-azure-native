@@ -46,6 +46,8 @@ class ActiveDirectoryResponse(dict):
         :param str status: Status of the Active Directory
         :param str username: Username of Active Directory domain administrator
         """
+        if active_directory_id is None:
+            active_directory_id = 'guid id'
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if dns is not None:

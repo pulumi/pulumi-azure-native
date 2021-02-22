@@ -47,6 +47,8 @@ type Volume struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.Float64Output `pulumi:"usageThreshold"`
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes pulumi.Float64Output `pulumi:"usedBytes"`
 	// What type of volume is this
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
@@ -187,6 +189,8 @@ type volumeState struct {
 	Type *string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold *float64 `pulumi:"usageThreshold"`
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes *float64 `pulumi:"usedBytes"`
 	// What type of volume is this
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -224,6 +228,8 @@ type VolumeState struct {
 	Type pulumi.StringPtrInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.Float64PtrInput
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes pulumi.Float64PtrInput
 	// What type of volume is this
 	VolumeType pulumi.StringPtrInput
 }

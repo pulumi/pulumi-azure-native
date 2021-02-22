@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191101.Inputs
 
         public ActiveDirectoryArgs()
         {
+            ActiveDirectoryId = "guid id";
         }
     }
 }

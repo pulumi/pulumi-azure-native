@@ -16,14 +16,45 @@ export {
     v20201001preview,
 };
 
-export const Kind = {
-    ScheduleBased: "ScheduleBased",
+export const DataSetKind = {
+    Blob: "Blob",
+    Container: "Container",
+    BlobFolder: "BlobFolder",
+    AdlsGen2FileSystem: "AdlsGen2FileSystem",
+    AdlsGen2Folder: "AdlsGen2Folder",
+    AdlsGen2File: "AdlsGen2File",
+    AdlsGen1Folder: "AdlsGen1Folder",
+    AdlsGen1File: "AdlsGen1File",
+    KustoCluster: "KustoCluster",
+    KustoDatabase: "KustoDatabase",
+    SqlDBTable: "SqlDBTable",
+    SqlDWTable: "SqlDWTable",
+    SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
 } as const;
 
 /**
- * Kind of synchronization
+ * Kind of data set.
  */
-export type Kind = (typeof Kind)[keyof typeof Kind];
+export type DataSetKind = (typeof DataSetKind)[keyof typeof DataSetKind];
+
+export const DataSetMappingKind = {
+    Blob: "Blob",
+    Container: "Container",
+    BlobFolder: "BlobFolder",
+    AdlsGen2FileSystem: "AdlsGen2FileSystem",
+    AdlsGen2Folder: "AdlsGen2Folder",
+    AdlsGen2File: "AdlsGen2File",
+    KustoCluster: "KustoCluster",
+    KustoDatabase: "KustoDatabase",
+    SqlDBTable: "SqlDBTable",
+    SqlDWTable: "SqlDWTable",
+    SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
+} as const;
+
+/**
+ * Kind of data set mapping.
+ */
+export type DataSetMappingKind = (typeof DataSetMappingKind)[keyof typeof DataSetMappingKind];
 
 export const ShareKind = {
     CopyBased: "CopyBased",
@@ -34,6 +65,24 @@ export const ShareKind = {
  * Share kind.
  */
 export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
+
+export const SynchronizationSettingKind = {
+    ScheduleBased: "ScheduleBased",
+} as const;
+
+/**
+ * Kind of synchronization setting.
+ */
+export type SynchronizationSettingKind = (typeof SynchronizationSettingKind)[keyof typeof SynchronizationSettingKind];
+
+export const TriggerKind = {
+    ScheduleBased: "ScheduleBased",
+} as const;
+
+/**
+ * Kind of synchronization on trigger.
+ */
+export type TriggerKind = (typeof TriggerKind)[keyof typeof TriggerKind];
 
 export const Type = {
     SystemAssigned: "SystemAssigned",

@@ -71,13 +71,13 @@ export interface GetVolumeResult {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: outputs.netapp.v20190701.MountTargetPropertiesResponse[];
+    readonly mountTargets: outputs.netapp.v20190701.MountTargetPropertiesResponse[];
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
      */
     readonly protocolTypes?: string[];
     /**

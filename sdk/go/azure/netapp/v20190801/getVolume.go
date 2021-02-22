@@ -63,6 +63,8 @@ type LookupVolumeResult struct {
 	Type string `pulumi:"type"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold float64 `pulumi:"usageThreshold"`
+	// Resource size in bytes, current storage usage for the volume in bytes
+	UsedBytes float64 `pulumi:"usedBytes"`
 	// What type of volume is this
 	VolumeType *string `pulumi:"volumeType"`
 }

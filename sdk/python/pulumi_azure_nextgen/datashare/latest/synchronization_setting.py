@@ -22,7 +22,7 @@ class SynchronizationSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'SynchronizationSettingKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class SynchronizationSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of synchronization
+        :param pulumi.Input[Union[str, 'SynchronizationSettingKind']] kind: Kind of synchronization setting.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the synchronization setting to.
         :param pulumi.Input[str] synchronization_setting_name: The name of the synchronizationSetting.
@@ -105,7 +105,7 @@ class SynchronizationSetting(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of synchronization
+        Kind of synchronization setting.
         """
         return pulumi.get(self, "kind")
 

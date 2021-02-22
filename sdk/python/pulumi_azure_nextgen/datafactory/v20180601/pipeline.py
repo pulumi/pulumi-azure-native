@@ -26,6 +26,7 @@ class Pipeline(pulumi.CustomResource):
                  folder: Optional[pulumi.Input[pulumi.InputType['PipelineFolderArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['PipelinePolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_dimensions: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]]] = None,
@@ -45,6 +46,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PipelineFolderArgs']] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]] parameters: List of parameters for pipeline.
         :param pulumi.Input[str] pipeline_name: The pipeline name.
+        :param pulumi.Input[pulumi.InputType['PipelinePolicyArgs']] policy: Pipeline Policy.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
@@ -76,6 +78,7 @@ class Pipeline(pulumi.CustomResource):
             __props__['folder'] = folder
             __props__['parameters'] = parameters
             __props__['pipeline_name'] = pipeline_name
+            __props__['policy'] = policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -173,6 +176,14 @@ class Pipeline(pulumi.CustomResource):
         List of parameters for pipeline.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional['outputs.PipelinePolicyResponse']]:
+        """
+        Pipeline Policy.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="runDimensions")

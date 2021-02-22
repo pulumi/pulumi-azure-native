@@ -31,6 +31,8 @@ type Pipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationResponseMapOutput `pulumi:"parameters"`
+	// Pipeline Policy.
+	Policy PipelinePolicyResponsePtrOutput `pulumi:"policy"`
 	// Dimensions emitted by Pipeline.
 	RunDimensions pulumi.MapOutput `pulumi:"runDimensions"`
 	// The resource type.
@@ -102,6 +104,8 @@ type pipelineState struct {
 	Name *string `pulumi:"name"`
 	// List of parameters for pipeline.
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Pipeline Policy.
+	Policy *PipelinePolicyResponse `pulumi:"policy"`
 	// Dimensions emitted by Pipeline.
 	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.
@@ -127,6 +131,8 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationResponseMapInput
+	// Pipeline Policy.
+	Policy PipelinePolicyResponsePtrInput
 	// Dimensions emitted by Pipeline.
 	RunDimensions pulumi.MapInput
 	// The resource type.
@@ -156,6 +162,8 @@ type pipelineArgs struct {
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// The pipeline name.
 	PipelineName *string `pulumi:"pipelineName"`
+	// Pipeline Policy.
+	Policy *PipelinePolicy `pulumi:"policy"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dimensions emitted by Pipeline.
@@ -182,6 +190,8 @@ type PipelineArgs struct {
 	Parameters ParameterSpecificationMapInput
 	// The pipeline name.
 	PipelineName pulumi.StringPtrInput
+	// Pipeline Policy.
+	Policy PipelinePolicyPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Dimensions emitted by Pipeline.

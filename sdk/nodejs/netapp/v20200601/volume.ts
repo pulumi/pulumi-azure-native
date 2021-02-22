@@ -74,13 +74,13 @@ export class Volume extends pulumi.CustomResource {
     /**
      * List of mount targets
      */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20200601.MountTargetPropertiesResponse[] | undefined>;
+    public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.v20200601.MountTargetPropertiesResponse[]>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -88,7 +88,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The security style of volume
+     * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
     public readonly securityStyle!: pulumi.Output<string | undefined>;
     /**
@@ -161,22 +161,22 @@ export class Volume extends pulumi.CustomResource {
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mountTargets"] = args ? args.mountTargets : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityStyle"] = args ? args.securityStyle : undefined;
+            inputs["securityStyle"] = (args ? args.securityStyle : undefined) || "unix";
             inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) || "Premium";
-            inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
+            inputs["snapshotDirectoryVisible"] = (args ? args.snapshotDirectoryVisible : undefined) || true;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputMibps"] = args ? args.throughputMibps : undefined;
+            inputs["throughputMibps"] = (args ? args.throughputMibps : undefined) || 0;
             inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) || 107374182400;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -255,15 +255,11 @@ export interface VolumeArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * List of mount targets
-     */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20200601.MountTargetProperties>[]>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -271,7 +267,7 @@ export interface VolumeArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The security style of volume
+     * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
     readonly securityStyle?: pulumi.Input<string | enums.netapp.v20200601.SecurityStyle>;
     /**

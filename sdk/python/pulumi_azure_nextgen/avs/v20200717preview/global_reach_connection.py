@@ -65,7 +65,7 @@ class GlobalReachConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:GlobalReachConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:GlobalReachConnection"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:GlobalReachConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalReachConnection, __self__).__init__(
             'azure-nextgen:avs/v20200717preview:GlobalReachConnection',

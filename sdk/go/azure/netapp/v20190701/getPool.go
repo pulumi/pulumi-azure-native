@@ -31,7 +31,7 @@ type LookupPoolResult struct {
 	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// Resource name
+	// Pool Resource name
 	Name string `pulumi:"name"`
 	// UUID v4 used to identify the Pool
 	PoolId string `pulumi:"poolId"`

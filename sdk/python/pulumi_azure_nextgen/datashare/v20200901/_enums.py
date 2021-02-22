@@ -5,17 +5,49 @@
 from enum import Enum
 
 __all__ = [
-    'Kind',
+    'DataSetKind',
+    'DataSetMappingKind',
     'ShareKind',
+    'SynchronizationSettingKind',
+    'TriggerKind',
     'Type',
 ]
 
 
-class Kind(str, Enum):
+class DataSetKind(str, Enum):
     """
-    Kind of synchronization
+    Kind of data set.
     """
-    SCHEDULE_BASED = "ScheduleBased"
+    BLOB = "Blob"
+    CONTAINER = "Container"
+    BLOB_FOLDER = "BlobFolder"
+    ADLS_GEN2_FILE_SYSTEM = "AdlsGen2FileSystem"
+    ADLS_GEN2_FOLDER = "AdlsGen2Folder"
+    ADLS_GEN2_FILE = "AdlsGen2File"
+    ADLS_GEN1_FOLDER = "AdlsGen1Folder"
+    ADLS_GEN1_FILE = "AdlsGen1File"
+    KUSTO_CLUSTER = "KustoCluster"
+    KUSTO_DATABASE = "KustoDatabase"
+    SQL_DB_TABLE = "SqlDBTable"
+    SQL_DW_TABLE = "SqlDWTable"
+    SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
+
+
+class DataSetMappingKind(str, Enum):
+    """
+    Kind of data set mapping.
+    """
+    BLOB = "Blob"
+    CONTAINER = "Container"
+    BLOB_FOLDER = "BlobFolder"
+    ADLS_GEN2_FILE_SYSTEM = "AdlsGen2FileSystem"
+    ADLS_GEN2_FOLDER = "AdlsGen2Folder"
+    ADLS_GEN2_FILE = "AdlsGen2File"
+    KUSTO_CLUSTER = "KustoCluster"
+    KUSTO_DATABASE = "KustoDatabase"
+    SQL_DB_TABLE = "SqlDBTable"
+    SQL_DW_TABLE = "SqlDWTable"
+    SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
 
 
 class ShareKind(str, Enum):
@@ -24,6 +56,20 @@ class ShareKind(str, Enum):
     """
     COPY_BASED = "CopyBased"
     IN_PLACE = "InPlace"
+
+
+class SynchronizationSettingKind(str, Enum):
+    """
+    Kind of synchronization setting.
+    """
+    SCHEDULE_BASED = "ScheduleBased"
+
+
+class TriggerKind(str, Enum):
+    """
+    Kind of synchronization on trigger.
+    """
+    SCHEDULE_BASED = "ScheduleBased"
 
 
 class Type(str, Enum):

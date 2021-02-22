@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901.Inputs
 
         public ExportPolicyRuleArgs()
         {
+            Cifs = false;
             HasRootAccess = true;
             Kerberos5ReadOnly = false;
             Kerberos5ReadWrite = false;

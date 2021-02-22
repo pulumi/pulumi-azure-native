@@ -58,7 +58,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * List of mount targets
      */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20190601.MountTargetPropertiesResponse[] | undefined>;
+    public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.v20190601.MountTargetPropertiesResponse[]>;
     /**
      * Resource name
      */
@@ -128,7 +128,6 @@ export class Volume extends pulumi.CustomResource {
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mountTargets"] = args ? args.mountTargets : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -140,6 +139,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -193,10 +193,6 @@ export interface VolumeArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * List of mount targets
-     */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20190601.MountTargetProperties>[]>;
     /**
      * The name of the capacity pool
      */

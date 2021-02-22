@@ -49,7 +49,7 @@ export interface GetSynchronizationSettingResult {
      */
     readonly id: string;
     /**
-     * Kind of synchronization
+     * Kind of synchronization setting.
      */
     readonly kind: string;
     /**

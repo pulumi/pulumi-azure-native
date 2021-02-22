@@ -74,13 +74,13 @@ export class Volume extends pulumi.CustomResource {
     /**
      * List of mount targets
      */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20200501.MountTargetPropertiesResponse[] | undefined>;
+    public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.v20200501.MountTargetPropertiesResponse[]>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -156,7 +156,6 @@ export class Volume extends pulumi.CustomResource {
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mountTargets"] = args ? args.mountTargets : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -170,6 +169,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -246,15 +246,11 @@ export interface VolumeArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * List of mount targets
-     */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20200501.MountTargetProperties>[]>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

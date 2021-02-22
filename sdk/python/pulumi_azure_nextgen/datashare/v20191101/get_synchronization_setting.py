@@ -45,7 +45,7 @@ class GetSynchronizationSettingResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        Kind of synchronization
+        Kind of synchronization setting.
         """
         return pulumi.get(self, "kind")
 

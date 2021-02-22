@@ -76,6 +76,10 @@ export interface GetPipelineResult {
      */
     readonly parameters?: {[key: string]: outputs.datafactory.latest.ParameterSpecificationResponse};
     /**
+     * Pipeline Policy.
+     */
+    readonly policy?: outputs.datafactory.latest.PipelinePolicyResponse;
+    /**
      * Dimensions emitted by Pipeline.
      */
     readonly runDimensions?: {[key: string]: any};
