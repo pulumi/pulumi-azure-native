@@ -6,17 +6,13 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
-    'CitusVersion',
     'CreateMode',
     'GeoRedundantBackup',
     'IdentityType',
     'InfrastructureEncryption',
     'MinimalTlsVersionEnum',
-    'PostgreSQLVersion',
     'PublicNetworkAccessEnum',
-    'ServerEdition',
     'ServerKeyType',
-    'ServerRole',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -31,25 +27,14 @@ class AdministratorType(str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
-class CitusVersion(str, Enum):
-    """
-    The Citus version of server group.
-    """
-    CITUS_VERSION_8_3 = "8.3"
-    CITUS_VERSION_9_0 = "9.0"
-    CITUS_VERSION_9_1 = "9.1"
-    CITUS_VERSION_9_2 = "9.2"
-    CITUS_VERSION_9_3 = "9.3"
-    CITUS_VERSION_9_4 = "9.4"
-    CITUS_VERSION_9_5 = "9.5"
-
-
 class CreateMode(str, Enum):
     """
-    The mode to create a new server group.
+    The mode to create a new server.
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    GEO_RESTORE = "GeoRestore"
+    REPLICA = "Replica"
 
 
 class GeoRedundantBackup(str, Enum):
@@ -85,14 +70,6 @@ class MinimalTlsVersionEnum(str, Enum):
     TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
 
 
-class PostgreSQLVersion(str, Enum):
-    """
-    The PostgreSQL version of server group.
-    """
-    POSTGRE_SQL_VERSION_11 = "11"
-    POSTGRE_SQL_VERSION_12 = "12"
-
-
 class PublicNetworkAccessEnum(str, Enum):
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -101,27 +78,11 @@ class PublicNetworkAccessEnum(str, Enum):
     DISABLED = "Disabled"
 
 
-class ServerEdition(str, Enum):
-    """
-    The edition of a server (default: GeneralPurpose).
-    """
-    GENERAL_PURPOSE = "GeneralPurpose"
-    MEMORY_OPTIMIZED = "MemoryOptimized"
-
-
 class ServerKeyType(str, Enum):
     """
     The key type like 'AzureKeyVault'.
     """
     AZURE_KEY_VAULT = "AzureKeyVault"
-
-
-class ServerRole(str, Enum):
-    """
-    The role of servers in the server role group.
-    """
-    COORDINATOR = "Coordinator"
-    WORKER = "Worker"
 
 
 class ServerVersion(str, Enum):
