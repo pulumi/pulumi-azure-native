@@ -1,5 +1,5 @@
-import * as eventhub from "@pulumi/azure-nextgen/eventhub";
-import * as resources from "@pulumi/azure-nextgen/resources";
+import * as eventhub from "@pulumi/azure-native/eventhub";
+import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 

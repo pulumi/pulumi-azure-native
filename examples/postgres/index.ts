@@ -1,5 +1,5 @@
-import * as dbforpostgresql from "@pulumi/azure-nextgen/dbforpostgresql";
-import * as resources from "@pulumi/azure-nextgen/resources";
+import * as dbforpostgresql from "@pulumi/azure-native/dbforpostgresql";
+import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 

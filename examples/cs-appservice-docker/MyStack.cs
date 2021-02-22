@@ -1,10 +1,10 @@
 using System.Linq;
 using Pulumi;
-using Pulumi.AzureNextGen.ContainerRegistry;
-using Pulumi.AzureNextGen.ContainerRegistry.Inputs;
-using Pulumi.AzureNextGen.Resources;
-using Pulumi.AzureNextGen.Web;
-using Pulumi.AzureNextGen.Web.Inputs;
+using Pulumi.AzureNative.ContainerRegistry;
+using Pulumi.AzureNative.ContainerRegistry.Inputs;
+using Pulumi.AzureNative.Resources;
+using Pulumi.AzureNative.Web;
+using Pulumi.AzureNative.Web.Inputs;
 using Pulumi.Docker;
 
 class MyStack : Stack

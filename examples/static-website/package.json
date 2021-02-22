@@ -1,5 +1,5 @@
 {
-    "name": "azure-nextgen-static-website",
+    "name": "azure-native-static-website",
     "version": "0.1.0",
     "devDependencies": {
         "@types/node": "latest"

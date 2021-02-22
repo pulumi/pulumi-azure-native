@@ -10,7 +10,7 @@ let cosmosdbAccountLocations: string[] = [];
 pulumi.runtime.setMocks({
     newResource: function(type: string, name: string, inputs: any): {id: string, state: any} {
         console.log(type);
-        if (type === "azure-nextgen:documentdb:DatabaseAccount") {
+        if (type === "azure-native:documentdb:DatabaseAccount") {
             cosmosdbAccountLocations = inputs.locations.map((l: any) => l.locationName);
             cosmosdbPrimaryLocation = inputs.location;
         }

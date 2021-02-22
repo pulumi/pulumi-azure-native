@@ -1,6 +1,6 @@
-import * as apimanagement from "@pulumi/azure-nextgen/apimanagement";
-import * as resources from "@pulumi/azure-nextgen/resources";
-import * as web from "@pulumi/azure-nextgen/web";
+import * as apimanagement from "@pulumi/azure-native/apimanagement";
+import * as resources from "@pulumi/azure-native/resources";
+import * as web from "@pulumi/azure-native/web";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 

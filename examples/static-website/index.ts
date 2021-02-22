@@ -1,9 +1,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import { URL } from "url";
 
-import * as cdn from "@pulumi/azure-nextgen/cdn";
-import * as resources from "@pulumi/azure-nextgen/resources";
-import * as storage from "@pulumi/azure-nextgen/storage";
+import * as cdn from "@pulumi/azure-native/cdn";
+import * as resources from "@pulumi/azure-native/resources";
+import * as storage from "@pulumi/azure-native/storage";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 
