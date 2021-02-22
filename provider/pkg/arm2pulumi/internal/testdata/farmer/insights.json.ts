@@ -1,9 +1,9 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure-nextgen";
+import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const farmerpulumi2 = new azure_nextgen.storage.v20190401.StorageAccount("farmerpulumi2", {
+const farmerpulumi2 = new azure_native.storage.v20190401.StorageAccount("farmerpulumi2", {
     accountName: "farmerpulumi2",
     kind: "StorageV2",
     location: "northeurope",
@@ -13,7 +13,7 @@ const farmerpulumi2 = new azure_nextgen.storage.v20190401.StorageAccount("farmer
     },
     tags: {},
 });
-const farmerpulumi3Ai = new azure_nextgen.insights.v20150501.Component("farmerpulumi3Ai", {
+const farmerpulumi3Ai = new azure_native.insights.v20150501.Component("farmerpulumi3Ai", {
     applicationType: "web",
     disableIpMasking: false,
     kind: "web",
@@ -25,7 +25,7 @@ const farmerpulumi3Ai = new azure_nextgen.insights.v20150501.Component("farmerpu
         "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', 'farmerpulumi3')]": "Resource",
     },
 });
-const farmerpulumi3Farm = new azure_nextgen.web.v20180201.AppServicePlan("farmerpulumi3Farm", {
+const farmerpulumi3Farm = new azure_native.web.v20180201.AppServicePlan("farmerpulumi3Farm", {
     location: "northeurope",
     name: "farmerpulumi3-farm",
     perSiteScaling: false,
@@ -39,7 +39,7 @@ const farmerpulumi3Farm = new azure_nextgen.web.v20180201.AppServicePlan("farmer
     },
     tags: {},
 });
-const farmerpulumi3 = new azure_nextgen.web.v20160801.WebApp("farmerpulumi3", {
+const farmerpulumi3 = new azure_native.web.v20160801.WebApp("farmerpulumi3", {
     httpsOnly: false,
     kind: "app",
     location: "northeurope",

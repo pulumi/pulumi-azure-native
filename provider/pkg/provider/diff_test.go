@@ -21,12 +21,12 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 						"p1": {Type: "string"},
 						"p2": {Type: "number"},
 						"p3": {Type: "boolean"},
-						"p4": {Ref: "#/types/azure-nextgen:foobar/v20200101:SomeType"},
+						"p4": {Ref: "#/types/azure-native:foobar/v20200101:SomeType"},
 						"p5": {Type: "array", Items: &resources.AzureAPIProperty{
 							Type: "string",
 						}},
 						"p6": {Type: "array", Items: &resources.AzureAPIProperty{
-							Ref: "#/types/azure-nextgen:foobar/v20200101:SomeType",
+							Ref: "#/types/azure-native:foobar/v20200101:SomeType",
 						}},
 					},
 				},
@@ -190,8 +190,8 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 					Properties: map[string]resources.AzureAPIProperty{
 						"p1": {Type: "string"},
 						"p2": {Type: "number", ForceNew: true},
-						"p3": {Ref: "#/types/azure-nextgen:foobar/v20200101:FooType"},
-						"p4": {Ref: "#/types/azure-nextgen:foobar/v20200101:FooType", ForceNew: true},
+						"p3": {Ref: "#/types/azure-native:foobar/v20200101:FooType"},
+						"p4": {Ref: "#/types/azure-native:foobar/v20200101:FooType", ForceNew: true},
 					},
 				},
 			},

@@ -50,7 +50,7 @@ func main() {
 	for _, language := range strings.Split(languages, ",") {
 		switch language {
 		case "schema":
-			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
+			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
 			if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
 				break
 			}
@@ -67,7 +67,7 @@ func main() {
 			// Also, emit the resource metadata for the provider.
 			err = emitMetadata(meta, arm2pulumiDir, "main", false)
 		case "docs":
-			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
+			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
 			docsProviders := openapi.SingleVersion(azureProviders)
 			var docsPkgSpec *schema.PackageSpec
 			var resExamples map[string][]resources.AzureAPIExample

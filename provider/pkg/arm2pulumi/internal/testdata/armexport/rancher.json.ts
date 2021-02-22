@@ -1,10 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure-nextgen";
+import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const availabilitySetsPulumirancherAvsetNameParam = config.get("availabilitySetsPulumirancherAvsetNameParam") || "pulumirancher-avset";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const availabilitySetResource = new azure_nextgen.compute.v20190701.AvailabilitySet("availabilitySetResource", {
+const availabilitySetResource = new azure_native.compute.v20190701.AvailabilitySet("availabilitySetResource", {
     availabilitySetName: availabilitySetsPulumirancherAvsetNameParam,
     location: "westus2",
     platformFaultDomainCount: 1,
@@ -21,7 +21,7 @@ const extensionsDockerExtensionCaParam = config.require("extensionsDockerExtensi
 const extensionsDockerExtensionCertParam = config.require("extensionsDockerExtensionCertParam");
 const extensionsDockerExtensionKeyParam = config.require("extensionsDockerExtensionKeyParam");
 const virtualMachinesPulumirancherNameParam = config.get("virtualMachinesPulumirancherNameParam") || "pulumirancher";
-const extensionResource = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource", {
+const extensionResource = new azure_native.compute.v20190701.VirtualMachineExtension("extensionResource", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
     protectedSettings: {
@@ -48,7 +48,7 @@ const extensionsEnablevmaccessRemoveUserParam = config.require("extensionsEnable
 const extensionsEnablevmaccessResetSshParam = config.require("extensionsEnablevmaccessResetSshParam");
 const extensionsEnablevmaccessSshKeyParam = config.require("extensionsEnablevmaccessSshKeyParam");
 const extensionsEnablevmaccessUsernameParam = config.require("extensionsEnablevmaccessUsernameParam");
-const extensionResource0 = new azure_nextgen.compute.v20190701.VirtualMachineExtension("extensionResource0", {
+const extensionResource0 = new azure_native.compute.v20190701.VirtualMachineExtension("extensionResource0", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
     protectedSettings: {
@@ -67,7 +67,7 @@ const extensionResource0 = new azure_nextgen.compute.v20190701.VirtualMachineExt
     vmExtensionName: `${virtualMachinesPulumirancherNameParam}/enablevmaccess`,
 });
 const networkInterfacesPulumirancherNicNameParam = config.get("networkInterfacesPulumirancherNicNameParam") || "pulumirancher-nic";
-const networkInterfaceResource = new azure_nextgen.network.v20200501.NetworkInterface("networkInterfaceResource", {
+const networkInterfaceResource = new azure_native.network.v20200501.NetworkInterface("networkInterfaceResource", {
     dnsSettings: {
         dnsServers: [],
     },
@@ -91,7 +91,7 @@ const networkInterfaceResource = new azure_nextgen.network.v20200501.NetworkInte
     resourceGroupName: resourceGroupNameParam,
 });
 const networkSecurityGroupsPulumirancherNsgNameParam = config.get("networkSecurityGroupsPulumirancherNsgNameParam") || "pulumirancher-nsg";
-const networkSecurityGroupResource = new azure_nextgen.network.v20200501.NetworkSecurityGroup("networkSecurityGroupResource", {
+const networkSecurityGroupResource = new azure_native.network.v20200501.NetworkSecurityGroup("networkSecurityGroupResource", {
     location: "westus2",
     networkSecurityGroupName: networkSecurityGroupsPulumirancherNsgNameParam,
     resourceGroupName: resourceGroupNameParam,
@@ -147,7 +147,7 @@ const networkSecurityGroupResource = new azure_nextgen.network.v20200501.Network
     ],
 });
 const publicIPAddressesPulumirancherPip1NameParam = config.get("publicIPAddressesPulumirancherPip1NameParam") || "pulumirancher-pip1";
-const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddress("publicIPAddressResource", {
+const publicIPAddressResource = new azure_native.network.v20200501.PublicIPAddress("publicIPAddressResource", {
     dnsSettings: {
         domainNameLabel: "pulumirancher",
         fqdn: "pulumirancher.westus2.cloudapp.azure.com",
@@ -164,7 +164,7 @@ const publicIPAddressResource = new azure_nextgen.network.v20200501.PublicIPAddr
         name: "Basic",
     },
 });
-const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource", {
+const securityRuleResource = new azure_native.network.v20200501.SecurityRule("securityRuleResource", {
     access: "Allow",
     description: "Docker",
     destinationAddressPrefix: "*",
@@ -181,7 +181,7 @@ const securityRuleResource = new azure_nextgen.network.v20200501.SecurityRule("s
     sourcePortRange: "*",
     sourcePortRanges: [],
 });
-const securityRuleResource0 = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource0", {
+const securityRuleResource0 = new azure_native.network.v20200501.SecurityRule("securityRuleResource0", {
     access: "Allow",
     description: "Rancher-HTTPS",
     destinationAddressPrefix: "*",
@@ -198,7 +198,7 @@ const securityRuleResource0 = new azure_nextgen.network.v20200501.SecurityRule("
     sourcePortRange: "*",
     sourcePortRanges: [],
 });
-const securityRuleResource1 = new azure_nextgen.network.v20200501.SecurityRule("securityRuleResource1", {
+const securityRuleResource1 = new azure_native.network.v20200501.SecurityRule("securityRuleResource1", {
     access: "Allow",
     description: "SSH",
     destinationAddressPrefix: "*",
@@ -216,7 +216,7 @@ const securityRuleResource1 = new azure_nextgen.network.v20200501.SecurityRule("
     sourcePortRanges: [],
 });
 const virtualNetworksPulumirancherVnetNameParam = config.get("virtualNetworksPulumirancherVnetNameParam") || "pulumirancher-vnet";
-const subnetResource = new azure_nextgen.network.v20200501.Subnet("subnetResource", {
+const subnetResource = new azure_native.network.v20200501.Subnet("subnetResource", {
     addressPrefix: "192.168.254.0/24",
     delegations: [],
     networkSecurityGroup: {
@@ -227,7 +227,7 @@ const subnetResource = new azure_nextgen.network.v20200501.Subnet("subnetResourc
     resourceGroupName: resourceGroupNameParam,
     subnetName: `${virtualNetworksPulumirancherVnetNameParam}/pulumirancher-subnet`,
 });
-const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachine("virtualMachineResource", {
+const virtualMachineResource = new azure_native.compute.v20190701.VirtualMachine("virtualMachineResource", {
     availabilitySet: {
         id: "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_pulumirancher_avset_name'))]",
     },
@@ -271,7 +271,7 @@ const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachin
     },
     vmName: virtualMachinesPulumirancherNameParam,
 });
-const virtualNetworkResource = new azure_nextgen.network.v20200501.VirtualNetwork("virtualNetworkResource", {
+const virtualNetworkResource = new azure_native.network.v20200501.VirtualNetwork("virtualNetworkResource", {
     addressSpace: {
         addressPrefixes: ["192.168.254.0/24"],
     },

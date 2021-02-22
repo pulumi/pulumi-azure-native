@@ -1,6 +1,6 @@
-PROJECT_NAME := Pulumi Azure NextGen Resource Provider
+PROJECT_NAME := Pulumi Native Azure Resource Provider
 
-PACK            := azure-nextgen
+PACK            := azure-native
 PACKDIR         := sdk
 PROJECT         := github.com/pulumi/pulumi-azure-nextgen-provider
 PROVIDER        := pulumi-resource-${PACK}
@@ -90,7 +90,7 @@ generate_dotnet::
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
-		echo "azure-nextgen\n${DOTNET_VERSION}" >version.txt && \
+		echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
 generate_go::

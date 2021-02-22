@@ -1,17 +1,17 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure-nextgen";
+import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const cDNSkuParam = config.get("cDNSkuParam") || "Standard_Microsoft";
 const endpointNameParam = config.require("endpointNameParam");
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const resourceGroupVar = azure_nextgen.resources.getResourceGroup({
+const resourceGroupVar = azure_native.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const originUrlParam = config.require("originUrlParam");
 const profileNameParam = config.require("profileNameParam");
-const profileResource = new azure_nextgen.cdn.v20190415.Profile("profileResource", {
+const profileResource = new azure_native.cdn.v20190415.Profile("profileResource", {
     location: locationParam,
     profileName: profileNameParam,
     resourceGroupName: resourceGroupNameParam,
@@ -19,7 +19,7 @@ const profileResource = new azure_nextgen.cdn.v20190415.Profile("profileResource
         name: cDNSkuParam,
     },
 });
-const endpointResource = new azure_nextgen.cdn.v20190415.Endpoint("endpointResource", {
+const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResource", {
     contentTypesToCompress: [
         "text/plain",
         "text/html",

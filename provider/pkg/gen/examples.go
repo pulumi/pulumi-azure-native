@@ -57,7 +57,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 		return err
 	}
 	loaderOption := hcl2.Loader(InMemoryPackageLoader(map[string]*schema.Package{
-		"azure-nextgen": pkg,
+		"azure-native": pkg,
 	}))
 	for _, pulumiToken := range sortedKeys {
 		err := bar.Add(1)

@@ -42,12 +42,12 @@ const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure"
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
-		Name:        "azure-nextgen",
-		Description: "A Next Generation Pulumi package for creating and managing Azure resources.",
+		Name:        "azure-native",
+		Description: "A native Pulumi package for creating and managing Azure resources.",
 		License:     "Apache-2.0",
-		Keywords:    []string{"pulumi", "azure", "azure-nextgen"},
+		Keywords:    []string{"pulumi", "azure", "azure-native"},
 		Homepage:    "https://pulumi.com",
-		Repository:  "https://github.com/pulumi/pulumi-azure-nextgen",
+		Repository:  "https://github.com/pulumi/pulumi-azure-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
 				"subscriptionId": {
@@ -102,7 +102,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		},
 		Provider: pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
-				Description: "The provider type for the Azure NextGen package.",
+				Description: "The provider type for the native Azure package.",
 				Type:        "object",
 			},
 			InputProperties: map[string]pschema.PropertySpec{
@@ -231,7 +231,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 
 	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview", "beta", "Beta")
 	csharpNamespaces := map[string]string{
-		"azure-nextgen": "AzureNextGen",
+		"azure-native": "AzureNative",
 	}
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
@@ -309,7 +309,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.20.0",
 		},
-		"readme": `The Azure NextGen provider package offers support for all Azure Resource Manager (ARM)
+		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
 allows you to programmatically declare instances of any Azure resource and any supported resource
@@ -322,7 +322,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 			"pulumi": ">=2.20.0,<3.0.0",
 		},
 		"usesIOClasses": true,
-		"readme": `The Azure NextGen provider package offers support for all Azure Resource Manager (ARM)
+		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
 allows you to programmatically declare instances of any Azure resource and any supported resource
@@ -342,11 +342,11 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
 	// Mixin 'getClientConfig' to read current configuration values.
-	if _, has := pkg.Functions["azure-nextgen:authorization:getClientConfig"]; has {
-		return errors.New("Invoke 'azure-nextgen:authorization:getClientConfig' is already defined")
+	if _, has := pkg.Functions["azure-native:authorization:getClientConfig"]; has {
+		return errors.New("Invoke 'azure-native:authorization:getClientConfig' is already defined")
 	}
-	pkg.Functions["azure-nextgen:authorization:getClientConfig"] = schema.FunctionSpec{
-		Description: "Use this function to access the current configuration of the Azure NextGen provider.",
+	pkg.Functions["azure-native:authorization:getClientConfig"] = schema.FunctionSpec{
+		Description: "Use this function to access the current configuration of the native Azure provider.",
 		Outputs: &schema.ObjectTypeSpec{
 			Description: "Configuration values returned by getClientConfig.",
 			Properties: map[string]schema.PropertySpec{
@@ -373,10 +373,10 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	}
 
 	// Mixin 'getClientToken' to obtain an Azure auth token.
-	if _, has := pkg.Functions["azure-nextgen:authorization:getClientToken"]; has {
-		return errors.New("Invoke 'azure-nextgen:authorization:getClientToken' is already defined")
+	if _, has := pkg.Functions["azure-native:authorization:getClientToken"]; has {
+		return errors.New("Invoke 'azure-native:authorization:getClientToken' is already defined")
 	}
-	pkg.Functions["azure-nextgen:authorization:getClientToken"] = schema.FunctionSpec{
+	pkg.Functions["azure-native:authorization:getClientToken"] = schema.FunctionSpec{
 		Description: "Use this function to get an Azure authentication token for the current login context.",
 		Inputs: &schema.ObjectTypeSpec{
 			Properties: map[string]schema.PropertySpec{
@@ -503,7 +503,8 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	for _, version := range resource.CompatibleVersions {
 		moduleName := providerApiToModule(prov, version)
 		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
+		nextGenAlias := fmt.Sprintf("%s:%s:%s", "azure-nextgen", moduleName, typeName)
+		aliases = append(aliases, pschema.AliasSpec{Type: &alias}, pschema.AliasSpec{Type: &nextGenAlias})
 	}
 
 	resourceSpec := pschema.ResourceSpec{
@@ -1513,7 +1514,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 		suffix = "Response"
 	}
 	referenceName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
-	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, referenceName, suffix)
+	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.

@@ -2,12 +2,12 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "managedClusters_azure_nextgen_aks_name": {
-      "defaultValue": "azure-nextgen-aks",
+    "managedClusters_azure_native_aks_name": {
+      "defaultValue": "azure-native-aks",
       "type": "String"
     },
     "publicIPAddresses_87a245ee_edc1_470c_a08e_c456659d9861_externalid": {
-      "defaultValue": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_azure-nextgen-go_azure-nextgen-aks_westus/providers/Microsoft.Network/publicIPAddresses/87a245ee-edc1-470c-a08e-c456659d9861",
+      "defaultValue": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_azure-native-go_azure-native-aks_westus/providers/Microsoft.Network/publicIPAddresses/87a245ee-edc1-470c-a08e-c456659d9861",
       "type": "String"
     }
   },
@@ -16,7 +16,7 @@
     {
       "type": "Microsoft.ContainerService/managedClusters",
       "apiVersion": "2020-07-01",
-      "name": "[parameters('managedClusters_azure_nextgen_aks_name')]",
+      "name": "[parameters('managedClusters_azure_native_aks_name')]",
       "location": "westus",
       "sku": {
         "name": "Basic",
@@ -24,7 +24,7 @@
       },
       "properties": {
         "kubernetesVersion": "1.16.10",
-        "dnsPrefix": "azurenextgenprovider",
+        "dnsPrefix": "azurenativeprovider",
         "agentPoolProfiles": [
           {
             "name": "agentpool",
@@ -57,7 +57,7 @@
             "enabled": true
           }
         },
-        "nodeResourceGroup": "[concat('MC_azure-nextgen-go_', parameters('managedClusters_azure_nextgen_aks_name'), '_westus')]",
+        "nodeResourceGroup": "[concat('MC_azure-native-go_', parameters('managedClusters_azure_native_aks_name'), '_westus')]",
         "enableRBAC": true,
         "networkProfile": {
           "networkPlugin": "kubenet",
@@ -83,9 +83,9 @@
     {
       "type": "Microsoft.ContainerService/managedClusters/agentPools",
       "apiVersion": "2020-07-01",
-      "name": "[concat(parameters('managedClusters_azure_nextgen_aks_name'), '/agentpool')]",
+      "name": "[concat(parameters('managedClusters_azure_native_aks_name'), '/agentpool')]",
       "dependsOn": [
-        "[resourceId('Microsoft.ContainerService/managedClusters', parameters('managedClusters_azure_nextgen_aks_name'))]"
+        "[resourceId('Microsoft.ContainerService/managedClusters', parameters('managedClusters_azure_native_aks_name'))]"
       ],
       "properties": {
         "count": 3,

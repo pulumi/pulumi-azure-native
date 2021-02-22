@@ -341,7 +341,7 @@ func (r *Renderer) RenderPrograms(body *model.Body, languages []string) (map[str
 		return nil, false, fmt.Errorf("importing package spec: %w", err)
 	}
 	loaderOption := hcl2.Loader(gen.InMemoryPackageLoader(map[string]*schema.Package{
-		"azure-nextgen": pkg,
+		"azure-native": pkg,
 	}))
 
 	parser := syntax.NewParser()

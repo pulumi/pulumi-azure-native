@@ -6,23 +6,23 @@ import (
 
 // excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
-	"azure-nextgen:billing:ReportByBillingAccount",
-	"azure-nextgen:billing:ReportByDepartment",
-	"azure-nextgen:costmanagement:ReportConfig",
-	"azure-nextgen:costmanagement:Report",
-	"azure-nextgen:costmanagement:Budget",
-	"azure-nextgen:datamigration:ServiceTask",
-	"azure-nextgen:datamigration:Task",
-	"azure-nextgen:machinelearning:WebService",
-	"azure-nextgen:machinelearningservices:LabelingJob",
-	"azure-nextgen:media:Job",
-	"azure-nextgen:migrate:MoveCollection",
-	"azure-nextgen:migrate:MoveResource",
-	"azure-nextgen:portal:Dashboard", // go codegen stack overflow
+	"azure-native:billing:ReportByBillingAccount",
+	"azure-native:billing:ReportByDepartment",
+	"azure-native:costmanagement:ReportConfig",
+	"azure-native:costmanagement:Report",
+	"azure-native:costmanagement:Budget",
+	"azure-native:datamigration:ServiceTask",
+	"azure-native:datamigration:Task",
+	"azure-native:machinelearning:WebService",
+	"azure-native:machinelearningservices:LabelingJob",
+	"azure-native:media:Job",
+	"azure-native:migrate:MoveCollection",
+	"azure-native:migrate:MoveResource",
+	"azure-native:portal:Dashboard", // go codegen stack overflow
 
-	"azure-nextgen:datafactory:Pipeline", // go codegen goes full CPU and doesn't return
+	"azure-native:datafactory:Pipeline", // go codegen goes full CPU and doesn't return
 
-	"azure-nextgen:hybridcompute:GuestConfigurationHCRPAssignment",    // python name mismatch
+	"azure-native:hybridcompute:GuestConfigurationHCRPAssignment",    // python name mismatch
 }
 var excludeRegexes []*regexp.Regexp
 
