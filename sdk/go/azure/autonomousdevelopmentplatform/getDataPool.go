@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An ADP Data Pool.
+// API Version: 2020-07-01-preview.
 func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupDataPoolResult, error) {
 	var rv LookupDataPoolResult
 	err := ctx.Invoke("azure-nextgen:autonomousdevelopmentplatform:getDataPool", args, &rv, opts...)

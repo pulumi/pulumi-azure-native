@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A list of custom API WSDL interfaces
+// Latest API Version: 2016-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.
 func ListCustomApiWsdlInterfaces(ctx *pulumi.Context, args *ListCustomApiWsdlInterfacesArgs, opts ...pulumi.InvokeOption) (*ListCustomApiWsdlInterfacesResult, error) {
 	var rv ListCustomApiWsdlInterfacesResult
 	err := ctx.Invoke("azure-nextgen:web/latest:listCustomApiWsdlInterfaces", args, &rv, opts...)

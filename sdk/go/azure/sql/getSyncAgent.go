@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure SQL Database sync agent.
+// API Version: 2020-08-01-preview.
 func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pulumi.InvokeOption) (*LookupSyncAgentResult, error) {
 	var rv LookupSyncAgentResult
 	err := ctx.Invoke("azure-nextgen:sql:getSyncAgent", args, &rv, opts...)

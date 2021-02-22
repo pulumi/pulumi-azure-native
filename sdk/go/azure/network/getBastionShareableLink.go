@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response for all the Bastion Shareable Link endpoints.
+// API Version: 2020-08-01.
 func GetBastionShareableLink(ctx *pulumi.Context, args *GetBastionShareableLinkArgs, opts ...pulumi.InvokeOption) (*GetBastionShareableLinkResult, error) {
 	var rv GetBastionShareableLinkResult
 	err := ctx.Invoke("azure-nextgen:network:getBastionShareableLink", args, &rv, opts...)

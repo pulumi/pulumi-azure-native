@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response on GET of a hybrid use benefit
+// API Version: 2019-06-01-preview.
 func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArgs, opts ...pulumi.InvokeOption) (*LookupHybridUseBenefitResult, error) {
 	var rv LookupHybridUseBenefitResult
 	err := ctx.Invoke("azure-nextgen:softwareplan:getHybridUseBenefit", args, &rv, opts...)

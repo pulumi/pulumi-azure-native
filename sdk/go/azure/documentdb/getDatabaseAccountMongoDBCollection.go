@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure Cosmos DB MongoDB collection.
+// API Version: 2016-03-31.
 func LookupDatabaseAccountMongoDBCollection(ctx *pulumi.Context, args *LookupDatabaseAccountMongoDBCollectionArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountMongoDBCollectionResult, error) {
 	var rv LookupDatabaseAccountMongoDBCollectionResult
 	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection", args, &rv, opts...)

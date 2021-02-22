@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a bookmark in Azure Security Insights.
 func LookupBookmark(ctx *pulumi.Context, args *LookupBookmarkArgs, opts ...pulumi.InvokeOption) (*LookupBookmarkResult, error) {
 	var rv LookupBookmarkResult
 	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getBookmark", args, &rv, opts...)

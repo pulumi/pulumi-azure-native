@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The result of a request to get the administrator login credentials for a container registry.
+// API Version: 2016-06-27-preview.
 func GetRegistryCredentials(ctx *pulumi.Context, args *GetRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*GetRegistryCredentialsResult, error) {
 	var rv GetRegistryCredentialsResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:getRegistryCredentials", args, &rv, opts...)

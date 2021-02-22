@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Values returned by the List operation.
+// API Version: 2018-05-01.
 func ListJobOutputFiles(ctx *pulumi.Context, args *ListJobOutputFilesArgs, opts ...pulumi.InvokeOption) (*ListJobOutputFilesResult, error) {
 	var rv ListJobOutputFilesResult
 	err := ctx.Invoke("azure-nextgen:batchai:listJobOutputFiles", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Definition of the automation account type.
+// API Version: 2019-06-01.
 func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountArgs, opts ...pulumi.InvokeOption) (*LookupAutomationAccountResult, error) {
 	var rv LookupAutomationAccountResult
 	err := ctx.Invoke("azure-nextgen:automation:getAutomationAccount", args, &rv, opts...)

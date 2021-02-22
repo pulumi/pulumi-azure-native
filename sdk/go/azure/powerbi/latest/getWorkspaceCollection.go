@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Latest API Version: 2016-01-29.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'.
 func LookupWorkspaceCollection(ctx *pulumi.Context, args *LookupWorkspaceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceCollectionResult, error) {
 	var rv LookupWorkspaceCollectionResult
 	err := ctx.Invoke("azure-nextgen:powerbi/latest:getWorkspaceCollection", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties that define a favorite that is associated to an Application Insights component.
+// API Version: 2015-05-01.
 func LookupFavorite(ctx *pulumi.Context, args *LookupFavoriteArgs, opts ...pulumi.InvokeOption) (*LookupFavoriteResult, error) {
 	var rv LookupFavoriteResult
 	err := ctx.Invoke("azure-nextgen:insights:getFavorite", args, &rv, opts...)

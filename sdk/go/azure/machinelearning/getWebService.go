@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Instance of an Azure ML web service resource.
+// API Version: 2017-01-01.
 func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...pulumi.InvokeOption) (*LookupWebServiceResult, error) {
 	var rv LookupWebServiceResult
 	err := ctx.Invoke("azure-nextgen:machinelearning:getWebService", args, &rv, opts...)

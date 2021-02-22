@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The response of a list operation.
+// API Version: 2018-09-15.
 func ListLabVhds(ctx *pulumi.Context, args *ListLabVhdsArgs, opts ...pulumi.InvokeOption) (*ListLabVhdsResult, error) {
 	var rv ListLabVhdsResult
 	err := ctx.Invoke("azure-nextgen:devtestlab:listLabVhds", args, &rv, opts...)

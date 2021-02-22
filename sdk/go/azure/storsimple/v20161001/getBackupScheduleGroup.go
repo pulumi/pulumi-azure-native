@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Backup Schedule Group
 func LookupBackupScheduleGroup(ctx *pulumi.Context, args *LookupBackupScheduleGroupArgs, opts ...pulumi.InvokeOption) (*LookupBackupScheduleGroupResult, error) {
 	var rv LookupBackupScheduleGroupResult
 	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getBackupScheduleGroup", args, &rv, opts...)

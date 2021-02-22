@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A streaming job object, containing all information associated with the named streaming job.
 func LookupStreamingJob(ctx *pulumi.Context, args *LookupStreamingJobArgs, opts ...pulumi.InvokeOption) (*LookupStreamingJobResult, error) {
 	var rv LookupStreamingJobResult
 	err := ctx.Invoke("azure-nextgen:streamanalytics/v20170401preview:getStreamingJob", args, &rv, opts...)

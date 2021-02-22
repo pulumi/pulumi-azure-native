@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a disaster recovery configuration.
+// API Version: 2014-04-01.
 func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigurationResult, error) {
 	var rv LookupDisasterRecoveryConfigurationResult
 	err := ctx.Invoke("azure-nextgen:sql:getDisasterRecoveryConfiguration", args, &rv, opts...)

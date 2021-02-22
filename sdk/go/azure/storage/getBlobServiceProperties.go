@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The properties of a storage account’s Blob service.
+// API Version: 2021-01-01.
 func LookupBlobServiceProperties(ctx *pulumi.Context, args *LookupBlobServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupBlobServicePropertiesResult, error) {
 	var rv LookupBlobServicePropertiesResult
 	err := ctx.Invoke("azure-nextgen:storage:getBlobServiceProperties", args, &rv, opts...)

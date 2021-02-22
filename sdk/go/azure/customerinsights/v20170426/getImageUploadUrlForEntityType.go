@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The image definition.
 func GetImageUploadUrlForEntityType(ctx *pulumi.Context, args *GetImageUploadUrlForEntityTypeArgs, opts ...pulumi.InvokeOption) (*GetImageUploadUrlForEntityTypeResult, error) {
 	var rv GetImageUploadUrlForEntityTypeResult
 	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getImageUploadUrlForEntityType", args, &rv, opts...)

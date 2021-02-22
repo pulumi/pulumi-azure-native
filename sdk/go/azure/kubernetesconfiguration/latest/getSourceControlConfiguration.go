@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The SourceControl Configuration object returned in Get & Put response.
+// Latest API Version: 2021-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.
 func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceControlConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlConfigurationResult, error) {
 	var rv LookupSourceControlConfigurationResult
 	err := ctx.Invoke("azure-nextgen:kubernetesconfiguration/latest:getSourceControlConfiguration", args, &rv, opts...)

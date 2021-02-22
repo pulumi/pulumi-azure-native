@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// String dictionary resource
 func ListSiteConnectionStringsSlot(ctx *pulumi.Context, args *ListSiteConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteConnectionStringsSlotResult, error) {
 	var rv ListSiteConnectionStringsSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteConnectionStringsSlot", args, &rv, opts...)

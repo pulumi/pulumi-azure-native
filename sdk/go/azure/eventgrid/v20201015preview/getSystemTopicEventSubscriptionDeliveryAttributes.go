@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Result of the Get delivery attributes operation.
 func GetSystemTopicEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetSystemTopicEventSubscriptionDeliveryAttributesArgs, opts ...pulumi.InvokeOption) (*GetSystemTopicEventSubscriptionDeliveryAttributesResult, error) {
 	var rv GetSystemTopicEventSubscriptionDeliveryAttributesResult
 	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args, &rv, opts...)

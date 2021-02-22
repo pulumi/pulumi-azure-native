@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// NSX Port Mirroring
+// API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkPortMirroring(ctx *pulumi.Context, args *LookupWorkloadNetworkPortMirroringArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkPortMirroringResult, error) {
 	var rv LookupWorkloadNetworkPortMirroringResult
 	err := ctx.Invoke("azure-nextgen:avs:getWorkloadNetworkPortMirroring", args, &rv, opts...)

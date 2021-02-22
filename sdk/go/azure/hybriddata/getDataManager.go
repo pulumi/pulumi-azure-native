@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The DataManager resource.
+// API Version: 2019-06-01.
 func LookupDataManager(ctx *pulumi.Context, args *LookupDataManagerArgs, opts ...pulumi.InvokeOption) (*LookupDataManagerResult, error) {
 	var rv LookupDataManagerResult
 	err := ctx.Invoke("azure-nextgen:hybriddata:getDataManager", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A SqlServerInstance.
+// API Version: 2020-09-08-preview.
 func LookupSqlServerInstance(ctx *pulumi.Context, args *LookupSqlServerInstanceArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerInstanceResult, error) {
 	var rv LookupSqlServerInstanceResult
 	err := ctx.Invoke("azure-nextgen:azuredata:getSqlServerInstance", args, &rv, opts...)

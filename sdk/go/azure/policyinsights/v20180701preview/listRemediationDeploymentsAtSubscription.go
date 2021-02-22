@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// List of deployments for a remediation.
 func ListRemediationDeploymentsAtSubscription(ctx *pulumi.Context, args *ListRemediationDeploymentsAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtSubscriptionResult, error) {
 	var rv ListRemediationDeploymentsAtSubscriptionResult
 	err := ctx.Invoke("azure-nextgen:policyinsights/v20180701preview:listRemediationDeploymentsAtSubscription", args, &rv, opts...)

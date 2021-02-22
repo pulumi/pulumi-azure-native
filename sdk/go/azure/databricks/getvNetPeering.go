@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Peerings in a VirtualNetwork resource
+// API Version: 2018-04-01.
 func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulumi.InvokeOption) (*GetvNetPeeringResult, error) {
 	var rv GetvNetPeeringResult
 	err := ctx.Invoke("azure-nextgen:databricks:getvNetPeering", args, &rv, opts...)

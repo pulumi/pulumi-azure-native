@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Azure Active Directory only authentication.
+// API Version: 2020-08-01-preview.
 func LookupManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context, args *LookupManagedInstanceAzureADOnlyAuthenticationArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceAzureADOnlyAuthenticationResult, error) {
 	var rv LookupManagedInstanceAzureADOnlyAuthenticationResult
 	err := ctx.Invoke("azure-nextgen:sql:getManagedInstanceAzureADOnlyAuthentication", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Definition of the configuration type.
+// API Version: 2019-06-01.
 func LookupDscConfiguration(ctx *pulumi.Context, args *LookupDscConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscConfigurationResult, error) {
 	var rv LookupDscConfigurationResult
 	err := ctx.Invoke("azure-nextgen:automation:getDscConfiguration", args, &rv, opts...)

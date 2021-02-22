@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The StorSimple Manager.
+// API Version: 2017-06-01.
 func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.InvokeOption) (*LookupManagerResult, error) {
 	var rv LookupManagerResult
 	err := ctx.Invoke("azure-nextgen:storsimple:getManager", args, &rv, opts...)

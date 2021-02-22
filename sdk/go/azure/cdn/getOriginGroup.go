@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+// API Version: 2020-09-01.
 func LookupOriginGroup(ctx *pulumi.Context, args *LookupOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupOriginGroupResult, error) {
 	var rv LookupOriginGroupResult
 	err := ctx.Invoke("azure-nextgen:cdn:getOriginGroup", args, &rv, opts...)

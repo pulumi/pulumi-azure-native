@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Defines an Network Experiment Profile and lists of Experiments
+// Latest API Version: 2019-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkExperimentProfile'.
 func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExperimentProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkExperimentProfileResult, error) {
 	var rv LookupNetworkExperimentProfileResult
 	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkExperimentProfile", args, &rv, opts...)

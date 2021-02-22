@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A Policy.
 func LookupPolicyResource(ctx *pulumi.Context, args *LookupPolicyResourceArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResourceResult, error) {
 	var rv LookupPolicyResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getPolicyResource", args, &rv, opts...)

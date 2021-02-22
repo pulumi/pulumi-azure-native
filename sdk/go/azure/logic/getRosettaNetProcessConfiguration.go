@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The integration account RosettaNet process configuration.
+// API Version: 2016-06-01.
 func LookupRosettaNetProcessConfiguration(ctx *pulumi.Context, args *LookupRosettaNetProcessConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupRosettaNetProcessConfigurationResult, error) {
 	var rv LookupRosettaNetProcessConfigurationResult
 	err := ctx.Invoke("azure-nextgen:logic:getRosettaNetProcessConfiguration", args, &rv, opts...)

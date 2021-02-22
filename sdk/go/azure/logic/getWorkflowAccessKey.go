@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// API Version: 2015-02-01-preview.
 func LookupWorkflowAccessKey(ctx *pulumi.Context, args *LookupWorkflowAccessKeyArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowAccessKeyResult, error) {
 	var rv LookupWorkflowAccessKeyResult
 	err := ctx.Invoke("azure-nextgen:logic:getWorkflowAccessKey", args, &rv, opts...)

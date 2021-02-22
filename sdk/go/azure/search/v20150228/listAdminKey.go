@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response containing the primary and secondary API keys for a given Azure Search service.
 func ListAdminKey(ctx *pulumi.Context, args *ListAdminKeyArgs, opts ...pulumi.InvokeOption) (*ListAdminKeyResult, error) {
 	var rv ListAdminKeyResult
 	err := ctx.Invoke("azure-nextgen:search/v20150228:listAdminKey", args, &rv, opts...)

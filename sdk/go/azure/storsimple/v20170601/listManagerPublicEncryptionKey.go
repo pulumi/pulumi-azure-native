@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents the secrets encrypted using Symmetric Encryption Key.
 func ListManagerPublicEncryptionKey(ctx *pulumi.Context, args *ListManagerPublicEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerPublicEncryptionKeyResult, error) {
 	var rv ListManagerPublicEncryptionKeyResult
 	err := ctx.Invoke("azure-nextgen:storsimple/v20170601:listManagerPublicEncryptionKey", args, &rv, opts...)

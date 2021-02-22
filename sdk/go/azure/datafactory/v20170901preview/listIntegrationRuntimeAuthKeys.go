@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The integration runtime authentication keys.
 func ListIntegrationRuntimeAuthKeys(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeysResult, error) {
 	var rv ListIntegrationRuntimeAuthKeysResult
 	err := ctx.Invoke("azure-nextgen:datafactory/v20170901preview:listIntegrationRuntimeAuthKeys", args, &rv, opts...)

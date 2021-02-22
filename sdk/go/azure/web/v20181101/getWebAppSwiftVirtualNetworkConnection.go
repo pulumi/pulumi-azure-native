@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 func LookupWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionResult
 	err := ctx.Invoke("azure-nextgen:web/v20181101:getWebAppSwiftVirtualNetworkConnection", args, &rv, opts...)

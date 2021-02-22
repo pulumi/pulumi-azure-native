@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A formula.
 func LookupFormulaResource(ctx *pulumi.Context, args *LookupFormulaResourceArgs, opts ...pulumi.InvokeOption) (*LookupFormulaResourceResult, error) {
 	var rv LookupFormulaResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getFormulaResource", args, &rv, opts...)

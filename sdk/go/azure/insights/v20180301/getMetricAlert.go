@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The metric alert resource.
 func LookupMetricAlert(ctx *pulumi.Context, args *LookupMetricAlertArgs, opts ...pulumi.InvokeOption) (*LookupMetricAlertResult, error) {
 	var rv LookupMetricAlertResult
 	err := ctx.Invoke("azure-nextgen:insights/v20180301:getMetricAlert", args, &rv, opts...)

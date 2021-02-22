@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A NotebookProxy resource.
 func LookupNotebookProxy(ctx *pulumi.Context, args *LookupNotebookProxyArgs, opts ...pulumi.InvokeOption) (*LookupNotebookProxyResult, error) {
 	var rv LookupNotebookProxyResult
 	err := ctx.Invoke("azure-nextgen:notebooks/v20191011preview:getNotebookProxy", args, &rv, opts...)

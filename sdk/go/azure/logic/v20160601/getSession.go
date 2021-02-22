@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The integration account session.
 func LookupSession(ctx *pulumi.Context, args *LookupSessionArgs, opts ...pulumi.InvokeOption) (*LookupSessionResult, error) {
 	var rv LookupSessionResult
 	err := ctx.Invoke("azure-nextgen:logic/v20160601:getSession", args, &rv, opts...)

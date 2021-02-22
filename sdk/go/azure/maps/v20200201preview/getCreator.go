@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
 func LookupCreator(ctx *pulumi.Context, args *LookupCreatorArgs, opts ...pulumi.InvokeOption) (*LookupCreatorResult, error) {
 	var rv LookupCreatorResult
 	err := ctx.Invoke("azure-nextgen:maps/v20200201preview:getCreator", args, &rv, opts...)

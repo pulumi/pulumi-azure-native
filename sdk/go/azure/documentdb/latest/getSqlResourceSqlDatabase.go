@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure Cosmos DB SQL database.
+// Latest API Version: 2021-01-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlDatabase'.
 func LookupSqlResourceSqlDatabase(ctx *pulumi.Context, args *LookupSqlResourceSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlDatabaseResult, error) {
 	var rv LookupSqlResourceSqlDatabaseResult
 	err := ctx.Invoke("azure-nextgen:documentdb/latest:getSqlResourceSqlDatabase", args, &rv, opts...)

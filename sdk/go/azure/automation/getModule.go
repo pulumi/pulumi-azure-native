@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Definition of the module type.
+// API Version: 2019-06-01.
 func LookupModule(ctx *pulumi.Context, args *LookupModuleArgs, opts ...pulumi.InvokeOption) (*LookupModuleResult, error) {
 	var rv LookupModuleResult
 	err := ctx.Invoke("azure-nextgen:automation:getModule", args, &rv, opts...)

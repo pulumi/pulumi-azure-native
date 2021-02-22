@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Redis cache access keys.
+// API Version: 2020-06-01.
 func ListRedisKeys(ctx *pulumi.Context, args *ListRedisKeysArgs, opts ...pulumi.InvokeOption) (*ListRedisKeysResult, error) {
 	var rv ListRedisKeysResult
 	err := ctx.Invoke("azure-nextgen:cache:listRedisKeys", args, &rv, opts...)

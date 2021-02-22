@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Administrative credentials for accessing vCenter and NSX-T
+// Latest API Version: 2020-03-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
 	err := ctx.Invoke("azure-nextgen:avs/latest:listPrivateCloudAdminCredentials", args, &rv, opts...)

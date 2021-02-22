@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Azure Active Directory administrator.
 func LookupServerAzureADAdministrator(ctx *pulumi.Context, args *LookupServerAzureADAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAzureADAdministratorResult, error) {
 	var rv LookupServerAzureADAdministratorResult
 	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getServerAzureADAdministrator", args, &rv, opts...)

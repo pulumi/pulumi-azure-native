@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// SaaS REST API resource definition.
 func LookupSaasSubscriptionLevel(ctx *pulumi.Context, args *LookupSaasSubscriptionLevelArgs, opts ...pulumi.InvokeOption) (*LookupSaasSubscriptionLevelResult, error) {
 	var rv LookupSaasSubscriptionLevelResult
 	err := ctx.Invoke("azure-nextgen:saas/v20180301beta:getSaasSubscriptionLevel", args, &rv, opts...)

@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties that define an Analytics item that is associated to an Application Insights component.
+// Latest API Version: 2015-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAnalyticsItem'.
 func LookupAnalyticsItem(ctx *pulumi.Context, args *LookupAnalyticsItemArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsItemResult, error) {
 	var rv LookupAnalyticsItemResult
 	err := ctx.Invoke("azure-nextgen:insights/latest:getAnalyticsItem", args, &rv, opts...)

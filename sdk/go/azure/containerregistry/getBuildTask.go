@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+// API Version: 2018-02-01-preview.
 func LookupBuildTask(ctx *pulumi.Context, args *LookupBuildTaskArgs, opts ...pulumi.InvokeOption) (*LookupBuildTaskResult, error) {
 	var rv LookupBuildTaskResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:getBuildTask", args, &rv, opts...)

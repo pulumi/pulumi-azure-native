@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Security assessment metadata
 func LookupAssessmentsMetadataSubscription(ctx *pulumi.Context, args *LookupAssessmentsMetadataSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentsMetadataSubscriptionResult, error) {
 	var rv LookupAssessmentsMetadataSubscriptionResult
 	err := ctx.Invoke("azure-nextgen:security/v20190101preview:getAssessmentsMetadataSubscription", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Subscription Information with the alias.
 func LookupSubscriptionAlias(ctx *pulumi.Context, args *LookupSubscriptionAliasArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionAliasResult, error) {
 	var rv LookupSubscriptionAliasResult
 	err := ctx.Invoke("azure-nextgen:subscription/v20191001preview:getSubscriptionAlias", args, &rv, opts...)

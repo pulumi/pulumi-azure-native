@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Application Insights component definition.
+// API Version: 2015-05-01.
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
 	var rv LookupComponentResult
 	err := ctx.Invoke("azure-nextgen:insights:getComponent", args, &rv, opts...)

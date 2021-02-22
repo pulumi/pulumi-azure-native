@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure resource which represents which will provision the ability to create private location data.
+// API Version: 2020-02-01-preview.
 func LookupPrivateAtlase(ctx *pulumi.Context, args *LookupPrivateAtlaseArgs, opts ...pulumi.InvokeOption) (*LookupPrivateAtlaseResult, error) {
 	var rv LookupPrivateAtlaseResult
 	err := ctx.Invoke("azure-nextgen:maps:getPrivateAtlase", args, &rv, opts...)

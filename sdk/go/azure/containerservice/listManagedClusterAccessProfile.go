@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Managed cluster Access Profile.
+// API Version: 2020-03-01.
 func ListManagedClusterAccessProfile(ctx *pulumi.Context, args *ListManagedClusterAccessProfileArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterAccessProfileResult, error) {
 	var rv ListManagedClusterAccessProfileResult
 	err := ctx.Invoke("azure-nextgen:containerservice:listManagedClusterAccessProfile", args, &rv, opts...)

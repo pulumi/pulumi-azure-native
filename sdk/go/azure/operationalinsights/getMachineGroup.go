@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A user-defined logical grouping of machines.
+// API Version: 2015-11-01-preview.
 func LookupMachineGroup(ctx *pulumi.Context, args *LookupMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupMachineGroupResult, error) {
 	var rv LookupMachineGroupResult
 	err := ctx.Invoke("azure-nextgen:operationalinsights:getMachineGroup", args, &rv, opts...)

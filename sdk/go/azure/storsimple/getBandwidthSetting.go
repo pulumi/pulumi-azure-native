@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The bandwidth setting.
+// API Version: 2017-06-01.
 func LookupBandwidthSetting(ctx *pulumi.Context, args *LookupBandwidthSettingArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthSettingResult, error) {
 	var rv LookupBandwidthSettingResult
 	err := ctx.Invoke("azure-nextgen:storsimple:getBandwidthSetting", args, &rv, opts...)

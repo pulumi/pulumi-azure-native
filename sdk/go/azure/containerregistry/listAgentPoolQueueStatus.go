@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The QueueStatus of Agent Pool
+// API Version: 2019-06-01-preview.
 func ListAgentPoolQueueStatus(ctx *pulumi.Context, args *ListAgentPoolQueueStatusArgs, opts ...pulumi.InvokeOption) (*ListAgentPoolQueueStatusResult, error) {
 	var rv ListAgentPoolQueueStatusResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:listAgentPoolQueueStatus", args, &rv, opts...)

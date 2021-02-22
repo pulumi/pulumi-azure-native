@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The subscription diagnostic setting resource.
 func LookupSubscriptionDiagnosticSetting(ctx *pulumi.Context, args *LookupSubscriptionDiagnosticSettingArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionDiagnosticSettingResult, error) {
 	var rv LookupSubscriptionDiagnosticSettingResult
 	err := ctx.Invoke("azure-nextgen:insights/v20170501preview:getSubscriptionDiagnosticSetting", args, &rv, opts...)

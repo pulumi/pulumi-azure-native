@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Description of a backup which will be performed
 func ListSiteBackupConfigurationSlot(ctx *pulumi.Context, args *ListSiteBackupConfigurationSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteBackupConfigurationSlotResult, error) {
 	var rv ListSiteBackupConfigurationSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteBackupConfigurationSlot", args, &rv, opts...)

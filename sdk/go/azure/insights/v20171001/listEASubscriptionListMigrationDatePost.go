@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Subscription migrate date information properties
 func ListEASubscriptionListMigrationDatePost(ctx *pulumi.Context, args *ListEASubscriptionListMigrationDatePostArgs, opts ...pulumi.InvokeOption) (*ListEASubscriptionListMigrationDatePostResult, error) {
 	var rv ListEASubscriptionListMigrationDatePostResult
 	err := ctx.Invoke("azure-nextgen:insights/v20171001:listEASubscriptionListMigrationDatePost", args, &rv, opts...)

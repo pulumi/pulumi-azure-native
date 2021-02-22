@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// List of unencrypted credentials for accessing device.
+// API Version: 2020-11-01.
 func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts ...pulumi.InvokeOption) (*ListJobCredentialsResult, error) {
 	var rv ListJobCredentialsResult
 	err := ctx.Invoke("azure-nextgen:databox:listJobCredentials", args, &rv, opts...)

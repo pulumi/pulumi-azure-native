@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Log file URL payload
+// Latest API Version: 2020-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeploymentLogFileUrl'.
 func GetDeploymentLogFileUrl(ctx *pulumi.Context, args *GetDeploymentLogFileUrlArgs, opts ...pulumi.InvokeOption) (*GetDeploymentLogFileUrlResult, error) {
 	var rv GetDeploymentLogFileUrlResult
 	err := ctx.Invoke("azure-nextgen:appplatform/latest:getDeploymentLogFileUrl", args, &rv, opts...)

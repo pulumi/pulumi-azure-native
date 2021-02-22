@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ObjectAnchorsAccount Response.
+// API Version: 2021-03-01-preview.
 func LookupObjectAnchorsAccount(ctx *pulumi.Context, args *LookupObjectAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupObjectAnchorsAccountResult, error) {
 	var rv LookupObjectAnchorsAccountResult
 	err := ctx.Invoke("azure-nextgen:mixedreality:getObjectAnchorsAccount", args, &rv, opts...)

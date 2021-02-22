@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// String dictionary resource
 func ListSiteAppSettings(ctx *pulumi.Context, args *ListSiteAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListSiteAppSettingsResult, error) {
 	var rv ListSiteAppSettingsResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteAppSettings", args, &rv, opts...)

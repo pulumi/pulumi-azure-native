@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Defines the response of a trigger subscription operation.
+// API Version: 2018-06-01.
 func GetTriggerEventSubscriptionStatus(ctx *pulumi.Context, args *GetTriggerEventSubscriptionStatusArgs, opts ...pulumi.InvokeOption) (*GetTriggerEventSubscriptionStatusResult, error) {
 	var rv GetTriggerEventSubscriptionStatusResult
 	err := ctx.Invoke("azure-nextgen:datafactory:getTriggerEventSubscriptionStatus", args, &rv, opts...)

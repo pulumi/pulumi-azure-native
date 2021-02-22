@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Contains information about a database Threat Detection policy.
 func LookupDatabaseThreatDetectionPolicy(ctx *pulumi.Context, args *LookupDatabaseThreatDetectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseThreatDetectionPolicyResult, error) {
 	var rv LookupDatabaseThreatDetectionPolicyResult
 	err := ctx.Invoke("azure-nextgen:sql/v20140401:getDatabaseThreatDetectionPolicy", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	var rv LookupLedgerResult
 	err := ctx.Invoke("azure-nextgen:confidentialledger/v20201201preview:getLedger", args, &rv, opts...)

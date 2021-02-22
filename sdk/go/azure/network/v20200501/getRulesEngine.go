@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ...pulumi.InvokeOption) (*LookupRulesEngineResult, error) {
 	var rv LookupRulesEngineResult
 	err := ctx.Invoke("azure-nextgen:network/v20200501:getRulesEngine", args, &rv, opts...)

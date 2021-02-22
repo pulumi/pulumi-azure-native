@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Public certificate object
+// API Version: 2020-10-01.
 func LookupWebAppPublicCertificate(ctx *pulumi.Context, args *LookupWebAppPublicCertificateArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateResult, error) {
 	var rv LookupWebAppPublicCertificateResult
 	err := ctx.Invoke("azure-nextgen:web:getWebAppPublicCertificate", args, &rv, opts...)

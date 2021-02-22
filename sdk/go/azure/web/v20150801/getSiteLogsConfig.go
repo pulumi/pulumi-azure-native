@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configuration of Azure web site
 func LookupSiteLogsConfig(ctx *pulumi.Context, args *LookupSiteLogsConfigArgs, opts ...pulumi.InvokeOption) (*LookupSiteLogsConfigResult, error) {
 	var rv LookupSiteLogsConfigResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteLogsConfig", args, &rv, opts...)

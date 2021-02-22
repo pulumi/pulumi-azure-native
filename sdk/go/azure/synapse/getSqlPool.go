@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A SQL Analytics pool
+// API Version: 2020-12-01.
 func LookupSqlPool(ctx *pulumi.Context, args *LookupSqlPoolArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolResult, error) {
 	var rv LookupSqlPoolResult
 	err := ctx.Invoke("azure-nextgen:synapse:getSqlPool", args, &rv, opts...)

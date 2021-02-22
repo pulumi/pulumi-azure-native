@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The training results of the prediction.
+// API Version: 2017-04-26.
 func GetPredictionTrainingResults(ctx *pulumi.Context, args *GetPredictionTrainingResultsArgs, opts ...pulumi.InvokeOption) (*GetPredictionTrainingResultsResult, error) {
 	var rv GetPredictionTrainingResultsResult
 	err := ctx.Invoke("azure-nextgen:customerinsights:getPredictionTrainingResults", args, &rv, opts...)

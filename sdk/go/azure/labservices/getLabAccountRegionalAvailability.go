@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The response model from the GetRegionalAvailability action
+// API Version: 2018-10-15.
 func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountRegionalAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetLabAccountRegionalAvailabilityResult, error) {
 	var rv GetLabAccountRegionalAvailabilityResult
 	err := ctx.Invoke("azure-nextgen:labservices:getLabAccountRegionalAvailability", args, &rv, opts...)

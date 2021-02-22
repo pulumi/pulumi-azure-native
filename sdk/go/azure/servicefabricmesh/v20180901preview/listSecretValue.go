@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// This type represents the unencrypted value of the secret.
 func ListSecretValue(ctx *pulumi.Context, args *ListSecretValueArgs, opts ...pulumi.InvokeOption) (*ListSecretValueResult, error) {
 	var rv ListSecretValueResult
 	err := ctx.Invoke("azure-nextgen:servicefabricmesh/v20180901preview:listSecretValue", args, &rv, opts...)

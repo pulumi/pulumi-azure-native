@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Deployment script object.
+// API Version: 2020-10-01.
 func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentScriptResult, error) {
 	var rv LookupDeploymentScriptResult
 	err := ctx.Invoke("azure-nextgen:resources:getDeploymentScript", args, &rv, opts...)

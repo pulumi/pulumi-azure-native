@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The List SAS credentials operation response.
+// API Version: 2021-01-01.
 func ListStorageAccountSAS(ctx *pulumi.Context, args *ListStorageAccountSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountSASResult, error) {
 	var rv ListStorageAccountSASResult
 	err := ctx.Invoke("azure-nextgen:storage:listStorageAccountSAS", args, &rv, opts...)

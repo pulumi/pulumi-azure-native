@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Credentials and other properties of NotebookProxy resource
+// API Version: 2019-10-11-preview.
 func ListNotebookProxyCredentials(ctx *pulumi.Context, args *ListNotebookProxyCredentialsArgs, opts ...pulumi.InvokeOption) (*ListNotebookProxyCredentialsResult, error) {
 	var rv ListNotebookProxyCredentialsResult
 	err := ctx.Invoke("azure-nextgen:notebooks:listNotebookProxyCredentials", args, &rv, opts...)

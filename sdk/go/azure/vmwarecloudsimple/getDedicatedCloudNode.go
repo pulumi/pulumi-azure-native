@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Dedicated cloud node model
+// API Version: 2019-04-01.
 func LookupDedicatedCloudNode(ctx *pulumi.Context, args *LookupDedicatedCloudNodeArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudNodeResult, error) {
 	var rv LookupDedicatedCloudNodeResult
 	err := ctx.Invoke("azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+// API Version: 2018-09-15.
 func ListServiceFabricApplicableSchedules(ctx *pulumi.Context, args *ListServiceFabricApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListServiceFabricApplicableSchedulesResult, error) {
 	var rv ListServiceFabricApplicableSchedulesResult
 	err := ctx.Invoke("azure-nextgen:devtestlab:listServiceFabricApplicableSchedules", args, &rv, opts...)

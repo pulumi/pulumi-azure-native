@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Namespace/ServiceBus Connection String
 func ListTopicKeys(ctx *pulumi.Context, args *ListTopicKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicKeysResult, error) {
 	var rv ListTopicKeysResult
 	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:listTopicKeys", args, &rv, opts...)

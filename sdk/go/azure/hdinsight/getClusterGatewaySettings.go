@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Gateway settings.
+// API Version: 2018-06-01-preview.
 func GetClusterGatewaySettings(ctx *pulumi.Context, args *GetClusterGatewaySettingsArgs, opts ...pulumi.InvokeOption) (*GetClusterGatewaySettingsResult, error) {
 	var rv GetClusterGatewaySettingsResult
 	err := ctx.Invoke("azure-nextgen:hdinsight:getClusterGatewaySettings", args, &rv, opts...)

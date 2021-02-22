@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents user credentials used for publishing activity
+// Latest API Version: 2015-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeploymentSlot'.
 func LookupSiteInstanceDeploymentSlot(ctx *pulumi.Context, args *LookupSiteInstanceDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteInstanceDeploymentSlotResult, error) {
 	var rv LookupSiteInstanceDeploymentSlotResult
 	err := ctx.Invoke("azure-nextgen:web/latest:getSiteInstanceDeploymentSlot", args, &rv, opts...)

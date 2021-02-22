@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Threat intelligence information object.
+// API Version: 2019-01-01-preview.
 func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIntelligenceIndicatorArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelligenceIndicatorResult, error) {
 	var rv LookupThreatIntelligenceIndicatorResult
 	err := ctx.Invoke("azure-nextgen:securityinsights:getThreatIntelligenceIndicator", args, &rv, opts...)

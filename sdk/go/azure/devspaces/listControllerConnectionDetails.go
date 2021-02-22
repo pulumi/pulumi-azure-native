@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// API Version: 2019-04-01.
 func ListControllerConnectionDetails(ctx *pulumi.Context, args *ListControllerConnectionDetailsArgs, opts ...pulumi.InvokeOption) (*ListControllerConnectionDetailsResult, error) {
 	var rv ListControllerConnectionDetailsResult
 	err := ctx.Invoke("azure-nextgen:devspaces:listControllerConnectionDetails", args, &rv, opts...)

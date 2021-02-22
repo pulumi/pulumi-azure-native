@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Description of an hostingEnvironment (App Service Environment)
 func LookupHostingEnvironment(ctx *pulumi.Context, args *LookupHostingEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupHostingEnvironmentResult, error) {
 	var rv LookupHostingEnvironmentResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getHostingEnvironment", args, &rv, opts...)

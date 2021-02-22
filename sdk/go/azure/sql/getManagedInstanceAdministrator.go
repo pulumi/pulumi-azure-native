@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure SQL managed instance administrator.
+// API Version: 2020-08-01-preview.
 func LookupManagedInstanceAdministrator(ctx *pulumi.Context, args *LookupManagedInstanceAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceAdministratorResult, error) {
 	var rv LookupManagedInstanceAdministratorResult
 	err := ctx.Invoke("azure-nextgen:sql:getManagedInstanceAdministrator", args, &rv, opts...)

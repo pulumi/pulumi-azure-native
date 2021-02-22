@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of configurations.
+// API Version: 2020-12-01-preview.
 func ListConfigurations(ctx *pulumi.Context, args *ListConfigurationsArgs, opts ...pulumi.InvokeOption) (*ListConfigurationsResult, error) {
 	var rv ListConfigurationsResult
 	err := ctx.Invoke("azure-nextgen:edgeorder:listConfigurations", args, &rv, opts...)

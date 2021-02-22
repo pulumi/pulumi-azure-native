@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The agentpool that has the ARM resource and properties.
+// The agentpool will have all information to create an agent pool.
+// API Version: 2019-06-01-preview.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:getAgentPool", args, &rv, opts...)

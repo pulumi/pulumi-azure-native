@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// VirtualHubRouteTableV2 Resource.
 func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRouteTableV2Args, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableV2Result, error) {
 	var rv LookupVirtualHubRouteTableV2Result
 	err := ctx.Invoke("azure-nextgen:network/v20190901:getVirtualHubRouteTableV2", args, &rv, opts...)

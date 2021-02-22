@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Tenant configuration.
+// API Version: 2020-09-01-preview.
 func LookupTenantConfiguration(ctx *pulumi.Context, args *LookupTenantConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupTenantConfigurationResult, error) {
 	var rv LookupTenantConfigurationResult
 	err := ctx.Invoke("azure-nextgen:portal:getTenantConfiguration", args, &rv, opts...)

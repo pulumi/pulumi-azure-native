@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A data set mapping data transfer object.
+// API Version: 2020-09-01.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
 	err := ctx.Invoke("azure-nextgen:datashare:getDataSetMapping", args, &rv, opts...)

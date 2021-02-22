@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// States and configurations of Cost Analysis.
 func LookupViewByScope(ctx *pulumi.Context, args *LookupViewByScopeArgs, opts ...pulumi.InvokeOption) (*LookupViewByScopeResult, error) {
 	var rv LookupViewByScopeResult
 	err := ctx.Invoke("azure-nextgen:costmanagement/v20190401preview:getViewByScope", args, &rv, opts...)

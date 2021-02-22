@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response of a list operation.
 func ListMonitorMonitoredResources(ctx *pulumi.Context, args *ListMonitorMonitoredResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorMonitoredResourcesResult, error) {
 	var rv ListMonitorMonitoredResourcesResult
 	err := ctx.Invoke("azure-nextgen:datadog/v20200201preview:listMonitorMonitoredResources", args, &rv, opts...)

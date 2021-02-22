@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Get Data Plane read only token response definition.
+// Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryDataPlaneAccess'.
 func GetFactoryDataPlaneAccess(ctx *pulumi.Context, args *GetFactoryDataPlaneAccessArgs, opts ...pulumi.InvokeOption) (*GetFactoryDataPlaneAccessResult, error) {
 	var rv GetFactoryDataPlaneAccessResult
 	err := ctx.Invoke("azure-nextgen:datafactory/latest:getFactoryDataPlaneAccess", args, &rv, opts...)

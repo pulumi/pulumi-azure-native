@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Graph Query entity definition.
+// API Version: 2020-04-01-preview.
 func LookupGraphQuery(ctx *pulumi.Context, args *LookupGraphQueryArgs, opts ...pulumi.InvokeOption) (*LookupGraphQueryResult, error) {
 	var rv LookupGraphQueryResult
 	err := ctx.Invoke("azure-nextgen:resourcegraph:getGraphQuery", args, &rv, opts...)

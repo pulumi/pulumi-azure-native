@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// DC Access code in the case of Self Managed Shipping.
+// API Version: 2020-09-01.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
 	err := ctx.Invoke("azure-nextgen:databoxedge:listOrderDCAccessCode", args, &rv, opts...)

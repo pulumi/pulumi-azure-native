@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// API Version: 2021-01-01.
 func ListNotebookKeys(ctx *pulumi.Context, args *ListNotebookKeysArgs, opts ...pulumi.InvokeOption) (*ListNotebookKeysResult, error) {
 	var rv ListNotebookKeysResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices:listNotebookKeys", args, &rv, opts...)

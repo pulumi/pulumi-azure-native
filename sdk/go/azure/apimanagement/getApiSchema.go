@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Schema Contract details.
+// API Version: 2019-12-01.
 func LookupApiSchema(ctx *pulumi.Context, args *LookupApiSchemaArgs, opts ...pulumi.InvokeOption) (*LookupApiSchemaResult, error) {
 	var rv LookupApiSchemaResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:getApiSchema", args, &rv, opts...)

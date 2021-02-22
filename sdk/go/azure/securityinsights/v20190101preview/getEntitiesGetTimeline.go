@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The entity timeline result operation response.
 func GetEntitiesGetTimeline(ctx *pulumi.Context, args *GetEntitiesGetTimelineArgs, opts ...pulumi.InvokeOption) (*GetEntitiesGetTimelineResult, error) {
 	var rv GetEntitiesGetTimelineResult
 	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getEntitiesGetTimeline", args, &rv, opts...)

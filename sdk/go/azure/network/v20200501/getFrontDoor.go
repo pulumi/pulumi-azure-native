@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pulumi.InvokeOption) (*LookupFrontDoorResult, error) {
 	var rv LookupFrontDoorResult
 	err := ctx.Invoke("azure-nextgen:network/v20200501:getFrontDoor", args, &rv, opts...)

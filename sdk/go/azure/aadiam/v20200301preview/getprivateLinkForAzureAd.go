@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// PrivateLink Policy configuration object.
 func GetprivateLinkForAzureAd(ctx *pulumi.Context, args *GetprivateLinkForAzureAdArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkForAzureAdResult, error) {
 	var rv GetprivateLinkForAzureAdResult
 	err := ctx.Invoke("azure-nextgen:aadiam/v20200301preview:getprivateLinkForAzureAd", args, &rv, opts...)

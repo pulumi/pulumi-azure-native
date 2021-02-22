@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// GetBitLockerKeys response
+// API Version: 2020-08-01.
 func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...pulumi.InvokeOption) (*ListBitLockerKeyResult, error) {
 	var rv ListBitLockerKeyResult
 	err := ctx.Invoke("azure-nextgen:importexport:listBitLockerKey", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// API Version: 2020-02-01-preview.
 func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, opts ...pulumi.InvokeOption) (*GetMonitorDefaultKeyResult, error) {
 	var rv GetMonitorDefaultKeyResult
 	err := ctx.Invoke("azure-nextgen:datadog:getMonitorDefaultKey", args, &rv, opts...)

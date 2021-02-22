@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Collection of the API key payload which is exposed in the response of the resource provider.
+// API Version: 2018-06-01-preview.
 func ListTransactionNodeApiKeys(ctx *pulumi.Context, args *ListTransactionNodeApiKeysArgs, opts ...pulumi.InvokeOption) (*ListTransactionNodeApiKeysResult, error) {
 	var rv ListTransactionNodeApiKeysResult
 	err := ctx.Invoke("azure-nextgen:blockchain:listTransactionNodeApiKeys", args, &rv, opts...)

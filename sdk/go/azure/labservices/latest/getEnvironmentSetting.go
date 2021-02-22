@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents settings of an environment, from which environment instances would be created
+// Latest API Version: 2018-10-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironmentSetting'.
 func LookupEnvironmentSetting(ctx *pulumi.Context, args *LookupEnvironmentSettingArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentSettingResult, error) {
 	var rv LookupEnvironmentSettingResult
 	err := ctx.Invoke("azure-nextgen:labservices/latest:getEnvironmentSetting", args, &rv, opts...)

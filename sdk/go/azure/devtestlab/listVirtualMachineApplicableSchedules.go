@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+// API Version: 2018-09-15.
 func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtualMachineApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListVirtualMachineApplicableSchedulesResult, error) {
 	var rv ListVirtualMachineApplicableSchedulesResult
 	err := ctx.Invoke("azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules", args, &rv, opts...)

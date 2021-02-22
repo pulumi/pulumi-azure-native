@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+// API Version: 2020-04-30.
 func LookupOpenShiftCluster(ctx *pulumi.Context, args *LookupOpenShiftClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftClusterResult, error) {
 	var rv LookupOpenShiftClusterResult
 	err := ctx.Invoke("azure-nextgen:redhatopenshift:getOpenShiftCluster", args, &rv, opts...)

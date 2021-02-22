@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Machine Learning service object wrapped into ARM resource envelope.
+// Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:getMachineLearningService", args, &rv, opts...)

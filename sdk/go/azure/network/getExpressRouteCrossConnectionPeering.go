@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Peering in an ExpressRoute Cross Connection resource.
+// API Version: 2020-08-01.
 func LookupExpressRouteCrossConnectionPeering(ctx *pulumi.Context, args *LookupExpressRouteCrossConnectionPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCrossConnectionPeeringResult, error) {
 	var rv LookupExpressRouteCrossConnectionPeeringResult
 	err := ctx.Invoke("azure-nextgen:network:getExpressRouteCrossConnectionPeering", args, &rv, opts...)

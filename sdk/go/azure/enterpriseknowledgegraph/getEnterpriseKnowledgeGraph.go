@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// EnterpriseKnowledgeGraph resource definition
+// API Version: 2018-12-03.
 func LookupEnterpriseKnowledgeGraph(ctx *pulumi.Context, args *LookupEnterpriseKnowledgeGraphArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseKnowledgeGraphResult, error) {
 	var rv LookupEnterpriseKnowledgeGraphResult
 	err := ctx.Invoke("azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args, &rv, opts...)

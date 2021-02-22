@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// MAK key details.
+// API Version: 2019-09-16-preview.
 func LookupMultipleActivationKey(ctx *pulumi.Context, args *LookupMultipleActivationKeyArgs, opts ...pulumi.InvokeOption) (*LookupMultipleActivationKeyResult, error) {
 	var rv LookupMultipleActivationKeyResult
 	err := ctx.Invoke("azure-nextgen:windowsesu:getMultipleActivationKey", args, &rv, opts...)

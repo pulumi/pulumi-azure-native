@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configuration Assignment
 func LookupConfigurationAssignment(ctx *pulumi.Context, args *LookupConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationAssignmentResult, error) {
 	var rv LookupConfigurationAssignmentResult
 	err := ctx.Invoke("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignment", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure Cosmos DB Table.
+// API Version: 2016-03-31.
 func LookupDatabaseAccountTable(ctx *pulumi.Context, args *LookupDatabaseAccountTableArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountTableResult, error) {
 	var rv LookupDatabaseAccountTableResult
 	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountTable", args, &rv, opts...)

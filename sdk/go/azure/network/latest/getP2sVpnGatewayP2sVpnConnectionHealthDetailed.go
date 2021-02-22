@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// P2S Vpn connection detailed health written to sas url.
+// Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed'.
 func GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, error) {
 	var rv GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult
 	err := ctx.Invoke("azure-nextgen:network/latest:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args, &rv, opts...)

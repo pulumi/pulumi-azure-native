@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Collection of the API key payload which is exposed in the response of the resource provider.
 func ListBlockchainMemberApiKeys(ctx *pulumi.Context, args *ListBlockchainMemberApiKeysArgs, opts ...pulumi.InvokeOption) (*ListBlockchainMemberApiKeysResult, error) {
 	var rv ListBlockchainMemberApiKeysResult
 	err := ctx.Invoke("azure-nextgen:blockchain/v20180601preview:listBlockchainMemberApiKeys", args, &rv, opts...)

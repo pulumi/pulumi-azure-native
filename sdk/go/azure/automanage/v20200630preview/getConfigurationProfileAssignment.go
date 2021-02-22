@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configuration profile assignment is an association between a VM and automanage profile configuration.
 func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfigurationProfileAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileAssignmentResult, error) {
 	var rv LookupConfigurationProfileAssignmentResult
 	err := ctx.Invoke("azure-nextgen:automanage/v20200630preview:getConfigurationProfileAssignment", args, &rv, opts...)

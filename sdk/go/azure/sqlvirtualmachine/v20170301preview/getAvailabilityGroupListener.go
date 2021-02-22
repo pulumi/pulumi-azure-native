@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A SQL Server availability group listener.
 func LookupAvailabilityGroupListener(ctx *pulumi.Context, args *LookupAvailabilityGroupListenerArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilityGroupListenerResult, error) {
 	var rv LookupAvailabilityGroupListenerResult
 	err := ctx.Invoke("azure-nextgen:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Security Partner Provider resource.
 func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPartnerProviderArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPartnerProviderResult, error) {
 	var rv LookupSecurityPartnerProviderResult
 	err := ctx.Invoke("azure-nextgen:network/v20200601:getSecurityPartnerProvider", args, &rv, opts...)

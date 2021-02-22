@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An attestation resource.
 func LookupAttestationAtSubscription(ctx *pulumi.Context, args *LookupAttestationAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAttestationAtSubscriptionResult, error) {
 	var rv LookupAttestationAtSubscriptionResult
 	err := ctx.Invoke("azure-nextgen:policyinsights/v20210101:getAttestationAtSubscription", args, &rv, opts...)

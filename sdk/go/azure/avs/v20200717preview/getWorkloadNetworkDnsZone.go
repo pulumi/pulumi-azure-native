@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// NSX DNS Zone
 func LookupWorkloadNetworkDnsZone(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsZoneArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsZoneResult, error) {
 	var rv LookupWorkloadNetworkDnsZoneResult
 	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getWorkloadNetworkDnsZone", args, &rv, opts...)

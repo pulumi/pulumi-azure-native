@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configuration settings for the Azure App Service Authentication / Authorization feature.
 func ListSiteAuthSettings(ctx *pulumi.Context, args *ListSiteAuthSettingsArgs, opts ...pulumi.InvokeOption) (*ListSiteAuthSettingsResult, error) {
 	var rv ListSiteAuthSettingsResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteAuthSettings", args, &rv, opts...)

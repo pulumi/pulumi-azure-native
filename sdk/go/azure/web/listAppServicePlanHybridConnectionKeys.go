@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+// API Version: 2020-10-01.
 func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppServicePlanHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListAppServicePlanHybridConnectionKeysResult, error) {
 	var rv ListAppServicePlanHybridConnectionKeysResult
 	err := ctx.Invoke("azure-nextgen:web:listAppServicePlanHybridConnectionKeys", args, &rv, opts...)

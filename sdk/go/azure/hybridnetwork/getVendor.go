@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Vendor resource.
+// API Version: 2020-01-01-preview.
 func LookupVendor(ctx *pulumi.Context, args *LookupVendorArgs, opts ...pulumi.InvokeOption) (*LookupVendorResult, error) {
 	var rv LookupVendorResult
 	err := ctx.Invoke("azure-nextgen:hybridnetwork:getVendor", args, &rv, opts...)

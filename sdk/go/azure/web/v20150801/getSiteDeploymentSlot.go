@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents user credentials used for publishing activity
 func LookupSiteDeploymentSlot(ctx *pulumi.Context, args *LookupSiteDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentSlotResult, error) {
 	var rv LookupSiteDeploymentSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteDeploymentSlot", args, &rv, opts...)

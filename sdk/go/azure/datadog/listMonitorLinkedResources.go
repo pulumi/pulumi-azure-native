@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response of a list operation.
+// API Version: 2020-02-01-preview.
 func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorLinkedResourcesResult, error) {
 	var rv ListMonitorLinkedResourcesResult
 	err := ctx.Invoke("azure-nextgen:datadog:listMonitorLinkedResources", args, &rv, opts...)

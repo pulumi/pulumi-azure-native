@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The iSCSI server.
+// Latest API Version: 2016-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'.
 func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ...pulumi.InvokeOption) (*LookupIscsiServerResult, error) {
 	var rv LookupIscsiServerResult
 	err := ctx.Invoke("azure-nextgen:storsimple/latest:getIscsiServer", args, &rv, opts...)

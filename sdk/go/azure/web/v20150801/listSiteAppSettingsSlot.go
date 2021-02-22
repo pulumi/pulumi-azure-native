@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// String dictionary resource
 func ListSiteAppSettingsSlot(ctx *pulumi.Context, args *ListSiteAppSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteAppSettingsSlotResult, error) {
 	var rv ListSiteAppSettingsSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteAppSettingsSlot", args, &rv, opts...)

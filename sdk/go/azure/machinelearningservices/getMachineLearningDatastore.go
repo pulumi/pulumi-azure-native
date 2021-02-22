@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Machine Learning datastore object wrapped into ARM resource envelope.
+// API Version: 2020-05-01-preview.
 func LookupMachineLearningDatastore(ctx *pulumi.Context, args *LookupMachineLearningDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningDatastoreResult, error) {
 	var rv LookupMachineLearningDatastoreResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices:getMachineLearningDatastore", args, &rv, opts...)

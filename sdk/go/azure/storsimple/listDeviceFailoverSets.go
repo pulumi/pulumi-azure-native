@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of failover sets.
+// API Version: 2017-06-01.
 func ListDeviceFailoverSets(ctx *pulumi.Context, args *ListDeviceFailoverSetsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverSetsResult, error) {
 	var rv ListDeviceFailoverSetsResult
 	err := ctx.Invoke("azure-nextgen:storsimple:listDeviceFailoverSets", args, &rv, opts...)

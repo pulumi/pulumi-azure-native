@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Action rule object containing target scope, conditions and suppression logic
+// API Version: 2019-05-05-preview.
 func LookupActionRuleByName(ctx *pulumi.Context, args *LookupActionRuleByNameArgs, opts ...pulumi.InvokeOption) (*LookupActionRuleByNameResult, error) {
 	var rv LookupActionRuleByNameResult
 	err := ctx.Invoke("azure-nextgen:alertsmanagement:getActionRuleByName", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A report config resource.
+// API Version: 2018-05-31.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
 	err := ctx.Invoke("azure-nextgen:costmanagement:getReportConfig", args, &rv, opts...)

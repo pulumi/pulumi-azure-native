@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+// API Version: 2020-08-01.
 func LookupExpressRouteCircuitConnection(ctx *pulumi.Context, args *LookupExpressRouteCircuitConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitConnectionResult, error) {
 	var rv LookupExpressRouteCircuitConnectionResult
 	err := ctx.Invoke("azure-nextgen:network:getExpressRouteCircuitConnection", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A task resource
 func LookupServiceTask(ctx *pulumi.Context, args *LookupServiceTaskArgs, opts ...pulumi.InvokeOption) (*LookupServiceTaskResult, error) {
 	var rv LookupServiceTaskResult
 	err := ctx.Invoke("azure-nextgen:datamigration/v20180715preview:getServiceTask", args, &rv, opts...)

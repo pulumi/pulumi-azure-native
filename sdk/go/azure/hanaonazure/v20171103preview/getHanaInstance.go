@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// HANA instance info on Azure (ARM properties and HANA properties)
 func LookupHanaInstance(ctx *pulumi.Context, args *LookupHanaInstanceArgs, opts ...pulumi.InvokeOption) (*LookupHanaInstanceResult, error) {
 	var rv LookupHanaInstanceResult
 	err := ctx.Invoke("azure-nextgen:hanaonazure/v20171103preview:getHanaInstance", args, &rv, opts...)

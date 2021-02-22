@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Application Insights workbook definition.
+// API Version: 2020-10-20.
 func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupWorkbookResult, error) {
 	var rv LookupWorkbookResult
 	err := ctx.Invoke("azure-nextgen:insights:getWorkbook", args, &rv, opts...)

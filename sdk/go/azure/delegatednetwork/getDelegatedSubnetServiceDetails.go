@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents an instance of a orchestrator.
+// API Version: 2020-08-08-preview.
 func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelegatedSubnetServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupDelegatedSubnetServiceDetailsResult, error) {
 	var rv LookupDelegatedSubnetServiceDetailsResult
 	err := ctx.Invoke("azure-nextgen:delegatednetwork:getDelegatedSubnetServiceDetails", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Definition of generic ARM proxy resource.
 func LookupDataCollectionRuleAssociation(ctx *pulumi.Context, args *LookupDataCollectionRuleAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleAssociationResult, error) {
 	var rv LookupDataCollectionRuleAssociationResult
 	err := ctx.Invoke("azure-nextgen:insights/v20191101preview:getDataCollectionRuleAssociation", args, &rv, opts...)

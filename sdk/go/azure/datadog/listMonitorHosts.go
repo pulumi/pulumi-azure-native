@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response of a list operation.
+// API Version: 2020-02-01-preview.
 func ListMonitorHosts(ctx *pulumi.Context, args *ListMonitorHostsArgs, opts ...pulumi.InvokeOption) (*ListMonitorHostsResult, error) {
 	var rv ListMonitorHostsResult
 	err := ctx.Invoke("azure-nextgen:datadog:listMonitorHosts", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A virtual machine.
 func LookupVirtualMachineResource(ctx *pulumi.Context, args *LookupVirtualMachineResourceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResourceResult, error) {
 	var rv LookupVirtualMachineResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getVirtualMachineResource", args, &rv, opts...)

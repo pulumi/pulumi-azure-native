@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Binding resource payload
+// API Version: 2020-07-01.
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
 	err := ctx.Invoke("azure-nextgen:appplatform:getBinding", args, &rv, opts...)

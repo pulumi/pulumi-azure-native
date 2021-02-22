@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A Streaming Policy resource
+// API Version: 2020-05-01.
 func LookupStreamingPolicy(ctx *pulumi.Context, args *LookupStreamingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupStreamingPolicyResult, error) {
 	var rv LookupStreamingPolicyResult
 	err := ctx.Invoke("azure-nextgen:media:getStreamingPolicy", args, &rv, opts...)

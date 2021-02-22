@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Customer subscription which can use a sku.
+// API Version: 2020-01-01-preview.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
 	err := ctx.Invoke("azure-nextgen:hybridnetwork:getVendorSkuPreview", args, &rv, opts...)

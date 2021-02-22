@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An instance failover group.
 func LookupInstanceFailoverGroup(ctx *pulumi.Context, args *LookupInstanceFailoverGroupArgs, opts ...pulumi.InvokeOption) (*LookupInstanceFailoverGroupResult, error) {
 	var rv LookupInstanceFailoverGroupResult
 	err := ctx.Invoke("azure-nextgen:sql/v20171001preview:getInstanceFailoverGroup", args, &rv, opts...)

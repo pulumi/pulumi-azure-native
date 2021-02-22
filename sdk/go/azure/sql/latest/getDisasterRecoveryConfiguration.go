@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a disaster recovery configuration.
+// Latest API Version: 2014-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDisasterRecoveryConfiguration'.
 func LookupDisasterRecoveryConfiguration(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigurationResult, error) {
 	var rv LookupDisasterRecoveryConfigurationResult
 	err := ctx.Invoke("azure-nextgen:sql/latest:getDisasterRecoveryConfiguration", args, &rv, opts...)

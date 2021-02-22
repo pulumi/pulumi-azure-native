@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Template Spec Version object.
+// API Version: 2019-06-01-preview.
 func LookupTemplateSpecVersion(ctx *pulumi.Context, args *LookupTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*LookupTemplateSpecVersionResult, error) {
 	var rv LookupTemplateSpecVersionResult
 	err := ctx.Invoke("azure-nextgen:resources:getTemplateSpecVersion", args, &rv, opts...)

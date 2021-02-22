@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The workflow trigger callback URL.
 func ListIntegrationAccountSchemaContentCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountSchemaContentCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountSchemaContentCallbackUrlResult, error) {
 	var rv ListIntegrationAccountSchemaContentCallbackUrlResult
 	err := ctx.Invoke("azure-nextgen:logic/v20180701preview:listIntegrationAccountSchemaContentCallbackUrl", args, &rv, opts...)

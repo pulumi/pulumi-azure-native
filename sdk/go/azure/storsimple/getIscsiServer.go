@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The iSCSI server.
+// API Version: 2016-10-01.
 func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ...pulumi.InvokeOption) (*LookupIscsiServerResult, error) {
 	var rv LookupIscsiServerResult
 	err := ctx.Invoke("azure-nextgen:storsimple:getIscsiServer", args, &rv, opts...)

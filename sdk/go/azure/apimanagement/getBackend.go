@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Backend details.
+// API Version: 2019-12-01.
 func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.InvokeOption) (*LookupBackendResult, error) {
 	var rv LookupBackendResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:getBackend", args, &rv, opts...)

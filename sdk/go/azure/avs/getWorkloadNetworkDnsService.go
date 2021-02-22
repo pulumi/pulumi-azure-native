@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// NSX DNS Service
+// API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkDnsService(ctx *pulumi.Context, args *LookupWorkloadNetworkDnsServiceArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDnsServiceResult, error) {
 	var rv LookupWorkloadNetworkDnsServiceResult
 	err := ctx.Invoke("azure-nextgen:avs:getWorkloadNetworkDnsService", args, &rv, opts...)

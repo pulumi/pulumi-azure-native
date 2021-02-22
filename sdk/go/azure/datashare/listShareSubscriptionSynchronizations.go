@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A consumer side list of share subscription synchronizations
+// API Version: 2020-09-01.
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
 	err := ctx.Invoke("azure-nextgen:datashare:listShareSubscriptionSynchronizations", args, &rv, opts...)

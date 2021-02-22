@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Compute node information related to a AmlCompute.
+// API Version: 2021-01-01.
 func ListMachineLearningComputeNodes(ctx *pulumi.Context, args *ListMachineLearningComputeNodesArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeNodesResult, error) {
 	var rv ListMachineLearningComputeNodesResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices:listMachineLearningComputeNodes", args, &rv, opts...)

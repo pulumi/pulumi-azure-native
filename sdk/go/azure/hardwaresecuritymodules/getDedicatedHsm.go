@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Resource information with extended details.
+// API Version: 2018-10-31-preview.
 func LookupDedicatedHsm(ctx *pulumi.Context, args *LookupDedicatedHsmArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHsmResult, error) {
 	var rv LookupDedicatedHsmResult
 	err := ctx.Invoke("azure-nextgen:hardwaresecuritymodules:getDedicatedHsm", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Migrate Project REST Resource.
+// API Version: 2018-09-01-preview.
 func LookupMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectArgs, opts ...pulumi.InvokeOption) (*LookupMigrateProjectResult, error) {
 	var rv LookupMigrateProjectResult
 	err := ctx.Invoke("azure-nextgen:migrate:getMigrateProject", args, &rv, opts...)

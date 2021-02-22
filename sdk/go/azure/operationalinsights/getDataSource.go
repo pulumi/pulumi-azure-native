@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Datasources under OMS Workspace.
+// API Version: 2020-08-01.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	var rv LookupDataSourceResult
 	err := ctx.Invoke("azure-nextgen:operationalinsights:getDataSource", args, &rv, opts...)

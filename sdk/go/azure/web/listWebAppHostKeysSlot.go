@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Functions host level keys.
+// API Version: 2020-10-01.
 func ListWebAppHostKeysSlot(ctx *pulumi.Context, args *ListWebAppHostKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysSlotResult, error) {
 	var rv ListWebAppHostKeysSlotResult
 	err := ctx.Invoke("azure-nextgen:web:listWebAppHostKeysSlot", args, &rv, opts...)

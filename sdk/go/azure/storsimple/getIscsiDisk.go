@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The iSCSI disk.
+// API Version: 2016-10-01.
 func LookupIscsiDisk(ctx *pulumi.Context, args *LookupIscsiDiskArgs, opts ...pulumi.InvokeOption) (*LookupIscsiDiskResult, error) {
 	var rv LookupIscsiDiskResult
 	err := ctx.Invoke("azure-nextgen:storsimple:getIscsiDisk", args, &rv, opts...)

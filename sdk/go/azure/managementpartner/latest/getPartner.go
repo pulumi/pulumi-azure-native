@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// this is the management partner operations response
+// Latest API Version: 2018-02-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.
 func LookupPartner(ctx *pulumi.Context, args *LookupPartnerArgs, opts ...pulumi.InvokeOption) (*LookupPartnerResult, error) {
 	var rv LookupPartnerResult
 	err := ctx.Invoke("azure-nextgen:managementpartner/latest:getPartner", args, &rv, opts...)

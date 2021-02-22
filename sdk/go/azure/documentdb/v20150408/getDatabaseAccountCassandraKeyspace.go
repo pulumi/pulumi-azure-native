@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Azure Cosmos DB Cassandra keyspace.
 func LookupDatabaseAccountCassandraKeyspace(ctx *pulumi.Context, args *LookupDatabaseAccountCassandraKeyspaceArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountCassandraKeyspaceResult, error) {
 	var rv LookupDatabaseAccountCassandraKeyspaceResult
 	err := ctx.Invoke("azure-nextgen:documentdb/v20150408:getDatabaseAccountCassandraKeyspace", args, &rv, opts...)

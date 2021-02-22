@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Workload group operations for a data warehouse
+// API Version: 2020-08-01-preview.
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	var rv LookupWorkloadGroupResult
 	err := ctx.Invoke("azure-nextgen:sql:getWorkloadGroup", args, &rv, opts...)

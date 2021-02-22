@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {
 	var rv ListNamedValueResult
 	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:listNamedValue", args, &rv, opts...)

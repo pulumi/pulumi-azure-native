@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Get Data Plane read only token response definition.
 func GetFactoryDataPlaneAccess(ctx *pulumi.Context, args *GetFactoryDataPlaneAccessArgs, opts ...pulumi.InvokeOption) (*GetFactoryDataPlaneAccessResult, error) {
 	var rv GetFactoryDataPlaneAccessResult
 	err := ctx.Invoke("azure-nextgen:datafactory/v20180601:getFactoryDataPlaneAccess", args, &rv, opts...)

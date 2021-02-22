@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Definition of the job schedule.
+// API Version: 2019-06-01.
 func LookupJobSchedule(ctx *pulumi.Context, args *LookupJobScheduleArgs, opts ...pulumi.InvokeOption) (*LookupJobScheduleResult, error) {
 	var rv LookupJobScheduleResult
 	err := ctx.Invoke("azure-nextgen:automation:getJobSchedule", args, &rv, opts...)

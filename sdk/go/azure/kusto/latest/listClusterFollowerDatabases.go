@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list Kusto database principals operation response.
+// Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterFollowerDatabases'.
 func ListClusterFollowerDatabases(ctx *pulumi.Context, args *ListClusterFollowerDatabasesArgs, opts ...pulumi.InvokeOption) (*ListClusterFollowerDatabasesResult, error) {
 	var rv ListClusterFollowerDatabasesResult
 	err := ctx.Invoke("azure-nextgen:kusto/latest:listClusterFollowerDatabases", args, &rv, opts...)

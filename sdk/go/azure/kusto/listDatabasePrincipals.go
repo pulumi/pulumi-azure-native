@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list Kusto database principals operation response.
+// API Version: 2020-09-18.
 func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArgs, opts ...pulumi.InvokeOption) (*ListDatabasePrincipalsResult, error) {
 	var rv ListDatabasePrincipalsResult
 	err := ctx.Invoke("azure-nextgen:kusto:listDatabasePrincipals", args, &rv, opts...)

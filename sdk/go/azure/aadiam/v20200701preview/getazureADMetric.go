@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// AzureADMetrics resource.
 func GetazureADMetric(ctx *pulumi.Context, args *GetazureADMetricArgs, opts ...pulumi.InvokeOption) (*GetazureADMetricResult, error) {
 	var rv GetazureADMetricResult
 	err := ctx.Invoke("azure-nextgen:aadiam/v20200701preview:getazureADMetric", args, &rv, opts...)

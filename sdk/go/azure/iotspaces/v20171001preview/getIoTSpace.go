@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The description of the IoTSpaces service.
 func LookupIoTSpace(ctx *pulumi.Context, args *LookupIoTSpaceArgs, opts ...pulumi.InvokeOption) (*LookupIoTSpaceResult, error) {
 	var rv LookupIoTSpaceResult
 	err := ctx.Invoke("azure-nextgen:iotspaces/v20171001preview:getIoTSpace", args, &rv, opts...)

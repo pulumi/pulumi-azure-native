@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The result of the GetSupportedOptimizationTypes API
+// API Version: 2020-09-01.
 func GetProfileSupportedOptimizationTypes(ctx *pulumi.Context, args *GetProfileSupportedOptimizationTypesArgs, opts ...pulumi.InvokeOption) (*GetProfileSupportedOptimizationTypesResult, error) {
 	var rv GetProfileSupportedOptimizationTypesResult
 	err := ctx.Invoke("azure-nextgen:cdn:getProfileSupportedOptimizationTypes", args, &rv, opts...)

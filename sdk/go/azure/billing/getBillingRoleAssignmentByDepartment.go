@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The role assignment
+// API Version: 2019-10-01-preview.
 func LookupBillingRoleAssignmentByDepartment(ctx *pulumi.Context, args *LookupBillingRoleAssignmentByDepartmentArgs, opts ...pulumi.InvokeOption) (*LookupBillingRoleAssignmentByDepartmentResult, error) {
 	var rv LookupBillingRoleAssignmentByDepartmentResult
 	err := ctx.Invoke("azure-nextgen:billing:getBillingRoleAssignmentByDepartment", args, &rv, opts...)

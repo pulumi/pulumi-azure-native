@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
 func LookupSecretValue(ctx *pulumi.Context, args *LookupSecretValueArgs, opts ...pulumi.InvokeOption) (*LookupSecretValueResult, error) {
 	var rv LookupSecretValueResult
 	err := ctx.Invoke("azure-nextgen:servicefabricmesh/v20180901preview:getSecretValue", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Information about appliance definition.
 func LookupApplianceDefinition(ctx *pulumi.Context, args *LookupApplianceDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplianceDefinitionResult, error) {
 	var rv LookupApplianceDefinitionResult
 	err := ctx.Invoke("azure-nextgen:solutions/v20160901preview:getApplianceDefinition", args, &rv, opts...)

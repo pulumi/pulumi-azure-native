@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Public IP prefix resource.
 func LookupPublicIPPrefix(ctx *pulumi.Context, args *LookupPublicIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPPrefixResult, error) {
 	var rv LookupPublicIPPrefixResult
 	err := ctx.Invoke("azure-nextgen:network/v20200501:getPublicIPPrefix", args, &rv, opts...)

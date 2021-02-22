@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Collection of key vault keys.
+// API Version: 2019-05-01.
 func ListIntegrationAccountKeyVaultKeys(ctx *pulumi.Context, args *ListIntegrationAccountKeyVaultKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountKeyVaultKeysResult, error) {
 	var rv ListIntegrationAccountKeyVaultKeysResult
 	err := ctx.Invoke("azure-nextgen:logic:listIntegrationAccountKeyVaultKeys", args, &rv, opts...)

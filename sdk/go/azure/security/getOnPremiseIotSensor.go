@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// On-premise IoT sensor
+// API Version: 2020-08-06-preview.
 func LookupOnPremiseIotSensor(ctx *pulumi.Context, args *LookupOnPremiseIotSensorArgs, opts ...pulumi.InvokeOption) (*LookupOnPremiseIotSensorResult, error) {
 	var rv LookupOnPremiseIotSensorResult
 	err := ctx.Invoke("azure-nextgen:security:getOnPremiseIotSensor", args, &rv, opts...)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Log file URL payload
 func GetDeploymentLogFileUrl(ctx *pulumi.Context, args *GetDeploymentLogFileUrlArgs, opts ...pulumi.InvokeOption) (*GetDeploymentLogFileUrlResult, error) {
 	var rv GetDeploymentLogFileUrlResult
 	err := ctx.Invoke("azure-nextgen:appplatform/v20201101preview:getDeploymentLogFileUrl", args, &rv, opts...)

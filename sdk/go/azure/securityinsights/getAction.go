@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Action for alert rule.
+// API Version: 2020-01-01.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
 	err := ctx.Invoke("azure-nextgen:securityinsights:getAction", args, &rv, opts...)

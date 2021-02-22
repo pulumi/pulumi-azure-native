@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties of an artifact source.
 func LookupArtifactSourceResource(ctx *pulumi.Context, args *LookupArtifactSourceResourceArgs, opts ...pulumi.InvokeOption) (*LookupArtifactSourceResourceResult, error) {
 	var rv LookupArtifactSourceResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getArtifactSourceResource", args, &rv, opts...)

@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The task that has the ARM resource and task properties.
+// The task will have all information to schedule a run against it.
+// API Version: 2019-04-01.
 func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskDetailsResult, error) {
 	var rv ListTaskDetailsResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:listTaskDetails", args, &rv, opts...)

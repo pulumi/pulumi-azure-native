@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A database security alert policy.
 func LookupDatabaseSecurityAlertPolicy(ctx *pulumi.Context, args *LookupDatabaseSecurityAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseSecurityAlertPolicyResult, error) {
 	var rv LookupDatabaseSecurityAlertPolicyResult
 	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getDatabaseSecurityAlertPolicy", args, &rv, opts...)

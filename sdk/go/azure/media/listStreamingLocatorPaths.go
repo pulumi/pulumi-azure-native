@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Class of response for listPaths action
+// API Version: 2020-05-01.
 func ListStreamingLocatorPaths(ctx *pulumi.Context, args *ListStreamingLocatorPathsArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorPathsResult, error) {
 	var rv ListStreamingLocatorPathsResult
 	err := ctx.Invoke("azure-nextgen:media:listStreamingLocatorPaths", args, &rv, opts...)

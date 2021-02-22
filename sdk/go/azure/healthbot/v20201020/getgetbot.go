@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Bot resource definition
 func Getgetbot(ctx *pulumi.Context, args *GetgetbotArgs, opts ...pulumi.InvokeOption) (*GetgetbotResult, error) {
 	var rv GetgetbotResult
 	err := ctx.Invoke("azure-nextgen:healthbot/v20201020:getgetbot", args, &rv, opts...)
