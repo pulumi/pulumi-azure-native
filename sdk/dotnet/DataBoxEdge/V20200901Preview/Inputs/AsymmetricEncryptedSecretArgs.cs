@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.Inputs
         /// The algorithm used to encrypt "Value".
         /// </summary>
         [Input("encryptionAlgorithm", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.

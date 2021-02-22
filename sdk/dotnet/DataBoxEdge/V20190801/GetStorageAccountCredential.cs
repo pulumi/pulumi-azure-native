@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
+namespace Pulumi.AzureNative.DataBoxEdge.V20190801
 {
     public static class GetStorageAccountCredential
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// The storage account credential.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-nextgen:databoxedge/v20190801:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:databoxedge/v20190801:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
+namespace Pulumi.AzureNative.Compute.V20180401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNextGen.Compute.V20180401.CachingTypes>? Caching { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20180401.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
         /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS, Premium_LRS, and StandardSSD_LRS.
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180401.StorageAccountTypes>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20180401.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public ImageDataDiskArgs()
         {

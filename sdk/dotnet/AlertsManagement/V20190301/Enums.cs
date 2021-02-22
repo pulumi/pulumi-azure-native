@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
+namespace Pulumi.AzureNative.AlertsManagement.V20190301
 {
     /// <summary>
     /// The alert rule state.

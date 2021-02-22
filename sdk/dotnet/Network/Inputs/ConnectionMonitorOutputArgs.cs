@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Connection monitor output destination type. Currently, only "Workspace" is supported.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.OutputType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.OutputType>? Type { get; set; }
 
         /// <summary>
         /// Describes the settings for producing output into a log analytics workspace.

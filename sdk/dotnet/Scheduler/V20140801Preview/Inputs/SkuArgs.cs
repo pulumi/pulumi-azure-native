@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
+namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
     public sealed class SkuArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
         /// Gets or set the SKU.
         /// </summary>
         [Input("name")]
-        public Input<Pulumi.AzureNextGen.Scheduler.V20140801Preview.SkuDefinition>? Name { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.V20140801Preview.SkuDefinition>? Name { get; set; }
 
         public SkuArgs()
         {

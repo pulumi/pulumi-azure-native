@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Inputs
         /// Protocol type of the port.
         /// </summary>
         [Input("transportProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.TransportProtocol>? TransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.TransportProtocol>? TransportProtocol { get; set; }
 
         public PortArgs()
         {

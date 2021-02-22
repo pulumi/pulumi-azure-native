@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20180701Preview
+namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
     /// <summary>
     /// The integration account certificate.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate")]
+    [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountCertificate")]
     public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountCertificate(string name, IntegrationAccountCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate", name, args ?? new IntegrationAccountCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20180701preview:IntegrationAccountCertificate", name, args ?? new IntegrationAccountCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20180701preview:IntegrationAccountCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,10 +94,15 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountCertificate"},
                 },
             };

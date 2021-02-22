@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCustomApi'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'.")]
     public static class GetCustomApi
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2016-06-01.
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-nextgen:web/latest:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web/latest:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
     }
 
 

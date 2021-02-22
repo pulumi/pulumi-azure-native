@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getSubscription'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getSubscription'.")]
     public static class GetSubscription
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-nextgen:servicebus/latest:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus/latest:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }
 
 

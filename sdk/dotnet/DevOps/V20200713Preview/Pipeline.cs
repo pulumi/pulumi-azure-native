@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
+namespace Pulumi.AzureNative.DevOps.V20200713Preview
 {
     /// <summary>
     /// Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devops/v20200713preview:Pipeline")]
+    [AzureNativeResourceType("azure-native:devops/v20200713preview:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devops/v20200713preview:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devops/v20200713preview:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devops/v20200713preview:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devops/v20200713preview:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devops:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:devops:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-native:devops/v20190701preview:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:devops/v20190701preview:Pipeline"},
                 },
             };
@@ -135,7 +137,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
         /// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
         /// </summary>
         [Input("pipelineType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DevOps.V20200713Preview.PipelineTypeEnum> PipelineType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DevOps.V20200713Preview.PipelineTypeEnum> PipelineType { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

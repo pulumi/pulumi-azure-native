@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
+namespace Pulumi.AzureNative.GuestConfiguration.V20181120
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment")]
+    [AzureNativeResourceType("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment")]
     public partial class GuestConfigurationHCRPAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestConfigurationHCRPAssignment(string name, GuestConfigurationHCRPAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment", name, args ?? new GuestConfigurationHCRPAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment", name, args ?? new GuestConfigurationHCRPAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestConfigurationHCRPAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/latest:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
+namespace Pulumi.AzureNative.Network.V20150615.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
         /// Protocol. Possible values are: 'Http' and 'Https'.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150615.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150615.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetApiManagementServiceSsoToken
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetApiManagementServiceSsoTokenResult> InvokeAsync(GetApiManagementServiceSsoTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-nextgen:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithVersion());
     }
 
 

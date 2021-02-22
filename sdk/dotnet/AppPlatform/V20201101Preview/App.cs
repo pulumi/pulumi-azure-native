@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
+namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
 {
     /// <summary>
     /// App resource payload
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appplatform/v20201101preview:App")]
+    [AzureNativeResourceType("azure-native:appplatform/v20201101preview:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform/v20201101preview:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appplatform/v20201101preview:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform/v20201101preview:App", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appplatform/v20201101preview:App", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,9 +70,13 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appplatform:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:App"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:App"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:App"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:App"},
                 },
             };

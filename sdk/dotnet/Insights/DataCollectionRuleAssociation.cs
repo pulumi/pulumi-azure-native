@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
     /// API Version: 2019-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:DataCollectionRuleAssociation")]
+    [AzureNativeResourceType("azure-native:insights:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCollectionRuleAssociation(string name, DataCollectionRuleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCollectionRuleAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation"},
                 },
             };

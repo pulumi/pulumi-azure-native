@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     public static class GetServerAzureADOnlyAuthentication
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// Azure Active Directory only authentication.
         /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-nextgen:sql/v20200202preview:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql/v20200202preview:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190301.Inputs
+namespace Pulumi.AzureNative.Network.V20190301.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20190301.Inputs
         /// Describes the override action to be applied when rule matches.
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190301.ActionType>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190301.ActionType>? Action { get; set; }
 
         /// <summary>
         /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190301.ManagedRuleEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190301.ManagedRuleEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Identifier for the managed rule.

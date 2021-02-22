@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest
+namespace Pulumi.AzureNative.DBforMySQL.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServer'.")]
     public static class GetServer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// Latest API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformysql/latest:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformysql/latest:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

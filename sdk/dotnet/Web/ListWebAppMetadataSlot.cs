@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListWebAppMetadataSlot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppMetadataSlotResult> InvokeAsync(ListWebAppMetadataSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataSlotResult>("azure-nextgen:web:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataSlotResult>("azure-native:web:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotArgs(), options.WithVersion());
     }
 
 

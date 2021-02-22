@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.Latest
+namespace Pulumi.AzureNative.CognitiveServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:getAccount'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:getAccount'.")]
     public static class GetAccount
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// Latest API Version: 2017-04-18.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:cognitiveservices/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:cognitiveservices/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

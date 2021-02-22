@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class ListDelegationSettingSecrets
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-nextgen:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
     }
 
 

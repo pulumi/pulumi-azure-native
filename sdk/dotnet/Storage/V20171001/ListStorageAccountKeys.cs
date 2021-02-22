@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20171001
+namespace Pulumi.AzureNative.Storage.V20171001
 {
     public static class ListStorageAccountKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// The response from the ListKeys operation.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-nextgen:storage/v20171001:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage/v20171001:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
     }
 
 

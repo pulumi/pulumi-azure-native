@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.IoTCentral.V20180901
+namespace Pulumi.AzureNative.IoTCentral.V20180901
 {
     /// <summary>
     /// The name of the SKU.

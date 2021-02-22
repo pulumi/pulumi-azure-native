@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedIdentity
+namespace Pulumi.AzureNative.ManagedIdentity
 {
     /// <summary>
     /// Describes an identity resource.
     /// API Version: 2018-11-30.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:managedidentity:UserAssignedIdentity")]
+    [AzureNativeResourceType("azure-native:managedidentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.ManagedIdentity
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserAssignedIdentity(string name, UserAssignedIdentityArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedidentity:UserAssignedIdentity", name, args ?? new UserAssignedIdentityArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managedidentity:UserAssignedIdentity", name, args ?? new UserAssignedIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserAssignedIdentity(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedidentity:UserAssignedIdentity", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managedidentity:UserAssignedIdentity", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,8 +83,11 @@ namespace Pulumi.AzureNextGen.ManagedIdentity
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/latest:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/latest:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20150831preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity"},
                 },
             };

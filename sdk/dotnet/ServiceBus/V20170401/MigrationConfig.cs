@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20170401
+namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
     /// <summary>
     /// Single item in List or Get Migration Config operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20170401:MigrationConfig")]
+    [AzureNativeResourceType("azure-native:servicebus/v20170401:MigrationConfig")]
     public partial class MigrationConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MigrationConfig(string name, MigrationConfigArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20170401:MigrationConfig", name, args ?? new MigrationConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20170401:MigrationConfig", name, args ?? new MigrationConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MigrationConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20170401:MigrationConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20170401:MigrationConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:MigrationConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:MigrationConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:MigrationConfig"},
                 },
             };

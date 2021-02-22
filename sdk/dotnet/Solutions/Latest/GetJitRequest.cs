@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest
+namespace Pulumi.AzureNative.Solutions.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getJitRequest'.")]
     public static class GetJitRequest
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-nextgen:solutions/latest:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions/latest:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
     }
 
 

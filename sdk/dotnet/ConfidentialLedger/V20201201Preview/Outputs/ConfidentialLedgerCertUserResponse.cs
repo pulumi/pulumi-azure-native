@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview.Outputs
+namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview.Outputs
 {
 
     [OutputType]

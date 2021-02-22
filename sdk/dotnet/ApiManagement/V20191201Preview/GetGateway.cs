@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     public static class GetGateway
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Gateway details.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-nextgen:apimanagement/v20191201preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20191201preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
     }
 
 

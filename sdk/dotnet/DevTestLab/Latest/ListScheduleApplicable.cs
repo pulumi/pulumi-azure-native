@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listScheduleApplicable'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listScheduleApplicable'.")]
     public static class ListScheduleApplicable
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Latest API Version: 2018-09-15.
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-nextgen:devtestlab/latest:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab/latest:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
     }
 
 

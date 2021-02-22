@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200415.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200415.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415.Inputs
         /// Action to perform
         /// </summary>
         [Input("headerAction", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200415.HeaderAction> HeaderAction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200415.HeaderAction> HeaderAction { get; set; } = null!;
 
         /// <summary>
         /// Name of the header to modify

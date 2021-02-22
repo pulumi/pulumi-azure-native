@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetDscpConfiguration
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-nextgen:network:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
     }
 
 

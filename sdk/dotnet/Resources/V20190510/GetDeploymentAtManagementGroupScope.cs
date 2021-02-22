@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20190510
+namespace Pulumi.AzureNative.Resources.V20190510
 {
     public static class GetDeploymentAtManagementGroupScope
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190510
         /// Deployment information.
         /// </summary>
         public static Task<GetDeploymentAtManagementGroupScopeResult> InvokeAsync(GetDeploymentAtManagementGroupScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-nextgen:resources/v20190510:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources/v20190510:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithVersion());
     }
 
 

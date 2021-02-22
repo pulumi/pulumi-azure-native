@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     public static class GetReplicationStorageClassificationMapping
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithVersion());
     }
 
 

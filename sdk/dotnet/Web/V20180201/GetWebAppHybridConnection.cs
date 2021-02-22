@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201
+namespace Pulumi.AzureNative.Web.V20180201
 {
     public static class GetWebAppHybridConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
         /// </summary>
         public static Task<GetWebAppHybridConnectionResult> InvokeAsync(GetWebAppHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-nextgen:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-native:web/v20180201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
     }
 
 

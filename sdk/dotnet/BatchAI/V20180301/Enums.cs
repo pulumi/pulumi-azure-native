@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20180301
+namespace Pulumi.AzureNative.BatchAI.V20180301
 {
     [EnumType]
     public readonly struct CachingType : IEquatable<CachingType>

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class ListEASubscriptionListMigrationDatePost
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2017-10-01.
         /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-nextgen:insights:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithVersion());
     }
 
 

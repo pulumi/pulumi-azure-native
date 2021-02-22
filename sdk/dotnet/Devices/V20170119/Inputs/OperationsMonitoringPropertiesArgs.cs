@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20170119.Inputs
+namespace Pulumi.AzureNative.Devices.V20170119.Inputs
 {
 
     /// <summary>
@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.Devices.V20170119.Inputs
     public sealed class OperationsMonitoringPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("events")]
-        private InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20170119.OperationMonitoringLevel>>? _events;
-        public InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20170119.OperationMonitoringLevel>> Events
+        private InputMap<Union<string, Pulumi.AzureNative.Devices.V20170119.OperationMonitoringLevel>>? _events;
+        public InputMap<Union<string, Pulumi.AzureNative.Devices.V20170119.OperationMonitoringLevel>> Events
         {
-            get => _events ?? (_events = new InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20170119.OperationMonitoringLevel>>());
+            get => _events ?? (_events = new InputMap<Union<string, Pulumi.AzureNative.Devices.V20170119.OperationMonitoringLevel>>());
             set => _events = value;
         }
 

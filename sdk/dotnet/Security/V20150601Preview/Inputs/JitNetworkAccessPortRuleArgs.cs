@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20150601Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
 {
 
     public sealed class JitNetworkAccessPortRuleArgs : Pulumi.ResourceArgs
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview.Inputs
         public Input<int> Number { get; set; } = null!;
 
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20150601Preview.Protocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20150601Preview.Protocol> Protocol { get; set; } = null!;
 
         public JitNetworkAccessPortRuleArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.V20180712
+namespace Pulumi.AzureNative.BotService.V20180712
 {
     public static class ListBotConnectionServiceProviders
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
         /// The list of bot service providers response.
         /// </summary>
         public static Task<ListBotConnectionServiceProvidersResult> InvokeAsync(ListBotConnectionServiceProvidersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionServiceProvidersResult>("azure-nextgen:botservice/v20180712:listBotConnectionServiceProviders", args ?? new ListBotConnectionServiceProvidersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionServiceProvidersResult>("azure-native:botservice/v20180712:listBotConnectionServiceProviders", args ?? new ListBotConnectionServiceProvidersArgs(), options.WithVersion());
     }
 
 

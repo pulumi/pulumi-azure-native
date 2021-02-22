@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData.V20160601
+namespace Pulumi.AzureNative.HybridData.V20160601
 {
     /// <summary>
     /// Data store.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybriddata/v20160601:DataStore")]
+    [AzureNativeResourceType("azure-native:hybriddata/v20160601:DataStore")]
     public partial class DataStore : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataStore(string name, DataStoreArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata/v20160601:DataStore", name, args ?? new DataStoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybriddata/v20160601:DataStore", name, args ?? new DataStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataStore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata/v20160601:DataStore", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybriddata/v20160601:DataStore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybriddata:DataStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata:DataStore"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/latest:DataStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:DataStore"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataStore"},
                 },
             };
@@ -160,7 +163,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// State of the data source.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.HybridData.V20160601.State> State { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HybridData.V20160601.State> State { get; set; } = null!;
 
         public DataStoreArgs()
         {

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkTap'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkTap'.")]
     public static class GetVirtualNetworkTap
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetVirtualNetworkTapResult> InvokeAsync(GetVirtualNetworkTapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-nextgen:network/latest:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-native:network/latest:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithVersion());
     }
 
 

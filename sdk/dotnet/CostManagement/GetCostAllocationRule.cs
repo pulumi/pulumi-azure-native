@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     public static class GetCostAllocationRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-nextgen:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
     }
 
 

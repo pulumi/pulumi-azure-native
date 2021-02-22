@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBandwidthSetting'.")]
     public static class GetBandwidthSetting
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<GetBandwidthSettingResult> InvokeAsync(GetBandwidthSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-nextgen:storsimple/latest:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-native:storsimple/latest:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
     }
 
 

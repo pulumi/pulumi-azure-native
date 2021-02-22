@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Type of backup items associated with this container.
         /// </summary>
         [Input("backupItemType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.BackupItemType>? BackupItemType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.BackupItemType>? BackupItemType { get; set; }
 
         [Input("backupItems")]
         private InputList<string>? _backupItems;

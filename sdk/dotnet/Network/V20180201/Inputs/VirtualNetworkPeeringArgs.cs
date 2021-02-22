@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180201.Inputs
+namespace Pulumi.AzureNative.Network.V20180201.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201.Inputs
         /// The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
         /// </summary>
         [Input("peeringState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180201.VirtualNetworkPeeringState>? PeeringState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180201.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
         /// The provisioning state of the resource.

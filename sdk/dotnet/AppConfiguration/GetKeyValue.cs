@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration
+namespace Pulumi.AzureNative.AppConfiguration
 {
     public static class GetKeyValue
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetKeyValueResult> InvokeAsync(GetKeyValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-nextgen:appconfiguration:getKeyValue", args ?? new GetKeyValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-native:appconfiguration:getKeyValue", args ?? new GetKeyValueArgs(), options.WithVersion());
     }
 
 

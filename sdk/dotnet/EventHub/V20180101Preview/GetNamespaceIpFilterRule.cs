@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
+namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     public static class GetNamespaceIpFilterRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Single item in a List or Get IpFilterRules operation
         /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-nextgen:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithVersion());
     }
 
 

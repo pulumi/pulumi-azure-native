@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The storage account credential
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:StorageAccountCredential")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountCredential(string name, StorageAccountCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:StorageAccountCredential"},
                 },
             };
@@ -124,7 +127,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The cloud service provider
         /// </summary>
         [Input("cloudType", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.CloudType> CloudType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.CloudType> CloudType { get; set; } = null!;
 
         /// <summary>
         /// The credential name.
@@ -136,7 +139,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// SSL needs to be enabled or not
         /// </summary>
         [Input("enableSSL", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.SslStatus> EnableSSL { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.SslStatus> EnableSSL { get; set; } = null!;
 
         /// <summary>
         /// The storage endpoint

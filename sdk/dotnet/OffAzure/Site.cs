@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure
+namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
     /// API Version: 2020-07-07.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:offazure:Site")]
+    [AzureNativeResourceType("azure-native:offazure:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNextGen.OffAzure
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Site(string name, SiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:offazure:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Site(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure:Site", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:offazure:Site", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,8 +74,11 @@ namespace Pulumi.AzureNextGen.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:offazure/latest:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:Site"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:Site"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200707:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:Site"},
                 },
             };

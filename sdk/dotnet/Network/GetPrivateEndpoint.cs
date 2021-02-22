@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetPrivateEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-nextgen:network:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:network:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
     }
 
 

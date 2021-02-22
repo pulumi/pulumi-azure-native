@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.Latest
+namespace Pulumi.AzureNative.AppPlatform.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:listServiceTestKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:listServiceTestKeys'.")]
     public static class ListServiceTestKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
         /// Latest API Version: 2020-07-01.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-nextgen:appplatform/latest:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform/latest:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     public static class ListMediaServiceEdgePolicies
     {
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-nextgen:media/v20200501:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media/v20200501:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
     }
 
 

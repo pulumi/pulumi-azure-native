@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
     /// Latest API Version: 2015-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:SiteInstanceDeploymentSlot")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeploymentSlot'.")]
+    [AzureNativeResourceType("azure-native:web/latest:SiteInstanceDeploymentSlot")]
     public partial class SiteInstanceDeploymentSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -110,12 +110,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteInstanceDeploymentSlot(string name, SiteInstanceDeploymentSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:SiteInstanceDeploymentSlot", name, args ?? new SiteInstanceDeploymentSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:SiteInstanceDeploymentSlot", name, args ?? new SiteInstanceDeploymentSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteInstanceDeploymentSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:SiteInstanceDeploymentSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:SiteInstanceDeploymentSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -126,7 +126,9 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteInstanceDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteInstanceDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:SiteInstanceDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot"},
                 },
             };

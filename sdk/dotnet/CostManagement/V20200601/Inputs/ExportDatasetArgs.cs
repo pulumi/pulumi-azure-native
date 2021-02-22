@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20200601.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20200601.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Inputs
         /// The granularity of rows in the export. Currently only 'Daily' is supported.
         /// </summary>
         [Input("granularity")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20200601.GranularityType>? Granularity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20200601.GranularityType>? Granularity { get; set; }
 
         public ExportDatasetArgs()
         {

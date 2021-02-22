@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     public static class GetBookmarkRelation
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// Represents a relation between two resources
         /// </summary>
         public static Task<GetBookmarkRelationResult> InvokeAsync(GetBookmarkRelationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-nextgen:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-native:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithVersion());
     }
 
 

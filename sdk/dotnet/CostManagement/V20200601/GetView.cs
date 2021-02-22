@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20200601
+namespace Pulumi.AzureNative.CostManagement.V20200601
 {
     public static class GetView
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601
         /// States and configurations of Cost Analysis.
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:costmanagement/v20200601:getView", args ?? new GetViewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:costmanagement/v20200601:getView", args ?? new GetViewArgs(), options.WithVersion());
     }
 
 

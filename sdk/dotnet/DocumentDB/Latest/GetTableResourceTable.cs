@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getTableResourceTable'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getTableResourceTable'.")]
     public static class GetTableResourceTable
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2021-01-15.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-nextgen:documentdb/latest:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/latest:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
     }
 
 

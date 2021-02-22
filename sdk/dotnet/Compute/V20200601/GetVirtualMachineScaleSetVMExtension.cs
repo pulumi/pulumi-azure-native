@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200601
+namespace Pulumi.AzureNative.Compute.V20200601
 {
     public static class GetVirtualMachineScaleSetVMExtension
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// Describes a VMSS VM Extension.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-nextgen:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithVersion());
     }
 
 

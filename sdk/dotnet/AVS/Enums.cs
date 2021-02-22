@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// The type of private cloud addon

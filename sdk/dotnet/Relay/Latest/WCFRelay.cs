@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.Latest
+namespace Pulumi.AzureNative.Relay.Latest
 {
     /// <summary>
     /// Description of the WCF relay resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.")]
-    [AzureNextGenResourceType("azure-nextgen:relay/latest:WCFRelay")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:WCFRelay'.")]
+    [AzureNativeResourceType("azure-native:relay/latest:WCFRelay")]
     public partial class WCFRelay : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.Relay.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WCFRelay(string name, WCFRelayArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/latest:WCFRelay", name, args ?? new WCFRelayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:relay/latest:WCFRelay", name, args ?? new WCFRelayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WCFRelay(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/latest:WCFRelay", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:relay/latest:WCFRelay", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,8 +102,11 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:relay:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelay"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:WCFRelay"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:WCFRelay"},
                 },
             };
@@ -144,7 +147,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
         /// WCF relay type.
         /// </summary>
         [Input("relayType")]
-        public Input<Pulumi.AzureNextGen.Relay.Latest.Relaytype>? RelayType { get; set; }
+        public Input<Pulumi.AzureNative.Relay.Latest.Relaytype>? RelayType { get; set; }
 
         /// <summary>
         /// Returns true if client authorization is needed for this relay; otherwise, false.

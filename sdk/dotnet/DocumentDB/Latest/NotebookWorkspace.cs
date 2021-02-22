@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// A notebook workspace resource
     /// Latest API Version: 2021-01-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:NotebookWorkspace'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:NotebookWorkspace")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:NotebookWorkspace")]
     public partial class NotebookWorkspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotebookWorkspace(string name, NotebookWorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:NotebookWorkspace", name, args ?? new NotebookWorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:NotebookWorkspace", name, args ?? new NotebookWorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotebookWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:NotebookWorkspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:NotebookWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,13 +66,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:NotebookWorkspace"},
                 },
             };

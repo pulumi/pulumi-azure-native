@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
+namespace Pulumi.AzureNative.Migrate.V20191001Preview
 {
     public static class GetMoveCollection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// Define the move collection.
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-nextgen:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate/v20191001preview:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20201201
+namespace Pulumi.AzureNative.Synapse.V20201201
 {
     public static class GetWorkspace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// A workspace
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:synapse/v20201201:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse/v20201201:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

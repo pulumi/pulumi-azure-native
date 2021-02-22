@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:cdn:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:cdn:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }
 
 

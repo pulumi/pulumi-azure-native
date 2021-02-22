@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.V20170401.Inputs
+namespace Pulumi.AzureNative.Relay.V20170401.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Relay.V20170401.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.Relay.V20170401.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Relay.V20170401.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The tier of this SKU.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNextGen.Relay.V20170401.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.Relay.V20170401.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

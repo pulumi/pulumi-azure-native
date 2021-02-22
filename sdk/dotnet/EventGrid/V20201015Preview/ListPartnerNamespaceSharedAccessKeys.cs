@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     public static class ListPartnerNamespaceSharedAccessKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// Shared access keys of the partner namespace.
         /// </summary>
         public static Task<ListPartnerNamespaceSharedAccessKeysResult> InvokeAsync(ListPartnerNamespaceSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-nextgen:eventgrid/v20201015preview:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid/v20201015preview:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithVersion());
     }
 
 

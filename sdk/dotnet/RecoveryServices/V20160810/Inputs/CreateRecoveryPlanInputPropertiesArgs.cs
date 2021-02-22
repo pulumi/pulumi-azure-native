@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
         /// The failover deployment model.
         /// </summary>
         [Input("failoverDeploymentModel")]
-        public Input<Pulumi.AzureNextGen.RecoveryServices.V20160810.FailoverDeploymentModel>? FailoverDeploymentModel { get; set; }
+        public Input<Pulumi.AzureNative.RecoveryServices.V20160810.FailoverDeploymentModel>? FailoverDeploymentModel { get; set; }
 
         [Input("groups", required: true)]
         private InputList<Inputs.RecoveryPlanGroupArgs>? _groups;

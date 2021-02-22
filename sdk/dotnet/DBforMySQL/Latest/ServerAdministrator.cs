@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest
+namespace Pulumi.AzureNative.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a and external administrator to be created.
     /// Latest API Version: 2017-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:ServerAdministrator")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'.")]
+    [AzureNativeResourceType("azure-native:dbformysql/latest:ServerAdministrator")]
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAdministrator(string name, ServerAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/latest:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:ServerAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/latest:ServerAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator"},
                 },
             };
@@ -108,7 +111,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// The type of administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.Latest.AdministratorType> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.Latest.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// The server administrator login account name.

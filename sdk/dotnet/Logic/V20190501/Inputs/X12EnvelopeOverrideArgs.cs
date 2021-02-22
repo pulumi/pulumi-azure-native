@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
+namespace Pulumi.AzureNative.Logic.V20190501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The date format.
         /// </summary>
         [Input("dateFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.X12DateFormat> DateFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.X12DateFormat> DateFormat { get; set; } = null!;
 
         /// <summary>
         /// The functional identifier code.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The time format.
         /// </summary>
         [Input("timeFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.X12TimeFormat> TimeFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.X12TimeFormat> TimeFormat { get; set; } = null!;
 
         public X12EnvelopeOverrideArgs()
         {

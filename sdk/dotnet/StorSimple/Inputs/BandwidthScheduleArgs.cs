@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Inputs
+namespace Pulumi.AzureNative.StorSimple.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.StorSimple.Inputs
     public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
-        private InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek>? _days;
+        private InputList<Pulumi.AzureNative.StorSimple.DayOfWeek>? _days;
 
         /// <summary>
         /// The days of the week when this schedule is applicable.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek> Days
+        public InputList<Pulumi.AzureNative.StorSimple.DayOfWeek> Days
         {
-            get => _days ?? (_days = new InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek>());
+            get => _days ?? (_days = new InputList<Pulumi.AzureNative.StorSimple.DayOfWeek>());
             set => _days = value;
         }
 

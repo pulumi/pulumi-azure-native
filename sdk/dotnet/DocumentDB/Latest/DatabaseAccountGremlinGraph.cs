@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
     /// Latest API Version: 2016-03-31.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinGraph'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinGraph'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:DatabaseAccountGremlinGraph")]
     public partial class DatabaseAccountGremlinGraph : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountGremlinGraph(string name, DatabaseAccountGremlinGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph", name, args ?? new DatabaseAccountGremlinGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:DatabaseAccountGremlinGraph", name, args ?? new DatabaseAccountGremlinGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountGremlinGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:DatabaseAccountGremlinGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,11 +114,17 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph"},
                 },
             };

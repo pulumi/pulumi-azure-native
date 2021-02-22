@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Inputs
         /// Compute OS Type
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.OsType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200515Preview.OsType>? OsType { get; set; }
 
         /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
         [Input("remoteLoginPortPublicAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.RemoteLoginPortPublicAccess>? RemoteLoginPortPublicAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200515Preview.RemoteLoginPortPublicAccess>? RemoteLoginPortPublicAccess { get; set; }
 
         /// <summary>
         /// Scale settings for AML Compute
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Inputs
         /// Virtual Machine priority
         /// </summary>
         [Input("vmPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.VmPriority>? VmPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200515Preview.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// Virtual Machine Size

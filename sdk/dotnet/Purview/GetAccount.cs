@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview
+namespace Pulumi.AzureNative.Purview
 {
     public static class GetAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Purview
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:purview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

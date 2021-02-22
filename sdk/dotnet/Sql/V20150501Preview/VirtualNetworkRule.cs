@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20150501Preview
+namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
     /// <summary>
     /// A virtual network rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20150501preview:VirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:sql/v20150501preview:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20150501preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20150501preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20150501preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20150501preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:VirtualNetworkRule"},
                 },
             };

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:ObjectReplicationPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ObjectReplicationPolicy(string name, ObjectReplicationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ObjectReplicationPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,9 +84,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ObjectReplicationPolicy"},
                 },
             };

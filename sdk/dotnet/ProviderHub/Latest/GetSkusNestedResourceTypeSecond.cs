@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeSecond'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeSecond'.")]
     public static class GetSkusNestedResourceTypeSecond
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// Latest API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusNestedResourceTypeSecondResult> InvokeAsync(GetSkusNestedResourceTypeSecondArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-nextgen:providerhub/latest:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub/latest:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithVersion());
     }
 
 

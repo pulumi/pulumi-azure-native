@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImage'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryImage'.")]
     public static class GetGalleryImage
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Latest API Version: 2020-09-30.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-nextgen:compute/latest:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute/latest:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
     }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
+namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
     /// <summary>
     /// A value indicating configuration profile.

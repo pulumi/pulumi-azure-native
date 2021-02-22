@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// AzureStorageInfo dictionary resource.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebAppAzureStorageAccountsSlot")]
+    [AzureNativeResourceType("azure-native:web:WebAppAzureStorageAccountsSlot")]
     public partial class WebAppAzureStorageAccountsSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppAzureStorageAccountsSlot(string name, WebAppAzureStorageAccountsSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppAzureStorageAccountsSlot", name, args ?? new WebAppAzureStorageAccountsSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebAppAzureStorageAccountsSlot", name, args ?? new WebAppAzureStorageAccountsSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppAzureStorageAccountsSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppAzureStorageAccountsSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebAppAzureStorageAccountsSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,12 +71,19 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot"},
                 },
             };

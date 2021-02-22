@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20201001:WebApp")]
+    [AzureNativeResourceType("azure-native:web/v20201001:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>
@@ -307,12 +307,12 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApp(string name, WebAppArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20201001:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20201001:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebApp(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20201001:WebApp", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20201001:WebApp", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -323,14 +323,23 @@ namespace Pulumi.AzureNextGen.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebApp"},
                 },
             };
@@ -380,7 +389,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         /// </summary>
         [Input("clientCertMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20201001.ClientCertMode>? ClientCertMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20201001.ClientCertMode>? ClientCertMode { get; set; }
 
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
@@ -484,7 +493,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20201001.RedundancyMode>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20201001.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

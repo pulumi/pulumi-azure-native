@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// String dictionary resource.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppMetadata")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppMetadata'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppMetadata")]
     public partial class WebAppMetadata : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppMetadata(string name, WebAppMetadataArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppMetadata", name, args ?? new WebAppMetadataArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppMetadata", name, args ?? new WebAppMetadataArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppMetadata(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppMetadata", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppMetadata", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,14 +72,23 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppMetadata"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppMetadata"},
                 },
             };

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Defines web application firewall policy.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:WebApplicationFirewallPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:WebApplicationFirewallPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:WebApplicationFirewallPolicy'.")]
+    [AzureNativeResourceType("azure-native:network/latest:WebApplicationFirewallPolicy")]
     public partial class WebApplicationFirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApplicationFirewallPolicy(string name, WebApplicationFirewallPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:WebApplicationFirewallPolicy", name, args ?? new WebApplicationFirewallPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:WebApplicationFirewallPolicy", name, args ?? new WebApplicationFirewallPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebApplicationFirewallPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:WebApplicationFirewallPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:WebApplicationFirewallPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,21 +120,37 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:WebApplicationFirewallPolicy"},
                 },
             };

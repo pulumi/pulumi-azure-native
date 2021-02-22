@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
+namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
     public static class ListSaasResourceAccessToken
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
         /// the ISV access token result response.
         /// </summary>
         public static Task<ListSaasResourceAccessTokenResult> InvokeAsync(ListSaasResourceAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-nextgen:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
     }
 
 

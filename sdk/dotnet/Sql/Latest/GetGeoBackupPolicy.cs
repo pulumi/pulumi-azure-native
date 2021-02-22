@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Latest
+namespace Pulumi.AzureNative.Sql.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'.")]
     public static class GetGeoBackupPolicy
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Latest API Version: 2014-04-01.
         /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-nextgen:sql/latest:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql/latest:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
     }
 
 

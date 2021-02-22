@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.V20200801Preview
+namespace Pulumi.AzureNative.Search.V20200801Preview
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:search/v20200801preview:Service")]
+    [AzureNativeResourceType("azure-native:search/v20200801preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search/v20200801preview:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:search/v20200801preview:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search/v20200801preview:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:search/v20200801preview:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,11 +136,17 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:search:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:Service"},
                 },
             };
@@ -169,7 +175,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         /// </summary>
         [Input("hostingMode")]
-        public Input<Pulumi.AzureNextGen.Search.V20200801Preview.HostingMode>? HostingMode { get; set; }
+        public Input<Pulumi.AzureNative.Search.V20200801Preview.HostingMode>? HostingMode { get; set; }
 
         /// <summary>
         /// The identity of the resource.
@@ -199,7 +205,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<Pulumi.AzureNextGen.Search.V20200801Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public Input<Pulumi.AzureNative.Search.V20200801Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
@@ -239,9 +245,9 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
 
         public ServiceArgs()
         {
-            HostingMode = Pulumi.AzureNextGen.Search.V20200801Preview.HostingMode.@Default;
+            HostingMode = Pulumi.AzureNative.Search.V20200801Preview.HostingMode.@Default;
             PartitionCount = 1;
-            PublicNetworkAccess = Pulumi.AzureNextGen.Search.V20200801Preview.PublicNetworkAccess.Enabled;
+            PublicNetworkAccess = Pulumi.AzureNative.Search.V20200801Preview.PublicNetworkAccess.Enabled;
             ReplicaCount = 1;
         }
     }

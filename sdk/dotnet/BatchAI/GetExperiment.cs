@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI
+namespace Pulumi.AzureNative.BatchAI
 {
     public static class GetExperiment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-nextgen:batchai:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:batchai:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
     }
 
 

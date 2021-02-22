@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineSchedule'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachineSchedule'.")]
     public static class GetVirtualMachineSchedule
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Latest API Version: 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineScheduleResult> InvokeAsync(GetVirtualMachineScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-nextgen:devtestlab/latest:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-native:devtestlab/latest:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithVersion());
     }
 
 

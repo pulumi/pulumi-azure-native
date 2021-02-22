@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
+namespace Pulumi.AzureNative.Scheduler.Latest.Inputs
 {
 
     public sealed class JobCollectionPropertiesArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or sets the state.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.Scheduler.Latest.JobCollectionState>? State { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.Latest.JobCollectionState>? State { get; set; }
 
         public JobCollectionPropertiesArgs()
         {

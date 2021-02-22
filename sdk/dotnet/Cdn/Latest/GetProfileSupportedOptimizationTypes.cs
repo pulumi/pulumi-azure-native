@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfileSupportedOptimizationTypes'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getProfileSupportedOptimizationTypes'.")]
     public static class GetProfileSupportedOptimizationTypes
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-nextgen:cdn/latest:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/latest:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
     }
 
 

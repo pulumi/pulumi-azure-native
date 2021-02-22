@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -28,14 +28,14 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         }
 
         [Input("streams", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownDataFlowStreams>>? _streams;
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>>? _streams;
 
         /// <summary>
         /// List of streams for this data flow.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownDataFlowStreams>> Streams
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownDataFlowStreams>>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>>());
             set => _streams = value;
         }
 

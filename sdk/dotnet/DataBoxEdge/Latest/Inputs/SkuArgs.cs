@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
         /// SKU name.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.SkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.SkuName>? Name { get; set; }
 
         /// <summary>
         /// The SKU tier. This is based on the SKU name.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

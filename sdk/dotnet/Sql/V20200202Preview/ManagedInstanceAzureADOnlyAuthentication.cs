@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// Azure Active Directory only authentication.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication")]
     public partial class ManagedInstanceAzureADOnlyAuthentication : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstanceAzureADOnlyAuthentication(string name, ManagedInstanceAzureADOnlyAuthenticationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication", name, args ?? new ManagedInstanceAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication", name, args ?? new ManagedInstanceAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstanceAzureADOnlyAuthentication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"},
                 },
             };

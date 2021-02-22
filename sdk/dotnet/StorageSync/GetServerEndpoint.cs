@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync
+namespace Pulumi.AzureNative.StorageSync
 {
     public static class GetServerEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageSync
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-nextgen:storagesync:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithVersion());
     }
 
 

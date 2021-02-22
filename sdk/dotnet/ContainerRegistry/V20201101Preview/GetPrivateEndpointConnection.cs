@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     public static class GetPrivateEndpointConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// An object that represents a private endpoint connection for a container registry.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:containerregistry/v20201101preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:containerregistry/v20201101preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }
 
 

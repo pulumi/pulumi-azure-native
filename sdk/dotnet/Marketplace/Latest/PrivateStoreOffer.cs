@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Marketplace.Latest
+namespace Pulumi.AzureNative.Marketplace.Latest
 {
     /// <summary>
     /// The privateStore offer data structure.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.")]
-    [AzureNextGenResourceType("azure-nextgen:marketplace/latest:PrivateStoreOffer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:marketplace:PrivateStoreOffer'.")]
+    [AzureNativeResourceType("azure-native:marketplace/latest:PrivateStoreOffer")]
     public partial class PrivateStoreOffer : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateStoreOffer(string name, PrivateStoreOfferArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, args ?? new PrivateStoreOfferArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:marketplace/latest:PrivateStoreOffer", name, args ?? new PrivateStoreOfferArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateStoreOffer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:marketplace/latest:PrivateStoreOffer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,7 +120,9 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-nextgen:marketplace:PrivateStoreOffer"},
+                    new Pulumi.Alias { Type = "azure-native:marketplace/v20200101:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-nextgen:marketplace/v20200101:PrivateStoreOffer"},
                 },
             };

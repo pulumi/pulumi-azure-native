@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200301preview:Cluster")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20200301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20200301preview:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,10 +100,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Cluster"},
                 },
             };

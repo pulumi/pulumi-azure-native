@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20150801
+namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     public static class ListNamespaceKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:servicebus/v20150801:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus/v20150801:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }
 
 

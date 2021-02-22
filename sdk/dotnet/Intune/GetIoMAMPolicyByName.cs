@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Intune
+namespace Pulumi.AzureNative.Intune
 {
     public static class GetIoMAMPolicyByName
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Intune
         /// API Version: 2015-01-14-preview.
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-nextgen:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
     }
 
 

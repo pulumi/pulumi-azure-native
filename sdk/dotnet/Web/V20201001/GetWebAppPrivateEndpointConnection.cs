@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class GetWebAppPrivateEndpointConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Private Endpoint Connection ARM resource.
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-nextgen:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
     }
 
 

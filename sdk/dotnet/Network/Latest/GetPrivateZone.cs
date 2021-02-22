@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateZone'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateZone'.")]
     public static class GetPrivateZone
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-nextgen:network/latest:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-native:network/latest:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
     }
 
 

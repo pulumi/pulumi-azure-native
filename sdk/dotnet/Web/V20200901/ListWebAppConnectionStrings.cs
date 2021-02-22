@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200901
+namespace Pulumi.AzureNative.Web.V20200901
 {
     public static class ListWebAppConnectionStrings
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// String dictionary resource.
         /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-nextgen:web/v20200901:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web/v20200901:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithVersion());
     }
 
 

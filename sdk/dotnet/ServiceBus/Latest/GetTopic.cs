@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getTopic'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopic'.")]
     public static class GetTopic
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-nextgen:servicebus/latest:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus/latest:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }
 
 

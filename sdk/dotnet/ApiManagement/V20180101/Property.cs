@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Property details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:Property")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:Property")]
     public partial class Property : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Property(string name, PropertyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Property", name, args ?? new PropertyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:Property", name, args ?? new PropertyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Property(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Property", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:Property", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,12 +76,19 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Property"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Property"},
                 },
             };

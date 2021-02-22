@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetUser
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:apimanagement:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:apimanagement:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 

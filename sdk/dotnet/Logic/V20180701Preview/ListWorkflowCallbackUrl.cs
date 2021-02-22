@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20180701Preview
+namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
     public static class ListWorkflowCallbackUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListWorkflowCallbackUrlResult> InvokeAsync(ListWorkflowCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowCallbackUrlResult>("azure-nextgen:logic/v20180701preview:listWorkflowCallbackUrl", args ?? new ListWorkflowCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowCallbackUrlResult>("azure-native:logic/v20180701preview:listWorkflowCallbackUrl", args ?? new ListWorkflowCallbackUrlArgs(), options.WithVersion());
     }
 
 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public Union<string, Pulumi.AzureNextGen.Logic.V20180701Preview.KeyType>? KeyType { get; set; }
+        public Union<string, Pulumi.AzureNative.Logic.V20180701Preview.KeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The expiry time.

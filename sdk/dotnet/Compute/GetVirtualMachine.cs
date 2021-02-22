@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     public static class GetVirtualMachine
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }
 
 

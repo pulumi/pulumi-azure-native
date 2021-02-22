@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'.")]
     public static class ListCustomApiWsdlInterfaces
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2016-06-01.
         /// </summary>
         public static Task<ListCustomApiWsdlInterfacesResult> InvokeAsync(ListCustomApiWsdlInterfacesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-nextgen:web/latest:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-native:web/latest:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
     }
 
 
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// The WSDL import method
         /// </summary>
         [Input("importMethod")]
-        public Union<string, Pulumi.AzureNextGen.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
+        public Union<string, Pulumi.AzureNative.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
 
         /// <summary>
         /// The location

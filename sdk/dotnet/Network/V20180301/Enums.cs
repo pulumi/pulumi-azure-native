@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20180301
+namespace Pulumi.AzureNative.Network.V20180301
 {
     /// <summary>
     /// The monitoring status of the endpoint.

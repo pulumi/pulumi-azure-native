@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20191201.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.V20191201.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201.Inputs
         /// The SKU of the GPU resource.
         /// </summary>
         [Input("sku", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20191201.GpuSku> Sku { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20191201.GpuSku> Sku { get; set; } = null!;
 
         public GpuResourceArgs()
         {

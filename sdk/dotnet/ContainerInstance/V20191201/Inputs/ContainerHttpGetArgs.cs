@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20191201.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.V20191201.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201.Inputs
         /// The scheme.
         /// </summary>
         [Input("scheme")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20191201.Scheme>? Scheme { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20191201.Scheme>? Scheme { get; set; }
 
         public ContainerHttpGetArgs()
         {

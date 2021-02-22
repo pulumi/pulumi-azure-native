@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight
+namespace Pulumi.AzureNative.HDInsight
 {
     public static class GetClusterGatewaySettings
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HDInsight
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-nextgen:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithVersion());
     }
 
 

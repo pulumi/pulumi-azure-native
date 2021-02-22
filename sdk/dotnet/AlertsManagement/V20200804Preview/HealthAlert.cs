@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
+namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview
 {
     /// <summary>
     /// The health alert resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert")]
+    [AzureNativeResourceType("azure-native:alertsmanagement/v20200804preview:HealthAlert")]
     public partial class HealthAlert : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthAlert(string name, HealthAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:alertsmanagement/v20200804preview:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HealthAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:alertsmanagement/v20200804preview:HealthAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:HealthAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:HealthAlert"},
                 },
             };

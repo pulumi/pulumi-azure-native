@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
+namespace Pulumi.AzureNative.KeyVault.V20200401Preview
 {
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:keyvault/v20200401preview:Vault")]
+    [AzureNativeResourceType("azure-native:keyvault/v20200401preview:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vault(string name, VaultArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20200401preview:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:keyvault/v20200401preview:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Vault(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20200401preview:Vault", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:keyvault/v20200401preview:Vault", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,12 +70,19 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/latest:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20150601:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20150601:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214preview:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:Vault"},
                 },
             };

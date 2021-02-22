@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSchema'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountSchema'.")]
     public static class GetIntegrationAccountSchema
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-nextgen:logic/latest:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic/latest:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithVersion());
     }
 
 

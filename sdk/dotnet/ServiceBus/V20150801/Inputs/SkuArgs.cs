@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20150801.Inputs
+namespace Pulumi.AzureNative.ServiceBus.V20150801.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20150801.SkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20150801.SkuName>? Name { get; set; }
 
         /// <summary>
         /// The billing tier of this particular SKU.
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20150801.SkuTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20150801.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

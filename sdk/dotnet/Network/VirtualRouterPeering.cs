@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Router Peering resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:VirtualRouterPeering")]
+    [AzureNativeResourceType("azure-native:network:VirtualRouterPeering")]
     public partial class VirtualRouterPeering : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualRouterPeering(string name, VirtualRouterPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualRouterPeering", name, args ?? new VirtualRouterPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:VirtualRouterPeering", name, args ?? new VirtualRouterPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualRouterPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualRouterPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:VirtualRouterPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,17 +77,29 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualRouterPeering"},
                 },
             };

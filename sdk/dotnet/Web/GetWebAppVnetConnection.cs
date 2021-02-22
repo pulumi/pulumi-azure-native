@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppVnetConnection
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppVnetConnectionResult> InvokeAsync(GetWebAppVnetConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-nextgen:web:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-native:web:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.V20200201
+namespace Pulumi.AzureNative.Management.V20200201
 {
     public static class GetHierarchySetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Management.V20200201
         /// Settings defined at the Management Group scope.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-nextgen:management/v20200201:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management/v20200201:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());
     }
 
 

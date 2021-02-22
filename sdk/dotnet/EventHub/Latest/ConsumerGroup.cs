@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Latest
+namespace Pulumi.AzureNative.EventHub.Latest
 {
     /// <summary>
     /// Single item in List or Get Consumer group operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.")]
-    [AzureNextGenResourceType("azure-nextgen:eventhub/latest:ConsumerGroup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:ConsumerGroup'.")]
+    [AzureNativeResourceType("azure-native:eventhub/latest:ConsumerGroup")]
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConsumerGroup(string name, ConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/latest:ConsumerGroup", name, args ?? new ConsumerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/latest:ConsumerGroup", name, args ?? new ConsumerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConsumerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/latest:ConsumerGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/latest:ConsumerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,10 +72,15 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:ConsumerGroup"},
                 },
             };

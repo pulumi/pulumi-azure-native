@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
 {
     public static class GetAppResourceUploadUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         /// Resource upload definition payload
         /// </summary>
         public static Task<GetAppResourceUploadUrlResult> InvokeAsync(GetAppResourceUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResourceUploadUrlResult>("azure-nextgen:appplatform/v20190501preview:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResourceUploadUrlResult>("azure-native:appplatform/v20190501preview:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlArgs(), options.WithVersion());
     }
 
 

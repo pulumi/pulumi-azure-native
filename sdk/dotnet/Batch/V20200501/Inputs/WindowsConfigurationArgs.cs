@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20200501.Inputs
+namespace Pulumi.AzureNative.Batch.V20200501.Inputs
 {
 
     public sealed class WindowsConfigurationArgs : Pulumi.ResourceArgs

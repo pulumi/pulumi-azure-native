@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.Latest
+namespace Pulumi.AzureNative.Maintenance.Latest
 {
     /// <summary>
     /// Maintenance configuration record type
     /// Latest API Version: 2020-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:maintenance/latest:MaintenanceConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'.")]
+    [AzureNativeResourceType("azure-native:maintenance/latest:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Maintenance.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceConfiguration(string name, MaintenanceConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maintenance/latest:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:maintenance/latest:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MaintenanceConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maintenance/latest:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:maintenance/latest:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,10 +84,15 @@ namespace Pulumi.AzureNextGen.Maintenance.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20180601preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"},
                 },
             };
@@ -134,7 +139,7 @@ namespace Pulumi.AzureNextGen.Maintenance.Latest
         /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         /// </summary>
         [Input("maintenanceScope")]
-        public InputUnion<string, Pulumi.AzureNextGen.Maintenance.Latest.MaintenanceScope>? MaintenanceScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Maintenance.Latest.MaintenanceScope>? MaintenanceScope { get; set; }
 
         /// <summary>
         /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql

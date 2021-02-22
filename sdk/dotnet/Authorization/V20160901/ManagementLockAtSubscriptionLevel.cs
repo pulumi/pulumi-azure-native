@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20160901
+namespace Pulumi.AzureNative.Authorization.V20160901
 {
     /// <summary>
     /// The lock information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel")]
+    [AzureNativeResourceType("azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel")]
     public partial class ManagementLockAtSubscriptionLevel : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLockAtSubscriptionLevel(string name, ManagementLockAtSubscriptionLevelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel", name, args ?? new ManagementLockAtSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel", name, args ?? new ManagementLockAtSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLockAtSubscriptionLevel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
                 },
             };
@@ -100,7 +103,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("level", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20160901.LockLevel> Level { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20160901.LockLevel> Level { get; set; } = null!;
 
         /// <summary>
         /// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain &lt;, &gt; %, &amp;, :, \, ?, /, or any control characters.

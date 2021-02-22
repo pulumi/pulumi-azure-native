@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class GetPartner
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The integration account partner.
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:logic/v20160601:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:logic/v20160601:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }
 
 

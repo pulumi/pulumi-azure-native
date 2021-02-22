@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
+namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
 {
     /// <summary>
     /// Option to enable Helm Operator for this git configuration.

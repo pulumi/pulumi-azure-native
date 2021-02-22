@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Access Review Schedule Definition.
     /// API Version: 2018-05-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization:AccessReviewScheduleDefinitionById")]
+    [AzureNativeResourceType("azure-native:authorization:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : Pulumi.CustomResource
     {
         /// <summary>
@@ -187,12 +187,12 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessReviewScheduleDefinitionById(string name, AccessReviewScheduleDefinitionByIdArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:AccessReviewScheduleDefinitionById", name, args ?? new AccessReviewScheduleDefinitionByIdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization:AccessReviewScheduleDefinitionById", name, args ?? new AccessReviewScheduleDefinitionByIdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessReviewScheduleDefinitionById(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:AccessReviewScheduleDefinitionById", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization:AccessReviewScheduleDefinitionById", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -203,6 +203,7 @@ namespace Pulumi.AzureNextGen.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
                 },
             };
@@ -237,7 +238,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// This specifies the behavior for the autoReview feature when an access review completes.
         /// </summary>
         [Input("defaultDecision")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.DefaultDecisionType>? DefaultDecision { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.DefaultDecisionType>? DefaultDecision { get; set; }
 
         /// <summary>
         /// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
@@ -351,7 +352,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// The recurrence range type. The possible values are: endDate, noEnd, numbered.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.AccessReviewRecurrenceRangeType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.AccessReviewRecurrenceRangeType>? Type { get; set; }
 
         public AccessReviewScheduleDefinitionByIdArgs()
         {

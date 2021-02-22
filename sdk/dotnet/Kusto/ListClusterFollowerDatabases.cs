@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     public static class ListClusterFollowerDatabases
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// API Version: 2020-09-18.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-nextgen:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
     }
 
 

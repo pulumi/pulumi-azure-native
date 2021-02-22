@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
+namespace Pulumi.AzureNative.NotificationHubs.V20160301
 {
     [EnumType]
     public readonly struct AccessRights : IEquatable<AccessRights>

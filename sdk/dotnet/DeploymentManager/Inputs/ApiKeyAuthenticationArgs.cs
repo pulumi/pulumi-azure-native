@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.Inputs
+namespace Pulumi.AzureNative.DeploymentManager.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.Inputs
         /// The location of the authentication key/value pair in the request.
         /// </summary>
         [Input("in", required: true)]
-        public Input<Pulumi.AzureNextGen.DeploymentManager.RestAuthLocation> In { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DeploymentManager.RestAuthLocation> In { get; set; } = null!;
 
         /// <summary>
         /// The key name of the authentication key/value pair.

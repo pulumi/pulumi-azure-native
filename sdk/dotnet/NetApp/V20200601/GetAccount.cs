@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20200601
+namespace Pulumi.AzureNative.NetApp.V20200601
 {
     public static class GetAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// NetApp account resource
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:netapp/v20200601:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/v20200601:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

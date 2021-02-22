@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.Inputs
+namespace Pulumi.AzureNative.DataMigration.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Inputs
         /// Permission group for validations
         /// </summary>
         [Input("checkPermissionsGroup")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
 
         /// <summary>
         /// Flag for whether to collect agent jobs from source server.

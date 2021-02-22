@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20200701
+namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
     /// <summary>
     /// Binding resource payload
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appplatform/v20200701:Binding")]
+    [AzureNativeResourceType("azure-native:appplatform/v20200701:Binding")]
     public partial class Binding : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Binding(string name, BindingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform/v20200701:Binding", name, args ?? new BindingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appplatform/v20200701:Binding", name, args ?? new BindingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Binding(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform/v20200701:Binding", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appplatform/v20200701:Binding", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,9 +58,13 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appplatform:Binding"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:Binding"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:Binding"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Binding"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Binding"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Binding"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Binding"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Binding"},
                 },
             };

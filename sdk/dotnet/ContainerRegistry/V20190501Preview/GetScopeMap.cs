@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview
 {
     public static class GetScopeMap
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// An object that represents a scope map for a container registry.
         /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-nextgen:containerregistry/v20190501preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry/v20190501preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
     }
 
 

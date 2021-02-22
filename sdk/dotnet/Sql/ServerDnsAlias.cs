@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server DNS alias.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ServerDnsAlias")]
+    [AzureNativeResourceType("azure-native:sql:ServerDnsAlias")]
     public partial class ServerDnsAlias : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerDnsAlias(string name, ServerDnsAliasArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ServerDnsAlias", name, args ?? new ServerDnsAliasArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ServerDnsAlias", name, args ?? new ServerDnsAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerDnsAlias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ServerDnsAlias", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ServerDnsAlias", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,8 +59,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerDnsAlias"},
                 },
             };

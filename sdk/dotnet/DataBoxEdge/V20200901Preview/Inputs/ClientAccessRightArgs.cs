@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.Inputs
         /// Type of access to be allowed for the client.
         /// </summary>
         [Input("accessPermission", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.ClientPermissionType> AccessPermission { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.ClientPermissionType> AccessPermission { get; set; } = null!;
 
         /// <summary>
         /// IP of the client.

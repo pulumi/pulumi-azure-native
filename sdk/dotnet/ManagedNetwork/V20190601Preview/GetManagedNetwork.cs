@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
+namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
     public static class GetManagedNetwork
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// The Managed Network resource
         /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-nextgen:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithVersion());
     }
 
 

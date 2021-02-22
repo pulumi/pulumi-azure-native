@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest.Inputs
+namespace Pulumi.AzureNative.Resources.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest.Inputs
         /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
         /// </summary>
         [Input("scope")]
-        public InputUnion<string, Pulumi.AzureNextGen.Resources.Latest.ExpressionEvaluationOptionsScopeType>? Scope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Resources.Latest.ExpressionEvaluationOptionsScopeType>? Scope { get; set; }
 
         public ExpressionEvaluationOptionsArgs()
         {

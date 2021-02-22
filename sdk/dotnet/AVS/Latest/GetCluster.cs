@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.Latest
+namespace Pulumi.AzureNative.AVS.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getCluster'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getCluster'.")]
     public static class GetCluster
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// Latest API Version: 2020-03-20.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:avs/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:avs/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20171001Preview
+namespace Pulumi.AzureNative.Authorization.V20171001Preview
 {
     public static class GetRoleAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20171001Preview
         /// Role Assignments
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-nextgen:authorization/v20171001preview:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization/v20171001preview:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
     }
 
 

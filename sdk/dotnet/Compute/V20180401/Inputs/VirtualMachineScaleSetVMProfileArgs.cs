@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
+namespace Pulumi.AzureNative.Compute.V20180401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
         /// Specifies the eviction policy for virtual machines in a low priority scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2017-10-30-preview
         /// </summary>
         [Input("evictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180401.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20180401.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
 
         /// <summary>
         /// Specifies a collection of settings for extensions installed on virtual machines in the scale set.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
         /// Specifies the priority for the virtual machines in the scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2017-10-30-preview
         /// </summary>
         [Input("priority")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180401.VirtualMachinePriorityTypes>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20180401.VirtualMachinePriorityTypes>? Priority { get; set; }
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.

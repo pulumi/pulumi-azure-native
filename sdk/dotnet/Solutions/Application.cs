@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions
+namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application.
     /// API Version: 2019-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:solutions:Application")]
+    [AzureNativeResourceType("azure-native:solutions:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -169,12 +169,12 @@ namespace Pulumi.AzureNextGen.Solutions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -185,10 +185,15 @@ namespace Pulumi.AzureNextGen.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions/latest:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:Application"},
                 },
             };

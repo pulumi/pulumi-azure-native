@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A private cloud resource
     /// API Version: 2020-03-20.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:PrivateCloud")]
+    [AzureNativeResourceType("azure-native:avs:PrivateCloud")]
     public partial class PrivateCloud : Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateCloud(string name, PrivateCloudArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:PrivateCloud", name, args ?? new PrivateCloudArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:PrivateCloud", name, args ?? new PrivateCloudArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateCloud(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:PrivateCloud", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:PrivateCloud", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,9 +155,13 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/latest:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:PrivateCloud"},
                 },
             };
@@ -198,7 +202,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// Connectivity to internet is enabled or disabled
         /// </summary>
         [Input("internet")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.InternetEnum>? Internet { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.InternetEnum>? Internet { get; set; }
 
         /// <summary>
         /// Resource location

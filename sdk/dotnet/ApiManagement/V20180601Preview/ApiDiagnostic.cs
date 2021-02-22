@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Diagnostic details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:ApiDiagnostic")]
     public partial class ApiDiagnostic : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiDiagnostic(string name, ApiDiagnosticArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic", name, args ?? new ApiDiagnosticArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180601preview:ApiDiagnostic", name, args ?? new ApiDiagnosticArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiDiagnostic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180601preview:ApiDiagnostic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,13 +88,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic"},
                 },
             };
@@ -123,7 +131,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.AlwaysLog>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180601Preview.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.

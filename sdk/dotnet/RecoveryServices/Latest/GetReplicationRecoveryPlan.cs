@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryPlan'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationRecoveryPlan'.")]
     public static class GetReplicationRecoveryPlan
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// Latest API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-nextgen:recoveryservices/latest:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-native:recoveryservices/latest:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithVersion());
     }
 
 

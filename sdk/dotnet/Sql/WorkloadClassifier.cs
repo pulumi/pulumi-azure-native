@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Workload classifier operations for a data warehouse
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:WorkloadClassifier")]
+    [AzureNativeResourceType("azure-native:sql:WorkloadClassifier")]
     public partial class WorkloadClassifier : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadClassifier(string name, WorkloadClassifierArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:WorkloadClassifier", name, args ?? new WorkloadClassifierArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:WorkloadClassifier", name, args ?? new WorkloadClassifierArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadClassifier(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:WorkloadClassifier", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:WorkloadClassifier", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,8 +89,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:WorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:WorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:WorkloadClassifier"},
                 },
             };

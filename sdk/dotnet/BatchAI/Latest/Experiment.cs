@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
     /// <summary>
     /// Experiment information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.")]
-    [AzureNextGenResourceType("azure-nextgen:batchai/latest:Experiment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Experiment'.")]
+    [AzureNativeResourceType("azure-native:batchai/latest:Experiment")]
     public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Experiment(string name, ExperimentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/latest:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Experiment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Experiment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/latest:Experiment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Experiment"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Experiment"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnection'.")]
     public static class GetWebAppHybridConnection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppHybridConnectionResult> InvokeAsync(GetWebAppHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-nextgen:web/latest:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-native:web/latest:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
     }
 
 

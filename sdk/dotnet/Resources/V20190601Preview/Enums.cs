@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Resources.V20190601Preview
+namespace Pulumi.AzureNative.Resources.V20190601Preview
 {
     /// <summary>
     /// The kind of artifact.

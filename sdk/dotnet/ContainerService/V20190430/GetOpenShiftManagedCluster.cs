@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190430
+namespace Pulumi.AzureNative.ContainerService.V20190430
 {
     public static class GetOpenShiftManagedCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190430
         /// OpenShift Managed cluster.
         /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-nextgen:containerservice/v20190430:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice/v20190430:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithVersion());
     }
 
 

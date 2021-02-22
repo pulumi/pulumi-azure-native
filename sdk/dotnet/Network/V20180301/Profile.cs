@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180301
+namespace Pulumi.AzureNative.Network.V20180301
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20180301:Profile")]
+    [AzureNativeResourceType("azure-native:network/v20180301:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180301:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20180301:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180301:Profile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20180301:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,12 +100,19 @@ namespace Pulumi.AzureNextGen.Network.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Profile"},
                 },
             };
@@ -182,7 +189,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// The status of the Traffic Manager profile.
         /// </summary>
         [Input("profileStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.ProfileStatus>? ProfileStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180301.ProfileStatus>? ProfileStatus { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.
@@ -206,13 +213,13 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// The traffic routing method of the Traffic Manager profile.
         /// </summary>
         [Input("trafficRoutingMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.TrafficRoutingMethod>? TrafficRoutingMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180301.TrafficRoutingMethod>? TrafficRoutingMethod { get; set; }
 
         /// <summary>
         /// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         /// </summary>
         [Input("trafficViewEnrollmentStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.TrafficViewEnrollmentStatus>? TrafficViewEnrollmentStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180301.TrafficViewEnrollmentStatus>? TrafficViewEnrollmentStatus { get; set; }
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.

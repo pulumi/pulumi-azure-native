@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class ListWebAppAuthSettings
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-nextgen:web/v20201001:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web/v20201001:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
     }
 
 

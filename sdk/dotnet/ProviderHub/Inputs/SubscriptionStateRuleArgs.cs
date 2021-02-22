@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class SubscriptionStateRuleArgs : Pulumi.ResourceArgs
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         }
 
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.SubscriptionState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.SubscriptionState>? State { get; set; }
 
         public SubscriptionStateRuleArgs()
         {

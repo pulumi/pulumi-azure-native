@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetRegistryCredentials
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2016-06-27-preview.
         /// </summary>
         public static Task<GetRegistryCredentialsResult> InvokeAsync(GetRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCredentialsResult>("azure-nextgen:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCredentialsResult>("azure-native:containerregistry:getRegistryCredentials", args ?? new GetRegistryCredentialsArgs(), options.WithVersion());
     }
 
 

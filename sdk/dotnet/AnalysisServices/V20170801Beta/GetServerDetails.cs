@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
+namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
 {
     public static class GetServerDetails
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         /// Represents an instance of an Analysis Services resource.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-nextgen:analysisservices/v20170801beta:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/v20170801beta:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
     }
 
 

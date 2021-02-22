@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironment'.")]
     public static class GetEnvironment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Latest API Version: 2018-10-15.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:labservices/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:labservices/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }
 
 

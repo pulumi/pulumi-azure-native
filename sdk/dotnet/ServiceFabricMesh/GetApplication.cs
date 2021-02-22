@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh
+namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     public static class GetApplication
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:servicefabricmesh:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabricmesh:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
 
 

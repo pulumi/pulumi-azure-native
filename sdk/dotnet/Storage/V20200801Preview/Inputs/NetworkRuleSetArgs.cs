@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
+namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         /// </summary>
         [Input("bypass")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20200801Preview.Bypass>? Bypass { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.V20200801Preview.Bypass>? Bypass { get; set; }
 
         /// <summary>
         /// Specifies the default action of allow or deny when no other rules match.
         /// </summary>
         [Input("defaultAction", required: true)]
-        public Input<Pulumi.AzureNextGen.Storage.V20200801Preview.DefaultAction> DefaultAction { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Storage.V20200801Preview.DefaultAction> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         public NetworkRuleSetArgs()
         {
             Bypass = "AzureServices";
-            DefaultAction = Pulumi.AzureNextGen.Storage.V20200801Preview.DefaultAction.Allow;
+            DefaultAction = Pulumi.AzureNative.Storage.V20200801Preview.DefaultAction.Allow;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
+namespace Pulumi.AzureNative.IoTSpaces.V20171001Preview
 {
     public static class GetIoTSpace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
         /// The description of the IoTSpaces service.
         /// </summary>
         public static Task<GetIoTSpaceResult> InvokeAsync(GetIoTSpaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTSpaceResult>("azure-nextgen:iotspaces/v20171001preview:getIoTSpace", args ?? new GetIoTSpaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTSpaceResult>("azure-native:iotspaces/v20171001preview:getIoTSpace", args ?? new GetIoTSpaceArgs(), options.WithVersion());
     }
 
 

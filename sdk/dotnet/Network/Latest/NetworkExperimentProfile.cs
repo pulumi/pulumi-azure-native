@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
     /// Latest API Version: 2019-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkExperimentProfile")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkExperimentProfile'.")]
+    [AzureNativeResourceType("azure-native:network/latest:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkExperimentProfile(string name, NetworkExperimentProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkExperimentProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,7 +84,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkExperimentProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkExperimentProfile"},
                 },
             };
@@ -113,7 +115,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The state of the Experiment
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.State>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.State>? EnabledState { get; set; }
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.

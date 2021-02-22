@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214
+namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate")]
+    [AzureNativeResourceType("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineImageTemplate(string name, VirtualMachineImageTemplateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineImageTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,10 +118,15 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class ListWorkflowRunActionRepetitionExpressionTraces
     {
         public static Task<ListWorkflowRunActionRepetitionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionRepetitionExpressionTracesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-nextgen:logic/v20160601:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionRepetitionExpressionTracesResult>("azure-native:logic/v20160601:listWorkflowRunActionRepetitionExpressionTraces", args ?? new ListWorkflowRunActionRepetitionExpressionTracesArgs(), options.WithVersion());
     }
 
 

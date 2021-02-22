@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview
 {
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster")]
+    [AzureNativeResourceType("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster")]
     public partial class OperationalizationCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OperationalizationCluster(string name, OperationalizationClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args ?? new OperationalizationClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args ?? new OperationalizationClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OperationalizationCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,7 +130,9 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningcompute:OperationalizationCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningcompute:OperationalizationCluster"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster"},
                 },
             };
@@ -171,7 +173,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// The cluster type.
         /// </summary>
         [Input("clusterType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.ClusterType> ClusterType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.ClusterType> ClusterType { get; set; } = null!;
 
         /// <summary>
         /// Container Registry properties.

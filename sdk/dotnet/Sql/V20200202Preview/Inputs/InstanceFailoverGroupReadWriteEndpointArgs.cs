@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview.Inputs
+namespace Pulumi.AzureNative.Sql.V20200202Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview.Inputs
         /// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         /// </summary>
         [Input("failoverPolicy", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.ReadWriteEndpointFailoverPolicy> FailoverPolicy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.ReadWriteEndpointFailoverPolicy> FailoverPolicy { get; set; } = null!;
 
         /// <summary>
         /// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.V20210301Preview
+namespace Pulumi.AzureNative.MixedReality.V20210301Preview
 {
     public static class GetObjectAnchorsAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210301Preview
         /// ObjectAnchorsAccount Response.
         /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-nextgen:mixedreality/v20210301preview:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
+namespace Pulumi.AzureNative.Network.V20190401.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         /// </summary>
         [Input("enforceCertificateNameCheck")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.EnforceCertificateNameCheckEnabledState>? EnforceCertificateNameCheck { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190401.EnforceCertificateNameCheckEnabledState>? EnforceCertificateNameCheck { get; set; }
 
         public BackendPoolsSettingsArgs()
         {

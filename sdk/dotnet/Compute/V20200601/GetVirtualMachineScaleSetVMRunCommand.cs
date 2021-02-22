@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200601
+namespace Pulumi.AzureNative.Compute.V20200601
 {
     public static class GetVirtualMachineScaleSetVMRunCommand
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// Describes a Virtual Machine run command.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-nextgen:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
     }
 
 

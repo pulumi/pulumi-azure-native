@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The monitoring status of the endpoint.
         /// </summary>
         [Input("endpointMonitorStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
 
         /// <summary>
         /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         /// </summary>
         [Input("endpointStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.EndpointStatus>? EndpointStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.EndpointStatus>? EndpointStatus { get; set; }
 
         [Input("geoMapping")]
         private InputList<string>? _geoMapping;

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicyDefinition'.")]
     public static class GetServiceEndpointPolicyDefinition
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetServiceEndpointPolicyDefinitionResult> InvokeAsync(GetServiceEndpointPolicyDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-nextgen:network/latest:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/latest:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
     }
 
 

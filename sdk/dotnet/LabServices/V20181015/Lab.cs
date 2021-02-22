@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents a lab.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:Lab")]
+    [AzureNativeResourceType("azure-native:labservices/v20181015:Lab")]
     public partial class Lab : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Lab(string name, LabArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:Lab", name, args ?? new LabArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/v20181015:Lab", name, args ?? new LabArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Lab(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:Lab", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/v20181015:Lab", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,7 +130,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:Lab"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:Lab"},
                 },
             };
@@ -219,7 +221,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Lab user access mode (open to all vs. restricted to those listed on the lab).
         /// </summary>
         [Input("userAccessMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.LabServices.V20181015.LabUserAccessMode>? UserAccessMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.LabServices.V20181015.LabUserAccessMode>? UserAccessMode { get; set; }
 
         public LabArgs()
         {

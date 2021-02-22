@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Latest
+namespace Pulumi.AzureNative.DigitalTwins.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwinsEndpoint'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwinsEndpoint'.")]
     public static class GetDigitalTwinsEndpoint
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-nextgen:digitaltwins/latest:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/latest:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithVersion());
     }
 
 

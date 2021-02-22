@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ResourceGraph
+namespace Pulumi.AzureNative.ResourceGraph
 {
     public static class GetGraphQuery
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-nextgen:resourcegraph:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithVersion());
     }
 
 

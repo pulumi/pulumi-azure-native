@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20180115
+namespace Pulumi.AzureNative.Automation.V20180115
 {
     public static class GetDscNodeConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
         /// Definition of the dsc node configuration.
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-nextgen:automation/v20180115:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation/v20180115:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithVersion());
     }
 
 

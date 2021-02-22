@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210201.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20210201.Inputs
 {
 
     public sealed class DiskExclusionPropertiesArgs : Pulumi.ResourceArgs

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Inputs
+namespace Pulumi.AzureNative.Batch.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Batch.Inputs
         /// Type of the key source.
         /// </summary>
         [Input("keySource")]
-        public Input<Pulumi.AzureNextGen.Batch.KeySource>? KeySource { get; set; }
+        public Input<Pulumi.AzureNative.Batch.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// Additional details when using Microsoft.KeyVault

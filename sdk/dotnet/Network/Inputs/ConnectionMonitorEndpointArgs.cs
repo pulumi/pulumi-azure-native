@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Test coverage for the endpoint.
         /// </summary>
         [Input("coverageLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.CoverageLevel>? CoverageLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.CoverageLevel>? CoverageLevel { get; set; }
 
         /// <summary>
         /// Filter for sub-items within the endpoint.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The endpoint type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.EndpointType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.EndpointType>? Type { get; set; }
 
         public ConnectionMonitorEndpointArgs()
         {

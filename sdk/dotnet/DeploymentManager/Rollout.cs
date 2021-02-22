@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// Defines the PUT rollout request body.
     /// API Version: 2019-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:deploymentmanager:Rollout")]
+    [AzureNativeResourceType("azure-native:deploymentmanager:Rollout")]
     public partial class Rollout : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rollout(string name, RolloutArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:Rollout", name, args ?? new RolloutArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:deploymentmanager:Rollout", name, args ?? new RolloutArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Rollout(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:Rollout", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:deploymentmanager:Rollout", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Rollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:Rollout"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Rollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:Rollout"},
                 },
             };

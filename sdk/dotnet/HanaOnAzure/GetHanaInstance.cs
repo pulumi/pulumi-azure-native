@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure
+namespace Pulumi.AzureNative.HanaOnAzure
 {
     public static class GetHanaInstance
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// API Version: 2017-11-03-preview.
         /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-nextgen:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190601.Inputs
+namespace Pulumi.AzureNative.Network.V20190601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601.Inputs
         /// The type of action.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190601.AzureFirewallNatRCActionType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190601.AzureFirewallNatRCActionType>? Type { get; set; }
 
         public AzureFirewallNatRCActionArgs()
         {

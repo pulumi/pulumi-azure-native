@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB trigger.
     /// API Version: 2021-01-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:SqlResourceSqlTrigger")]
+    [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlTrigger")]
     public partial class SqlResourceSqlTrigger : Pulumi.CustomResource
     {
         /// <summary>
@@ -52,12 +52,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlTrigger(string name, SqlResourceSqlTriggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:SqlResourceSqlTrigger", name, args ?? new SqlResourceSqlTriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:SqlResourceSqlTrigger", name, args ?? new SqlResourceSqlTriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlTrigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:SqlResourceSqlTrigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:SqlResourceSqlTrigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,13 +68,21 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"},
                 },
             };

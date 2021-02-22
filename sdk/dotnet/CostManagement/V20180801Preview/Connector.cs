@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// The Connector model definition
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20180801preview:Connector")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20180801preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20180801preview:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Connector"},
                 },
             };
@@ -200,7 +201,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// Connector status
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.ConnectorStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20180801Preview.ConnectorStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

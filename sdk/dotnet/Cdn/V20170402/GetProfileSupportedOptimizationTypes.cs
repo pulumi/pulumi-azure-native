@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20170402
+namespace Pulumi.AzureNative.Cdn.V20170402
 {
     public static class GetProfileSupportedOptimizationTypes
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
         /// The result of the GetSupportedOptimizationTypes API
         /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-nextgen:cdn/v20170402:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20170402:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
     }
 
 

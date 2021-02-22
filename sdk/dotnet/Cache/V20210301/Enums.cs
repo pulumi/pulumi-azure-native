@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cache.V20210301
+namespace Pulumi.AzureNative.Cache.V20210301
 {
     /// <summary>
     /// Sets the frequency at which data is written to disk.

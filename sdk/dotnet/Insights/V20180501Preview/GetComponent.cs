@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180501Preview
+namespace Pulumi.AzureNative.Insights.V20180501Preview
 {
     public static class GetComponent
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180501Preview
         /// An Application Insights component definition.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-nextgen:insights/v20180501preview:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights/v20180501preview:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20190401
+namespace Pulumi.AzureNative.Storage.V20190401
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/v20190401:FileShare")]
+    [AzureNativeResourceType("azure-native:storage/v20190401:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileShare(string name, FileShareArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190401:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20190401:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileShare(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190401:FileShare", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20190401:FileShare", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,10 +76,15 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileShare"},
                 },
             };

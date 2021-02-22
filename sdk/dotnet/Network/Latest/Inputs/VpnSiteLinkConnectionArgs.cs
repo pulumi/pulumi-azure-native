@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -109,13 +109,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Connection protocol used for this connection.
         /// </summary>
         [Input("vpnConnectionProtocolType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
 
         /// <summary>
         /// Vpn link connection mode.
         /// </summary>
         [Input("vpnLinkConnectionMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnLinkConnectionMode>? VpnLinkConnectionMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VpnLinkConnectionMode>? VpnLinkConnectionMode { get; set; }
 
         /// <summary>
         /// Id of the connected vpn site link.

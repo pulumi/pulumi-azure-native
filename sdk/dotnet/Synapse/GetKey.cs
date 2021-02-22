@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     public static class GetKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Synapse
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-nextgen:synapse:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }
 
 

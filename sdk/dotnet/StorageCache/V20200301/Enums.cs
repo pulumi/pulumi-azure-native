@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StorageCache.V20200301
+namespace Pulumi.AzureNative.StorageCache.V20200301
 {
     /// <summary>
     /// The type of identity used for the cache

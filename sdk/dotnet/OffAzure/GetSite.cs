@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure
+namespace Pulumi.AzureNative.OffAzure
 {
     public static class GetSite
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OffAzure
         /// API Version: 2020-07-07.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-nextgen:offazure:getSite", args ?? new GetSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteArgs(), options.WithVersion());
     }
 
 

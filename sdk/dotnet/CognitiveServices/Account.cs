@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices
+namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// API Version: 2017-04-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cognitiveservices:Account")]
+    [AzureNativeResourceType("azure-native:cognitiveservices:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.CognitiveServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cognitiveservices:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cognitiveservices:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:Account"},
                 },
             };

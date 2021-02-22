@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
+namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     public static class GetSynchronizationSetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
         /// A Synchronization Setting data transfer object.
         /// </summary>
         public static Task<GetSynchronizationSettingResult> InvokeAsync(GetSynchronizationSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSynchronizationSettingResult>("azure-nextgen:datashare/v20201001preview:getSynchronizationSetting", args ?? new GetSynchronizationSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSynchronizationSettingResult>("azure-native:datashare/v20201001preview:getSynchronizationSetting", args ?? new GetSynchronizationSettingArgs(), options.WithVersion());
     }
 
 

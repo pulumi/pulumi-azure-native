@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetEmailTemplate
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-nextgen:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
     }
 
 

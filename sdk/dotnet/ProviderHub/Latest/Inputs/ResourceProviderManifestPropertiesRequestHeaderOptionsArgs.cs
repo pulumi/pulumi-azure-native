@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs : Pulumi.ResourceArgs
     {
         [Input("optInHeaders")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.OptInHeaderType>? OptInHeaders { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.OptInHeaderType>? OptInHeaders { get; set; }
 
         public ResourceProviderManifestPropertiesRequestHeaderOptionsArgs()
         {

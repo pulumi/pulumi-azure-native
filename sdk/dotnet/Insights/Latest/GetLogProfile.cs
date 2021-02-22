@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getLogProfile'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getLogProfile'.")]
     public static class GetLogProfile
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2016-03-01.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-nextgen:insights/latest:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights/latest:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
     }
 
 

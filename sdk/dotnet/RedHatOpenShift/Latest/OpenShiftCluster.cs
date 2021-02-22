@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
+namespace Pulumi.AzureNative.RedHatOpenShift.Latest
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// Latest API Version: 2020-04-30.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:redhatopenshift/latest:OpenShiftCluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:redhatopenshift:OpenShiftCluster'.")]
+    [AzureNativeResourceType("azure-native:redhatopenshift/latest:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenShiftCluster(string name, OpenShiftClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:redhatopenshift/latest:OpenShiftCluster", name, args ?? new OpenShiftClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:redhatopenshift/latest:OpenShiftCluster", name, args ?? new OpenShiftClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OpenShiftCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:redhatopenshift/latest:OpenShiftCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:redhatopenshift/latest:OpenShiftCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,7 +120,9 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift:OpenShiftCluster"},
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster"},
                 },
             };

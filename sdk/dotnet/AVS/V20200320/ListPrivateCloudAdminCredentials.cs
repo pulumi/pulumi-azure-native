@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200320
+namespace Pulumi.AzureNative.AVS.V20200320
 {
     public static class ListPrivateCloudAdminCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// Administrative credentials for accessing vCenter and NSX-T
         /// </summary>
         public static Task<ListPrivateCloudAdminCredentialsResult> InvokeAsync(ListPrivateCloudAdminCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-nextgen:avs/v20200320:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-native:avs/v20200320:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithVersion());
     }
 
 

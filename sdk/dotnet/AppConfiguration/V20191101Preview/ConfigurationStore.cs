@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
+namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore")]
+    [AzureNativeResourceType("azure-native:appconfiguration/v20191101preview:ConfigurationStore")]
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationStore(string name, ConfigurationStoreArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore", name, args ?? new ConfigurationStoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appconfiguration/v20191101preview:ConfigurationStore", name, args ?? new ConfigurationStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationStore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appconfiguration/v20191101preview:ConfigurationStore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,11 +112,17 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/latest:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/latest:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191001:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"},
                 },
             };
@@ -169,7 +175,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppConfiguration.V20191101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppConfiguration.V20191101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

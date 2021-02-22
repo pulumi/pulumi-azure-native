@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200717Preview
+namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     /// <summary>
     /// An addon resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs/v20200717preview:Addon")]
+    [AzureNativeResourceType("azure-native:avs/v20200717preview:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Addon(string name, AddonArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/v20200717preview:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs/v20200717preview:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Addon(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/v20200717preview:Addon", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs/v20200717preview:Addon", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Addon"},
                 },
             };
@@ -105,7 +107,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// The type of private cloud addon
         /// </summary>
         [Input("addonType")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.AddonType>? AddonType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.V20200717Preview.AddonType>? AddonType { get; set; }
 
         /// <summary>
         /// The SRM license

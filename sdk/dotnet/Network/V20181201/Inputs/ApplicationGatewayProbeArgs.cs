@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
+namespace Pulumi.AzureNative.Network.V20181201.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
         /// The protocol used for the probe. Possible values are 'Http' and 'Https'.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181201.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181201.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

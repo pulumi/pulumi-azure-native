@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -46,14 +46,14 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         }
 
         [Input("ipProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.FirewallPolicyRuleNetworkProtocol>>? _ipProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.FirewallPolicyRuleNetworkProtocol>>? _ipProtocols;
 
         /// <summary>
         /// Array of FirewallPolicyRuleNetworkProtocols.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.FirewallPolicyRuleNetworkProtocol>> IpProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.FirewallPolicyRuleNetworkProtocol>> IpProtocols
         {
-            get => _ipProtocols ?? (_ipProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.FirewallPolicyRuleNetworkProtocol>>());
+            get => _ipProtocols ?? (_ipProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.FirewallPolicyRuleNetworkProtocol>>());
             set => _ipProtocols = value;
         }
 

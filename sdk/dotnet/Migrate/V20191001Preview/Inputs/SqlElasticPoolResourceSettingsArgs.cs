@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
+namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// Defines the zone redundant resource setting.
         /// </summary>
         [Input("zoneRedundant")]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001Preview.ZoneRedundant>? ZoneRedundant { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20191001Preview.ZoneRedundant>? ZoneRedundant { get; set; }
 
         public SqlElasticPoolResourceSettingsArgs()
         {

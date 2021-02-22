@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501
+namespace Pulumi.AzureNative.Logic.V20190501
 {
     public static class ListIntegrationAccountAssemblyContentCallbackUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListIntegrationAccountAssemblyContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAssemblyContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-nextgen:logic/v20190501:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20160401
+namespace Pulumi.AzureNative.MachineLearning.V20160401
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearning/v20160401:Workspace")]
+    [AzureNativeResourceType("azure-native:machinelearning/v20160401:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning/v20160401:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearning/v20160401:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning/v20160401:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearning/v20160401:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,8 +112,11 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearning:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20191001:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20191001:Workspace"},
                 },
             };

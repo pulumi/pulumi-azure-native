@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190601
+namespace Pulumi.AzureNative.Network.V20190601
 {
     public static class GetExpressRouteCircuitAuthorization
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// Authorization in an ExpressRouteCircuit resource.
         /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-nextgen:network/v20190601:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-native:network/v20190601:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithVersion());
     }
 
 

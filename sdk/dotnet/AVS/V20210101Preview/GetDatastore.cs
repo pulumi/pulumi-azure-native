@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20210101Preview
+namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
     public static class GetDatastore
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
         /// A datastore resource
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-nextgen:avs/v20210101preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs/v20210101preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());
     }
 
 

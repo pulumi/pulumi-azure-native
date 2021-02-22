@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The TrackAttribute to filter the tracks by.
         /// </summary>
         [Input("attribute", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.TrackAttribute> Attribute { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.TrackAttribute> Attribute { get; set; } = null!;
 
         /// <summary>
         /// The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
         /// </summary>
         [Input("filter", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.AttributeFilter> Filter { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.AttributeFilter> Filter { get; set; } = null!;
 
         /// <summary>
         /// The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.

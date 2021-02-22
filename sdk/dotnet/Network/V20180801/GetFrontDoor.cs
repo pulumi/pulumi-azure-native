@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801
+namespace Pulumi.AzureNative.Network.V20180801
 {
     public static class GetFrontDoor
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-nextgen:network/v20180801:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network/v20180801:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.Latest
+namespace Pulumi.AzureNative.Management.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'.")]
     public static class GetEntity
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-nextgen:management/latest:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/latest:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
     }
 
 

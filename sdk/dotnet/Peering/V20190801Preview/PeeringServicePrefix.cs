@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20190801Preview
+namespace Pulumi.AzureNative.Peering.V20190801Preview
 {
     /// <summary>
     /// The peering service prefix class.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:peering/v20190801preview:PeeringServicePrefix")]
+    [AzureNativeResourceType("azure-native:peering/v20190801preview:PeeringServicePrefix")]
     public partial class PeeringServicePrefix : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PeeringServicePrefix(string name, PeeringServicePrefixArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/v20190801preview:PeeringServicePrefix", name, args ?? new PeeringServicePrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:peering/v20190801preview:PeeringServicePrefix", name, args ?? new PeeringServicePrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PeeringServicePrefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/v20190801preview:PeeringServicePrefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:peering/v20190801preview:PeeringServicePrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,11 +76,17 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:peering:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/latest:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:PeeringServicePrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:PeeringServicePrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:PeeringServicePrefix"},
                 },
             };
@@ -109,7 +115,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// The prefix learned type
         /// </summary>
         [Input("learnedType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190801Preview.LearnedType>? LearnedType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190801Preview.LearnedType>? LearnedType { get; set; }
 
         /// <summary>
         /// The peering service name.
@@ -133,7 +139,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// The prefix validation state
         /// </summary>
         [Input("prefixValidationState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190801Preview.PrefixValidationState>? PrefixValidationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190801Preview.PrefixValidationState>? PrefixValidationState { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceEdgePolicies'.")]
     public static class ListMediaServiceEdgePolicies
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-nextgen:media/latest:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media/latest:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
     }
 
 

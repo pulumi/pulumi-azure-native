@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.V20160701
+namespace Pulumi.AzureNative.Relay.V20160701
 {
     public static class GetNamespace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// Description of a Namespace resource.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:relay/v20160701:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:relay/v20160701:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
 
 

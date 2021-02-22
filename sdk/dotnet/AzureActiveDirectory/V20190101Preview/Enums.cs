@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
+namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
 {
     /// <summary>
     /// The name of the SKU for the tenant.

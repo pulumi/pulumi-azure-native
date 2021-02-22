@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// The storage account.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:StorageAccount")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -230,12 +230,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccount(string name, StorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -246,21 +246,37 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20150501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20150615:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150615:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20160101:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20160101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20160501:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20160501:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20161201:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20161201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20170601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20170601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20171001:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20171001:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:StorageAccount"},
                 },
             };
@@ -289,7 +305,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         /// </summary>
         [Input("accessTier")]
-        public Input<Pulumi.AzureNextGen.Storage.Latest.AccessTier>? AccessTier { get; set; }
+        public Input<Pulumi.AzureNative.Storage.Latest.AccessTier>? AccessTier { get; set; }
 
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -361,13 +377,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Required. Indicates the type of storage account.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         /// </summary>
         [Input("largeFileSharesState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.LargeFileSharesState>? LargeFileSharesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.LargeFileSharesState>? LargeFileSharesState { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
@@ -379,7 +395,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         /// </summary>
         [Input("minimumTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.MinimumTlsVersion>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.MinimumTlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Network rule set

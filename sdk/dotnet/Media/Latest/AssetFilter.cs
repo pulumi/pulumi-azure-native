@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// An Asset Filter.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:AssetFilter")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AssetFilter'.")]
+    [AzureNativeResourceType("azure-native:media/latest:AssetFilter")]
     public partial class AssetFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssetFilter(string name, AssetFilterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:AssetFilter", name, args ?? new AssetFilterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:AssetFilter", name, args ?? new AssetFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssetFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:AssetFilter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:AssetFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,11 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:AssetFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:AssetFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AssetFilter"},
                 },
             };

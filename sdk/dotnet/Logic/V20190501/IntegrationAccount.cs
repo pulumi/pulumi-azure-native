@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501
+namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
     /// The integration account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20190501:IntegrationAccount")]
+    [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccount")]
     public partial class IntegrationAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccount(string name, IntegrationAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20190501:IntegrationAccount", name, args ?? new IntegrationAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20190501:IntegrationAccount", name, args ?? new IntegrationAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20190501:IntegrationAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20190501:IntegrationAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccount"},
                 },
             };
@@ -144,7 +149,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The workflow state.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.WorkflowState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.WorkflowState>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

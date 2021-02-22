@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault
+namespace Pulumi.AzureNative.KeyVault
 {
     public static class GetKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.KeyVault
         /// API Version: 2019-09-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-nextgen:keyvault:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }
 
 

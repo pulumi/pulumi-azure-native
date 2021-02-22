@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
+namespace Pulumi.AzureNative.MachineLearningServices.V20181119
 {
     public static class ListWorkspaceKeys
     {
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-nextgen:machinelearningservices/v20181119:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearningservices/v20181119:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
     }
 
 

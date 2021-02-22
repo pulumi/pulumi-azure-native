@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.Db2AuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.Db2AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).

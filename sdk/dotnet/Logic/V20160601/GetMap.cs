@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class GetMap
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The integration account map.
         /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-nextgen:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
     }
 
 

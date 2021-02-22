@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.Latest
+namespace Pulumi.AzureNative.AlertsManagement.Latest
 {
     /// <summary>
     /// The alert rule information
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:alertsmanagement:SmartDetectorAlertRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:alertsmanagement:SmartDetectorAlertRule'.")]
+    [AzureNativeResourceType("azure-native:alertsmanagement/latest:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SmartDetectorAlertRule(string name, SmartDetectorAlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule", name, args ?? new SmartDetectorAlertRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:alertsmanagement/latest:SmartDetectorAlertRule", name, args ?? new SmartDetectorAlertRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SmartDetectorAlertRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:alertsmanagement/latest:SmartDetectorAlertRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,8 +114,11 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:SmartDetectorAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"},
                 },
             };
@@ -198,13 +201,13 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// The alert rule severity.
         /// </summary>
         [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.Latest.Severity> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.Latest.Severity> Severity { get; set; } = null!;
 
         /// <summary>
         /// The alert rule state.
         /// </summary>
         [Input("state", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.Latest.AlertRuleState> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.Latest.AlertRuleState> State { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

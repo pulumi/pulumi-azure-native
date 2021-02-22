@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190801
+namespace Pulumi.AzureNative.Network.V20190801
 {
     public static class GetVirtualRouterPeering
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// Virtual Router Peering resource
         /// </summary>
         public static Task<GetVirtualRouterPeeringResult> InvokeAsync(GetVirtualRouterPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-nextgen:network/v20190801:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-native:network/v20190801:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithVersion());
     }
 
 

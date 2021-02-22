@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Represents a web app
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:Site")]
+    [AzureNativeResourceType("azure-native:web/v20150801:Site")]
     public partial class Site : Pulumi.CustomResource
     {
         /// <summary>
@@ -222,12 +222,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Site(string name, SiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:Site", name, args ?? new SiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Site(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:Site", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:Site", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -238,14 +238,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Site"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Site"},
                 },
             };

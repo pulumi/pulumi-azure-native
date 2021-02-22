@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:ApiManagementService")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiManagementService")]
     public partial class ApiManagementService : Pulumi.CustomResource
     {
         /// <summary>
@@ -180,12 +180,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiManagementService(string name, ApiManagementServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiManagementService", name, args ?? new ApiManagementServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:ApiManagementService", name, args ?? new ApiManagementServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiManagementService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiManagementService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:ApiManagementService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -196,15 +196,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiManagementService"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiManagementService"},
                 },
             };
@@ -347,7 +357,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         /// </summary>
         [Input("virtualNetworkType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.VirtualNetworkType>? VirtualNetworkType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.VirtualNetworkType>? VirtualNetworkType { get; set; }
 
         public ApiManagementServiceArgs()
         {

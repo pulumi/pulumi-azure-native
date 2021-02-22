@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Migrate.V20210101
+namespace Pulumi.AzureNative.Migrate.V20210101
 {
     /// <summary>
     /// The type of identity used for the resource mover service.

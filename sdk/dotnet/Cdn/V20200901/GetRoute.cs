@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     public static class GetRoute
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Friendly Routes name mapping to the any Routes or secret related information.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-nextgen:cdn/v20200901:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:cdn/v20200901:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }
 
 

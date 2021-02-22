@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200901
+namespace Pulumi.AzureNative.DocumentDB.V20200901
 {
     /// <summary>
     /// Describes the mode of backups.

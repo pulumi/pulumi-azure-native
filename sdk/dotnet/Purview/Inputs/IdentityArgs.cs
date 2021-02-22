@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.Inputs
+namespace Pulumi.AzureNative.Purview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Purview.Inputs
         /// Identity Type
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Purview.Type>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.Type>? Type { get; set; }
 
         public IdentityArgs()
         {

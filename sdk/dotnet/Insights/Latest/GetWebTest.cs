@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getWebTest'.")]
     public static class GetWebTest
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2015-05-01.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-nextgen:insights/latest:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/latest:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }
 
 

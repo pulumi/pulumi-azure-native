@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150615
+namespace Pulumi.AzureNative.Network.V20150615
 {
     public static class GetSecurityRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// Network security rule.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-nextgen:network/v20150615:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network/v20150615:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -17,26 +17,26 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
     public sealed class SyslogDataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("facilityNames", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceFacilityNames>>? _facilityNames;
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceFacilityNames>>? _facilityNames;
 
         /// <summary>
         /// The list of facility names.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceFacilityNames>> FacilityNames
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceFacilityNames>> FacilityNames
         {
-            get => _facilityNames ?? (_facilityNames = new InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceFacilityNames>>());
+            get => _facilityNames ?? (_facilityNames = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceFacilityNames>>());
             set => _facilityNames = value;
         }
 
         [Input("logLevels")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceLogLevels>>? _logLevels;
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceLogLevels>>? _logLevels;
 
         /// <summary>
         /// The log levels to collect.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceLogLevels>> LogLevels
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceLogLevels>> LogLevels
         {
-            get => _logLevels ?? (_logLevels = new InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceLogLevels>>());
+            get => _logLevels ?? (_logLevels = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceLogLevels>>());
             set => _logLevels = value;
         }
 
@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("streams", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceStreams>>? _streams;
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceStreams>>? _streams;
 
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceStreams>> Streams
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownSyslogDataSourceStreams>>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceStreams>>());
             set => _streams = value;
         }
 

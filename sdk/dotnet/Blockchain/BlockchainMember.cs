@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blockchain
+namespace Pulumi.AzureNative.Blockchain
 {
     /// <summary>
     /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
     /// API Version: 2018-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blockchain:BlockchainMember")]
+    [AzureNativeResourceType("azure-native:blockchain:BlockchainMember")]
     public partial class BlockchainMember : Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNextGen.Blockchain
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlockchainMember(string name, BlockchainMemberArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blockchain:BlockchainMember", name, args ?? new BlockchainMemberArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blockchain:BlockchainMember", name, args ?? new BlockchainMemberArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlockchainMember(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blockchain:BlockchainMember", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blockchain:BlockchainMember", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNextGen.Blockchain
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:blockchain/v20180601preview:BlockchainMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:blockchain/v20180601preview:BlockchainMember"},
                 },
             };
@@ -237,7 +238,7 @@ namespace Pulumi.AzureNextGen.Blockchain
         /// Gets or sets the blockchain protocol.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Blockchain.BlockchainProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Blockchain.BlockchainProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
+namespace Pulumi.AzureNative.KeyVault.V20190901.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// SKU family name
         /// </summary>
         [Input("family", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20190901.SkuFamily> Family { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.V20190901.SkuFamily> Family { get; set; } = null!;
 
         /// <summary>
         /// SKU name to specify whether the key vault is a standard vault or a premium vault.
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.KeyVault.V20190901.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.KeyVault.V20190901.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

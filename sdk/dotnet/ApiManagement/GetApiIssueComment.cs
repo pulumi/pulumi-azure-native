@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetApiIssueComment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-nextgen:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
     }
 
 

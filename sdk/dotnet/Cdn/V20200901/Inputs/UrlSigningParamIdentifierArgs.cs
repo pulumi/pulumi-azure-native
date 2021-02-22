@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Indicates the purpose of the parameter
         /// </summary>
         [Input("paramIndicator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.ParamIndicator> ParamIndicator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.ParamIndicator> ParamIndicator { get; set; } = null!;
 
         /// <summary>
         /// Parameter name

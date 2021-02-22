@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// Describes a virtual machine scale set virtual machine.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineScaleSetVM")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : Pulumi.CustomResource
     {
         /// <summary>
@@ -176,12 +176,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSetVM(string name, VirtualMachineScaleSetVMArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:VirtualMachineScaleSetVM", name, args ?? new VirtualMachineScaleSetVMArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:VirtualMachineScaleSetVM", name, args ?? new VirtualMachineScaleSetVMArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineScaleSetVM(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:VirtualMachineScaleSetVM", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:VirtualMachineScaleSetVM", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -192,15 +192,25 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVM"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM"},
                 },
             };

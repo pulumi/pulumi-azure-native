@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getLink'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getLink'.")]
     public static class GetLink
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("azure-nextgen:customerinsights/latest:getLink", args ?? new GetLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("azure-native:customerinsights/latest:getLink", args ?? new GetLinkArgs(), options.WithVersion());
     }
 
 

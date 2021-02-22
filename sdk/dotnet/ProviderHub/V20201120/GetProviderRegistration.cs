@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     public static class GetProviderRegistration
     {
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-nextgen:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub/v20201120:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithVersion());
     }
 
 

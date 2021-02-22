@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAuthSettings'.")]
     public static class ListWebAppAuthSettings
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-nextgen:web/latest:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web/latest:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
     }
 
 

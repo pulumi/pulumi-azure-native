@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingEndpoint'.")]
     public static class GetStreamingEndpoint
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-nextgen:media/latest:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media/latest:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
     }
 
 

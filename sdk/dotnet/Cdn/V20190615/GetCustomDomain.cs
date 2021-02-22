@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190615
+namespace Pulumi.AzureNative.Cdn.V20190615
 {
     public static class GetCustomDomain
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-nextgen:cdn/v20190615:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20190615:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
     }
 
 

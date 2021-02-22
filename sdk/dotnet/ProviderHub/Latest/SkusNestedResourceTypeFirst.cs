@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'.")]
-    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeFirst'.")]
+    [AzureNativeResourceType("azure-native:providerhub/latest:SkusNestedResourceTypeFirst")]
     public partial class SkusNestedResourceTypeFirst : Pulumi.CustomResource
     {
         /// <summary>
@@ -40,12 +40,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SkusNestedResourceTypeFirst(string name, SkusNestedResourceTypeFirstArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst", name, args ?? new SkusNestedResourceTypeFirstArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/latest:SkusNestedResourceTypeFirst", name, args ?? new SkusNestedResourceTypeFirstArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SkusNestedResourceTypeFirst(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/latest:SkusNestedResourceTypeFirst", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -56,7 +56,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:SkusNestedResourceTypeFirst"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:SkusNestedResourceTypeFirst"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst"},
                 },
             };

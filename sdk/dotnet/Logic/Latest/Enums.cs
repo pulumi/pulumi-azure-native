@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The agreement type.

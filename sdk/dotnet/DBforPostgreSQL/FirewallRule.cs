@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a server firewall rule.
     /// API Version: 2017-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql:FirewallRule")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule"},
                 },
             };

@@ -1,1 +1,1 @@
-A Next Generation Pulumi package for creating and managing Azure resources.
+A native Pulumi package for creating and managing Azure resources.

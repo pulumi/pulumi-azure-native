@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview
+namespace Pulumi.AzureNative.ContainerService.V20190930Preview
 {
     /// <summary>
     /// OpenShift Managed cluster.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster")]
+    [AzureNativeResourceType("azure-native:containerservice/v20190930preview:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenShiftManagedCluster(string name, OpenShiftManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster", name, args ?? new OpenShiftManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice/v20190930preview:OpenShiftManagedCluster", name, args ?? new OpenShiftManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OpenShiftManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice/v20190930preview:OpenShiftManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,10 +136,15 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190430:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster"},
                 },
             };

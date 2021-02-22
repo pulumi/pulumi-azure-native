@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class GetIntegrationAccountBatchConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The batch configuration resource definition.
         /// </summary>
         public static Task<GetIntegrationAccountBatchConfigurationResult> InvokeAsync(GetIntegrationAccountBatchConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-nextgen:logic/v20160601:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic/v20160601:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithVersion());
     }
 
 

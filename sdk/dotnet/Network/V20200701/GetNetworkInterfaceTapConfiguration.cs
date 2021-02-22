@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     public static class GetNetworkInterfaceTapConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// Tap configuration in a Network Interface.
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-nextgen:network/v20200701:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200701:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithVersion());
     }
 
 

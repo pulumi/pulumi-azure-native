@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
+namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a published blueprint.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint")]
+    [AzureNativeResourceType("azure-native:blueprint/v20181101preview:PublishedBlueprint")]
     public partial class PublishedBlueprint : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublishedBlueprint(string name, PublishedBlueprintArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint", name, args ?? new PublishedBlueprintArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint/v20181101preview:PublishedBlueprint", name, args ?? new PublishedBlueprintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PublishedBlueprint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint/v20181101preview:PublishedBlueprint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:blueprint:PublishedBlueprint"},
                     new Pulumi.Alias { Type = "azure-nextgen:blueprint:PublishedBlueprint"},
                 },
             };
@@ -182,7 +183,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// The scope where this blueprint definition can be assigned.
         /// </summary>
         [Input("targetScope")]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20181101Preview.BlueprintTargetScope>? TargetScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.V20181101Preview.BlueprintTargetScope>? TargetScope { get; set; }
 
         /// <summary>
         /// Version of the published blueprint definition.

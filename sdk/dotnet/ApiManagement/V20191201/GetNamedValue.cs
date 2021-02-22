@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201
+namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
     public static class GetNamedValue
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// NamedValue details.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-nextgen:apimanagement/v20191201:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20191201:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
     }
 
 

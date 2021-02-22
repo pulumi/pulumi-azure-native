@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class ListWorkflowAccessKeySecretKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2015-02-01-preview.
         /// </summary>
         public static Task<ListWorkflowAccessKeySecretKeysResult> InvokeAsync(ListWorkflowAccessKeySecretKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-nextgen:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowAccessKeySecretKeysResult>("azure-native:logic:listWorkflowAccessKeySecretKeys", args ?? new ListWorkflowAccessKeySecretKeysArgs(), options.WithVersion());
     }
 
 

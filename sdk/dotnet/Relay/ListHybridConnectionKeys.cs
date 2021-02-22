@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay
+namespace Pulumi.AzureNative.Relay
 {
     public static class ListHybridConnectionKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Relay
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-nextgen:relay:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-native:relay:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithVersion());
     }
 
 

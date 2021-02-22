@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Communication.V20200820Preview
+namespace Pulumi.AzureNative.Communication.V20200820Preview
 {
     /// <summary>
     /// A class representing a CommunicationService resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:communication/v20200820preview:CommunicationService")]
+    [AzureNativeResourceType("azure-native:communication/v20200820preview:CommunicationService")]
     public partial class CommunicationService : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CommunicationService(string name, CommunicationServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:communication/v20200820preview:CommunicationService", name, args ?? new CommunicationServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:communication/v20200820preview:CommunicationService", name, args ?? new CommunicationServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CommunicationService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:communication/v20200820preview:CommunicationService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:communication/v20200820preview:CommunicationService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:communication:CommunicationService"},
                     new Pulumi.Alias { Type = "azure-nextgen:communication:CommunicationService"},
                 },
             };

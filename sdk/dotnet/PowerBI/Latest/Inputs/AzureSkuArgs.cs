@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBI.Latest.Inputs
+namespace Pulumi.AzureNative.PowerBI.Latest.Inputs
 {
 
     public sealed class AzureSkuArgs : Pulumi.ResourceArgs
@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest.Inputs
         /// SKU name
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.PowerBI.Latest.AzureSkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.PowerBI.Latest.AzureSkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// SKU tier
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.PowerBI.Latest.AzureSkuTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.PowerBI.Latest.AzureSkuTier> Tier { get; set; } = null!;
 
         public AzureSkuArgs()
         {

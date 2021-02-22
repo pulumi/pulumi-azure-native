@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     public static class GetManagementLockAtSubscriptionLevel
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// API Version: 2016-09-01.
         /// </summary>
         public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-nextgen:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithVersion());
     }
 
 

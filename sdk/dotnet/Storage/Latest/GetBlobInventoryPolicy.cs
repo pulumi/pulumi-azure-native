@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobInventoryPolicy'.")]
     public static class GetBlobInventoryPolicy
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-nextgen:storage/latest:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/latest:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());
     }
 
 

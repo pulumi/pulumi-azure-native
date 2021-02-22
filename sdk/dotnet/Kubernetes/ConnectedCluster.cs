@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kubernetes
+namespace Pulumi.AzureNative.Kubernetes
 {
     /// <summary>
     /// Represents a connected cluster.
     /// API Version: 2021-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kubernetes:ConnectedCluster")]
+    [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNextGen.Kubernetes
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectedCluster(string name, ConnectedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kubernetes:ConnectedCluster", name, args ?? new ConnectedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kubernetes:ConnectedCluster", name, args ?? new ConnectedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kubernetes:ConnectedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kubernetes:ConnectedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -149,9 +149,13 @@ namespace Pulumi.AzureNextGen.Kubernetes
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/latest:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/latest:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210301:ConnectedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster"},
                 },
             };
@@ -216,7 +220,7 @@ namespace Pulumi.AzureNextGen.Kubernetes
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Kubernetes.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

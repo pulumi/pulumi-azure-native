@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     public static class GetGlobalUserOperationBatchStatus
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserOperationBatchStatusResult> InvokeAsync(GetGlobalUserOperationBatchStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-nextgen:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithVersion());
     }
 
 

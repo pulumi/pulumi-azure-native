@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure.V20200707
+namespace Pulumi.AzureNative.OffAzure.V20200707
 {
     /// <summary>
     /// Site REST Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:offazure/v20200707:MasterSite")]
+    [AzureNativeResourceType("azure-native:offazure/v20200707:MasterSite")]
     public partial class MasterSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MasterSite(string name, MasterSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure/v20200707:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:offazure/v20200707:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MasterSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure/v20200707:MasterSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:offazure/v20200707:MasterSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:offazure:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure:MasterSite"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/latest:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:MasterSite"},
                 },
             };

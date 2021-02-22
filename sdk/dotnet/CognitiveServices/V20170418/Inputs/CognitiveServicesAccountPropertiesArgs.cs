@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
+namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
         /// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20170418.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.V20170418.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         [Input("userOwnedStorage")]
         private InputList<Inputs.UserOwnedStorageArgs>? _userOwnedStorage;

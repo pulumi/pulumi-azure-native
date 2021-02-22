@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
+namespace Pulumi.AzureNative.AzureData.V20190724Preview
 {
     public static class GetSqlServerInstance
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// A SqlServerInstance.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-nextgen:azuredata/v20190724preview:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azuredata/v20190724preview:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithVersion());
     }
 
 

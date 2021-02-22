@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.Latest
+namespace Pulumi.AzureNative.Relay.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelay'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelay'.")]
     public static class GetWCFRelay
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-nextgen:relay/latest:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay/latest:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
         /// </summary>
         [Input("backupMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.BackupMode>? BackupMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.V20180715Preview.BackupMode>? BackupMode { get; set; }
 
         [Input("selectedAgentJobs")]
         private InputList<string>? _selectedAgentJobs;

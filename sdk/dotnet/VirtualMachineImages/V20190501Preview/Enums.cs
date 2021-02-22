@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview
+namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview
 {
     /// <summary>
     /// The type of identity used for the image template. The type 'None' will remove any identities from the image template.

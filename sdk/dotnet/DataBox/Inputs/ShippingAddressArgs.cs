@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Inputs
+namespace Pulumi.AzureNative.DataBox.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.Inputs
         /// Type of address.
         /// </summary>
         [Input("addressType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.AddressType>? AddressType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBox.AddressType>? AddressType { get; set; }
 
         /// <summary>
         /// Name of the City.

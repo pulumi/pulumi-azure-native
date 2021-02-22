@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180401.Inputs
+namespace Pulumi.AzureNative.Network.V20180401.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401.Inputs
         /// Web application firewall mode.
         /// </summary>
         [Input("firewallMode", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180401.ApplicationGatewayFirewallMode> FirewallMode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180401.ApplicationGatewayFirewallMode> FirewallMode { get; set; } = null!;
 
         /// <summary>
         /// Maximum request body size for WAF.

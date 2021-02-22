@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
+namespace Pulumi.AzureNative.CostManagement.V20200301Preview
 {
     /// <summary>
     /// The cost allocation rule model definition
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20200301preview:CostAllocationRule")]
     public partial class CostAllocationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CostAllocationRule(string name, CostAllocationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule", name, args ?? new CostAllocationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20200301preview:CostAllocationRule", name, args ?? new CostAllocationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CostAllocationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20200301preview:CostAllocationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:CostAllocationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:CostAllocationRule"},
                 },
             };

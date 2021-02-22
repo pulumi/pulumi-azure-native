@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.Latest
+namespace Pulumi.AzureNative.AVS.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getAuthorization'.")]
     public static class GetAuthorization
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// Latest API Version: 2020-03-20.
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-nextgen:avs/latest:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs/latest:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
     }
 
 

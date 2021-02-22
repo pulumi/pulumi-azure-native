@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
+namespace Pulumi.AzureNative.DigitalTwins.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
         /// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.Latest.DigitalTwinsIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.Latest.DigitalTwinsIdentityType>? Type { get; set; }
 
         public DigitalTwinsIdentityArgs()
         {

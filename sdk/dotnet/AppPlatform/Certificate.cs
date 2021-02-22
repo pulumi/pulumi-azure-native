@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform
+namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Certificate resource payload.
     /// API Version: 2020-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appplatform:Certificate")]
+    [AzureNativeResourceType("azure-native:appplatform:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.AppPlatform
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appplatform:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appplatform:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,9 +59,13 @@ namespace Pulumi.AzureNextGen.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Certificate"},
                 },
             };

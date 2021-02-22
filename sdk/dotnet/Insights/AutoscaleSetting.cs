@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The autoscale setting resource.
     /// API Version: 2015-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:AutoscaleSetting")]
+    [AzureNativeResourceType("azure-native:insights:AutoscaleSetting")]
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutoscaleSetting(string name, AutoscaleSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutoscaleSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150401:AutoscaleSetting"},
                 },
             };

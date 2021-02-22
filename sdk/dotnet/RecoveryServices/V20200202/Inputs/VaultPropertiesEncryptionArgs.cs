@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20200202.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Inputs
         /// Enabling/Disabling the Double Encryption state
         /// </summary>
         [Input("infrastructureEncryption")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20200202.InfrastructureEncryptionState>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20200202.InfrastructureEncryptionState>? InfrastructureEncryption { get; set; }
 
         /// <summary>
         /// The details of the identity used for CMK

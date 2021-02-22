@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20151201
+namespace Pulumi.AzureNative.Batch.V20151201
 {
     public static class GetApplicationPackage
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
         /// An application package which represents a particular version of an application.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-nextgen:batch/v20151201:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch/v20151201:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
     }
 
 

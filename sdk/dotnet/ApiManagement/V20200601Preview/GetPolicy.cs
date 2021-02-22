@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     public static class GetPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Policy Contract details.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:apimanagement/v20200601preview:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:apimanagement/v20200601preview:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
 
 

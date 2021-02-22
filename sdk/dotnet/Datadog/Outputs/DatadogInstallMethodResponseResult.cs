@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog.Outputs
+namespace Pulumi.AzureNative.Datadog.Outputs
 {
 
     [OutputType]

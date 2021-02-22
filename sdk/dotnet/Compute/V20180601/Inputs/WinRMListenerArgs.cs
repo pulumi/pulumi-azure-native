@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20180601.Inputs
+namespace Pulumi.AzureNative.Compute.V20180601.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601.Inputs
         /// Specifies the protocol of listener. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;**http** &lt;br&gt;&lt;br&gt; **https**
         /// </summary>
         [Input("protocol")]
-        public Input<Pulumi.AzureNextGen.Compute.V20180601.ProtocolTypes>? Protocol { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20180601.ProtocolTypes>? Protocol { get; set; }
 
         public WinRMListenerArgs()
         {

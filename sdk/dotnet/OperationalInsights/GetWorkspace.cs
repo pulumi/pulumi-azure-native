@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights
 {
     public static class GetWorkspace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.Latest
+namespace Pulumi.AzureNative.Peering.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeeringService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeeringService'.")]
     public static class GetPeeringService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-nextgen:peering/latest:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering/latest:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
     }
 
 

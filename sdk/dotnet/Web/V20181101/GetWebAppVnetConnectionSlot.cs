@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20181101
+namespace Pulumi.AzureNative.Web.V20181101
 {
     public static class GetWebAppVnetConnectionSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// Virtual Network information contract.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-nextgen:web/v20181101:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20181101:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
     }
 
 

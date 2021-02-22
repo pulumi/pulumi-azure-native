@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     public static class GetSubscription
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Description of subscription resource.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-nextgen:servicebus/v20180101preview:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus/v20180101preview:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataCatalog.Latest
+namespace Pulumi.AzureNative.DataCatalog.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'.")]
     public static class GetADCCatalog
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
         /// Latest API Version: 2016-03-30.
         /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-nextgen:datacatalog/latest:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog/latest:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus
+namespace Pulumi.AzureNative.ServiceBus
 {
     public static class GetNamespace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceBus
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
 
 

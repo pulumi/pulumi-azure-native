@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'.")]
     public static class GetContentItem
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-nextgen:apimanagement/latest:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement/latest:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
+namespace Pulumi.AzureNative.Authorization.V20201001Preview
 {
     /// <summary>
     /// Role management policy
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment")]
+    [AzureNativeResourceType("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment")]
     public partial class RoleManagementPolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleManagementPolicyAssignment(string name, RoleManagementPolicyAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment", name, args ?? new RoleManagementPolicyAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment", name, args ?? new RoleManagementPolicyAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleManagementPolicyAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

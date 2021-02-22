@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Latest
+namespace Pulumi.AzureNative.Sql.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDisasterRecoveryConfiguration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDisasterRecoveryConfiguration'.")]
     public static class GetDisasterRecoveryConfiguration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Latest API Version: 2014-04-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigurationResult> InvokeAsync(GetDisasterRecoveryConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-nextgen:sql/latest:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql/latest:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
     }
 
 

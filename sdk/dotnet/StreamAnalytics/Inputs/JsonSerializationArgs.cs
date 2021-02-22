@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Inputs
         /// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("encoding")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.Encoding>? Encoding { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.Encoding>? Encoding { get; set; }
 
         /// <summary>
         /// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.JsonOutputSerializationFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.JsonOutputSerializationFormat>? Format { get; set; }
 
         /// <summary>
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.

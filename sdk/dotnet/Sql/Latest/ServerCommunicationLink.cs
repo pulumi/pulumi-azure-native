@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Latest
+namespace Pulumi.AzureNative.Sql.Latest
 {
     /// <summary>
     /// Server communication link.
     /// Latest API Version: 2014-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.")]
-    [AzureNextGenResourceType("azure-nextgen:sql/latest:ServerCommunicationLink")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerCommunicationLink'.")]
+    [AzureNativeResourceType("azure-native:sql/latest:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerCommunicationLink(string name, ServerCommunicationLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/latest:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/latest:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerCommunicationLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/latest:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/latest:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,7 +78,9 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerCommunicationLink"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerCommunicationLink"},
                 },
             };

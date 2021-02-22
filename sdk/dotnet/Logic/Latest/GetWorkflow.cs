@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getWorkflow'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'.")]
     public static class GetWorkflow
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-nextgen:logic/latest:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/latest:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
     }
 
 

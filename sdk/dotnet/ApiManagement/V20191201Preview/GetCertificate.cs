@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     public static class GetCertificate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Certificate details.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:apimanagement/v20191201preview:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement/v20191201preview:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
 
 

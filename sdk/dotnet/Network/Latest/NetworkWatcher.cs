@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Network watcher in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkWatcher")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkWatcher'.")]
+    [AzureNativeResourceType("azure-native:network/latest:NetworkWatcher")]
     public partial class NetworkWatcher : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkWatcher(string name, NetworkWatcherArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkWatcher", name, args ?? new NetworkWatcherArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:NetworkWatcher", name, args ?? new NetworkWatcherArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkWatcher(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkWatcher", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:NetworkWatcher", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,37 +78,69 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkWatcher"},
                 },
             };

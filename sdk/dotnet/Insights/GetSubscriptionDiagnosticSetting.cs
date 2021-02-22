@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetSubscriptionDiagnosticSetting
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-nextgen:insights:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:insights:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithVersion());
     }
 
 

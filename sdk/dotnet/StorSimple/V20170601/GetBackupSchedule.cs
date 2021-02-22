@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20170601
+namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     public static class GetBackupSchedule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The backup schedule.
         /// </summary>
         public static Task<GetBackupScheduleResult> InvokeAsync(GetBackupScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleResult>("azure-nextgen:storsimple/v20170601:getBackupSchedule", args ?? new GetBackupScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleResult>("azure-native:storsimple/v20170601:getBackupSchedule", args ?? new GetBackupScheduleArgs(), options.WithVersion());
     }
 
 

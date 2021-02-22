@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService
+namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// A private endpoint connection to SignalR resource
     /// API Version: 2020-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:signalrservice:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.SignalRService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SignalRPrivateEndpointConnection(string name, SignalRPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection", name, args ?? new SignalRPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:signalrservice:SignalRPrivateEndpointConnection", name, args ?? new SignalRPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SignalRPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:signalrservice:SignalRPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/latest:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
                 },
             };

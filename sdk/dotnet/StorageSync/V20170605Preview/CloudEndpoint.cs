@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
+namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Cloud Endpoint object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagesync/v20170605preview:CloudEndpoint")]
+    [AzureNativeResourceType("azure-native:storagesync/v20170605preview:CloudEndpoint")]
     public partial class CloudEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudEndpoint(string name, CloudEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/v20170605preview:CloudEndpoint", name, args ?? new CloudEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagesync/v20170605preview:CloudEndpoint", name, args ?? new CloudEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/v20170605preview:CloudEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagesync/v20170605preview:CloudEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,16 +112,27 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:CloudEndpoint"},
                 },
             };

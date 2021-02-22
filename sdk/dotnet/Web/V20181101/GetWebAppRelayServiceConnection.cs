@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20181101
+namespace Pulumi.AzureNative.Web.V20181101
 {
     public static class GetWebAppRelayServiceConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// Hybrid Connection for an App Service app.
         /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-nextgen:web/v20181101:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-native:web/v20181101:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
     }
 
 

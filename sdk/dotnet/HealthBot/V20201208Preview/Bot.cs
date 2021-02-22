@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthBot.V20201208Preview
+namespace Pulumi.AzureNative.HealthBot.V20201208Preview
 {
     /// <summary>
     /// HealthBot resource definition
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:healthbot/v20201208preview:Bot")]
+    [AzureNativeResourceType("azure-native:healthbot/v20201208preview:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bot(string name, BotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthbot/v20201208preview:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:healthbot/v20201208preview:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthbot/v20201208preview:Bot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:healthbot/v20201208preview:Bot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:healthbot:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/latest:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/latest:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020preview:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201208:Bot"},
                 },
             };

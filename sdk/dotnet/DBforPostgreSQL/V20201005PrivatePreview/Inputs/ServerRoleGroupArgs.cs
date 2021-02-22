@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         /// The role of servers in the server role group.
         /// </summary>
         [Input("role")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.ServerRole>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.ServerRole>? Role { get; set; }
 
         /// <summary>
         /// The number of servers in the server role group.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.Inputs
         /// The edition of a server (default: GeneralPurpose).
         /// </summary>
         [Input("serverEdition")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.ServerEdition>? ServerEdition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.ServerEdition>? ServerEdition { get; set; }
 
         /// <summary>
         /// The storage of a server in MB (max: 2097152 = 2TiB).

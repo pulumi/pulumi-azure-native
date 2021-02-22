@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI
+namespace Pulumi.AzureNative.BatchAI
 {
     public static class ListJobOutputFiles
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<ListJobOutputFilesResult> InvokeAsync(ListJobOutputFilesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-nextgen:batchai:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-native:batchai:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
     }
 
 

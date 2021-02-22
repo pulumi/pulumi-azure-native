@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getQueue'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getQueue'.")]
     public static class GetQueue
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:storage/latest:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage/latest:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }
 
 

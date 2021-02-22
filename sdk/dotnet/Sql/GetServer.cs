@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetServer
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2014-04-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:sql:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

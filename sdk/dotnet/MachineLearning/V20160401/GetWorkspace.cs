@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20160401
+namespace Pulumi.AzureNative.MachineLearning.V20160401
 {
     public static class GetWorkspace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
         /// An object that represents a machine learning workspace.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearning/v20160401:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

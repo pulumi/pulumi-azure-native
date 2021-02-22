@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest.Inputs
         /// The service load metric relative weight, compared to other metrics configured for this service, as a number.
         /// </summary>
         [Input("weight")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.Latest.ServiceLoadMetricWeight>? Weight { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.Latest.ServiceLoadMetricWeight>? Weight { get; set; }
 
         public ServiceLoadMetricDescriptionArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     public static class GetSourceControl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// Definition of the source control.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-nextgen:automation/v20190601:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation/v20190601:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
     }
 
 

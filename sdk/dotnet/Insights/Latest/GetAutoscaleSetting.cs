@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAutoscaleSetting'.")]
     public static class GetAutoscaleSetting
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2015-04-01.
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-nextgen:insights/latest:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights/latest:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
     }
 
 

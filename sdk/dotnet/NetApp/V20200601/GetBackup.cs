@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20200601
+namespace Pulumi.AzureNative.NetApp.V20200601
 {
     public static class GetBackup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// Backup of a Volume
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-nextgen:netapp/v20200601:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp/v20200601:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
     }
 
 

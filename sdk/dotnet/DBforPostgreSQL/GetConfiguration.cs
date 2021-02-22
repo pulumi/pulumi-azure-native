@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     public static class GetConfiguration
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }
 
 

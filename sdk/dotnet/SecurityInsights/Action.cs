@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Action for alert rule.
     /// API Version: 2020-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights:Action")]
+    [AzureNativeResourceType("azure-native:securityinsights:Action")]
     public partial class Action : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Action(string name, ActionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Action(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:Action", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights:Action", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/latest:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Action"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Action"},
                 },
             };

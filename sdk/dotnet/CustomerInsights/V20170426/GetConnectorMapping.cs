@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     public static class GetConnectorMapping
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The connector mapping resource format.
         /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-nextgen:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
     }
 
 

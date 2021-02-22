@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Inputs
+namespace Pulumi.AzureNative.DigitalTwins.Inputs
 {
 
     public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs

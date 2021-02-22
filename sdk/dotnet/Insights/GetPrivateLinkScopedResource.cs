@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetPrivateLinkScopedResource
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2019-10-17-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-nextgen:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithVersion());
     }
 
 

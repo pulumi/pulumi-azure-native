@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Describes what action to be applied when rule matches
         /// </summary>
         [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.ActionType> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.ActionType> Action { get; set; } = null!;
 
         /// <summary>
         /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.CustomRuleEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.CustomRuleEnabledState>? EnabledState { get; set; }
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;

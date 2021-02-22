@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetServerKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:sql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:sql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
+namespace Pulumi.AzureNative.PolicyInsights.V20190701
 {
     public static class GetRemediationAtManagementGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
         /// The remediation definition.
         /// </summary>
         public static Task<GetRemediationAtManagementGroupResult> InvokeAsync(GetRemediationAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-nextgen:policyinsights/v20190701:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-native:policyinsights/v20190701:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithVersion());
     }
 
 

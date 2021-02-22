@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
+namespace Pulumi.AzureNative.CostManagement.V20190301Preview
 {
     /// <summary>
     /// Connector billing model

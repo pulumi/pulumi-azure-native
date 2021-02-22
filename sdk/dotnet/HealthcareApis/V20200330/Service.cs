@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
+namespace Pulumi.AzureNative.HealthcareApis.V20200330
 {
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:healthcareapis/v20200330:Service")]
+    [AzureNativeResourceType("azure-native:healthcareapis/v20200330:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthcareapis/v20200330:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:healthcareapis/v20200330:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthcareapis/v20200330:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:healthcareapis/v20200330:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,11 +88,17 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200315:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210111:Service"},
                 },
             };
@@ -133,7 +139,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
         /// The kind of the service.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<Pulumi.AzureNextGen.HealthcareApis.V20200330.Kind> Kind { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HealthcareApis.V20200330.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource location.

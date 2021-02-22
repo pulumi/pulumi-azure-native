@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class ThrottlingMetricArgs : Pulumi.ResourceArgs
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         public Input<double> Limit { get; set; } = null!;
 
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.ThrottlingMetricType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ThrottlingMetricType> Type { get; set; } = null!;
 
         public ThrottlingMetricArgs()
         {

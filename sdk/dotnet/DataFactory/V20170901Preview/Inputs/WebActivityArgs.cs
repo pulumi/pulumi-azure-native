@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// Rest API method for target endpoint.
         /// </summary>
         [Input("method", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.WebActivityMethod> Method { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.WebActivityMethod> Method { get; set; } = null!;
 
         /// <summary>
         /// Activity name.

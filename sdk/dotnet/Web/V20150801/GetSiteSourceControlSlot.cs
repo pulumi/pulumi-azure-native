@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteSourceControlSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Describes the source control configuration for web app
         /// </summary>
         public static Task<GetSiteSourceControlSlotResult> InvokeAsync(GetSiteSourceControlSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlSlotResult>("azure-nextgen:web/v20150801:getSiteSourceControlSlot", args ?? new GetSiteSourceControlSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlSlotResult>("azure-native:web/v20150801:getSiteSourceControlSlot", args ?? new GetSiteSourceControlSlotArgs(), options.WithVersion());
     }
 
 

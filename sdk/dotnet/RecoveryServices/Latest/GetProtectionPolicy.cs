@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionPolicy'.")]
     public static class GetProtectionPolicy
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-nextgen:recoveryservices/latest:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices/latest:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
     }
 
 

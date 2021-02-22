@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.Latest
+namespace Pulumi.AzureNative.Kusto.Latest
 {
     /// <summary>
     /// Class representing a database principal assignment.
     /// Latest API Version: 2020-09-18.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DatabasePrincipalAssignment'.")]
-    [AzureNextGenResourceType("azure-nextgen:kusto/latest:DatabasePrincipalAssignment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:DatabasePrincipalAssignment'.")]
+    [AzureNativeResourceType("azure-native:kusto/latest:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabasePrincipalAssignment(string name, DatabasePrincipalAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/latest:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto/latest:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabasePrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/latest:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto/latest:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,10 +96,15 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment"},
                 },
             };
@@ -152,7 +157,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// Principal type.
         /// </summary>
         [Input("principalType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.Latest.PrincipalType> PrincipalType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.Latest.PrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -164,7 +169,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// Database principal role.
         /// </summary>
         [Input("role", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.Latest.DatabasePrincipalRole> Role { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.Latest.DatabasePrincipalRole> Role { get; set; } = null!;
 
         /// <summary>
         /// The tenant id of the principal

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.Inputs
+namespace Pulumi.AzureNative.Aad.Inputs
 {
 
     /// <summary>
@@ -19,31 +19,31 @@ namespace Pulumi.AzureNextGen.Aad.Inputs
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
         /// </summary>
         [Input("ntlmV1")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.NtlmV1>? NtlmV1 { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.NtlmV1>? NtlmV1 { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         /// </summary>
         [Input("syncKerberosPasswords")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.SyncKerberosPasswords>? SyncKerberosPasswords { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.SyncKerberosPasswords>? SyncKerberosPasswords { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         /// </summary>
         [Input("syncNtlmPasswords")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.SyncNtlmPasswords>? SyncNtlmPasswords { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.SyncNtlmPasswords>? SyncNtlmPasswords { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         /// </summary>
         [Input("syncOnPremPasswords")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.SyncOnPremPasswords>? SyncOnPremPasswords { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.SyncOnPremPasswords>? SyncOnPremPasswords { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not TlsV1 is enabled or disabled.
         /// </summary>
         [Input("tlsV1")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.TlsV1>? TlsV1 { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.TlsV1>? TlsV1 { get; set; }
 
         public DomainSecuritySettingsArgs()
         {

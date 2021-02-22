@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20191109
+namespace Pulumi.AzureNative.Kusto.V20191109
 {
     public static class GetAttachedDatabaseConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
         /// Class representing an attached database configuration.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-nextgen:kusto/v20191109:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto/v20191109:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
     }
 
 

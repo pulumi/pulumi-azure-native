@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab
+namespace Pulumi.AzureNative.DevTestLab
 {
     public static class GetArtifactSource
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:devtestlab:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:devtestlab:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }
 
 

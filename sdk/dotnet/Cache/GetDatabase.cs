@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     public static class GetDatabase
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

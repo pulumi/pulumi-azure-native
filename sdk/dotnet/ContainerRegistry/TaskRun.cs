@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// The task run that has the ARM resource and properties.
     /// The task run will have the information of request and result of a run.
     /// API Version: 2019-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:TaskRun")]
+    [AzureNativeResourceType("azure-native:containerregistry:TaskRun")]
     public partial class TaskRun : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskRun(string name, TaskRunArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:TaskRun", name, args ?? new TaskRunArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:TaskRun", name, args ?? new TaskRunArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskRun(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:TaskRun", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:TaskRun", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:TaskRun"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:TaskRun"},
                 },
             };

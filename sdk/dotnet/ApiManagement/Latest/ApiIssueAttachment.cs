@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Issue Attachment Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueAttachment'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiIssueAttachment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueAttachment'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:ApiIssueAttachment")]
     public partial class ApiIssueAttachment : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiIssueAttachment(string name, ApiIssueAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiIssueAttachment", name, args ?? new ApiIssueAttachmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:ApiIssueAttachment", name, args ?? new ApiIssueAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiIssueAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiIssueAttachment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:ApiIssueAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,13 +72,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"},
                 },
             };

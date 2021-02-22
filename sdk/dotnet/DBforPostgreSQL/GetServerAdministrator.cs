@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     public static class GetServerAdministrator
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-nextgen:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
     }
 
 

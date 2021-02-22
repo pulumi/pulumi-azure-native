@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
         /// </summary>
         [Input("insightsToExtract")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.InsightsType>? InsightsToExtract { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.InsightsType>? InsightsToExtract { get; set; }
 
         /// <summary>
         /// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.AudioAnalysisMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.AudioAnalysisMode>? Mode { get; set; }
 
         /// <summary>
         /// The discriminator for derived types.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     public static class GetTableResourceTable
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// API Version: 2021-01-15.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-nextgen:documentdb:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
     }
 
 

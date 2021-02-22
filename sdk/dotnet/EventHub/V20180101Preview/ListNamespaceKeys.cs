@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
+namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     public static class ListNamespaceKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Namespace/EventHub Connection String
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:eventhub/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:eventhub/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL
+namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a server.
     /// API Version: 2017-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql:Server")]
+    [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -151,12 +151,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -167,8 +167,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Server"},
                 },
             };

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService
+namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// A class represent a SignalR service resource.
     /// API Version: 2020-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:signalrservice:SignalR")]
+    [AzureNativeResourceType("azure-native:signalrservice:SignalR")]
     public partial class SignalR : Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNextGen.SignalRService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SignalR(string name, SignalRArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:signalrservice:SignalR", name, args ?? new SignalRArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:signalrservice:SignalR", name, args ?? new SignalRArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SignalR(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:signalrservice:SignalR", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:signalrservice:SignalR", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,10 +155,15 @@ namespace Pulumi.AzureNextGen.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/latest:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/latest:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20180301preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20181001:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20181001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200701preview:SignalR"},
                 },
             };
@@ -210,7 +215,7 @@ namespace Pulumi.AzureNextGen.SignalRService
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.ServiceKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SignalRService.ServiceKind>? Kind { get; set; }
 
         /// <summary>
         /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class ListAgentPoolQueueStatus
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListAgentPoolQueueStatusResult> InvokeAsync(ListAgentPoolQueueStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-nextgen:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-native:containerregistry:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithVersion());
     }
 
 

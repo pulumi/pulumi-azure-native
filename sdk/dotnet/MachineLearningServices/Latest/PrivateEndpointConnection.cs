@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
+namespace Pulumi.AzureNative.MachineLearningServices.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:PrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:PrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,16 +102,27 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200218preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200401:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:PrivateEndpointConnection"},
                 },
             };

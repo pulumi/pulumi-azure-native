@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Inputs
+namespace Pulumi.AzureNative.Sql.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Sql.Inputs
         /// The output destination type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.JobStepOutputType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.JobStepOutputType>? Type { get; set; }
 
         public JobStepOutputArgs()
         {

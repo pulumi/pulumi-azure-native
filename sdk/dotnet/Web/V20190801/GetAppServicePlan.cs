@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     public static class GetAppServicePlan
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// App Service plan.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-nextgen:web/v20190801:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web/v20190801:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
     }
 
 

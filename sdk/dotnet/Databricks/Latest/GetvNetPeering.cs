@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks.Latest
+namespace Pulumi.AzureNative.Databricks.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getvNetPeering'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'.")]
     public static class GetvNetPeering
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// Latest API Version: 2018-04-01.
         /// </summary>
         public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-nextgen:databricks/latest:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-native:databricks/latest:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
     }
 
 

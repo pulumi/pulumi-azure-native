@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20190924Preview
 {
     /// <summary>
     /// Represents a HostPool definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20190924preview:HostPool")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization/v20190924preview:HostPool")]
     public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HostPool(string name, HostPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization/v20190924preview:HostPool", name, args ?? new HostPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization/v20190924preview:HostPool", name, args ?? new HostPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HostPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization/v20190924preview:HostPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization/v20190924preview:HostPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,14 +148,23 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:HostPool"},
                 },
             };
@@ -208,13 +217,13 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
         /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview.HostPoolType> HostPoolType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190924Preview.HostPoolType> HostPoolType { get; set; } = null!;
 
         /// <summary>
         /// The type of the load balancer.
         /// </summary>
         [Input("loadBalancerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview.LoadBalancerType> LoadBalancerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190924Preview.LoadBalancerType> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -232,13 +241,13 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview.PersonalDesktopAssignmentType>? PersonalDesktopAssignmentType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190924Preview.PersonalDesktopAssignmentType>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
         /// </summary>
         [Input("preferredAppGroupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20190924Preview.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
 
         /// <summary>
         /// The registration info of HostPool.

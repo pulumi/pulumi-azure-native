@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501
+namespace Pulumi.AzureNative.Logic.V20190501
 {
     public static class GetIntegrationAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The integration account.
         /// </summary>
         public static Task<GetIntegrationAccountResult> InvokeAsync(GetIntegrationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-nextgen:logic/v20190501:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-native:logic/v20190501:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithVersion());
     }
 
 

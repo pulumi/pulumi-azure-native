@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20181201Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20181201Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20181201Preview.Inputs
         /// Specific Role assigned to this location
         /// </summary>
         [Input("role")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20181201Preview.IotHubReplicaRoleType>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20181201Preview.IotHubReplicaRoleType>? Role { get; set; }
 
         public IotHubLocationDescriptionArgs()
         {

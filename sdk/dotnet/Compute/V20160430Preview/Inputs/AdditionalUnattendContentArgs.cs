@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
+namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
         /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         /// </summary>
         [Input("componentName")]
-        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.ComponentNames>? ComponentName { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20160430Preview.ComponentNames>? ComponentName { get; set; }
 
         /// <summary>
         /// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
         /// The pass name. Currently, the only allowable value is OobeSystem.
         /// </summary>
         [Input("passName")]
-        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.PassNames>? PassName { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20160430Preview.PassNames>? PassName { get; set; }
 
         /// <summary>
         /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
         /// </summary>
         [Input("settingName")]
-        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.SettingNames>? SettingName { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20160430Preview.SettingNames>? SettingName { get; set; }
 
         public AdditionalUnattendContentArgs()
         {

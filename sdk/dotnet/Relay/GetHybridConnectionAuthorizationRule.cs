@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay
+namespace Pulumi.AzureNative.Relay
 {
     public static class GetHybridConnectionAuthorizationRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Relay
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-nextgen:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithVersion());
     }
 
 

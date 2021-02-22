@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.Latest
+namespace Pulumi.AzureNative.NotificationHubs.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNamespaceKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNamespaceKeys'.")]
     public static class ListNamespaceKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:notificationhubs/latest:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs/latest:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }
 
 

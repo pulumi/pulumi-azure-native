@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest.Inputs
+namespace Pulumi.AzureNative.Solutions.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest.Inputs
         /// The managed application deployment mode.
         /// </summary>
         [Input("deploymentMode", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Solutions.Latest.DeploymentMode> DeploymentMode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Solutions.Latest.DeploymentMode> DeploymentMode { get; set; } = null!;
 
         public ApplicationDeploymentPolicyArgs()
         {

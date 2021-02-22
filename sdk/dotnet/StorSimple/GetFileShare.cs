@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetFileShare
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2016-10-01.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storsimple:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storsimple:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }
 
 

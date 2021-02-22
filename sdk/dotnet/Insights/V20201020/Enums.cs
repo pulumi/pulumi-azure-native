@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20201020
+namespace Pulumi.AzureNative.Insights.V20201020
 {
     /// <summary>
     /// The kind of workbook. Choices are user and shared.

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20140401
+namespace Pulumi.AzureNative.Insights.V20140401
 {
     /// <summary>
     /// the operator used to compare the data and the threshold.

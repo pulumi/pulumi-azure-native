@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the Dedicated host.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:DedicatedHost")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHost'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:DedicatedHost")]
     public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHost(string name, DedicatedHostArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:DedicatedHost", name, args ?? new DedicatedHostArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:DedicatedHost", name, args ?? new DedicatedHostArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedHost(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:DedicatedHost", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:DedicatedHost", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,11 +120,17 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DedicatedHost"},
                 },
             };
@@ -171,7 +177,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
         /// </summary>
         [Input("licenseType")]
-        public Input<Pulumi.AzureNextGen.Compute.Latest.DedicatedHostLicenseTypes>? LicenseType { get; set; }
+        public Input<Pulumi.AzureNative.Compute.Latest.DedicatedHostLicenseTypes>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location

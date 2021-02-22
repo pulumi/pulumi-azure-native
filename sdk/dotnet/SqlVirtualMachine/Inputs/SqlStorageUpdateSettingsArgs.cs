@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
+namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
         /// Disk configuration to apply to SQL Server.
         /// </summary>
         [Input("diskConfigurationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.DiskConfigurationType>? DiskConfigurationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.DiskConfigurationType>? DiskConfigurationType { get; set; }
 
         /// <summary>
         /// Virtual machine disk count.

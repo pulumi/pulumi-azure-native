@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
+namespace Pulumi.AzureNative.Network.V20180801.Inputs
 {
 
     /// <summary>
@@ -106,14 +106,14 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         }
 
         [Input("vpnProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20180801.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
 
         /// <summary>
         /// vpnProtocols for the P2SVpnServerConfiguration.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.VpnGatewayTunnelingProtocol>> VpnProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20180801.VpnGatewayTunnelingProtocol>> VpnProtocols
         {
-            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.VpnGatewayTunnelingProtocol>>());
+            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.V20180801.VpnGatewayTunnelingProtocol>>());
             set => _vpnProtocols = value;
         }
 

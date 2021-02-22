@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.V20191001
+namespace Pulumi.AzureNative.StorageSync.V20191001
 {
     public static class GetSyncGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         /// Sync Group object.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-nextgen:storagesync/v20191001:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:storagesync/v20191001:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
     }
 
 

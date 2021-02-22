@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416
+namespace Pulumi.AzureNative.Insights.V20180416
 {
     /// <summary>
     /// Severity of the alert

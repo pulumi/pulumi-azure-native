@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
         /// The tier of the particular SKU, e.g. Basic.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20180601Preview.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

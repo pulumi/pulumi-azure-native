@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     public static class GetAccessControlRecord
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The access control record
         /// </summary>
         public static Task<GetAccessControlRecordResult> InvokeAsync(GetAccessControlRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-nextgen:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-native:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithVersion());
     }
 
 

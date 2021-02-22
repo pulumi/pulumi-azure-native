@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     public static class GetManagedPrivateEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-nextgen:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     public static class GetJobTargetGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// A group of job targets.
         /// </summary>
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-nextgen:sql/v20200801preview:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-native:sql/v20200801preview:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
     }
 
 

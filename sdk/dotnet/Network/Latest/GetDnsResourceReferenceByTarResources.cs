@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDnsResourceReferenceByTarResources'.")]
     public static class GetDnsResourceReferenceByTarResources
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2018-05-01.
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-nextgen:network/latest:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network/latest:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
     }
 
 

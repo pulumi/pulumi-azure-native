@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
+namespace Pulumi.AzureNative.Scheduler.V20160301.Inputs
 {
 
     public sealed class JobMaxRecurrenceArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
         /// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         /// </summary>
         [Input("frequency")]
-        public Input<Pulumi.AzureNextGen.Scheduler.V20160301.RecurrenceFrequency>? Frequency { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.V20160301.RecurrenceFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// Gets or sets the interval between retries.

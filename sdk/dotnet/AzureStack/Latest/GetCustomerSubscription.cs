@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.Latest
+namespace Pulumi.AzureNative.AzureStack.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getCustomerSubscription'.")]
     public static class GetCustomerSubscription
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-nextgen:azurestack/latest:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/latest:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
     }
 
 

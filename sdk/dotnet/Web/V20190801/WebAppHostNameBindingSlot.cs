@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// A hostname binding object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppHostNameBindingSlot")]
     public partial class WebAppHostNameBindingSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppHostNameBindingSlot(string name, WebAppHostNameBindingSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot", name, args ?? new WebAppHostNameBindingSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppHostNameBindingSlot", name, args ?? new WebAppHostNameBindingSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppHostNameBindingSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppHostNameBindingSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,14 +112,23 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHostNameBindingSlot"},
                 },
             };
@@ -154,13 +163,13 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Azure resource type.
         /// </summary>
         [Input("azureResourceType")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.AzureResourceType>? AzureResourceType { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.AzureResourceType>? AzureResourceType { get; set; }
 
         /// <summary>
         /// Custom DNS record type.
         /// </summary>
         [Input("customHostNameDnsRecordType")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
 
         /// <summary>
         /// Fully qualified ARM domain resource URI.
@@ -178,7 +187,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Hostname type.
         /// </summary>
         [Input("hostNameType")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.HostNameType>? HostNameType { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.HostNameType>? HostNameType { get; set; }
 
         /// <summary>
         /// Kind of resource.
@@ -214,7 +223,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// SSL type
         /// </summary>
         [Input("sslState")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.SslState>? SslState { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.SslState>? SslState { get; set; }
 
         /// <summary>
         /// SSL certificate thumbprint

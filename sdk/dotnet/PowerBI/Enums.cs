@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.PowerBI
+namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
     /// SKU name

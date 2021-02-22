@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20201001
+namespace Pulumi.AzureNative.Resources.V20201001
 {
     /// <summary>
     /// Resource group information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20201001:ResourceGroup")]
+    [AzureNativeResourceType("azure-native:resources/v20201001:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/v20201001:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:ResourceGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/v20201001:ResourceGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,22 +76,39 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/latest:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160901:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20170510:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20180201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190301:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:ResourceGroup"},
                 },
             };

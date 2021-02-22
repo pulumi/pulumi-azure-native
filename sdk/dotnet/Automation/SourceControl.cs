@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the source control.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:SourceControl")]
+    [AzureNativeResourceType("azure-native:automation:SourceControl")]
     public partial class SourceControl : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SourceControl(string name, SourceControlArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:SourceControl", name, args ?? new SourceControlArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:SourceControl", name, args ?? new SourceControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SourceControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:SourceControl", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:SourceControl", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,9 +107,13 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:SourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20170515preview:SourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:SourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:SourceControl"},
                 },
             };
@@ -198,7 +202,7 @@ namespace Pulumi.AzureNextGen.Automation
         /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         /// </summary>
         [Input("sourceType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.SourceType>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.SourceType>? SourceType { get; set; }
 
         public SourceControlArgs()
         {

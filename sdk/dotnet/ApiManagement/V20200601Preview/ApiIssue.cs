@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     /// <summary>
     /// Issue Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:ApiIssue")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:ApiIssue")]
     public partial class ApiIssue : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiIssue(string name, ApiIssueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ApiIssue", name, args ?? new ApiIssueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20200601preview:ApiIssue", name, args ?? new ApiIssueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiIssue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ApiIssue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20200601preview:ApiIssue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,13 +88,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssue"},
                 },
             };
@@ -159,7 +167,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Status of the issue.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.State>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20200601Preview.State>? State { get; set; }
 
         /// <summary>
         /// The issue title.

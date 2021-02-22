@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20200202Preview
+namespace Pulumi.AzureNative.Insights.V20200202Preview
 {
     /// <summary>
     /// Type of application being monitored.

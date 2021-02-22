@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20210115
+namespace Pulumi.AzureNative.DocumentDB.V20210115
 {
     public static class GetSqlResourceSqlStoredProcedure
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20210115
         /// An Azure Cosmos DB storedProcedure.
         /// </summary>
         public static Task<GetSqlResourceSqlStoredProcedureResult> InvokeAsync(GetSqlResourceSqlStoredProcedureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-nextgen:documentdb/v20210115:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20210115:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20190501Preview
+namespace Pulumi.AzureNative.Media.V20190501Preview
 {
     /// <summary>
     /// The Live Output.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20190501preview:LiveOutput")]
+    [AzureNativeResourceType("azure-native:media/v20190501preview:LiveOutput")]
     public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LiveOutput(string name, LiveOutputArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20190501preview:LiveOutput", name, args ?? new LiveOutputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20190501preview:LiveOutput", name, args ?? new LiveOutputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LiveOutput(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20190501preview:LiveOutput", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20190501preview:LiveOutput", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,11 +112,17 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:LiveOutput"},
                 },
             };

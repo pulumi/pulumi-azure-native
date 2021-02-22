@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801Preview
+namespace Pulumi.AzureNative.Web.V20150801Preview
 {
     /// <summary>
     /// API Connection
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801preview:Connection")]
+    [AzureNativeResourceType("azure-native:web/v20150801preview:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801preview:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801preview:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801preview:Connection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801preview:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,8 +136,11 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160601:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:Connection"},
                 },
             };

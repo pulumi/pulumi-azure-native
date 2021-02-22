@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
+namespace Pulumi.AzureNative.Storage.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Routing Choice defines the kind of network routing opted by the user.
         /// </summary>
         [Input("routingChoice")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.RoutingChoice>? RoutingChoice { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.RoutingChoice>? RoutingChoice { get; set; }
 
         public RoutingPreferenceArgs()
         {

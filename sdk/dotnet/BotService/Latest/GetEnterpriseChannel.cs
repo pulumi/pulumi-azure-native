@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.Latest
+namespace Pulumi.AzureNative.BotService.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getEnterpriseChannel'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getEnterpriseChannel'.")]
     public static class GetEnterpriseChannel
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
         /// Latest API Version: 2018-07-12.
         /// </summary>
         public static Task<GetEnterpriseChannelResult> InvokeAsync(GetEnterpriseChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-nextgen:botservice/latest:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-native:botservice/latest:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
     }
 
 

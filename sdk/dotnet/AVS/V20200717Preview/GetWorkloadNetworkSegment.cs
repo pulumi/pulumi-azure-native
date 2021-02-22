@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200717Preview
+namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     public static class GetWorkloadNetworkSegment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX Segment
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-nextgen:avs/v20200717preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs/v20200717preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.V20200601Preview
+namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
     public static class ListProductDetails
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20200601Preview
         /// Extended description about the product required for installing it into Azure Stack.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-nextgen:azurestack/v20200601preview:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/v20200601preview:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     public static class GetTopic
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Description of topic resource.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-nextgen:servicebus/v20180101preview:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus/v20180101preview:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }
 
 

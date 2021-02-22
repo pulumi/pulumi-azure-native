@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getHyperVCollector'.")]
     public static class GetHyperVCollector
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// Latest API Version: 2019-10-01.
         /// </summary>
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-nextgen:migrate/latest:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-native:migrate/latest:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
     }
 
 

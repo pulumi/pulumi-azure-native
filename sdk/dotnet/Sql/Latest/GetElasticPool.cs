@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Latest
+namespace Pulumi.AzureNative.Sql.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getElasticPool'.")]
     public static class GetElasticPool
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Latest API Version: 2014-04-01.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-nextgen:sql/latest:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql/latest:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
     }
 
 

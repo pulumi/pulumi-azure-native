@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Aad.V20200101
+namespace Pulumi.AzureNative.Aad.V20200101
 {
     /// <summary>
     /// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.

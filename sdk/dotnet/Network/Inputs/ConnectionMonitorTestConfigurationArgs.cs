@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
         /// </summary>
         [Input("preferredIPVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.PreferredIPVersion>? PreferredIPVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.PreferredIPVersion>? PreferredIPVersion { get; set; }
 
         /// <summary>
         /// The protocol to use in test evaluation.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ConnectionMonitorTestConfigurationProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.ConnectionMonitorTestConfigurationProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The threshold for declaring a test successful.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     public static class GetFormulaResource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// A formula.
         /// </summary>
         public static Task<GetFormulaResourceResult> InvokeAsync(GetFormulaResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-nextgen:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithVersion());
     }
 
 

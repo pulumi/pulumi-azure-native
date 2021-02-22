@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20200801Preview
+namespace Pulumi.AzureNative.Storage.V20200801Preview
 {
     public static class GetQueueServiceProperties
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// The properties of a storage account’s Queue service.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-nextgen:storage/v20200801preview:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20200801preview:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());
     }
 
 

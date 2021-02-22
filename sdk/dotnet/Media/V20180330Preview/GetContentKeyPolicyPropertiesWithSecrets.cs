@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview
+namespace Pulumi.AzureNative.Media.V20180330Preview
 {
     public static class GetContentKeyPolicyPropertiesWithSecrets
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// The properties of the Content Key Policy.
         /// </summary>
         public static Task<GetContentKeyPolicyPropertiesWithSecretsResult> InvokeAsync(GetContentKeyPolicyPropertiesWithSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-nextgen:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
+namespace Pulumi.AzureNative.ManagedIdentity.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedidentity:getUserAssignedIdentity'.")]
     public static class GetUserAssignedIdentity
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
         /// Latest API Version: 2018-11-30.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-nextgen:managedidentity/latest:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/latest:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
     }
 
 

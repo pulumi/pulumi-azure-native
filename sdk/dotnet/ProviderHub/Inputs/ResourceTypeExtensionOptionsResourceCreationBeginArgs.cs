@@ -7,24 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class ResourceTypeExtensionOptionsResourceCreationBeginArgs : Pulumi.ResourceArgs
     {
         [Input("request")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>>? _request;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>> Request
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>? _request;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>> Request
         {
-            get => _request ?? (_request = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>>());
+            get => _request ?? (_request = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>());
             set => _request = value;
         }
 
         [Input("response")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>>? _response;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>> Response
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>? _response;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>> Response
         {
-            get => _response ?? (_response = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.ExtensionOptionType>>());
+            get => _response ?? (_response = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.ExtensionOptionType>>());
             set => _response = value;
         }
 

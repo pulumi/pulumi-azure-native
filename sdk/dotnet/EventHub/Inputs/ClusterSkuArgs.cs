@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Inputs
+namespace Pulumi.AzureNative.EventHub.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.EventHub.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.ClusterSkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EventHub.ClusterSkuName> Name { get; set; } = null!;
 
         public ClusterSkuArgs()
         {

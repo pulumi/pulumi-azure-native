@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest
+namespace Pulumi.AzureNative.DataShare.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSynchronizations'.")]
     public static class ListShareSynchronizations
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-nextgen:datashare/latest:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-native:datashare/latest:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
     }
 
 

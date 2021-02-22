@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.TriggerStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.TriggerStatus>? Status { get; set; }
 
         public TimerTriggerArgs()
         {

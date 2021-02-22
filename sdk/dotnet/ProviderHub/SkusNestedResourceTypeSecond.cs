@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// API Version: 2020-11-20.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:providerhub:SkusNestedResourceTypeSecond")]
+    [AzureNativeResourceType("azure-native:providerhub:SkusNestedResourceTypeSecond")]
     public partial class SkusNestedResourceTypeSecond : Pulumi.CustomResource
     {
         /// <summary>
@@ -39,12 +39,12 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SkusNestedResourceTypeSecond(string name, SkusNestedResourceTypeSecondArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:SkusNestedResourceTypeSecond", name, args ?? new SkusNestedResourceTypeSecondArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub:SkusNestedResourceTypeSecond", name, args ?? new SkusNestedResourceTypeSecondArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SkusNestedResourceTypeSecond(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:SkusNestedResourceTypeSecond", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub:SkusNestedResourceTypeSecond", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -55,7 +55,9 @@ namespace Pulumi.AzureNextGen.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:SkusNestedResourceTypeSecond"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond"},
                 },
             };

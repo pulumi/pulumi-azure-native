@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest
+namespace Pulumi.AzureNative.ContainerService.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterMonitoringUserCredentials'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterMonitoringUserCredentials'.")]
     public static class ListManagedClusterMonitoringUserCredentials
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListManagedClusterMonitoringUserCredentialsResult> InvokeAsync(ListManagedClusterMonitoringUserCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterMonitoringUserCredentialsResult>("azure-nextgen:containerservice/latest:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice/latest:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automanage.Inputs
+namespace Pulumi.AzureNative.Automanage.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Automanage.Inputs
         /// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Automanage.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Automanage.ResourceIdentityType>? Type { get; set; }
 
         public AccountIdentityArgs()
         {

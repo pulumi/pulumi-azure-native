@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.Latest
+namespace Pulumi.AzureNative.AadIam.Latest
 {
     /// <summary>
     /// The diagnostic setting resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.")]
-    [AzureNextGenResourceType("azure-nextgen:aadiam/latest:DiagnosticSetting")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aadiam:DiagnosticSetting'.")]
+    [AzureNativeResourceType("azure-native:aadiam/latest:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.AadIam.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam/latest:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam/latest:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam/latest:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam/latest:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,7 +90,9 @@ namespace Pulumi.AzureNextGen.AadIam.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aadiam:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:DiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20170401:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20170401:DiagnosticSetting"},
                 },
             };

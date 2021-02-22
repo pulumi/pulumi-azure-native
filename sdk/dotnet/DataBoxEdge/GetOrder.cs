@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge
+namespace Pulumi.AzureNative.DataBoxEdge
 {
     public static class GetOrder
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-nextgen:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
     }
 
 

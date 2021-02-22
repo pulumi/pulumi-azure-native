@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.Latest
+namespace Pulumi.AzureNative.AppPlatform.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeployment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getDeployment'.")]
     public static class GetDeployment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
         /// Latest API Version: 2020-07-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-nextgen:appplatform/latest:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:appplatform/latest:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Inputs
+namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Security.Inputs
     public sealed class SecurityContactPropertiesNotificationsByRoleArgs : Pulumi.ResourceArgs
     {
         [Input("roles")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Roles>>? _roles;
+        private InputList<Union<string, Pulumi.AzureNative.Security.Roles>>? _roles;
 
         /// <summary>
         /// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Roles>> Roles
+        public InputList<Union<string, Pulumi.AzureNative.Security.Roles>> Roles
         {
-            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNextGen.Security.Roles>>());
+            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNative.Security.Roles>>());
             set => _roles = value;
         }
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Security.Inputs
         /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.State>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.State>? State { get; set; }
 
         public SecurityContactPropertiesNotificationsByRoleArgs()
         {

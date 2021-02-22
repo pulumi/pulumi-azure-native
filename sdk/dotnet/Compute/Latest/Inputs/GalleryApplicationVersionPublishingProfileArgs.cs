@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
+namespace Pulumi.AzureNative.Compute.Latest.Inputs
 {
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// Specifies the storage account type to be used to store the image. This property is not updatable.
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.StorageAccountType>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.StorageAccountType>? StorageAccountType { get; set; }
 
         [Input("targetRegions")]
         private InputList<Inputs.TargetRegionArgs>? _targetRegions;

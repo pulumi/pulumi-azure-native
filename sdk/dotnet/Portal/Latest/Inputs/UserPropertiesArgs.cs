@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest.Inputs
+namespace Pulumi.AzureNative.Portal.Latest.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Portal.Latest.Inputs
         /// The operating system type of the cloud shell. Deprecated, use preferredShellType.
         /// </summary>
         [Input("preferredOsType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.OsType> PreferredOsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Portal.Latest.OsType> PreferredOsType { get; set; } = null!;
 
         /// <summary>
         /// The shell type of the cloud shell.
         /// </summary>
         [Input("preferredShellType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.ShellType> PreferredShellType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Portal.Latest.ShellType> PreferredShellType { get; set; } = null!;
 
         /// <summary>
         /// The storage profile of the user settings.

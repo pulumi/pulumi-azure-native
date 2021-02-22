@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// API Version: 2021-01-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:TableResourceTable")]
+    [AzureNativeResourceType("azure-native:documentdb:TableResourceTable")]
     public partial class TableResourceTable : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TableResourceTable(string name, TableResourceTableArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:TableResourceTable", name, args ?? new TableResourceTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:TableResourceTable", name, args ?? new TableResourceTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TableResourceTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:TableResourceTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:TableResourceTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,13 +71,21 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:TableResourceTable"},
                 },
             };

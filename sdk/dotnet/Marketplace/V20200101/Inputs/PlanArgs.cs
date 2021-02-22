@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Marketplace.V20200101.Inputs
+namespace Pulumi.AzureNative.Marketplace.V20200101.Inputs
 {
 
     public sealed class PlanArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101.Inputs
         /// Plan accessibility
         /// </summary>
         [Input("accessibility")]
-        public InputUnion<string, Pulumi.AzureNextGen.Marketplace.V20200101.Accessibility>? Accessibility { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Marketplace.V20200101.Accessibility>? Accessibility { get; set; }
 
         public PlanArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Software update configuration properties.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName")]
+    [AzureNativeResourceType("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SoftwareUpdateConfigurationByName(string name, SoftwareUpdateConfigurationByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName", name, args ?? new SoftwareUpdateConfigurationByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName", name, args ?? new SoftwareUpdateConfigurationByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SoftwareUpdateConfigurationByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,8 +106,11 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:SoftwareUpdateConfigurationByName"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
                 },
             };

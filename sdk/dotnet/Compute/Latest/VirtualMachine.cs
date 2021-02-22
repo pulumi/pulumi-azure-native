@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachine")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachine'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -206,12 +206,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -222,19 +222,33 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachine"},
                 },
             };
@@ -287,7 +301,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
         [Input("evictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
 
         /// <summary>
         /// The extended location of the Virtual Machine.
@@ -365,7 +379,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
         /// </summary>
         [Input("priority")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.VirtualMachinePriorityTypes>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.VirtualMachinePriorityTypes>? Priority { get; set; }
 
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Migrate
+namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Assessment sizing criterion.

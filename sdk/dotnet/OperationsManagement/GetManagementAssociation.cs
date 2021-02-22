@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationsManagement
+namespace Pulumi.AzureNative.OperationsManagement
 {
     public static class GetManagementAssociation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-nextgen:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithVersion());
     }
 
 

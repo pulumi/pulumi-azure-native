@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// The type of the device.

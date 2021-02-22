@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.Inputs
+namespace Pulumi.AzureNative.DBforMariaDB.Inputs
 {
 
     public sealed class PrivateEndpointPropertyArgs : Pulumi.ResourceArgs

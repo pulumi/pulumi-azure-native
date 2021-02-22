@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
+namespace Pulumi.AzureNative.Batch.V20200301.Inputs
 {
 
     public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
         /// Type of the key source.
         /// </summary>
         [Input("keySource")]
-        public Input<Pulumi.AzureNextGen.Batch.V20200301.KeySource>? KeySource { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20200301.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// Additional details when using Microsoft.KeyVault

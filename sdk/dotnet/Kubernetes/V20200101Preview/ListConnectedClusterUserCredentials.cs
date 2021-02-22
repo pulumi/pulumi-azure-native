@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
+namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
 {
     public static class ListConnectedClusterUserCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// The list of credential result response.
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialsResult> InvokeAsync(ListConnectedClusterUserCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialsResult>("azure-nextgen:kubernetes/v20200101preview:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialsResult>("azure-native:kubernetes/v20200101preview:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsArgs(), options.WithVersion());
     }
 
 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// The mode of client authentication.
         /// </summary>
         [Input("authenticationMethod", required: true)]
-        public Union<string, Pulumi.AzureNextGen.Kubernetes.V20200101Preview.AuthenticationMethod> AuthenticationMethod { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.Kubernetes.V20200101Preview.AuthenticationMethod> AuthenticationMethod { get; set; } = null!;
 
         /// <summary>
         /// Parameter to indicate whether the request is for client side proxy or not

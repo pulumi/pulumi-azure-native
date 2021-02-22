@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Dataset resource type.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory:Dataset")]
+    [AzureNativeResourceType("azure-native:datafactory:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dataset(string name, DatasetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dataset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:Dataset", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory:Dataset", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Dataset"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Dataset"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Dataset"},
                 },
             };

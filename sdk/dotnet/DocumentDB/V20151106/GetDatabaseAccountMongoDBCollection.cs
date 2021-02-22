@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20151106
+namespace Pulumi.AzureNative.DocumentDB.V20151106
 {
     public static class GetDatabaseAccountMongoDBCollection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
         /// An Azure Cosmos DB MongoDB collection.
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBCollectionResult> InvokeAsync(GetDatabaseAccountMongoDBCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-nextgen:documentdb/v20151106:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-native:documentdb/v20151106:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithVersion());
     }
 
 

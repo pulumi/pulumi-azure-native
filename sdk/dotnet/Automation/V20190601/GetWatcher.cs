@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     public static class GetWatcher
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// Definition of the watcher type.
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-nextgen:automation/v20190601:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation/v20190601:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
     }
 
 

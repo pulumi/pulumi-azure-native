@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview.Inputs
+namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview.Inputs
         /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         /// </summary>
         [Input("rebootSetting")]
-        public InputUnion<string, Pulumi.AzureNextGen.Maintenance.V20210401Preview.RebootOptions>? RebootSetting { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Maintenance.V20210401Preview.RebootOptions>? RebootSetting { get; set; }
 
         /// <summary>
         /// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.

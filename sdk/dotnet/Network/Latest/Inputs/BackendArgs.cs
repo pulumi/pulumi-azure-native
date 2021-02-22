@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.BackendEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.BackendEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// The HTTP TCP port number. Must be between 1 and 65535.

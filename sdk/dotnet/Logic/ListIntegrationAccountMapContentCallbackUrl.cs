@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class ListIntegrationAccountMapContentCallbackUrl
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountMapContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountMapContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountMapContentCallbackUrlResult>("azure-nextgen:logic:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlArgs(), options.WithVersion());
     }
 
 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public Union<string, Pulumi.AzureNextGen.Logic.KeyType>? KeyType { get; set; }
+        public Union<string, Pulumi.AzureNative.Logic.KeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The integration account map name.

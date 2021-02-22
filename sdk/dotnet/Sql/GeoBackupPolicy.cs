@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database geo backup policy.
     /// API Version: 2014-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:GeoBackupPolicy")]
+    [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GeoBackupPolicy(string name, GeoBackupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:GeoBackupPolicy", name, args ?? new GeoBackupPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:GeoBackupPolicy", name, args ?? new GeoBackupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GeoBackupPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:GeoBackupPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:GeoBackupPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:GeoBackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:GeoBackupPolicy"},
                 },
             };
@@ -130,7 +132,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// The state of the geo backup policy.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.Sql.GeoBackupPolicyState> State { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Sql.GeoBackupPolicyState> State { get; set; } = null!;
 
         public GeoBackupPolicyArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview
+namespace Pulumi.AzureNative.Security.V20190101Preview
 {
     /// <summary>
     /// The security automation resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security/v20190101preview:Automation")]
+    [AzureNativeResourceType("azure-native:security/v20190101preview:Automation")]
     public partial class Automation : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Automation(string name, AutomationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20190101preview:Automation", name, args ?? new AutomationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20190101preview:Automation", name, args ?? new AutomationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Automation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20190101preview:Automation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20190101preview:Automation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:Automation"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:Automation"},
                 },
             };

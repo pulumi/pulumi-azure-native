@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20171001
+namespace Pulumi.AzureNative.Network.V20171001
 {
     public static class GetApplicationGateway
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// Application gateway resource
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-nextgen:network/v20171001:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network/v20171001:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithVersion());
     }
 
 

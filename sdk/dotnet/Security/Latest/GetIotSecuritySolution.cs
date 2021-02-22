@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest
+namespace Pulumi.AzureNative.Security.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getIotSecuritySolution'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getIotSecuritySolution'.")]
     public static class GetIotSecuritySolution
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Latest API Version: 2019-08-01.
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-nextgen:security/latest:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/latest:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
     }
 
 

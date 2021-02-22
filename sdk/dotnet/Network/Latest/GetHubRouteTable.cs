@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubRouteTable'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubRouteTable'.")]
     public static class GetHubRouteTable
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-nextgen:network/latest:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network/latest:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
     }
 
 

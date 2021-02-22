@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportThrottledRequests'.")]
     public static class GetLogAnalyticExportThrottledRequests
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetLogAnalyticExportThrottledRequestsResult> InvokeAsync(GetLogAnalyticExportThrottledRequestsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-nextgen:compute/latest:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute/latest:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithVersion());
     }
 
 

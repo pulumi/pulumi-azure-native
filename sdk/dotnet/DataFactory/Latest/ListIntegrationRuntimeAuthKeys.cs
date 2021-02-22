@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:listIntegrationRuntimeAuthKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:listIntegrationRuntimeAuthKeys'.")]
     public static class ListIntegrationRuntimeAuthKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// Latest API Version: 2018-06-01.
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeysResult> InvokeAsync(ListIntegrationRuntimeAuthKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-nextgen:datafactory/latest:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-native:datafactory/latest:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithVersion());
     }
 
 

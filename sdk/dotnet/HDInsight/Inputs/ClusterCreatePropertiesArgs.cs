@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.Inputs
+namespace Pulumi.AzureNative.HDInsight.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.HDInsight.Inputs
         /// The type of operating system.
         /// </summary>
         [Input("osType")]
-        public Input<Pulumi.AzureNextGen.HDInsight.OSType>? OsType { get; set; }
+        public Input<Pulumi.AzureNative.HDInsight.OSType>? OsType { get; set; }
 
         /// <summary>
         /// The security profile.
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.HDInsight.Inputs
         /// The cluster tier.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNextGen.HDInsight.Tier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.HDInsight.Tier>? Tier { get; set; }
 
         public ClusterCreatePropertiesArgs()
         {

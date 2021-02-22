@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Enables the static website feature of a storage account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:StorageAccountStaticWebsite")]
+    [AzureNativeResourceType("azure-native:storage:StorageAccountStaticWebsite")]
     public partial class StorageAccountStaticWebsite : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountStaticWebsite(string name, StorageAccountStaticWebsiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:StorageAccountStaticWebsite", name, args ?? new StorageAccountStaticWebsiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:StorageAccountStaticWebsite", name, args ?? new StorageAccountStaticWebsiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountStaticWebsite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:StorageAccountStaticWebsite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:StorageAccountStaticWebsite", name, null, MakeResourceOptions(options, id))
         {
         }
 

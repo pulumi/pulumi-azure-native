@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate
+namespace Pulumi.AzureNative.Migrate
 {
     public static class GetVMwareCollector
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Migrate
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-nextgen:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
     }
 
 

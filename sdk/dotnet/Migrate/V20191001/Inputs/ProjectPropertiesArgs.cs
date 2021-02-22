@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001.Inputs
+namespace Pulumi.AzureNative.Migrate.V20191001.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001.Inputs
         /// Assessment project status.
         /// </summary>
         [Input("projectStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001.ProjectStatus>? ProjectStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20191001.ProjectStatus>? ProjectStatus { get; set; }
 
         public ProjectPropertiesArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
+namespace Pulumi.AzureNative.Network.V20201101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
         /// Name of the pricing tier.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20201101.SkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.SkuName>? Name { get; set; }
 
         public SkuArgs()
         {

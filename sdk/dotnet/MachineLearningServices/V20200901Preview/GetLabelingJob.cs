@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     public static class GetLabelingJob
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// Machine Learning labeling job object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-nextgen:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithVersion());
     }
 
 

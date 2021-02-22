@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
+namespace Pulumi.AzureNative.Network.V20160330.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
         /// Gets or sets AuthorizationUseStatus
         /// </summary>
         [Input("authorizationUseStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160330.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated

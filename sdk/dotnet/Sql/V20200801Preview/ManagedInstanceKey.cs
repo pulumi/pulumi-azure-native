@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     /// <summary>
     /// A managed instance key.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:ManagedInstanceKey")]
+    [AzureNativeResourceType("azure-native:sql/v20200801preview:ManagedInstanceKey")]
     public partial class ManagedInstanceKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstanceKey(string name, ManagedInstanceKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:ManagedInstanceKey", name, args ?? new ManagedInstanceKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200801preview:ManagedInstanceKey", name, args ?? new ManagedInstanceKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstanceKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:ManagedInstanceKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200801preview:ManagedInstanceKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedInstanceKey"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ManagedInstanceKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:ManagedInstanceKey"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstanceKey"},
                 },
             };
@@ -130,7 +133,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The key type like 'ServiceManaged', 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.ServerKeyType> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200801Preview.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.

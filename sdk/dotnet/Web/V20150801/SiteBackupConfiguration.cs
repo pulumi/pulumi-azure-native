@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Description of a backup which will be performed
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteBackupConfiguration")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteBackupConfiguration")]
     public partial class SiteBackupConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteBackupConfiguration(string name, SiteBackupConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteBackupConfiguration", name, args ?? new SiteBackupConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteBackupConfiguration", name, args ?? new SiteBackupConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteBackupConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteBackupConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteBackupConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,14 +94,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteBackupConfiguration"},
                 },
             };

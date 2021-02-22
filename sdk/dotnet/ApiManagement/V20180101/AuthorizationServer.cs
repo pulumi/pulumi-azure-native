@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// External OAuth authorization server settings.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:AuthorizationServer")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:AuthorizationServer")]
     public partial class AuthorizationServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationServer(string name, AuthorizationServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:AuthorizationServer", name, args ?? new AuthorizationServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:AuthorizationServer", name, args ?? new AuthorizationServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AuthorizationServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:AuthorizationServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:AuthorizationServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,15 +148,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer"},
                 },
             };
@@ -188,14 +198,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
         [Input("authorizationMethods")]
-        private InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.AuthorizationMethod>? _authorizationMethods;
+        private InputList<Pulumi.AzureNative.ApiManagement.V20180101.AuthorizationMethod>? _authorizationMethods;
 
         /// <summary>
         /// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.AuthorizationMethod> AuthorizationMethods
+        public InputList<Pulumi.AzureNative.ApiManagement.V20180101.AuthorizationMethod> AuthorizationMethods
         {
-            get => _authorizationMethods ?? (_authorizationMethods = new InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.AuthorizationMethod>());
+            get => _authorizationMethods ?? (_authorizationMethods = new InputList<Pulumi.AzureNative.ApiManagement.V20180101.AuthorizationMethod>());
             set => _authorizationMethods = value;
         }
 
@@ -206,26 +216,26 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         public Input<string>? Authsid { get; set; }
 
         [Input("bearerTokenSendingMethods")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.BearerTokenSendingMethod>>? _bearerTokenSendingMethods;
+        private InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.BearerTokenSendingMethod>>? _bearerTokenSendingMethods;
 
         /// <summary>
         /// Specifies the mechanism by which access token is passed to the API. 
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.BearerTokenSendingMethod>> BearerTokenSendingMethods
+        public InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.BearerTokenSendingMethod>> BearerTokenSendingMethods
         {
-            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.BearerTokenSendingMethod>>());
+            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.BearerTokenSendingMethod>>());
             set => _bearerTokenSendingMethods = value;
         }
 
         [Input("clientAuthenticationMethod")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.ClientAuthenticationMethod>>? _clientAuthenticationMethod;
+        private InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.ClientAuthenticationMethod>>? _clientAuthenticationMethod;
 
         /// <summary>
         /// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.ClientAuthenticationMethod>> ClientAuthenticationMethod
+        public InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.ClientAuthenticationMethod>> ClientAuthenticationMethod
         {
-            get => _clientAuthenticationMethod ?? (_clientAuthenticationMethod = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.ClientAuthenticationMethod>>());
+            get => _clientAuthenticationMethod ?? (_clientAuthenticationMethod = new InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.ClientAuthenticationMethod>>());
             set => _clientAuthenticationMethod = value;
         }
 
@@ -266,14 +276,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("grantTypes", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.GrantType>>? _grantTypes;
+        private InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.GrantType>>? _grantTypes;
 
         /// <summary>
         /// Form of an authorization grant, which the client uses to request the access token.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.GrantType>> GrantTypes
+        public InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.GrantType>> GrantTypes
         {
-            get => _grantTypes ?? (_grantTypes = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20180101.GrantType>>());
+            get => _grantTypes ?? (_grantTypes = new InputList<Union<string, Pulumi.AzureNative.ApiManagement.V20180101.GrantType>>());
             set => _grantTypes = value;
         }
 

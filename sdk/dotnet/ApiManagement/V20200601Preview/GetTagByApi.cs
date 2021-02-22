@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     public static class GetTagByApi
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Tag Contract details.
         /// </summary>
         public static Task<GetTagByApiResult> InvokeAsync(GetTagByApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azure-nextgen:apimanagement/v20200601preview:getTagByApi", args ?? new GetTagByApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azure-native:apimanagement/v20200601preview:getTagByApi", args ?? new GetTagByApiArgs(), options.WithVersion());
     }
 
 

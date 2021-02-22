@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData
+namespace Pulumi.AzureNative.HybridData
 {
     public static class GetDataStore
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridData
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-nextgen:hybriddata:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-native:hybriddata:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
     }
 
 

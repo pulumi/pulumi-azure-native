@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest
+namespace Pulumi.AzureNative.Resources.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtTenantScope'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtTenantScope'.")]
     public static class GetDeploymentAtTenantScope
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-nextgen:resources/latest:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources/latest:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
+namespace Pulumi.AzureNative.Web.V20160801.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
         /// Database type (e.g. SqlAzure / MySql).
         /// </summary>
         [Input("databaseType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.V20160801.DatabaseType> DatabaseType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Web.V20160801.DatabaseType> DatabaseType { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }

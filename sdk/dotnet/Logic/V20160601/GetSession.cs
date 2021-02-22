@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class GetSession
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The integration account session.
         /// </summary>
         public static Task<GetSessionResult> InvokeAsync(GetSessionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSessionResult>("azure-nextgen:logic/v20160601:getSession", args ?? new GetSessionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSessionResult>("azure-native:logic/v20160601:getSession", args ?? new GetSessionArgs(), options.WithVersion());
     }
 
 

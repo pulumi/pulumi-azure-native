@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
 {
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet")]
+    [AzureNativeResourceType("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet")]
     public partial class ReferenceDataSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReferenceDataSet(string name, ReferenceDataSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet", name, args ?? new ReferenceDataSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet", name, args ?? new ReferenceDataSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReferenceDataSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"},
                 },
             };

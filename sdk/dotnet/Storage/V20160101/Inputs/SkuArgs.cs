@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20160101.Inputs
+namespace Pulumi.AzureNative.Storage.V20160101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160101.Inputs
         /// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.Storage.V20160101.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Storage.V20160101.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

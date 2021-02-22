@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetInboundNatRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-nextgen:network:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
     }
 
 

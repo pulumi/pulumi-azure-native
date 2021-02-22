@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The StorSimple Manager.
     /// API Version: 2017-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:Manager")]
+    [AzureNativeResourceType("azure-native:storsimple:Manager")]
     public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Manager(string name, ManagerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:Manager", name, args ?? new ManagerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:Manager", name, args ?? new ManagerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Manager(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:Manager", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:Manager", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,8 +89,11 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:Manager"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:Manager"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:Manager"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:Manager"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:Manager"},
                 },
             };

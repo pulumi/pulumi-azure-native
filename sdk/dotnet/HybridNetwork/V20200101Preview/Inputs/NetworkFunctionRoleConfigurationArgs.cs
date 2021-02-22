@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         /// Role type.
         /// </summary>
         [Input("roleType")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.NetworkFunctionRoleConfigurationType>? RoleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.V20200101Preview.NetworkFunctionRoleConfigurationType>? RoleType { get; set; }
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         /// The size of the virtual machine.
         /// </summary>
         [Input("virtualMachineSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.VirtualMachineSizeTypes>? VirtualMachineSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.V20200101Preview.VirtualMachineSizeTypes>? VirtualMachineSize { get; set; }
 
         public NetworkFunctionRoleConfigurationArgs()
         {

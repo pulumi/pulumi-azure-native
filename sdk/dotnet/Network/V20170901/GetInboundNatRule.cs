@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170901
+namespace Pulumi.AzureNative.Network.V20170901
 {
     public static class GetInboundNatRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// Inbound NAT rule of the load balancer.
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-nextgen:network/v20170901:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network/v20170901:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
     }
 
 

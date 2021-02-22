@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFirewallPolicyRuleCollectionGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicyRuleCollectionGroup'.")]
     public static class GetFirewallPolicyRuleCollectionGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetFirewallPolicyRuleCollectionGroupResult> InvokeAsync(GetFirewallPolicyRuleCollectionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleCollectionGroupResult>("azure-nextgen:network/latest:getFirewallPolicyRuleCollectionGroup", args ?? new GetFirewallPolicyRuleCollectionGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleCollectionGroupResult>("azure-native:network/latest:getFirewallPolicyRuleCollectionGroup", args ?? new GetFirewallPolicyRuleCollectionGroupArgs(), options.WithVersion());
     }
 
 

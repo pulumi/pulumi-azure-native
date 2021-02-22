@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData.Latest
+namespace Pulumi.AzureNative.HybridData.Latest
 {
     /// <summary>
     /// Job Definition.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.")]
-    [AzureNextGenResourceType("azure-nextgen:hybriddata/latest:JobDefinition")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:JobDefinition'.")]
+    [AzureNativeResourceType("azure-native:hybriddata/latest:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata/latest:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybriddata/latest:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata/latest:JobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybriddata/latest:JobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,8 +108,11 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybriddata:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:JobDefinition"},
                 },
             };
@@ -198,7 +201,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// This is the preferred geo location for the job to run.
         /// </summary>
         [Input("runLocation")]
-        public Input<Pulumi.AzureNextGen.HybridData.Latest.RunLocation>? RunLocation { get; set; }
+        public Input<Pulumi.AzureNative.HybridData.Latest.RunLocation>? RunLocation { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.ScheduleArgs>? _schedules;
@@ -216,17 +219,17 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// State of the job definition.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.HybridData.Latest.State> State { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HybridData.Latest.State> State { get; set; } = null!;
 
         /// <summary>
         /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         /// </summary>
         [Input("userConfirmation")]
-        public Input<Pulumi.AzureNextGen.HybridData.Latest.UserConfirmation>? UserConfirmation { get; set; }
+        public Input<Pulumi.AzureNative.HybridData.Latest.UserConfirmation>? UserConfirmation { get; set; }
 
         public JobDefinitionArgs()
         {
-            UserConfirmation = Pulumi.AzureNextGen.HybridData.Latest.UserConfirmation.NotRequired;
+            UserConfirmation = Pulumi.AzureNative.HybridData.Latest.UserConfirmation.NotRequired;
         }
     }
 }

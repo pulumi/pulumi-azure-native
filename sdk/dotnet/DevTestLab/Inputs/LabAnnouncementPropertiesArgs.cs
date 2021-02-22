@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Inputs
         /// Is the lab announcement active/enabled at this time?
         /// </summary>
         [Input("enabled")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.EnableStatus>? Enabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.EnableStatus>? Enabled { get; set; }
 
         /// <summary>
         /// The time at which the announcement expires (null for never)

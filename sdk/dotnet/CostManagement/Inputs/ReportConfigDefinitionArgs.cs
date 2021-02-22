@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.TimeframeType> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.TimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the report.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.ReportType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.ReportType> Type { get; set; } = null!;
 
         public ReportConfigDefinitionArgs()
         {

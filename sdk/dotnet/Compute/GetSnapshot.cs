@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     public static class GetSnapshot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// API Version: 2020-09-30.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-nextgen:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
 
 

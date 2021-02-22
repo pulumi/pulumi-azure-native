@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh
+namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh:SecretValue")]
+    [AzureNativeResourceType("azure-native:servicefabricmesh:SecretValue")]
     public partial class SecretValue : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecretValue(string name, SecretValueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:SecretValue", name, args ?? new SecretValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabricmesh:SecretValue", name, args ?? new SecretValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecretValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:SecretValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabricmesh:SecretValue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:SecretValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:SecretValue"},
                 },
             };

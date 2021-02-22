@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     public static class GetApiSchema
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// Schema Contract details.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-nextgen:apimanagement/v20180101:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement/v20180101:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
     }
 
 

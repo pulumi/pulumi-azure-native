@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the runbook type.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:Runbook")]
+    [AzureNativeResourceType("azure-native:automation:Runbook")]
     public partial class Runbook : Pulumi.CustomResource
     {
         /// <summary>
@@ -145,12 +145,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Runbook(string name, RunbookArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:Runbook", name, args ?? new RunbookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:Runbook", name, args ?? new RunbookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Runbook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:Runbook", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:Runbook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -161,9 +161,13 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Runbook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Runbook"},
                 },
             };
@@ -258,7 +262,7 @@ namespace Pulumi.AzureNextGen.Automation
         /// Gets or sets the type of the runbook.
         /// </summary>
         [Input("runbookType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.RunbookTypeEnum> RunbookType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Automation.RunbookTypeEnum> RunbookType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     public static class GetLinkedWorkspace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetLinkedWorkspaceResult> InvokeAsync(GetLinkedWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-nextgen:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-native:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithVersion());
     }
 
 

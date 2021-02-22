@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The assembly definition.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountAssembly")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationAccountAssembly")]
     public partial class IntegrationAccountAssembly : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountAssembly(string name, IntegrationAccountAssemblyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountAssembly", name, args ?? new IntegrationAccountAssemblyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationAccountAssembly", name, args ?? new IntegrationAccountAssemblyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountAssembly(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountAssembly", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationAccountAssembly", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,13 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountAssembly"},
                 },
             };

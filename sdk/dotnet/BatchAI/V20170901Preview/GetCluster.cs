@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview
 {
     public static class GetCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// Contains information about a Cluster.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:batchai/v20170901preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:batchai/v20170901preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

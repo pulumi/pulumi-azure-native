@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:RuleSet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:RuleSet'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:RuleSet")]
     public partial class RuleSet : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -53,12 +53,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleSet(string name, RuleSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:RuleSet", name, args ?? new RuleSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:RuleSet", name, args ?? new RuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RuleSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:RuleSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:RuleSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,9 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:RuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:RuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:RuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:RuleSet"},
                 },
             };

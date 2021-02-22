@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601
+namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
     /// VirtualRouter Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200601:VirtualRouter")]
+    [AzureNativeResourceType("azure-native:network/v20200601:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualRouter(string name, VirtualRouterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:VirtualRouter", name, args ?? new VirtualRouterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200601:VirtualRouter", name, args ?? new VirtualRouterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualRouter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:VirtualRouter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200601:VirtualRouter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,17 +106,29 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualRouter"},
                 },
             };

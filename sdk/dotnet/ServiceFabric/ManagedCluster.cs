@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric
+namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The manged cluster resource
     /// 
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric:ManagedCluster")]
+    [AzureNativeResourceType("azure-native:servicefabric:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -158,12 +158,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedCluster(string name, ManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:ManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric:ManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -174,6 +174,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200101preview:ManagedCluster"},
                 },
             };

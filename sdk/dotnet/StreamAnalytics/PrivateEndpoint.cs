@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics
+namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// Complete information about the private endpoint.
     /// API Version: 2020-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics:PrivateEndpoint")]
+    [AzureNativeResourceType("azure-native:streamanalytics:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpoint(string name, PrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint"},
                 },
             };

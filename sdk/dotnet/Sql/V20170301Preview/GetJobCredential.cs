@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20170301Preview
+namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
     public static class GetJobCredential
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// A stored credential that can be used by a job to connect to target databases.
         /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-nextgen:sql/v20170301preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql/v20170301preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
     }
 
 

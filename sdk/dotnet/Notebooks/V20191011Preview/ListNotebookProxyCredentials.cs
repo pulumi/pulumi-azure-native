@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
+namespace Pulumi.AzureNative.Notebooks.V20191011Preview
 {
     public static class ListNotebookProxyCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
         /// Credentials and other properties of NotebookProxy resource
         /// </summary>
         public static Task<ListNotebookProxyCredentialsResult> InvokeAsync(ListNotebookProxyCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookProxyCredentialsResult>("azure-nextgen:notebooks/v20191011preview:listNotebookProxyCredentials", args ?? new ListNotebookProxyCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookProxyCredentialsResult>("azure-native:notebooks/v20191011preview:listNotebookProxyCredentials", args ?? new ListNotebookProxyCredentialsArgs(), options.WithVersion());
     }
 
 

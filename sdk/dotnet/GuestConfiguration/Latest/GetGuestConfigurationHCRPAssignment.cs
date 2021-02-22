@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
+namespace Pulumi.AzureNative.GuestConfiguration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment'.")]
     public static class GetGuestConfigurationHCRPAssignment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
         /// Latest API Version: 2020-06-25.
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-nextgen:guestconfiguration/latest:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/latest:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200901
+namespace Pulumi.AzureNative.Web.V20200901
 {
     /// <summary>
     /// Public certificate object
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20200901:WebAppPublicCertificate")]
+    [AzureNativeResourceType("azure-native:web/v20200901:WebAppPublicCertificate")]
     public partial class WebAppPublicCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppPublicCertificate(string name, WebAppPublicCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200901:WebAppPublicCertificate", name, args ?? new WebAppPublicCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20200901:WebAppPublicCertificate", name, args ?? new WebAppPublicCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppPublicCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200901:WebAppPublicCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20200901:WebAppPublicCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,13 +82,21 @@ namespace Pulumi.AzureNextGen.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPublicCertificate"},
                 },
             };
@@ -135,7 +143,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// Public Certificate Location
         /// </summary>
         [Input("publicCertificateLocation")]
-        public Input<Pulumi.AzureNextGen.Web.V20200901.PublicCertificateLocation>? PublicCertificateLocation { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200901.PublicCertificateLocation>? PublicCertificateLocation { get; set; }
 
         /// <summary>
         /// Public certificate name.

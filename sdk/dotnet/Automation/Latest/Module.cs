@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
     /// <summary>
     /// Definition of the module type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Module'.")]
-    [AzureNextGenResourceType("azure-nextgen:automation/latest:Module")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Module'.")]
+    [AzureNativeResourceType("azure-native:automation/latest:Module")]
     public partial class Module : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Module(string name, ModuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Module", name, args ?? new ModuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/latest:Module", name, args ?? new ModuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Module(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Module", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/latest:Module", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,9 +138,13 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Module"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Module"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Module"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Module"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Inputs
 {
 
     public sealed class PipelineRunSourcePropertiesArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
         /// The type of the source.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.PipelineRunSourceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.PipelineRunSourceType>? Type { get; set; }
 
         public PipelineRunSourcePropertiesArgs()
         {

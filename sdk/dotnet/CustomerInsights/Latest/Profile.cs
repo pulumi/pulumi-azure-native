@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
     /// <summary>
     /// The profile resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Profile'.")]
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Profile")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Profile'.")]
+    [AzureNativeResourceType("azure-native:customerinsights/latest:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
@@ -146,12 +146,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/latest:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/latest:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/latest:Profile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/latest:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -162,8 +162,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Profile"},
                 },
             };
@@ -234,7 +237,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Type of entity.
         /// </summary>
         [Input("entityType")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.EntityTypes>? EntityType { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.Latest.EntityTypes>? EntityType { get; set; }
 
         [Input("fields")]
         private InputList<Inputs.PropertyDefinitionArgs>? _fields;

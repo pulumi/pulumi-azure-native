@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack
+namespace Pulumi.AzureNative.AzureStack
 {
     public static class GetRegistration
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AzureStack
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-nextgen:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListWebAppHostKeysSlot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppHostKeysSlotResult> InvokeAsync(ListWebAppHostKeysSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysSlotResult>("azure-nextgen:web:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysSlotResult>("azure-native:web:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotArgs(), options.WithVersion());
     }
 
 

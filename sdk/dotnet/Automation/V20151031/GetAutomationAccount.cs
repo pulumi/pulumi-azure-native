@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     public static class GetAutomationAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Definition of the automation account type.
         /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-nextgen:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
     }
 
 

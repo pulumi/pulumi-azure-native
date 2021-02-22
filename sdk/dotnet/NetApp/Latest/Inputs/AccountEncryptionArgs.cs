@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
+namespace Pulumi.AzureNative.NetApp.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
         /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
         /// </summary>
         [Input("keySource")]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.Latest.KeySource>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.Latest.KeySource>? KeySource { get; set; }
 
         public AccountEncryptionArgs()
         {

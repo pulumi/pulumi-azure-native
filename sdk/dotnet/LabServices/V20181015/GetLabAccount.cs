@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     public static class GetLabAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Represents a lab account.
         /// </summary>
         public static Task<GetLabAccountResult> InvokeAsync(GetLabAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azure-nextgen:labservices/v20181015:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azure-native:labservices/v20181015:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
     }
 
 

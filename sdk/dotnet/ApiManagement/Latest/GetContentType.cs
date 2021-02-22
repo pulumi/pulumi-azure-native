@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentType'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentType'.")]
     public static class GetContentType
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetContentTypeResult> InvokeAsync(GetContentTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-nextgen:apimanagement/latest:getContentType", args ?? new GetContentTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-native:apimanagement/latest:getContentType", args ?? new GetContentTypeArgs(), options.WithVersion());
     }
 
 

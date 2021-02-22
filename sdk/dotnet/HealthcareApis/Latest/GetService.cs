@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.Latest
+namespace Pulumi.AzureNative.HealthcareApis.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthcareapis:getService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:healthcareapis:getService'.")]
     public static class GetService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// Latest API Version: 2021-01-11.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:healthcareapis/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class GetAgreement
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The integration account agreement.
         /// </summary>
         public static Task<GetAgreementResult> InvokeAsync(GetAgreementArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure-nextgen:logic/v20160601:getAgreement", args ?? new GetAgreementArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementArgs(), options.WithVersion());
     }
 
 

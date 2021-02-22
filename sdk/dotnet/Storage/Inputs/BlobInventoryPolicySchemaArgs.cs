@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Inputs
+namespace Pulumi.AzureNative.Storage.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Storage.Inputs
         /// The valid value is Inventory
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.InventoryRuleType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Storage.InventoryRuleType> Type { get; set; } = null!;
 
         public BlobInventoryPolicySchemaArgs()
         {

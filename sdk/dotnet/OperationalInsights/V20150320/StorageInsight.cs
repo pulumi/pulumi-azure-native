@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
+namespace Pulumi.AzureNative.OperationalInsights.V20150320
 {
     /// <summary>
     /// The top level storage insight resource container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20150320:StorageInsight")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20150320:StorageInsight")]
     public partial class StorageInsight : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageInsight(string name, StorageInsightArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, args ?? new StorageInsightArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20150320:StorageInsight", name, args ?? new StorageInsightArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageInsight(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20150320:StorageInsight", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20150320:StorageInsight", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,9 +88,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:StorageInsight"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:StorageInsight"},
                 },
             };

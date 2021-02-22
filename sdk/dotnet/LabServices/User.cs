@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// The User registered to a lab
     /// API Version: 2018-10-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices:User")]
+    [AzureNativeResourceType("azure-native:labservices:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,7 +113,9 @@ namespace Pulumi.AzureNextGen.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:User"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:User"},
                 },
             };

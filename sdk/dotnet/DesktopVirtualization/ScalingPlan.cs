@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a scaling plan definition.
     /// API Version: 2021-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization:ScalingPlan")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScalingPlan(string name, ScalingPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:ScalingPlan", name, args ?? new ScalingPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization:ScalingPlan", name, args ?? new ScalingPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScalingPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:ScalingPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization:ScalingPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,8 +107,11 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:ScalingPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ScalingPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:ScalingPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan"},
                 },
             };
@@ -167,7 +170,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// HostPool type for scaling plan.
         /// </summary>
         [Input("hostPoolType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.HostPoolType>? HostPoolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.HostPoolType>? HostPoolType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

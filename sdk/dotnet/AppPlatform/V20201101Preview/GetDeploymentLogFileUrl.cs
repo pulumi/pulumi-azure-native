@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
+namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
 {
     public static class GetDeploymentLogFileUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
         /// Log file URL payload
         /// </summary>
         public static Task<GetDeploymentLogFileUrlResult> InvokeAsync(GetDeploymentLogFileUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-nextgen:appplatform/v20201101preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20201101preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20170402
+namespace Pulumi.AzureNative.Cdn.V20170402
 {
     public static class GetEndpoint
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
         /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:cdn/v20170402:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:cdn/v20170402:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }
 
 

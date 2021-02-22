@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks.Latest.Outputs
+namespace Pulumi.AzureNative.Databricks.Latest.Outputs
 {
 
     [OutputType]

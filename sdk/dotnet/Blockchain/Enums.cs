@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Blockchain
+namespace Pulumi.AzureNative.Blockchain
 {
     /// <summary>
     /// Gets or sets the blockchain protocol.

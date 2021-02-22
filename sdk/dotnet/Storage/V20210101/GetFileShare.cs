@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20210101
+namespace Pulumi.AzureNative.Storage.V20210101
 {
     public static class GetFileShare
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
         /// Properties of the file share, including Id, resource name, resource type, Etag.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storage/v20210101:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storage/v20210101:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }
 
 

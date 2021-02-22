@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A private endpoint connection
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:sql:ManagedInstancePrivateEndpointConnection")]
     public partial class ManagedInstancePrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstancePrivateEndpointConnection(string name, ManagedInstancePrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection", name, args ?? new ManagedInstancePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ManagedInstancePrivateEndpointConnection", name, args ?? new ManagedInstancePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstancePrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ManagedInstancePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"},
                 },
             };

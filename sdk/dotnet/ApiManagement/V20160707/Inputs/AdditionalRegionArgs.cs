@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20160707.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20160707.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707.Inputs
         /// The SKU type in the location.
         /// </summary>
         [Input("skuType", required: true)]
-        public Input<Pulumi.AzureNextGen.ApiManagement.V20160707.SkuType> SkuType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.ApiManagement.V20160707.SkuType> SkuType { get; set; } = null!;
 
         /// <summary>
         /// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20161010.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20161010.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010.Inputs
         /// Name of the Sku.
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.ApiManagement.V20161010.SkuType> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.ApiManagement.V20161010.SkuType> Name { get; set; } = null!;
 
         public ApiManagementServiceSkuPropertiesArgs()
         {

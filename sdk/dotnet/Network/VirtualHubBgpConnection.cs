@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Appliance Site resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:VirtualHubBgpConnection")]
+    [AzureNativeResourceType("azure-native:network:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubBgpConnection(string name, VirtualHubBgpConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualHubBgpConnection", name, args ?? new VirtualHubBgpConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:VirtualHubBgpConnection", name, args ?? new VirtualHubBgpConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualHubBgpConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualHubBgpConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:VirtualHubBgpConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,10 +83,15 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHubBgpConnection"},
                 },
             };

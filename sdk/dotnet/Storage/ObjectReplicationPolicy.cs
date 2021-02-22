@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:ObjectReplicationPolicy")]
+    [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ObjectReplicationPolicy(string name, ObjectReplicationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ObjectReplicationPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,9 +83,13 @@ namespace Pulumi.AzureNextGen.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ObjectReplicationPolicy"},
                 },
             };

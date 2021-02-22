@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
+namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
 {
     public static class GetAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
         /// The response to an account resource GET request.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:visualstudio/v20171101preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio/v20171101preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

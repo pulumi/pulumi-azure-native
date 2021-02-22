@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview
+namespace Pulumi.AzureNative.Security.V20190101Preview
 {
     /// <summary>
     /// The type of the action that will be triggered by the Automation

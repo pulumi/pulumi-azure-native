@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountCallbackUrl'.")]
     public static class ListIntegrationAccountCallbackUrl
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountCallbackUrlResult> InvokeAsync(ListIntegrationAccountCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-nextgen:logic/latest:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/latest:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithVersion());
     }
 
 
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public Union<string, Pulumi.AzureNextGen.Logic.Latest.KeyType>? KeyType { get; set; }
+        public Union<string, Pulumi.AzureNative.Logic.Latest.KeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The expiry time.

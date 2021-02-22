@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare
+namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A DataSet data transfer object.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare:DataSet")]
+    [AzureNativeResourceType("azure-native:datashare:DataSet")]
     public partial class DataSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataShare
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSet(string name, DataSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare:DataSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare:DataSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,10 +65,15 @@ namespace Pulumi.AzureNextGen.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:DataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:DataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:DataSet"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:DataSet"},
                 },
             };
@@ -109,7 +114,7 @@ namespace Pulumi.AzureNextGen.DataShare
         /// Kind of data set.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.DataSetKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataShare.DataSetKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

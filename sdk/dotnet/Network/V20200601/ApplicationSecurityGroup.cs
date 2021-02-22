@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601
+namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
     /// An application security group in a resource group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200601:ApplicationSecurityGroup")]
+    [AzureNativeResourceType("azure-native:network/v20200601:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationSecurityGroup(string name, ApplicationSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:ApplicationSecurityGroup", name, args ?? new ApplicationSecurityGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200601:ApplicationSecurityGroup", name, args ?? new ApplicationSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationSecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:ApplicationSecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200601:ApplicationSecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,32 +82,59 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationSecurityGroup"},
                 },
             };

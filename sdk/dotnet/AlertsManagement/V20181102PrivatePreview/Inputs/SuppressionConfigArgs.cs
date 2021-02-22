@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
         /// Specifies when the suppression should be applied
         /// </summary>
         [Input("recurrenceType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.SuppressionType> RecurrenceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.SuppressionType> RecurrenceType { get; set; } = null!;
 
         /// <summary>
         /// Schedule for a given suppression configuration.

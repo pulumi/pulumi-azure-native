@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     public static class GetIpFirewallRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// IP firewall rule
         /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-nextgen:synapse/v20190601preview:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-native:synapse/v20190601preview:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     public static class ListIntegrationRuntimeAuthKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// The integration runtime authentication keys.
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeyResult> InvokeAsync(ListIntegrationRuntimeAuthKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-nextgen:synapse/v20190601preview:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/v20190601preview:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithVersion());
     }
 
 

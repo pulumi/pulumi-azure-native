@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.Inputs
+namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.Inputs
         /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         /// </summary>
         [Input("allowModuleOverwrite")]
-        public InputUnion<string, Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.AllowModuleOverwrite>? AllowModuleOverwrite { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.GuestConfiguration.V20180630Preview.AllowModuleOverwrite>? AllowModuleOverwrite { get; set; }
 
         public ConfigurationSettingArgs()
         {

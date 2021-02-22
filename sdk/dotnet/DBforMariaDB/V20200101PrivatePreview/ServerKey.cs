@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
+namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
 {
     /// <summary>
     /// A MariaDB Server key.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey")]
+    [AzureNativeResourceType("azure-native:dbformariadb/v20200101privatepreview:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformariadb/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformariadb/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
         /// The key type like  'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview.ServerKeyType> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

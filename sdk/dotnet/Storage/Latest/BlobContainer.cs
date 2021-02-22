@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:BlobContainer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainer'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:BlobContainer")]
     public partial class BlobContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -140,12 +140,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobContainer(string name, BlobContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:BlobContainer", name, args ?? new BlobContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:BlobContainer", name, args ?? new BlobContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:BlobContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:BlobContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -156,14 +156,23 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainer"},
                 },
             };
@@ -228,7 +237,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
         [Input("publicAccess")]
-        public Input<Pulumi.AzureNextGen.Storage.Latest.PublicAccess>? PublicAccess { get; set; }
+        public Input<Pulumi.AzureNative.Storage.Latest.PublicAccess>? PublicAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

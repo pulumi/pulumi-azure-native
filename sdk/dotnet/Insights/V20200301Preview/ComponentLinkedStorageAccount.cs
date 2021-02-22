@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200301Preview
+namespace Pulumi.AzureNative.Insights.V20200301Preview
 {
     /// <summary>
     /// An Application Insights component linked storage accounts
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount")]
+    [AzureNativeResourceType("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount")]
     public partial class ComponentLinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComponentLinkedStorageAccount(string name, ComponentLinkedStorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, args ?? new ComponentLinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount", name, args ?? new ComponentLinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComponentLinkedStorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ComponentLinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ComponentLinkedStorageAccount"},
                 },
             };

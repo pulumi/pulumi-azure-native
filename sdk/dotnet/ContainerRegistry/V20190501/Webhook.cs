@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190501:Webhook")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20190501:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Webhook(string name, WebhookArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190501:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20190501:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Webhook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190501:Webhook", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20190501:Webhook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,11 +88,17 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Webhook"},
                 },
             };
@@ -118,14 +124,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
     public sealed class WebhookArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.WebhookAction>>? _actions;
+        private InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20190501.WebhookAction>>? _actions;
 
         /// <summary>
         /// The list of actions that trigger the webhook to post notifications.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.WebhookAction>> Actions
+        public InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20190501.WebhookAction>> Actions
         {
-            get => _actions ?? (_actions = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.WebhookAction>>());
+            get => _actions ?? (_actions = new InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20190501.WebhookAction>>());
             set => _actions = value;
         }
 
@@ -175,7 +181,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
         /// The status of the webhook at the time the operation was called.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.WebhookStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190501.WebhookStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

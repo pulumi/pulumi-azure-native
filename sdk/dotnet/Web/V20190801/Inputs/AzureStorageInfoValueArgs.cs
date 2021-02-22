@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801.Inputs
+namespace Pulumi.AzureNative.Web.V20190801.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801.Inputs
         /// Type of storage.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.AzureStorageType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.AzureStorageType>? Type { get; set; }
 
         public AzureStorageInfoValueArgs()
         {

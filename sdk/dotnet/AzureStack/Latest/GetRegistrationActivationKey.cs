@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.Latest
+namespace Pulumi.AzureNative.AzureStack.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistrationActivationKey'.")]
     public static class GetRegistrationActivationKey
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-nextgen:azurestack/latest:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-native:azurestack/latest:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithVersion());
     }
 
 

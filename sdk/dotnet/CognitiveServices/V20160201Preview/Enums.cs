@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
+namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
     /// <summary>
     /// Required. Indicates the type of cognitive service account.

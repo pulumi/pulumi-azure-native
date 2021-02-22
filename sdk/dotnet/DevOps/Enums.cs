@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DevOps
+namespace Pulumi.AzureNative.DevOps
 {
     /// <summary>
     /// Type of authorization.

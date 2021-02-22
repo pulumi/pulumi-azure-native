@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.Inputs
+namespace Pulumi.AzureNative.EventGrid.Inputs
 {
 
     public sealed class InboundIpRuleArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Inputs
         /// Action to perform based on the match or no match of the IpMask.
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.IpActionType>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.IpActionType>? Action { get; set; }
 
         /// <summary>
         /// IP Address in CIDR notation e.g., 10.0.0.0/8.

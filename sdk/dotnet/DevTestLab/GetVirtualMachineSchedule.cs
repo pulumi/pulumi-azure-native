@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab
+namespace Pulumi.AzureNative.DevTestLab
 {
     public static class GetVirtualMachineSchedule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineScheduleResult> InvokeAsync(GetVirtualMachineScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-nextgen:devtestlab:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-native:devtestlab:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithVersion());
     }
 
 

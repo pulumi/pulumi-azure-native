@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// The value that indicates whether the policy is enabled or not.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PolicyStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20191201Preview.PolicyStatus>? Status { get; set; }
 
         /// <summary>
         /// The type of trust policy.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.TrustPolicyType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20191201Preview.TrustPolicyType>? Type { get; set; }
 
         public TrustPolicyArgs()
         {

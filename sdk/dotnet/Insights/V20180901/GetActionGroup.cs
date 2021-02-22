@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180901
+namespace Pulumi.AzureNative.Insights.V20180901
 {
     public static class GetActionGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180901
         /// An action group resource.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-nextgen:insights/v20180901:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights/v20180901:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
     }
 
 

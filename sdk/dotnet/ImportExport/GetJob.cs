@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport
+namespace Pulumi.AzureNative.ImportExport
 {
     public static class GetJob
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ImportExport
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:importexport:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:importexport:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
 
 

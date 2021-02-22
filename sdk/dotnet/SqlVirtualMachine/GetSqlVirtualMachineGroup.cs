@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine
+namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     public static class GetSqlVirtualMachineGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Task<GetSqlVirtualMachineGroupResult> InvokeAsync(GetSqlVirtualMachineGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-nextgen:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithVersion());
     }
 
 

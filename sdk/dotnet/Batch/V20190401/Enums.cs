@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Batch.V20190401
+namespace Pulumi.AzureNative.Batch.V20190401
 {
     /// <summary>
     /// The default value is task.

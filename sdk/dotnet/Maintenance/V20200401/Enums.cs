@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20200401
+namespace Pulumi.AzureNative.Maintenance.V20200401
 {
     /// <summary>
     /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance

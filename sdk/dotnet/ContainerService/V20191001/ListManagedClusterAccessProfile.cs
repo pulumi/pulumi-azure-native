@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20191001
+namespace Pulumi.AzureNative.ContainerService.V20191001
 {
     public static class ListManagedClusterAccessProfile
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191001
         /// Managed cluster Access Profile.
         /// </summary>
         public static Task<ListManagedClusterAccessProfileResult> InvokeAsync(ListManagedClusterAccessProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-nextgen:containerservice/v20191001:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-native:containerservice/v20191001:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithVersion());
     }
 
 

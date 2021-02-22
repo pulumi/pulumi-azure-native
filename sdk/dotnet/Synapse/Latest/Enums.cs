@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest
+namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// Compute type of the cluster which will execute data flow job.

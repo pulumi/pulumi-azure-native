@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
 {
     public static class GetApp
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         /// App resource payload
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:appplatform/v20190501preview:getApp", args ?? new GetAppArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:appplatform/v20190501preview:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }
 
 

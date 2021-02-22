@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataSource'.")]
     public static class GetDataSource
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-nextgen:operationalinsights/latest:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights/latest:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
     }
 
 

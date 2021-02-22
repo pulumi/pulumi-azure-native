@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog
+namespace Pulumi.AzureNative.Datadog
 {
     public static class GetMonitor
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Datadog
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-nextgen:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
     }
 
 

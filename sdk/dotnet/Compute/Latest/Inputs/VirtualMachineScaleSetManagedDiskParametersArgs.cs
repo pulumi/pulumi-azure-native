@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
+namespace Pulumi.AzureNative.Compute.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.StorageAccountTypes>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {

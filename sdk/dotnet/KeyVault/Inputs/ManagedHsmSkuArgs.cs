@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Inputs
+namespace Pulumi.AzureNative.KeyVault.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.Inputs
         /// SKU Family of the managed HSM Pool
         /// </summary>
         [Input("family", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.ManagedHsmSkuFamily> Family { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.ManagedHsmSkuFamily> Family { get; set; } = null!;
 
         /// <summary>
         /// SKU of the managed HSM Pool
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.KeyVault.ManagedHsmSkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.KeyVault.ManagedHsmSkuName> Name { get; set; } = null!;
 
         public ManagedHsmSkuArgs()
         {

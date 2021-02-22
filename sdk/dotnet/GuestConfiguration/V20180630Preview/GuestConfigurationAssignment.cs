@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview
+namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
 {
     /// <summary>
     /// Guest configuration assignment is an association between a VM and guest configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment")]
+    [AzureNativeResourceType("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment")]
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestConfigurationAssignment(string name, GuestConfigurationAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment", name, args ?? new GuestConfigurationAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment", name, args ?? new GuestConfigurationAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestConfigurationAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/latest:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment"},
                 },
             };

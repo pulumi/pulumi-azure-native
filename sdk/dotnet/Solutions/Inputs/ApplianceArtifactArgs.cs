@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Inputs
+namespace Pulumi.AzureNative.Solutions.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Solutions.Inputs
         /// The appliance artifact type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Solutions.ApplianceArtifactType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Solutions.ApplianceArtifactType>? Type { get; set; }
 
         /// <summary>
         /// The appliance artifact blob uri.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     public static class GetSchedule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// A schedule.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-nextgen:devtestlab/v20180915:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devtestlab/v20180915:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
     }
 
 

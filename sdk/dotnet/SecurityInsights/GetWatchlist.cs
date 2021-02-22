@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     public static class GetWatchlist
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-nextgen:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
     }
 
 

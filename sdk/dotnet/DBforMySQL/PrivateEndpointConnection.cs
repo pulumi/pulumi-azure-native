@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL
+namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// A private endpoint connection
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:dbformysql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20180601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},
                 },
             };

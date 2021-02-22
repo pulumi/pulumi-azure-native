@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
     public static class ListOrderDCAccessCode
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// DC Access code in the case of Self Managed Shipping.
         /// </summary>
         public static Task<ListOrderDCAccessCodeResult> InvokeAsync(ListOrderDCAccessCodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-nextgen:databoxedge/v20200901preview:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20200901preview:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
     }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     [EnumType]
     public readonly struct AccessControlEntryAction : IEquatable<AccessControlEntryAction>

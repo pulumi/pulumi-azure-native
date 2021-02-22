@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.V20170401
+namespace Pulumi.AzureNative.Relay.V20170401
 {
     public static class ListWCFRelayKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         /// Namespace/Relay Connection String
         /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-nextgen:relay/v20170401:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-native:relay/v20170401:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Migration item.
     /// Latest API Version: 2018-07-10.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'.")]
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'.")]
+    [AzureNativeResourceType("azure-native:recoveryservices/latest:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationMigrationItem(string name, ReplicationMigrationItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/latest:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationMigrationItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/latest:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"},
                 },
             };

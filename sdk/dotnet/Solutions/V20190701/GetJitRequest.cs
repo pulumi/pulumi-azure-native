@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.V20190701
+namespace Pulumi.AzureNative.Solutions.V20190701
 {
     public static class GetJitRequest
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// Information about JIT request definition.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-nextgen:solutions/v20190701:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions/v20190701:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
     }
 
 

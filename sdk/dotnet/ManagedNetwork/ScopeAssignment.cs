@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork
+namespace Pulumi.AzureNative.ManagedNetwork
 {
     /// <summary>
     /// The Managed Network resource
     /// API Version: 2019-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:managednetwork:ScopeAssignment")]
+    [AzureNativeResourceType("azure-native:managednetwork:ScopeAssignment")]
     public partial class ScopeAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScopeAssignment(string name, ScopeAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ScopeAssignment", name, args ?? new ScopeAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managednetwork:ScopeAssignment", name, args ?? new ScopeAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScopeAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ScopeAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managednetwork:ScopeAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ScopeAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managednetwork/v20190601preview:ScopeAssignment"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
+namespace Pulumi.AzureNative.Insights.V20180301.Inputs
 {
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// the criteria operator.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.Operator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180301.Operator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// the criteria time aggregation types.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.AggregationTypeEnum> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180301.AggregationTypeEnum> TimeAggregation { get; set; } = null!;
 
         public MetricCriteriaArgs()
         {

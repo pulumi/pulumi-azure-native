@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
+namespace Pulumi.AzureNative.Authorization.V20180101Preview
 {
     /// <summary>
     /// Role Assignments
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20180101preview:RoleAssignment")]
+    [AzureNativeResourceType("azure-native:authorization/v20180101preview:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssignment(string name, RoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20180101preview:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20180101preview:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20180101preview:RoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20180101preview:RoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,12 +76,19 @@ namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180901preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
                 },
             };

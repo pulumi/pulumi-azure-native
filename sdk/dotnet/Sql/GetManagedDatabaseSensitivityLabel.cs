@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetManagedDatabaseSensitivityLabel
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-nextgen:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithVersion());
     }
 
 

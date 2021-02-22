@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB
+namespace Pulumi.AzureNative.DBforMariaDB
 {
     public static class GetFirewallRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbformariadb:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformariadb:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }
 
 

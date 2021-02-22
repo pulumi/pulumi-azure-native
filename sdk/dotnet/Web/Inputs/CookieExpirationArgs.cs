@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Inputs
+namespace Pulumi.AzureNative.Web.Inputs
 {
 
     public sealed class CookieExpirationArgs : Pulumi.ResourceArgs
     {
         [Input("convention")]
-        public Input<Pulumi.AzureNextGen.Web.CookieExpirationConvention>? Convention { get; set; }
+        public Input<Pulumi.AzureNative.Web.CookieExpirationConvention>? Convention { get; set; }
 
         /// <summary>
         /// Kind of resource.

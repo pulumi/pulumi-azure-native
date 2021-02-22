@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceTypeRegistrationPropertiesIdentityManagementArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
         public Input<string>? ApplicationId { get; set; }
 
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.IdentityManagementTypes>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.IdentityManagementTypes>? Type { get; set; }
 
         public ResourceTypeRegistrationPropertiesIdentityManagementArgs()
         {

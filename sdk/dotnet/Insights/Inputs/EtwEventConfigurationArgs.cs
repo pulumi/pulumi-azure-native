@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     public sealed class EtwEventConfigurationArgs : Pulumi.ResourceArgs

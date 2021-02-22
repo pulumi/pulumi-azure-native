@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest.Inputs
+namespace Pulumi.AzureNative.Web.Latest.Inputs
 {
 
     public sealed class NetworkAccessControlEntryArgs : Pulumi.ResourceArgs
     {
         [Input("action")]
-        public Input<Pulumi.AzureNextGen.Web.Latest.AccessControlEntryAction>? Action { get; set; }
+        public Input<Pulumi.AzureNative.Web.Latest.AccessControlEntryAction>? Action { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

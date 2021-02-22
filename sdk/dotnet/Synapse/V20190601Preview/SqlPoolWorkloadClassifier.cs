@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// Workload classifier operations for a data warehouse
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier")]
     public partial class SqlPoolWorkloadClassifier : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPoolWorkloadClassifier(string name, SqlPoolWorkloadClassifierArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, args ?? new SqlPoolWorkloadClassifierArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, args ?? new SqlPoolWorkloadClassifierArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPoolWorkloadClassifier(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolWorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier"},
                 },
             };

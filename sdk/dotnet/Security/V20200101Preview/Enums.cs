@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Security.V20200101Preview
+namespace Pulumi.AzureNative.Security.V20200101Preview
 {
     /// <summary>
     /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.

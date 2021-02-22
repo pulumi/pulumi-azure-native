@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
         /// </summary>
         [Input("agentVmSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.AgentVMSizeTypes>? AgentVmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.AgentVMSizeTypes>? AgentVmSize { get; set; }
 
         /// <summary>
         /// The number of master nodes in the container service.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// Type of orchestrator. It cannot be changed once the cluster is created.
         /// </summary>
         [Input("orchestratorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.OrchestratorType> OrchestratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.OrchestratorType> OrchestratorType { get; set; } = null!;
 
         [Input("systemServices")]
         private InputList<Inputs.SystemServiceArgs>? _systemServices;

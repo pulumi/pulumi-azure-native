@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200501
+namespace Pulumi.AzureNative.Compute.V20200501
 {
     /// <summary>
     /// Snapshot resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20200501:Snapshot")]
+    [AzureNativeResourceType("azure-native:compute/v20200501:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200501:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20200501:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Snapshot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200501:Snapshot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20200501:Snapshot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,17 +154,29 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180930:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Snapshot"},
                 },
             };
@@ -223,7 +235,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200501.HyperVGeneration>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20200501.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -241,13 +253,13 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// Policy for accessing the disk via network.
         /// </summary>
         [Input("networkAccessPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200501.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20200501.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<Pulumi.AzureNextGen.Compute.V20200501.OperatingSystemTypes>? OsType { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20200501.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

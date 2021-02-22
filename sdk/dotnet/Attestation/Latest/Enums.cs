@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Attestation.Latest
+namespace Pulumi.AzureNative.Attestation.Latest
 {
     /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.

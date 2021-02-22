@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
+namespace Pulumi.AzureNative.ContainerRegistry.V20171001
 {
     public static class GetWebhookCallbackConfig
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
         /// The configuration of service URI and custom headers for the webhook.
         /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-nextgen:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
     }
 
 

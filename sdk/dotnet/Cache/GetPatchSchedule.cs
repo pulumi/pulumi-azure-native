@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     public static class GetPatchSchedule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-nextgen:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
     }
 
 

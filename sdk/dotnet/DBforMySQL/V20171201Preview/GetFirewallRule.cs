@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
+namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
 {
     public static class GetFirewallRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// Represents a server firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbformysql/v20171201preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformysql/v20171201preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }
 
 

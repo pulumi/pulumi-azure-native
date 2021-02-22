@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetExpressRouteConnection
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetExpressRouteConnectionResult> InvokeAsync(GetExpressRouteConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-nextgen:network:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-native:network:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithVersion());
     }
 
 

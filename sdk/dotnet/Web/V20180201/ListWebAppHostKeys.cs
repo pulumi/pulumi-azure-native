@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201
+namespace Pulumi.AzureNative.Web.V20180201
 {
     public static class ListWebAppHostKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// Functions host level keys.
         /// </summary>
         public static Task<ListWebAppHostKeysResult> InvokeAsync(ListWebAppHostKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-nextgen:web/v20180201:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-native:web/v20180201:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     public static class GetAuthorizationServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// External OAuth authorization server settings.
         /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-nextgen:apimanagement/v20180101:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-native:apimanagement/v20180101:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20210101Preview
+namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
     /// <summary>
     /// A datastore resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs/v20210101preview:Datastore")]
+    [AzureNativeResourceType("azure-native:avs/v20210101preview:Datastore")]
     public partial class Datastore : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Datastore(string name, DatastoreArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/v20210101preview:Datastore", name, args ?? new DatastoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs/v20210101preview:Datastore", name, args ?? new DatastoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Datastore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/v20210101preview:Datastore", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs/v20210101preview:Datastore", name, null, MakeResourceOptions(options, id))
         {
         }
 

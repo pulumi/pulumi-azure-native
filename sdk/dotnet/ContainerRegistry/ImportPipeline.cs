@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents an import pipeline for a container registry.
     /// API Version: 2020-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:ImportPipeline")]
+    [AzureNativeResourceType("azure-native:containerregistry:ImportPipeline")]
     public partial class ImportPipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImportPipeline(string name, ImportPipelineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:ImportPipeline", name, args ?? new ImportPipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:ImportPipeline", name, args ?? new ImportPipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImportPipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:ImportPipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:ImportPipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:ImportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:ImportPipeline"},
                 },
             };
@@ -139,14 +141,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         public Input<string>? Location { get; set; }
 
         [Input("options")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.PipelineOptions>>? _options;
+        private InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.PipelineOptions>>? _options;
 
         /// <summary>
         /// The list of all options configured for the pipeline.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.PipelineOptions>> Options
+        public InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.PipelineOptions>> Options
         {
-            get => _options ?? (_options = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.PipelineOptions>>());
+            get => _options ?? (_options = new InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.PipelineOptions>>());
             set => _options = value;
         }
 

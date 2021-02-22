@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getView'.")]
     public static class GetView
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:customerinsights/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:customerinsights/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
     }
 
 

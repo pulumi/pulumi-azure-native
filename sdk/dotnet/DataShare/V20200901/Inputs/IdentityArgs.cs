@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20200901.Inputs
+namespace Pulumi.AzureNative.DataShare.V20200901.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901.Inputs
         /// Identity Type
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.V20200901.Type>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataShare.V20200901.Type>? Type { get; set; }
 
         public IdentityArgs()
         {

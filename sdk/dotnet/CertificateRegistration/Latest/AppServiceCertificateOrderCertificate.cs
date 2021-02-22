@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
+namespace Pulumi.AzureNative.CertificateRegistration.Latest
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.")]
-    [AzureNextGenResourceType("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrderCertificate'.")]
+    [AzureNativeResourceType("azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceCertificateOrderCertificate(string name, AppServiceCertificateOrderCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceCertificateOrderCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,12 +96,19 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
                 },
             };

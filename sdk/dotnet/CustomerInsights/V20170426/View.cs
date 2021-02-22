@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The view resource format.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:View")]
+    [AzureNativeResourceType("azure-native:customerinsights/v20170426:View")]
     public partial class View : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public View(string name, ViewArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:View", name, args ?? new ViewArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/v20170426:View", name, args ?? new ViewArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private View(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:View", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/v20170426:View", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:View"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:View"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:View"},
                 },
             };

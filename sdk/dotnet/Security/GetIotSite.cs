@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetIotSite
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2020-08-06-preview.
         /// </summary>
         public static Task<GetIotSiteResult> InvokeAsync(GetIotSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSiteResult>("azure-nextgen:security:getIotSite", args ?? new GetIotSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSiteResult>("azure-native:security:getIotSite", args ?? new GetIotSiteArgs(), options.WithVersion());
     }
 
 

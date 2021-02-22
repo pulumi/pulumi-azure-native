@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
     public static class GetOrderByName
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// Represents order contract
         /// </summary>
         public static Task<GetOrderByNameResult> InvokeAsync(GetOrderByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderByNameResult>("azure-nextgen:edgeorder/v20201201preview:getOrderByName", args ?? new GetOrderByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderByNameResult>("azure-native:edgeorder/v20201201preview:getOrderByName", args ?? new GetOrderByNameArgs(), options.WithVersion());
     }
 
 

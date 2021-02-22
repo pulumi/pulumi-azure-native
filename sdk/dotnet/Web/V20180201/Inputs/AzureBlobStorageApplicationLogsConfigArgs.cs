@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201.Inputs
+namespace Pulumi.AzureNative.Web.V20180201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201.Inputs
         /// Log level.
         /// </summary>
         [Input("level")]
-        public Input<Pulumi.AzureNextGen.Web.V20180201.LogLevel>? Level { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20180201.LogLevel>? Level { get; set; }
 
         /// <summary>
         /// Retention in days.

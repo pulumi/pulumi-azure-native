@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Attestation.Latest
+namespace Pulumi.AzureNative.Attestation.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'.")]
     public static class GetAttestationProvider
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-nextgen:attestation/latest:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation/latest:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
     }
 
 

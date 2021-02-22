@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200601
+namespace Pulumi.AzureNative.EventGrid.V20200601
 {
     /// <summary>
     /// Domain Topic.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200601:DomainTopic")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20200601:DomainTopic")]
     public partial class DomainTopic : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainTopic(string name, DomainTopicArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200601:DomainTopic", name, args ?? new DomainTopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20200601:DomainTopic", name, args ?? new DomainTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainTopic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200601:DomainTopic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20200601:DomainTopic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,12 +58,19 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:DomainTopic"},
                 },
             };

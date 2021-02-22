@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     public static class GetStep
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-nextgen:deploymentmanager:getStep", args ?? new GetStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-native:deploymentmanager:getStep", args ?? new GetStepArgs(), options.WithVersion());
     }
 
 

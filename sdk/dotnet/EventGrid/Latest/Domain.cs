@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.Latest
+namespace Pulumi.AzureNative.EventGrid.Latest
 {
     /// <summary>
     /// EventGrid Domain.
     /// Latest API Version: 2020-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Domain'.")]
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:Domain")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Domain'.")]
+    [AzureNativeResourceType("azure-native:eventgrid/latest:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
@@ -99,12 +99,12 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/latest:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/latest:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/latest:Domain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/latest:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -115,13 +115,21 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:Domain"},
                 },
             };
@@ -168,7 +176,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// This determines the format that Event Grid should expect for incoming events published to the domain.
         /// </summary>
         [Input("inputSchema")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.InputSchema>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.Latest.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
@@ -199,7 +207,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" /&gt;
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

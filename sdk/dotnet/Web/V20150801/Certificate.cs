@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// App certificate
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:Certificate")]
+    [AzureNativeResourceType("azure-native:web/v20150801:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -144,12 +144,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,14 +160,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Certificate"},
                 },
             };

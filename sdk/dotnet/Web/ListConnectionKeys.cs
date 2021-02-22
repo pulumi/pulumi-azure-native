@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListConnectionKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2015-08-01-preview.
         /// </summary>
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-nextgen:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Email Template details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:EmailTemplate")]
+    [AzureNativeResourceType("azure-native:apimanagement:EmailTemplate")]
     public partial class EmailTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailTemplate(string name, EmailTemplateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:EmailTemplate", name, args ?? new EmailTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:EmailTemplate", name, args ?? new EmailTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EmailTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:EmailTemplate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:EmailTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,13 +89,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:EmailTemplate"},
                 },
             };

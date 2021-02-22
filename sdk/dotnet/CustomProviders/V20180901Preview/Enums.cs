@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
+namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// The routing types that are supported for action requests.

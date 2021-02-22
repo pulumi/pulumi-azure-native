@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
     public sealed class SpatialSpecArgs : Pulumi.ResourceArgs
@@ -19,14 +19,14 @@ namespace Pulumi.AzureNextGen.DocumentDB.Inputs
         public Input<string>? Path { get; set; }
 
         [Input("types")]
-        private InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.SpatialType>>? _types;
+        private InputList<Union<string, Pulumi.AzureNative.DocumentDB.SpatialType>>? _types;
 
         /// <summary>
         /// List of path's spatial type
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.SpatialType>> Types
+        public InputList<Union<string, Pulumi.AzureNative.DocumentDB.SpatialType>> Types
         {
-            get => _types ?? (_types = new InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.SpatialType>>());
+            get => _types ?? (_types = new InputList<Union<string, Pulumi.AzureNative.DocumentDB.SpatialType>>());
             set => _types = value;
         }
 

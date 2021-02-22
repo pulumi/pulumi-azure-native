@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfigurationSlot'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupConfigurationSlot'.")]
     public static class ListWebAppBackupConfigurationSlot
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppBackupConfigurationSlotResult> InvokeAsync(ListWebAppBackupConfigurationSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-nextgen:web/latest:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-native:web/latest:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningExperimentation
+namespace Pulumi.AzureNative.MachineLearningExperimentation
 {
     /// <summary>
     /// An object that represents a machine learning project.
     /// API Version: 2017-05-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningexperimentation:Project")]
+    [AzureNativeResourceType("azure-native:machinelearningexperimentation:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningexperimentation:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningexperimentation:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningexperimentation:Project", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningexperimentation:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningexperimentation/v20170501preview:Project"},
                 },
             };

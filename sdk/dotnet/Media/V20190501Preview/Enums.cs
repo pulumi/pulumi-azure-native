@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Media.V20190501Preview
+namespace Pulumi.AzureNative.Media.V20190501Preview
 {
     /// <summary>
     /// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.

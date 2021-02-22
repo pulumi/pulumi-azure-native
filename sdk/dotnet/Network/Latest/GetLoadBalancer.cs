@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'.")]
     public static class GetLoadBalancer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-nextgen:network/latest:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/latest:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
     }
 
 

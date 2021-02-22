@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         }
 
         [Input("avroCompressionCodec")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.AvroCompressionCodec>? AvroCompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.AvroCompressionCodec>? AvroCompressionCodec { get; set; }
 
         [Input("avroCompressionLevel")]
         public Input<int>? AvroCompressionLevel { get; set; }

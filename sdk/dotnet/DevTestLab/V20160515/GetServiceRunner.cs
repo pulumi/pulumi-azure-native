@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class GetServiceRunner
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// A container for a managed identity to execute DevTest lab services.
         /// </summary>
         public static Task<GetServiceRunnerResult> InvokeAsync(GetServiceRunnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-nextgen:devtestlab/v20160515:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-native:devtestlab/v20160515:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
     }
 
 

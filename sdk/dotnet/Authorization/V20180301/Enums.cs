@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180301
+namespace Pulumi.AzureNative.Authorization.V20180301
 {
     /// <summary>
     /// The policy definition mode. Possible values are NotSpecified, Indexed, and All.

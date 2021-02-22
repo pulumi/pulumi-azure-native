@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
+namespace Pulumi.AzureNative.HDInsight.V20150301Preview
 {
     /// <summary>
     /// The HDInsight cluster application
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hdinsight/v20150301preview:Application")]
+    [AzureNativeResourceType("azure-native:hdinsight/v20150301preview:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hdinsight/v20150301preview:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hdinsight/v20150301preview:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hdinsight/v20150301preview:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hdinsight/v20150301preview:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight:Application"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20180601preview:Application"},
                 },
             };

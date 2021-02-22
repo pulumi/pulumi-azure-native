@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders
+namespace Pulumi.AzureNative.CustomProviders
 {
     public static class GetCustomResourceProvider
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CustomProviders
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-nextgen:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithVersion());
     }
 
 

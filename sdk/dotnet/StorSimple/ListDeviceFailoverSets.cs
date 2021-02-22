@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class ListDeviceFailoverSets
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-nextgen:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-native:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithVersion());
     }
 
 

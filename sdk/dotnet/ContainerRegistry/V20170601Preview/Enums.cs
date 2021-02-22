@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
     /// <summary>
     /// The SKU name of the container registry. Required for registry creation.

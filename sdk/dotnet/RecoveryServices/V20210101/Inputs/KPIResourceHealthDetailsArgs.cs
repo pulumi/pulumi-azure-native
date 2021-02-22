@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210101.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20210101.Inputs
         /// Resource Health Status
         /// </summary>
         [Input("resourceHealthStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20210101.ResourceHealthStatus>? ResourceHealthStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20210101.ResourceHealthStatus>? ResourceHealthStatus { get; set; }
 
         public KPIResourceHealthDetailsArgs()
         {

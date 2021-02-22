@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
+namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
     public static class GetEventHubConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// Class representing an event hub connection.
         /// </summary>
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-nextgen:kusto/v20170907privatepreview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-native:kusto/v20170907privatepreview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     public static class GetJobSchedule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-nextgen:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
     }
 
 

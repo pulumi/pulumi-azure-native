@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     public static class ListLabVhds
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// The response of a list operation.
         /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-nextgen:devtestlab/v20180915:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab/v20180915:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
     }
 
 

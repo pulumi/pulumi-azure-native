@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
+namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// Gets or sets the target availability zone.
         /// </summary>
         [Input("targetAvailabilityZone")]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001Preview.TargetAvailabilityZone>? TargetAvailabilityZone { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20191001Preview.TargetAvailabilityZone>? TargetAvailabilityZone { get; set; }
 
         /// <summary>
         /// Gets or sets the target Resource name.

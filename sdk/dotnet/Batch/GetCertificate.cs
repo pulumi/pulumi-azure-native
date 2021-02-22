@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch
+namespace Pulumi.AzureNative.Batch
 {
     public static class GetCertificate
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:batch:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:batch:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
 
 

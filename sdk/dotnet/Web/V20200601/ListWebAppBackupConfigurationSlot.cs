@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     public static class ListWebAppBackupConfigurationSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// Description of a backup which will be performed.
         /// </summary>
         public static Task<ListWebAppBackupConfigurationSlotResult> InvokeAsync(ListWebAppBackupConfigurationSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-nextgen:web/v20200601:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-native:web/v20200601:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());
     }
 
 

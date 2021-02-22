@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -49,17 +49,17 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The operator to be matched.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.WebApplicationFirewallOperator> Operator { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Network.Latest.WebApplicationFirewallTransform>>? _transforms;
 
         /// <summary>
         /// List of transforms.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Network.Latest.WebApplicationFirewallTransform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.Latest.WebApplicationFirewallTransform>>());
             set => _transforms = value;
         }
 

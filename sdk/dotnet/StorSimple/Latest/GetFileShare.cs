@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileShare'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileShare'.")]
     public static class GetFileShare
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2016-10-01.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storsimple/latest:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storsimple/latest:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }
 
 

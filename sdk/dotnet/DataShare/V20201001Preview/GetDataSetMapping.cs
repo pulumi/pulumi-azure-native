@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
+namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     public static class GetDataSetMapping
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
         /// A data set mapping data transfer object.
         /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-nextgen:datashare/v20201001preview:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare/v20201001preview:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
     }
 
 

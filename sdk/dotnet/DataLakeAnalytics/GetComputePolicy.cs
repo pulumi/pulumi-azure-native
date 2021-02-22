@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     public static class GetComputePolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-nextgen:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
     }
 
 

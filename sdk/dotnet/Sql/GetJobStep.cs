@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetJobStep
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-nextgen:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());
     }
 
 

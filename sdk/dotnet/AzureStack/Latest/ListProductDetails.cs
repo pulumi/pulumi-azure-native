@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.Latest
+namespace Pulumi.AzureNative.AzureStack.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:listProductDetails'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:listProductDetails'.")]
     public static class ListProductDetails
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-nextgen:azurestack/latest:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/latest:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
     }
 
 

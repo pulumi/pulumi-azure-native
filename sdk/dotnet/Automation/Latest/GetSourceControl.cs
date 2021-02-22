@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'.")]
     public static class GetSourceControl
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-nextgen:automation/latest:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation/latest:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
     }
 
 

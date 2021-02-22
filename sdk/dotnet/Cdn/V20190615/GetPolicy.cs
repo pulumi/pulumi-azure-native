@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190615
+namespace Pulumi.AzureNative.Cdn.V20190615
 {
     public static class GetPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615
         /// Defines web application firewall policy for Azure CDN.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:cdn/v20190615:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn/v20190615:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     public static class GetDeviceExtendedInformation
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// The extended Info of the Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-nextgen:databoxedge/v20200501preview:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge/v20200501preview:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithVersion());
     }
 
 

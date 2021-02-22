@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBI
+namespace Pulumi.AzureNative.PowerBI
 {
     public static class ListWorkspaceCollectionAccessKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.PowerBI
         /// API Version: 2016-01-29.
         /// </summary>
         public static Task<ListWorkspaceCollectionAccessKeysResult> InvokeAsync(ListWorkspaceCollectionAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-nextgen:powerbi:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithVersion());
     }
 
 

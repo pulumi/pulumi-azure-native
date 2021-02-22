@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport.V20200801.Inputs
+namespace Pulumi.AzureNative.ImportExport.V20200801.Inputs
 {
 
     /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Inputs
         /// The drive's current state. 
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.ImportExport.V20200801.DriveState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ImportExport.V20200801.DriveState>? State { get; set; }
 
         /// <summary>
         /// A URI that points to the blob containing the verbose log for the data transfer operation. 

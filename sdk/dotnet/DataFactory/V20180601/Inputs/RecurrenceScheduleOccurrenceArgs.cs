@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The day of the week.
         /// </summary>
         [Input("day")]
-        public Input<Pulumi.AzureNextGen.DataFactory.V20180601.DayOfWeek>? Day { get; set; }
+        public Input<Pulumi.AzureNative.DataFactory.V20180601.DayOfWeek>? Day { get; set; }
 
         /// <summary>
         /// The occurrence.

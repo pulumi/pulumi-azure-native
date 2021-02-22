@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200501Preview
+namespace Pulumi.AzureNative.Insights.V20200501Preview
 {
     /// <summary>
     /// The scheduled query rule resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20200501preview:ScheduledQueryRule")]
+    [AzureNativeResourceType("azure-native:insights/v20200501preview:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         [Output("actions")]
@@ -141,12 +141,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledQueryRule(string name, ScheduledQueryRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20200501preview:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduledQueryRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20200501preview:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -157,8 +157,11 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180416:ScheduledQueryRule"},
                 },
             };

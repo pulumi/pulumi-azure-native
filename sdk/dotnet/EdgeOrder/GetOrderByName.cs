@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder
+namespace Pulumi.AzureNative.EdgeOrder
 {
     public static class GetOrderByName
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<GetOrderByNameResult> InvokeAsync(GetOrderByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderByNameResult>("azure-nextgen:edgeorder:getOrderByName", args ?? new GetOrderByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderByNameResult>("azure-native:edgeorder:getOrderByName", args ?? new GetOrderByNameArgs(), options.WithVersion());
     }
 
 

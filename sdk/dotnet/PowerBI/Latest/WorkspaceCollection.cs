@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBI.Latest
+namespace Pulumi.AzureNative.PowerBI.Latest
 {
     /// <summary>
     /// Latest API Version: 2016-01-29.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.")]
-    [AzureNextGenResourceType("azure-nextgen:powerbi/latest:WorkspaceCollection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbi:WorkspaceCollection'.")]
+    [AzureNativeResourceType("azure-native:powerbi/latest:WorkspaceCollection")]
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceCollection(string name, WorkspaceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbi/latest:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:powerbi/latest:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbi/latest:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:powerbi/latest:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:powerbi:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi:WorkspaceCollection"},
+                    new Pulumi.Alias { Type = "azure-native:powerbi/v20160129:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20160129:WorkspaceCollection"},
                 },
             };

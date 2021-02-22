@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
+namespace Pulumi.AzureNative.DataBoxEdge.V20190301
 {
     /// <summary>
     /// The order details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:Order")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20190301:Order")]
     public partial class Order : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Order(string name, OrderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190301:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20190301:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Order(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190301:Order", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20190301:Order", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,12 +94,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
                 },
             };

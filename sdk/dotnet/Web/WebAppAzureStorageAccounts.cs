@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// AzureStorageInfo dictionary resource.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebAppAzureStorageAccounts")]
+    [AzureNativeResourceType("azure-native:web:WebAppAzureStorageAccounts")]
     public partial class WebAppAzureStorageAccounts : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppAzureStorageAccounts(string name, WebAppAzureStorageAccountsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppAzureStorageAccounts", name, args ?? new WebAppAzureStorageAccountsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebAppAzureStorageAccounts", name, args ?? new WebAppAzureStorageAccountsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppAzureStorageAccounts(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppAzureStorageAccounts", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebAppAzureStorageAccounts", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,12 +71,19 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts"},
                 },
             };

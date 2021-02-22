@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.Latest
+namespace Pulumi.AzureNative.Kusto.Latest
 {
     /// <summary>
     /// Class representing an data connection.
     /// Latest API Version: 2020-09-18.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:kusto/latest:DataConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:DataConnection'.")]
+    [AzureNativeResourceType("azure-native:kusto/latest:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataConnection(string name, DataConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/latest:DataConnection", name, args ?? new DataConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto/latest:DataConnection", name, args ?? new DataConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/latest:DataConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto/latest:DataConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,13 +66,21 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DataConnection"},
                 },
             };
@@ -119,7 +127,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// Kind of the endpoint for the data connection
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.Latest.DataConnectionKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.Latest.DataConnectionKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// SSL status. Allowed values are Enabled and Disabled.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Status>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Status>? Status { get; set; }
 
         public SslConfigurationArgs()
         {

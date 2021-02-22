@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     public static class GetConsumerGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// Single item in List or Get Consumer group operation
         /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub/v20170401:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub/v20170401:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }
 
 

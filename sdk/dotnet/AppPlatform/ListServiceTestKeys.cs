@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform
+namespace Pulumi.AzureNative.AppPlatform
 {
     public static class ListServiceTestKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AppPlatform
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-nextgen:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
     }
 
 

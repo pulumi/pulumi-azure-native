@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     public static class GetFirewallRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// A server firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:sql/v20200202preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:sql/v20200202preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }
 
 

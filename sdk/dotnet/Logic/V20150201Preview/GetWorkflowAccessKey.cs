@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview
+namespace Pulumi.AzureNative.Logic.V20150201Preview
 {
     public static class GetWorkflowAccessKey
     {
         public static Task<GetWorkflowAccessKeyResult> InvokeAsync(GetWorkflowAccessKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAccessKeyResult>("azure-nextgen:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAccessKeyResult>("azure-native:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyArgs(), options.WithVersion());
     }
 
 

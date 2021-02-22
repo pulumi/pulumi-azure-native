@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301.Inputs
         /// Storage format used for the file represented by the share.
         /// </summary>
         [Input("dataFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.AzureContainerDataFormat> DataFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20190301.AzureContainerDataFormat> DataFormat { get; set; } = null!;
 
         /// <summary>
         /// ID of the storage account credential used to access storage.

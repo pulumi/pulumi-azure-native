@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetP2sVpnGatewayP2sVpnConnectionHealth
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthArgs(), options.WithVersion());
     }
 
 

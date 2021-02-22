@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
 {
     /// <summary>
     /// The compute environment type for the service.

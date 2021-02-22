@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest
+namespace Pulumi.AzureNative.Solutions.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getApplicationDefinition'.")]
     public static class GetApplicationDefinition
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-nextgen:solutions/latest:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions/latest:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
     }
 
 

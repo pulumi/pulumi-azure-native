@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:listRedisKeys'.")]
     public static class ListRedisKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-nextgen:cache/latest:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache/latest:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
     }
 
 

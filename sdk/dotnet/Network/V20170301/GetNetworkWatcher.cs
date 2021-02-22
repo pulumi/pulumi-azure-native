@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170301
+namespace Pulumi.AzureNative.Network.V20170301
 {
     public static class GetNetworkWatcher
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// Network watcher in a resource group.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-nextgen:network/v20170301:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network/v20170301:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
     }
 
 

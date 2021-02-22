@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
     /// <summary>
     /// The kind of the DataSource.

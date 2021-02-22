@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad
+namespace Pulumi.AzureNative.Aad
 {
     public static class GetDomainService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Aad
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-nextgen:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
     }
 
 

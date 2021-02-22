@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20191017Preview
+namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
     public static class GetWorkbookTemplate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// An Application Insights workbook template definition.
         /// </summary>
         public static Task<GetWorkbookTemplateResult> InvokeAsync(GetWorkbookTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookTemplateResult>("azure-nextgen:insights/v20191017preview:getWorkbookTemplate", args ?? new GetWorkbookTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookTemplateResult>("azure-native:insights/v20191017preview:getWorkbookTemplate", args ?? new GetWorkbookTemplateArgs(), options.WithVersion());
     }
 
 

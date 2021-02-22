@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Purview.V20201201Preview
+namespace Pulumi.AzureNative.Purview.V20201201Preview
 {
     /// <summary>
     /// Gets or sets the sku name.

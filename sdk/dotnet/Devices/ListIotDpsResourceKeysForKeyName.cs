@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices
+namespace Pulumi.AzureNative.Devices
 {
     public static class ListIotDpsResourceKeysForKeyName
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Devices
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<ListIotDpsResourceKeysForKeyNameResult> InvokeAsync(ListIotDpsResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-nextgen:devices:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithVersion());
     }
 
 

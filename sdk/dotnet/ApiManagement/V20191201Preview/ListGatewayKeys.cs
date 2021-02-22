@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     public static class ListGatewayKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Gateway authentication keys.
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-nextgen:apimanagement/v20191201preview:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement/v20191201preview:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
     }
 
 

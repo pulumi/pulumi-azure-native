@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlanRouteForVnet'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:AppServicePlanRouteForVnet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.")]
+    [AzureNativeResourceType("azure-native:web/latest:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServicePlanRouteForVnet(string name, AppServicePlanRouteForVnetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:AppServicePlanRouteForVnet", name, args ?? new AppServicePlanRouteForVnetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:AppServicePlanRouteForVnet", name, args ?? new AppServicePlanRouteForVnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServicePlanRouteForVnet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:AppServicePlanRouteForVnet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:AppServicePlanRouteForVnet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,13 +89,21 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"},
                 },
             };
@@ -159,7 +167,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// These values will be used for syncing an app's routes with those from a Virtual Network.
         /// </summary>
         [Input("routeType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.RouteType>? RouteType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.Latest.RouteType>? RouteType { get; set; }
 
         /// <summary>
         /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.

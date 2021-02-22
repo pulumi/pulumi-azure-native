@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListAppServicePlanHybridConnectionKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-nextgen:web:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithVersion());
     }
 
 

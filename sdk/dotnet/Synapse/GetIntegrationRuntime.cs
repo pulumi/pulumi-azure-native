@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     public static class GetIntegrationRuntime
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Synapse
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-nextgen:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
     }
 
 

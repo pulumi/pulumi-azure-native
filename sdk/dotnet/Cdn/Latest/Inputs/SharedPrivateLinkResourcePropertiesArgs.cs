@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
+namespace Pulumi.AzureNative.Cdn.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         /// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.Cdn.Latest.SharedPrivateLinkResourceStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.Latest.SharedPrivateLinkResourceStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourcePropertiesArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// Data Lake Analytics compute policy information.
     /// API Version: 2016-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics:ComputePolicy")]
+    [AzureNativeResourceType("azure-native:datalakeanalytics:ComputePolicy")]
     public partial class ComputePolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComputePolicy(string name, ComputePolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:ComputePolicy", name, args ?? new ComputePolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakeanalytics:ComputePolicy", name, args ?? new ComputePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComputePolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:ComputePolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakeanalytics:ComputePolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/latest:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy"},
                 },
             };
@@ -137,7 +140,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// The type of AAD object the object identifier refers to.
         /// </summary>
         [Input("objectType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataLakeAnalytics.AADObjectType> ObjectType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataLakeAnalytics.AADObjectType> ObjectType { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

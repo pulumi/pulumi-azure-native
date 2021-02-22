@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20210101
+namespace Pulumi.AzureNative.Storage.V20210101
 {
     public static class GetFileServiceProperties
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
         /// The properties of File services in storage account.
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-nextgen:storage/v20210101:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage/v20210101:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithVersion());
     }
 
 

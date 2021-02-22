@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20200801Preview
+namespace Pulumi.AzureNative.Storage.V20200801Preview
 {
     public static class GetTableServiceProperties
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// The properties of a storage account’s Table service.
         /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-nextgen:storage/v20200801preview:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-native:storage/v20200801preview:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithVersion());
     }
 
 

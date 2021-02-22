@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An HCX Enterprise Site resource
     /// API Version: 2020-03-20.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:HcxEnterpriseSite")]
+    [AzureNativeResourceType("azure-native:avs:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HcxEnterpriseSite(string name, HcxEnterpriseSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:HcxEnterpriseSite", name, args ?? new HcxEnterpriseSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:HcxEnterpriseSite", name, args ?? new HcxEnterpriseSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HcxEnterpriseSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:HcxEnterpriseSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:HcxEnterpriseSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,9 +65,13 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/latest:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite"},
                 },
             };

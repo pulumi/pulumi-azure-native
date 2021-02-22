@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20190322.Inputs
+namespace Pulumi.AzureNative.Devices.V20190322.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190322.Inputs
         /// The capabilities and features enabled for the IoT hub.
         /// </summary>
         [Input("features")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20190322.Capabilities>? Features { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20190322.Capabilities>? Features { get; set; }
 
         [Input("ipFilterRules")]
         private InputList<Inputs.IpFilterRuleArgs>? _ipFilterRules;

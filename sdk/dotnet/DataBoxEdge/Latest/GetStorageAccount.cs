@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccount'.")]
     public static class GetStorageAccount
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:databoxedge/latest:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge/latest:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190201
+namespace Pulumi.AzureNative.Network.V20190201
 {
     /// <summary>
     /// Interface endpoint resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20190201:InterfaceEndpoint")]
+    [AzureNativeResourceType("azure-native:network/v20190201:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InterfaceEndpoint(string name, InterfaceEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20190201:InterfaceEndpoint", name, args ?? new InterfaceEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20190201:InterfaceEndpoint", name, args ?? new InterfaceEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InterfaceEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20190201:InterfaceEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20190201:InterfaceEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,11 +106,17 @@ namespace Pulumi.AzureNextGen.Network.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:InterfaceEndpoint"},
                 },
             };

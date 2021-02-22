@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     public static class GetLinkedServer
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-nextgen:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
     }
 
 

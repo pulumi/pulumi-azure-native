@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.Inputs
         /// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview.ClusterSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20200301Preview.ClusterSkuName>? Name { get; set; }
 
         public ClusterSkuArgs()
         {

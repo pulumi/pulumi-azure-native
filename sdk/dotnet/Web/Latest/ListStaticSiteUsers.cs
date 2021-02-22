@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteUsers'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteUsers'.")]
     public static class ListStaticSiteUsers
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-nextgen:web/latest:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web/latest:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
     }
 
 

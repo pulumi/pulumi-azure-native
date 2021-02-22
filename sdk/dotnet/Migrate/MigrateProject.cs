@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate
+namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Migrate Project REST Resource.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:migrate:MigrateProject")]
+    [AzureNativeResourceType("azure-native:migrate:MigrateProject")]
     public partial class MigrateProject : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Migrate
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MigrateProject(string name, MigrateProjectArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate:MigrateProject", name, args ?? new MigrateProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate:MigrateProject", name, args ?? new MigrateProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MigrateProject(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate:MigrateProject", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate:MigrateProject", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180901preview:MigrateProject"},
                 },
             };

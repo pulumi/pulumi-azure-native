@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
+namespace Pulumi.AzureNative.Network.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// The file type of flow log.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.FlowLogFormatType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200601.FlowLogFormatType>? Type { get; set; }
 
         /// <summary>
         /// The version (revision) of the flow log.

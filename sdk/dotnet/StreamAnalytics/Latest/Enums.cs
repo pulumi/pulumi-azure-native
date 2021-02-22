@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
     /// <summary>
     /// Controls certain runtime behaviors of the streaming job.

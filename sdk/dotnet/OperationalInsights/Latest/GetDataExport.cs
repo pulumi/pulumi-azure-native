@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataExport'.")]
     public static class GetDataExport
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-nextgen:operationalinsights/latest:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights/latest:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
     }
 
 

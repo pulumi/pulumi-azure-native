@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
     /// <summary>
     /// Address Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:edgeorder/v20201201preview:AddressByName")]
+    [AzureNativeResourceType("azure-native:edgeorder/v20201201preview:AddressByName")]
     public partial class AddressByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AddressByName(string name, AddressByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder/v20201201preview:AddressByName", name, args ?? new AddressByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:edgeorder/v20201201preview:AddressByName", name, args ?? new AddressByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AddressByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder/v20201201preview:AddressByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:edgeorder/v20201201preview:AddressByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:edgeorder:AddressByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:edgeorder:AddressByName"},
                 },
             };

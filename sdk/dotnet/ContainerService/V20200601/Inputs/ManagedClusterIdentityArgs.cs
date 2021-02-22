@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20200601.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601.Inputs
         /// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.ContainerService.V20200601.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.ContainerService.V20200601.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

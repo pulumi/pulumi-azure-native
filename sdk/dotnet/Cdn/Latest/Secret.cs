@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:Secret")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Secret'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -59,12 +59,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Secret(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Secret", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:Secret", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,9 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Secret"},
                 },
             };

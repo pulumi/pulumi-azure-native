@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     public static class GetExposureControlFeatureValueByFactory
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetExposureControlFeatureValueByFactoryResult> InvokeAsync(GetExposureControlFeatureValueByFactoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueByFactoryResult>("azure-nextgen:datafactory:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryArgs(), options.WithVersion());
     }
 
 

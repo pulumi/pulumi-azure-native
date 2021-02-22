@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
+namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
     public static class GetSapMonitor
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
         /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-nextgen:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure/v20200207preview:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
     }
 
 

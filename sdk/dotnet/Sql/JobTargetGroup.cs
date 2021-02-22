@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A group of job targets.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:JobTargetGroup")]
+    [AzureNativeResourceType("azure-native:sql:JobTargetGroup")]
     public partial class JobTargetGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobTargetGroup(string name, JobTargetGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:JobTargetGroup", name, args ?? new JobTargetGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:JobTargetGroup", name, args ?? new JobTargetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobTargetGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:JobTargetGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:JobTargetGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,8 +59,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:JobTargetGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobTargetGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:JobTargetGroup"},
                 },
             };

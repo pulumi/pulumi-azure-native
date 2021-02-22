@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:Watchlist")]
+    [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:Watchlist")]
     public partial class Watchlist : Pulumi.CustomResource
     {
         /// <summary>
@@ -162,12 +162,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Watchlist(string name, WatchlistArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, args ?? new WatchlistArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/v20190101preview:Watchlist", name, args ?? new WatchlistArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Watchlist(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/v20190101preview:Watchlist", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:Watchlist"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Watchlist"},
                 },
             };
@@ -296,7 +297,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The source of the watchlist
         /// </summary>
         [Input("source", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Source> Source { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.Source> Source { get; set; } = null!;
 
         /// <summary>
         /// The tenantId where the watchlist belongs to

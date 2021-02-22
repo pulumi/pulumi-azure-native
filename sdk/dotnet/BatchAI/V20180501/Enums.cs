@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20180501
+namespace Pulumi.AzureNative.BatchAI.V20180501
 {
     /// <summary>
     /// Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.

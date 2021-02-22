@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20160707
+namespace Pulumi.AzureNative.ApiManagement.V20160707
 {
     [EnumType]
     public readonly struct ApiProtocolContract : IEquatable<ApiProtocolContract>

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
+namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
 {
     /// <summary>
     /// Represents a Database.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20200701preview:Database")]
+    [AzureNativeResourceType("azure-native:dbformysql/v20200701preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20200701preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/v20200701preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20200701preview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/v20200701preview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701privatepreview:Database"},
                 },
             };

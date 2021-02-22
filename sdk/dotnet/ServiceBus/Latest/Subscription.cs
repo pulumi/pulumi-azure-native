@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
     /// <summary>
     /// Description of subscription resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'.")]
-    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Subscription")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.")]
+    [AzureNativeResourceType("azure-native:servicebus/latest:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -140,12 +140,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subscription(string name, SubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/latest:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Subscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Subscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/latest:Subscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -156,10 +156,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Subscription"},
                 },
             };
@@ -266,7 +271,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.Latest.EntityStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.Latest.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// The subscription name.

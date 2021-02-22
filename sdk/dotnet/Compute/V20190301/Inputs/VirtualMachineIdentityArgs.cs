@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301.Inputs
+namespace Pulumi.AzureNative.Compute.V20190301.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Inputs
         /// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Compute.V20190301.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20190301.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

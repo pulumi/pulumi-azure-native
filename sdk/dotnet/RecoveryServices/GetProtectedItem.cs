@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     public static class GetProtectedItem
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-nextgen:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithVersion());
     }
 
 

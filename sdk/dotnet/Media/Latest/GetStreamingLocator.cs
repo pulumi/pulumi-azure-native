@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingLocator'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingLocator'.")]
     public static class GetStreamingLocator
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-nextgen:media/latest:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media/latest:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
     }
 
 

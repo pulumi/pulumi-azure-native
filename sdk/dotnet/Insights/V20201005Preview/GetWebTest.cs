@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20201005Preview
+namespace Pulumi.AzureNative.Insights.V20201005Preview
 {
     public static class GetWebTest
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// An Application Insights WebTest definition.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-nextgen:insights/v20201005preview:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/v20201005preview:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppSwiftVirtualNetworkConnection
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithVersion());
     }
 
 

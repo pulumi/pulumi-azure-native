@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetGeoBackupPolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2014-04-01.
         /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-nextgen:sql:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
     }
 
 

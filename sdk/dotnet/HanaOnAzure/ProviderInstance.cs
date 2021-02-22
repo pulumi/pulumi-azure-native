@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure
+namespace Pulumi.AzureNative.HanaOnAzure
 {
     /// <summary>
     /// A provider instance associated with a SAP monitor.
     /// API Version: 2020-02-07-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hanaonazure:ProviderInstance")]
+    [AzureNativeResourceType("azure-native:hanaonazure:ProviderInstance")]
     public partial class ProviderInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProviderInstance(string name, ProviderInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure:ProviderInstance", name, args ?? new ProviderInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hanaonazure:ProviderInstance", name, args ?? new ProviderInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProviderInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure:ProviderInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hanaonazure:ProviderInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hanaonazure/v20200207preview:ProviderInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20200207preview:ProviderInstance"},
                 },
             };

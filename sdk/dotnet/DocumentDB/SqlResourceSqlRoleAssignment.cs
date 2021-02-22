@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
     /// API Version: 2020-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment")]
+    [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlRoleAssignment(string name, SqlResourceSqlRoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment", name, args ?? new SqlResourceSqlRoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:SqlResourceSqlRoleAssignment", name, args ?? new SqlResourceSqlRoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlRoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:SqlResourceSqlRoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"},
                 },
             };

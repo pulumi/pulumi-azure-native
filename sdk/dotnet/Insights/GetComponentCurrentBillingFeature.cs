@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetComponentCurrentBillingFeature
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-nextgen:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
     }
 
 

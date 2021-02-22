@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     public static class GetUser
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:labservices:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 

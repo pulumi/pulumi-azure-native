@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class GetWebAppDiagnosticLogsConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Configuration of App Service site logs.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-nextgen:web/v20201001:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web/v20201001:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Threat intelligence information object.
     /// API Version: 2019-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights:ThreatIntelligenceIndicator")]
+    [AzureNativeResourceType("azure-native:securityinsights:ThreatIntelligenceIndicator")]
     public partial class ThreatIntelligenceIndicator : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThreatIntelligenceIndicator(string name, ThreatIntelligenceIndicatorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:ThreatIntelligenceIndicator", name, args ?? new ThreatIntelligenceIndicatorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights:ThreatIntelligenceIndicator", name, args ?? new ThreatIntelligenceIndicatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ThreatIntelligenceIndicator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:ThreatIntelligenceIndicator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights:ThreatIntelligenceIndicator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
                 },
             };
@@ -189,7 +190,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// The kind of the entity.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.ThreatIntelligenceResourceKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.ThreatIntelligenceResourceKind> Kind { get; set; } = null!;
 
         [Input("labels")]
         private InputList<string>? _labels;

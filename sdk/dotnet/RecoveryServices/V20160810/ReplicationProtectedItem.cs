@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
+namespace Pulumi.AzureNative.RecoveryServices.V20160810
 {
     /// <summary>
     /// Replication protected item.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationProtectedItem")]
     public partial class ReplicationProtectedItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationProtectedItem(string name, ReplicationProtectedItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem", name, args ?? new ReplicationProtectedItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20160810:ReplicationProtectedItem", name, args ?? new ReplicationProtectedItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationProtectedItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20160810:ReplicationProtectedItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem"},
                 },
             };

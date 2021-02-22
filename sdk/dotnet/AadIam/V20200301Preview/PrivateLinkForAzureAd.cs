@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
+namespace Pulumi.AzureNative.AadIam.V20200301Preview
 {
     /// <summary>
     /// PrivateLink Policy configuration object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd")]
+    [AzureNativeResourceType("azure-native:aadiam/v20200301preview:privateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkForAzureAd(string name, PrivateLinkForAzureAdArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam/v20200301preview:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkForAzureAd(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam/v20200301preview:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aadiam:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:privateLinkForAzureAd"},
                 },
             };

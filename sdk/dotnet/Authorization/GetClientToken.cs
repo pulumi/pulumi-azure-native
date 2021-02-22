@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     public static class GetClientToken
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// Use this function to get an Azure authentication token for the current login context.
         /// </summary>
         public static Task<GetClientTokenResult> InvokeAsync(GetClientTokenArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientTokenResult>("azure-nextgen:authorization:getClientToken", args ?? new GetClientTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClientTokenResult>("azure-native:authorization:getClientToken", args ?? new GetClientTokenArgs(), options.WithVersion());
     }
 
 

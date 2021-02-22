@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     public static class GetPolicySetDefinitionAtManagementGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-nextgen:authorization:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
     }
 
 

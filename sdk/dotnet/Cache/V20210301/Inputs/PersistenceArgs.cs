@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20210301.Inputs
+namespace Pulumi.AzureNative.Cache.V20210301.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301.Inputs
         /// Sets the frequency at which data is written to disk.
         /// </summary>
         [Input("aofFrequency")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20210301.AofFrequency>? AofFrequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.V20210301.AofFrequency>? AofFrequency { get; set; }
 
         /// <summary>
         /// Sets whether RDB is enabled.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301.Inputs
         /// Sets the frequency at which a snapshot of the database is created.
         /// </summary>
         [Input("rdbFrequency")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20210301.RdbFrequency>? RdbFrequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.V20210301.RdbFrequency>? RdbFrequency { get; set; }
 
         public PersistenceArgs()
         {

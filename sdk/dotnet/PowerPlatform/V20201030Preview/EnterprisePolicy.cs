@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
+namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 {
     /// <summary>
     /// Definition of the EnterprisePolicy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy")]
+    [AzureNativeResourceType("azure-native:powerplatform/v20201030preview:EnterprisePolicy")]
     public partial class EnterprisePolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterprisePolicy(string name, EnterprisePolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy", name, args ?? new EnterprisePolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:powerplatform/v20201030preview:EnterprisePolicy", name, args ?? new EnterprisePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterprisePolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:powerplatform/v20201030preview:EnterprisePolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

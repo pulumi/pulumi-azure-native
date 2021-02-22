@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
     /// <summary>
     /// An Application Insights web test definition.
     /// Latest API Version: 2015-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.")]
-    [AzureNextGenResourceType("azure-nextgen:insights/latest:WebTest")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:WebTest'.")]
+    [AzureNativeResourceType("azure-native:insights/latest:WebTest")]
     public partial class WebTest : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebTest(string name, WebTestArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:WebTest", name, args ?? new WebTestArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/latest:WebTest", name, args ?? new WebTestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebTest(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:WebTest", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/latest:WebTest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,8 +138,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:WebTest"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:WebTest"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20201005preview:WebTest"},
                 },
             };
@@ -192,7 +195,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.Insights.Latest.WebTestKind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.Insights.Latest.WebTestKind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location
@@ -252,7 +255,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The kind of web test this is, valid choices are ping and multistep.
         /// </summary>
         [Input("webTestKind", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.Latest.WebTestKind> WebTestKind { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.Latest.WebTestKind> WebTestKind { get; set; } = null!;
 
         /// <summary>
         /// User defined name if this WebTest.
@@ -263,9 +266,9 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public WebTestArgs()
         {
             Frequency = 300;
-            Kind = Pulumi.AzureNextGen.Insights.Latest.WebTestKind.Ping;
+            Kind = Pulumi.AzureNative.Insights.Latest.WebTestKind.Ping;
             Timeout = 30;
-            WebTestKind = Pulumi.AzureNextGen.Insights.Latest.WebTestKind.Ping;
+            WebTestKind = Pulumi.AzureNative.Insights.Latest.WebTestKind.Ping;
         }
     }
 }

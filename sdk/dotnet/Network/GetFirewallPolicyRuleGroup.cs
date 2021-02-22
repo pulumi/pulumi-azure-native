@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetFirewallPolicyRuleGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-04-01.
         /// </summary>
         public static Task<GetFirewallPolicyRuleGroupResult> InvokeAsync(GetFirewallPolicyRuleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-nextgen:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithVersion());
     }
 
 

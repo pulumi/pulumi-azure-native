@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200901.Inputs
+namespace Pulumi.AzureNative.Web.V20200901.Inputs
 {
 
     public sealed class OpenIdConnectConfigArgs : Pulumi.ResourceArgs

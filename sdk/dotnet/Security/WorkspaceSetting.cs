@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
     /// API Version: 2017-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:WorkspaceSetting")]
+    [AzureNativeResourceType("azure-native:security:WorkspaceSetting")]
     public partial class WorkspaceSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceSetting(string name, WorkspaceSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:WorkspaceSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:WorkspaceSetting"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
+namespace Pulumi.AzureNative.Authorization.V20200701Preview
 {
     public static class GetPolicyExemption
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// The policy exemption.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-nextgen:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// User details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201preview:User")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20191201preview:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201preview:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20191201preview:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201preview:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20191201preview:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,15 +100,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:User"},
                 },
             };
@@ -137,13 +147,13 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Determines the type of application which send the create user request. Default is old publisher portal.
         /// </summary>
         [Input("appType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.AppType>? AppType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20191201Preview.AppType>? AppType { get; set; }
 
         /// <summary>
         /// Determines the type of confirmation e-mail that will be sent to the newly created user.
         /// </summary>
         [Input("confirmation")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.Confirmation>? Confirmation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20191201Preview.Confirmation>? Confirmation { get; set; }
 
         /// <summary>
         /// Email address. Must not be empty and must be unique within the service instance.
@@ -203,7 +213,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.UserState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20191201Preview.UserState>? State { get; set; }
 
         /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.

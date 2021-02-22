@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForEntityType'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForEntityType'.")]
     public static class GetImageUploadUrlForEntityType
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetImageUploadUrlForEntityTypeResult> InvokeAsync(GetImageUploadUrlForEntityTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-nextgen:customerinsights/latest:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights/latest:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20160501
+namespace Pulumi.AzureNative.Storage.V20160501
 {
     public static class ListStorageAccountServiceSAS
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160501
         /// The List service SAS credentials operation response.
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-nextgen:storage/v20160501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20160501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
     }
 
 
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160501
         /// The protocol permitted for a request made with the account SAS.
         /// </summary>
         [Input("protocols")]
-        public Pulumi.AzureNextGen.Storage.V20160501.HttpProtocol? Protocols { get; set; }
+        public Pulumi.AzureNative.Storage.V20160501.HttpProtocol? Protocols { get; set; }
 
         /// <summary>
         /// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).

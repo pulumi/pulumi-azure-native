@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         /// </summary>
         [Input("useInVmCreationPermission")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.UsagePermissionType>? UseInVmCreationPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.UsagePermissionType>? UseInVmCreationPermission { get; set; }
 
         /// <summary>
         /// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         /// </summary>
         [Input("usePublicIpAddressPermission")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.UsagePermissionType>? UsePublicIpAddressPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.UsagePermissionType>? UsePublicIpAddressPermission { get; set; }
 
         /// <summary>
         /// The virtual network pool associated with this subnet.

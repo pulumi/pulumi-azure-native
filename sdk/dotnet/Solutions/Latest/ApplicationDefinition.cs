@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest
+namespace Pulumi.AzureNative.Solutions.Latest
 {
     /// <summary>
     /// Information about managed application definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'.")]
-    [AzureNextGenResourceType("azure-nextgen:solutions/latest:ApplicationDefinition")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:ApplicationDefinition'.")]
+    [AzureNativeResourceType("azure-native:solutions/latest:ApplicationDefinition")]
     public partial class ApplicationDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -146,12 +146,12 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationDefinition(string name, ApplicationDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions/latest:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions/latest:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -162,10 +162,15 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:ApplicationDefinition"},
                 },
             };
@@ -260,7 +265,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// The managed application lock level.
         /// </summary>
         [Input("lockLevel", required: true)]
-        public Input<Pulumi.AzureNextGen.Solutions.Latest.ApplicationLockLevel> LockLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Solutions.Latest.ApplicationLockLevel> LockLevel { get; set; } = null!;
 
         /// <summary>
         /// The managed application locking policy.

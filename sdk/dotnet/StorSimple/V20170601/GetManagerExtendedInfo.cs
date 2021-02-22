@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20170601
+namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     public static class GetManagerExtendedInfo
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The extended info of the manager.
         /// </summary>
         public static Task<GetManagerExtendedInfoResult> InvokeAsync(GetManagerExtendedInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-nextgen:storsimple/v20170601:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-native:storsimple/v20170601:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithVersion());
     }
 
 

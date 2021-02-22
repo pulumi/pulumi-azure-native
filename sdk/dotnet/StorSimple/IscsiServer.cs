@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The iSCSI server.
     /// API Version: 2016-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:IscsiServer")]
+    [AzureNativeResourceType("azure-native:storsimple:IscsiServer")]
     public partial class IscsiServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IscsiServer(string name, IscsiServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:IscsiServer", name, args ?? new IscsiServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:IscsiServer", name, args ?? new IscsiServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IscsiServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:IscsiServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:IscsiServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:IscsiServer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:IscsiServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiServer"},
                 },
             };

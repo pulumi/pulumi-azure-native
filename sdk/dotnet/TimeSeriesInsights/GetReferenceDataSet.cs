@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights
+namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     public static class GetReferenceDataSet
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-nextgen:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
     }
 
 

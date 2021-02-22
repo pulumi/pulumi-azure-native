@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetWorkloadGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-nextgen:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// Azure Active Directory only authentication.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication")]
     public partial class ServerAzureADOnlyAuthentication : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAzureADOnlyAuthentication(string name, ServerAzureADOnlyAuthenticationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, args ?? new ServerAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, args ?? new ServerAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAzureADOnlyAuthentication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAzureADOnlyAuthentication"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication"},
                 },
             };

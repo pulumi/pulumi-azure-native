@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
+namespace Pulumi.AzureNative.Compute.V20170330.Inputs
 {
 
     public sealed class SubResourceArgs : Pulumi.ResourceArgs

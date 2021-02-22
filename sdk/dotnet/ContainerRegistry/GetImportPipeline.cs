@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetImportPipeline
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-nextgen:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithVersion());
     }
 
 

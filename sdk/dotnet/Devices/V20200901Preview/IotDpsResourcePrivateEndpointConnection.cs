@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200901Preview
+namespace Pulumi.AzureNative.Devices.V20200901Preview
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDpsResourcePrivateEndpointConnection(string name, IotDpsResourcePrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDpsResourcePrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     /// <summary>
     /// A job.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:Job")]
+    [AzureNativeResourceType("azure-native:sql/v20200801preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200801preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200801preview:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Job"},
                 },
             };

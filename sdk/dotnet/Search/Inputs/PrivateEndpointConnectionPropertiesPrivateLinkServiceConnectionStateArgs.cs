@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.Inputs
+namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Search.Inputs
         /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.Search.PrivateLinkServiceConnectionStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.Search.PrivateLinkServiceConnectionStatus>? Status { get; set; }
 
         public PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {

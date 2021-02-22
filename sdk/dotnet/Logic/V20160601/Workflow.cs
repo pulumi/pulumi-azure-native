@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The workflow type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Workflow")]
+    [AzureNativeResourceType("azure-native:logic/v20160601:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20160601:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workflow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Workflow", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20160601:Workflow", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,10 +124,15 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Workflow"},
                 },
             };
@@ -192,7 +197,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The state.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.Logic.V20160601.WorkflowState>? State { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20160601.WorkflowState>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

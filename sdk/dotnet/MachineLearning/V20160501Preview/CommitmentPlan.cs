@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
+namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
 {
     /// <summary>
     /// An Azure ML commitment plan resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan")]
+    [AzureNativeResourceType("azure-native:machinelearning/v20160501preview:CommitmentPlan")]
     public partial class CommitmentPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CommitmentPlan(string name, CommitmentPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearning/v20160501preview:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CommitmentPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearning/v20160501preview:CommitmentPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearning:CommitmentPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning:CommitmentPlan"},
                 },
             };

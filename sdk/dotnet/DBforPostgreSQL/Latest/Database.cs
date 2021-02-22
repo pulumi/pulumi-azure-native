@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
+namespace Pulumi.AzureNative.DBforPostgreSQL.Latest
 {
     /// <summary>
     /// Represents a Database.
     /// Latest API Version: 2017-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Database'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:Database")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:Database'.")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/latest:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/latest:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Database"},
                 },
             };

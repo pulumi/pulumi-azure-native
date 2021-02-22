@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class GetUser
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// Profile of a lab user.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:devtestlab/v20160515:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:devtestlab/v20160515:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 

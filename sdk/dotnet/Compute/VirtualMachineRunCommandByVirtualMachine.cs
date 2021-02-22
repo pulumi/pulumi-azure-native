@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine")]
+    [AzureNativeResourceType("azure-native:compute:VirtualMachineRunCommandByVirtualMachine")]
     public partial class VirtualMachineRunCommandByVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineRunCommandByVirtualMachine(string name, VirtualMachineRunCommandByVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine", name, args ?? new VirtualMachineRunCommandByVirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute:VirtualMachineRunCommandByVirtualMachine", name, args ?? new VirtualMachineRunCommandByVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineRunCommandByVirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute:VirtualMachineRunCommandByVirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,8 +131,11 @@ namespace Pulumi.AzureNextGen.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                 },
             };

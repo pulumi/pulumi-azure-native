@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Inputs
+namespace Pulumi.AzureNative.StorSimple.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Inputs
         /// Refers to the sku name which should be "Standard"
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.ManagerSkuType> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.ManagerSkuType> Name { get; set; } = null!;
 
         public ManagerSkuArgs()
         {

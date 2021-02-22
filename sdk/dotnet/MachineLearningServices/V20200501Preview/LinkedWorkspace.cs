@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
     /// <summary>
     /// Linked workspace.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:LinkedWorkspace")]
     public partial class LinkedWorkspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedWorkspace(string name, LinkedWorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace", name, args ?? new LinkedWorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200501preview:LinkedWorkspace", name, args ?? new LinkedWorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200501preview:LinkedWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:LinkedWorkspace"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
+namespace Pulumi.AzureNative.HybridNetwork.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
         /// Specifies how the virtual machine should be created.
         /// </summary>
         [Input("createOption")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.DiskCreateOptionTypes>? CreateOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.DiskCreateOptionTypes>? CreateOption { get; set; }
 
         /// <summary>
         /// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetAFDOrigin
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-nextgen:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
     }
 
 

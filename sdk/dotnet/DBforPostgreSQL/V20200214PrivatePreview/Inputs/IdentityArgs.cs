@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

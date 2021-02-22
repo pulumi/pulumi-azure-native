@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerPublicEncryptionKey'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerPublicEncryptionKey'.")]
     public static class ListManagerPublicEncryptionKey
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<ListManagerPublicEncryptionKeyResult> InvokeAsync(ListManagerPublicEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-nextgen:storsimple/latest:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple/latest:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare
+namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// An account data transfer object.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare:Account")]
+    [AzureNativeResourceType("azure-native:datashare:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.DataShare
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,10 +101,15 @@ namespace Pulumi.AzureNextGen.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Account"},
                 },
             };

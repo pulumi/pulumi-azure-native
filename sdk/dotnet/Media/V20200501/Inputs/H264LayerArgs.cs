@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
+namespace Pulumi.AzureNative.Media.V20200501.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         /// </summary>
         [Input("entropyMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.EntropyMode>? EntropyMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.EntropyMode>? EntropyMode { get; set; }
 
         /// <summary>
         /// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// We currently support Baseline, Main, High, High422, High444. Default is Auto.
         /// </summary>
         [Input("profile")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.H264VideoProfile>? Profile { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.H264VideoProfile>? Profile { get; set; }
 
         /// <summary>
         /// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.

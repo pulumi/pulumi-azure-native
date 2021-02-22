@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170301
+namespace Pulumi.AzureNative.Network.V20170301
 {
     public static class GetLocalNetworkGateway
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// A common class for general resource information
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-nextgen:network/v20170301:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-native:network/v20170301:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
     /// <summary>
     /// Datasources under OMS Workspace.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.")]
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:DataSource")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:DataSource'.")]
+    [AzureNativeResourceType("azure-native:operationalinsights/latest:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/latest:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:DataSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/latest:DataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,9 +78,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataSource"},
                 },
             };
@@ -121,7 +125,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The kind of the DataSource.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.DataSourceKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.DataSourceKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The data source properties in raw json format, each kind of data source have it's own schema.

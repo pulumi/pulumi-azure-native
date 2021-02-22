@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
+namespace Pulumi.AzureNative.KubernetesConfiguration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetesconfiguration:getSourceControlConfiguration'.")]
     public static class GetSourceControlConfiguration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
         /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-nextgen:kubernetesconfiguration/latest:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/latest:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
     }
 
 

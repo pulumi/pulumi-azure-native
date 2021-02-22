@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     public static class GetDiskEncryptionSet
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// API Version: 2020-09-30.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-nextgen:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
     }
 
 

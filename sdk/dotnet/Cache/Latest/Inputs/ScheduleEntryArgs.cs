@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest.Inputs
+namespace Pulumi.AzureNative.Cache.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest.Inputs
         /// Day of the week when a cache can be patched.
         /// </summary>
         [Input("dayOfWeek", required: true)]
-        public Input<Pulumi.AzureNextGen.Cache.Latest.DayOfWeek> DayOfWeek { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Cache.Latest.DayOfWeek> DayOfWeek { get; set; } = null!;
 
         /// <summary>
         /// ISO8601 timespan specifying how much time cache patching can take. 

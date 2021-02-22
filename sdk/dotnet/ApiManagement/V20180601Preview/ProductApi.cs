@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// API details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:ProductApi")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:ProductApi")]
     public partial class ProductApi : Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductApi(string name, ProductApiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:ProductApi", name, args ?? new ProductApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180601preview:ProductApi", name, args ?? new ProductApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProductApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:ProductApi", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180601preview:ProductApi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,13 +154,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ProductApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ProductApi"},
                 },
             };

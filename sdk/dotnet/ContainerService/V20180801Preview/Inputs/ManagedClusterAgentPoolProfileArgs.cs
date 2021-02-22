@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20180801Preview.Inputs
 {
 
     /// <summary>
@@ -61,19 +61,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180801Preview.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20180801Preview.OSType>? OsType { get; set; }
 
         /// <summary>
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180801Preview.AgentPoolType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20180801Preview.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180801Preview.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20180801Preview.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevSpaces.V20190401
+namespace Pulumi.AzureNative.DevSpaces.V20190401
 {
-    [AzureNextGenResourceType("azure-nextgen:devspaces/v20190401:Controller")]
+    [AzureNativeResourceType("azure-native:devspaces/v20190401:Controller")]
     public partial class Controller : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Controller(string name, ControllerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devspaces/v20190401:Controller", name, args ?? new ControllerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devspaces/v20190401:Controller", name, args ?? new ControllerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Controller(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devspaces/v20190401:Controller", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devspaces/v20190401:Controller", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -103,7 +103,9 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devspaces:Controller"},
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces:Controller"},
+                    new Pulumi.Alias { Type = "azure-native:devspaces/latest:Controller"},
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces/latest:Controller"},
                 },
             };

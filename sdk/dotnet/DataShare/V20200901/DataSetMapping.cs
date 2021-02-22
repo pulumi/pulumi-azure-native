@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20200901
+namespace Pulumi.AzureNative.DataShare.V20200901
 {
     /// <summary>
     /// A data set mapping data transfer object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare/v20200901:DataSetMapping")]
+    [AzureNativeResourceType("azure-native:datashare/v20200901:DataSetMapping")]
     public partial class DataSetMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSetMapping(string name, DataSetMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20200901:DataSetMapping", name, args ?? new DataSetMappingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/v20200901:DataSetMapping", name, args ?? new DataSetMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSetMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20200901:DataSetMapping", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/v20200901:DataSetMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,10 +64,15 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:DataSetMapping"},
                 },
             };
@@ -108,7 +113,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// Kind of data set mapping.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.V20200901.DataSetMappingKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataShare.V20200901.DataSetMappingKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200320
+namespace Pulumi.AzureNative.AVS.V20200320
 {
     public static class GetAuthorization
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// ExpressRoute Circuit Authorization
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-nextgen:avs/v20200320:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs/v20200320:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
     }
 
 

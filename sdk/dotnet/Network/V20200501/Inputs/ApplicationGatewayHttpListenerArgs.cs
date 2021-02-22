@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
+namespace Pulumi.AzureNative.Network.V20200501.Inputs
 {
 
     /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Protocol of the HTTP listener.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200501.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Applicable only if protocol is https. Enables SNI for multi-hosting.

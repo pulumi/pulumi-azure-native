@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
+namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
 {
     /// <summary>
     /// Complete information about the private endpoint.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint")]
+    [AzureNativeResourceType("azure-native:streamanalytics/v20200301preview:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpoint(string name, PrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics/v20200301preview:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics/v20200301preview:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:PrivateEndpoint"},
                 },
             };

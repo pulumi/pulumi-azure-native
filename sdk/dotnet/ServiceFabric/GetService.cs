@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric
+namespace Pulumi.AzureNative.ServiceFabric
 {
     public static class GetService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:servicefabric:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

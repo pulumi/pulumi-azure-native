@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
 {
     /// <summary>
     /// A role defining the data plane operations that a principal can perform on a Time Series Insights client.

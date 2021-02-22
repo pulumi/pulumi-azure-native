@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraKeyspace'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'.")]
     public static class GetDatabaseAccountCassandraKeyspace
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraKeyspaceResult> InvokeAsync(GetDatabaseAccountCassandraKeyspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/latest:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithVersion());
     }
 
 

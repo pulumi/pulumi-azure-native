@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20210101Preview
+namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
     public static class GetGlobalReachConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
         /// A global reach connection resource
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-nextgen:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithVersion());
     }
 
 

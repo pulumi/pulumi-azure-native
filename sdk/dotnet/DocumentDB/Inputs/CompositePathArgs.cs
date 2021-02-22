@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
     public sealed class CompositePathArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Inputs
         /// Sort order for composite paths.
         /// </summary>
         [Input("order")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.CompositePathSortOrder>? Order { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CompositePathSortOrder>? Order { get; set; }
 
         /// <summary>
         /// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Latest
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
     /// Latest API Version: 2018-12-03.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.")]
-    [AzureNextGenResourceType("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.")]
+    [AzureNativeResourceType("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterpriseKnowledgeGraph(string name, EnterpriseKnowledgeGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterpriseKnowledgeGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,7 +78,9 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
+                    new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };

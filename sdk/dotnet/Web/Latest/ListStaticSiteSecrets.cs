@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteSecrets'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteSecrets'.")]
     public static class ListStaticSiteSecrets
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-nextgen:web/latest:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web/latest:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithVersion());
     }
 
 

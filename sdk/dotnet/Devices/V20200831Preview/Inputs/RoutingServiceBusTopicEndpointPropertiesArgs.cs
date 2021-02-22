@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200831Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20200831Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview.Inputs
         /// Method used to authenticate against the service bus topic endpoint
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200831Preview.AuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20200831Preview.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string of the service bus topic endpoint.

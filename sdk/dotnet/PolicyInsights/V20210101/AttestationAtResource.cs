@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
+namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
     /// <summary>
     /// An attestation resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:policyinsights/v20210101:AttestationAtResource")]
+    [AzureNativeResourceType("azure-native:policyinsights/v20210101:AttestationAtResource")]
     public partial class AttestationAtResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttestationAtResource(string name, AttestationAtResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/v20210101:AttestationAtResource", name, args ?? new AttestationAtResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:policyinsights/v20210101:AttestationAtResource", name, args ?? new AttestationAtResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttestationAtResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/v20210101:AttestationAtResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:policyinsights/v20210101:AttestationAtResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
         /// The compliance state that should be set on the resource.
         /// </summary>
         [Input("complianceState")]
-        public InputUnion<string, Pulumi.AzureNextGen.PolicyInsights.V20210101.ComplianceState>? ComplianceState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PolicyInsights.V20210101.ComplianceState>? ComplianceState { get; set; }
 
         [Input("evidence")]
         private InputList<Inputs.AttestationEvidenceArgs>? _evidence;

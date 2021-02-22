@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
+namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets the rule type
         /// </summary>
         [Input("ruleType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ApplicationGatewayRequestRoutingRuleType>? RuleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150501Preview.ApplicationGatewayRequestRoutingRuleType>? RuleType { get; set; }
 
         public ApplicationGatewayRequestRoutingRuleArgs()
         {

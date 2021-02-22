@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
+namespace Pulumi.AzureNative.OperationalInsights.V20201001
 {
     public static class GetCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// The top level Log Analytics cluster resource container.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:operationalinsights/v20201001:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:operationalinsights/v20201001:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

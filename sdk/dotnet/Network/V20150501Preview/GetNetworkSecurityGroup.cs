@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150501Preview
+namespace Pulumi.AzureNative.Network.V20150501Preview
 {
     public static class GetNetworkSecurityGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// NetworkSecurityGroup resource
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-nextgen:network/v20150501preview:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network/v20150501preview:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithVersion());
     }
 
 

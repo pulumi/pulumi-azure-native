@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The TrackAttribute to filter the tracks by.
         /// </summary>
         [Input("attribute", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.TrackAttribute> Attribute { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.TrackAttribute> Attribute { get; set; } = null!;
 
         /// <summary>
         /// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         /// </summary>
         [Input("channelMapping")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.ChannelMapping>? ChannelMapping { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.ChannelMapping>? ChannelMapping { get; set; }
 
         /// <summary>
         /// The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
         /// </summary>
         [Input("filter", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.AttributeFilter> Filter { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.AttributeFilter> Filter { get; set; } = null!;
 
         /// <summary>
         /// The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property.

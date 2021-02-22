@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Inputs
+namespace Pulumi.AzureNative.ApiManagement.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Inputs
         /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.ApimIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.ApimIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserIdentityPropertiesArgs>? _userAssignedIdentities;

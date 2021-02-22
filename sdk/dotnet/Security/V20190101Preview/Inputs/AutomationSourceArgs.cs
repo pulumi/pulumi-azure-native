@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
         /// A valid event source type.
         /// </summary>
         [Input("eventSource")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.EventSource>? EventSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.V20190101Preview.EventSource>? EventSource { get; set; }
 
         [Input("ruleSets")]
         private InputList<Inputs.AutomationRuleSetArgs>? _ruleSets;

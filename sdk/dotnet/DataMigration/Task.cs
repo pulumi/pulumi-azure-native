@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration
+namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A task resource
     /// API Version: 2018-04-19.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datamigration:Task")]
+    [AzureNativeResourceType("azure-native:datamigration:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Task(string name, TaskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datamigration:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Task(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:Task", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datamigration:Task", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,11 +65,17 @@ namespace Pulumi.AzureNextGen.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration/latest:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/latest:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180419:Task"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Task"},
                 },
             };

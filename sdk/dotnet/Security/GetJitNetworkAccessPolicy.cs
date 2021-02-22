@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetJitNetworkAccessPolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-nextgen:security:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-native:security:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithVersion());
     }
 
 

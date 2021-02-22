@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
+namespace Pulumi.AzureNative.EventGrid.V20180915Preview
 {
     /// <summary>
     /// Represents the filter operator

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 {
     public static class GetEnterpriseKnowledgeGraph
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph
         /// API Version: 2018-12-03.
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
     }
 
 

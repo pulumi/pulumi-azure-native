@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The type of this referenced entity.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
 
         public EntityReferenceArgs()
         {

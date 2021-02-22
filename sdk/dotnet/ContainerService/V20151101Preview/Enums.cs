@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview
+namespace Pulumi.AzureNative.ContainerService.V20151101Preview
 {
     /// <summary>
     /// Specifies what orchestrator will be used to manage container cluster resources.

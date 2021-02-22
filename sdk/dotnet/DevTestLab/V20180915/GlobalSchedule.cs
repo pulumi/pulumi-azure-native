@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A schedule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:GlobalSchedule")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:GlobalSchedule")]
     public partial class GlobalSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalSchedule(string name, GlobalScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:GlobalSchedule", name, args ?? new GlobalScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:GlobalSchedule", name, args ?? new GlobalScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:GlobalSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:GlobalSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,8 +130,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:GlobalSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:GlobalSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:GlobalSchedule"},
                 },
             };
@@ -196,7 +199,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// The status of the schedule (i.e. Enabled, Disabled)
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

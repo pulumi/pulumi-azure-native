@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getResourceTypeRegistration'.")]
     public static class GetResourceTypeRegistration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// Latest API Version: 2020-11-20.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-nextgen:providerhub/latest:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub/latest:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithVersion());
     }
 
 

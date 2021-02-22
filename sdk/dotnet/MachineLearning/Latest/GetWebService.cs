@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.Latest
+namespace Pulumi.AzureNative.MachineLearning.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'.")]
     public static class GetWebService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
         /// Latest API Version: 2017-01-01.
         /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-nextgen:machinelearning/latest:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning/latest:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
     }
 
 

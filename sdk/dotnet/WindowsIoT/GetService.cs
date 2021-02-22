@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.WindowsIoT
+namespace Pulumi.AzureNative.WindowsIoT
 {
     public static class GetService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:windowsiot:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:windowsiot:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
+namespace Pulumi.AzureNative.Web.V20160801.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
         /// Type of database.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Web.V20160801.ConnectionStringType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Web.V20160801.ConnectionStringType> Type { get; set; } = null!;
 
         /// <summary>
         /// Value of pair.

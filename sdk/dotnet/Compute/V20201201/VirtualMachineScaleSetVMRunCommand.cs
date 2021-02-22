@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201201
+namespace Pulumi.AzureNative.Compute.V20201201
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand")]
+    [AzureNativeResourceType("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSetVMRunCommand(string name, VirtualMachineScaleSetVMRunCommandArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand", name, args ?? new VirtualMachineScaleSetVMRunCommandArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand", name, args ?? new VirtualMachineScaleSetVMRunCommandArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineScaleSetVMRunCommand(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,8 +130,11 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVMRunCommand"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"},
                 },
             };

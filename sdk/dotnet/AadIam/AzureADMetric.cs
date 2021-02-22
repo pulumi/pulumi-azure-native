@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam
+namespace Pulumi.AzureNative.AadIam
 {
     /// <summary>
     /// AzureADMetrics resource.
     /// API Version: 2020-07-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:aadiam:azureADMetric")]
+    [AzureNativeResourceType("azure-native:aadiam:azureADMetric")]
     public partial class AzureADMetric : Pulumi.CustomResource
     {
         /// <summary>
@@ -52,12 +52,12 @@ namespace Pulumi.AzureNextGen.AadIam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AzureADMetric(string name, AzureADMetricArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:azureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam:azureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AzureADMetric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:azureADMetric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam:azureADMetric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,6 +68,7 @@ namespace Pulumi.AzureNextGen.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200701preview:azureADMetric"},
                 },
             };

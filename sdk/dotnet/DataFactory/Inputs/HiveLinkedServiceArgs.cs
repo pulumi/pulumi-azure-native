@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The authentication method used to access the Hive server.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.HiveAuthenticationType> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.HiveAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The type of Hive server.
         /// </summary>
         [Input("serverType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.HiveServerType>? ServerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.HiveServerType>? ServerType { get; set; }
 
         /// <summary>
         /// true to indicate using the ZooKeeper service, false not.
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The transport protocol to use in the Thrift layer.
         /// </summary>
         [Input("thriftTransportProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.HiveThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.HiveThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
 
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.

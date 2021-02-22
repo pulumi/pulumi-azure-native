@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
 {
 
     /// <summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// interpreted.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.SecretObjectType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.SecretObjectType>? Type { get; set; }
 
         /// <summary>
         /// The value of the secret. The format of this value will be determined

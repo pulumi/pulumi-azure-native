@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
+namespace Pulumi.AzureNative.EventGrid.V20190201Preview
 {
     public static class GetTopic
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
         /// EventGrid Topic
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-nextgen:eventgrid/v20190201preview:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid/v20190201preview:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }
 
 

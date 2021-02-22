@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// An Azure SQL Database sync group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:SyncGroup")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncGroup(string name, SyncGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:SyncGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:SyncGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,9 +130,13 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncGroup"},
                 },
             };
@@ -167,7 +171,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// Conflict resolution policy of the sync group.
         /// </summary>
         [Input("conflictResolutionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.SyncConflictResolutionPolicy>? ConflictResolutionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.SyncConflictResolutionPolicy>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
         /// The name of the database on which the sync group is hosted.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     public static class ListDisasterRecoveryConfigKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// Namespace/EventHub Connection String
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-nextgen:eventhub/v20170401:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:eventhub/v20170401:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
     }
 
 

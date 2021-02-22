@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.Latest
+namespace Pulumi.AzureNative.PolicyInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtSubscription'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtSubscription'.")]
     public static class GetRemediationAtSubscription
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-nextgen:policyinsights/latest:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-native:policyinsights/latest:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithVersion());
     }
 
 

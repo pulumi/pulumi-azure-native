@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.Latest
+namespace Pulumi.AzureNative.DataMigration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'.")]
     public static class GetTask
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// Latest API Version: 2018-04-19.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-nextgen:datamigration/latest:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration/latest:getTask", args ?? new GetTaskArgs(), options.WithVersion());
     }
 
 

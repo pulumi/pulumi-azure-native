@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview.Inputs
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview.Inputs
         /// The type of the key property.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview.ReferenceDataKeyPropertyType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview.ReferenceDataKeyPropertyType>? Type { get; set; }
 
         public ReferenceDataSetKeyPropertyArgs()
         {

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Api Version Set Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiVersionSet'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiVersionSet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiVersionSet'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiVersionSet(string name, ApiVersionSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiVersionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiVersionSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:ApiVersionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,13 +84,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"},
                 },
             };
@@ -161,7 +169,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// An value that determines where the API Version identifer will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.VersioningScheme> VersioningScheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.VersioningScheme> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetArgs()
         {

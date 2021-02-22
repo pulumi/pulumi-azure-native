@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkus'.")]
     public static class GetSkus
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// Latest API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-nextgen:providerhub/latest:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub/latest:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
     }
 
 

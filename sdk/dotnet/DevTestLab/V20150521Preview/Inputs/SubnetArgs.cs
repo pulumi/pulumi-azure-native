@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Inputs
 {
 
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         [Input("allowPublicIp")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.UsagePermissionType>? AllowPublicIp { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.UsagePermissionType>? AllowPublicIp { get; set; }
 
         [Input("labSubnetName")]
         public Input<string>? LabSubnetName { get; set; }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181001.Inputs
+namespace Pulumi.AzureNative.Network.V20181001.Inputs
 {
 
     /// <summary>
@@ -19,37 +19,37 @@ namespace Pulumi.AzureNextGen.Network.V20181001.Inputs
         /// The DH Groups used in IKE Phase 1 for initial SA.
         /// </summary>
         [Input("dhGroup", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.DhGroup> DhGroup { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.DhGroup> DhGroup { get; set; } = null!;
 
         /// <summary>
         /// The IKE encryption algorithm (IKE phase 2).
         /// </summary>
         [Input("ikeEncryption", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.IkeEncryption> IkeEncryption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.IkeEncryption> IkeEncryption { get; set; } = null!;
 
         /// <summary>
         /// The IKE integrity algorithm (IKE phase 2).
         /// </summary>
         [Input("ikeIntegrity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.IkeIntegrity> IkeIntegrity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.IkeIntegrity> IkeIntegrity { get; set; } = null!;
 
         /// <summary>
         /// The IPSec encryption algorithm (IKE phase 1).
         /// </summary>
         [Input("ipsecEncryption", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.IpsecEncryption> IpsecEncryption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.IpsecEncryption> IpsecEncryption { get; set; } = null!;
 
         /// <summary>
         /// The IPSec integrity algorithm (IKE phase 1).
         /// </summary>
         [Input("ipsecIntegrity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.IpsecIntegrity> IpsecIntegrity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.IpsecIntegrity> IpsecIntegrity { get; set; } = null!;
 
         /// <summary>
         /// The Pfs Groups used in IKE Phase 2 for new child SA.
         /// </summary>
         [Input("pfsGroup", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.PfsGroup> PfsGroup { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181001.PfsGroup> PfsGroup { get; set; } = null!;
 
         /// <summary>
         /// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.

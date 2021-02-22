@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Api Version Set Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:ApiVersionSet")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiVersionSet(string name, ApiVersionSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiVersionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiVersionSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:ApiVersionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,13 +82,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"},
                 },
             };
@@ -159,7 +167,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// An value that determines where the API Version identifer will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.VersioningScheme> VersioningScheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.VersioningScheme> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetArgs()
         {

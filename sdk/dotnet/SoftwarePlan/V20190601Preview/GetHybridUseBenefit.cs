@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SoftwarePlan.V20190601Preview
+namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
 {
     public static class GetHybridUseBenefit
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.V20190601Preview
         /// Response on GET of a hybrid use benefit
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-nextgen:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithVersion());
     }
 
 

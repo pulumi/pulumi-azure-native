@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Authentication Mode.
         /// </summary>
         [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
 
         /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.

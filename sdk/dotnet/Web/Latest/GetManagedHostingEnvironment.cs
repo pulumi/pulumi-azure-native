@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getManagedHostingEnvironment'.")]
     public static class GetManagedHostingEnvironment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2015-08-01.
         /// </summary>
         public static Task<GetManagedHostingEnvironmentResult> InvokeAsync(GetManagedHostingEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-nextgen:web/latest:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-native:web/latest:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
     }
 
 

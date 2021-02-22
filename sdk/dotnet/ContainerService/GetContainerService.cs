@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService
+namespace Pulumi.AzureNative.ContainerService
 {
     public static class GetContainerService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// API Version: 2017-01-31.
         /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-nextgen:containerservice:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-native:containerservice:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
     }
 
 

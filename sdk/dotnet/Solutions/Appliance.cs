@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions
+namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about appliance.
     /// API Version: 2016-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:solutions:Appliance")]
+    [AzureNativeResourceType("azure-native:solutions:Appliance")]
     public partial class Appliance : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.Solutions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Appliance(string name, ApplianceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:Appliance", name, args ?? new ApplianceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions:Appliance", name, args ?? new ApplianceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Appliance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:Appliance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions:Appliance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:Appliance"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
+namespace Pulumi.AzureNative.HybridNetwork.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
         /// The OS type.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.OperatingSystemTypes>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The virtual hard disk.

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     /// <summary>
     /// Information about a partner registration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20201015preview:PartnerRegistration")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20201015preview:PartnerRegistration")]
     public partial class PartnerRegistration : Pulumi.CustomResource
     {
         /// <summary>
@@ -140,12 +140,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PartnerRegistration(string name, PartnerRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20201015preview:PartnerRegistration", name, args ?? new PartnerRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20201015preview:PartnerRegistration", name, args ?? new PartnerRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PartnerRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20201015preview:PartnerRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20201015preview:PartnerRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -156,7 +156,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PartnerRegistration"},
                 },
             };
@@ -295,7 +297,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// Visibility state of the partner registration.
         /// </summary>
         [Input("visibilityState")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20201015Preview.PartnerRegistrationVisibilityState>? VisibilityState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.V20201015Preview.PartnerRegistrationVisibilityState>? VisibilityState { get; set; }
 
         public PartnerRegistrationArgs()
         {

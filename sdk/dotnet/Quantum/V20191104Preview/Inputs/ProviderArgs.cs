@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Quantum.V20191104Preview.Inputs
+namespace Pulumi.AzureNative.Quantum.V20191104Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview.Inputs
         /// Provisioning status field
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Quantum.V20191104Preview.Status>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Quantum.V20191104Preview.Status>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Id to track resource usage for the provider.

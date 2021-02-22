@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Supported protocols for the customer's endpoint.

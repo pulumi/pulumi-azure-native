@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen
+namespace Pulumi.AzureNative
 {
     static class Utilities
     {
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureNextGen.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureNative.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
             var parts = version.Split("\n");
@@ -78,9 +78,9 @@ namespace Pulumi.AzureNextGen
         }
     }
 
-    internal sealed class AzureNextGenResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class AzureNativeResourceTypeAttribute : Pulumi.ResourceTypeAttribute
     {
-        public AzureNextGenResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        public AzureNativeResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {
         }
     }

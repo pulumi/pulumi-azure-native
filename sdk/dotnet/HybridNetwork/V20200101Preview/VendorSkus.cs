@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Sku sub resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus")]
+    [AzureNativeResourceType("azure-native:hybridnetwork/v20200101preview:VendorSkus")]
     public partial class VendorSkus : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VendorSkus(string name, VendorSkusArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, args ?? new VendorSkusArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridnetwork/v20200101preview:VendorSkus", name, args ?? new VendorSkusArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VendorSkus(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridnetwork/v20200101preview:VendorSkus", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkus"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork:VendorSkus"},
                 },
             };
@@ -122,7 +123,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The sku deployment mode.
         /// </summary>
         [Input("deploymentMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.SkuDeploymentMode>? DeploymentMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.V20200101Preview.SkuDeploymentMode>? DeploymentMode { get; set; }
 
         /// <summary>
         /// The parameters for the managed application to be supplied by the vendor.
@@ -158,7 +159,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The sku type.
         /// </summary>
         [Input("skuType")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.SkuType>? SkuType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.V20200101Preview.SkuType>? SkuType { get; set; }
 
         /// <summary>
         /// The name of the vendor.

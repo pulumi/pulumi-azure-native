@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A sensitivity label.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ManagedDatabaseSensitivityLabel")]
+    [AzureNativeResourceType("azure-native:sql:ManagedDatabaseSensitivityLabel")]
     public partial class ManagedDatabaseSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
@@ -94,12 +94,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedDatabaseSensitivityLabel(string name, ManagedDatabaseSensitivityLabelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedDatabaseSensitivityLabel", name, args ?? new ManagedDatabaseSensitivityLabelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ManagedDatabaseSensitivityLabel", name, args ?? new ManagedDatabaseSensitivityLabelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedDatabaseSensitivityLabel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedDatabaseSensitivityLabel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ManagedDatabaseSensitivityLabel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -110,8 +110,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel"},
                 },
             };
@@ -179,7 +182,7 @@ namespace Pulumi.AzureNextGen.Sql
         public Input<string> ManagedInstanceName { get; set; } = null!;
 
         [Input("rank")]
-        public Input<Pulumi.AzureNextGen.Sql.SensitivityLabelRank>? Rank { get; set; }
+        public Input<Pulumi.AzureNative.Sql.SensitivityLabelRank>? Rank { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

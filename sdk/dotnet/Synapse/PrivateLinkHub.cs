@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A privateLinkHub
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse:PrivateLinkHub")]
+    [AzureNativeResourceType("azure-native:synapse:PrivateLinkHub")]
     public partial class PrivateLinkHub : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkHub(string name, PrivateLinkHubArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:PrivateLinkHub", name, args ?? new PrivateLinkHubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse:PrivateLinkHub", name, args ?? new PrivateLinkHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkHub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:PrivateLinkHub", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse:PrivateLinkHub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:PrivateLinkHub"},
                 },
             };

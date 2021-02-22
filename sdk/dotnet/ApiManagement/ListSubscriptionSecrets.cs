@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class ListSubscriptionSecrets
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-nextgen:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-native:apimanagement:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithVersion());
     }
 
 

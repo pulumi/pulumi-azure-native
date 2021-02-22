@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
     /// <summary>
     /// The OS architecture.

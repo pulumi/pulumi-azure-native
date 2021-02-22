@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getStreamingJob'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getStreamingJob'.")]
     public static class GetStreamingJob
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// Latest API Version: 2016-03-01.
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-nextgen:streamanalytics/latest:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics/latest:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
     }
 
 

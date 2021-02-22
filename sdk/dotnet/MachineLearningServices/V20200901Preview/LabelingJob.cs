@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Machine Learning labeling job object wrapped into ARM resource envelope.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200901preview:LabelingJob")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200901preview:LabelingJob")]
     public partial class LabelingJob : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabelingJob(string name, LabelingJobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:LabelingJob", name, args ?? new LabelingJobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200901preview:LabelingJob", name, args ?? new LabelingJobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabelingJob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:LabelingJob", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200901preview:LabelingJob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:LabelingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:LabelingJob"},
                 },
             };

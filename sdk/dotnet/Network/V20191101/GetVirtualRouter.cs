@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191101
+namespace Pulumi.AzureNative.Network.V20191101
 {
     public static class GetVirtualRouter
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// VirtualRouter Resource.
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-nextgen:network/v20191101:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-native:network/v20191101:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithVersion());
     }
 
 

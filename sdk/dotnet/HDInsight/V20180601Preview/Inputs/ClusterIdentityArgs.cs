@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         /// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.HDInsight.V20180601Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.HDInsight.V20180601Preview.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.ClusterIdentityUserAssignedIdentitiesArgs>? _userAssignedIdentities;

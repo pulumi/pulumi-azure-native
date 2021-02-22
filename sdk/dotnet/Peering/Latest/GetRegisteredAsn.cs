@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.Latest
+namespace Pulumi.AzureNative.Peering.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'.")]
     public static class GetRegisteredAsn
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-nextgen:peering/latest:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering/latest:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
     }
 
 

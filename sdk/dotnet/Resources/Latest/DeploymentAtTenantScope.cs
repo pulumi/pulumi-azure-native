@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest
+namespace Pulumi.AzureNative.Resources.Latest
 {
     /// <summary>
     /// Deployment information.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtTenantScope'.")]
-    [AzureNextGenResourceType("azure-nextgen:resources/latest:DeploymentAtTenantScope")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtTenantScope'.")]
+    [AzureNativeResourceType("azure-native:resources/latest:DeploymentAtTenantScope")]
     public partial class DeploymentAtTenantScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtTenantScope(string name, DeploymentAtTenantScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/latest:DeploymentAtTenantScope", name, args ?? new DeploymentAtTenantScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/latest:DeploymentAtTenantScope", name, args ?? new DeploymentAtTenantScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtTenantScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/latest:DeploymentAtTenantScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/latest:DeploymentAtTenantScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,12 +72,19 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtTenantScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtTenantScope"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     public static class GetGatewayCertificateAuthority
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Gateway certificate authority details.
         /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-nextgen:apimanagement/v20200601preview:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20200601preview:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithVersion());
     }
 
 

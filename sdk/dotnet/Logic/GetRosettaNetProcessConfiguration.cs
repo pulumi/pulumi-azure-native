@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class GetRosettaNetProcessConfiguration
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2016-06-01.
         /// </summary>
         public static Task<GetRosettaNetProcessConfigurationResult> InvokeAsync(GetRosettaNetProcessConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-nextgen:logic:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-native:logic:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithVersion());
     }
 
 

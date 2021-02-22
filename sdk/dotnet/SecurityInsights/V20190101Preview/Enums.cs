@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// The kind of the alert rule

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.Inputs
+namespace Pulumi.AzureNative.DataMigration.Inputs
 {
 
     /// <summary>
@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.DataMigration.Inputs
         /// The overwrite option for the SSIS environment migration
         /// </summary>
         [Input("environmentOverwriteOption")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.SsisMigrationOverwriteOption>? EnvironmentOverwriteOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.SsisMigrationOverwriteOption>? EnvironmentOverwriteOption { get; set; }
 
         /// <summary>
         /// The overwrite option for the SSIS project migration
         /// </summary>
         [Input("projectOverwriteOption")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.SsisMigrationOverwriteOption>? ProjectOverwriteOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.SsisMigrationOverwriteOption>? ProjectOverwriteOption { get; set; }
 
         /// <summary>
         /// The SSIS store type of source, only SSIS catalog is supported now in DMS
         /// </summary>
         [Input("ssisStoreType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.SsisStoreType>? SsisStoreType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.SsisStoreType>? SsisStoreType { get; set; }
 
         public SsisMigrationInfoArgs()
         {

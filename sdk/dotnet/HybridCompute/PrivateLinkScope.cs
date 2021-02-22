@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute
+namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
     /// API Version: 2020-08-15-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridcompute:PrivateLinkScope")]
+    [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScope")]
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.HybridCompute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScope(string name, PrivateLinkScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcompute:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcompute:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"},
                 },
             };
@@ -117,7 +118,7 @@ namespace Pulumi.AzureNextGen.HybridCompute
         /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridCompute.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridCompute.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group.

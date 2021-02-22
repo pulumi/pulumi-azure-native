@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:SecurityPolicy")]
+    [AzureNativeResourceType("azure-native:cdn/v20200901:SecurityPolicy")]
     public partial class SecurityPolicy : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -57,12 +57,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityPolicy(string name, SecurityPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:SecurityPolicy", name, args ?? new SecurityPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200901:SecurityPolicy", name, args ?? new SecurityPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:SecurityPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200901:SecurityPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -73,7 +73,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:SecurityPolicy"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501
+namespace Pulumi.AzureNative.Logic.V20190501
 {
     public static class GetWorkflow
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The workflow type.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-nextgen:logic/v20190501:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic/v20190501:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
+namespace Pulumi.AzureNative.MachineLearningServices.V20200801
 {
     public static class ListMachineLearningComputeNodes
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
         /// Compute node information related to a AmlCompute.
         /// </summary>
         public static Task<ListMachineLearningComputeNodesResult> InvokeAsync(ListMachineLearningComputeNodesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-nextgen:machinelearningservices/v20200801:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices/v20200801:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithVersion());
     }
 
 

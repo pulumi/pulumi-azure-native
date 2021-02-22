@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
     public static class GetSqlResourceSqlRoleAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// An Azure Cosmos DB Role Assignment
         /// </summary>
         public static Task<GetSqlResourceSqlRoleAssignmentResult> InvokeAsync(GetSqlResourceSqlRoleAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getVariable'.")]
     public static class GetVariable
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-nextgen:automation/latest:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/latest:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
     }
 
 

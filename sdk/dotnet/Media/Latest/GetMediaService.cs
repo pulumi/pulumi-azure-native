@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getMediaService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'.")]
     public static class GetMediaService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-nextgen:media/latest:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media/latest:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Match Variable
         /// </summary>
         [Input("rulesEngineMatchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.RulesEngineMatchVariable> RulesEngineMatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.RulesEngineMatchVariable> RulesEngineMatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes operator to apply to the match condition.
         /// </summary>
         [Input("rulesEngineOperator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.RulesEngineOperator> RulesEngineOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.RulesEngineOperator> RulesEngineOperator { get; set; } = null!;
 
         /// <summary>
         /// Name of selector in RequestHeader or RequestBody to be matched
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.Transform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Network.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.Transform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Network.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.Transform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.Transform>>());
             set => _transforms = value;
         }
 

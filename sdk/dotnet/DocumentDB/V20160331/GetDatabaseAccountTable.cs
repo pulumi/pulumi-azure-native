@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20160331
+namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
     public static class GetDatabaseAccountTable
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-nextgen:documentdb/v20160331:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-native:documentdb/v20160331:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
     }
 
 

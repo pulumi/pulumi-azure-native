@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Backend details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:Backend")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:Backend")]
     public partial class Backend : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Backend(string name, BackendArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:Backend", name, args ?? new BackendArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180601preview:Backend", name, args ?? new BackendArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Backend(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:Backend", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180601preview:Backend", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,15 +106,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Backend"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Backend"},
                 },
             };
@@ -167,7 +177,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Backend communication protocol.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.BackendProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180601Preview.BackendProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Backend Proxy Contract Properties

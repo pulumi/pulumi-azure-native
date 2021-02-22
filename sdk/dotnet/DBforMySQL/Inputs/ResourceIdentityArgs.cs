@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Inputs
+namespace Pulumi.AzureNative.DBforMySQL.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Inputs
         /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.IdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.IdentityType>? Type { get; set; }
 
         public ResourceIdentityArgs()
         {

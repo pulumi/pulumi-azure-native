@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20210301
+namespace Pulumi.AzureNative.Cache.V20210301
 {
     public static class ListDatabaseKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301
         /// The secret access keys used for authenticating connections to redis
         /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-nextgen:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache/v20210301:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
     }
 
 

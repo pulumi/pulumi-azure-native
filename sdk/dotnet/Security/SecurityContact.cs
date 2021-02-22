@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Contact details and configurations for notifications coming from Azure Security Center.
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:SecurityContact")]
+    [AzureNativeResourceType("azure-native:security:SecurityContact")]
     public partial class SecurityContact : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityContact(string name, SecurityContactArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityContact(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:SecurityContact", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:SecurityContact", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:SecurityContact"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101preview:SecurityContact"},
                 },
             };

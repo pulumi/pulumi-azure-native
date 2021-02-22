@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
+namespace Pulumi.AzureNative.ContainerService.V20180801Preview
 {
     /// <summary>
     /// AgentPoolType represents types of an agent pool

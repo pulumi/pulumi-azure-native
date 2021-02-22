@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Name of a public IP prefix SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.PublicIPPrefixSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.PublicIPPrefixSkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of a public IP prefix SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.PublicIPPrefixSkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.PublicIPPrefixSkuTier>? Tier { get; set; }
 
         public PublicIPPrefixSkuArgs()
         {

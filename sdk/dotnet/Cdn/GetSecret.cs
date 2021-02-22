@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetSecret
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:cdn:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20150408
+namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
     public static class GetDatabaseAccountCassandraTable
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// An Azure Cosmos DB Cassandra table.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-nextgen:documentdb/v20150408:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/v20150408:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
     }
 
 

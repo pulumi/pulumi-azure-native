@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201
+namespace Pulumi.AzureNative.Web.V20180201
 {
     public static class ListWebAppMetadata
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// String dictionary resource.
         /// </summary>
         public static Task<ListWebAppMetadataResult> InvokeAsync(ListWebAppMetadataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-nextgen:web/v20180201:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-native:web/v20180201:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithVersion());
     }
 
 

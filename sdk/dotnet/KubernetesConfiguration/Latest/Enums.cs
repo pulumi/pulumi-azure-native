@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
+namespace Pulumi.AzureNative.KubernetesConfiguration.Latest
 {
     /// <summary>
     /// Scope at which the operator will be installed.

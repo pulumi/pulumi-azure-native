@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetManager
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetManagerResult> InvokeAsync(GetManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-nextgen:storsimple:getManager", args ?? new GetManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerArgs(), options.WithVersion());
     }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The calculation window.

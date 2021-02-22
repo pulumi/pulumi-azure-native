@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listIdentityProviderSecrets'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listIdentityProviderSecrets'.")]
     public static class ListIdentityProviderSecrets
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<ListIdentityProviderSecretsResult> InvokeAsync(ListIdentityProviderSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-nextgen:apimanagement/latest:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-native:apimanagement/latest:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithVersion());
     }
 
 

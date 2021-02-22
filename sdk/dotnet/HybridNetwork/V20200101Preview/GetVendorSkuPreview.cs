@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     public static class GetVendorSkuPreview
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// Customer subscription which can use a sku.
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-nextgen:hybridnetwork/v20200101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20200101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithVersion());
     }
 
 

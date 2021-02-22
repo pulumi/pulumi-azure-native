@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices
+namespace Pulumi.AzureNative.CognitiveServices
 {
     public static class GetAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices
         /// API Version: 2017-04-18.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:cognitiveservices:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:cognitiveservices:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

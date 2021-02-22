@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.Inputs
+namespace Pulumi.AzureNative.BotService.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BotService.Inputs
         /// The sku name
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.BotService.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.BotService.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

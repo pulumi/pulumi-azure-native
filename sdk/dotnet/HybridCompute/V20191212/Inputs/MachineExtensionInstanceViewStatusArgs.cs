@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
+namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
         /// The level code.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridCompute.V20191212.StatusLevelTypes>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridCompute.V20191212.StatusLevelTypes>? Level { get; set; }
 
         /// <summary>
         /// The detailed status message, including for alerts and error messages.

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview
 {
     /// <summary>
     /// The default value is requeue.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint
+namespace Pulumi.AzureNative.Blueprint
 {
     public static class GetBlueprint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetBlueprintResult> InvokeAsync(GetBlueprintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-nextgen:blueprint:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
     }
 
 

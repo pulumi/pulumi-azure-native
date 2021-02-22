@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
+namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     public static class GetReplicationFabric
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
         /// Fabric definition.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-nextgen:recoveryservices/v20180710:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20180710:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
     }
 
 

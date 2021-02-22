@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevSpaces.Latest
+namespace Pulumi.AzureNative.DevSpaces.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:listControllerConnectionDetails'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:listControllerConnectionDetails'.")]
     public static class ListControllerConnectionDetails
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.Latest
         /// Latest API Version: 2019-04-01.
         /// </summary>
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-nextgen:devspaces/latest:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-native:devspaces/latest:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
     }
 
 

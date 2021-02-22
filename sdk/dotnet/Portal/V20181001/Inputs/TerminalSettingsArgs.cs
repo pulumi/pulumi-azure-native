@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20181001.Inputs
+namespace Pulumi.AzureNative.Portal.V20181001.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Portal.V20181001.Inputs
         /// Size of terminal font.
         /// </summary>
         [Input("fontSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.FontSize>? FontSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Portal.V20181001.FontSize>? FontSize { get; set; }
 
         /// <summary>
         /// Style of terminal font.
         /// </summary>
         [Input("fontStyle")]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.FontStyle>? FontStyle { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Portal.V20181001.FontStyle>? FontStyle { get; set; }
 
         public TerminalSettingsArgs()
         {

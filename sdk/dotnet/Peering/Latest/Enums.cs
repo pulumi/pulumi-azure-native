@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Peering.Latest
+namespace Pulumi.AzureNative.Peering.Latest
 {
     /// <summary>
     /// The type of direct peering.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         public Input<string> Activity { get; set; } = null!;
 
         [Input("dependencyConditions", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>>? _dependencyConditions;
+        private InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.DependencyCondition>>? _dependencyConditions;
 
         /// <summary>
         /// Match-Condition for the dependency.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>> DependencyConditions
+        public InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.DependencyCondition>> DependencyConditions
         {
-            get => _dependencyConditions ?? (_dependencyConditions = new InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>>());
+            get => _dependencyConditions ?? (_dependencyConditions = new InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.DependencyCondition>>());
             set => _dependencyConditions = value;
         }
 

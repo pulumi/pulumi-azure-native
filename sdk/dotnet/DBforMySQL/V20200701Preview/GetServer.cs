@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
+namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
 {
     public static class GetServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
         /// Represents a server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformysql/v20200701preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformysql/v20200701preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

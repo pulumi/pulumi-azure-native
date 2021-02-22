@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20160301
+namespace Pulumi.AzureNative.Insights.V20160301
 {
     public static class GetLogProfile
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// The log profile resource.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-nextgen:insights/v20160301:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights/v20160301:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
     }
 
 

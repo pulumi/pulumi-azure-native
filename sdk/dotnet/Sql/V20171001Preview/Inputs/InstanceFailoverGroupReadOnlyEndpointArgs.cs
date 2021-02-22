@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20171001Preview.Inputs
+namespace Pulumi.AzureNative.Sql.V20171001Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview.Inputs
         /// Failover policy of the read-only endpoint for the failover group.
         /// </summary>
         [Input("failoverPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20171001Preview.ReadOnlyEndpointFailoverPolicy>? FailoverPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20171001Preview.ReadOnlyEndpointFailoverPolicy>? FailoverPolicy { get; set; }
 
         public InstanceFailoverGroupReadOnlyEndpointArgs()
         {

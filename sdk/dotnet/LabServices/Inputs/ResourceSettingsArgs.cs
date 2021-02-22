@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Inputs
+namespace Pulumi.AzureNative.LabServices.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.LabServices.Inputs
         /// The size of the virtual machine
         /// </summary>
         [Input("size")]
-        public InputUnion<string, Pulumi.AzureNextGen.LabServices.ManagedLabVmSize>? Size { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.LabServices.ManagedLabVmSize>? Size { get; set; }
 
         public ResourceSettingsArgs()
         {

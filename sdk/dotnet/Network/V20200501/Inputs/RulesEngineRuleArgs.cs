@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
+namespace Pulumi.AzureNative.Network.V20200501.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         /// </summary>
         [Input("matchProcessingBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200501.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
 
         /// <summary>
         /// A name to refer to this specific rule.

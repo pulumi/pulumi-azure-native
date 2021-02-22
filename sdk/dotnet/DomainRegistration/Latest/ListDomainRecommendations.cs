@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DomainRegistration.Latest
+namespace Pulumi.AzureNative.DomainRegistration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'.")]
     public static class ListDomainRecommendations
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-nextgen:domainregistration/latest:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/latest:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
     }
 
 

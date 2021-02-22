@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     public static class GetEntitiesGetTimeline
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetEntitiesGetTimelineResult> InvokeAsync(GetEntitiesGetTimelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-nextgen:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithVersion());
     }
 
 
@@ -35,14 +35,14 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         public string EntityId { get; set; } = null!;
 
         [Input("kinds")]
-        private List<Union<string, Pulumi.AzureNextGen.SecurityInsights.EntityTimelineKind>>? _kinds;
+        private List<Union<string, Pulumi.AzureNative.SecurityInsights.EntityTimelineKind>>? _kinds;
 
         /// <summary>
         /// Array of timeline Item kinds.
         /// </summary>
-        public List<Union<string, Pulumi.AzureNextGen.SecurityInsights.EntityTimelineKind>> Kinds
+        public List<Union<string, Pulumi.AzureNative.SecurityInsights.EntityTimelineKind>> Kinds
         {
-            get => _kinds ?? (_kinds = new List<Union<string, Pulumi.AzureNextGen.SecurityInsights.EntityTimelineKind>>());
+            get => _kinds ?? (_kinds = new List<Union<string, Pulumi.AzureNative.SecurityInsights.EntityTimelineKind>>());
             set => _kinds = value;
         }
 

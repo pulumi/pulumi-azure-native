@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// Indicates whether audit logs are enabled on the connected registry.
         /// </summary>
         [Input("auditLogStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.AuditLogStatus>? AuditLogStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.AuditLogStatus>? AuditLogStatus { get; set; }
 
         /// <summary>
         /// The verbosity of logs persisted on the connected registry.
         /// </summary>
         [Input("logLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.LogLevel>? LogLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.LogLevel>? LogLevel { get; set; }
 
         public LoggingPropertiesArgs()
         {

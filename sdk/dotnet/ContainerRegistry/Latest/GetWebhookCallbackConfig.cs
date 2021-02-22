@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
+namespace Pulumi.AzureNative.ContainerRegistry.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhookCallbackConfig'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhookCallbackConfig'.")]
     public static class GetWebhookCallbackConfig
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-nextgen:containerregistry/latest:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry/latest:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
     }
 
 

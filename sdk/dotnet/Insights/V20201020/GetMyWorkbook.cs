@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20201020
+namespace Pulumi.AzureNative.Insights.V20201020
 {
     public static class GetMyWorkbook
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// An Application Insights private workbook definition.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-nextgen:insights/v20201020:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights/v20201020:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithVersion());
     }
 
 

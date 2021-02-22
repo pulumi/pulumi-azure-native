@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork.Inputs
+namespace Pulumi.AzureNative.ManagedNetwork.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.Inputs
         /// Gets or sets the connectivity type of a network structure policy
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ManagedNetwork.Type> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetwork.Type> Type { get; set; } = null!;
 
         public ManagedNetworkPeeringPolicyPropertiesArgs()
         {

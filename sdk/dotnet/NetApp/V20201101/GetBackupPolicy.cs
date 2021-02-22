@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20201101
+namespace Pulumi.AzureNative.NetApp.V20201101
 {
     public static class GetBackupPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
         /// Backup policy information
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-nextgen:netapp/v20201101:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/v20201101:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
     }
 
 

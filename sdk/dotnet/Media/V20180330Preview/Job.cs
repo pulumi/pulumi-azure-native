@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview
+namespace Pulumi.AzureNative.Media.V20180330Preview
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20180330preview:Job")]
+    [AzureNativeResourceType("azure-native:media/v20180330preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180330preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20180330preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180330preview:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20180330preview:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,10 +94,15 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Job"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Job"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Job"},
                 },
             };
@@ -162,7 +167,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         /// </summary>
         [Input("priority")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.Priority>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180330Preview.Priority>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

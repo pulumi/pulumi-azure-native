@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Private Endpoint Connection Response Properties
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:recoveryservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,11 +77,17 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20200202:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:PrivateEndpointConnection"},
                 },
             };

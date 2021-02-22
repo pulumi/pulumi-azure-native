@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         /// </summary>
         [Input("windowsOsState")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.WindowsOsState>? WindowsOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.WindowsOsState>? WindowsOsState { get; set; }
 
         public WindowsOsInfoArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs
+namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.NotificationHubs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationHubAuthorizationRule(string name, NotificationHubAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule", name, args ?? new NotificationHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:notificationhubs:NotificationHubAuthorizationRule", name, args ?? new NotificationHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationHubAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:notificationhubs:NotificationHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,8 +125,11 @@ namespace Pulumi.AzureNextGen.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule"},
                 },
             };

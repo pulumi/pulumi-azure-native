@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.NetApp.Latest
+namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Indicates whether the local volume is the source or destination for the Volume Replication

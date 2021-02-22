@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.BotService.Latest
+namespace Pulumi.AzureNative.BotService.Latest
 {
     /// <summary>
     /// The current state of the Enterprise Channel Node.

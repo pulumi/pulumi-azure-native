@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getPipeline'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getPipeline'.")]
     public static class GetPipeline
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// Latest API Version: 2018-06-01.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-nextgen:datafactory/latest:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:datafactory/latest:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
     }
 
 

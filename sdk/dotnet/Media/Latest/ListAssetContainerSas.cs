@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'.")]
     public static class ListAssetContainerSas
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-nextgen:media/latest:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media/latest:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
     }
 
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// The permissions to set on the SAS URL.
         /// </summary>
         [Input("permissions")]
-        public Union<string, Pulumi.AzureNextGen.Media.Latest.AssetContainerPermission>? Permissions { get; set; }
+        public Union<string, Pulumi.AzureNative.Media.Latest.AssetContainerPermission>? Permissions { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

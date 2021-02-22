@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
+namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     public static class GetNamespaceVirtualNetworkRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Single item in a List or Get VirtualNetworkRules operation
         /// </summary>
         public static Task<GetNamespaceVirtualNetworkRuleResult> InvokeAsync(GetNamespaceVirtualNetworkRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-nextgen:eventhub/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithVersion());
     }
 
 

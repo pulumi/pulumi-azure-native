@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.Inputs
+namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Search.Inputs
         /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
         /// </summary>
         [Input("provisioningState")]
-        public Input<Pulumi.AzureNextGen.Search.SharedPrivateLinkResourceProvisioningState>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNative.Search.SharedPrivateLinkResourceProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The request message for requesting approval of the shared private link resource.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Search.Inputs
         /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.Search.SharedPrivateLinkResourceStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.Search.SharedPrivateLinkResourceStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourcePropertiesArgs()
         {

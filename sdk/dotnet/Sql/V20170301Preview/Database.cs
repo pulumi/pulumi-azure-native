@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20170301Preview
+namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
     /// <summary>
     /// A database resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:Database")]
+    [AzureNativeResourceType("azure-native:sql/v20170301preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -196,12 +196,12 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20170301preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20170301preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20170301preview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20170301preview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -212,12 +212,19 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Database"},
                 },
             };
@@ -246,7 +253,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.CatalogCollationType>? CatalogCollation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20170301Preview.CatalogCollationType>? CatalogCollation { get; set; }
 
         /// <summary>
         /// The collation of the database.
@@ -274,7 +281,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20170301Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -340,7 +347,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// The name of the sample schema to apply when creating this database.
         /// </summary>
         [Input("sampleName")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.SampleName>? SampleName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20170301Preview.SampleName>? SampleName { get; set; }
 
         /// <summary>
         /// The name of the server.

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
+namespace Pulumi.AzureNative.Datadog.V20200201Preview
 {
-    [AzureNextGenResourceType("azure-nextgen:datadog/v20200201preview:Monitor")]
+    [AzureNativeResourceType("azure-native:datadog/v20200201preview:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {
         [Output("identity")]
@@ -51,12 +51,12 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datadog/v20200201preview:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datadog/v20200201preview:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Monitor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datadog/v20200201preview:Monitor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datadog/v20200201preview:Monitor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datadog:Monitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:datadog:Monitor"},
                 },
             };

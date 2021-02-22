@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview
+namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// A private endpoint connection class.
     /// API Version: 2020-12-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:purview:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:purview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Purview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:purview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:purview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:purview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:purview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Purview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:purview/v20201201preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:purview/v20201201preview:PrivateEndpointConnection"},
                 },
             };

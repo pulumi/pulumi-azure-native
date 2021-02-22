@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// The link resource format.
     /// API Version: 2017-04-26.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights:Link")]
+    [AzureNativeResourceType("azure-native:customerinsights:Link")]
     public partial class Link : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Link(string name, LinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Link(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Link", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights:Link", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,8 +131,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Link"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Link"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Link"},
                 },
             };
@@ -209,7 +212,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
         [Input("operationType")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.InstanceOperationType>? OperationType { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.InstanceOperationType>? OperationType { get; set; }
 
         [Input("participantPropertyReferences", required: true)]
         private InputList<Inputs.ParticipantPropertyReferenceArgs>? _participantPropertyReferences;
@@ -239,7 +242,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Type of source entity.
         /// </summary>
         [Input("sourceEntityType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.EntityType> SourceEntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.EntityType> SourceEntityType { get; set; } = null!;
 
         /// <summary>
         /// Name of the source Entity Type.
@@ -251,7 +254,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Type of target entity.
         /// </summary>
         [Input("targetEntityType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.EntityType> TargetEntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.EntityType> TargetEntityType { get; set; } = null!;
 
         /// <summary>
         /// Name of the target Entity Type.

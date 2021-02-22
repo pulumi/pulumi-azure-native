@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     public static class GetDatabaseThreatDetectionPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// Contains information about a database Threat Detection policy.
         /// </summary>
         public static Task<GetDatabaseThreatDetectionPolicyResult> InvokeAsync(GetDatabaseThreatDetectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-nextgen:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithVersion());
     }
 
 

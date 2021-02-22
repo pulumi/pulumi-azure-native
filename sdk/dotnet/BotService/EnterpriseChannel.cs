@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService
+namespace Pulumi.AzureNative.BotService
 {
     /// <summary>
     /// Enterprise Channel resource definition
     /// API Version: 2018-07-12.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:botservice:EnterpriseChannel")]
+    [AzureNativeResourceType("azure-native:botservice:EnterpriseChannel")]
     public partial class EnterpriseChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.BotService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterpriseChannel(string name, EnterpriseChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:botservice:EnterpriseChannel", name, args ?? new EnterpriseChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:botservice:EnterpriseChannel", name, args ?? new EnterpriseChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterpriseChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:botservice:EnterpriseChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:botservice:EnterpriseChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:botservice/latest:EnterpriseChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/latest:EnterpriseChannel"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:EnterpriseChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:EnterpriseChannel"},
                 },
             };
@@ -124,7 +126,7 @@ namespace Pulumi.AzureNextGen.BotService
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.BotService.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BotService.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.

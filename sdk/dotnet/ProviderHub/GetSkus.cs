@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     public static class GetSkus
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-nextgen:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
     }
 
 

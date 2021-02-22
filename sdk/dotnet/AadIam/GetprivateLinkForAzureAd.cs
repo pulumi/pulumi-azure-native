@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam
+namespace Pulumi.AzureNative.AadIam
 {
     public static class GetprivateLinkForAzureAd
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AadIam
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetprivateLinkForAzureAdResult> InvokeAsync(GetprivateLinkForAzureAdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-nextgen:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-native:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithVersion());
     }
 
 

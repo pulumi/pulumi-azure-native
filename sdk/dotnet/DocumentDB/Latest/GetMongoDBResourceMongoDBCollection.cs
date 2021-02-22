@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getMongoDBResourceMongoDBCollection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBCollection'.")]
     public static class GetMongoDBResourceMongoDBCollection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2021-01-15.
         /// </summary>
         public static Task<GetMongoDBResourceMongoDBCollectionResult> InvokeAsync(GetMongoDBResourceMongoDBCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBCollectionResult>("azure-nextgen:documentdb/latest:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb/latest:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionArgs(), options.WithVersion());
     }
 
 

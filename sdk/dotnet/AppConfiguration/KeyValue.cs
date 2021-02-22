@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration
+namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The key-value resource along with all resource properties.
     /// API Version: 2020-07-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appconfiguration:KeyValue")]
+    [AzureNativeResourceType("azure-native:appconfiguration:KeyValue")]
     public partial class KeyValue : Pulumi.CustomResource
     {
         /// <summary>
@@ -89,12 +89,12 @@ namespace Pulumi.AzureNextGen.AppConfiguration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyValue(string name, KeyValueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration:KeyValue", name, args ?? new KeyValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appconfiguration:KeyValue", name, args ?? new KeyValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KeyValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration:KeyValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appconfiguration:KeyValue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:KeyValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:KeyValue"},
                 },
             };

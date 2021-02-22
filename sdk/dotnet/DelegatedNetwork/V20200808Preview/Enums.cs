@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
+namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
 {
     /// <summary>
     /// The kind of workbook. Choices are user and shared.

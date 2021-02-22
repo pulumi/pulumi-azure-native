@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20200215.Inputs
+namespace Pulumi.AzureNative.Kusto.V20200215.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215.Inputs
         /// The language extension name.
         /// </summary>
         [Input("languageExtensionName")]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200215.LanguageExtensionName>? LanguageExtensionName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Kusto.V20200215.LanguageExtensionName>? LanguageExtensionName { get; set; }
 
         public LanguageExtensionArgs()
         {

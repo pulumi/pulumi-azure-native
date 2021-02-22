@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetIdentityProvider
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-nextgen:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithVersion());
     }
 
 

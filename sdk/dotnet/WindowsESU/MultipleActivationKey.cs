@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.WindowsESU
+namespace Pulumi.AzureNative.WindowsESU
 {
     /// <summary>
     /// MAK key details.
     /// API Version: 2019-09-16-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:windowsesu:MultipleActivationKey")]
+    [AzureNativeResourceType("azure-native:windowsesu:MultipleActivationKey")]
     public partial class MultipleActivationKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -94,12 +94,12 @@ namespace Pulumi.AzureNextGen.WindowsESU
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MultipleActivationKey(string name, MultipleActivationKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsesu:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:windowsesu:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MultipleActivationKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsesu:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:windowsesu:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -110,6 +110,7 @@ namespace Pulumi.AzureNextGen.WindowsESU
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:windowsesu/v20190916preview:MultipleActivationKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey"},
                 },
             };
@@ -168,7 +169,7 @@ namespace Pulumi.AzureNextGen.WindowsESU
         /// Type of OS for which the key is requested.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.OsType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.WindowsESU.OsType>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -180,7 +181,7 @@ namespace Pulumi.AzureNextGen.WindowsESU
         /// Type of support
         /// </summary>
         [Input("supportType")]
-        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.SupportType>? SupportType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.WindowsESU.SupportType>? SupportType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

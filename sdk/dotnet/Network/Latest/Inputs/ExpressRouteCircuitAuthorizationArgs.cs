@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The authorization use status.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// Resource ID.

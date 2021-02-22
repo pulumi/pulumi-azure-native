@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401
+namespace Pulumi.AzureNative.Network.V20200401
 {
     public static class GetNetworkInterface
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// A network interface in a resource group.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-nextgen:network/v20200401:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network/v20200401:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
     }
 
 

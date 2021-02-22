@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     public static class GetDatabaseAccountSqlContainer
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountSqlContainerResult> InvokeAsync(GetDatabaseAccountSqlContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlContainerResult>("azure-nextgen:documentdb:getDatabaseAccountSqlContainer", args ?? new GetDatabaseAccountSqlContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlContainerResult>("azure-native:documentdb:getDatabaseAccountSqlContainer", args ?? new GetDatabaseAccountSqlContainerArgs(), options.WithVersion());
     }
 
 

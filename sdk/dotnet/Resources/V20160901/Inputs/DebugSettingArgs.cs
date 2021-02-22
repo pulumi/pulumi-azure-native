@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20160901.Inputs
+namespace Pulumi.AzureNative.Resources.V20160901.Inputs
 {
 
     public sealed class DebugSettingArgs : Pulumi.ResourceArgs

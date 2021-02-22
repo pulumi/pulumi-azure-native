@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201
+namespace Pulumi.AzureNative.Web.V20180201
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20180201:WebAppAuthSettings")]
+    [AzureNativeResourceType("azure-native:web/v20180201:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -234,12 +234,12 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppAuthSettings(string name, WebAppAuthSettingsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20180201:WebAppAuthSettings", name, args ?? new WebAppAuthSettingsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20180201:WebAppAuthSettings", name, args ?? new WebAppAuthSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppAuthSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20180201:WebAppAuthSettings", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20180201:WebAppAuthSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -250,14 +250,23 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAuthSettings"},
                 },
             };
@@ -354,7 +363,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// action is set to "RedirectToLoginPage".
         /// </summary>
         [Input("defaultProvider")]
-        public Input<Pulumi.AzureNextGen.Web.V20180201.BuiltInAuthenticationProvider>? DefaultProvider { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20180201.BuiltInAuthenticationProvider>? DefaultProvider { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -520,7 +529,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// The action to take when an unauthenticated client attempts to access the app.
         /// </summary>
         [Input("unauthenticatedClientAction")]
-        public Input<Pulumi.AzureNextGen.Web.V20180201.UnauthenticatedClientAction>? UnauthenticatedClientAction { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20180201.UnauthenticatedClientAction>? UnauthenticatedClientAction { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.

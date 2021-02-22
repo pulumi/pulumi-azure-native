@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20190907
+namespace Pulumi.AzureNative.Kusto.V20190907
 {
     public static class GetDataConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190907
         /// Class representing an data connection.
         /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-nextgen:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithVersion());
     }
 
 

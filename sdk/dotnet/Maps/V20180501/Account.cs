@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps.V20180501
+namespace Pulumi.AzureNative.Maps.V20180501
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:maps/v20180501:Account")]
+    [AzureNativeResourceType("azure-native:maps/v20180501:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Maps.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps/v20180501:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:maps/v20180501:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps/v20180501:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:maps/v20180501:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,9 +76,13 @@ namespace Pulumi.AzureNextGen.Maps.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:maps:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps:Account"},
+                    new Pulumi.Alias { Type = "azure-native:maps/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20170101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Account"},
                 },
             };

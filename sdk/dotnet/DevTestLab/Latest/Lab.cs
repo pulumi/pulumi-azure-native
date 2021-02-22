@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// A lab.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Lab'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Lab")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Lab'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:Lab")]
     public partial class Lab : Pulumi.CustomResource
     {
         /// <summary>
@@ -172,12 +172,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Lab(string name, LabArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:Lab", name, args ?? new LabArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:Lab", name, args ?? new LabArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Lab(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:Lab", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:Lab", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -188,9 +188,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Lab"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Lab"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Lab"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Lab"},
                 },
             };
@@ -225,7 +229,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The access rights to be granted to the user when provisioning an environment
         /// </summary>
         [Input("environmentPermission")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.EnvironmentPermission>? EnvironmentPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.EnvironmentPermission>? EnvironmentPermission { get; set; }
 
         [Input("extendedProperties")]
         private InputMap<string>? _extendedProperties;
@@ -243,7 +247,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         /// </summary>
         [Input("labStorageType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.StorageType>? LabStorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.StorageType>? LabStorageType { get; set; }
 
         /// <summary>
         /// The location of the resource.
@@ -287,7 +291,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// When its value is 'Disabled', only creation of standard data disks is allowed.
         /// </summary>
         [Input("premiumDataDisks")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.PremiumDataDisk>? PremiumDataDisks { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.PremiumDataDisk>? PremiumDataDisks { get; set; }
 
         /// <summary>
         /// The name of the resource group.

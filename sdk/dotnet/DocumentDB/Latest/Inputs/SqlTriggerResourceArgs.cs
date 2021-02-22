@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Latest.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
         /// The operation the trigger is associated with
         /// </summary>
         [Input("triggerOperation")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.TriggerOperation>? TriggerOperation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.Latest.TriggerOperation>? TriggerOperation { get; set; }
 
         /// <summary>
         /// Type of the Trigger
         /// </summary>
         [Input("triggerType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.TriggerType>? TriggerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.Latest.TriggerType>? TriggerType { get; set; }
 
         public SqlTriggerResourceArgs()
         {

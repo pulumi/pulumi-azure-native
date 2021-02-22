@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Slot Config names azure resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteSlotConfigNames")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteSlotConfigNames")]
     public partial class SiteSlotConfigNames : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteSlotConfigNames(string name, SiteSlotConfigNamesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteSlotConfigNames", name, args ?? new SiteSlotConfigNamesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteSlotConfigNames", name, args ?? new SiteSlotConfigNamesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteSlotConfigNames(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteSlotConfigNames", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteSlotConfigNames", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,14 +82,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteSlotConfigNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteSlotConfigNames"},
                 },
             };

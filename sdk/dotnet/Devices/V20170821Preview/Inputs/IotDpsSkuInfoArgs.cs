@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20170821Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20170821Preview.Inputs
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview.Inputs
         public Input<double>? Capacity { get; set; }
 
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20170821Preview.IotDpsSku>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20170821Preview.IotDpsSku>? Name { get; set; }
 
         public IotDpsSkuInfoArgs()
         {

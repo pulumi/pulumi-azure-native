@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Latest
+namespace Pulumi.AzureNative.Authorization.Latest
 {
     /// <summary>
     /// The lock information.
     /// Latest API Version: 2016-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.")]
-    [AzureNextGenResourceType("azure-nextgen:authorization/latest:ManagementLockByScope")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockByScope'.")]
+    [AzureNativeResourceType("azure-native:authorization/latest:ManagementLockByScope")]
     public partial class ManagementLockByScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLockByScope(string name, ManagementLockByScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:ManagementLockByScope", name, args ?? new ManagementLockByScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/latest:ManagementLockByScope", name, args ?? new ManagementLockByScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLockByScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:ManagementLockByScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/latest:ManagementLockByScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockByScope"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockByScope"},
                 },
             };
@@ -101,7 +103,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("level", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.Latest.LockLevel> Level { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Authorization.Latest.LockLevel> Level { get; set; } = null!;
 
         /// <summary>
         /// The name of lock.

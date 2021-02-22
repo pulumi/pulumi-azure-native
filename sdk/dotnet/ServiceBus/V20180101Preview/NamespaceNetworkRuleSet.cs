@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Description of NetworkRuleSet resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet")]
+    [AzureNativeResourceType("azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceNetworkRuleSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet"},
                 },
             };
@@ -100,7 +103,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Default Action for Network Rule Set
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20180101Preview.DefaultAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20180101Preview.DefaultAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.NWRuleSetIpRulesArgs>? _ipRules;

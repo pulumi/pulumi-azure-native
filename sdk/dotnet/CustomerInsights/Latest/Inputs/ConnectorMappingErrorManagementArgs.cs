@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
+namespace Pulumi.AzureNative.CustomerInsights.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// The type of error management to use for the mapping.
         /// </summary>
         [Input("errorManagementType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.ErrorManagementTypes> ErrorManagementType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.Latest.ErrorManagementTypes> ErrorManagementType { get; set; } = null!;
 
         public ConnectorMappingErrorManagementArgs()
         {

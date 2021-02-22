@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AlertsManagement
+namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// Indicates if the given action rule is enabled or disabled

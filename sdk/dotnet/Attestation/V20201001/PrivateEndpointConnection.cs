@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Attestation.V20201001
+namespace Pulumi.AzureNative.Attestation.V20201001
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:attestation/v20201001:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:attestation/v20201001:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation/v20201001:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:attestation/v20201001:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation/v20201001:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:attestation/v20201001:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:attestation:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:attestation/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:PrivateEndpointConnection"},
                 },
             };

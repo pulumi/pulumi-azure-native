@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTCentral.Latest
+namespace Pulumi.AzureNative.IoTCentral.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:iotcentral:getApp'.")]
     public static class GetApp
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
         /// Latest API Version: 2018-09-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:iotcentral/latest:getApp", args ?? new GetAppArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral/latest:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }
 
 

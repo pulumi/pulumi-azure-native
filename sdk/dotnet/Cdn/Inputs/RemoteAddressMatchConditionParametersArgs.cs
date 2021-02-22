@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Inputs
+namespace Pulumi.AzureNative.Cdn.Inputs
 {
 
     /// <summary>
@@ -40,17 +40,17 @@ namespace Pulumi.AzureNextGen.Cdn.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.RemoteAddressOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.RemoteAddressOperator> Operator { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Cdn.Transform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Cdn.Transform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Cdn.Transform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>());
             set => _transforms = value;
         }
 

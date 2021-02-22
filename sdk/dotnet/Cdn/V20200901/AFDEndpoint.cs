@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:AFDEndpoint")]
+    [AzureNativeResourceType("azure-native:cdn/v20200901:AFDEndpoint")]
     public partial class AFDEndpoint : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AFDEndpoint(string name, AFDEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDEndpoint", name, args ?? new AFDEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200901:AFDEndpoint", name, args ?? new AFDEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AFDEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200901:AFDEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,7 +97,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDEndpoint"},
                 },
             };
@@ -126,7 +128,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.

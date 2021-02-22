@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The KPI resource format.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:Kpi")]
+    [AzureNativeResourceType("azure-native:customerinsights/v20170426:Kpi")]
     public partial class Kpi : Pulumi.CustomResource
     {
         /// <summary>
@@ -150,12 +150,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Kpi(string name, KpiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:Kpi", name, args ?? new KpiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/v20170426:Kpi", name, args ?? new KpiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Kpi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:Kpi", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/v20170426:Kpi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -166,8 +166,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Kpi"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Kpi"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Kpi"},
                 },
             };
@@ -208,7 +211,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The calculation window.
         /// </summary>
         [Input("calculationWindow", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.CalculationWindowTypes> CalculationWindow { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.V20170426.CalculationWindowTypes> CalculationWindow { get; set; } = null!;
 
         /// <summary>
         /// Name of calculation window field.
@@ -244,7 +247,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The mapping entity type.
         /// </summary>
         [Input("entityType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.EntityTypes> EntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.V20170426.EntityTypes> EntityType { get; set; } = null!;
 
         /// <summary>
         /// The mapping entity name.
@@ -280,7 +283,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The computation function for the KPI.
         /// </summary>
         [Input("function", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.KpiFunctions> Function { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.V20170426.KpiFunctions> Function { get; set; } = null!;
 
         [Input("groupBy")]
         private InputList<string>? _groupBy;

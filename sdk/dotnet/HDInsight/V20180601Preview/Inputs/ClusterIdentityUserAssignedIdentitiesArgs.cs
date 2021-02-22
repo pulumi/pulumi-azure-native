@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
 {
 
     public sealed class ClusterIdentityUserAssignedIdentitiesArgs : Pulumi.ResourceArgs

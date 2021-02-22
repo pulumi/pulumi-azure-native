@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
+namespace Pulumi.AzureNative.MachineLearningServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listMachineLearningComputeKeys'.")]
     public static class ListMachineLearningComputeKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeKeysResult> InvokeAsync(ListMachineLearningComputeKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-nextgen:machinelearningservices/latest:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices/latest:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
     }
 
 

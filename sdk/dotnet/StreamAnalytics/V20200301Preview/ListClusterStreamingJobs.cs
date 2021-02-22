@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
+namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
 {
     public static class ListClusterStreamingJobs
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// A list of streaming jobs. Populated by a List operation.
         /// </summary>
         public static Task<ListClusterStreamingJobsResult> InvokeAsync(ListClusterStreamingJobsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-nextgen:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithVersion());
     }
 
 

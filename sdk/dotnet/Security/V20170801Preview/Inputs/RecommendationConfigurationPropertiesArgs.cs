@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview.Inputs
         /// The recommendation type.
         /// </summary>
         [Input("recommendationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.RecommendationType> RecommendationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20170801Preview.RecommendationType> RecommendationType { get; set; } = null!;
 
         /// <summary>
         /// Recommendation status. The recommendation is not generated when the status is disabled
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.RecommendationConfigStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20170801Preview.RecommendationConfigStatus> Status { get; set; } = null!;
 
         public RecommendationConfigurationPropertiesArgs()
         {

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Latest
+namespace Pulumi.AzureNative.KeyVault.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getVault'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getVault'.")]
     public static class GetVault
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// Latest API Version: 2019-09-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:keyvault/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }
 
 

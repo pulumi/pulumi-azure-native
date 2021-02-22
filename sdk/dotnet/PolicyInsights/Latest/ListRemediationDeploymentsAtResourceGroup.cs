@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.Latest
+namespace Pulumi.AzureNative.PolicyInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtResourceGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup'.")]
     public static class ListRemediationDeploymentsAtResourceGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-nextgen:policyinsights/latest:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights/latest:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
     }
 
 

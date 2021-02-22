@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListWebAppApplicationSettings
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppApplicationSettingsResult> InvokeAsync(ListWebAppApplicationSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsResult>("azure-nextgen:web:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsResult>("azure-native:web:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsArgs(), options.WithVersion());
     }
 
 

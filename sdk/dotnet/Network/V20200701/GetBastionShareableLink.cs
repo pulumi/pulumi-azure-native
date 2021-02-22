@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     public static class GetBastionShareableLink
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// Response for all the Bastion Shareable Link endpoints.
         /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-nextgen:network/v20200701:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network/v20200701:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());
     }
 
 

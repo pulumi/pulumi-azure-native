@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest.Inputs
+namespace Pulumi.AzureNative.Portal.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Portal.Latest.Inputs
         /// The operating system type of the cloud shell.
         /// </summary>
         [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.OsType> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Portal.Latest.OsType> OsType { get; set; } = null!;
 
         /// <summary>
         /// Provisioning state of the console.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Portal.Latest.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Portal.Latest.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Uri of the console.

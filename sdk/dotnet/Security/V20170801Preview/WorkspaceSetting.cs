@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20170801Preview
+namespace Pulumi.AzureNative.Security.V20170801Preview
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security/v20170801preview:WorkspaceSetting")]
+    [AzureNativeResourceType("azure-native:security/v20170801preview:WorkspaceSetting")]
     public partial class WorkspaceSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceSetting(string name, WorkspaceSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20170801preview:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20170801preview:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:WorkspaceSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:WorkspaceSetting"},
                 },
             };

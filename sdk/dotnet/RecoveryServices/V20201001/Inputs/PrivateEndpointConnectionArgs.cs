@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Gets or sets provisioning state of the private endpoint connection
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20201001.ProvisioningState>? ProvisioningState { get; set; }
 
         public PrivateEndpointConnectionArgs()
         {

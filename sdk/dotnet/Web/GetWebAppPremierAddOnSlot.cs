@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppPremierAddOnSlot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppPremierAddOnSlotResult> InvokeAsync(GetWebAppPremierAddOnSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnSlotResult>("azure-nextgen:web:getWebAppPremierAddOnSlot", args ?? new GetWebAppPremierAddOnSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnSlotResult>("azure-native:web:getWebAppPremierAddOnSlot", args ?? new GetWebAppPremierAddOnSlotArgs(), options.WithVersion());
     }
 
 

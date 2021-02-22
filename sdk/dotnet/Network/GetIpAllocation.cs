@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetIpAllocation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-nextgen:network:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
     }
 
 

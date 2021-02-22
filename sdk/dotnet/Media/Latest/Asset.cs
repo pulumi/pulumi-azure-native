@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// An Asset.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:Asset")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Asset'.")]
+    [AzureNativeResourceType("azure-native:media/latest:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Asset(string name, AssetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Asset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:Asset", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:Asset", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,10 +108,15 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Asset"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     /// <summary>
     /// Api details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:GatewayApiEntityTag")]
     public partial class GatewayApiEntityTag : Pulumi.CustomResource
     {
         /// <summary>
@@ -144,12 +144,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayApiEntityTag(string name, GatewayApiEntityTagArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag", name, args ?? new GatewayApiEntityTagArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20200601preview:GatewayApiEntityTag", name, args ?? new GatewayApiEntityTagArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayApiEntityTag(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20200601preview:GatewayApiEntityTag", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,9 +160,13 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayApiEntityTag"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayApiEntityTag"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"},
                 },
             };
@@ -203,7 +207,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Provisioning state.
         /// </summary>
         [Input("provisioningState")]
-        public Input<Pulumi.AzureNextGen.ApiManagement.V20200601Preview.ProvisioningState>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNative.ApiManagement.V20200601Preview.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

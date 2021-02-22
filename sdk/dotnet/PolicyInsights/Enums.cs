@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.PolicyInsights
+namespace Pulumi.AzureNative.PolicyInsights
 {
     /// <summary>
     /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.

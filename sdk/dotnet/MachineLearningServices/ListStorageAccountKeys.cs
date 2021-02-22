@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     public static class ListStorageAccountKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-nextgen:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
     }
 
 

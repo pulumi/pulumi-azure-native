@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Inputs
+namespace Pulumi.AzureNative.Logic.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The RosettaNet ProcessConfiguration activity type.
         /// </summary>
         [Input("activityType", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.RosettaNetPipActivityType> ActivityType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.RosettaNetPipActivityType> ActivityType { get; set; } = null!;
 
         public RosettaNetPipActivitySettingsArgs()
         {

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Recovery plan details.
     /// Latest API Version: 2018-07-10.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.")]
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'.")]
+    [AzureNativeResourceType("azure-native:recoveryservices/latest:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationRecoveryPlan(string name, ReplicationRecoveryPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan", name, args ?? new ReplicationRecoveryPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/latest:ReplicationRecoveryPlan", name, args ?? new ReplicationRecoveryPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationRecoveryPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/latest:ReplicationRecoveryPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,9 +66,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan"},
                 },
             };

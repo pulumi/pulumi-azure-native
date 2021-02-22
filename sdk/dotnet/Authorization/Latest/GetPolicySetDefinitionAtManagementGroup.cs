@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Latest
+namespace Pulumi.AzureNative.Authorization.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinitionAtManagementGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicySetDefinitionAtManagementGroup'.")]
     public static class GetPolicySetDefinitionAtManagementGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-nextgen:authorization/latest:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/latest:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
     }
 
 

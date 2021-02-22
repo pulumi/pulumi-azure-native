@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
+namespace Pulumi.AzureNative.Migrate.V20191001Preview
 {
     /// <summary>
     /// Define the move collection.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:migrate/v20191001preview:MoveCollection")]
+    [AzureNativeResourceType("azure-native:migrate/v20191001preview:MoveCollection")]
     public partial class MoveCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MoveCollection(string name, MoveCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20191001preview:MoveCollection", name, args ?? new MoveCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/v20191001preview:MoveCollection", name, args ?? new MoveCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MoveCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20191001preview:MoveCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/v20191001preview:MoveCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveCollection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/latest:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:MoveCollection"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20210101:MoveCollection"},
                 },
             };

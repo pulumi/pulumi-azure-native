@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Devices.V20171115
+namespace Pulumi.AzureNative.Devices.V20171115
 {
     /// <summary>
     /// Rights that this key has.

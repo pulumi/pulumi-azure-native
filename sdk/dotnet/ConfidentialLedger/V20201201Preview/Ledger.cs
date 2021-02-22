@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
+namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview
 {
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:confidentialledger/v20201201preview:Ledger")]
+    [AzureNativeResourceType("azure-native:confidentialledger/v20201201preview:Ledger")]
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ledger(string name, LedgerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confidentialledger/v20201201preview:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:confidentialledger/v20201201preview:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Ledger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confidentialledger/v20201201preview:Ledger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:confidentialledger/v20201201preview:Ledger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger"},
                     new Pulumi.Alias { Type = "azure-nextgen:confidentialledger:Ledger"},
                 },
             };

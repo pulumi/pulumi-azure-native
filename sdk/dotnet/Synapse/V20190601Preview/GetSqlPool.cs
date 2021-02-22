@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     public static class GetSqlPool
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// A SQL Analytics pool
         /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-nextgen:synapse/v20190601preview:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse/v20190601preview:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
     }
 
 

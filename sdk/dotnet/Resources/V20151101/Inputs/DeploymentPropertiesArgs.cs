@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20151101.Inputs
+namespace Pulumi.AzureNative.Resources.V20151101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101.Inputs
         /// Gets or sets the deployment mode.
         /// </summary>
         [Input("mode")]
-        public Input<Pulumi.AzureNextGen.Resources.V20151101.DeploymentMode>? Mode { get; set; }
+        public Input<Pulumi.AzureNative.Resources.V20151101.DeploymentMode>? Mode { get; set; }
 
         /// <summary>
         /// Deployment parameters. Use only one of Parameters or ParametersLink.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
+namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
     public static class GetRelationshipLink
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// The relationship link resource format.
         /// </summary>
         public static Task<GetRelationshipLinkResult> InvokeAsync(GetRelationshipLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-nextgen:customerinsights/v20170101:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-native:customerinsights/v20170101:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithVersion());
     }
 
 

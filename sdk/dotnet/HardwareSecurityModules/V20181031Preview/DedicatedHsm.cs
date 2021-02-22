@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
+namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
 {
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm")]
+    [AzureNativeResourceType("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm")]
     public partial class DedicatedHsm : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHsm(string name, DedicatedHsmArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args ?? new DedicatedHsmArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args ?? new DedicatedHsmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedHsm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules:DedicatedHsm"},
                     new Pulumi.Alias { Type = "azure-nextgen:hardwaresecuritymodules:DedicatedHsm"},
                 },
             };

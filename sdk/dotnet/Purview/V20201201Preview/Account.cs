@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.V20201201Preview
+namespace Pulumi.AzureNative.Purview.V20201201Preview
 {
     /// <summary>
     /// Account resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:purview/v20201201preview:Account")]
+    [AzureNativeResourceType("azure-native:purview/v20201201preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:purview/v20201201preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:purview/v20201201preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:purview/v20201201preview:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:purview/v20201201preview:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,6 +137,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:purview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:purview:Account"},
                 },
             };
@@ -183,7 +184,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// Gets or sets the public network access.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Purview.V20201201Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.V20201201Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The resource group name.

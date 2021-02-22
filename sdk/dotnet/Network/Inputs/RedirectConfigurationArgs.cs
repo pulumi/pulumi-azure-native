@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -50,13 +50,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The protocol of the destination to where the traffic is redirected
         /// </summary>
         [Input("redirectProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.FrontDoorRedirectProtocol>? RedirectProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.FrontDoorRedirectProtocol>? RedirectProtocol { get; set; }
 
         /// <summary>
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         [Input("redirectType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.FrontDoorRedirectType>? RedirectType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.FrontDoorRedirectType>? RedirectType { get; set; }
 
         public RedirectConfigurationArgs()
         {

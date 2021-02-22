@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     public static class GetVirtualApplianceSite
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// Virtual Appliance Site resource.
         /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-nextgen:network/v20200701:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network/v20200701:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration
+namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A file resource
     /// API Version: 2018-07-15-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datamigration:File")]
+    [AzureNativeResourceType("azure-native:datamigration:File")]
     public partial class File : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public File(string name, FileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:File", name, args ?? new FileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datamigration:File", name, args ?? new FileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private File(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:File", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datamigration:File", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:File"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:File"},
                 },
             };

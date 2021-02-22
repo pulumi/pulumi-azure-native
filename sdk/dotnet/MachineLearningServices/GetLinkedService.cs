@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     public static class GetLinkedService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// API Version: 2020-09-01-preview.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:machinelearningservices:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:machinelearningservices:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     public static class GetApplicationGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// API Version: 2021-01-14-preview.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-nextgen:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithVersion());
     }
 
 

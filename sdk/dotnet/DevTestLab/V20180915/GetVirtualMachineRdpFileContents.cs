@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     public static class GetVirtualMachineRdpFileContents
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// Represents a .rdp file
         /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-nextgen:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
     }
 
 

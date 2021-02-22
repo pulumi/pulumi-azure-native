@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
     public static class ListRegistryCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
         /// The response from the ListCredentials operation.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-nextgen:containerregistry/v20170601preview:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/v20170601preview:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights
 {
     public static class GetDataSource
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-nextgen:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
     }
 
 

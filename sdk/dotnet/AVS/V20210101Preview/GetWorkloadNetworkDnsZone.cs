@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20210101Preview
+namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
     public static class GetWorkloadNetworkDnsZone
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
         /// NSX DNS Zone
         /// </summary>
         public static Task<GetWorkloadNetworkDnsZoneResult> InvokeAsync(GetWorkloadNetworkDnsZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-nextgen:avs/v20210101preview:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs/v20210101preview:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
     /// Latest API Version: 2020-05-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:EventSource'.")]
-    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/latest:EventSource")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:EventSource'.")]
+    [AzureNativeResourceType("azure-native:timeseriesinsights/latest:EventSource")]
     public partial class EventSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSource(string name, EventSourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:EventSource", name, args ?? new EventSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:timeseriesinsights/latest:EventSource", name, args ?? new EventSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:EventSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:timeseriesinsights/latest:EventSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,10 +72,15 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:EventSource"},
                 },
             };
@@ -116,7 +121,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// The kind of the event source.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.EventSourceKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.EventSourceKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.

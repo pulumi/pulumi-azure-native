@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class LoggingRuleArgs : Pulumi.ResourceArgs
@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         public Input<string> Action { get; set; } = null!;
 
         [Input("detailLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.LoggingDetails> DetailLevel { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.LoggingDetails> DetailLevel { get; set; } = null!;
 
         [Input("direction", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.LoggingDirections> Direction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.LoggingDirections> Direction { get; set; } = null!;
 
         [Input("hiddenPropertyPaths")]
         public Input<Inputs.LoggingRuleHiddenPropertyPathsArgs>? HiddenPropertyPaths { get; set; }

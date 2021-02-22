@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
     /// <summary>
     /// Specify the write behavior when upserting documents into Azure Search Index.

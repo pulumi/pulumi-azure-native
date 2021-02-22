@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetguestDiagnosticsSetting
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-nextgen:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-native:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
     }
 
 

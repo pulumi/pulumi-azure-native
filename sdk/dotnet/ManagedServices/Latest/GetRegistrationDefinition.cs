@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.Latest
+namespace Pulumi.AzureNative.ManagedServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationDefinition'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationDefinition'.")]
     public static class GetRegistrationDefinition
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
         /// Latest API Version: 2019-09-01.
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-nextgen:managedservices/latest:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices/latest:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
+namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
 {
     public static class GetDelegatedSubnetServiceDetails
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// Represents an instance of a orchestrator.
         /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-nextgen:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithVersion());
     }
 
 

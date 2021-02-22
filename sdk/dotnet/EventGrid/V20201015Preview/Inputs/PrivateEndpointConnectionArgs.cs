@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview.Inputs
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
 {
 
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview.Inputs
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20201015Preview.ResourceProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.V20201015Preview.ResourceProvisioningState>? ProvisioningState { get; set; }
 
         public PrivateEndpointConnectionArgs()
         {

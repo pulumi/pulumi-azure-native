@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest
+namespace Pulumi.AzureNative.Security.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'.")]
     public static class GetAssessmentMetadataInSubscription
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetAssessmentMetadataInSubscriptionResult> InvokeAsync(GetAssessmentMetadataInSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentMetadataInSubscriptionResult>("azure-nextgen:security/latest:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentMetadataInSubscriptionResult>("azure-native:security/latest:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionArgs(), options.WithVersion());
     }
 
 

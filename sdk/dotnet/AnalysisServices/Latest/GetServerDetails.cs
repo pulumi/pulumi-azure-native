@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.Latest
+namespace Pulumi.AzureNative.AnalysisServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:getServerDetails'.")]
     public static class GetServerDetails
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// Latest API Version: 2017-08-01.
         /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-nextgen:analysisservices/latest:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-native:analysisservices/latest:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
     }
 
 

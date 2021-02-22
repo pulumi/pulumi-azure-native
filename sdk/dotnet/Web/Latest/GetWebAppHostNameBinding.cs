@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHostNameBinding'.")]
     public static class GetWebAppHostNameBinding
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppHostNameBindingResult> InvokeAsync(GetWebAppHostNameBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-nextgen:web/latest:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-native:web/latest:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithVersion());
     }
 
 

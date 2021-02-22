@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
+namespace Pulumi.AzureNative.Maintenance.V20210401Preview
 {
     /// <summary>
     /// Configuration Assignment
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent")]
+    [AzureNativeResourceType("azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent")]
     public partial class ConfigurationAssignmentParent : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationAssignmentParent(string name, ConfigurationAssignmentParentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent", name, args ?? new ConfigurationAssignmentParentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent", name, args ?? new ConfigurationAssignmentParentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationAssignmentParent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent", name, null, MakeResourceOptions(options, id))
         {
         }
 

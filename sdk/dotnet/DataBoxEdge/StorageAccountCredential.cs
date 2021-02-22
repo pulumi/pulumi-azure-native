@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge
+namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The storage account credential.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge:StorageAccountCredential")]
+    [AzureNativeResourceType("azure-native:databoxedge:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountCredential(string name, StorageAccountCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,12 +107,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"},
                 },
             };
@@ -147,7 +154,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Type of storage accessed on the storage account.
         /// </summary>
         [Input("accountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.AccountType> AccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.AccountType> AccountType { get; set; } = null!;
 
         /// <summary>
         /// Alias for the storage account.
@@ -189,7 +196,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
         [Input("sslStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.SSLStatus> SslStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.SSLStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// Id of the storage account.

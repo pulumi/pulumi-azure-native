@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801
+namespace Pulumi.AzureNative.Network.V20180801
 {
     public static class GetPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// Defines web application firewall policy.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:network/v20180801:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:network/v20180801:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190901
+namespace Pulumi.AzureNative.Network.V20190901
 {
     public static class GetPublicIPAddress
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// Public IP address resource.
         /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-nextgen:network/v20190901:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network/v20190901:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithVersion());
     }
 
 

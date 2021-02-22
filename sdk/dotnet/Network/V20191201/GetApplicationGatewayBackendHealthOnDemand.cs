@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191201
+namespace Pulumi.AzureNative.Network.V20191201
 {
     public static class GetApplicationGatewayBackendHealthOnDemand
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// Result of on demand test probe.
         /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-nextgen:network/v20191201:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/v20191201:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
     }
 
 
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// The protocol used for the probe.
         /// </summary>
         [Input("protocol")]
-        public Union<string, Pulumi.AzureNextGen.Network.V20191201.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public Union<string, Pulumi.AzureNative.Network.V20191201.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

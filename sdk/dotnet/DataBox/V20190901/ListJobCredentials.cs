@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.V20190901
+namespace Pulumi.AzureNative.DataBox.V20190901
 {
     public static class ListJobCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// List of unencrypted credentials for accessing device.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-nextgen:databox/v20190901:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox/v20190901:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
     }
 
 

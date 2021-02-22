@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.")]
-    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:OperationByProviderRegistration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.")]
+    [AzureNativeResourceType("azure-native:providerhub/latest:OperationByProviderRegistration")]
     public partial class OperationByProviderRegistration : Pulumi.CustomResource
     {
         [Output("actionType")]
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OperationByProviderRegistration(string name, OperationByProviderRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:OperationByProviderRegistration", name, args ?? new OperationByProviderRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/latest:OperationByProviderRegistration", name, args ?? new OperationByProviderRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OperationByProviderRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:OperationByProviderRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/latest:OperationByProviderRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,7 +74,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration"},
                 },
             };

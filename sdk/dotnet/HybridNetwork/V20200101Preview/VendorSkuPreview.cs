@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Customer subscription which can use a sku.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview")]
+    [AzureNativeResourceType("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview")]
     public partial class VendorSkuPreview : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VendorSkuPreview(string name, VendorSkuPreviewArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview", name, args ?? new VendorSkuPreviewArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview", name, args ?? new VendorSkuPreviewArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VendorSkuPreview(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -52,6 +52,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkuPreview"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork:VendorSkuPreview"},
                 },
             };

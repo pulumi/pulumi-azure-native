@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData
+namespace Pulumi.AzureNative.HybridData
 {
     /// <summary>
     /// The DataManager resource.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybriddata:DataManager")]
+    [AzureNativeResourceType("azure-native:hybriddata:DataManager")]
     public partial class DataManager : Pulumi.CustomResource
     {
         /// <summary>
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNextGen.HybridData
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataManager(string name, DataManagerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata:DataManager", name, args ?? new DataManagerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybriddata:DataManager", name, args ?? new DataManagerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataManager(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata:DataManager", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybriddata:DataManager", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,8 +80,11 @@ namespace Pulumi.AzureNextGen.HybridData
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/latest:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:DataManager"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:DataManager"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataManager"},
                 },
             };

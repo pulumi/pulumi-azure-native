@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20210101
+namespace Pulumi.AzureNative.MachineLearningServices.V20210101
 {
     public static class ListWorkspaceNotebookAccessToken
     {
         public static Task<ListWorkspaceNotebookAccessTokenResult> InvokeAsync(ListWorkspaceNotebookAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-nextgen:machinelearningservices/v20210101:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices/v20210101:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest
+namespace Pulumi.AzureNative.Batch.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getBatchAccount'.")]
     public static class GetBatchAccount
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-nextgen:batch/latest:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/latest:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
     }
 
 

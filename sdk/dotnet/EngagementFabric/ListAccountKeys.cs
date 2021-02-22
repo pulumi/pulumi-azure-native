@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EngagementFabric
+namespace Pulumi.AzureNative.EngagementFabric
 {
     public static class ListAccountKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:engagementfabric:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:engagementfabric:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

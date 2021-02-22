@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119.Inputs
         /// Virtual Machine priority
         /// </summary>
         [Input("vmPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20181119.VmPriority>? VmPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20181119.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// Virtual Machine Size

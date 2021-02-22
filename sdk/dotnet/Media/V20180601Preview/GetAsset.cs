@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview
+namespace Pulumi.AzureNative.Media.V20180601Preview
 {
     public static class GetAsset
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// An Asset.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-nextgen:media/v20180601preview:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20180601preview:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
     }
 
 

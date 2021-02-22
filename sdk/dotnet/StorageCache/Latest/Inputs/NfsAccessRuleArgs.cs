@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
+namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// Access allowed by this rule.
         /// </summary>
         [Input("access", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.Latest.NfsAccessRuleAccess> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.Latest.NfsAccessRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
         /// GID value that replaces 0 when rootSquash is true.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// Scope for this rule. The scope and filter determine which clients match the rule.
         /// </summary>
         [Input("scope", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.Latest.NfsAccessRuleScope> Scope { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.Latest.NfsAccessRuleScope> Scope { get; set; } = null!;
 
         /// <summary>
         /// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191101.Inputs
+namespace Pulumi.AzureNative.Network.V20191101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101.Inputs
         /// The type of item included in the filter. Currently only 'AgentAddress' is supported.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191101.ConnectionMonitorEndpointFilterItemType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191101.ConnectionMonitorEndpointFilterItemType>? Type { get; set; }
 
         public ConnectionMonitorEndpointFilterItemArgs()
         {

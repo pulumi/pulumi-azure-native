@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
+namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
         /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.CognitiveServices.V20170418.IdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.CognitiveServices.V20170418.IdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// A value indicating whether the auto update is enabled.

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20170301
+namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
     /// <summary>
     /// Schema Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20170301:ApiSchema")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20170301:ApiSchema")]
     public partial class ApiSchema : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiSchema(string name, ApiSchemaArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20170301:ApiSchema", name, args ?? new ApiSchemaArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20170301:ApiSchema", name, args ?? new ApiSchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiSchema(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20170301:ApiSchema", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20170301:ApiSchema", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,13 +64,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiSchema"},
                 },
             };

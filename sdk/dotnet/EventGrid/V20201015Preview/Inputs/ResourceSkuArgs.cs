@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview.Inputs
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview.Inputs
         /// The Sku name of the resource. The possible values are: Basic or Premium.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20201015Preview.Sku>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.V20201015Preview.Sku>? Name { get; set; }
 
         public ResourceSkuArgs()
         {

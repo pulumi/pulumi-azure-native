@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     public static class GetFavorite
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Properties that define a favorite that is associated to an Application Insights component.
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-nextgen:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
     }
 
 

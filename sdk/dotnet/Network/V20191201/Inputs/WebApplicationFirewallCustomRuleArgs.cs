@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
+namespace Pulumi.AzureNative.Network.V20191201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// Type of Actions.
         /// </summary>
         [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.WebApplicationFirewallAction> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.WebApplicationFirewallAction> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The rule type.
         /// </summary>
         [Input("ruleType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.WebApplicationFirewallRuleType> RuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.WebApplicationFirewallRuleType> RuleType { get; set; } = null!;
 
         public WebApplicationFirewallCustomRuleArgs()
         {

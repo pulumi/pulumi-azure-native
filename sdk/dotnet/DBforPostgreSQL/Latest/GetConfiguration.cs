@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
+namespace Pulumi.AzureNative.DBforPostgreSQL.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getConfiguration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getConfiguration'.")]
     public static class GetConfiguration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// Latest API Version: 2017-12-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbforpostgresql/latest:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql/latest:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }
 
 

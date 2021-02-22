@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cache.V20201001Preview
+namespace Pulumi.AzureNative.Cache.V20201001Preview
 {
     /// <summary>
     /// Clustering policy - default is OSSCluster. Specified at create time.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     public static class GetWorkspaceSqlAadAdmin
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Synapse
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWorkspaceSqlAadAdminResult> InvokeAsync(GetWorkspaceSqlAadAdminArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-nextgen:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-native:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithVersion());
     }
 
 

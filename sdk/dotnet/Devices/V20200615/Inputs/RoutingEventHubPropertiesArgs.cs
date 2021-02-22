@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200615.Inputs
+namespace Pulumi.AzureNative.Devices.V20200615.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200615.Inputs
         /// Method used to authenticate against the event hub endpoint
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200615.AuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20200615.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string of the event hub endpoint. 

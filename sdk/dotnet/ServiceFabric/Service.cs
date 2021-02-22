@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric
+namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The service resource.
     /// API Version: 2020-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric:Service")]
+    [AzureNativeResourceType("azure-native:servicefabric:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,12 +137,19 @@ namespace Pulumi.AzureNextGen.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Service"},
                 },
             };
@@ -195,7 +202,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// Specifies the move cost for the service.
         /// </summary>
         [Input("defaultMoveCost")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.MoveCost>? DefaultMoveCost { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.MoveCost>? DefaultMoveCost { get; set; }
 
         /// <summary>
         /// It will be deprecated in New API, resource location depends on the parent resource.
@@ -231,7 +238,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// The kind of service (Stateless or Stateful).
         /// </summary>
         [Input("serviceKind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.ServiceKind> ServiceKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ServiceKind> ServiceKind { get; set; } = null!;
 
         [Input("serviceLoadMetrics")]
         private InputList<Inputs.ServiceLoadMetricDescriptionArgs>? _serviceLoadMetrics;
@@ -255,7 +262,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// The activation Mode of the service package
         /// </summary>
         [Input("servicePackageActivationMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.ArmServicePackageActivationMode>? ServicePackageActivationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ArmServicePackageActivationMode>? ServicePackageActivationMode { get; set; }
 
         [Input("servicePlacementPolicies")]
         private InputList<Inputs.ServicePlacementPolicyDescriptionArgs>? _servicePlacementPolicies;

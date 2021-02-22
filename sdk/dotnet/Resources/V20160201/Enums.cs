@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Resources.V20160201
+namespace Pulumi.AzureNative.Resources.V20160201
 {
     /// <summary>
     /// The deployment mode.

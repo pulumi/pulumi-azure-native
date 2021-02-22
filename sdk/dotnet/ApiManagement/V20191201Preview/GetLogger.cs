@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     public static class GetLogger
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Logger details.
         /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-nextgen:apimanagement/v20191201preview:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement/v20191201preview:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
     }
 
 

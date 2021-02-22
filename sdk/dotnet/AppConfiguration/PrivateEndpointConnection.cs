@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration
+namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// A private endpoint connection
     /// API Version: 2020-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appconfiguration:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:appconfiguration:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.AppConfiguration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appconfiguration:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appconfiguration:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,9 +71,13 @@ namespace Pulumi.AzureNextGen.AppConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection"},
                 },
             };

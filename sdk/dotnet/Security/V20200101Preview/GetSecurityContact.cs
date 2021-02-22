@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101Preview
+namespace Pulumi.AzureNative.Security.V20200101Preview
 {
     public static class GetSecurityContact
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// Contact details and configurations for notifications coming from Azure Security Center.
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-nextgen:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
     }
 
 

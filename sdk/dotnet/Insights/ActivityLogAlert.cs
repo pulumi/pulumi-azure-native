@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Activity Log Alert rule resource.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:ActivityLogAlert")]
+    [AzureNativeResourceType("azure-native:insights:ActivityLogAlert")]
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActivityLogAlert(string name, ActivityLogAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:ActivityLogAlert", name, args ?? new ActivityLogAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:ActivityLogAlert", name, args ?? new ActivityLogAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActivityLogAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:ActivityLogAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:ActivityLogAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20170401:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20201001:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20201001:ActivityLogAlert"},
                 },
             };

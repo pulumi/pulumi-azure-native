@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
 {
 
     /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The encoding profile to be used when encoding audio with AAC.
         /// </summary>
         [Input("profile")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.AacAudioProfile>? Profile { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180330Preview.AacAudioProfile>? Profile { get; set; }
 
         /// <summary>
         /// The sampling rate to use for encoding in hertz.

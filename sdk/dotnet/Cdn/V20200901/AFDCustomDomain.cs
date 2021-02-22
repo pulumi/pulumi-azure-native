@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:AFDCustomDomain")]
+    [AzureNativeResourceType("azure-native:cdn/v20200901:AFDCustomDomain")]
     public partial class AFDCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AFDCustomDomain(string name, AFDCustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDCustomDomain", name, args ?? new AFDCustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200901:AFDCustomDomain", name, args ?? new AFDCustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AFDCustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDCustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200901:AFDCustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,7 +97,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDCustomDomain"},
                 },
             };

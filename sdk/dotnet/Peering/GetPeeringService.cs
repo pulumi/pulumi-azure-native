@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering
+namespace Pulumi.AzureNative.Peering
 {
     public static class GetPeeringService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Peering
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-nextgen:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
     }
 
 

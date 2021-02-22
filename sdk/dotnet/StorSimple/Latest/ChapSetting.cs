@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
     /// <summary>
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
     /// Latest API Version: 2016-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")]
-    [AzureNextGenResourceType("azure-nextgen:storsimple/latest:ChapSetting")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ChapSetting'.")]
+    [AzureNativeResourceType("azure-native:storsimple/latest:ChapSetting")]
     public partial class ChapSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ChapSetting(string name, ChapSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/latest:ChapSetting", name, args ?? new ChapSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/latest:ChapSetting", name, args ?? new ChapSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ChapSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/latest:ChapSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/latest:ChapSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,7 +60,9 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:ChapSetting"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:ChapSetting"},
                 },
             };

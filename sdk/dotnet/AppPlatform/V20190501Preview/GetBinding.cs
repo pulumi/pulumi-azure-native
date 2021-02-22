@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
 {
     public static class GetBinding
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
         /// Binding resource payload
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-nextgen:appplatform/v20190501preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform/v20190501preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
     }
 
 

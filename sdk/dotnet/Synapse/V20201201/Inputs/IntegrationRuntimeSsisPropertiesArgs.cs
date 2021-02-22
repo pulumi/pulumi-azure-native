@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20201201.Inputs
+namespace Pulumi.AzureNative.Synapse.V20201201.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201.Inputs
         /// The edition for the SSIS Integration Runtime
         /// </summary>
         [Input("edition")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20201201.IntegrationRuntimeEdition>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20201201.IntegrationRuntimeEdition>? Edition { get; set; }
 
         [Input("expressCustomSetupProperties")]
         private InputList<object>? _expressCustomSetupProperties;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201.Inputs
         /// License type for bringing your own license scenario.
         /// </summary>
         [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20201201.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20201201.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
 
         public IntegrationRuntimeSsisPropertiesArgs()
         {

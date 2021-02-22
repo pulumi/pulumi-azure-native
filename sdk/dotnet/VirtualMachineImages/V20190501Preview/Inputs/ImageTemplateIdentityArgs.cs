@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Inputs
+namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.Inputs
         /// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

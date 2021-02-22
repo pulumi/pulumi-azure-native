@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20190501Preview
+namespace Pulumi.AzureNative.Media.V20190501Preview
 {
     /// <summary>
     /// The Live Event.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20190501preview:LiveEvent")]
+    [AzureNativeResourceType("azure-native:media/v20190501preview:LiveEvent")]
     public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LiveEvent(string name, LiveEventArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20190501preview:LiveEvent", name, args ?? new LiveEventArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20190501preview:LiveEvent", name, args ?? new LiveEventArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LiveEvent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20190501preview:LiveEvent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20190501preview:LiveEvent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,11 +136,17 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:LiveEvent"},
                 },
             };
@@ -226,14 +232,14 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("streamOptions")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Media.V20190501Preview.StreamOptionsFlag>>? _streamOptions;
+        private InputList<Union<string, Pulumi.AzureNative.Media.V20190501Preview.StreamOptionsFlag>>? _streamOptions;
 
         /// <summary>
         /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Media.V20190501Preview.StreamOptionsFlag>> StreamOptions
+        public InputList<Union<string, Pulumi.AzureNative.Media.V20190501Preview.StreamOptionsFlag>> StreamOptions
         {
-            get => _streamOptions ?? (_streamOptions = new InputList<Union<string, Pulumi.AzureNextGen.Media.V20190501Preview.StreamOptionsFlag>>());
+            get => _streamOptions ?? (_streamOptions = new InputList<Union<string, Pulumi.AzureNative.Media.V20190501Preview.StreamOptionsFlag>>());
             set => _streamOptions = value;
         }
 

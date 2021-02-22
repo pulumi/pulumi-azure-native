@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20190301:VirtualMachineExtension")]
+    [AzureNativeResourceType("azure-native:compute/v20190301:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineExtension(string name, VirtualMachineExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:VirtualMachineExtension", name, args ?? new VirtualMachineExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20190301:VirtualMachineExtension", name, args ?? new VirtualMachineExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:VirtualMachineExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20190301:VirtualMachineExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,19 +112,33 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineExtension"},
                 },
             };

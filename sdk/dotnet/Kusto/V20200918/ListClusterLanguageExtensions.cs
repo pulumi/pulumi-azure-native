@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20200918
+namespace Pulumi.AzureNative.Kusto.V20200918
 {
     public static class ListClusterLanguageExtensions
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// The list of language extension objects.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-nextgen:kusto/v20200918:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto/v20200918:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());
     }
 
 

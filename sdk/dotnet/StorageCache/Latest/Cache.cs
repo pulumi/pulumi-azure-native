@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.Latest
+namespace Pulumi.AzureNative.StorageCache.Latest
 {
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.")]
-    [AzureNextGenResourceType("azure-nextgen:storagecache/latest:Cache")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:Cache'.")]
+    [AzureNativeResourceType("azure-native:storagecache/latest:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
@@ -128,12 +128,12 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/latest:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagecache/latest:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cache(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/latest:Cache", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagecache/latest:Cache", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -144,10 +144,15 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20191101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20200301:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20201001:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:Cache"},
                 },
             };
@@ -218,7 +223,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.Latest.ProvisioningStateType>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.Latest.ProvisioningStateType>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.

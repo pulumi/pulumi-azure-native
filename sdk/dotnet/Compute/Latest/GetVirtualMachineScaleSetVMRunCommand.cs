@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVMRunCommand'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMRunCommand'.")]
     public static class GetVirtualMachineScaleSetVMRunCommand
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-nextgen:compute/latest:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/latest:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
     }
 
 

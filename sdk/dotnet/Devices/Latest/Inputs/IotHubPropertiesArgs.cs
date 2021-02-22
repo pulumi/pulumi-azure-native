@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
+namespace Pulumi.AzureNative.Devices.Latest.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
         /// The capabilities and features enabled for the IoT hub.
         /// </summary>
         [Input("features")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.Latest.Capabilities>? Features { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.Latest.Capabilities>? Features { get; set; }
 
         [Input("ipFilterRules")]
         private InputList<Inputs.IpFilterRuleArgs>? _ipFilterRules;
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest.Inputs
         /// Whether requests from Public Network are allowed
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging

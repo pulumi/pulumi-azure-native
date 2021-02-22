@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Type of storage accessed on the storage account.

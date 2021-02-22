@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190301.Inputs
+namespace Pulumi.AzureNative.Network.V20190301.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Network.V20190301.Inputs
         /// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190301.PolicyEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190301.PolicyEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Describes if it is in detection mode or prevention mode at policy level.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190301.PolicyMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190301.PolicyMode>? Mode { get; set; }
 
         /// <summary>
         /// If action type is redirect, this field represents redirect URL for the client.

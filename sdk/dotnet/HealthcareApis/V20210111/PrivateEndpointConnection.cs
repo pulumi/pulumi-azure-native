@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
+namespace Pulumi.AzureNative.HealthcareApis.V20210111
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:healthcareapis/v20210111:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:healthcareapis/v20210111:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:healthcareapis/v20210111:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,8 +76,11 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
+namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         [Input("keySource")]
-        public Input<Pulumi.AzureNextGen.EventHub.V20180101Preview.KeySource>? KeySource { get; set; }
+        public Input<Pulumi.AzureNative.EventHub.V20180101Preview.KeySource>? KeySource { get; set; }
 
         [Input("keyVaultProperties")]
         private InputList<Inputs.KeyVaultPropertiesArgs>? _keyVaultProperties;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
 
         public EncryptionArgs()
         {
-            KeySource = Pulumi.AzureNextGen.EventHub.V20180101Preview.KeySource.Microsoft_KeyVault;
+            KeySource = Pulumi.AzureNative.EventHub.V20180101Preview.KeySource.Microsoft_KeyVault;
         }
     }
 }

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
     /// <summary>
     /// Definition of the credential.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.")]
-    [AzureNextGenResourceType("azure-nextgen:automation/latest:Credential")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.")]
+    [AzureNativeResourceType("azure-native:automation/latest:Credential")]
     public partial class Credential : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Credential(string name, CredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Credential", name, args ?? new CredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/latest:Credential", name, args ?? new CredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Credential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Credential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/latest:Credential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,9 +78,13 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Credential"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Credential"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Credential"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Credential"},
                 },
             };

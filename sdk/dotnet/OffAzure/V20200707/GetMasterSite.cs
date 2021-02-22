@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure.V20200707
+namespace Pulumi.AzureNative.OffAzure.V20200707
 {
     public static class GetMasterSite
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
         /// Site REST Resource.
         /// </summary>
         public static Task<GetMasterSiteResult> InvokeAsync(GetMasterSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-nextgen:offazure/v20200707:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-native:offazure/v20200707:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
     }
 
 

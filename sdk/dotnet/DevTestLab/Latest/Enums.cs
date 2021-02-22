@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// The OS type of the custom image (i.e. Windows, Linux)

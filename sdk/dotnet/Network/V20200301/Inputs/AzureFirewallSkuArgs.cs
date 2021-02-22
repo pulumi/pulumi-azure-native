@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
+namespace Pulumi.AzureNative.Network.V20200301.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// Name of an Azure Firewall SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.AzureFirewallSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200301.AzureFirewallSkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of an Azure Firewall.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.AzureFirewallSkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200301.AzureFirewallSkuTier>? Tier { get; set; }
 
         public AzureFirewallSkuArgs()
         {

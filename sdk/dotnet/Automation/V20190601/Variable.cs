@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the variable.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20190601:Variable")]
+    [AzureNativeResourceType("azure-native:automation/v20190601:Variable")]
     public partial class Variable : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Variable(string name, VariableArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:Variable", name, args ?? new VariableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20190601:Variable", name, args ?? new VariableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Variable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:Variable", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20190601:Variable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Variable"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Variable"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Variable"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Variable"},
                 },
             };

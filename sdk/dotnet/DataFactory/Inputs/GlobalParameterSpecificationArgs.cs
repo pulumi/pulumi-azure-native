@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// Global Parameter type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.GlobalParameterType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.GlobalParameterType> Type { get; set; } = null!;
 
         /// <summary>
         /// Value of parameter.

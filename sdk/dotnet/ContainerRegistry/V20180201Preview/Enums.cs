@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// The current status of build task.

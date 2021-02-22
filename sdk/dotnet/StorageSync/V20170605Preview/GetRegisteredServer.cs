@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
+namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
     public static class GetRegisteredServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// Registered Server resource.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-nextgen:storagesync/v20170605preview:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync/v20170605preview:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20150408
+namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase")]
+    [AzureNativeResourceType("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase")]
     public partial class DatabaseAccountSqlDatabase : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountSqlDatabase(string name, DatabaseAccountSqlDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase", name, args ?? new DatabaseAccountSqlDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase", name, args ?? new DatabaseAccountSqlDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountSqlDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,11 +94,17 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase"},
                 },
             };

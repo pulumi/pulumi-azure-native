@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.Latest
+namespace Pulumi.AzureNative.AVS.Latest
 {
     /// <summary>
     /// A cluster resource
     /// Latest API Version: 2020-03-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:avs/latest:Cluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Cluster'.")]
+    [AzureNativeResourceType("azure-native:avs/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,9 +84,13 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Cluster"},
                 },
             };

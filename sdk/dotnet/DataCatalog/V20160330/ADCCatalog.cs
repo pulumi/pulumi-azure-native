@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataCatalog.V20160330
+namespace Pulumi.AzureNative.DataCatalog.V20160330
 {
     /// <summary>
     /// Azure Data Catalog.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datacatalog/v20160330:ADCCatalog")]
+    [AzureNativeResourceType("azure-native:datacatalog/v20160330:ADCCatalog")]
     public partial class ADCCatalog : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ADCCatalog(string name, ADCCatalogArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datacatalog/v20160330:ADCCatalog", name, args ?? new ADCCatalogArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datacatalog/v20160330:ADCCatalog", name, args ?? new ADCCatalogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ADCCatalog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datacatalog/v20160330:ADCCatalog", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datacatalog/v20160330:ADCCatalog", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,7 +106,9 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datacatalog:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog:ADCCatalog"},
+                    new Pulumi.Alias { Type = "azure-native:datacatalog/latest:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog/latest:ADCCatalog"},
                 },
             };
@@ -177,7 +179,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
         /// Azure data catalog SKU.
         /// </summary>
         [Input("sku")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataCatalog.V20160330.SkuType>? Sku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataCatalog.V20160330.SkuType>? Sku { get; set; }
 
         /// <summary>
         /// Azure data catalog provision status.

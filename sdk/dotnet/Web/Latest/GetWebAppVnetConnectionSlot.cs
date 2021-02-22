@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnectionSlot'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnectionSlot'.")]
     public static class GetWebAppVnetConnectionSlot
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-nextgen:web/latest:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/latest:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
     }
 
 

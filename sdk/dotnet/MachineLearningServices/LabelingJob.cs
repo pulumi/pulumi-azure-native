@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Machine Learning labeling job object wrapped into ARM resource envelope.
     /// API Version: 2020-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices:LabelingJob")]
+    [AzureNativeResourceType("azure-native:machinelearningservices:LabelingJob")]
     public partial class LabelingJob : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabelingJob(string name, LabelingJobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices:LabelingJob", name, args ?? new LabelingJobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices:LabelingJob", name, args ?? new LabelingJobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabelingJob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices:LabelingJob", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices:LabelingJob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:LabelingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:LabelingJob"},
                 },
             };

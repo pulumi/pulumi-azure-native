@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview
+namespace Pulumi.AzureNative.MixedReality.V20190228Preview
 {
     /// <summary>
     /// The identity type.

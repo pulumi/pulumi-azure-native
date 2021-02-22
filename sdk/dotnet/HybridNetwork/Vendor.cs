@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Vendor resource.
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridnetwork:Vendor")]
+    [AzureNativeResourceType("azure-native:hybridnetwork:Vendor")]
     public partial class Vendor : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vendor(string name, VendorArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:Vendor", name, args ?? new VendorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridnetwork:Vendor", name, args ?? new VendorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Vendor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:Vendor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridnetwork:Vendor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:Vendor"},
                 },
             };

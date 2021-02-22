@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The authentication type to be used to connect to the MongoDB database.
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.MongoDbAuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.MongoDbAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.

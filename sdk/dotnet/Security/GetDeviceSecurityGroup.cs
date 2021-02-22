@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetDeviceSecurityGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2019-08-01.
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-nextgen:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     public static class GetFirewallRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:datalakeanalytics:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:datalakeanalytics:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }
 
 

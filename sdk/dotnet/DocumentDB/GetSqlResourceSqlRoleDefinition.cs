@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     public static class GetSqlResourceSqlRoleDefinition
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetSqlResourceSqlRoleDefinitionResult> InvokeAsync(GetSqlResourceSqlRoleDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleDefinitionResult>("azure-nextgen:documentdb:getSqlResourceSqlRoleDefinition", args ?? new GetSqlResourceSqlRoleDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleDefinitionResult>("azure-native:documentdb:getSqlResourceSqlRoleDefinition", args ?? new GetSqlResourceSqlRoleDefinitionArgs(), options.WithVersion());
     }
 
 

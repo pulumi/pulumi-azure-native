@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The load distribution policy for this rule.
         /// </summary>
         [Input("loadDistribution")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.LoadDistribution>? LoadDistribution { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.LoadDistribution>? LoadDistribution { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within the set of load balancing rules used by the load balancer. This name can be used to access the resource.
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.TransportProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.TransportProtocol> Protocol { get; set; } = null!;
 
         public LoadBalancingRuleArgs()
         {

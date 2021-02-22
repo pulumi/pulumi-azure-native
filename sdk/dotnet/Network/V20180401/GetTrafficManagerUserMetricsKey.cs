@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180401
+namespace Pulumi.AzureNative.Network.V20180401
 {
     public static class GetTrafficManagerUserMetricsKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
         /// Class representing Traffic Manager User Metrics.
         /// </summary>
         public static Task<GetTrafficManagerUserMetricsKeyResult> InvokeAsync(GetTrafficManagerUserMetricsKeyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-nextgen:network/v20180401:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-native:network/v20180401:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithVersion());
     }
 
 

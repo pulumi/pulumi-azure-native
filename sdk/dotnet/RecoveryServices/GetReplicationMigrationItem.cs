@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     public static class GetReplicationMigrationItem
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-nextgen:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithVersion());
     }
 
 

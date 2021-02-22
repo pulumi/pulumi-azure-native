@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Source control configuration for an app.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSourceControl'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSourceControl")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControl'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppSourceControl")]
     public partial class WebAppSourceControl : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSourceControl(string name, WebAppSourceControlArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSourceControl", name, args ?? new WebAppSourceControlArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppSourceControl", name, args ?? new WebAppSourceControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSourceControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSourceControl", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppSourceControl", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,14 +102,23 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSourceControl"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201201
+namespace Pulumi.AzureNative.Compute.V20201201
 {
     /// <summary>
     /// Specifies information about the SSH public key.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20201201:SshPublicKey")]
+    [AzureNativeResourceType("azure-native:compute/v20201201:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SshPublicKey(string name, SshPublicKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201201:SshPublicKey", name, args ?? new SshPublicKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20201201:SshPublicKey", name, args ?? new SshPublicKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SshPublicKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201201:SshPublicKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20201201:SshPublicKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,9 +70,13 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:SshPublicKey"},
                 },
             };

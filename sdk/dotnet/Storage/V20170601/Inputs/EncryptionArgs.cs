@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20170601.Inputs
+namespace Pulumi.AzureNative.Storage.V20170601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20170601.Inputs
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         /// </summary>
         [Input("keySource", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20170601.KeySource> KeySource { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Storage.V20170601.KeySource> KeySource { get; set; } = null!;
 
         /// <summary>
         /// Properties provided by key vault.

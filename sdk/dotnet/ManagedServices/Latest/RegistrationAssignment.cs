@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.Latest
+namespace Pulumi.AzureNative.ManagedServices.Latest
 {
     /// <summary>
     /// Registration assignment.
     /// Latest API Version: 2019-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")]
-    [AzureNextGenResourceType("azure-nextgen:managedservices/latest:RegistrationAssignment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationAssignment'.")]
+    [AzureNativeResourceType("azure-native:managedservices/latest:RegistrationAssignment")]
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistrationAssignment(string name, RegistrationAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedservices/latest:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managedservices/latest:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistrationAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedservices/latest:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managedservices/latest:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,11 +60,17 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190901:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment"},
                 },
             };

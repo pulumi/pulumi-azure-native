@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Attestation
+namespace Pulumi.AzureNative.Attestation
 {
     /// <summary>
     /// Attestation service response message.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:attestation:AttestationProvider")]
+    [AzureNativeResourceType("azure-native:attestation:AttestationProvider")]
     public partial class AttestationProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Attestation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttestationProvider(string name, AttestationProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation:AttestationProvider", name, args ?? new AttestationProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:attestation:AttestationProvider", name, args ?? new AttestationProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttestationProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:attestation:AttestationProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:attestation:AttestationProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.Attestation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:attestation/latest:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901preview:AttestationProvider"},
+                    new Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/v20201001:AttestationProvider"},
                 },
             };

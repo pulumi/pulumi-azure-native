@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault
+namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// The key resource.
     /// API Version: 2019-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:keyvault:Key")]
+    [AzureNativeResourceType("azure-native:keyvault:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNextGen.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:keyvault:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Key(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault:Key", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:keyvault:Key", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,7 +104,9 @@ namespace Pulumi.AzureNextGen.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:keyvault/latest:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:Key"},
                 },
             };

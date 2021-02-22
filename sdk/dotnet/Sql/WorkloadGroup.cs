@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Workload group operations for a data warehouse
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:WorkloadGroup")]
+    [AzureNativeResourceType("azure-native:sql:WorkloadGroup")]
     public partial class WorkloadGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadGroup(string name, WorkloadGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:WorkloadGroup", name, args ?? new WorkloadGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:WorkloadGroup", name, args ?? new WorkloadGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:WorkloadGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:WorkloadGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,8 +89,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:WorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:WorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:WorkloadGroup"},
                 },
             };

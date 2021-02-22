@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// Hub resource.
     /// API Version: 2017-04-26.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights:Hub")]
+    [AzureNativeResourceType("azure-native:customerinsights:Hub")]
     public partial class Hub : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Hub(string name, HubArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Hub", name, args ?? new HubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights:Hub", name, args ?? new HubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Hub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Hub", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights:Hub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Hub"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Hub"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Hub"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Hub"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Hub"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Hub"},
                 },
             };

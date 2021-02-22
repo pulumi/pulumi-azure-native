@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// The system service type
         /// </summary>
         [Input("systemServiceType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.SystemServiceType> SystemServiceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.SystemServiceType> SystemServiceType { get; set; } = null!;
 
         public SystemServiceArgs()
         {

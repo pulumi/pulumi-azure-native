@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Authentication Mode.
         /// </summary>
         [Input("authenticationMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
 
         public JobStorageAccountArgs()
         {

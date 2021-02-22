@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The HTTP method to use.
         /// </summary>
         [Input("method")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.HTTPConfigurationMethod>? Method { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.HTTPConfigurationMethod>? Method { get; set; }
 
         /// <summary>
         /// The path component of the URI. For instance, "/dir1/dir2".

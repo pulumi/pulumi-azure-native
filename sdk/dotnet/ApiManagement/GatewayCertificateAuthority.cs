@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Gateway certificate authority details.
     /// API Version: 2020-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:GatewayCertificateAuthority")]
+    [AzureNativeResourceType("azure-native:apimanagement:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayCertificateAuthority(string name, GatewayCertificateAuthorityArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:GatewayCertificateAuthority", name, args ?? new GatewayCertificateAuthorityArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:GatewayCertificateAuthority", name, args ?? new GatewayCertificateAuthorityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayCertificateAuthority(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:GatewayCertificateAuthority", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:GatewayCertificateAuthority", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority"},
                 },
             };

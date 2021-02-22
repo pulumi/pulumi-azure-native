@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest
+namespace Pulumi.AzureNative.Solutions.Latest
 {
     /// <summary>
     /// Information about managed application.
     /// Latest API Version: 2019-07-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:Application'.")]
-    [AzureNextGenResourceType("azure-nextgen:solutions/latest:Application")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:Application'.")]
+    [AzureNativeResourceType("azure-native:solutions/latest:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -170,12 +170,12 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions/latest:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions/latest:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -186,10 +186,15 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Application"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:Application"},
                 },
             };

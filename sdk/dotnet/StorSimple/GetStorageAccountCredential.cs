@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetStorageAccountCredential
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-nextgen:storsimple:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:storsimple:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
     }
 
 

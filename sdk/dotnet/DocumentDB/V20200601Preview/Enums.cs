@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// Enum to indicate type of backup residency

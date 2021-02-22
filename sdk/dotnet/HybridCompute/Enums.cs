@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HybridCompute
+namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     public static class ListDelegationSettingSecrets
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-nextgen:apimanagement/v20200601preview:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement/v20200601preview:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
     }
 
 

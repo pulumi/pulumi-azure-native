@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     public static class GetReportByBillingAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// API Version: 2018-08-01-preview.
         /// </summary>
         public static Task<GetReportByBillingAccountResult> InvokeAsync(GetReportByBillingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-nextgen:costmanagement:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-native:costmanagement:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
     }
 
 

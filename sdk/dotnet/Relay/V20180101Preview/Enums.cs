@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Relay.V20180101Preview
+namespace Pulumi.AzureNative.Relay.V20180101Preview
 {
     /// <summary>
     /// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.

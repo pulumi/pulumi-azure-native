@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200331
+namespace Pulumi.AzureNative.Cdn.V20200331
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200331:Policy")]
+    [AzureNativeResourceType("azure-native:cdn/v20200331:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -99,12 +99,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200331:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200331:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200331:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200331:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -115,11 +115,17 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Policy"},
                 },
             };

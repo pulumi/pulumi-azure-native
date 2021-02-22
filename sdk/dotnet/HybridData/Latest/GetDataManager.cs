@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData.Latest
+namespace Pulumi.AzureNative.HybridData.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataManager'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataManager'.")]
     public static class GetDataManager
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-nextgen:hybriddata/latest:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata/latest:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
     }
 
 

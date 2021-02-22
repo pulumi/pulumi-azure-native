@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         /// </summary>
         [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.LicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.LicenseType>? LicenseType { get; set; }
 
         public ManagedClusterWindowsProfileArgs()
         {

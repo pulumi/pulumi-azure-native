@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Application Insights component definition.
     /// API Version: 2015-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:Component")]
+    [AzureNativeResourceType("azure-native:insights:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>
@@ -163,12 +163,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Component(string name, ComponentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Component(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:Component", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:Component", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -179,9 +179,13 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180501preview:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200202preview:Component"},
                 },
             };
@@ -210,7 +214,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// Type of application being monitored.
         /// </summary>
         [Input("applicationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.ApplicationType> ApplicationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.ApplicationType> ApplicationType { get; set; } = null!;
 
         /// <summary>
         /// Disable IP masking.
@@ -222,7 +226,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Input("flowType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.FlowType>? FlowType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.FlowType>? FlowType { get; set; }
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -240,7 +244,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// Indicates the flow of the ingestion.
         /// </summary>
         [Input("ingestionMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.IngestionMode>? IngestionMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.IngestionMode>? IngestionMode { get; set; }
 
         /// <summary>
         /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
@@ -258,7 +262,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Input("requestSource")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.RequestSource>? RequestSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.RequestSource>? RequestSource { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

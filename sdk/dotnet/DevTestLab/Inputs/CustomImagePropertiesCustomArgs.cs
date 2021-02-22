@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Inputs
         /// The OS type of the custom image (i.e. Windows, Linux)
         /// </summary>
         [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.CustomImageOsType> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.CustomImageOsType> OsType { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether sysprep has been run on the VHD.

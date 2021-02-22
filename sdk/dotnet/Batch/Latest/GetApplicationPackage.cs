@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest
+namespace Pulumi.AzureNative.Batch.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplicationPackage'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplicationPackage'.")]
     public static class GetApplicationPackage
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-nextgen:batch/latest:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch/latest:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
     }
 
 

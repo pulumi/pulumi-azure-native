@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getNotificationRegistration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getNotificationRegistration'.")]
     public static class GetNotificationRegistration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// Latest API Version: 2020-11-20.
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-nextgen:providerhub/latest:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub/latest:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
     }
 
 

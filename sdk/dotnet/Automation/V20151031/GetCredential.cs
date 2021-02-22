@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     public static class GetCredential
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Definition of the credential.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-nextgen:automation/v20151031:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation/v20151031:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
     }
 
 

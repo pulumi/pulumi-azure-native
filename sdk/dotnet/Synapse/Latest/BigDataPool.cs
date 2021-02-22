@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest
+namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// A Big Data pool
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'.")]
-    [AzureNextGenResourceType("azure-nextgen:synapse/latest:BigDataPool")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.")]
+    [AzureNativeResourceType("azure-native:synapse/latest:BigDataPool")]
     public partial class BigDataPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -158,12 +158,12 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BigDataPool(string name, BigDataPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:BigDataPool", name, args ?? new BigDataPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/latest:BigDataPool", name, args ?? new BigDataPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BigDataPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:BigDataPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/latest:BigDataPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -174,8 +174,11 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:BigDataPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:BigDataPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:BigDataPool"},
                 },
             };
@@ -288,13 +291,13 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
         /// The level of compute power that each node in the Big Data pool has.
         /// </summary>
         [Input("nodeSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.Latest.NodeSize>? NodeSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.Latest.NodeSize>? NodeSize { get; set; }
 
         /// <summary>
         /// The kind of nodes that the Big Data pool provides.
         /// </summary>
         [Input("nodeSizeFamily")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.Latest.NodeSizeFamily>? NodeSizeFamily { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.Latest.NodeSizeFamily>? NodeSizeFamily { get; set; }
 
         /// <summary>
         /// The state of the Big Data pool.

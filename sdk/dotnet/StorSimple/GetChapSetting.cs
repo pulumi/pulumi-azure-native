@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetChapSetting
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2016-10-01.
         /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-nextgen:storsimple:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-native:storsimple:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
     }
 
 

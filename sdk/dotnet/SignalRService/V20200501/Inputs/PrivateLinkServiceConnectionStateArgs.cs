@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
+namespace Pulumi.AzureNative.SignalRService.V20200501.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
         /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200501.PrivateLinkServiceConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SignalRService.V20200501.PrivateLinkServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

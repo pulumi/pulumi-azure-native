@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProductPolicy'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProductPolicy'.")]
     public static class GetProductPolicy
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-nextgen:apimanagement/latest:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-native:apimanagement/latest:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
     }
 
 

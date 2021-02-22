@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Inputs
         /// The type of Auth token.
         /// </summary>
         [Input("tokenType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.TokenType>? TokenType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.TokenType>? TokenType { get; set; }
 
         public SourceControlAuthInfoArgs()
         {

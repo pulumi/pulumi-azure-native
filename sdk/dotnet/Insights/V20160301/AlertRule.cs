@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20160301
+namespace Pulumi.AzureNative.Insights.V20160301
 {
     /// <summary>
     /// The alert rule resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20160301:AlertRule")]
+    [AzureNativeResourceType("azure-native:insights/v20160301:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertRule(string name, AlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20160301:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20160301:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20160301:AlertRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20160301:AlertRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,8 +106,11 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AlertRule"},
                 },
             };

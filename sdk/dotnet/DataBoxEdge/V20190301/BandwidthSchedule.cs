@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
+namespace Pulumi.AzureNative.DataBoxEdge.V20190301
 {
     /// <summary>
     /// The bandwidth schedule details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190301:BandwidthSchedule")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20190301:BandwidthSchedule")]
     public partial class BandwidthSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BandwidthSchedule(string name, BandwidthScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190301:BandwidthSchedule", name, args ?? new BandwidthScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20190301:BandwidthSchedule", name, args ?? new BandwidthScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BandwidthSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190301:BandwidthSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20190301:BandwidthSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,12 +76,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"},
                 },
             };
@@ -107,14 +114,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.DayOfWeek>>? _days;
+        private InputList<Union<string, Pulumi.AzureNative.DataBoxEdge.V20190301.DayOfWeek>>? _days;
 
         /// <summary>
         /// The days of the week when this schedule is applicable.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.DayOfWeek>> Days
+        public InputList<Union<string, Pulumi.AzureNative.DataBoxEdge.V20190301.DayOfWeek>> Days
         {
-            get => _days ?? (_days = new InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.DayOfWeek>>());
+            get => _days ?? (_days = new InputList<Union<string, Pulumi.AzureNative.DataBoxEdge.V20190301.DayOfWeek>>());
             set => _days = value;
         }
 

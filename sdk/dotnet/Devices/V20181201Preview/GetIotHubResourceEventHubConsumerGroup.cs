@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20181201Preview
+namespace Pulumi.AzureNative.Devices.V20181201Preview
 {
     public static class GetIotHubResourceEventHubConsumerGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Devices.V20181201Preview
         /// The properties of the EventHubConsumerGroupInfo object.
         /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-nextgen:devices/v20181201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20181201preview:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
+namespace Pulumi.AzureNative.CustomerInsights.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
         /// The frequency to update.
         /// </summary>
         [Input("frequency")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.FrequencyTypes>? Frequency { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.FrequencyTypes>? Frequency { get; set; }
 
         /// <summary>
         /// The interval of the given frequency to use.

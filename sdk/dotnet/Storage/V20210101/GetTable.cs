@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20210101
+namespace Pulumi.AzureNative.Storage.V20210101
 {
     public static class GetTable
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
         /// Properties of the table, including Id, resource name, resource type.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-nextgen:storage/v20210101:getTable", args ?? new GetTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210101:getTable", args ?? new GetTableArgs(), options.WithVersion());
     }
 
 

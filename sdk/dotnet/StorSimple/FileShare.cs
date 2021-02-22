@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The File Share.
     /// API Version: 2016-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:FileShare")]
+    [AzureNativeResourceType("azure-native:storsimple:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileShare(string name, FileShareArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileShare(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:FileShare", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:FileShare", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,7 +101,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:FileShare"},
                 },
             };
@@ -136,7 +138,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The data policy
         /// </summary>
         [Input("dataPolicy", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.DataPolicy> DataPolicy { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// Description for file share
@@ -166,7 +168,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The monitoring status
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.MonitoringStatus> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The total provisioned capacity in Bytes
@@ -190,7 +192,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The Share Status
         /// </summary>
         [Input("shareStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.ShareStatus> ShareStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.ShareStatus> ShareStatus { get; set; } = null!;
 
         public FileShareArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices:MachineLearningService")]
+    [AzureNativeResourceType("azure-native:machinelearningservices:MachineLearningService")]
     public partial class MachineLearningService : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningService(string name, MachineLearningServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices:MachineLearningService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices:MachineLearningService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,10 +89,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:MachineLearningService"},
                 },
             };
@@ -121,7 +126,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// The compute environment type for the service.
         /// </summary>
         [Input("computeType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.ComputeEnvironmentType> ComputeType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ComputeEnvironmentType> ComputeType { get; set; } = null!;
 
         /// <summary>
         /// The description of the service.

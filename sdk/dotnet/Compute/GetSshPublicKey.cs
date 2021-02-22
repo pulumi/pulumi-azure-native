@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     public static class GetSshPublicKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-nextgen:compute:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-native:compute:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
     }
 
 

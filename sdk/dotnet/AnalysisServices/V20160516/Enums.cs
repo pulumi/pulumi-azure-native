@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
+namespace Pulumi.AzureNative.AnalysisServices.V20160516
 {
     /// <summary>
     /// The name of the Azure pricing tier to which the SKU applies.

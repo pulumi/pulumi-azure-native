@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     public static class GetEventChannel
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// Event Channel.
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-nextgen:eventgrid/v20201015preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid/v20201015preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
     }
 
 

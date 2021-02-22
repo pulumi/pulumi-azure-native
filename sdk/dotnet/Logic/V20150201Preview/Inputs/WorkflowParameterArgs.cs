@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
     public sealed class WorkflowParameterArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
         /// Gets or sets the type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150201Preview.ParameterType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150201Preview.ParameterType>? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the value.

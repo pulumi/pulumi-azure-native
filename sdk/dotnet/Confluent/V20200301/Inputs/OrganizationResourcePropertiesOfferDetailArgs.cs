@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Confluent.V20200301.Inputs
+namespace Pulumi.AzureNative.Confluent.V20200301.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301.Inputs
         /// SaaS Offer Status
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Confluent.V20200301.SaaSOfferStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Confluent.V20200301.SaaSOfferStatus>? Status { get; set; }
 
         /// <summary>
         /// Offer Plan Term unit

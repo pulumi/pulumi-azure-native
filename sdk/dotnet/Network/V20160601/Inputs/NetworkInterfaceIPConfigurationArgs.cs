@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
+namespace Pulumi.AzureNative.Network.V20160601.Inputs
 {
 
     /// <summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets PrivateIP address version (IPv4/IPv6)
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.IPVersion>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160601.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// Gets or sets PrivateIP allocation method
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160601.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

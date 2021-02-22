@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore
+namespace Pulumi.AzureNative.DataLakeStore
 {
     /// <summary>
     /// Data Lake Store trusted identity provider information.
     /// API Version: 2016-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakestore:TrustedIdProvider")]
+    [AzureNativeResourceType("azure-native:datalakestore:TrustedIdProvider")]
     public partial class TrustedIdProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrustedIdProvider(string name, TrustedIdProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore:TrustedIdProvider", name, args ?? new TrustedIdProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakestore:TrustedIdProvider", name, args ?? new TrustedIdProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TrustedIdProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore:TrustedIdProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakestore:TrustedIdProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,7 +59,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:TrustedIdProvider"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:TrustedIdProvider"},
                 },
             };

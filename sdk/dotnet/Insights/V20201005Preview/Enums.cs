@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20201005Preview
+namespace Pulumi.AzureNative.Insights.V20201005Preview
 {
     /// <summary>
     /// The kind of WebTest that this web test watches. Choices are ping and multistep.

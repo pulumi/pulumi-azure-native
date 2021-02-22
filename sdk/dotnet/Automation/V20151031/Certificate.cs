@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     /// <summary>
     /// Definition of the certificate.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Certificate")]
+    [AzureNativeResourceType("azure-native:automation/v20151031:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20151031:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20151031:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,9 +88,13 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Certificate"},
                 },
             };

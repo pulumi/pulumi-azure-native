@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     public static class ListWebAppPublishingCredentialsSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// User credentials used for publishing activity.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsSlotResult> InvokeAsync(ListWebAppPublishingCredentialsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-nextgen:web/v20190801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-native:web/v20190801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
     public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// Indicates whether or not the encryption is enabled for container registry.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.EncryptionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.EncryptionStatus>? Status { get; set; }
 
         public EncryptionPropertyArgs()
         {

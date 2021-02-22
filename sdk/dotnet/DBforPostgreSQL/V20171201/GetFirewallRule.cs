@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
     public static class GetFirewallRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
         /// Represents a server firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbforpostgresql/v20171201:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql/v20171201:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }
 
 

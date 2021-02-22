@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
+namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
 {
     public static class GetMachineExtension
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// Describes a Machine Extension.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-nextgen:hybridcompute/v20190802preview:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute/v20190802preview:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
     }
 
 

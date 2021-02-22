@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedisEnterprise'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getRedisEnterprise'.")]
     public static class GetRedisEnterprise
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-nextgen:cache/latest:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/latest:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
     }
 
 

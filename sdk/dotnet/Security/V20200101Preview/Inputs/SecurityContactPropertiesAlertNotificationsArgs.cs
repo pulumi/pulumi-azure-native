@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
         /// Defines the minimal alert severity which will be sent as email notifications
         /// </summary>
         [Input("minimalSeverity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20200101Preview.MinimalSeverity>? MinimalSeverity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.V20200101Preview.MinimalSeverity>? MinimalSeverity { get; set; }
 
         /// <summary>
         /// Defines if email notifications will be sent about new security alerts
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20200101Preview.State>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.V20200101Preview.State>? State { get; set; }
 
         public SecurityContactPropertiesAlertNotificationsArgs()
         {

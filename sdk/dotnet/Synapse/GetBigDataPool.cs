@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     public static class GetBigDataPool
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Synapse
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-nextgen:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// The streaming endpoint.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20200501:StreamingEndpoint")]
+    [AzureNativeResourceType("azure-native:media/v20200501:StreamingEndpoint")]
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -150,12 +150,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingEndpoint(string name, StreamingEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:StreamingEndpoint", name, args ?? new StreamingEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20200501:StreamingEndpoint", name, args ?? new StreamingEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:StreamingEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20200501:StreamingEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -166,11 +166,17 @@ namespace Pulumi.AzureNextGen.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:StreamingEndpoint"},
                 },
             };

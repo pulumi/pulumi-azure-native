@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201
+namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
     public static class GetOpenIdConnectProvider
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// OpenId Connect Provider details.
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-nextgen:apimanagement/v20191201:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement/v20191201:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());
     }
 
 

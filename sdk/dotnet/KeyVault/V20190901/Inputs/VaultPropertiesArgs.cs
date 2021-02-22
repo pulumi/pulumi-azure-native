@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
+namespace Pulumi.AzureNative.KeyVault.V20190901.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// The vault's create mode to indicate whether the vault need to be recovered or not.
         /// </summary>
         [Input("createMode")]
-        public Input<Pulumi.AzureNextGen.KeyVault.V20190901.CreateMode>? CreateMode { get; set; }
+        public Input<Pulumi.AzureNative.KeyVault.V20190901.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// Provisioning state of the vault.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20190901.VaultProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.V20190901.VaultProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// SKU details

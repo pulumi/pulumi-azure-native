@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetWorkspaceSetting
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-nextgen:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-native:security:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithVersion());
     }
 
 

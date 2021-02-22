@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// Method of cost allocation for the rule
         /// </summary>
         [Input("policyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.CostAllocationPolicyType> PolicyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.CostAllocationPolicyType> PolicyType { get; set; } = null!;
 
         /// <summary>
         /// Type of resources contained in this cost allocation rule
         /// </summary>
         [Input("resourceType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.CostAllocationResourceType> ResourceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.CostAllocationResourceType> ResourceType { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<Inputs.CostAllocationProportionArgs>? _values;

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.V20170401
+namespace Pulumi.AzureNative.Relay.V20170401
 {
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:relay/v20170401:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WCFRelayAuthorizationRule(string name, WCFRelayAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule", name, args ?? new WCFRelayAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:relay/v20170401:WCFRelayAuthorizationRule", name, args ?? new WCFRelayAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WCFRelayAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:relay/v20170401:WCFRelayAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/latest:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/latest:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule"},
                 },
             };
@@ -109,14 +112,14 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights>? _rights;
+        private InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights> Rights
+        public InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.Relay.V20170401.AccessRights>());
             set => _rights = value;
         }
 

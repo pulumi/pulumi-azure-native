@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio
+namespace Pulumi.AzureNative.VisualStudio
 {
     public static class GetAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.VisualStudio
         /// API Version: 2014-04-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:visualstudio:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

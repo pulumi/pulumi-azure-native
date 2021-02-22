@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
     /// <summary>
     /// The Citus version of server group.

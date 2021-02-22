@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
+namespace Pulumi.AzureNative.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store virtual network rule information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakestore/v20161101:VirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:datalakestore/v20161101:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/v20161101:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakestore/v20161101:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/v20161101:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakestore/v20161101:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakestore:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:VirtualNetworkRule"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class ListIntegrationAccountCallbackUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The callback url.
         /// </summary>
         public static Task<ListIntegrationAccountCallbackUrlResult> InvokeAsync(ListIntegrationAccountCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-nextgen:logic/v20160601:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountCallbackUrlResult>("azure-native:logic/v20160601:listIntegrationAccountCallbackUrl", args ?? new ListIntegrationAccountCallbackUrlArgs(), options.WithVersion());
     }
 
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public Pulumi.AzureNextGen.Logic.V20160601.KeyType? KeyType { get; set; }
+        public Pulumi.AzureNative.Logic.V20160601.KeyType? KeyType { get; set; }
 
         /// <summary>
         /// The expiry time.

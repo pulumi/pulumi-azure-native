@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration.V20200901
+namespace Pulumi.AzureNative.CertificateRegistration.V20200901
 {
     public static class GetAppServiceCertificateOrderCertificate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20200901
         /// Key Vault container ARM resource for a certificate that is purchased through Azure.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-nextgen:certificateregistration/v20200901:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20200901:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
     }
 
 

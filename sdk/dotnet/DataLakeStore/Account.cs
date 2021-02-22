@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore
+namespace Pulumi.AzureNative.DataLakeStore
 {
     /// <summary>
     /// Data Lake Store account information.
     /// API Version: 2016-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakestore:Account")]
+    [AzureNativeResourceType("azure-native:datalakestore:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -163,12 +163,12 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakestore:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakestore:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -179,7 +179,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:Account"},
                 },
             };
@@ -226,13 +228,13 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// The current state of encryption for this Data Lake Store account.
         /// </summary>
         [Input("encryptionState")]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.EncryptionState>? EncryptionState { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeStore.EncryptionState>? EncryptionState { get; set; }
 
         /// <summary>
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
         [Input("firewallAllowAzureIps")]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeStore.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
 
         [Input("firewallRules")]
         private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
@@ -250,7 +252,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// The current state of the IP address firewall for this Data Lake Store account.
         /// </summary>
         [Input("firewallState")]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.FirewallState>? FirewallState { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeStore.FirewallState>? FirewallState { get; set; }
 
         /// <summary>
         /// The Key Vault encryption identity, if any.
@@ -268,7 +270,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// The commitment tier to use for next month.
         /// </summary>
         [Input("newTier")]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.TierType>? NewTier { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeStore.TierType>? NewTier { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -292,7 +294,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// The current state of the trusted identity provider feature for this Data Lake Store account.
         /// </summary>
         [Input("trustedIdProviderState")]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.TrustedIdProviderState>? TrustedIdProviderState { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeStore.TrustedIdProviderState>? TrustedIdProviderState { get; set; }
 
         [Input("trustedIdProviders")]
         private InputList<Inputs.CreateTrustedIdProviderWithAccountParametersArgs>? _trustedIdProviders;

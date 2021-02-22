@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the gallery Application Version that you want to create or update.
     /// Latest API Version: 2020-09-30.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:GalleryApplicationVersion")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryApplicationVersion'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:GalleryApplicationVersion")]
     public partial class GalleryApplicationVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryApplicationVersion(string name, GalleryApplicationVersionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:GalleryApplicationVersion", name, args ?? new GalleryApplicationVersionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:GalleryApplicationVersion", name, args ?? new GalleryApplicationVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryApplicationVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:GalleryApplicationVersion", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:GalleryApplicationVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,10 +84,15 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryApplicationVersion"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryApplicationVersion"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryApplicationVersion"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:GalleryApplicationVersion"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:GalleryApplicationVersion"},
                 },
             };

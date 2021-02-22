@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// how to match header value
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.HeaderMatchType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.HeaderMatchType>? Type { get; set; }
 
         /// <summary>
         /// Value of header to match in request.

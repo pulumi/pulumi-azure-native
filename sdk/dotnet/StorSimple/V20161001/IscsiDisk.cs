@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The iSCSI disk.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:IscsiDisk")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:IscsiDisk")]
     public partial class IscsiDisk : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IscsiDisk(string name, IscsiDiskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:IscsiDisk", name, args ?? new IscsiDiskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:IscsiDisk", name, args ?? new IscsiDiskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IscsiDisk(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:IscsiDisk", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:IscsiDisk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,7 +100,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiDisk"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:IscsiDisk"},
                 },
             };
@@ -141,7 +143,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The data policy.
         /// </summary>
         [Input("dataPolicy", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.DataPolicy> DataPolicy { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// The description.
@@ -165,7 +167,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The disk status.
         /// </summary>
         [Input("diskStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.DiskStatus> DiskStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.DiskStatus> DiskStatus { get; set; } = null!;
 
         /// <summary>
         /// The iSCSI server name.
@@ -183,7 +185,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The monitoring.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.MonitoringStatus> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The provisioned capacity in bytes.

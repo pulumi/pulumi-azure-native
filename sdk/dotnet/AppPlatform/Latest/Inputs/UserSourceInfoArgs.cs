@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.Latest.Inputs
+namespace Pulumi.AzureNative.AppPlatform.Latest.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest.Inputs
         /// Type of the source uploaded
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.Latest.UserSourceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.Latest.UserSourceType>? Type { get; set; }
 
         /// <summary>
         /// Version of the source

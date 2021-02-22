@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Inputs
         /// Enable Geo-redundant or not for server backup.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
 
         /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.StorageAutogrow>? StorageAutogrow { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StorageAutogrow>? StorageAutogrow { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server.

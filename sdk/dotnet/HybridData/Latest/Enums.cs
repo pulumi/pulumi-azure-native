@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HybridData.Latest
+namespace Pulumi.AzureNative.HybridData.Latest
 {
     /// <summary>
     /// This is the preferred geo location for the job to run.

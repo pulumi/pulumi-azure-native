@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:AFDCustomDomain")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDCustomDomain'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:AFDCustomDomain")]
     public partial class AFDCustomDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -83,12 +83,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AFDCustomDomain(string name, AFDCustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:AFDCustomDomain", name, args ?? new AFDCustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:AFDCustomDomain", name, args ?? new AFDCustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AFDCustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:AFDCustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:AFDCustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,9 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDCustomDomain"},
                 },
             };

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.Latest
+namespace Pulumi.AzureNative.StorageSync.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:PrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:storagesync/latest:PrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:PrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:storagesync/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagesync/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagesync/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,8 +72,11 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagesync:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:PrivateEndpointConnection"},
                 },
             };

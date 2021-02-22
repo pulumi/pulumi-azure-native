@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         /// </summary>
         [Input("sshPublicAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200801.SshPublicAccess>? SshPublicAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200801.SshPublicAccess>? SshPublicAccess { get; set; }
 
         public ComputeInstanceSshSettingsArgs()
         {

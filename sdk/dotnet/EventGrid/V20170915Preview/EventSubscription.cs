@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
+namespace Pulumi.AzureNative.EventGrid.V20170915Preview
 {
     /// <summary>
     /// Event Subscription
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20170915preview:EventSubscription")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20170915preview:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20170915preview:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20170915preview:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20170915preview:EventSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20170915preview:EventSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,18 +82,31 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180501preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:EventSubscription"},
                 },
             };

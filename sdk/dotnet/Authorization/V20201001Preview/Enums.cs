@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
+namespace Pulumi.AzureNative.Authorization.V20201001Preview
 {
     /// <summary>
     /// The type of rule

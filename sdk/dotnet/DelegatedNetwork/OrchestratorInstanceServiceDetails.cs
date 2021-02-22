@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork
+namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
     /// API Version: 2020-08-08-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails")]
+    [AzureNativeResourceType("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrchestratorInstanceServiceDetails(string name, OrchestratorInstanceServiceDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails", name, args ?? new OrchestratorInstanceServiceDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails", name, args ?? new OrchestratorInstanceServiceDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrchestratorInstanceServiceDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                 },
             };
@@ -171,7 +172,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DelegatedNetwork.OrchestratorKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DelegatedNetwork.OrchestratorKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Location of the resource.

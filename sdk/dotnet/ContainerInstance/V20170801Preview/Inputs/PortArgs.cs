@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview.Inputs
         /// The protocol associated with the port.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20170801Preview.ContainerGroupNetworkProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20170801Preview.ContainerGroupNetworkProtocol>? Protocol { get; set; }
 
         public PortArgs()
         {

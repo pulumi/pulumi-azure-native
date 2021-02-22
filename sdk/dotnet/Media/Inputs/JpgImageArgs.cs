@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -74,13 +74,13 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         /// </summary>
         [Input("stretchMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.StretchMode>? StretchMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.StretchMode>? StretchMode { get; set; }
 
         /// <summary>
         /// The Video Sync Mode
         /// </summary>
         [Input("syncMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.VideoSyncMode>? SyncMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.VideoSyncMode>? SyncMode { get; set; }
 
         public JpgImageArgs()
         {

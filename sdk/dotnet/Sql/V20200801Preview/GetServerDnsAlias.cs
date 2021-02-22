@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     public static class GetServerDnsAlias
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// A server DNS alias.
         /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-nextgen:sql/v20200801preview:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql/v20200801preview:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());
     }
 
 

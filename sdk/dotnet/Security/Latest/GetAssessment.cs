@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest
+namespace Pulumi.AzureNative.Security.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessment'.")]
     public static class GetAssessment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:security/latest:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/latest:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
+namespace Pulumi.AzureNative.HybridNetwork.Inputs
 {
 
     /// <summary>
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
         /// IP address allocation method.
         /// </summary>
         [Input("ipAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.IPAllocationMethod>? IpAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.IPAllocationMethod>? IpAllocationMethod { get; set; }
 
         /// <summary>
         /// IP address version.
         /// </summary>
         [Input("ipVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.IPVersion>? IpVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.IPVersion>? IpVersion { get; set; }
 
         /// <summary>
         /// The value of the subnet.

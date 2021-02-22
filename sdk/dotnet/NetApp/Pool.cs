@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp
+namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Capacity pool resource
     /// API Version: 2020-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:netapp:Pool")]
+    [AzureNativeResourceType("azure-native:netapp:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pool(string name, PoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:Pool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp:Pool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,21 +107,37 @@ namespace Pulumi.AzureNextGen.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Pool"},
                 },
             };
@@ -168,7 +184,7 @@ namespace Pulumi.AzureNextGen.NetApp
         /// The qos type of the pool
         /// </summary>
         [Input("qosType")]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.QosType>? QosType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.QosType>? QosType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -180,7 +196,7 @@ namespace Pulumi.AzureNextGen.NetApp
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.ServiceLevel> ServiceLevel { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.NetApp.ServiceLevel> ServiceLevel { get; set; } = null!;
 
         /// <summary>
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).

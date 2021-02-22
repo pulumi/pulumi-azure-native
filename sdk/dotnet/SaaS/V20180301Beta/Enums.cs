@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
+namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
     /// <summary>
     /// The Payment channel for the SaasSubscription.

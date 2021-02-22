@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
+namespace Pulumi.AzureNative.RedHatOpenShift.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'.")]
     public static class ListOpenShiftClusterCredentials
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
         /// Latest API Version: 2020-04-30.
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-nextgen:redhatopenshift/latest:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/latest:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
     }
 
 

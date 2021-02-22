@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Consumption.V20180331
+namespace Pulumi.AzureNative.Consumption.V20180331
 {
     /// <summary>
     /// A budget resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName")]
+    [AzureNativeResourceType("azure-native:consumption/v20180331:BudgetByResourceGroupName")]
     public partial class BudgetByResourceGroupName : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Consumption.V20180331
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BudgetByResourceGroupName(string name, BudgetByResourceGroupNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName", name, args ?? new BudgetByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:consumption/v20180331:BudgetByResourceGroupName", name, args ?? new BudgetByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BudgetByResourceGroupName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:consumption/v20180331:BudgetByResourceGroupName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,11 +100,17 @@ namespace Pulumi.AzureNextGen.Consumption.V20180331
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:consumption:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/latest:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/latest:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180131:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180630:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20180831:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20181001:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName"},
                 },
             };
@@ -145,7 +151,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20180331
         /// The category of the budget, whether the budget tracks cost or usage.
         /// </summary>
         [Input("category", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20180331.CategoryType> Category { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Consumption.V20180331.CategoryType> Category { get; set; } = null!;
 
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -181,7 +187,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20180331
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         /// </summary>
         [Input("timeGrain", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20180331.TimeGrainType> TimeGrain { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Consumption.V20180331.TimeGrainType> TimeGrain { get; set; } = null!;
 
         /// <summary>
         /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.

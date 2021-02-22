@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:VirtualHubRouteTableV2")]
+    [AzureNativeResourceType("azure-native:network:VirtualHubRouteTableV2")]
     public partial class VirtualHubRouteTableV2 : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubRouteTableV2(string name, VirtualHubRouteTableV2Args args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualHubRouteTableV2", name, args ?? new VirtualHubRouteTableV2Args(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:VirtualHubRouteTableV2", name, args ?? new VirtualHubRouteTableV2Args(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualHubRouteTableV2(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualHubRouteTableV2", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:VirtualHubRouteTableV2", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,15 +71,25 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHubRouteTableV2"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHubRouteTableV2"},
                 },
             };

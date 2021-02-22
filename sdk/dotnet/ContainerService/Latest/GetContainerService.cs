@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest
+namespace Pulumi.AzureNative.ContainerService.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getContainerService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getContainerService'.")]
     public static class GetContainerService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// Latest API Version: 2017-01-31.
         /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-nextgen:containerservice/latest:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-native:containerservice/latest:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
     }
 
 

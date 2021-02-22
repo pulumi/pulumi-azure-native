@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// API Version: 2016-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics:Account")]
+    [AzureNativeResourceType("azure-native:datalakeanalytics:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -199,12 +199,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakeanalytics:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakeanalytics:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -215,8 +215,11 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:Account"},
                 },
             };
@@ -281,7 +284,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
         [Input("firewallAllowAzureIps")]
-        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeAnalytics.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
 
         [Input("firewallRules")]
         private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
@@ -299,7 +302,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// The current state of the IP address firewall for this account.
         /// </summary>
         [Input("firewallState")]
-        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.FirewallState>? FirewallState { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeAnalytics.FirewallState>? FirewallState { get; set; }
 
         /// <summary>
         /// The resource location.
@@ -335,7 +338,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// The commitment tier for the next month.
         /// </summary>
         [Input("newTier")]
-        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.TierType>? NewTier { get; set; }
+        public Input<Pulumi.AzureNative.DataLakeAnalytics.TierType>? NewTier { get; set; }
 
         /// <summary>
         /// The number of days that job metadata is retained.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.V20200901
+namespace Pulumi.AzureNative.StorageSync.V20200901
 {
     public static class GetStorageSyncService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// Storage Sync Service object.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-nextgen:storagesync/v20200901:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync/v20200901:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
     }
 
 

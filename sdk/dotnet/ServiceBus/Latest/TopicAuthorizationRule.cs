@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:TopicAuthorizationRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:TopicAuthorizationRule'.")]
+    [AzureNativeResourceType("azure-native:servicebus/latest:TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:TopicAuthorizationRule", name, args ?? new TopicAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/latest:TopicAuthorizationRule", name, args ?? new TopicAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TopicAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:TopicAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/latest:TopicAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,10 +60,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"},
                 },
             };
@@ -107,14 +112,14 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNextGen.ServiceBus.Latest.AccessRights>? _rights;
+        private InputList<Pulumi.AzureNative.ServiceBus.Latest.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.ServiceBus.Latest.AccessRights> Rights
+        public InputList<Pulumi.AzureNative.ServiceBus.Latest.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.ServiceBus.Latest.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.ServiceBus.Latest.AccessRights>());
             set => _rights = value;
         }
 

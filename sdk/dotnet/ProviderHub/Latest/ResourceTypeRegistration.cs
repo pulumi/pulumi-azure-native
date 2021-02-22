@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ResourceTypeRegistration'.")]
-    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:ResourceTypeRegistration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:ResourceTypeRegistration'.")]
+    [AzureNativeResourceType("azure-native:providerhub/latest:ResourceTypeRegistration")]
     public partial class ResourceTypeRegistration : Pulumi.CustomResource
     {
         /// <summary>
@@ -40,12 +40,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceTypeRegistration(string name, ResourceTypeRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:ResourceTypeRegistration", name, args ?? new ResourceTypeRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/latest:ResourceTypeRegistration", name, args ?? new ResourceTypeRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceTypeRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:ResourceTypeRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/latest:ResourceTypeRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -56,7 +56,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:ResourceTypeRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ResourceTypeRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"},
                 },
             };

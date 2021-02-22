@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
+namespace Pulumi.AzureNative.Quantum.V20191104Preview
 {
     public static class GetWorkspace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
         /// The resource proxy definition object for quantum workspace.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:quantum/v20191104preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:quantum/v20191104preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

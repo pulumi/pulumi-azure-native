@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200901
+namespace Pulumi.AzureNative.DocumentDB.V20200901
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph")]
+    [AzureNativeResourceType("azure-native:documentdb/v20200901:GremlinResourceGremlinGraph")]
     public partial class GremlinResourceGremlinGraph : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GremlinResourceGremlinGraph(string name, GremlinResourceGremlinGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph", name, args ?? new GremlinResourceGremlinGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20200901:GremlinResourceGremlinGraph", name, args ?? new GremlinResourceGremlinGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GremlinResourceGremlinGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20200901:GremlinResourceGremlinGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,13 +70,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph"},
                 },
             };

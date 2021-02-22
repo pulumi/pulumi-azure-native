@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180701
+namespace Pulumi.AzureNative.Media.V20180701
 {
     public static class GetAccountFilter
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// An Account Filter.
         /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-nextgen:media/v20180701:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media/v20180701:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
     }
 
 

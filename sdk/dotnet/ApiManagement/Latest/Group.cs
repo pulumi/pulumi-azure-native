@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Group'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Group")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Group'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Group", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,15 +78,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Group"},
                 },
             };
@@ -151,7 +161,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Group type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.ApiManagement.Latest.GroupType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.ApiManagement.Latest.GroupType>? Type { get; set; }
 
         public GroupArgs()
         {

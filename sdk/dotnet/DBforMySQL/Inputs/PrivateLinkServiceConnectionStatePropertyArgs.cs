@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Inputs
+namespace Pulumi.AzureNative.DBforMySQL.Inputs
 {
 
     public sealed class PrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs

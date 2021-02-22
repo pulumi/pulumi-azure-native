@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
+namespace Pulumi.AzureNative.CertificateRegistration.V20180201
 {
     /// <summary>
     /// Certificate product type.

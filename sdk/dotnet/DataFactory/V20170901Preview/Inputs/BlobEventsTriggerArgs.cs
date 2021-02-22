@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -34,14 +34,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("events", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.BlobEventTypes>>? _events;
+        private InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.BlobEventTypes>>? _events;
 
         /// <summary>
         /// The type of events that cause this trigger to fire.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.BlobEventTypes>> Events
+        public InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.BlobEventTypes>> Events
         {
-            get => _events ?? (_events = new InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.BlobEventTypes>>());
+            get => _events ?? (_events = new InputList<Union<string, Pulumi.AzureNative.DataFactory.V20170901Preview.BlobEventTypes>>());
             set => _events = value;
         }
 

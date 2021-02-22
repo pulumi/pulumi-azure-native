@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20170515Preview
+namespace Pulumi.AzureNative.Automation.V20170515Preview
 {
     public static class GetSoftwareUpdateConfigurationByName
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// Software update configuration properties.
         /// </summary>
         public static Task<GetSoftwareUpdateConfigurationByNameResult> InvokeAsync(GetSoftwareUpdateConfigurationByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-nextgen:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithVersion());
     }
 
 

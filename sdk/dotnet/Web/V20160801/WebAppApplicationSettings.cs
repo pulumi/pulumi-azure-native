@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801
+namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// String dictionary resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20160801:WebAppApplicationSettings")]
+    [AzureNativeResourceType("azure-native:web/v20160801:WebAppApplicationSettings")]
     public partial class WebAppApplicationSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppApplicationSettings(string name, WebAppApplicationSettingsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppApplicationSettings", name, args ?? new WebAppApplicationSettingsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20160801:WebAppApplicationSettings", name, args ?? new WebAppApplicationSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppApplicationSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppApplicationSettings", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20160801:WebAppApplicationSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,14 +64,23 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppApplicationSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppApplicationSettings"},
                 },
             };

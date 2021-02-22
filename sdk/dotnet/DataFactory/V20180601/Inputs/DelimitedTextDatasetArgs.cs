@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -34,13 +34,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public Input<object>? ColumnDelimiter { get; set; }
 
         [Input("compressionCodec")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.CompressionCodec>? CompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.CompressionCodec>? CompressionCodec { get; set; }
 
         /// <summary>
         /// The data compression method used for DelimitedText.
         /// </summary>
         [Input("compressionLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.DatasetCompressionLevel>? CompressionLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DatasetCompressionLevel>? CompressionLevel { get; set; }
 
         /// <summary>
         /// Dataset description.

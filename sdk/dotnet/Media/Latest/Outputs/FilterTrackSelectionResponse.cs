@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest.Outputs
+namespace Pulumi.AzureNative.Media.Latest.Outputs
 {
 
     [OutputType]

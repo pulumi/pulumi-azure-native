@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200801
+namespace Pulumi.AzureNative.Network.V20200801
 {
     public static class GetHubVirtualNetworkConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// HubVirtualNetworkConnection Resource.
         /// </summary>
         public static Task<GetHubVirtualNetworkConnectionResult> InvokeAsync(GetHubVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-nextgen:network/v20200801:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-native:network/v20200801:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithVersion());
     }
 
 

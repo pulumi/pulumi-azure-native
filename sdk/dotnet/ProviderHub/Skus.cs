@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// API Version: 2020-11-20.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:providerhub:Skus")]
+    [AzureNativeResourceType("azure-native:providerhub:Skus")]
     public partial class Skus : Pulumi.CustomResource
     {
         /// <summary>
@@ -39,12 +39,12 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Skus(string name, SkusArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:Skus", name, args ?? new SkusArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub:Skus", name, args ?? new SkusArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Skus(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:Skus", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub:Skus", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -55,7 +55,9 @@ namespace Pulumi.AzureNextGen.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:Skus"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:Skus"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:Skus"},
                 },
             };

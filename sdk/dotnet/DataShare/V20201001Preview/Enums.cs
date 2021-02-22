@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
+namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     /// <summary>
     /// Kind of data set.

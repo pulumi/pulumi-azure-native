@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
     /// <summary>
     /// Integration runtime resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'.")]
-    [AzureNextGenResourceType("azure-nextgen:datafactory/latest:IntegrationRuntime")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:IntegrationRuntime'.")]
+    [AzureNativeResourceType("azure-native:datafactory/latest:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationRuntime(string name, IntegrationRuntimeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/latest:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationRuntime(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/latest:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:IntegrationRuntime"},
                 },
             };

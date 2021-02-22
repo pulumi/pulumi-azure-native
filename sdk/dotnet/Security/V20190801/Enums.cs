@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Security.V20190801
+namespace Pulumi.AzureNative.Security.V20190801
 {
     /// <summary>
     /// Data types sent to workspace.

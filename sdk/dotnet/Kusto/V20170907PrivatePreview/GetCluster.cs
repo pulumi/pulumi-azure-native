@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
+namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
     public static class GetCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// Class representing a Kusto cluster.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

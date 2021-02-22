@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// Latest API Version: 2016-03-31.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraTable'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountCassandraTable'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:DatabaseAccountCassandraTable")]
     public partial class DatabaseAccountCassandraTable : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountCassandraTable(string name, DatabaseAccountCassandraTableArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable", name, args ?? new DatabaseAccountCassandraTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:DatabaseAccountCassandraTable", name, args ?? new DatabaseAccountCassandraTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountCassandraTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:DatabaseAccountCassandraTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,11 +78,17 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable"},
                 },
             };

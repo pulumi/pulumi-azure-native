@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Description of an hostingEnvironment (App Service Environment)
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:ManagedHostingEnvironment")]
+    [AzureNativeResourceType("azure-native:web/v20150801:ManagedHostingEnvironment")]
     public partial class ManagedHostingEnvironment : Pulumi.CustomResource
     {
         /// <summary>
@@ -235,12 +235,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedHostingEnvironment(string name, ManagedHostingEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:ManagedHostingEnvironment", name, args ?? new ManagedHostingEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:ManagedHostingEnvironment", name, args ?? new ManagedHostingEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedHostingEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:ManagedHostingEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:ManagedHostingEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -251,7 +251,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ManagedHostingEnvironment"},
                 },
             };
@@ -358,7 +360,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
         /// </summary>
         [Input("internalLoadBalancingMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.InternalLoadBalancingMode>? InternalLoadBalancingMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.InternalLoadBalancingMode>? InternalLoadBalancingMode { get; set; }
 
         /// <summary>
         /// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
@@ -430,7 +432,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Provisioning state of the hostingEnvironment (App Service Environment)
         /// </summary>
         [Input("provisioningState")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.ProvisioningState>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Resource group of the hostingEnvironment (App Service Environment)
@@ -448,7 +450,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Current status of the hostingEnvironment (App Service Environment)
         /// </summary>
         [Input("status", required: true)]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.HostingEnvironmentStatus> Status { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Web.V20150801.HostingEnvironmentStatus> Status { get; set; } = null!;
 
         /// <summary>
         /// Subscription of the hostingEnvironment (App Service Environment)

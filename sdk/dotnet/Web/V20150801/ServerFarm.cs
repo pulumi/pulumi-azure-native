@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// App Service Plan Model
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:ServerFarm")]
+    [AzureNativeResourceType("azure-native:web/v20150801:ServerFarm")]
     public partial class ServerFarm : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerFarm(string name, ServerFarmArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:ServerFarm", name, args ?? new ServerFarmArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:ServerFarm", name, args ?? new ServerFarmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerFarm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:ServerFarm", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:ServerFarm", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,13 +143,21 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:ServerFarm"},
                 },
             };

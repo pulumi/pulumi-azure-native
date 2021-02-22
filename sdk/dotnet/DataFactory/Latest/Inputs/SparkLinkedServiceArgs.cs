@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication method used to access the Spark server.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.SparkAuthenticationType> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.SparkAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -109,13 +109,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The type of Spark server.
         /// </summary>
         [Input("serverType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.SparkServerType>? ServerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.SparkServerType>? ServerType { get; set; }
 
         /// <summary>
         /// The transport protocol to use in the Thrift layer.
         /// </summary>
         [Input("thriftTransportProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.SparkThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.SparkThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
 
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.

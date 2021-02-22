@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20170701.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20170701.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20170701.BackupManagementType>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20170701.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701.Inputs
         /// Backup state of this backup item.
         /// </summary>
         [Input("protectionState")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20170701.ProtectionStatus>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20170701.ProtectionStatus>? ProtectionState { get; set; }
 
         /// <summary>
         /// ARM ID of the resource to be backed up.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701.Inputs
         /// Workload item type of the item for which intent is to be set
         /// </summary>
         [Input("workloadItemType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20170701.WorkloadItemType>? WorkloadItemType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20170701.WorkloadItemType>? WorkloadItemType { get; set; }
 
         public AzureWorkloadSQLAutoProtectionIntentArgs()
         {

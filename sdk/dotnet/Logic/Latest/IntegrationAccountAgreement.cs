@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The integration account agreement.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountAgreement")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAgreement'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationAccountAgreement")]
     public partial class IntegrationAccountAgreement : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountAgreement(string name, IntegrationAccountAgreementArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountAgreement", name, args ?? new IntegrationAccountAgreementArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationAccountAgreement", name, args ?? new IntegrationAccountAgreementArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountAgreement(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountAgreement", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationAccountAgreement", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,10 +120,15 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountAgreement"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountAgreement"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountAgreement"},
                 },
             };
@@ -158,7 +163,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The agreement type.
         /// </summary>
         [Input("agreementType", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.Latest.AgreementType> AgreementType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.Latest.AgreementType> AgreementType { get; set; } = null!;
 
         /// <summary>
         /// The agreement content.

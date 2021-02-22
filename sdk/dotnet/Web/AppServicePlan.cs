@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service plan.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:AppServicePlan")]
+    [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -182,12 +182,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServicePlan(string name, AppServicePlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:AppServicePlan", name, args ?? new AppServicePlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:AppServicePlan", name, args ?? new AppServicePlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServicePlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:AppServicePlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:AppServicePlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -198,13 +198,21 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlan"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraTable'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraTable'.")]
     public static class GetDatabaseAccountCassandraTable
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-native:documentdb/latest:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
     }
 
 

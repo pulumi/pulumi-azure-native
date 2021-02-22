@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601.Inputs
+namespace Pulumi.AzureNative.Automation.V20190601.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601.Inputs
         /// Update classifications included in the software update configuration.
         /// </summary>
         [Input("includedPackageClassifications")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20190601.LinuxUpdateClasses>? IncludedPackageClassifications { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.V20190601.LinuxUpdateClasses>? IncludedPackageClassifications { get; set; }
 
         [Input("includedPackageNameMasks")]
         private InputList<string>? _includedPackageNameMasks;

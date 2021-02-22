@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class X12EnvelopeSettingsArgs : Pulumi.ResourceArgs
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The group header date format.
         /// </summary>
         [Input("groupHeaderDateFormat")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.X12DateFormat>? GroupHeaderDateFormat { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.X12DateFormat>? GroupHeaderDateFormat { get; set; }
 
         /// <summary>
         /// The group header time format.
         /// </summary>
         [Input("groupHeaderTimeFormat")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.X12TimeFormat>? GroupHeaderTimeFormat { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.X12TimeFormat>? GroupHeaderTimeFormat { get; set; }
 
         /// <summary>
         /// The group header version.
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The usage indicator.
         /// </summary>
         [Input("usageIndicator")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.UsageIndicator>? UsageIndicator { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.UsageIndicator>? UsageIndicator { get; set; }
 
         /// <summary>
         /// The value indicating whether to use control standards id as repetition character.

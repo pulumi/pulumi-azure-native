@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         /// </summary>
         [Input("catalogPricingTier")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.IntegrationRuntimeSsisCatalogPricingTier>? CatalogPricingTier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.IntegrationRuntimeSsisCatalogPricingTier>? CatalogPricingTier { get; set; }
 
         /// <summary>
         /// The catalog database server URL.

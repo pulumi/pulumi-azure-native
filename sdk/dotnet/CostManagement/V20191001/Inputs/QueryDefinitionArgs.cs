@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20191001.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191001.Inputs
         /// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191001.TimeframeType> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191001.TimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the query.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191001.ExportType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191001.ExportType> Type { get; set; } = null!;
 
         public QueryDefinitionArgs()
         {

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
+namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 {
     /// <summary>
     /// The type of AAD object the object identifier refers to.

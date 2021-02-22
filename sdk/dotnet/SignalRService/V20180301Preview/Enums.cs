@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
+namespace Pulumi.AzureNative.SignalRService.V20180301Preview
 {
     /// <summary>
     /// Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier

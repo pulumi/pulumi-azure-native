@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.Latest.Inputs
+namespace Pulumi.AzureNative.NotificationHubs.Latest.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest.Inputs
     public sealed class SharedAccessAuthorizationRulePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("rights")]
-        private InputList<Pulumi.AzureNextGen.NotificationHubs.Latest.AccessRights>? _rights;
+        private InputList<Pulumi.AzureNative.NotificationHubs.Latest.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.NotificationHubs.Latest.AccessRights> Rights
+        public InputList<Pulumi.AzureNative.NotificationHubs.Latest.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.NotificationHubs.Latest.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.NotificationHubs.Latest.AccessRights>());
             set => _rights = value;
         }
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.BackupManagementType>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Time for deferred deletion in UTC
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Health status of protected item.
         /// </summary>
         [Input("healthStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.HealthStatus>? HealthStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.HealthStatus>? HealthStatus { get; set; }
 
         /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Backup state of this backup item.
         /// </summary>
         [Input("protectionState")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.ProtectionState>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.ProtectionState>? ProtectionState { get; set; }
 
         /// <summary>
         /// Backup status of this backup item.
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Type of workload this item represents.
         /// </summary>
         [Input("workloadType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.DataSourceType>? WorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DataSourceType>? WorkloadType { get; set; }
 
         public AzureIaaSVMProtectedItemArgs()
         {

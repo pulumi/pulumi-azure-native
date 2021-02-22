@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Define the role of the AgentPoolProfile.
         /// </summary>
         [Input("role")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.OpenShiftAgentPoolProfileRole>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.OpenShiftAgentPoolProfileRole>? Role { get; set; }
 
         /// <summary>
         /// Subnet CIDR for the peering.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.OpenShiftContainerServiceVMSize> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.OpenShiftContainerServiceVMSize> VmSize { get; set; } = null!;
 
         public OpenShiftManagedClusterAgentPoolProfileArgs()
         {

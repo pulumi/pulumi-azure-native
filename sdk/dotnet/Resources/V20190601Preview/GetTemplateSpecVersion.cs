@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20190601Preview
+namespace Pulumi.AzureNative.Resources.V20190601Preview
 {
     public static class GetTemplateSpecVersion
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// Template Spec Version object.
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-nextgen:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Certificate signing request object
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:CertificateCsr")]
+    [AzureNativeResourceType("azure-native:web/v20150801:CertificateCsr")]
     public partial class CertificateCsr : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateCsr(string name, CertificateCsrArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:CertificateCsr", name, args ?? new CertificateCsrArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:CertificateCsr", name, args ?? new CertificateCsrArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CertificateCsr(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:CertificateCsr", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:CertificateCsr", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,7 +106,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:CertificateCsr"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:CertificateCsr"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:CertificateCsr"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:CertificateCsr"},
                 },
             };

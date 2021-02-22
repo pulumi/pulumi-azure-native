@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.Outputs
+namespace Pulumi.AzureNative.AadIam.Outputs
 {
 
     [OutputType]

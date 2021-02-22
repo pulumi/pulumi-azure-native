@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest
+namespace Pulumi.AzureNative.Portal.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'.")]
     public static class GetUserSettings
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// Latest API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-nextgen:portal/latest:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal/latest:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
     }
 
 

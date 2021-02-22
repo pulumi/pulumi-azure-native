@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.Inputs
+namespace Pulumi.AzureNative.HDInsight.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.HDInsight.Inputs
         /// The directory type.
         /// </summary>
         [Input("directoryType")]
-        public Input<Pulumi.AzureNextGen.HDInsight.DirectoryType>? DirectoryType { get; set; }
+        public Input<Pulumi.AzureNative.HDInsight.DirectoryType>? DirectoryType { get; set; }
 
         /// <summary>
         /// The organization's active directory domain.

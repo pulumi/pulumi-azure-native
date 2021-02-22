@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20180122
+namespace Pulumi.AzureNative.Devices.V20180122
 {
     public static class ListIotDpsResourceKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Devices.V20180122
         /// List of shared access keys.
         /// </summary>
         public static Task<ListIotDpsResourceKeysResult> InvokeAsync(ListIotDpsResourceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-nextgen:devices/v20180122:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-native:devices/v20180122:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Confluent
+namespace Pulumi.AzureNative.Confluent
 {
     public static class GetOrganization
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Confluent
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-nextgen:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
     }
 
 

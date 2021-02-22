@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Inputs
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Inputs
         /// The sku name
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EnterpriseKnowledgeGraph.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

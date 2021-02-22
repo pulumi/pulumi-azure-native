@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
+namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a published Blueprint.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint")]
+    [AzureNativeResourceType("azure-native:blueprint/v20171111preview:PublishedBlueprint")]
     public partial class PublishedBlueprint : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublishedBlueprint(string name, PublishedBlueprintArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint", name, args ?? new PublishedBlueprintArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint/v20171111preview:PublishedBlueprint", name, args ?? new PublishedBlueprintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PublishedBlueprint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint/v20171111preview:PublishedBlueprint", name, null, MakeResourceOptions(options, id))
         {
         }
 

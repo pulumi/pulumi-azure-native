@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub
+namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// API Version: 2018-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:eventhub:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection"},
                 },
             };
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNextGen.EventHub
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.EndPointProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventHub.EndPointProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

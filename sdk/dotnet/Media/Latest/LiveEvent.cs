@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// The live event.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:LiveEvent")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:LiveEvent'.")]
+    [AzureNativeResourceType("azure-native:media/latest:LiveEvent")]
     public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>
@@ -134,12 +134,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LiveEvent(string name, LiveEventArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:LiveEvent", name, args ?? new LiveEventArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:LiveEvent", name, args ?? new LiveEventArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LiveEvent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:LiveEvent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:LiveEvent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -150,11 +150,17 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:LiveEvent"},
                 },
             };
@@ -246,14 +252,14 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("streamOptions")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Media.Latest.StreamOptionsFlag>>? _streamOptions;
+        private InputList<Union<string, Pulumi.AzureNative.Media.Latest.StreamOptionsFlag>>? _streamOptions;
 
         /// <summary>
         /// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Media.Latest.StreamOptionsFlag>> StreamOptions
+        public InputList<Union<string, Pulumi.AzureNative.Media.Latest.StreamOptionsFlag>> StreamOptions
         {
-            get => _streamOptions ?? (_streamOptions = new InputList<Union<string, Pulumi.AzureNextGen.Media.Latest.StreamOptionsFlag>>());
+            get => _streamOptions ?? (_streamOptions = new InputList<Union<string, Pulumi.AzureNative.Media.Latest.StreamOptionsFlag>>());
             set => _streamOptions = value;
         }
 

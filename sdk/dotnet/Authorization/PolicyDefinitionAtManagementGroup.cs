@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy definition.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup")]
+    [AzureNativeResourceType("azure-native:authorization:PolicyDefinitionAtManagementGroup")]
     public partial class PolicyDefinitionAtManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyDefinitionAtManagementGroup(string name, PolicyDefinitionAtManagementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup", name, args ?? new PolicyDefinitionAtManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization:PolicyDefinitionAtManagementGroup", name, args ?? new PolicyDefinitionAtManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyDefinitionAtManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization:PolicyDefinitionAtManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,14 +95,23 @@ namespace Pulumi.AzureNextGen.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup"},
                 },
             };
@@ -185,7 +194,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         [Input("policyType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.PolicyType>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.PolicyType>? PolicyType { get; set; }
 
         public PolicyDefinitionAtManagementGroupArgs()
         {

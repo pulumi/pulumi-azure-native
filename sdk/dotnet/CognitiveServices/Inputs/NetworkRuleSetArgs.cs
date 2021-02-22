@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.Inputs
+namespace Pulumi.AzureNative.CognitiveServices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Inputs
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.NetworkRuleAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.NetworkRuleAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IpRuleArgs>? _ipRules;

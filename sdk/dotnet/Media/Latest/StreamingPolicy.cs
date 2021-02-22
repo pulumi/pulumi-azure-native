@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// A Streaming Policy resource
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:StreamingPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingPolicy'.")]
+    [AzureNativeResourceType("azure-native:media/latest:StreamingPolicy")]
     public partial class StreamingPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingPolicy(string name, StreamingPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:StreamingPolicy", name, args ?? new StreamingPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:StreamingPolicy", name, args ?? new StreamingPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:StreamingPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:StreamingPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,10 +96,15 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:StreamingPolicy"},
                 },
             };

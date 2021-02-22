@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
+namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
 {
     /// <summary>
     /// MAK key details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey")]
+    [AzureNativeResourceType("azure-native:windowsesu/v20190916preview:MultipleActivationKey")]
     public partial class MultipleActivationKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MultipleActivationKey(string name, MultipleActivationKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:windowsesu/v20190916preview:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MultipleActivationKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:windowsesu/v20190916preview:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,6 +109,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:windowsesu:MultipleActivationKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsesu:MultipleActivationKey"},
                 },
             };
@@ -167,7 +168,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// Type of OS for which the key is requested.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.V20190916Preview.OsType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.WindowsESU.V20190916Preview.OsType>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -179,7 +180,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// Type of support
         /// </summary>
         [Input("supportType")]
-        public InputUnion<string, Pulumi.AzureNextGen.WindowsESU.V20190916Preview.SupportType>? SupportType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.WindowsESU.V20190916Preview.SupportType>? SupportType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy Contract details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:ApiOperationPolicy")]
+    [AzureNativeResourceType("azure-native:apimanagement:ApiOperationPolicy")]
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiOperationPolicy(string name, ApiOperationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiOperationPolicy", name, args ?? new ApiOperationPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:ApiOperationPolicy", name, args ?? new ApiOperationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiOperationPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiOperationPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:ApiOperationPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,13 +65,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy"},
                 },
             };
@@ -106,7 +114,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// Format of the policyContent.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.PolicyContentFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.PolicyContentFormat>? Format { get; set; }
 
         /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.

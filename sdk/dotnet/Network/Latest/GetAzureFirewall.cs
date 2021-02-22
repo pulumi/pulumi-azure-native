@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getAzureFirewall'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getAzureFirewall'.")]
     public static class GetAzureFirewall
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-nextgen:network/latest:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network/latest:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithVersion());
     }
 
 

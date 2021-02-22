@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration
+namespace Pulumi.AzureNative.DataMigration
 {
     public static class GetServiceTask
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// API Version: 2018-07-15-preview.
         /// </summary>
         public static Task<GetServiceTaskResult> InvokeAsync(GetServiceTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTaskResult>("azure-nextgen:datamigration:getServiceTask", args ?? new GetServiceTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTaskResult>("azure-native:datamigration:getServiceTask", args ?? new GetServiceTaskArgs(), options.WithVersion());
     }
 
 

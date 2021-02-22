@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration
+namespace Pulumi.AzureNative.CertificateRegistration
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate")]
+    [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.CertificateRegistration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceCertificateOrderCertificate(string name, AppServiceCertificateOrderCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:certificateregistration:AppServiceCertificateOrderCertificate", name, args ?? new AppServiceCertificateOrderCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceCertificateOrderCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:certificateregistration:AppServiceCertificateOrderCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,12 +95,19 @@ namespace Pulumi.AzureNextGen.CertificateRegistration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"},
                 },
             };

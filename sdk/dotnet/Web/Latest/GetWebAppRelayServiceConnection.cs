@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnection'.")]
     public static class GetWebAppRelayServiceConnection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-nextgen:web/latest:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-native:web/latest:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
     }
 
 

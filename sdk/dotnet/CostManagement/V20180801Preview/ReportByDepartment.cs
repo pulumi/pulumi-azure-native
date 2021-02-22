@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// A report resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:ReportByDepartment")]
     public partial class ReportByDepartment : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportByDepartment(string name, ReportByDepartmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment", name, args ?? new ReportByDepartmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20180801preview:ReportByDepartment", name, args ?? new ReportByDepartmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReportByDepartment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20180801preview:ReportByDepartment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:ReportByDepartment"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportByDepartment"},
                 },
             };
@@ -128,7 +129,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.FormatType>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20180801Preview.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Name.

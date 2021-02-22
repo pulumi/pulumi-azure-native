@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     public static class GetMachineLearningDataset
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// API Version: 2020-05-01-preview.
         /// </summary>
         public static Task<GetMachineLearningDatasetResult> InvokeAsync(GetMachineLearningDatasetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatasetResult>("azure-nextgen:machinelearningservices:getMachineLearningDataset", args ?? new GetMachineLearningDatasetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatasetResult>("azure-native:machinelearningservices:getMachineLearningDataset", args ?? new GetMachineLearningDatasetArgs(), options.WithVersion());
     }
 
 

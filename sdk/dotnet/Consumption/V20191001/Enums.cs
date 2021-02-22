@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Consumption.V20191001
+namespace Pulumi.AzureNative.Consumption.V20191001
 {
     /// <summary>
     /// The operator to use for comparison.

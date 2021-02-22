@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200301
+namespace Pulumi.AzureNative.Devices.V20200301
 {
     public static class GetIotDpsResourcePrivateEndpointConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         /// The private endpoint connection of a provisioning service
         /// </summary>
         public static Task<GetIotDpsResourcePrivateEndpointConnectionResult> InvokeAsync(GetIotDpsResourcePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-nextgen:devices/v20200301:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-native:devices/v20200301:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithVersion());
     }
 
 

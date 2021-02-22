@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Latest
+namespace Pulumi.AzureNative.KeyVault.Latest
 {
     /// <summary>
     /// Private endpoint connection resource.
     /// Latest API Version: 2019-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:PrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:keyvault/latest:PrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:PrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:keyvault/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:keyvault/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:keyvault/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,9 +90,13 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:keyvault:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection"},
                 },
             };

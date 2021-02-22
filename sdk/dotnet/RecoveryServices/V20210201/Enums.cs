@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210201
+namespace Pulumi.AzureNative.RecoveryServices.V20210201
 {
     /// <summary>
     /// Type of backup items associated with this container.

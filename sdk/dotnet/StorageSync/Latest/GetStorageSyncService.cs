@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.Latest
+namespace Pulumi.AzureNative.StorageSync.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getStorageSyncService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getStorageSyncService'.")]
     public static class GetStorageSyncService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Latest API Version: 2020-03-01.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-nextgen:storagesync/latest:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync/latest:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
     }
 
 

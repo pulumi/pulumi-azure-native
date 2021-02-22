@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks
+namespace Pulumi.AzureNative.Databricks
 {
     public static class GetWorkspace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Databricks
         /// API Version: 2018-04-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:databricks:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:databricks:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

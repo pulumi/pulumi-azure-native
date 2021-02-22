@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS
+namespace Pulumi.AzureNative.SaaS
 {
     public static class GetSaasSubscriptionLevel
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SaaS
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Task<GetSaasSubscriptionLevelResult> InvokeAsync(GetSaasSubscriptionLevelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSaasSubscriptionLevelResult>("azure-nextgen:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelArgs(), options.WithVersion());
     }
 
 

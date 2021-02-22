@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication mechanism used to connect to the Phoenix server.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.PhoenixAuthenticationType> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.PhoenixAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.

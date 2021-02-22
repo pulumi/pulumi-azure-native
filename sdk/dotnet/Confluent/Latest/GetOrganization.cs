@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Confluent.Latest
+namespace Pulumi.AzureNative.Confluent.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:confluent:getOrganization'.")]
     public static class GetOrganization
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
         /// Latest API Version: 2020-03-01.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-nextgen:confluent/latest:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent/latest:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20201201
+namespace Pulumi.AzureNative.ContainerService.V20201201
 {
     /// <summary>
     /// A private endpoint connection
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:containerservice/v20201201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice/v20201201:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice/v20201201:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,11 +70,17 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200901:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest.Inputs
+namespace Pulumi.AzureNative.Media.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// The type of the storage account.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.StorageAccountType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.Latest.StorageAccountType> Type { get; set; } = null!;
 
         public StorageAccountArgs()
         {

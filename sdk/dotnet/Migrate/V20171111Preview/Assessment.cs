@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
+namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:migrate/v20171111preview:Assessment")]
+    [AzureNativeResourceType("azure-native:migrate/v20171111preview:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20171111preview:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/v20171111preview:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20171111preview:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/v20171111preview:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20180202:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180202:Assessment"},
                 },
             };
@@ -206,37 +207,37 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// AHUB discount on windows virtual machines.
         /// </summary>
         [Input("azureHybridUseBenefit", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureHybridUseBenefit> AzureHybridUseBenefit { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AzureHybridUseBenefit> AzureHybridUseBenefit { get; set; } = null!;
 
         /// <summary>
         /// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
         /// </summary>
         [Input("azureLocation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureLocation> AzureLocation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AzureLocation> AzureLocation { get; set; } = null!;
 
         /// <summary>
         /// Offer code according to which cost estimation is done.
         /// </summary>
         [Input("azureOfferCode", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureOfferCode> AzureOfferCode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AzureOfferCode> AzureOfferCode { get; set; } = null!;
 
         /// <summary>
         /// Pricing tier for Size evaluation.
         /// </summary>
         [Input("azurePricingTier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzurePricingTier> AzurePricingTier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AzurePricingTier> AzurePricingTier { get; set; } = null!;
 
         /// <summary>
         /// Storage Redundancy type offered by Azure.
         /// </summary>
         [Input("azureStorageRedundancy", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureStorageRedundancy> AzureStorageRedundancy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AzureStorageRedundancy> AzureStorageRedundancy { get; set; } = null!;
 
         /// <summary>
         /// Currency to report prices in.
         /// </summary>
         [Input("currency", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.Currency> Currency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.Currency> Currency { get; set; } = null!;
 
         /// <summary>
         /// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
@@ -260,7 +261,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// Percentile of performance data used to recommend Azure size.
         /// </summary>
         [Input("percentile", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.Percentile> Percentile { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.Percentile> Percentile { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -284,13 +285,13 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// User configurable setting that describes the status of the assessment.
         /// </summary>
         [Input("stage", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AssessmentStage> Stage { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.AssessmentStage> Stage { get; set; } = null!;
 
         /// <summary>
         /// Time range of performance data used to recommend a size.
         /// </summary>
         [Input("timeRange", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.TimeRange> TimeRange { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20171111Preview.TimeRange> TimeRange { get; set; } = null!;
 
         public AssessmentArgs()
         {

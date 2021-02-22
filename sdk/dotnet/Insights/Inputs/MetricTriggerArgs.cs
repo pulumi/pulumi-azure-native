@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         /// the operator that is used to compare the metric data and the threshold.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.ComparisonOperationType> Operator { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.ComparisonOperationType> Operator { get; set; } = null!;
 
         /// <summary>
         /// the metric statistic type. How the metrics from multiple instances are combined.
         /// </summary>
         [Input("statistic", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.MetricStatisticType> Statistic { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.MetricStatisticType> Statistic { get; set; } = null!;
 
         /// <summary>
         /// the threshold of the metric that triggers the scale action.
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         /// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.TimeAggregationType> TimeAggregation { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.TimeAggregationType> TimeAggregation { get; set; } = null!;
 
         /// <summary>
         /// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.

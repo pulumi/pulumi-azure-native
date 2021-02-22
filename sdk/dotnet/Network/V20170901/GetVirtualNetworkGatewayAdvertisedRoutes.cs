@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170901
+namespace Pulumi.AzureNative.Network.V20170901
 {
     public static class GetVirtualNetworkGatewayAdvertisedRoutes
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// List of virtual network gateway routes
         /// </summary>
         public static Task<GetVirtualNetworkGatewayAdvertisedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayAdvertisedRoutesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-nextgen:network/v20170901:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network/v20170901:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesArgs(), options.WithVersion());
     }
 
 

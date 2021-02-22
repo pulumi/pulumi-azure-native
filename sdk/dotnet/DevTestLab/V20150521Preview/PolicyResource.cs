@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A Policy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:PolicyResource")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:PolicyResource")]
     public partial class PolicyResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyResource(string name, PolicyResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, args ?? new PolicyResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20150521preview:PolicyResource", name, args ?? new PolicyResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20150521preview:PolicyResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,9 +106,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:PolicyResource"},
                 },
             };
@@ -143,7 +147,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The evaluator type of the policy.
         /// </summary>
         [Input("evaluatorType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyEvaluatorType>? EvaluatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.PolicyEvaluatorType>? EvaluatorType { get; set; }
 
         /// <summary>
         /// The fact data of the policy.
@@ -155,7 +159,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The fact name of the policy.
         /// </summary>
         [Input("factName")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyFactName>? FactName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.PolicyFactName>? FactName { get; set; }
 
         /// <summary>
         /// The identifier of the resource.
@@ -203,7 +207,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The status of the policy.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.PolicyStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

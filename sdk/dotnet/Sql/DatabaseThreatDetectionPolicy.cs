@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Contains information about a database Threat Detection policy.
     /// API Version: 2014-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:DatabaseThreatDetectionPolicy")]
+    [AzureNativeResourceType("azure-native:sql:DatabaseThreatDetectionPolicy")]
     public partial class DatabaseThreatDetectionPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseThreatDetectionPolicy(string name, DatabaseThreatDetectionPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:DatabaseThreatDetectionPolicy", name, args ?? new DatabaseThreatDetectionPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:DatabaseThreatDetectionPolicy", name, args ?? new DatabaseThreatDetectionPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseThreatDetectionPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:DatabaseThreatDetectionPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:DatabaseThreatDetectionPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,10 +113,15 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy"},
                 },
             };
@@ -157,7 +162,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Specifies that the alert is sent to the account administrators.
         /// </summary>
         [Input("emailAccountAdmins")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.SecurityAlertPolicyEmailAccountAdmins>? EmailAccountAdmins { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.SecurityAlertPolicyEmailAccountAdmins>? EmailAccountAdmins { get; set; }
 
         /// <summary>
         /// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
@@ -199,7 +204,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
         /// </summary>
         [Input("state", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.SecurityAlertPolicyState> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.SecurityAlertPolicyState> State { get; set; } = null!;
 
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
@@ -217,7 +222,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Specifies whether to use the default server policy.
         /// </summary>
         [Input("useServerDefault")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.SecurityAlertPolicyUseServerDefault>? UseServerDefault { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.SecurityAlertPolicyUseServerDefault>? UseServerDefault { get; set; }
 
         public DatabaseThreatDetectionPolicyArgs()
         {

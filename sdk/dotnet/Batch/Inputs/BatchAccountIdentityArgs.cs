@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Inputs
+namespace Pulumi.AzureNative.Batch.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Batch.Inputs
         /// The type of identity used for the Batch account.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Batch.ResourceIdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Batch.ResourceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.Latest
+namespace Pulumi.AzureNative.Aad.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'.")]
     public static class GetDomainService
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-nextgen:aad/latest:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad/latest:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
     }
 
 

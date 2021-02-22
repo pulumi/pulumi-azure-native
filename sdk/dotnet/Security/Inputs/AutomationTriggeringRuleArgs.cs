@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Inputs
+namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Security.Inputs
         /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
         /// </summary>
         [Input("operator")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Operator>? Operator { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Operator>? Operator { get; set; }
 
         /// <summary>
         /// The JPath of the entity model property that should be checked.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Security.Inputs
         /// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         /// </summary>
         [Input("propertyType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.PropertyType>? PropertyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.PropertyType>? PropertyType { get; set; }
 
         public AutomationTriggeringRuleArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a relation between two resources
     /// API Version: 2019-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights:IncidentRelation")]
+    [AzureNativeResourceType("azure-native:securityinsights:IncidentRelation")]
     public partial class IncidentRelation : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IncidentRelation(string name, IncidentRelationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:IncidentRelation", name, args ?? new IncidentRelationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights:IncidentRelation", name, args ?? new IncidentRelationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IncidentRelation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:IncidentRelation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights:IncidentRelation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentRelation"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:IncidentRelation"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
+namespace Pulumi.AzureNative.Insights.V20180416.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         /// </summary>
         [Input("thresholdOperator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.ConditionalOperator> ThresholdOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180416.ConditionalOperator> ThresholdOperator { get; set; } = null!;
 
         public TriggerConditionArgs()
         {

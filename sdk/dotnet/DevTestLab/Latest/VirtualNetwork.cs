@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// A virtual network.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:VirtualNetwork")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualNetwork'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetwork(string name, VirtualNetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetwork(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:VirtualNetwork", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:VirtualNetwork", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,9 +114,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualNetwork"},
                 },
             };

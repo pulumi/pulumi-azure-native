@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
     /// <summary>
     /// The metric setting details for the role
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901:MonitoringConfig")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901:MonitoringConfig")]
     public partial class MonitoringConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitoringConfig(string name, MonitoringConfigArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:MonitoringConfig", name, args ?? new MonitoringConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901:MonitoringConfig", name, args ?? new MonitoringConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MonitoringConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:MonitoringConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901:MonitoringConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"},
                 },
             };

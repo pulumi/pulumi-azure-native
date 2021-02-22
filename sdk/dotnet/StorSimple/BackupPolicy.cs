@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The backup policy.
     /// API Version: 2017-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:BackupPolicy")]
+    [AzureNativeResourceType("azure-native:storsimple:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupPolicy(string name, BackupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:BackupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:BackupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:BackupPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:BackupPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,7 +101,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupPolicy"},
                 },
             };
@@ -142,7 +144,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.StorSimple.Kind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.StorSimple.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// DSCP Configuration in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:DscpConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:DscpConfiguration'.")]
+    [AzureNativeResourceType("azure-native:network/latest:DscpConfiguration")]
     public partial class DscpConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscpConfiguration(string name, DscpConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:DscpConfiguration", name, args ?? new DscpConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:DscpConfiguration", name, args ?? new DscpConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DscpConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:DscpConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:DscpConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,9 +132,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DscpConfiguration"},
                 },
             };
@@ -217,7 +221,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// RNM supported protocol types.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ProtocolType>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.ProtocolType>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

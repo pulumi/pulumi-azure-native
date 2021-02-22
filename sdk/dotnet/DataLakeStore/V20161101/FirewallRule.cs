@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
+namespace Pulumi.AzureNative.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store firewall rule information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakestore/v20161101:FirewallRule")]
+    [AzureNativeResourceType("azure-native:datalakestore/v20161101:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/v20161101:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakestore/v20161101:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/v20161101:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakestore/v20161101:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,7 +64,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakestore:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:FirewallRule"},
                 },
             };

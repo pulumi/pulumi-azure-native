@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     public static class GetDataConnector
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-nextgen:securityinsights:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
     }
 
 

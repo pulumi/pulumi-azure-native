@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// A private link scoped resource
     /// API Version: 2019-10-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:PrivateLinkScopedResource")]
+    [AzureNativeResourceType("azure-native:insights:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScopedResource(string name, PrivateLinkScopedResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScopedResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScopedResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:PrivateLinkScopedResource"},
                 },
             };

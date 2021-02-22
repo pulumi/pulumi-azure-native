@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200831
+namespace Pulumi.AzureNative.Devices.V20200831
 {
     public static class GetCertificate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831
         /// The X509 Certificate.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:devices/v20200831:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:devices/v20200831:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
 
 

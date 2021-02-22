@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack
+namespace Pulumi.AzureNative.AzureStack
 {
     public static class GetLinkedSubscription
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AzureStack
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-nextgen:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithVersion());
     }
 
 

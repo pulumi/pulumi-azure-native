@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The integration account schema.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Schema")]
+    [AzureNativeResourceType("azure-native:logic/v20160601:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schema(string name, SchemaArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20160601:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schema(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Schema", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20160601:Schema", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,10 +124,15 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:Schema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:Schema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Schema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Schema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Schema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Schema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Schema"},
                 },
             };
@@ -210,7 +215,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The schema type.
         /// </summary>
         [Input("schemaType", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.V20160601.SchemaType> SchemaType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.V20160601.SchemaType> SchemaType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

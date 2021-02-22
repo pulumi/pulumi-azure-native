@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData.Inputs
+namespace Pulumi.AzureNative.HybridData.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HybridData.Inputs
         /// The encryption algorithm used to encrypt data.
         /// </summary>
         [Input("algorithm", required: true)]
-        public Input<Pulumi.AzureNextGen.HybridData.SupportedAlgorithm> Algorithm { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HybridData.SupportedAlgorithm> Algorithm { get; set; } = null!;
 
         /// <summary>
         /// The identifier to the data service input object which this secret corresponds to.

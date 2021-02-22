@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppHostNameBindingSlot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppHostNameBindingSlotResult> InvokeAsync(GetWebAppHostNameBindingSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-nextgen:web:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithVersion());
     }
 
 

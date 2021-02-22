@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
+namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
     public static class GetSolutionConfig
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         /// Class representing the config for the solution in the migrate project.
         /// </summary>
         public static Task<GetSolutionConfigResult> InvokeAsync(GetSolutionConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-nextgen:migrate/v20180901preview:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-native:migrate/v20180901preview:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
 {
     /// <summary>
     /// An Log Analytics QueryPack definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20190901preview:QueryPack")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20190901preview:QueryPack")]
     public partial class QueryPack : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueryPack(string name, QueryPackArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20190901preview:QueryPack", name, args ?? new QueryPackArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20190901preview:QueryPack", name, args ?? new QueryPackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QueryPack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20190901preview:QueryPack", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20190901preview:QueryPack", name, null, MakeResourceOptions(options, id))
         {
         }
 

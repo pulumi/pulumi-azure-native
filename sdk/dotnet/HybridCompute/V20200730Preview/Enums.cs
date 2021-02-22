@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
+namespace Pulumi.AzureNative.HybridCompute.V20200730Preview
 {
     /// <summary>
     /// The level code.

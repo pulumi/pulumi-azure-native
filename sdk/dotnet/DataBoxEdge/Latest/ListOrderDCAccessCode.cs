@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:listOrderDCAccessCode'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.")]
     public static class ListOrderDCAccessCode
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<ListOrderDCAccessCodeResult> InvokeAsync(ListOrderDCAccessCodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-nextgen:databoxedge/latest:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-native:databoxedge/latest:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Inputs
+namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         /// </summary>
         [Input("kubeletDiskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.KubeletDiskType>? KubeletDiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.KubeletDiskType>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// AgentPoolMode represents mode of an agent pool
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.AgentPoolMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolMode>? Mode { get; set; }
 
         /// <summary>
         /// Unique name of the agent pool profile in the context of the subscription and resource group.
@@ -139,13 +139,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         /// </summary>
         [Input("osDiskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.OSDiskType>? OsDiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSDiskType>? OsDiskType { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -163,13 +163,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
 
         /// <summary>
         /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         /// </summary>
         [Input("scaleSetPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
         /// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.AgentPoolType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Settings for upgrading the agentpool
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ContainerServiceVMSizeTypes>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods

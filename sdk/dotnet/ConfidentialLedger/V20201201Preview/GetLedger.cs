@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
+namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview
 {
     public static class GetLedger
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
         /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-nextgen:confidentialledger/v20201201preview:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-native:confidentialledger/v20201201preview:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
     }
 
 

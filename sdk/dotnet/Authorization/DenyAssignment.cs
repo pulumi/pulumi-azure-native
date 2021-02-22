@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Deny Assignment
     /// API Version: 2020-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization:DenyAssignment")]
+    [AzureNativeResourceType("azure-native:authorization:DenyAssignment")]
     public partial class DenyAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DenyAssignment(string name, DenyAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:DenyAssignment", name, args ?? new DenyAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization:DenyAssignment", name, args ?? new DenyAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DenyAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:DenyAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization:DenyAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,6 +137,7 @@ namespace Pulumi.AzureNextGen.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:DenyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:DenyAssignment"},
                 },
             };

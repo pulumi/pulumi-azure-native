@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple
+namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Virtual machine model
     /// API Version: 2019-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple:VirtualMachine")]
+    [AzureNativeResourceType("azure-native:vmwarecloudsimple:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -181,12 +181,12 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:vmwarecloudsimple:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:vmwarecloudsimple:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -197,7 +197,9 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"},
                 },
             };

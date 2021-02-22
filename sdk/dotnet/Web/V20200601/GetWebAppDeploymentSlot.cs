@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     public static class GetWebAppDeploymentSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// User credentials used for publishing activity.
         /// </summary>
         public static Task<GetWebAppDeploymentSlotResult> InvokeAsync(GetWebAppDeploymentSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-nextgen:web/v20200601:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web/v20200601:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithVersion());
     }
 
 

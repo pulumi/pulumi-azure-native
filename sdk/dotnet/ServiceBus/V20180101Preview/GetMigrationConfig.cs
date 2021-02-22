@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     public static class GetMigrationConfig
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Single item in List or Get Migration Config operation
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-nextgen:servicebus/v20180101preview:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus/v20180101preview:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     public static class GetProfile
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The profile resource format.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:customerinsights/v20170426:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:customerinsights/v20170426:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }
 
 

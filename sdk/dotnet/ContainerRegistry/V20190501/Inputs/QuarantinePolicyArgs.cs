@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501.Inputs
         /// The value that indicates whether the policy is enabled or not.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501.PolicyStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190501.PolicyStatus>? Status { get; set; }
 
         public QuarantinePolicyArgs()
         {

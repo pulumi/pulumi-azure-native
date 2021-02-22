@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure.Latest
+namespace Pulumi.AzureNative.OffAzure.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getMasterSite'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getMasterSite'.")]
     public static class GetMasterSite
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
         /// Latest API Version: 2020-07-07.
         /// </summary>
         public static Task<GetMasterSiteResult> InvokeAsync(GetMasterSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-nextgen:offazure/latest:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-native:offazure/latest:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
     }
 
 

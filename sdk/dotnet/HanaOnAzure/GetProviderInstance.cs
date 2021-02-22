@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure
+namespace Pulumi.AzureNative.HanaOnAzure
 {
     public static class GetProviderInstance
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// API Version: 2020-02-07-preview.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-nextgen:hanaonazure:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
     }
 
 

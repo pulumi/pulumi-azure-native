@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:Rule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Rule'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
@@ -77,12 +77,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rule(string name, RuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Rule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Rule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:Rule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,9 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Rule"},
                 },
             };
@@ -146,7 +148,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         /// </summary>
         [Input("matchProcessingBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
 
         /// <summary>
         /// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.

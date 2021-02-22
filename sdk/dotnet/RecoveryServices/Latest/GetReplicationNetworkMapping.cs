@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationNetworkMapping'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationNetworkMapping'.")]
     public static class GetReplicationNetworkMapping
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// Latest API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationNetworkMappingResult> InvokeAsync(GetReplicationNetworkMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-nextgen:recoveryservices/latest:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/latest:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
     }
 
 

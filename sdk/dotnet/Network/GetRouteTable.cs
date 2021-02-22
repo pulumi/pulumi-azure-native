@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetRouteTable
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-nextgen:network:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-native:network:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
     }
 
 

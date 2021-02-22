@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.GoogleBigQueryAuthenticationType> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.GoogleBigQueryAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).

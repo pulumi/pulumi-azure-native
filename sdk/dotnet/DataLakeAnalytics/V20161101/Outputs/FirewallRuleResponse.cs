@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.Outputs
+namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Outputs
 {
 
     [OutputType]

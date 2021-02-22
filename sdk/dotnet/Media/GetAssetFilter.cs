@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media
+namespace Pulumi.AzureNative.Media
 {
     public static class GetAssetFilter
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-nextgen:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20190601
+namespace Pulumi.AzureNative.Storage.V20190601
 {
-    [AzureNextGenResourceType("azure-nextgen:storage/v20190601:Queue")]
+    [AzureNativeResourceType("azure-native:storage/v20190601:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190601:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20190601:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Queue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190601:Queue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20190601:Queue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -61,9 +61,13 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Queue"},
                 },
             };

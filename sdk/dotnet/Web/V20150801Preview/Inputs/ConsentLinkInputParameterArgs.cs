@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Web.V20150801Preview.Inputs
 {
 
     public sealed class ConsentLinkInputParameterArgs : Pulumi.InvokeArgs
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         /// Principal type
         /// </summary>
         [Input("principalType")]
-        public Pulumi.AzureNextGen.Web.V20150801Preview.PrincipalType? PrincipalType { get; set; }
+        public Pulumi.AzureNative.Web.V20150801Preview.PrincipalType? PrincipalType { get; set; }
 
         /// <summary>
         /// Name of the parameter in the connection provider's oauthSettings

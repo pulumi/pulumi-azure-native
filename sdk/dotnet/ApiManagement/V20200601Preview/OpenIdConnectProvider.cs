@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     /// <summary>
     /// OpenId Connect Provider details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenIdConnectProvider(string name, OpenIdConnectProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20200601preview:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OpenIdConnectProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20200601preview:OpenIdConnectProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,15 +82,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider"},
                 },
             };

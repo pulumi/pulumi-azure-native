@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The file server.
     /// API Version: 2016-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:FileServer")]
+    [AzureNativeResourceType("azure-native:storsimple:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileServer(string name, FileServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:FileServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:FileServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:FileServer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:FileServer"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     public static class GetSyncGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// An Azure SQL Database sync group.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-nextgen:sql/v20200801preview:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:sql/v20200801preview:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
     }
 
 

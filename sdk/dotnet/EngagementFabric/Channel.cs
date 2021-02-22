@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EngagementFabric
+namespace Pulumi.AzureNative.EngagementFabric
 {
     /// <summary>
     /// The EngagementFabric channel
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:engagementfabric:Channel")]
+    [AzureNativeResourceType("azure-native:engagementfabric:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.EngagementFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:engagementfabric:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric:Channel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:engagementfabric:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:engagementfabric/v20180901preview:Channel"},
                 },
             };

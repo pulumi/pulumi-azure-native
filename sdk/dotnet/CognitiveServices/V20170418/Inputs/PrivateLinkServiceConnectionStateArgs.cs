@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
+namespace Pulumi.AzureNative.CognitiveServices.V20170418.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
         /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20170418.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.V20170418.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

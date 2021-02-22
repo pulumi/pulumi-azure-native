@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Inputs
+namespace Pulumi.AzureNative.DataBox.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.Inputs
         /// Indicates Shipment Logistics type that the customer preferred.
         /// </summary>
         [Input("preferredShipmentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.TransportShipmentTypes> PreferredShipmentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.TransportShipmentTypes> PreferredShipmentType { get; set; } = null!;
 
         public TransportPreferencesArgs()
         {

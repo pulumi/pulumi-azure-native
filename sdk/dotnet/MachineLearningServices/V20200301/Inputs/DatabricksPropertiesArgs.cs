@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200301.Inputs
 {
 
     public sealed class DatabricksPropertiesArgs : Pulumi.ResourceArgs

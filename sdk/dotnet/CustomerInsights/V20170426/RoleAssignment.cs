@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The Role Assignment resource format.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170426:RoleAssignment")]
+    [AzureNativeResourceType("azure-native:customerinsights/v20170426:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssignment(string name, RoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/v20170426:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170426:RoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/v20170426:RoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,8 +172,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RoleAssignment"},
                 },
             };
@@ -304,7 +307,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// Type of roles.
         /// </summary>
         [Input("role", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170426.RoleTypes> Role { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.V20170426.RoleTypes> Role { get; set; } = null!;
 
         /// <summary>
         /// The Role assignments set for the assignment.

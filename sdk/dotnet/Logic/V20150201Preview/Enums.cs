@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview
+namespace Pulumi.AzureNative.Logic.V20150201Preview
 {
     /// <summary>
     /// Gets or sets the type.

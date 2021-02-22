@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
+namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets PrivateIP allocation method (Static/Dynamic)
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.IpAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150501Preview.IpAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed

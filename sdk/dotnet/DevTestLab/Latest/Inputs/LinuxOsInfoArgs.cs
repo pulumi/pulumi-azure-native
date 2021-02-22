@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         /// </summary>
         [Input("linuxOsState")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.LinuxOsState>? LinuxOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.LinuxOsState>? LinuxOsState { get; set; }
 
         public LinuxOsInfoArgs()
         {

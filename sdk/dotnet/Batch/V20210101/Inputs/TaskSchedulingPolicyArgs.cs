@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
+namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
     public sealed class TaskSchedulingPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("nodeFillType", required: true)]
-        public Input<Pulumi.AzureNextGen.Batch.V20210101.ComputeNodeFillType> NodeFillType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Batch.V20210101.ComputeNodeFillType> NodeFillType { get; set; } = null!;
 
         public TaskSchedulingPolicyArgs()
         {

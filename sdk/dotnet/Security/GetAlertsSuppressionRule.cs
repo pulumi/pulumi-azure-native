@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetAlertsSuppressionRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-nextgen:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithVersion());
     }
 
 

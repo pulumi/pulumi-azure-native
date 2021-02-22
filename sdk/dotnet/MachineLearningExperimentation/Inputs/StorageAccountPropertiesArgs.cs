@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningExperimentation.Inputs
+namespace Pulumi.AzureNative.MachineLearningExperimentation.Inputs
 {
 
     /// <summary>

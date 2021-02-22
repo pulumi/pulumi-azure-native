@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest
+namespace Pulumi.AzureNative.DataShare.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'.")]
     public static class GetDataSetMapping
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-nextgen:datashare/latest:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare/latest:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
     }
 
 

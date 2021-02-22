@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
     public sealed class ContentHashArgs : Pulumi.ResourceArgs

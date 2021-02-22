@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagementPartner.Latest
+namespace Pulumi.AzureNative.ManagementPartner.Latest
 {
     /// <summary>
     /// this is the management partner operations response
     /// Latest API Version: 2018-02-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")]
-    [AzureNextGenResourceType("azure-nextgen:managementpartner/latest:Partner")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managementpartner:Partner'.")]
+    [AzureNativeResourceType("azure-native:managementpartner/latest:Partner")]
     public partial class Partner : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Partner(string name, PartnerArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managementpartner/latest:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managementpartner/latest:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Partner(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managementpartner/latest:Partner", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managementpartner/latest:Partner", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,7 +102,9 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managementpartner:Partner"},
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner:Partner"},
+                    new Pulumi.Alias { Type = "azure-native:managementpartner/v20180201:Partner"},
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner/v20180201:Partner"},
                 },
             };

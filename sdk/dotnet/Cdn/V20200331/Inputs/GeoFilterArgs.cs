@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200331.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200331.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331.Inputs
         /// Action of the geo filter, i.e. allow or block access.
         /// </summary>
         [Input("action", required: true)]
-        public Input<Pulumi.AzureNextGen.Cdn.V20200331.GeoFilterActions> Action { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Cdn.V20200331.GeoFilterActions> Action { get; set; } = null!;
 
         [Input("countryCodes", required: true)]
         private InputList<string>? _countryCodes;

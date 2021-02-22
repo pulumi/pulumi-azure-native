@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SerialConsole
+namespace Pulumi.AzureNative.SerialConsole
 {
     public static class GetSerialPort
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SerialConsole
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-nextgen:serialconsole:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
     }
 
 

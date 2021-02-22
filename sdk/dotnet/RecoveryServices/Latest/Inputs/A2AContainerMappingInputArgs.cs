@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// A value indicating whether the auto update is enabled.
         /// </summary>
         [Input("agentAutoUpdateStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.AgentAutoUpdateStatus>? AgentAutoUpdateStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.Latest.AgentAutoUpdateStatus>? AgentAutoUpdateStatus { get; set; }
 
         /// <summary>
         /// The automation account arm id.

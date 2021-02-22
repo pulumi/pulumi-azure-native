@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// The Live Output.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveOutput'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:LiveOutput")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:LiveOutput'.")]
+    [AzureNativeResourceType("azure-native:media/latest:LiveOutput")]
     public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LiveOutput(string name, LiveOutputArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:LiveOutput", name, args ?? new LiveOutputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:LiveOutput", name, args ?? new LiveOutputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LiveOutput(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:LiveOutput", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:LiveOutput", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,11 +114,17 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:LiveOutput"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:LiveOutput"},
                 },
             };

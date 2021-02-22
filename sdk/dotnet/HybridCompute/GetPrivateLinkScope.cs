@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute
+namespace Pulumi.AzureNative.HybridCompute
 {
     public static class GetPrivateLinkScope
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridCompute
         /// API Version: 2020-08-15-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-nextgen:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
     }
 
 

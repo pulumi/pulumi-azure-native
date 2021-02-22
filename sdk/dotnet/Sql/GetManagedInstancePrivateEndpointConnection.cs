@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetManagedInstancePrivateEndpointConnection
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetManagedInstancePrivateEndpointConnectionResult> InvokeAsync(GetManagedInstancePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-nextgen:sql:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithVersion());
     }
 
 

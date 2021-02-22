@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
+namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
 {
     /// <summary>
     /// Name of the hardware type (vendor and/or their product name)

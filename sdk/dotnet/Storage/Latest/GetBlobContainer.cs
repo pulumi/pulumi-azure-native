@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainer'.")]
     public static class GetBlobContainer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-nextgen:storage/latest:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage/latest:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
     }
 
 

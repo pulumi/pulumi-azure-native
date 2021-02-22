@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201001Preview
+namespace Pulumi.AzureNative.Compute.V20201001Preview
 {
     /// <summary>
     /// Describes the cloud service.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20201001preview:CloudService")]
+    [AzureNativeResourceType("azure-native:compute/v20201001preview:CloudService")]
     public partial class CloudService : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudService(string name, CloudServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201001preview:CloudService", name, args ?? new CloudServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20201001preview:CloudService", name, args ?? new CloudServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20201001preview:CloudService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20201001preview:CloudService", name, null, MakeResourceOptions(options, id))
         {
         }
 

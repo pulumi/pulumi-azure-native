@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     public static class GetHcxEnterpriseSite
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// API Version: 2020-03-20.
         /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-nextgen:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithVersion());
     }
 
 

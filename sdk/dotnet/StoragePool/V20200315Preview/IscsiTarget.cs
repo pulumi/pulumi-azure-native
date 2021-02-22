@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
+namespace Pulumi.AzureNative.StoragePool.V20200315Preview
 {
     /// <summary>
     /// Response for iSCSI target requests.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagepool/v20200315preview:IscsiTarget")]
+    [AzureNativeResourceType("azure-native:storagepool/v20200315preview:IscsiTarget")]
     public partial class IscsiTarget : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IscsiTarget(string name, IscsiTargetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagepool/v20200315preview:IscsiTarget", name, args ?? new IscsiTargetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagepool/v20200315preview:IscsiTarget", name, args ?? new IscsiTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IscsiTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagepool/v20200315preview:IscsiTarget", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagepool/v20200315preview:IscsiTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagepool:IscsiTarget"},
                 },
             };

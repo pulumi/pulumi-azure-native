@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview
 {
     public static class GetFileServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// Contains information about the File Server.
         /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-nextgen:batchai/v20170901preview:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-native:batchai/v20170901preview:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
     }
 
 

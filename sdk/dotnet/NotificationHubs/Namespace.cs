@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs
+namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
     /// Description of a Namespace resource.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:notificationhubs:Namespace")]
+    [AzureNativeResourceType("azure-native:notificationhubs:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNextGen.NotificationHubs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:notificationhubs:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:notificationhubs:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -149,9 +149,13 @@ namespace Pulumi.AzureNextGen.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:Namespace"},
                 },
             };
@@ -222,7 +226,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs
         /// The namespace type.
         /// </summary>
         [Input("namespaceType")]
-        public Input<Pulumi.AzureNextGen.NotificationHubs.NamespaceType>? NamespaceType { get; set; }
+        public Input<Pulumi.AzureNative.NotificationHubs.NamespaceType>? NamespaceType { get; set; }
 
         /// <summary>
         /// Provisioning state of the Namespace.

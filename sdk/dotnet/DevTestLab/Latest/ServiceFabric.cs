@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// A Service Fabric.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:ServiceFabric")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabric'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:ServiceFabric")]
     public partial class ServiceFabric : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceFabric(string name, ServiceFabricArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:ServiceFabric", name, args ?? new ServiceFabricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:ServiceFabric", name, args ?? new ServiceFabricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceFabric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:ServiceFabric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:ServiceFabric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,7 +96,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceFabric"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceFabric"},
                 },
             };

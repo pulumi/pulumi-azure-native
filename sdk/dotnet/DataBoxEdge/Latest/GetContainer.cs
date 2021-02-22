@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getContainer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getContainer'.")]
     public static class GetContainer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-nextgen:databoxedge/latest:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/latest:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
     }
 
 

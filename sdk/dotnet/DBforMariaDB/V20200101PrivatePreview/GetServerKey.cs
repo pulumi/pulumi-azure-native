@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
+namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
 {
     public static class GetServerKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
         /// A MariaDB Server key.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }
 
 

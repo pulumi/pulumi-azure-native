@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
+namespace Pulumi.AzureNative.DataBoxEdge.V20190701
 {
     public static class GetUser
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:databoxedge/v20190701:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge/v20190701:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 

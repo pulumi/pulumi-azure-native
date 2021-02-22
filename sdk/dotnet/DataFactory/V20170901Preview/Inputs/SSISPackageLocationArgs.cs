@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The type of SSIS package location.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.SsisPackageLocationType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.SsisPackageLocationType>? Type { get; set; }
 
         public SSISPackageLocationArgs()
         {

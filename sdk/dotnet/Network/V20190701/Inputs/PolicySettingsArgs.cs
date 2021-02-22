@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
+namespace Pulumi.AzureNative.Network.V20190701.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20190701.Inputs
         /// Describes if the policy is in enabled state or disabled state.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190701.WebApplicationFirewallEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190701.WebApplicationFirewallEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Describes if it is in detection mode or prevention mode at policy level.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190701.WebApplicationFirewallMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190701.WebApplicationFirewallMode>? Mode { get; set; }
 
         public PolicySettingsArgs()
         {

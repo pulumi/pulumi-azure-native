@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Inputs
+namespace Pulumi.AzureNative.Web.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// Shared or dedicated web app hosting
         /// </summary>
         [Input("computeMode")]
-        public Input<Pulumi.AzureNextGen.Web.ComputeModeOptions>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// Resource Id

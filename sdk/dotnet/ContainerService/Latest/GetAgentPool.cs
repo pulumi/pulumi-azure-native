@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest
+namespace Pulumi.AzureNative.ContainerService.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.")]
     public static class GetAgentPool
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-nextgen:containerservice/latest:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice/latest:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
     }
 
 

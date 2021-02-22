@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest
+namespace Pulumi.AzureNative.Batch.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:listBatchAccountKeys'.")]
     public static class ListBatchAccountKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-nextgen:batch/latest:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch/latest:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithVersion());
     }
 
 

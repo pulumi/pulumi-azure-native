@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.V20191001Preview
+namespace Pulumi.AzureNative.Search.V20191001Preview
 {
     public static class ListQueryKeyBySearchService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
         /// Response containing the query API keys for a given Azure Cognitive Search service.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-nextgen:search/v20191001preview:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search/v20191001preview:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithVersion());
     }
 
 

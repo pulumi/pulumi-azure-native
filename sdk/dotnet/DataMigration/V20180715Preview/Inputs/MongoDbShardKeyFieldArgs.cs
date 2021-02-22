@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// The field ordering
         /// </summary>
         [Input("order", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.MongoDbShardKeyOrder> Order { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.V20180715Preview.MongoDbShardKeyOrder> Order { get; set; } = null!;
 
         public MongoDbShardKeyFieldArgs()
         {

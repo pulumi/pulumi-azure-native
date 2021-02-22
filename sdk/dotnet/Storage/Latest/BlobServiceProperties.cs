@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// The properties of a storage account’s Blob service.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:BlobServiceProperties")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:BlobServiceProperties")]
     public partial class BlobServiceProperties : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobServiceProperties(string name, BlobServicePropertiesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:BlobServiceProperties", name, args ?? new BlobServicePropertiesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:BlobServiceProperties", name, args ?? new BlobServicePropertiesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobServiceProperties(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:BlobServiceProperties", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:BlobServiceProperties", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,12 +114,19 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
                 },
             };

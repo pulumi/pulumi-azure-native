@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Name of a load balancer SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.LoadBalancerSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.LoadBalancerSkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of a load balancer SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.LoadBalancerSkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.LoadBalancerSkuTier>? Tier { get; set; }
 
         public LoadBalancerSkuArgs()
         {

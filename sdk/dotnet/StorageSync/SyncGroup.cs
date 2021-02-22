@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync
+namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Sync Group object.
     /// API Version: 2020-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagesync:SyncGroup")]
+    [AzureNativeResourceType("azure-native:storagesync:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.StorageSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncGroup(string name, SyncGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagesync:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync:SyncGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagesync:SyncGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,16 +65,27 @@ namespace Pulumi.AzureNextGen.StorageSync
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:SyncGroup"},
                 },
             };

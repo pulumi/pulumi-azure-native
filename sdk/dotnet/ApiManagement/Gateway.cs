@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Gateway details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:Gateway")]
+    [AzureNativeResourceType("azure-native:apimanagement:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Gateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:Gateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,9 +65,13 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Gateway"},
                 },
             };

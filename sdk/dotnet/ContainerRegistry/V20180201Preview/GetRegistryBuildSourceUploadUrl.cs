@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
     public static class GetRegistryBuildSourceUploadUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
         /// The properties of a response to source upload request.
         /// </summary>
         public static Task<GetRegistryBuildSourceUploadUrlResult> InvokeAsync(GetRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-nextgen:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayConnection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'.")]
     public static class GetVirtualNetworkGatewayConnection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-nextgen:network/latest:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network/latest:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
     }
 
 

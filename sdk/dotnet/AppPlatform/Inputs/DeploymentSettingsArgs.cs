@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.Inputs
+namespace Pulumi.AzureNative.AppPlatform.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Inputs
         /// Runtime version
         /// </summary>
         [Input("runtimeVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.RuntimeVersion>? RuntimeVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.RuntimeVersion>? RuntimeVersion { get; set; }
 
         public DeploymentSettingsArgs()
         {

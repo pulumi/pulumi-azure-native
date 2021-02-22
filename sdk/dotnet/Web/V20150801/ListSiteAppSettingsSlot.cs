@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class ListSiteAppSettingsSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteAppSettingsSlotResult> InvokeAsync(ListSiteAppSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsSlotResult>("azure-nextgen:web/v20150801:listSiteAppSettingsSlot", args ?? new ListSiteAppSettingsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAppSettingsSlotResult>("azure-native:web/v20150801:listSiteAppSettingsSlot", args ?? new ListSiteAppSettingsSlotArgs(), options.WithVersion());
     }
 
 

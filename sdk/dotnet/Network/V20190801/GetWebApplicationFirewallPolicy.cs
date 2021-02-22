@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190801
+namespace Pulumi.AzureNative.Network.V20190801
 {
     public static class GetWebApplicationFirewallPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// Defines web application firewall policy.
         /// </summary>
         public static Task<GetWebApplicationFirewallPolicyResult> InvokeAsync(GetWebApplicationFirewallPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-nextgen:network/v20190801:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20190801:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithVersion());
     }
 
 

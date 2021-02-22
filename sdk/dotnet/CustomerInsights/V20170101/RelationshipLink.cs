@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
+namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
     /// <summary>
     /// The relationship link resource format.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170101:RelationshipLink")]
+    [AzureNativeResourceType("azure-native:customerinsights/v20170101:RelationshipLink")]
     public partial class RelationshipLink : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RelationshipLink(string name, RelationshipLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170101:RelationshipLink", name, args ?? new RelationshipLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/v20170101:RelationshipLink", name, args ?? new RelationshipLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RelationshipLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170101:RelationshipLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/v20170101:RelationshipLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,8 +118,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:RelationshipLink"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:RelationshipLink"},
                 },
             };

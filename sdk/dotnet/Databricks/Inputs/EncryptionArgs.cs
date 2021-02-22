@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks.Inputs
+namespace Pulumi.AzureNative.Databricks.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Databricks.Inputs
         /// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         /// </summary>
         [Input("keySource")]
-        public InputUnion<string, Pulumi.AzureNextGen.Databricks.KeySource>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Databricks.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// The Uri of KeyVault.

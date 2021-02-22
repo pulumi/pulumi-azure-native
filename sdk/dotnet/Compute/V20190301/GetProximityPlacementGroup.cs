@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     public static class GetProximityPlacementGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies information about the proximity placement group.
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-nextgen:compute/v20190301:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute/v20190301:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
     }
 
 

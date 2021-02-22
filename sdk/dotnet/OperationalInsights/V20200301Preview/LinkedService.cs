@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 {
     /// <summary>
     /// The top level Linked service resource container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200301preview:LinkedService")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20200301preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:LinkedService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20200301preview:LinkedService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,10 +76,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:LinkedService"},
                 },
             };
@@ -114,7 +119,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// The provisioning state of the linked service.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200301Preview.LinkedServiceEntityStatus>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.V20200301Preview.LinkedServiceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

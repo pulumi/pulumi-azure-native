@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.Latest
+namespace Pulumi.AzureNative.CognitiveServices.Latest
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// Latest API Version: 2017-04-18.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'.")]
-    [AzureNextGenResourceType("azure-nextgen:cognitiveservices/latest:Account")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:Account'.")]
+    [AzureNativeResourceType("azure-native:cognitiveservices/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cognitiveservices/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices/latest:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cognitiveservices/latest:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,8 +96,11 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:Account"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20180501
+namespace Pulumi.AzureNative.BatchAI.V20180501
 {
     /// <summary>
     /// Information about a Job.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batchai/v20180501:Job")]
+    [AzureNativeResourceType("azure-native:batchai/v20180501:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -210,12 +210,12 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/v20180501:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/v20180501:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/v20180501:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/v20180501:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -226,7 +226,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Job"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Job"},
                 },
             };
@@ -393,7 +395,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// Scheduling priority associated with the job. Possible values: low, normal, high.
         /// </summary>
         [Input("schedulingPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20180501.JobPriority>? SchedulingPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BatchAI.V20180501.JobPriority>? SchedulingPriority { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.EnvironmentVariableWithSecretValueArgs>? _secrets;

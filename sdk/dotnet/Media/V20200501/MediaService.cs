@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Media Services account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20200501:MediaService")]
+    [AzureNativeResourceType("azure-native:media/v20200501:MediaService")]
     public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MediaService(string name, MediaServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:MediaService", name, args ?? new MediaServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20200501:MediaService", name, args ?? new MediaServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MediaService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:MediaService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20200501:MediaService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,11 +97,17 @@ namespace Pulumi.AzureNextGen.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20151001:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:MediaService"},
                 },
             };
@@ -169,7 +175,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         }
 
         [Input("storageAuthentication")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.StorageAuthentication>? StorageAuthentication { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.StorageAuthentication>? StorageAuthentication { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

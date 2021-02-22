@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
-    [AzureNextGenResourceType("azure-nextgen:providerhub/v20201120:ProviderRegistration")]
+    [AzureNativeResourceType("azure-native:providerhub/v20201120:ProviderRegistration")]
     public partial class ProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProviderRegistration(string name, ProviderRegistrationArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/v20201120:ProviderRegistration", name, args ?? new ProviderRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/v20201120:ProviderRegistration", name, args ?? new ProviderRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProviderRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/v20201120:ProviderRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/v20201120:ProviderRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -52,7 +52,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:ProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:ProviderRegistration"},
                 },
             };

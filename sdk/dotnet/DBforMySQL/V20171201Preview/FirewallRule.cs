@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
+namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
 {
     /// <summary>
     /// Represents a server firewall rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20171201preview:FirewallRule")]
+    [AzureNativeResourceType("azure-native:dbformysql/v20171201preview:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20171201preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/v20171201preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20171201preview:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/v20171201preview:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:FirewallRule"},
                 },
             };

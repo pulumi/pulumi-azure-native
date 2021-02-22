@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
+namespace Pulumi.AzureNative.Network.V20201101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
         /// The variable type to be excluded.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20201101.ManagedRuleExclusionMatchVariable> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleExclusionMatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Selector value for which elements in the collection this exclusion applies to.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
         /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
         /// </summary>
         [Input("selectorMatchOperator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20201101.ManagedRuleExclusionSelectorMatchOperator> SelectorMatchOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleExclusionSelectorMatchOperator> SelectorMatchOperator { get; set; } = null!;
 
         public ManagedRuleExclusionArgs()
         {

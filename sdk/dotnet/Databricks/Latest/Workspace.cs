@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks.Latest
+namespace Pulumi.AzureNative.Databricks.Latest
 {
     /// <summary>
     /// Information about workspace.
     /// Latest API Version: 2018-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.")]
-    [AzureNextGenResourceType("azure-nextgen:databricks/latest:Workspace")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:Workspace'.")]
+    [AzureNativeResourceType("azure-native:databricks/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks/latest:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databricks/latest:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks/latest:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databricks/latest:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,7 +138,9 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databricks:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:Workspace"},
                 },
             };

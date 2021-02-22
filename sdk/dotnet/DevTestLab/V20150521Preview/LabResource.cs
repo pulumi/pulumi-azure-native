@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A lab.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:LabResource")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:LabResource")]
     public partial class LabResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabResource(string name, LabResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:LabResource", name, args ?? new LabResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20150521preview:LabResource", name, args ?? new LabResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:LabResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20150521preview:LabResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,9 +112,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:LabResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:LabResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:LabResource"},
                 },
             };
@@ -173,7 +177,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The type of the lab storage.
         /// </summary>
         [Input("labStorageType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.LabStorageType>? LabStorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.LabStorageType>? LabStorageType { get; set; }
 
         /// <summary>
         /// The location of the resource.

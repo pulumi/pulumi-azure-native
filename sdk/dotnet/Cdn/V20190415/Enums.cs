@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190415
+namespace Pulumi.AzureNative.Cdn.V20190415
 {
     /// <summary>
     /// Caching behavior for the requests

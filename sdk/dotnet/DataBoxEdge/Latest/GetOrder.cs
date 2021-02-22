@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getOrder'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getOrder'.")]
     public static class GetOrder
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-nextgen:databoxedge/latest:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge/latest:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
     }
 
 

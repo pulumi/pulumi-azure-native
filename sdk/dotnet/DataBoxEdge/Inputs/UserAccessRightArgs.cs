@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Inputs
         /// Type of access to be allowed for the user.
         /// </summary>
         [Input("accessType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.ShareAccessType> AccessType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.ShareAccessType> AccessType { get; set; } = null!;
 
         /// <summary>
         /// User ID (already existing in the device).

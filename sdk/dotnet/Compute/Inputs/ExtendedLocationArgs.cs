@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Inputs
+namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.Inputs
         /// The type of the extended location.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.ExtendedLocationTypes>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.ExtendedLocationTypes>? Type { get; set; }
 
         public ExtendedLocationArgs()
         {

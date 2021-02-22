@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20180201
+namespace Pulumi.AzureNative.Web.V20180201
 {
     public static class GetWebAppSiteExtension
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// Site Extension Information.
         /// </summary>
         public static Task<GetWebAppSiteExtensionResult> InvokeAsync(GetWebAppSiteExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionResult>("azure-nextgen:web/v20180201:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionResult>("azure-native:web/v20180201:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionArgs(), options.WithVersion());
     }
 
 

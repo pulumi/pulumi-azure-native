@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
+namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
 {
     /// <summary>
     /// The response to an account resource GET request.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:visualstudio/v20140401preview:Account")]
+    [AzureNativeResourceType("azure-native:visualstudio/v20140401preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio/v20140401preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:visualstudio/v20140401preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio/v20140401preview:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:visualstudio/v20140401preview:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:visualstudio:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio:Account"},
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20171101preview:Account"},
                 },
             };
@@ -111,7 +113,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// The type of the operation.
         /// </summary>
         [Input("operationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.VisualStudio.V20140401Preview.AccountResourceRequestOperationType>? OperationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.VisualStudio.V20140401Preview.AccountResourceRequestOperationType>? OperationType { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;

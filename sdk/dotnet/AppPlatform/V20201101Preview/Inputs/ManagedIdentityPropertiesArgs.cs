@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Inputs
         /// Type of the managed identity
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.V20201101Preview.ManagedIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.V20201101Preview.ManagedIdentityType>? Type { get; set; }
 
         public ManagedIdentityPropertiesArgs()
         {

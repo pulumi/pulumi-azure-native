@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.Latest
+namespace Pulumi.AzureNative.Peering.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'.")]
     public static class GetPrefix
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-nextgen:peering/latest:getPrefix", args ?? new GetPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering/latest:getPrefix", args ?? new GetPrefixArgs(), options.WithVersion());
     }
 
 

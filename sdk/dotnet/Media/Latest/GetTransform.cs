@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getTransform'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getTransform'.")]
     public static class GetTransform
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-nextgen:media/latest:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media/latest:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
     }
 
 

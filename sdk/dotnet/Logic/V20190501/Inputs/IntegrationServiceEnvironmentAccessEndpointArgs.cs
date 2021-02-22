@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
+namespace Pulumi.AzureNative.Logic.V20190501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The access endpoint type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.IntegrationServiceEnvironmentAccessEndpointType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.IntegrationServiceEnvironmentAccessEndpointType>? Type { get; set; }
 
         public IntegrationServiceEnvironmentAccessEndpointArgs()
         {

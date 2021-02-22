@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
+namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
 {
     public static class ListRemediationDeploymentsAtSubscription
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// List of deployments for a remediation.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-nextgen:policyinsights/v20180701preview:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// vCenter definition.
     /// API Version: 2018-07-10.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ReplicationvCenter")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ReplicationvCenter")]
     public partial class ReplicationvCenter : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationvCenter(string name, ReplicationvCenterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationvCenter", name, args ?? new ReplicationvCenterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ReplicationvCenter", name, args ?? new ReplicationvCenterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationvCenter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationvCenter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ReplicationvCenter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,9 +65,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationvCenter"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationvCenter"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationvCenter"},
                 },
             };

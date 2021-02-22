@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         /// </summary>
         [Input("day")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.ScheduleDay>? Day { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.ScheduleDay>? Day { get; set; }
 
         /// <summary>
         /// Occurrence of the week within the month. Must be between 1 and 5

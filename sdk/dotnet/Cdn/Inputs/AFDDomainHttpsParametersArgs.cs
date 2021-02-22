@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Inputs
+namespace Pulumi.AzureNative.Cdn.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.Inputs
         /// Defines the source of the SSL certificate.
         /// </summary>
         [Input("certificateType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.AfdCertificateType> CertificateType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.AfdCertificateType> CertificateType { get; set; } = null!;
 
         /// <summary>
         /// TLS protocol version that will be used for Https
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<Pulumi.AzureNextGen.Cdn.AfdMinimumTlsVersion>? MinimumTlsVersion { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.AfdMinimumTlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Resource reference to the secret. ie. subs/rg/profile/secret

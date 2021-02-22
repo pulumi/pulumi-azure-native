@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.Latest.Inputs
 {
 
     /// <summary>
@@ -26,19 +26,19 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Inputs
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
         [Input("infrastructureEncryption")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.InfrastructureEncryption>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.Latest.InfrastructureEncryption>? InfrastructureEncryption { get; set; }
 
         /// <summary>
         /// Enforce a minimal Tls version for the server.
         /// </summary>
         [Input("minimalTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.Latest.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
 
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.Latest.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The master server id to create replica from.
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.Latest.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNative.DBforPostgreSQL.Latest.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.Latest.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.Latest.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForReplicaArgs()
         {

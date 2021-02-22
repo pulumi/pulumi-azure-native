@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// VpnGatewayNatRule Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:NatRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NatRule'.")]
+    [AzureNativeResourceType("azure-native:network/latest:NatRule")]
     public partial class NatRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NatRule(string name, NatRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NatRule", name, args ?? new NatRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:NatRule", name, args ?? new NatRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NatRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NatRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:NatRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,7 +102,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:NatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NatRule"},
                 },
             };
@@ -173,7 +175,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The Source NAT direction of a VPN NAT.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnNatRuleMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VpnNatRuleMode>? Mode { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -197,7 +199,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The type of NAT rule for VPN NAT.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnNatRuleType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VpnNatRuleType>? Type { get; set; }
 
         public NatRuleArgs()
         {

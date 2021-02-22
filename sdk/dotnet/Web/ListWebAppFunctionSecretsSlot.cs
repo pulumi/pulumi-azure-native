@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class ListWebAppFunctionSecretsSlot
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsSlotResult> InvokeAsync(ListWebAppFunctionSecretsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsSlotResult>("azure-nextgen:web:listWebAppFunctionSecretsSlot", args ?? new ListWebAppFunctionSecretsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsSlotResult>("azure-native:web:listWebAppFunctionSecretsSlot", args ?? new ListWebAppFunctionSecretsSlotArgs(), options.WithVersion());
     }
 
 

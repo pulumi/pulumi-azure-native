@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs : Pulumi.ResourceArgs
     {
         [Input("preflightOptions")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.PreflightOption>>? _preflightOptions;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.PreflightOption>> PreflightOptions
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.PreflightOption>>? _preflightOptions;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.PreflightOption>> PreflightOptions
         {
-            get => _preflightOptions ?? (_preflightOptions = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.PreflightOption>>());
+            get => _preflightOptions ?? (_preflightOptions = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.PreflightOption>>());
             set => _preflightOptions = value;
         }
 

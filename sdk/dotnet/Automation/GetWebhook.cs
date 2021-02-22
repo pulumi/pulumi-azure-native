@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     public static class GetWebhook
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Automation
         /// API Version: 2015-10-31.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-nextgen:automation:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
     }
 
 

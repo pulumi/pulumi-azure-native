@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class GetWebAppSwiftVirtualNetworkConnectionSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionSlotResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-nextgen:web/v20201001:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web/v20201001:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithVersion());
     }
 
 

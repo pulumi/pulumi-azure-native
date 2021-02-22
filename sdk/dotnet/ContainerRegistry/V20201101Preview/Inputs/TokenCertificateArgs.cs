@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         public Input<string>? Expiry { get; set; }
 
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.TokenCertificateName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.TokenCertificateName>? Name { get; set; }
 
         /// <summary>
         /// The thumbprint of the certificate.

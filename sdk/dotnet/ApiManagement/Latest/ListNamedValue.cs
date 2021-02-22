@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'.")]
     public static class ListNamedValue
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-nextgen:apimanagement/latest:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement/latest:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
     }
 
 

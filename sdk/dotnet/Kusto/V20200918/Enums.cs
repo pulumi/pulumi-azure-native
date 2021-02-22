@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Kusto.V20200918
+namespace Pulumi.AzureNative.Kusto.V20200918
 {
     /// <summary>
     /// SKU name.

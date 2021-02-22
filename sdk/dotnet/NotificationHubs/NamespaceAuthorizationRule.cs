@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs
+namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:notificationhubs:NamespaceAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:notificationhubs:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.NotificationHubs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:notificationhubs:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:notificationhubs:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,8 +125,11 @@ namespace Pulumi.AzureNextGen.NotificationHubs
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:NamespaceAuthorizationRule"},
                 },
             };

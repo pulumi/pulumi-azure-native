@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A managed database resource.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ManagedDatabase")]
+    [AzureNativeResourceType("azure-native:sql:ManagedDatabase")]
     public partial class ManagedDatabase : Pulumi.CustomResource
     {
         /// <summary>
@@ -151,12 +151,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedDatabase(string name, ManagedDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedDatabase", name, args ?? new ManagedDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ManagedDatabase", name, args ?? new ManagedDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ManagedDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -167,10 +167,15 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedDatabase"},
                 },
             };
@@ -205,7 +210,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.CatalogCollationType>? CatalogCollation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.CatalogCollationType>? CatalogCollation { get; set; }
 
         /// <summary>
         /// Collation of the managed database.
@@ -217,7 +222,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.ManagedDatabaseCreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.ManagedDatabaseCreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database.

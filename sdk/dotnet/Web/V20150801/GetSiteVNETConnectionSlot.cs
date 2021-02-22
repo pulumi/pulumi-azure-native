@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteVNETConnectionSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
         /// </summary>
         public static Task<GetSiteVNETConnectionSlotResult> InvokeAsync(GetSiteVNETConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azure-nextgen:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionSlotResult>("azure-native:web/v20150801:getSiteVNETConnectionSlot", args ?? new GetSiteVNETConnectionSlotArgs(), options.WithVersion());
     }
 
 

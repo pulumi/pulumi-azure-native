@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160601
+namespace Pulumi.AzureNative.Web.V20160601
 {
     /// <summary>
     /// A custom API
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20160601:CustomApi")]
+    [AzureNativeResourceType("azure-native:web/v20160601:CustomApi")]
     public partial class CustomApi : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomApi(string name, CustomApiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160601:CustomApi", name, args ?? new CustomApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20160601:CustomApi", name, args ?? new CustomApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160601:CustomApi", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20160601:CustomApi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:CustomApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:CustomApi"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:CustomApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:CustomApi"},
                 },
             };

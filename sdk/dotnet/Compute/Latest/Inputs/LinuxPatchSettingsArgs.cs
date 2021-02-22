@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
+namespace Pulumi.AzureNative.Compute.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// Specifies the mode of VM Guest Patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
         /// </summary>
         [Input("patchMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.LinuxVMGuestPatchMode>? PatchMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.LinuxVMGuestPatchMode>? PatchMode { get; set; }
 
         public LinuxPatchSettingsArgs()
         {

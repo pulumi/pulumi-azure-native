@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Linked service.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200901preview:LinkedService")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200901preview:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200901preview:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:LinkedService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200901preview:LinkedService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:LinkedService"},
                 },
             };

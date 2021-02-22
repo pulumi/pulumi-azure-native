@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     public static class GetAddon
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-nextgen:avs:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
     }
 
 

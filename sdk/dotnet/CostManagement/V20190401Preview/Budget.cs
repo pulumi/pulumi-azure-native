@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
+namespace Pulumi.AzureNative.CostManagement.V20190401Preview
 {
     /// <summary>
     /// A budget resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20190401preview:Budget")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20190401preview:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Budget(string name, BudgetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20190401preview:Budget", name, args ?? new BudgetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20190401preview:Budget", name, args ?? new BudgetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Budget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20190401preview:Budget", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20190401preview:Budget", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Budget"},
                 },
             };
@@ -140,7 +141,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
         /// The category of the budget, whether the budget tracks cost or usage.
         /// </summary>
         [Input("category", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190401Preview.CategoryType> Category { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20190401Preview.CategoryType> Category { get; set; } = null!;
 
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -176,7 +177,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         /// </summary>
         [Input("timeGrain", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190401Preview.TimeGrainType> TimeGrain { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20190401Preview.TimeGrainType> TimeGrain { get; set; } = null!;
 
         /// <summary>
         /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.

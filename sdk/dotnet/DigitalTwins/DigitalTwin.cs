@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins
+namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// The description of the DigitalTwins service.
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:digitaltwins:DigitalTwin")]
+    [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwin")]
     public partial class DigitalTwin : Pulumi.CustomResource
     {
         /// <summary>
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNextGen.DigitalTwins
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DigitalTwin(string name, DigitalTwinArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins:DigitalTwin", name, args ?? new DigitalTwinArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:digitaltwins:DigitalTwin", name, args ?? new DigitalTwinArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DigitalTwin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins:DigitalTwin", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:digitaltwins:DigitalTwin", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,9 +104,13 @@ namespace Pulumi.AzureNextGen.DigitalTwins
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/latest:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwin"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:DigitalTwin"},
                 },
             };
@@ -155,7 +159,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins
         /// Public network access for the DigitalTwinsInstance.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

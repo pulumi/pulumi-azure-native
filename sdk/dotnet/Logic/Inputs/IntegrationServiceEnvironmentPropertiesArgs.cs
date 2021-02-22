@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Inputs
+namespace Pulumi.AzureNative.Logic.Inputs
 {
 
     /// <summary>
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The provisioning state.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.WorkflowProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.WorkflowProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The integration service environment state.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.WorkflowState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.WorkflowState>? State { get; set; }
 
         public IntegrationServiceEnvironmentPropertiesArgs()
         {

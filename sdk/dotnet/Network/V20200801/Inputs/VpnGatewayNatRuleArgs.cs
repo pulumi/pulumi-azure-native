@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200801.Inputs
+namespace Pulumi.AzureNative.Network.V20200801.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801.Inputs
         /// The Source NAT direction of a VPN NAT.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200801.VpnNatRuleMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200801.VpnNatRuleMode>? Mode { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801.Inputs
         /// The type of NAT rule for VPN NAT.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200801.VpnNatRuleType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200801.VpnNatRuleType>? Type { get; set; }
 
         public VpnGatewayNatRuleArgs()
         {

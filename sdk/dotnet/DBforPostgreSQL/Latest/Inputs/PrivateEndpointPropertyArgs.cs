@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.Latest.Inputs
 {
 
     public sealed class PrivateEndpointPropertyArgs : Pulumi.ResourceArgs

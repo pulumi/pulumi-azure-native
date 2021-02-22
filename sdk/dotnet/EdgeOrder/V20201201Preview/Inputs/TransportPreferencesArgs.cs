@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
         /// Indicates Shipment Logistics type that the customer preferred.
         /// </summary>
         [Input("preferredShipmentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.TransportShipmentTypes> PreferredShipmentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.V20201201Preview.TransportShipmentTypes> PreferredShipmentType { get; set; } = null!;
 
         public TransportPreferencesArgs()
         {

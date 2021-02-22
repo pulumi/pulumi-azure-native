@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
+namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
 {
     /// <summary>
     /// Graph Query entity definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resourcegraph/v20180901preview:GraphQuery")]
+    [AzureNativeResourceType("azure-native:resourcegraph/v20180901preview:GraphQuery")]
     public partial class GraphQuery : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GraphQuery(string name, GraphQueryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resourcegraph/v20180901preview:GraphQuery", name, args ?? new GraphQueryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resourcegraph/v20180901preview:GraphQuery", name, args ?? new GraphQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GraphQuery(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resourcegraph/v20180901preview:GraphQuery", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resourcegraph/v20180901preview:GraphQuery", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,9 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resourcegraph:GraphQuery"},
                     new Pulumi.Alias { Type = "azure-nextgen:resourcegraph:GraphQuery"},
+                    new Pulumi.Alias { Type = "azure-native:resourcegraph/v20200401preview:GraphQuery"},
                     new Pulumi.Alias { Type = "azure-nextgen:resourcegraph/v20200401preview:GraphQuery"},
                 },
             };

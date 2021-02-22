@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest
+namespace Pulumi.AzureNative.Resources.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentScript'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentScript'.")]
     public static class GetDeploymentScript
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// Latest API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-nextgen:resources/latest:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources/latest:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
     }
 
 

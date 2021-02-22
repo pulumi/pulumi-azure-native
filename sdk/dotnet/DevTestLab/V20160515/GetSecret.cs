@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class GetSecret
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// A secret.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }
 
 

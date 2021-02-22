@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Inputs
         /// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         /// </summary>
         [Input("applicationSharingPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200601.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200601.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
 
         /// <summary>
         /// Specifies policy and settings for SSH access.

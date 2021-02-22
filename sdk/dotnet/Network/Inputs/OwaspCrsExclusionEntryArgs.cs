@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The variable to be excluded.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.OwaspCrsExclusionEntryMatchVariable> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.OwaspCrsExclusionEntryMatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
         /// </summary>
         [Input("selectorMatchOperator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.OwaspCrsExclusionEntrySelectorMatchOperator> SelectorMatchOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.OwaspCrsExclusionEntrySelectorMatchOperator> SelectorMatchOperator { get; set; } = null!;
 
         public OwaspCrsExclusionEntryArgs()
         {

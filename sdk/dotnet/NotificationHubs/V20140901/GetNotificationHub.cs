@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
+namespace Pulumi.AzureNative.NotificationHubs.V20140901
 {
     public static class GetNotificationHub
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
         /// Description of a NotificationHub Resource.
         /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-nextgen:notificationhubs/v20140901:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs/v20140901:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithVersion());
     }
 
 

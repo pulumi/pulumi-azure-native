@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180701
+namespace Pulumi.AzureNative.Media.V20180701
 {
     /// <summary>
     /// An Asset.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20180701:Asset")]
+    [AzureNativeResourceType("azure-native:media/v20180701:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Asset(string name, AssetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180701:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20180701:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Asset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180701:Asset", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20180701:Asset", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,10 +100,15 @@ namespace Pulumi.AzureNextGen.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Asset"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Asset"},
                 },
             };

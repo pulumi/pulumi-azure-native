@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20210301.Inputs
+namespace Pulumi.AzureNative.Cache.V20210301.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301.Inputs
         /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20210301.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cache.V20210301.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search
+namespace Pulumi.AzureNative.Search
 {
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:search:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:search:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Search
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:search:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:search:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,10 +59,15 @@ namespace Pulumi.AzureNextGen.Search
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:search/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20191001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:PrivateEndpointConnection"},
                 },
             };

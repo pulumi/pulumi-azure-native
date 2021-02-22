@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20191201
+namespace Pulumi.AzureNative.Compute.V20191201
 {
     public static class GetLogAnalyticExportRequestRateByInterval
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// LogAnalytics operation status response
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-nextgen:compute/v20191201:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute/v20191201:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
     }
 
 
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// Interval value in minutes used to create LogAnalytics call rate logs.
         /// </summary>
         [Input("intervalLength", required: true)]
-        public Pulumi.AzureNextGen.Compute.V20191201.IntervalInMins IntervalLength { get; set; }
+        public Pulumi.AzureNative.Compute.V20191201.IntervalInMins IntervalLength { get; set; }
 
         /// <summary>
         /// The location upon which virtual-machine-sizes is queried.

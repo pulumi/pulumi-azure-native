@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20170101
+namespace Pulumi.AzureNative.MachineLearning.V20170101
 {
     /// <summary>
     /// Asset's type.

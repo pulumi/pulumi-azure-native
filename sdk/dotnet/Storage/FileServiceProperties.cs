@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of File services in storage account.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:FileServiceProperties")]
+    [AzureNativeResourceType("azure-native:storage:FileServiceProperties")]
     public partial class FileServiceProperties : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileServiceProperties(string name, FileServicePropertiesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:FileServiceProperties", name, args ?? new FileServicePropertiesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:FileServiceProperties", name, args ?? new FileServicePropertiesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileServiceProperties(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:FileServiceProperties", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:FileServiceProperties", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,10 +77,15 @@ namespace Pulumi.AzureNextGen.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileServiceProperties"},
                 },
             };

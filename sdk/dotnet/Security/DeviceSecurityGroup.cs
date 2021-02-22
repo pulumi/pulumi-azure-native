@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The device security group resource
     /// API Version: 2019-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:DeviceSecurityGroup")]
+    [AzureNativeResourceType("azure-native:security:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceSecurityGroup(string name, DeviceSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:DeviceSecurityGroup", name, args ?? new DeviceSecurityGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:DeviceSecurityGroup", name, args ?? new DeviceSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceSecurityGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:DeviceSecurityGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:DeviceSecurityGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/latest:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:DeviceSecurityGroup"},
                 },
             };

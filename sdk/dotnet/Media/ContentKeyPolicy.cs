@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media
+namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Content Key Policy resource.
     /// API Version: 2020-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media:ContentKeyPolicy")]
+    [AzureNativeResourceType("azure-native:media:ContentKeyPolicy")]
     public partial class ContentKeyPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Media
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContentKeyPolicy(string name, ContentKeyPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media:ContentKeyPolicy", name, args ?? new ContentKeyPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media:ContentKeyPolicy", name, args ?? new ContentKeyPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContentKeyPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media:ContentKeyPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media:ContentKeyPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,10 +89,15 @@ namespace Pulumi.AzureNextGen.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media/latest:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:ContentKeyPolicy"},
                 },
             };

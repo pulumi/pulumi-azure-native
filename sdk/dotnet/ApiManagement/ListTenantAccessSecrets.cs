@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class ListTenantAccessSecrets
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-nextgen:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithVersion());
     }
 
 

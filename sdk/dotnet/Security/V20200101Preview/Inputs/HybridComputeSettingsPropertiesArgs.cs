@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview.Inputs
         /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
         /// </summary>
         [Input("autoProvision", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20200101Preview.AutoProvision> AutoProvision { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20200101Preview.AutoProvision> AutoProvision { get; set; } = null!;
 
         /// <summary>
         /// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.

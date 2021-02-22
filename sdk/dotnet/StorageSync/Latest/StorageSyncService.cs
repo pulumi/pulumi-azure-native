@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.Latest
+namespace Pulumi.AzureNative.StorageSync.Latest
 {
     /// <summary>
     /// Storage Sync Service object.
     /// Latest API Version: 2020-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:StorageSyncService'.")]
-    [AzureNextGenResourceType("azure-nextgen:storagesync/latest:StorageSyncService")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:StorageSyncService'.")]
+    [AzureNativeResourceType("azure-native:storagesync/latest:StorageSyncService")]
     public partial class StorageSyncService : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageSyncService(string name, StorageSyncServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/latest:StorageSyncService", name, args ?? new StorageSyncServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagesync/latest:StorageSyncService", name, args ?? new StorageSyncServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageSyncService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/latest:StorageSyncService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagesync/latest:StorageSyncService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,16 +108,27 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:StorageSyncService"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:StorageSyncService"},
                 },
             };
@@ -146,7 +157,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Incoming Traffic Policy
         /// </summary>
         [Input("incomingTrafficPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.Latest.IncomingTrafficPolicy>? IncomingTrafficPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.Latest.IncomingTrafficPolicy>? IncomingTrafficPolicy { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.

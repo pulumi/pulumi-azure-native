@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetAFDCustomDomain
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-nextgen:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithVersion());
     }
 
 

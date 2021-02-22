@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management
+namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// The details of subscription under management group.
     /// API Version: 2020-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:management:ManagementGroupSubscription")]
+    [AzureNativeResourceType("azure-native:management:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Management
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroupSubscription(string name, ManagementGroupSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management:ManagementGroupSubscription", name, args ?? new ManagementGroupSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:management:ManagementGroupSubscription", name, args ?? new ManagementGroupSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroupSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management:ManagementGroupSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:management:ManagementGroupSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.Management
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:management/latest:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroupSubscription"},
                 },
             };

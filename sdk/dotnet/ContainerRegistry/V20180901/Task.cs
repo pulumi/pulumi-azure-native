@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
+namespace Pulumi.AzureNative.ContainerRegistry.V20180901
 {
     /// <summary>
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20180901:Task")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20180901:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Task(string name, TaskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20180901:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20180901:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Task(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20180901:Task", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20180901:Task", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,9 +119,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:Task"},
                 },
             };
@@ -186,7 +190,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// The current status of task.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180901.TaskStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20180901.TaskStatus>? Status { get; set; }
 
         /// <summary>
         /// The properties of a task step.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
         /// Health state name
         /// </summary>
         [Input("healthStateName", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.HealthStateName> HealthStateName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20200804Preview.HealthStateName> HealthStateName { get; set; } = null!;
 
         /// <summary>
         /// Severity of alert fired

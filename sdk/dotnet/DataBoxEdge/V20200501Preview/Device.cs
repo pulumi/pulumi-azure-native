@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:Device")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
@@ -144,12 +144,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200501preview:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200501preview:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Device(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200501preview:Device", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200501preview:Device", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,12 +160,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Device"},
                 },
             };
@@ -194,7 +201,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
         [Input("dataBoxEdgeDeviceStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.DataBoxEdgeDeviceStatus>? DataBoxEdgeDeviceStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200501Preview.DataBoxEdgeDeviceStatus>? DataBoxEdgeDeviceStatus { get; set; }
 
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.

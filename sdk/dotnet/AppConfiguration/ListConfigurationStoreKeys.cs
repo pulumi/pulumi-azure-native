@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration
+namespace Pulumi.AzureNative.AppConfiguration
 {
     public static class ListConfigurationStoreKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-nextgen:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401
+namespace Pulumi.AzureNative.Network.V20200401
 {
     public static class GetNatGateway
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// Nat Gateway resource.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-nextgen:network/v20200401:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network/v20200401:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
     }
 
 

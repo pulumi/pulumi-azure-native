@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
     /// <summary>
     /// Enum indicating if user is adding or removing a favorite lab

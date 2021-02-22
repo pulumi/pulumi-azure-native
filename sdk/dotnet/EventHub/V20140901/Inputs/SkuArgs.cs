@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20140901.Inputs
+namespace Pulumi.AzureNative.EventHub.V20140901.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20140901.SkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventHub.V20140901.SkuName>? Name { get; set; }
 
         /// <summary>
         /// The billing tier of this particular SKU.
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20140901.SkuTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EventHub.V20140901.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

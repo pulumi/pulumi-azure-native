@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetDdosProtectionPlan
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-nextgen:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());
     }
 
 

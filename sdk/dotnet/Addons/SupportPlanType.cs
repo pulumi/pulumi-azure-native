@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Addons
+namespace Pulumi.AzureNative.Addons
 {
     /// <summary>
     /// The status of the Canonical support plan.
     /// API Version: 2018-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:addons:SupportPlanType")]
+    [AzureNativeResourceType("azure-native:addons:SupportPlanType")]
     public partial class SupportPlanType : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Addons
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SupportPlanType(string name, SupportPlanTypeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:addons:SupportPlanType", name, args ?? new SupportPlanTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:addons:SupportPlanType", name, args ?? new SupportPlanTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SupportPlanType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:addons:SupportPlanType", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:addons:SupportPlanType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,8 +59,11 @@ namespace Pulumi.AzureNextGen.Addons
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:addons/latest:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/latest:SupportPlanType"},
+                    new Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20170515:SupportPlanType"},
+                    new Pulumi.Alias { Type = "azure-native:addons/v20180301:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                 },
             };

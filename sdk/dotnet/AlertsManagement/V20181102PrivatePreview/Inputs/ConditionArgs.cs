@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
         /// operator for a given condition
         /// </summary>
         [Input("operator")]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.ScopeType>? Operator { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.ScopeType>? Operator { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

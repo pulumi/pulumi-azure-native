@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights
+namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     public static class GetAccessPolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-nextgen:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
     }
 
 

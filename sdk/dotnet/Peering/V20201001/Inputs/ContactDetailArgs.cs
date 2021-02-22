@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20201001.Inputs
+namespace Pulumi.AzureNative.Peering.V20201001.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001.Inputs
         /// The role of the contact.
         /// </summary>
         [Input("role")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20201001.Role>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20201001.Role>? Role { get; set; }
 
         public ContactDetailArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
+namespace Pulumi.AzureNative.OperationalInsights.V20200801
 {
     public static class GetDataExport
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// The top level data export resource container.
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-nextgen:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
     }
 
 

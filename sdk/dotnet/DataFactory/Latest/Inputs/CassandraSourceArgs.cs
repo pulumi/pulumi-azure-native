@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
         /// </summary>
         [Input("consistencyLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.CassandraSourceReadConsistencyLevels>? ConsistencyLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.CassandraSourceReadConsistencyLevels>? ConsistencyLevel { get; set; }
 
         /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).

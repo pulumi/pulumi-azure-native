@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Inputs
+namespace Pulumi.AzureNative.Logic.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.IntegrationAccountSkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.IntegrationAccountSkuName> Name { get; set; } = null!;
 
         public IntegrationAccountSkuArgs()
         {

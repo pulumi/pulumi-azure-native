@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
+namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
 {
     /// <summary>
     /// An ADP Data Pool.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool")]
+    [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool")]
     public partial class DataPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataPool(string name, DataPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args ?? new DataPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args ?? new DataPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform:DataPool"},
                 },
             };

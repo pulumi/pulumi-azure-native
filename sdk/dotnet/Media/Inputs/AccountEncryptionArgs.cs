@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The type of key used to encrypt the Account Key.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.AccountEncryptionKeyType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.AccountEncryptionKeyType> Type { get; set; } = null!;
 
         public AccountEncryptionArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
+namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
     public sealed class ForwardProxyArgs : Pulumi.ResourceArgs
     {
         [Input("convention")]
-        public Input<Pulumi.AzureNextGen.Web.V20200601.ForwardProxyConvention>? Convention { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200601.ForwardProxyConvention>? Convention { get; set; }
 
         [Input("customHostHeaderName")]
         public Input<string>? CustomHostHeaderName { get; set; }

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20190101
+namespace Pulumi.AzureNative.Authorization.V20190101
 {
     /// <summary>
     /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

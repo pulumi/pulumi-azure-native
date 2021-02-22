@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20161001.Outputs
+namespace Pulumi.AzureNative.KeyVault.V20161001.Outputs
 {
 
     [OutputType]

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Identity Provider details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:IdentityProvider")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:IdentityProvider'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:IdentityProvider")]
     public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProvider(string name, IdentityProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IdentityProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:IdentityProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:IdentityProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,15 +108,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:IdentityProvider"},
                 },
             };
@@ -223,7 +233,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Identity Provider Type identifier.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.IdentityProviderType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.IdentityProviderType>? Type { get; set; }
 
         public IdentityProviderArgs()
         {

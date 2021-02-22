@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getOriginGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getOriginGroup'.")]
     public static class GetOriginGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-nextgen:cdn/latest:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn/latest:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
     }
 
 

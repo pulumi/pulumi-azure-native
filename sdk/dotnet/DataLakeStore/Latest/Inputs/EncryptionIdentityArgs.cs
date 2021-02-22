@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.Latest.Inputs
+namespace Pulumi.AzureNative.DataLakeStore.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest.Inputs
         /// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.EncryptionIdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DataLakeStore.Latest.EncryptionIdentityType> Type { get; set; } = null!;
 
         public EncryptionIdentityArgs()
         {

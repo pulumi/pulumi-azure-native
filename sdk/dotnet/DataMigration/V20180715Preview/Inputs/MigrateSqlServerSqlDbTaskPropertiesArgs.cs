@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
 {
 
     /// <summary>

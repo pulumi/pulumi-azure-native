@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getPython2Package'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'.")]
     public static class GetPython2Package
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-nextgen:automation/latest:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation/latest:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
     }
 
 

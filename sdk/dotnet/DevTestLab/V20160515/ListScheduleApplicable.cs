@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class ListScheduleApplicable
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The response of a list operation.
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-nextgen:devtestlab/v20160515:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab/v20160515:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
     }
 
 

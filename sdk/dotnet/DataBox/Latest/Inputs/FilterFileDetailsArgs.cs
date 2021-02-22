@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
+namespace Pulumi.AzureNative.DataBox.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// Type of the filter file.
         /// </summary>
         [Input("filterFileType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.FilterFileType> FilterFileType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.Latest.FilterFileType> FilterFileType { get; set; } = null!;
 
         public FilterFileDetailsArgs()
         {

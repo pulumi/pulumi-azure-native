@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX DNS Service
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:WorkloadNetworkDnsService")]
+    [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsService")]
     public partial class WorkloadNetworkDnsService : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadNetworkDnsService(string name, WorkloadNetworkDnsServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkDnsService", name, args ?? new WorkloadNetworkDnsServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:WorkloadNetworkDnsService", name, args ?? new WorkloadNetworkDnsServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadNetworkDnsService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkDnsService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:WorkloadNetworkDnsService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,7 +101,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService"},
                 },
             };
@@ -166,7 +168,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// DNS Service log level.
         /// </summary>
         [Input("logLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.DnsServiceLogLevelEnum>? LogLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.DnsServiceLogLevelEnum>? LogLevel { get; set; }
 
         /// <summary>
         /// Name of the private cloud

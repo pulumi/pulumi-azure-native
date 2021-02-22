@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
     /// <summary>
     /// Managed private endpoint resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:ManagedPrivateEndpoint'.")]
-    [AzureNextGenResourceType("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:ManagedPrivateEndpoint'.")]
+    [AzureNativeResourceType("azure-native:datafactory/latest:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedPrivateEndpoint(string name, ManagedPrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint", name, args ?? new ManagedPrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/latest:ManagedPrivateEndpoint", name, args ?? new ManagedPrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedPrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/latest:ManagedPrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:ManagedPrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:ManagedPrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:ManagedPrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20191101
+namespace Pulumi.AzureNative.DataShare.V20191101
 {
     public static class GetTrigger
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// A Trigger data transfer object.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:datashare/v20191101:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datashare/v20191101:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }
 
 

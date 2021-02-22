@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The QoS tier for ingress.
         /// </summary>
         [Input("qosLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.IngressQoSLevel>? QosLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.IngressQoSLevel>? QosLevel { get; set; }
 
         public IngressConfigArgs()
         {

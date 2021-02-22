@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20190101.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20190101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101.Inputs
         /// The identity type. Currently the only supported type is 'SystemAssigned'.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20190101.ApimIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20190101.ApimIdentityType> Type { get; set; } = null!;
 
         public ApiManagementServiceIdentityArgs()
         {

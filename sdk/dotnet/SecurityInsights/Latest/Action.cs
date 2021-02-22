@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
     /// <summary>
     /// Action for alert rule.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")]
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Action")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Action'.")]
+    [AzureNativeResourceType("azure-native:securityinsights/latest:Action")]
     public partial class Action : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Action(string name, ActionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/latest:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Action(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Action", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/latest:Action", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Action"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Action"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:eventhub/v20170401:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/v20170401:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/v20170401:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,10 +58,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule"},
                 },
             };
@@ -105,14 +110,14 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>>? _rights;
+        private InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>> Rights
+        public InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>> Rights
         {
-            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>>());
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>>());
             set => _rights = value;
         }
 

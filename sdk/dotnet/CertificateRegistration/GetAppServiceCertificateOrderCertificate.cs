@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration
+namespace Pulumi.AzureNative.CertificateRegistration
 {
     public static class GetAppServiceCertificateOrderCertificate
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-nextgen:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
     }
 
 

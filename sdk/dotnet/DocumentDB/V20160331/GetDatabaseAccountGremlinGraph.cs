@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20160331
+namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
     public static class GetDatabaseAccountGremlinGraph
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
         /// An Azure Cosmos DB Gremlin graph.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-nextgen:documentdb/v20160331:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20160331:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
     }
 
 

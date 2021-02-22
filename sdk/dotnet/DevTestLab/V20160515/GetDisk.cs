@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class GetDisk
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// A Disk.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-nextgen:devtestlab/v20160515:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:devtestlab/v20160515:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The batch configuration resource definition.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountBatchConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountBatchConfiguration'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountBatchConfiguration(string name, IntegrationAccountBatchConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration", name, args ?? new IntegrationAccountBatchConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationAccountBatchConfiguration", name, args ?? new IntegrationAccountBatchConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountBatchConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationAccountBatchConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,13 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration"},
                 },
             };

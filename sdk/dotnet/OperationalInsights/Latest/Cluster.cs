@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Cluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Cluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Cluster'.")]
+    [AzureNativeResourceType("azure-native:operationalinsights/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,10 +138,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Cluster"},
                 },
             };
@@ -170,7 +175,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         /// </summary>
         [Input("billingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.BillingType>? BillingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.BillingType>? BillingType { get; set; }
 
         /// <summary>
         /// The name of the Log Analytics cluster.

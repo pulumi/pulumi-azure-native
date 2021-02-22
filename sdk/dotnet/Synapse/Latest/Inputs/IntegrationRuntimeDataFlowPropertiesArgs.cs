@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest.Inputs
+namespace Pulumi.AzureNative.Synapse.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest.Inputs
         /// Compute type of the cluster which will execute data flow job.
         /// </summary>
         [Input("computeType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.Latest.DataFlowComputeType>? ComputeType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.Latest.DataFlowComputeType>? ComputeType { get; set; }
 
         /// <summary>
         /// Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.

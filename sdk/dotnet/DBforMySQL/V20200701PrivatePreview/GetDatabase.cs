@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
+namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 {
     public static class GetDatabase
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Represents a Database.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbformysql/v20200701privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformysql/v20200701privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

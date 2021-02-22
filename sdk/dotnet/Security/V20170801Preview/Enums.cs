@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Security.V20170801Preview
+namespace Pulumi.AzureNative.Security.V20170801Preview
 {
     /// <summary>
     /// Whether to send security alerts notifications to the security contact

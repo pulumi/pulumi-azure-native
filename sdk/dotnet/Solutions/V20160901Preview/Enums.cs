@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
+namespace Pulumi.AzureNative.Solutions.V20160901Preview
 {
     /// <summary>
     /// The appliance artifact type.

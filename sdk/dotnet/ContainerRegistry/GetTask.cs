@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetTask
     {
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-nextgen:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20201001
+namespace Pulumi.AzureNative.Resources.V20201001
 {
     /// <summary>
     /// Deployment information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope")]
+    [AzureNativeResourceType("azure-native:resources/v20201001:DeploymentAtManagementGroupScope")]
     public partial class DeploymentAtManagementGroupScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtManagementGroupScope(string name, DeploymentAtManagementGroupScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope", name, args ?? new DeploymentAtManagementGroupScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/v20201001:DeploymentAtManagementGroupScope", name, args ?? new DeploymentAtManagementGroupScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtManagementGroupScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/v20201001:DeploymentAtManagementGroupScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,14 +70,23 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"},
                 },
             };

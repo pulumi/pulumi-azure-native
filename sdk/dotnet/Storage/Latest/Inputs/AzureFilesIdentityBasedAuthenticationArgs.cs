@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
+namespace Pulumi.AzureNative.Storage.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Indicates the directory service used.
         /// </summary>
         [Input("directoryServiceOptions", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.DirectoryServiceOptions> DirectoryServiceOptions { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.DirectoryServiceOptions> DirectoryServiceOptions { get; set; } = null!;
 
         public AzureFilesIdentityBasedAuthenticationArgs()
         {

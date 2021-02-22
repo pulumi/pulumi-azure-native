@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Inputs
         /// type of target scope
         /// </summary>
         [Input("scopeType")]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.ScopeType>? ScopeType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.ScopeType>? ScopeType { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

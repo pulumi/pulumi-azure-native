@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
+namespace Pulumi.AzureNative.Authorization.V20200301Preview
 {
     public static class GetDenyAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
         /// Deny Assignment
         /// </summary>
         public static Task<GetDenyAssignmentResult> InvokeAsync(GetDenyAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDenyAssignmentResult>("azure-nextgen:authorization/v20200301preview:getDenyAssignment", args ?? new GetDenyAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDenyAssignmentResult>("azure-native:authorization/v20200301preview:getDenyAssignment", args ?? new GetDenyAssignmentArgs(), options.WithVersion());
     }
 
 

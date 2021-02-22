@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Billing.V20191001Preview
+namespace Pulumi.AzureNative.Billing.V20191001Preview
 {
     /// <summary>
     /// The role assignment
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount")]
+    [AzureNativeResourceType("azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount")]
     public partial class BillingRoleAssignmentByEnrollmentAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BillingRoleAssignmentByEnrollmentAccount(string name, BillingRoleAssignmentByEnrollmentAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount", name, args ?? new BillingRoleAssignmentByEnrollmentAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount", name, args ?? new BillingRoleAssignmentByEnrollmentAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BillingRoleAssignmentByEnrollmentAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:billing:BillingRoleAssignmentByEnrollmentAccount"},
                 },
             };

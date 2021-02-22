@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
+namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
 {
     /// <summary>
     /// A virtual network rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:dbformysql/v20171201preview:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/v20171201preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/v20171201preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule"},
                 },
             };

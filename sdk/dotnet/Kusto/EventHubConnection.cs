@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an event hub connection.
     /// API Version: 2018-09-07-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto:EventHubConnection")]
+    [AzureNativeResourceType("azure-native:kusto:EventHubConnection")]
     public partial class EventHubConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubConnection(string name, EventHubConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:EventHubConnection", name, args ?? new EventHubConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto:EventHubConnection", name, args ?? new EventHubConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventHubConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:EventHubConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto:EventHubConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:EventHubConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:EventHubConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:EventHubConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:EventHubConnection"},
                 },
             };
@@ -130,7 +132,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// The data format of the message. Optionally the data format can be added to each message.
         /// </summary>
         [Input("dataFormat")]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.DataFormat>? DataFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DataFormat>? DataFormat { get; set; }
 
         /// <summary>
         /// The name of the database in the Kusto cluster.

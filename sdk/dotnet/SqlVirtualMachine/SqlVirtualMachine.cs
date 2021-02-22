@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine
+namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine.
     /// API Version: 2017-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine")]
+    [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlVirtualMachine(string name, SqlVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine", name, args ?? new SqlVirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sqlvirtualmachine:SqlVirtualMachine", name, args ?? new SqlVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlVirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sqlvirtualmachine:SqlVirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"},
                 },
             };
@@ -225,19 +226,19 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// SQL Server edition type.
         /// </summary>
         [Input("sqlImageSku")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.SqlImageSku>? SqlImageSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlImageSku>? SqlImageSku { get; set; }
 
         /// <summary>
         /// SQL Server Management type.
         /// </summary>
         [Input("sqlManagement")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.SqlManagementMode>? SqlManagement { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlManagementMode>? SqlManagement { get; set; }
 
         /// <summary>
         /// SQL Server license type.
         /// </summary>
         [Input("sqlServerLicenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
 
         /// <summary>
         /// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.

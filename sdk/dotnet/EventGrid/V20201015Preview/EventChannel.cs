@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     /// <summary>
     /// Event Channel.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20201015preview:EventChannel")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20201015preview:EventChannel")]
     public partial class EventChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventChannel(string name, EventChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20201015preview:EventChannel", name, args ?? new EventChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20201015preview:EventChannel", name, args ?? new EventChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20201015preview:EventChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20201015preview:EventChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,7 +102,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:EventChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:EventChannel"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:EventChannel"},
                 },
             };

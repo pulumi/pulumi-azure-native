@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20191101.Inputs
+namespace Pulumi.AzureNative.Compute.V20191101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101.Inputs
         /// This enumerates the possible sources of a disk's creation.
         /// </summary>
         [Input("createOption", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191101.DiskCreateOption> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20191101.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.

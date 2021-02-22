@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an attached database configuration.
     /// API Version: 2020-09-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto:AttachedDatabaseConfiguration")]
+    [AzureNativeResourceType("azure-native:kusto:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttachedDatabaseConfiguration(string name, AttachedDatabaseConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:AttachedDatabaseConfiguration", name, args ?? new AttachedDatabaseConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto:AttachedDatabaseConfiguration", name, args ?? new AttachedDatabaseConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttachedDatabaseConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:AttachedDatabaseConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto:AttachedDatabaseConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,11 +89,17 @@ namespace Pulumi.AzureNextGen.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto/latest:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"},
                 },
             };
@@ -146,7 +152,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// The default principals modification kind
         /// </summary>
         [Input("defaultPrincipalsModificationKind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.DefaultPrincipalsModificationKind> DefaultPrincipalsModificationKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DefaultPrincipalsModificationKind> DefaultPrincipalsModificationKind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

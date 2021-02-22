@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:JobCredential")]
+    [AzureNativeResourceType("azure-native:sql:JobCredential")]
     public partial class JobCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobCredential(string name, JobCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:JobCredential", name, args ?? new JobCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:JobCredential", name, args ?? new JobCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:JobCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:JobCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:JobCredential"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobCredential"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:JobCredential"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Streaming Locator resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20200501:StreamingLocator")]
+    [AzureNativeResourceType("azure-native:media/v20200501:StreamingLocator")]
     public partial class StreamingLocator : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingLocator(string name, StreamingLocatorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:StreamingLocator", name, args ?? new StreamingLocatorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20200501:StreamingLocator", name, args ?? new StreamingLocatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingLocator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:StreamingLocator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20200501:StreamingLocator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,10 +118,15 @@ namespace Pulumi.AzureNextGen.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingLocator"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingLocator"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingLocator"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingLocator"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingLocator"},
                 },
             };

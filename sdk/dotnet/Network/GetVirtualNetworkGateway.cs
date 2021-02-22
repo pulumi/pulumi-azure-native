@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetVirtualNetworkGateway
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-nextgen:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithVersion());
     }
 
 

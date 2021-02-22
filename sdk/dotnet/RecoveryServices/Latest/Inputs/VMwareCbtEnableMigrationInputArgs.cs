@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// License type.
         /// </summary>
         [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.LicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.Latest.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The snapshot RunAs account Id.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
+namespace Pulumi.AzureNative.KeyVault.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
         /// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.Latest.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.Latest.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

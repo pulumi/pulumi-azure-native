@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     /// <summary>
     /// Definition of the schedule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Schedule")]
+    [AzureNativeResourceType("azure-native:automation/v20151031:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20151031:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Schedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20151031:Schedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,9 +136,13 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Schedule"},
                 },
             };
@@ -191,7 +195,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Gets or sets the frequency of the schedule.
         /// </summary>
         [Input("frequency", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20151031.ScheduleFrequency> Frequency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Automation.V20151031.ScheduleFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the interval of the schedule.

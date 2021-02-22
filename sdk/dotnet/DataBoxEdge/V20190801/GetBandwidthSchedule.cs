@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
+namespace Pulumi.AzureNative.DataBoxEdge.V20190801
 {
     public static class GetBandwidthSchedule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// The bandwidth schedule details.
         /// </summary>
         public static Task<GetBandwidthScheduleResult> InvokeAsync(GetBandwidthScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-nextgen:databoxedge/v20190801:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-native:databoxedge/v20190801:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithVersion());
     }
 
 

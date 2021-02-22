@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine
+namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL Server availability group listener.
     /// API Version: 2017-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener")]
+    [AzureNativeResourceType("azure-native:sqlvirtualmachine:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AvailabilityGroupListener(string name, AvailabilityGroupListenerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener", name, args ?? new AvailabilityGroupListenerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sqlvirtualmachine:AvailabilityGroupListener", name, args ?? new AvailabilityGroupListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AvailabilityGroupListener(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine:AvailabilityGroupListener", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sqlvirtualmachine:AvailabilityGroupListener", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"},
                     new Pulumi.Alias { Type = "azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200401
+namespace Pulumi.AzureNative.DocumentDB.V20200401
 {
     public static class GetNotebookWorkspace
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
         /// A notebook workspace resource
         /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-nextgen:documentdb/v20200401:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-native:documentdb/v20200401:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithVersion());
     }
 
 

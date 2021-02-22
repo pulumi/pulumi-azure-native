@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20190930Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190930Preview.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190930Preview.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Subnet CIDR for the peering.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview.Inputs
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190930Preview.OpenShiftContainerServiceVMSize> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190930Preview.OpenShiftContainerServiceVMSize> VmSize { get; set; } = null!;
 
         public OpenShiftManagedClusterMasterPoolProfileArgs()
         {

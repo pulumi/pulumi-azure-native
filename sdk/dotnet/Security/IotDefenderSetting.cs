@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// IoT Defender settings
     /// API Version: 2020-08-06-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:IotDefenderSetting")]
+    [AzureNativeResourceType("azure-native:security:IotDefenderSetting")]
     public partial class IotDefenderSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDefenderSetting(string name, IotDefenderSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotDefenderSetting", name, args ?? new IotDefenderSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:IotDefenderSetting", name, args ?? new IotDefenderSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDefenderSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotDefenderSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:IotDefenderSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20200806preview:IotDefenderSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200806preview:IotDefenderSetting"},
                 },
             };

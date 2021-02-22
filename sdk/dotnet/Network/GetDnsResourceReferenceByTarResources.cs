@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetDnsResourceReferenceByTarResources
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-nextgen:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
     }
 
 

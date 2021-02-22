@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The iSCSI server.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:IscsiServer")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:IscsiServer")]
     public partial class IscsiServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IscsiServer(string name, IscsiServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:IscsiServer", name, args ?? new IscsiServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:IscsiServer", name, args ?? new IscsiServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IscsiServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:IscsiServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:IscsiServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,7 +82,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:IscsiServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiServer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:IscsiServer"},
                 },
             };

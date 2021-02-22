@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
+namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
     /// An ADP Data Pool.
     /// API Version: 2020-07-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:autonomousdevelopmentplatform:DataPool")]
+    [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:DataPool")]
     public partial class DataPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataPool(string name, DataPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform:DataPool", name, args ?? new DataPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:autonomousdevelopmentplatform:DataPool", name, args ?? new DataPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform:DataPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:autonomousdevelopmentplatform:DataPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool"},
                 },
             };

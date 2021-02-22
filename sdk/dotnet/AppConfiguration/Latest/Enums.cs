@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.Latest
+namespace Pulumi.AzureNative.AppConfiguration.Latest
 {
     /// <summary>
     /// The private link service connection status.

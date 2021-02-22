@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class ListRunLogSasUrl
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-nextgen:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
     }
 
 

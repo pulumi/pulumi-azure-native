@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceTypeExtensionArgs : Pulumi.ResourceArgs
@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
         public Input<string>? EndpointUri { get; set; }
 
         [Input("extensionCategories")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.ExtensionCategory>>? _extensionCategories;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.ExtensionCategory>> ExtensionCategories
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.ExtensionCategory>>? _extensionCategories;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.ExtensionCategory>> ExtensionCategories
         {
-            get => _extensionCategories ?? (_extensionCategories = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.Latest.ExtensionCategory>>());
+            get => _extensionCategories ?? (_extensionCategories = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.Latest.ExtensionCategory>>());
             set => _extensionCategories = value;
         }
 

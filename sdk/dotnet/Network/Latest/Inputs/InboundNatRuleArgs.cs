@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.TransportProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.TransportProtocol>? Protocol { get; set; }
 
         public InboundNatRuleArgs()
         {

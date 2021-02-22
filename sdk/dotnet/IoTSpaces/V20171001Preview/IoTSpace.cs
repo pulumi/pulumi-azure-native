@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
+namespace Pulumi.AzureNative.IoTSpaces.V20171001Preview
 {
     /// <summary>
     /// The description of the IoTSpaces service.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:iotspaces/v20171001preview:IoTSpace")]
+    [AzureNativeResourceType("azure-native:iotspaces/v20171001preview:IoTSpace")]
     public partial class IoTSpace : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IoTSpace(string name, IoTSpaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:iotspaces/v20171001preview:IoTSpace", name, args ?? new IoTSpaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:iotspaces/v20171001preview:IoTSpace", name, args ?? new IoTSpaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IoTSpace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:iotspaces/v20171001preview:IoTSpace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:iotspaces/v20171001preview:IoTSpace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:iotspaces:IoTSpace"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotspaces:IoTSpace"},
                 },
             };

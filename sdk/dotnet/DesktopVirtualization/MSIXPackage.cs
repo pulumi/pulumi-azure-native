@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Schema for MSIX Package properties.
     /// API Version: 2021-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization:MSIXPackage")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization:MSIXPackage")]
     public partial class MSIXPackage : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MSIXPackage(string name, MSIXPackageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:MSIXPackage", name, args ?? new MSIXPackageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization:MSIXPackage", name, args ?? new MSIXPackageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MSIXPackage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:MSIXPackage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization:MSIXPackage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,11 +119,17 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.V20200801Preview
+namespace Pulumi.AzureNative.Search.V20200801Preview
 {
     public static class ListAdminKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-nextgen:search/v20200801preview:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20200801preview:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
     }
 
 

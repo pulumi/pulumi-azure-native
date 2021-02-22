@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetExportPipeline
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-nextgen:containerregistry:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithVersion());
     }
 
 

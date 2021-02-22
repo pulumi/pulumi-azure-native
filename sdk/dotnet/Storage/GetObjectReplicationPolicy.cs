@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     public static class GetObjectReplicationPolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Storage
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-nextgen:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
     }
 
 

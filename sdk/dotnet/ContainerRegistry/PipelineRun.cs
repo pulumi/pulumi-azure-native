@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
     /// API Version: 2020-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:PipelineRun")]
+    [AzureNativeResourceType("azure-native:containerregistry:PipelineRun")]
     public partial class PipelineRun : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PipelineRun(string name, PipelineRunArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:PipelineRun", name, args ?? new PipelineRunArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:PipelineRun", name, args ?? new PipelineRunArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PipelineRun(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:PipelineRun", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:PipelineRun", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:PipelineRun"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:PipelineRun"},
                 },
             };

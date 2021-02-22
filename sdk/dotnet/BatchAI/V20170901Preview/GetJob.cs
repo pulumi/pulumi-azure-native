@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview
 {
     public static class GetJob
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// Contains information about the job.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:batchai/v20170901preview:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:batchai/v20170901preview:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
 
 

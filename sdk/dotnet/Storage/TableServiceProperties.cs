@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Table service.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:TableServiceProperties")]
+    [AzureNativeResourceType("azure-native:storage:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TableServiceProperties(string name, TableServicePropertiesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:TableServiceProperties", name, args ?? new TableServicePropertiesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:TableServiceProperties", name, args ?? new TableServicePropertiesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TableServiceProperties(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:TableServiceProperties", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:TableServiceProperties", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,9 +59,13 @@ namespace Pulumi.AzureNextGen.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:TableServiceProperties"},
                 },
             };

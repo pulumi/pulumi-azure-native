@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
+namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
 {
 
     /// <summary>
@@ -16,26 +16,26 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
     public sealed class PrivateEndpointACLArgs : Pulumi.ResourceArgs
     {
         [Input("allow")]
-        private InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>>? _allow;
+        private InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>>? _allow;
 
         /// <summary>
         /// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>> Allow
+        public InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>> Allow
         {
-            get => _allow ?? (_allow = new InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>>());
+            get => _allow ?? (_allow = new InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>>());
             set => _allow = value;
         }
 
         [Input("deny")]
-        private InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>>? _deny;
+        private InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>>? _deny;
 
         /// <summary>
         /// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>> Deny
+        public InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>> Deny
         {
-            get => _deny ?? (_deny = new InputList<Union<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRRequestType>>());
+            get => _deny ?? (_deny = new InputList<Union<string, Pulumi.AzureNative.SignalRService.V20200701Preview.SignalRRequestType>>());
             set => _deny = value;
         }
 

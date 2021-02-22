@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'.")]
     public static class GetVMwareCollector
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// Latest API Version: 2019-10-01.
         /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-nextgen:migrate/latest:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate/latest:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
     }
 
 

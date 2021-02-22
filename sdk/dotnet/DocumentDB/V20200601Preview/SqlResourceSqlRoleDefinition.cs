@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB SQL Role Definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition")]
+    [AzureNativeResourceType("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition")]
     public partial class SqlResourceSqlRoleDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlRoleDefinition(string name, SqlResourceSqlRoleDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition", name, args ?? new SqlResourceSqlRoleDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition", name, args ?? new SqlResourceSqlRoleDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlRoleDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition"},
                 },
             };
@@ -146,7 +147,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// Indicates whether the Role Definition was built-in or user created.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.DocumentDB.V20200601Preview.RoleDefinitionType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DocumentDB.V20200601Preview.RoleDefinitionType>? Type { get; set; }
 
         public SqlResourceSqlRoleDefinitionArgs()
         {

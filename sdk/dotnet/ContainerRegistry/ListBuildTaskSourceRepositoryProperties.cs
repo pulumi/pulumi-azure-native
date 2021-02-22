@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class ListBuildTaskSourceRepositoryProperties
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<ListBuildTaskSourceRepositoryPropertiesResult> InvokeAsync(ListBuildTaskSourceRepositoryPropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-nextgen:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithVersion());
     }
 
 

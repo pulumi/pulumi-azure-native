@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.Latest
+namespace Pulumi.AzureNative.ManagedServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationAssignment'.")]
     public static class GetRegistrationAssignment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
         /// Latest API Version: 2019-09-01.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-nextgen:managedservices/latest:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices/latest:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
     }
 
 

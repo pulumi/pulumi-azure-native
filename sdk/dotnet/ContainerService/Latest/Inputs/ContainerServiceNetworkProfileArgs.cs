@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
 {
 
     /// <summary>
@@ -37,31 +37,31 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// The load balancer sku for the managed cluster.
         /// </summary>
         [Input("loadBalancerSku")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.LoadBalancerSku>? LoadBalancerSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
         /// Network mode used for building Kubernetes network.
         /// </summary>
         [Input("networkMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.NetworkMode>? NetworkMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.NetworkMode>? NetworkMode { get; set; }
 
         /// <summary>
         /// Network plugin used for building Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.NetworkPlugin>? NetworkPlugin { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
         /// Network policy used for building Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.NetworkPolicy>? NetworkPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
         /// The outbound (egress) routing method.
         /// </summary>
         [Input("outboundType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.OutboundType>? OutboundType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.OutboundType>? OutboundType { get; set; }
 
         /// <summary>
         /// A CIDR notation IP range from which to assign pod IPs when kubenet is used.

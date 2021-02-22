@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
+namespace Pulumi.AzureNative.ContainerRegistry.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listWebhookEvents'.")]
     public static class ListWebhookEvents
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-nextgen:containerregistry/latest:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry/latest:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
     }
 
 

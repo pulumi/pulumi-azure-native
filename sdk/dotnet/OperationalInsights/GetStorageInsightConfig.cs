@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights
 {
     public static class GetStorageInsightConfig
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-nextgen:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithVersion());
     }
 
 

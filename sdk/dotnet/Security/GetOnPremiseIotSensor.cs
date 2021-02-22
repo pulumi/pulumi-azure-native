@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     public static class GetOnPremiseIotSensor
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Security
         /// API Version: 2020-08-06-preview.
         /// </summary>
         public static Task<GetOnPremiseIotSensorResult> InvokeAsync(GetOnPremiseIotSensorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnPremiseIotSensorResult>("azure-nextgen:security:getOnPremiseIotSensor", args ?? new GetOnPremiseIotSensorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOnPremiseIotSensorResult>("azure-native:security:getOnPremiseIotSensor", args ?? new GetOnPremiseIotSensorArgs(), options.WithVersion());
     }
 
 

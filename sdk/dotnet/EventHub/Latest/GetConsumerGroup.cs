@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Latest
+namespace Pulumi.AzureNative.EventHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getConsumerGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getConsumerGroup'.")]
     public static class GetConsumerGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub/latest:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub/latest:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }
 
 

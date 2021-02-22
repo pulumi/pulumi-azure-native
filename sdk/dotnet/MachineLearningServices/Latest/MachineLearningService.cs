@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
+namespace Pulumi.AzureNative.MachineLearningServices.Latest
 {
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.")]
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:MachineLearningService")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/latest:MachineLearningService")]
     public partial class MachineLearningService : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningService(string name, MachineLearningServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/latest:MachineLearningService", name, args ?? new MachineLearningServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:MachineLearningService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/latest:MachineLearningService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,10 +90,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:MachineLearningService"},
                 },
             };
@@ -122,7 +127,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// The compute environment type for the service.
         /// </summary>
         [Input("computeType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Latest.ComputeEnvironmentType> ComputeType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.Latest.ComputeEnvironmentType> ComputeType { get; set; } = null!;
 
         /// <summary>
         /// The description of the service.

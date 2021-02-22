@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.Latest.Inputs
 {
 
     /// <summary>

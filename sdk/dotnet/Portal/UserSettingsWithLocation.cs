@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
     /// Response to get user settings
     /// API Version: 2018-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:portal:UserSettingsWithLocation")]
+    [AzureNativeResourceType("azure-native:portal:UserSettingsWithLocation")]
     public partial class UserSettingsWithLocation : Pulumi.CustomResource
     {
         /// <summary>
@@ -31,12 +31,12 @@ namespace Pulumi.AzureNextGen.Portal
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserSettingsWithLocation(string name, UserSettingsWithLocationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal:UserSettingsWithLocation", name, args ?? new UserSettingsWithLocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal:UserSettingsWithLocation", name, args ?? new UserSettingsWithLocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserSettingsWithLocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal:UserSettingsWithLocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal:UserSettingsWithLocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -47,7 +47,9 @@ namespace Pulumi.AzureNextGen.Portal
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal/latest:UserSettingsWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/latest:UserSettingsWithLocation"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20181001:UserSettingsWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:UserSettingsWithLocation"},
                 },
             };

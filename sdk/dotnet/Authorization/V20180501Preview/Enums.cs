@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
+namespace Pulumi.AzureNative.Authorization.V20180501Preview
 {
     /// <summary>
     /// The recurrence type : weekly, monthly, etc.

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Security.V20150601Preview
+namespace Pulumi.AzureNative.Security.V20150601Preview
 {
     [EnumType]
     public readonly struct Protocol : IEquatable<Protocol>

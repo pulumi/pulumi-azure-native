@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20160501
+namespace Pulumi.AzureNative.Storage.V20160501
 {
     public static class ListStorageAccountSAS
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160501
         /// The List SAS credentials operation response.
         /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-nextgen:storage/v20160501:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage/v20160501:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
     }
 
 
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160501
         /// The protocol permitted for a request made with the account SAS.
         /// </summary>
         [Input("protocols")]
-        public Pulumi.AzureNextGen.Storage.V20160501.HttpProtocol? Protocols { get; set; }
+        public Pulumi.AzureNative.Storage.V20160501.HttpProtocol? Protocols { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     public static class GetSecurityPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// SecurityPolicy association for AzureFrontDoor profile
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-nextgen:cdn/v20200901:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-native:cdn/v20200901:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
     }
 
 

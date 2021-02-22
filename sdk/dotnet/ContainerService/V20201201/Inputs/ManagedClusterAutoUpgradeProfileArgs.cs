@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20201201.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20201201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201.Inputs
         /// upgrade channel for auto upgrade.
         /// </summary>
         [Input("upgradeChannel")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20201201.UpgradeChannel>? UpgradeChannel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20201201.UpgradeChannel>? UpgradeChannel { get; set; }
 
         public ManagedClusterAutoUpgradeProfileArgs()
         {

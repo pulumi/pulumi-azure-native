@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataCatalog.V20160330
+namespace Pulumi.AzureNative.DataCatalog.V20160330
 {
     /// <summary>
     /// Azure data catalog SKU.

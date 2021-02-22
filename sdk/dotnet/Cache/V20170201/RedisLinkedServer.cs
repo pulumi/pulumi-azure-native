@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20170201
+namespace Pulumi.AzureNative.Cache.V20170201
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache/v20170201:RedisLinkedServer")]
+    [AzureNativeResourceType("azure-native:cache/v20170201:RedisLinkedServer")]
     public partial class RedisLinkedServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RedisLinkedServer(string name, RedisLinkedServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/v20170201:RedisLinkedServer", name, args ?? new RedisLinkedServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/v20170201:RedisLinkedServer", name, args ?? new RedisLinkedServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RedisLinkedServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/v20170201:RedisLinkedServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/v20170201:RedisLinkedServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,11 +76,17 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:RedisLinkedServer"},
                 },
             };
@@ -139,7 +145,7 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
         /// Role of the linked server.
         /// </summary>
         [Input("serverRole", required: true)]
-        public Input<Pulumi.AzureNextGen.Cache.V20170201.ReplicationRole> ServerRole { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Cache.V20170201.ReplicationRole> ServerRole { get; set; } = null!;
 
         public RedisLinkedServerArgs()
         {

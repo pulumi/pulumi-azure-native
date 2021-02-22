@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
+namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Specifies the kind of blueprint artifact.

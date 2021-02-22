@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Certificate details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Certificate'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Certificate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Certificate'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,15 +72,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Certificate"},
                 },
             };

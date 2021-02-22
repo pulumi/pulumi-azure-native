@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     public static class GetScalingPlan
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// API Version: 2021-01-14-preview.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-nextgen:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
     }
 
 

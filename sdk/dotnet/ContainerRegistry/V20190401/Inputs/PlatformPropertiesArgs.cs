@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
 {
 
     /// <summary>
@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// The OS architecture.
         /// </summary>
         [Input("architecture")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.Architecture>? Architecture { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.Architecture>? Architecture { get; set; }
 
         /// <summary>
         /// The operating system type required for the run.
         /// </summary>
         [Input("os", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.OS> Os { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.OS> Os { get; set; } = null!;
 
         /// <summary>
         /// Variant of the CPU.
         /// </summary>
         [Input("variant")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.Variant>? Variant { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.Variant>? Variant { get; set; }
 
         public PlatformPropertiesArgs()
         {

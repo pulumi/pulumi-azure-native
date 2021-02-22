@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory
+namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
     /// Guest Usages Resource
     /// API Version: 2020-05-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azureactivedirectory:GuestUsage")]
+    [AzureNativeResourceType("azure-native:azureactivedirectory:GuestUsage")]
     public partial class GuestUsage : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestUsage(string name, GuestUsageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azureactivedirectory:GuestUsage", name, args ?? new GuestUsageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azureactivedirectory:GuestUsage", name, args ?? new GuestUsageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestUsage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azureactivedirectory:GuestUsage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azureactivedirectory:GuestUsage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20200501preview:GuestUsage"},
                     new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage"},
                 },
             };

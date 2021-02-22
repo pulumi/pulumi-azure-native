@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'.")]
     public static class GetMoveCollection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-nextgen:migrate/latest:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-native:migrate/latest:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
     }
 
 

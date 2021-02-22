@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview.Inputs
+namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview.Inputs
         /// The private link service connection status.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppConfiguration.V20191101Preview.ConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppConfiguration.V20191101Preview.ConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

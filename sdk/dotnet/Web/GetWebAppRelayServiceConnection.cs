@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppRelayServiceConnection
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-nextgen:web:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-native:web:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
     }
 
 

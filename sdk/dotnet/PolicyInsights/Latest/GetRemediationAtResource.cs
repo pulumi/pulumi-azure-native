@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.Latest
+namespace Pulumi.AzureNative.PolicyInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResource'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtResource'.")]
     public static class GetRemediationAtResource
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-nextgen:policyinsights/latest:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-native:policyinsights/latest:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
     }
 
 

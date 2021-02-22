@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
+namespace Pulumi.AzureNative.HDInsight.V20180601Preview
 {
     /// <summary>
     /// The HDInsight cluster.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hdinsight/v20180601preview:Cluster")]
+    [AzureNativeResourceType("azure-native:hdinsight/v20180601preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hdinsight/v20180601preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hdinsight/v20180601preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hdinsight/v20180601preview:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hdinsight/v20180601preview:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,7 +82,9 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20150301preview:Cluster"},
                 },
             };

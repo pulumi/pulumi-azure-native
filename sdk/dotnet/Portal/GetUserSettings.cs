@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     public static class GetUserSettings
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-nextgen:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
     }
 
 

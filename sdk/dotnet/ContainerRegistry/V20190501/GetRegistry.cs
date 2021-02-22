@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501
 {
     public static class GetRegistry
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
         /// An object that represents a container registry.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-nextgen:containerregistry/v20190501:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry/v20190501:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
     }
 
 

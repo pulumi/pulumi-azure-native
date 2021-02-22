@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// The resource representation of a service in a service topology.
     /// API Version: 2019-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:deploymentmanager:Service")]
+    [AzureNativeResourceType("azure-native:deploymentmanager:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:deploymentmanager:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:deploymentmanager:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:Service"},
                 },
             };

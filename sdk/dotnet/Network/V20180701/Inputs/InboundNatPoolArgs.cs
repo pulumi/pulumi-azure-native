@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180701.Inputs
+namespace Pulumi.AzureNative.Network.V20180701.Inputs
 {
 
     /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701.Inputs
         /// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180701.TransportProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180701.TransportProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
+namespace Pulumi.AzureNative.DomainRegistration.V20200901
 {
     public static class GetDomain
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// Information about a domain.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-nextgen:domainregistration/v20200901:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:domainregistration/v20200901:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
     }
 
 

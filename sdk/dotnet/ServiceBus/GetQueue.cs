@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus
+namespace Pulumi.AzureNative.ServiceBus
 {
     public static class GetQueue
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceBus
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }
 
 

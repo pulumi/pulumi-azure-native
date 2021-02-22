@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20200614
+namespace Pulumi.AzureNative.Kusto.V20200614
 {
     public static class GetClusterPrincipalAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
         /// Class representing a cluster principal assignment.
         /// </summary>
         public static Task<GetClusterPrincipalAssignmentResult> InvokeAsync(GetClusterPrincipalAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-nextgen:kusto/v20200614:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-native:kusto/v20200614:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithVersion());
     }
 
 

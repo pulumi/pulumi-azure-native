@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
+namespace Pulumi.AzureNative.AzureStackHCI.Latest
 {
     /// <summary>
     /// Cluster details.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestackhci:Cluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:azurestackhci/latest:Cluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:azurestackhci:Cluster'.")]
+    [AzureNativeResourceType("azure-native:azurestackhci/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestackhci/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestackhci/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,8 +132,11 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20201001:Cluster"},
                 },
             };

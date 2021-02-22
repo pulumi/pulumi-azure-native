@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest.Inputs
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest.Inputs
         /// The name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

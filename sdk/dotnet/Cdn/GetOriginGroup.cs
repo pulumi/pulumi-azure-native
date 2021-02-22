@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetOriginGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-nextgen:cdn:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
     }
 
 

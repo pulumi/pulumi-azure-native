@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Inputs
         /// Graph parameter's type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20160501Preview.ParameterType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.V20160501Preview.ParameterType> Type { get; set; } = null!;
 
         public GraphParameterArgs()
         {

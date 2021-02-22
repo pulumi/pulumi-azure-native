@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20161201
+namespace Pulumi.AzureNative.Storage.V20161201
 {
     public static class ListStorageAccountServiceSAS
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20161201
         /// The List service SAS credentials operation response.
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-nextgen:storage/v20161201:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20161201:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
     }
 
 
@@ -97,19 +97,19 @@ namespace Pulumi.AzureNextGen.Storage.V20161201
         /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
         /// </summary>
         [Input("permissions")]
-        public Union<string, Pulumi.AzureNextGen.Storage.V20161201.Permissions>? Permissions { get; set; }
+        public Union<string, Pulumi.AzureNative.Storage.V20161201.Permissions>? Permissions { get; set; }
 
         /// <summary>
         /// The protocol permitted for a request made with the account SAS.
         /// </summary>
         [Input("protocols")]
-        public Pulumi.AzureNextGen.Storage.V20161201.HttpProtocol? Protocols { get; set; }
+        public Pulumi.AzureNative.Storage.V20161201.HttpProtocol? Protocols { get; set; }
 
         /// <summary>
         /// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
         /// </summary>
         [Input("resource", required: true)]
-        public Union<string, Pulumi.AzureNextGen.Storage.V20161201.SignedResource> Resource { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.Storage.V20161201.SignedResource> Resource { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

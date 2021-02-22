@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Inputs
+namespace Pulumi.AzureNative.Web.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// Type of the parameter
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Web.ConnectionParameterType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Web.ConnectionParameterType>? Type { get; set; }
 
         public ConnectionParameterArgs()
         {

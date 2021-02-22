@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The Backup Schedule Group
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:BackupScheduleGroup")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:BackupScheduleGroup")]
     public partial class BackupScheduleGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupScheduleGroup(string name, BackupScheduleGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:BackupScheduleGroup", name, args ?? new BackupScheduleGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:BackupScheduleGroup", name, args ?? new BackupScheduleGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupScheduleGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:BackupScheduleGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:BackupScheduleGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:BackupScheduleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupScheduleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:BackupScheduleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupScheduleGroup"},
                 },
             };

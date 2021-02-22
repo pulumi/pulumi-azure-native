@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTag'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTag'.")]
     public static class GetTag
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-nextgen:apimanagement/latest:getTag", args ?? new GetTagArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-native:apimanagement/latest:getTag", args ?? new GetTagArgs(), options.WithVersion());
     }
 
 

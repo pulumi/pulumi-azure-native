@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetWebAppSourceControl
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWebAppSourceControlResult> InvokeAsync(GetWebAppSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-nextgen:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithVersion());
     }
 
 

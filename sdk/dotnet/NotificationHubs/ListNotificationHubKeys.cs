@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs
+namespace Pulumi.AzureNative.NotificationHubs
 {
     public static class ListNotificationHubKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNotificationHubKeysResult> InvokeAsync(ListNotificationHubKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-nextgen:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-native:notificationhubs:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithVersion());
     }
 
 

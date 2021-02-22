@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueAttachment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueAttachment'.")]
     public static class GetApiIssueAttachment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetApiIssueAttachmentResult> InvokeAsync(GetApiIssueAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-nextgen:apimanagement/latest:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-native:apimanagement/latest:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn:SecurityPolicy")]
+    [AzureNativeResourceType("azure-native:cdn:SecurityPolicy")]
     public partial class SecurityPolicy : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityPolicy(string name, SecurityPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn:SecurityPolicy", name, args ?? new SecurityPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn:SecurityPolicy", name, args ?? new SecurityPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn:SecurityPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn:SecurityPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,7 +74,9 @@ namespace Pulumi.AzureNextGen.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:SecurityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:SecurityPolicy"},
                 },
             };

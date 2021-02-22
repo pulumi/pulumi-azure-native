@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20190301
+namespace Pulumi.AzureNative.Resources.V20190301
 {
     /// <summary>
     /// Deployment information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20190301:Deployment")]
+    [AzureNativeResourceType("azure-native:resources/v20190301:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Resources.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Deployment(string name, DeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190301:Deployment", name, args ?? new DeploymentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/v20190301:Deployment", name, args ?? new DeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Deployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190301:Deployment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/v20190301:Deployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,22 +64,39 @@ namespace Pulumi.AzureNextGen.Resources.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/latest:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20151101:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160201:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160701:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20160901:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160901:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20170510:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20170510:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180201:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20180201:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:Deployment"},
                 },
             };

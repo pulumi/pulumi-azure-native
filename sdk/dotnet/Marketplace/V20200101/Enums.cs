@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Marketplace.V20200101
+namespace Pulumi.AzureNative.Marketplace.V20200101
 {
     /// <summary>
     /// Plan accessibility

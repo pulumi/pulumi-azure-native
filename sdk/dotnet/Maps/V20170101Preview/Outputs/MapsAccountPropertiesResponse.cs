@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps.V20170101Preview.Outputs
+namespace Pulumi.AzureNative.Maps.V20170101Preview.Outputs
 {
 
     [OutputType]

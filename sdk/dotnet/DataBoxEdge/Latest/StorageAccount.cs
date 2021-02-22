@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:StorageAccount'.")]
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:StorageAccount")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccount'.")]
+    [AzureNativeResourceType("azure-native:databoxedge/latest:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccount(string name, StorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,10 +96,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccount"},
                 },
             };
@@ -128,7 +133,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Data policy of the storage Account.
         /// </summary>
         [Input("dataPolicy", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.DataPolicy> DataPolicy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// Description for the storage Account.
@@ -164,7 +169,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Current status of the storage account
         /// </summary>
         [Input("storageAccountStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.StorageAccountStatus>? StorageAccountStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.StorageAccountStatus>? StorageAccountStatus { get; set; }
 
         public StorageAccountArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A custom image.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:CustomImage")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:CustomImage")]
     public partial class CustomImage : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomImage(string name, CustomImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:CustomImage", name, args ?? new CustomImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:CustomImage", name, args ?? new CustomImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:CustomImage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:CustomImage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,9 +136,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:CustomImage"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:CustomImage"},
                 },
             };

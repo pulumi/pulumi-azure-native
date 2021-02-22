@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
+namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
     public static class ListBlockchainMemberApiKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// Collection of the API key payload which is exposed in the response of the resource provider.
         /// </summary>
         public static Task<ListBlockchainMemberApiKeysResult> InvokeAsync(ListBlockchainMemberApiKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-nextgen:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithVersion());
     }
 
 

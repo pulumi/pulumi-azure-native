@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20191212
+namespace Pulumi.AzureNative.DocumentDB.V20191212
 {
     /// <summary>
     /// Sort order for composite paths.

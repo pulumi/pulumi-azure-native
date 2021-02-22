@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork
+namespace Pulumi.AzureNative.ManagedNetwork
 {
     /// <summary>
     /// The Managed Network Group resource
     /// API Version: 2019-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:managednetwork:ManagedNetworkGroup")]
+    [AzureNativeResourceType("azure-native:managednetwork:ManagedNetworkGroup")]
     public partial class ManagedNetworkGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedNetworkGroup(string name, ManagedNetworkGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ManagedNetworkGroup", name, args ?? new ManagedNetworkGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managednetwork:ManagedNetworkGroup", name, args ?? new ManagedNetworkGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedNetworkGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ManagedNetworkGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managednetwork:ManagedNetworkGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup"},
                 },
             };
@@ -129,7 +130,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// Responsibility role under which this Managed Network Group will be created
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.ManagedNetwork.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetwork.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetFilter'.")]
     public static class GetAssetFilter
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-nextgen:media/latest:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media/latest:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure
+namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
     /// API Version: 2020-07-07.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:offazure:HyperVSite")]
+    [AzureNativeResourceType("azure-native:offazure:HyperVSite")]
     public partial class HyperVSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -58,12 +58,12 @@ namespace Pulumi.AzureNextGen.OffAzure
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HyperVSite(string name, HyperVSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure:HyperVSite", name, args ?? new HyperVSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:offazure:HyperVSite", name, args ?? new HyperVSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HyperVSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure:HyperVSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:offazure:HyperVSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,8 +74,11 @@ namespace Pulumi.AzureNextGen.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:offazure/latest:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:HyperVSite"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:HyperVSite"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:HyperVSite"},
                 },
             };

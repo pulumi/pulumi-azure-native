@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
+namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
     public static class GetConfigurationProfileAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// Configuration profile assignment is an association between a VM and automanage profile configuration.
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-nextgen:automanage/v20200630preview:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage/v20200630preview:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
     /// Cloud shell console
     /// API Version: 2018-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:portal:Console")]
+    [AzureNativeResourceType("azure-native:portal:Console")]
     public partial class Console : Pulumi.CustomResource
     {
         /// <summary>
@@ -31,12 +31,12 @@ namespace Pulumi.AzureNextGen.Portal
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Console(string name, ConsoleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal:Console", name, args ?? new ConsoleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal:Console", name, args ?? new ConsoleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Console(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal:Console", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal:Console", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -47,7 +47,9 @@ namespace Pulumi.AzureNextGen.Portal
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal/latest:Console"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/latest:Console"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20181001:Console"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:Console"},
                 },
             };

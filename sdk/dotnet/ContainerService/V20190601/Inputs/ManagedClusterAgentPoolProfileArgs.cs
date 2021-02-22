@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190601.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20190601.Inputs
 {
 
     /// <summary>
@@ -97,31 +97,31 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190601.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190601.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190601.OSType>? OsType { get; set; }
 
         /// <summary>
         /// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190601.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190601.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
 
         /// <summary>
         /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         /// </summary>
         [Input("scaleSetPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190601.ScaleSetPriority>? ScaleSetPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190601.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190601.AgentPoolType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190601.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190601.ContainerServiceVMSizeTypes>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190601.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

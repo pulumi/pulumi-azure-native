@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190101.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20190101.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101.Inputs
         /// The granularity of rows in the query.
         /// </summary>
         [Input("granularity")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190101.GranularityType>? Granularity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20190101.GranularityType>? Granularity { get; set; }
 
         [Input("grouping")]
         private InputList<Inputs.QueryGroupingArgs>? _grouping;

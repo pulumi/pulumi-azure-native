@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB database.
     /// API Version: 2016-03-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase")]
+    [AzureNativeResourceType("azure-native:documentdb:DatabaseAccountMongoDBDatabase")]
     public partial class DatabaseAccountMongoDBDatabase : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountMongoDBDatabase(string name, DatabaseAccountMongoDBDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase", name, args ?? new DatabaseAccountMongoDBDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:DatabaseAccountMongoDBDatabase", name, args ?? new DatabaseAccountMongoDBDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountMongoDBDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:DatabaseAccountMongoDBDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,11 +65,17 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase"},
                 },
             };

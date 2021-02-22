@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20170601preview:Replication")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20170601preview:Replication")]
     public partial class Replication : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Replication(string name, ReplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20170601preview:Replication", name, args ?? new ReplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20170601preview:Replication", name, args ?? new ReplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Replication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20170601preview:Replication", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20170601preview:Replication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,11 +76,17 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Replication"},
                 },
             };

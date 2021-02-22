@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20200401
+namespace Pulumi.AzureNative.ContainerService.V20200401
 {
     public static class ListManagedClusterUserCredentials
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200401
         /// The list of credential result response.
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-nextgen:containerservice/v20200401:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20200401:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.V20201101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Inputs
         /// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.ContainerInstance.V20201101.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.ContainerInstance.V20201101.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

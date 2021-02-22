@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
+namespace Pulumi.AzureNative.Logic.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The message filter type.
         /// </summary>
         [Input("messageFilterType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.MessageFilterType> MessageFilterType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.MessageFilterType> MessageFilterType { get; set; } = null!;
 
         public EdifactMessageFilterArgs()
         {

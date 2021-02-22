@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData.Latest
+namespace Pulumi.AzureNative.HybridData.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'.")]
     public static class GetJobDefinition
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-nextgen:hybriddata/latest:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:hybriddata/latest:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
     }
 
 

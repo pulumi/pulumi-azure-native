@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The public IP address version.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IPVersion>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The public IP address allocation method.
         /// </summary>
         [Input("publicIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The Public IP Prefix this Public IP Address should be allocated from.

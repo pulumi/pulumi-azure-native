@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
+namespace Pulumi.AzureNative.StreamAnalytics.V20160301
 {
     public static class GetFunction
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-nextgen:streamanalytics/v20160301:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-native:streamanalytics/v20160301:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
     }
 
 

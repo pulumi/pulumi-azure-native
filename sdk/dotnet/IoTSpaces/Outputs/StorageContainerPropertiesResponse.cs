@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTSpaces.Outputs
+namespace Pulumi.AzureNative.IoTSpaces.Outputs
 {
 
     [OutputType]

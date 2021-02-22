@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Datadog
+namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
     /// Identity type

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest.Inputs
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest.Inputs
         /// An enum that represents the format of the local timestamp property that needs to be set.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.LocalTimestampFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.LocalTimestampFormat>? Format { get; set; }
 
         /// <summary>
         /// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.

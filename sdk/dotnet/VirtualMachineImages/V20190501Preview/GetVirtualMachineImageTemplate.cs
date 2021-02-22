@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview
+namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview
 {
     public static class GetVirtualMachineImageTemplate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-nextgen:virtualmachineimages/v20190501preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190501preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
     }
 
 

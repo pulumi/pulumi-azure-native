@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
+namespace Pulumi.AzureNative.RecoveryServices.V20180110
 {
     /// <summary>
     /// Migration item.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20180110:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationMigrationItem(string name, ReplicationMigrationItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20180110:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationMigrationItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20180110:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"},
                 },
             };

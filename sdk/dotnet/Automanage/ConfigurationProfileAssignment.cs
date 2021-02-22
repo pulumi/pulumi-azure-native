@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automanage
+namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// API Version: 2020-06-30-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automanage:ConfigurationProfileAssignment")]
+    [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Automanage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfileAssignment(string name, ConfigurationProfileAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automanage:ConfigurationProfileAssignment", name, args ?? new ConfigurationProfileAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automanage:ConfigurationProfileAssignment", name, args ?? new ConfigurationProfileAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfileAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automanage:ConfigurationProfileAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automanage:ConfigurationProfileAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.Automanage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment"},
                 },
             };

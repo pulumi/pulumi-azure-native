@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getDefaultRollout'.")]
     public static class GetDefaultRollout
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// Latest API Version: 2020-11-20.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-nextgen:providerhub/latest:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub/latest:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Algorithm to use for URL signing
         /// </summary>
         [Input("algorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.Algorithm>? Algorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.Algorithm>? Algorithm { get; set; }
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

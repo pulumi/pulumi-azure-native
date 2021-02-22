@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class IntegrationAccountSkuArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SkuName>? Name { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.SkuName>? Name { get; set; }
 
         public IntegrationAccountSkuArgs()
         {

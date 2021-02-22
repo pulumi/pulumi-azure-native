@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest.Inputs
+namespace Pulumi.AzureNative.DBforMySQL.Latest.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest.Inputs
         /// Enable Geo-redundant or not for server backup.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.Latest.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.Latest.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
 
         /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.Latest.StorageAutogrow>? StorageAutogrow { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.Latest.StorageAutogrow>? StorageAutogrow { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20190801Preview
+namespace Pulumi.AzureNative.Peering.V20190801Preview
 {
     public static class GetPeerAsn
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// The essential information related to the peer's ASN.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-nextgen:peering/v20190801preview:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering/v20190801preview:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Match Variable
         /// </summary>
         [Input("rulesEngineMatchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.RulesEngineMatchVariable> RulesEngineMatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.RulesEngineMatchVariable> RulesEngineMatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes operator to apply to the match condition.
         /// </summary>
         [Input("rulesEngineOperator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.RulesEngineOperator> RulesEngineOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.RulesEngineOperator> RulesEngineOperator { get; set; } = null!;
 
         /// <summary>
         /// Name of selector in RequestHeader or RequestBody to be matched
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.Transform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Network.Latest.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.Transform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Network.Latest.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.Transform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.Latest.Transform>>());
             set => _transforms = value;
         }
 

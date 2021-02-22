@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
+namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// The type of identity used for the cache
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.StorageCache.Latest.CacheIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.StorageCache.Latest.CacheIdentityType>? Type { get; set; }
 
         public CacheIdentityArgs()
         {

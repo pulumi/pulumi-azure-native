@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
+namespace Pulumi.AzureNative.ContainerRegistry.V20180901
 {
     public static class ListTaskDetails
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// The task will have all information to schedule a run against it.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-nextgen:containerregistry/v20180901:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry/v20180901:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
     }
 
 

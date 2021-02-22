@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Consumption.V20181001
+namespace Pulumi.AzureNative.Consumption.V20181001
 {
     /// <summary>
     /// The category of the budget, whether the budget tracks cost or usage.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
+namespace Pulumi.AzureNative.Cdn.Latest.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         /// Protocol to use for health probe.
         /// </summary>
         [Input("probeProtocol")]
-        public Input<Pulumi.AzureNextGen.Cdn.Latest.ProbeProtocol>? ProbeProtocol { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.Latest.ProbeProtocol>? ProbeProtocol { get; set; }
 
         /// <summary>
         /// The type of health probe request that is made.
         /// </summary>
         [Input("probeRequestType")]
-        public Input<Pulumi.AzureNextGen.Cdn.Latest.HealthProbeRequestType>? ProbeRequestType { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.Latest.HealthProbeRequestType>? ProbeRequestType { get; set; }
 
         public HealthProbeParametersArgs()
         {

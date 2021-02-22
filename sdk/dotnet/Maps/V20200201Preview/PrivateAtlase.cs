@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps.V20200201Preview
+namespace Pulumi.AzureNative.Maps.V20200201Preview
 {
     /// <summary>
     /// An Azure resource which represents which will provision the ability to create private location data.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:maps/v20200201preview:PrivateAtlase")]
+    [AzureNativeResourceType("azure-native:maps/v20200201preview:PrivateAtlase")]
     public partial class PrivateAtlase : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateAtlase(string name, PrivateAtlaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, args ?? new PrivateAtlaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:maps/v20200201preview:PrivateAtlase", name, args ?? new PrivateAtlaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateAtlase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:maps/v20200201preview:PrivateAtlase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:maps:PrivateAtlase"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps:PrivateAtlase"},
                 },
             };

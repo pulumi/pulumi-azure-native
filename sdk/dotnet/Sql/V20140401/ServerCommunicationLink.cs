@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Server communication link.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:ServerCommunicationLink")]
+    [AzureNativeResourceType("azure-native:sql/v20140401:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerCommunicationLink(string name, ServerCommunicationLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20140401:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerCommunicationLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20140401:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerCommunicationLink"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerCommunicationLink"},
                 },
             };

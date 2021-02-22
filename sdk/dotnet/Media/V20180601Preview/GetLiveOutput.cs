@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview
+namespace Pulumi.AzureNative.Media.V20180601Preview
 {
     public static class GetLiveOutput
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// The Live Output.
         /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-nextgen:media/v20180601preview:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media/v20180601preview:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithVersion());
     }
 
 

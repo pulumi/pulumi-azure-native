@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest
+namespace Pulumi.AzureNative.DataShare.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getTrigger'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getTrigger'.")]
     public static class GetTrigger
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:datashare/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datashare/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }
 
 

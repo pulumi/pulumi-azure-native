@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS.V20180301Beta.Inputs
+namespace Pulumi.AzureNative.SaaS.V20180301Beta.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta.Inputs
         /// The Payment channel for the SaasSubscription.
         /// </summary>
         [Input("paymentChannelType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SaaS.V20180301Beta.PaymentChannelType>? PaymentChannelType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SaaS.V20180301Beta.PaymentChannelType>? PaymentChannelType { get; set; }
 
         /// <summary>
         /// The publisher id.

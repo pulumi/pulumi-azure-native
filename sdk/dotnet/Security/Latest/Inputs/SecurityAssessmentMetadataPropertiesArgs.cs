@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest.Inputs
+namespace Pulumi.AzureNative.Security.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         /// </summary>
         [Input("assessmentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.AssessmentType> AssessmentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.AssessmentType> AssessmentType { get; set; } = null!;
 
         [Input("category")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Category>>? _category;
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Category>> Category
+        private InputList<Union<string, Pulumi.AzureNative.Security.Latest.Category>>? _category;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Latest.Category>> Category
         {
-            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Category>>());
+            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNative.Security.Latest.Category>>());
             set => _category = value;
         }
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The implementation effort required to remediate this assessment
         /// </summary>
         [Input("implementationEffort")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.ImplementationEffort>? ImplementationEffort { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.ImplementationEffort>? ImplementationEffort { get; set; }
 
         /// <summary>
         /// Describes the partner that created the assessment
@@ -69,13 +69,13 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The severity level of the assessment
         /// </summary>
         [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.Severity> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.Severity> Severity { get; set; } = null!;
 
         [Input("threats")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Threats>>? _threats;
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Threats>> Threats
+        private InputList<Union<string, Pulumi.AzureNative.Security.Latest.Threats>>? _threats;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Latest.Threats>> Threats
         {
-            get => _threats ?? (_threats = new InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.Threats>>());
+            get => _threats ?? (_threats = new InputList<Union<string, Pulumi.AzureNative.Security.Latest.Threats>>());
             set => _threats = value;
         }
 
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The user impact of the assessment
         /// </summary>
         [Input("userImpact")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.UserImpact>? UserImpact { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.UserImpact>? UserImpact { get; set; }
 
         public SecurityAssessmentMetadataPropertiesArgs()
         {

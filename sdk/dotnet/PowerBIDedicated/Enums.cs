@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.PowerBIDedicated
+namespace Pulumi.AzureNative.PowerBIDedicated
 {
     /// <summary>
     /// The name of the Azure pricing tier to which the SKU applies.

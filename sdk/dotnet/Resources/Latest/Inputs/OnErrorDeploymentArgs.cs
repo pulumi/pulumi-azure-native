@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest.Inputs
+namespace Pulumi.AzureNative.Resources.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest.Inputs
         /// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Resources.Latest.OnErrorDeploymentType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Resources.Latest.OnErrorDeploymentType>? Type { get; set; }
 
         public OnErrorDeploymentArgs()
         {

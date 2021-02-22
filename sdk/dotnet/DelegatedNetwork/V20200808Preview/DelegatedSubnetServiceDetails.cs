@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
+namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails")]
+    [AzureNativeResourceType("azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails")]
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DelegatedSubnetServiceDetails(string name, DelegatedSubnetServiceDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, args ?? new DelegatedSubnetServiceDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DelegatedSubnetServiceDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagementPartner.Latest
+namespace Pulumi.AzureNative.ManagementPartner.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managementpartner:getPartner'.")]
     public static class GetPartner
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
         /// Latest API Version: 2018-02-01.
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:managementpartner/latest:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner/latest:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }
 
 

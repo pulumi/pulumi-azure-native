@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20140901
+namespace Pulumi.AzureNative.ServiceBus.V20140901
 {
     /// <summary>
     /// Description of queue Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20140901:Queue")]
+    [AzureNativeResourceType("azure-native:servicebus/v20140901:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
@@ -174,12 +174,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20140901:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Queue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:Queue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20140901:Queue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -190,10 +190,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Queue"},
                 },
             };
@@ -264,7 +269,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// Entity availability status for the queue.
         /// </summary>
         [Input("entityAvailabilityStatus")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.V20140901.EntityAvailabilityStatus>? EntityAvailabilityStatus { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.V20140901.EntityAvailabilityStatus>? EntityAvailabilityStatus { get; set; }
 
         /// <summary>
         /// A value that indicates whether the message is accessible anonymously.
@@ -336,7 +341,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.V20140901.EntityStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.V20140901.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// A value that indicates whether the queue supports ordering.

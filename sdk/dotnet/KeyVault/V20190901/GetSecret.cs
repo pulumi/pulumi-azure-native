@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20190901
+namespace Pulumi.AzureNative.KeyVault.V20190901
 {
     public static class GetSecret
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901
         /// Resource information with extended details.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:keyvault/v20190901:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:keyvault/v20190901:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }
 
 

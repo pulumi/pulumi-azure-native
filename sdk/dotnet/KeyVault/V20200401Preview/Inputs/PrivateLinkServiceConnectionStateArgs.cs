@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
+namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
         [Input("actionsRequired")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.ActionsRequired>? ActionsRequired { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.V20200401Preview.ActionsRequired>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The reason for approval or rejection.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.V20200401Preview.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160901.Inputs
+namespace Pulumi.AzureNative.Web.V20160901.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901.Inputs
         /// Shared or dedicated app hosting.
         /// </summary>
         [Input("computeMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20160901.ComputeModeOptions>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20160901.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// Number of instances in the worker pool.

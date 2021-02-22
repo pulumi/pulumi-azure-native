@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Provider details.
     /// Latest API Version: 2018-07-10.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'.")]
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryServicesProvider'.")]
+    [AzureNativeResourceType("azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider")]
     public partial class ReplicationRecoveryServicesProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationRecoveryServicesProvider(string name, ReplicationRecoveryServicesProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationRecoveryServicesProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
                 },
             };

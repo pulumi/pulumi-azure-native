@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     public static class GetPrediction
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-nextgen:customerinsights:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-native:customerinsights:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.V20191001Preview.Inputs
+namespace Pulumi.AzureNative.Search.V20191001Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview.Inputs
         /// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
         /// </summary>
         [Input("endpointAccess")]
-        public Input<Pulumi.AzureNextGen.Search.V20191001Preview.EndpointAccess>? EndpointAccess { get; set; }
+        public Input<Pulumi.AzureNative.Search.V20191001Preview.EndpointAccess>? EndpointAccess { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IpRuleArgs>? _ipRules;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview.Inputs
 
         public NetworkRuleSetArgs()
         {
-            EndpointAccess = Pulumi.AzureNextGen.Search.V20191001Preview.EndpointAccess.Public;
+            EndpointAccess = Pulumi.AzureNative.Search.V20191001Preview.EndpointAccess.Public;
         }
     }
 }

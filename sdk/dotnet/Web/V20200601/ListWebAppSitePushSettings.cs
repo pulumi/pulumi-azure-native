@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     public static class ListWebAppSitePushSettings
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// Push settings for the App.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsResult> InvokeAsync(ListWebAppSitePushSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-nextgen:web/v20200601:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-native:web/v20200601:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithVersion());
     }
 
 

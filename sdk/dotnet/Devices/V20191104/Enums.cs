@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Devices.V20191104
+namespace Pulumi.AzureNative.Devices.V20191104
 {
     /// <summary>
     /// The permissions assigned to the shared access policy.

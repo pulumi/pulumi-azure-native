@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The log profile resource.
     /// API Version: 2016-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:LogProfile")]
+    [AzureNativeResourceType("azure-native:insights:LogProfile")]
     public partial class LogProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogProfile(string name, LogProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LogProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:LogProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:LogProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:LogProfile"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20160301:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:LogProfile"},
                 },
             };

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The volume container.
     /// API Version: 2017-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:VolumeContainer")]
+    [AzureNativeResourceType("azure-native:storsimple:VolumeContainer")]
     public partial class VolumeContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VolumeContainer(string name, VolumeContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:VolumeContainer", name, args ?? new VolumeContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:VolumeContainer", name, args ?? new VolumeContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VolumeContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:VolumeContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:VolumeContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,7 +107,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:VolumeContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:VolumeContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:VolumeContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:VolumeContainer"},
                 },
             };
@@ -160,7 +162,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.StorSimple.Kind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.StorSimple.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name

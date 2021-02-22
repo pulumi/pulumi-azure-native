@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     public static class GetExport
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-nextgen:costmanagement:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithVersion());
     }
 
 

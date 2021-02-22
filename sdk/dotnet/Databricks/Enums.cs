@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Databricks
+namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault

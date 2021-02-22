@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// IoT Security solution configuration and resource information.
     /// API Version: 2019-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:IotSecuritySolution")]
+    [AzureNativeResourceType("azure-native:security:IotSecuritySolution")]
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSecuritySolution(string name, IotSecuritySolutionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSecuritySolution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,8 +137,11 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/latest:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },
             };
@@ -176,14 +179,14 @@ namespace Pulumi.AzureNextGen.Security
         }
 
         [Input("disabledDataSources")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.DataSource>>? _disabledDataSources;
+        private InputList<Union<string, Pulumi.AzureNative.Security.DataSource>>? _disabledDataSources;
 
         /// <summary>
         /// Disabled data sources. Disabling these data sources compromises the system.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.DataSource>> DisabledDataSources
+        public InputList<Union<string, Pulumi.AzureNative.Security.DataSource>> DisabledDataSources
         {
-            get => _disabledDataSources ?? (_disabledDataSources = new InputList<Union<string, Pulumi.AzureNextGen.Security.DataSource>>());
+            get => _disabledDataSources ?? (_disabledDataSources = new InputList<Union<string, Pulumi.AzureNative.Security.DataSource>>());
             set => _disabledDataSources = value;
         }
 
@@ -194,14 +197,14 @@ namespace Pulumi.AzureNextGen.Security
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("export")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.ExportData>>? _export;
+        private InputList<Union<string, Pulumi.AzureNative.Security.ExportData>>? _export;
 
         /// <summary>
         /// List of additional options for exporting to workspace data.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.ExportData>> Export
+        public InputList<Union<string, Pulumi.AzureNative.Security.ExportData>> Export
         {
-            get => _export ?? (_export = new InputList<Union<string, Pulumi.AzureNextGen.Security.ExportData>>());
+            get => _export ?? (_export = new InputList<Union<string, Pulumi.AzureNative.Security.ExportData>>());
             set => _export = value;
         }
 
@@ -251,7 +254,7 @@ namespace Pulumi.AzureNextGen.Security
         /// Status of the IoT Security solution.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.SecuritySolutionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.SecuritySolutionStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -269,7 +272,7 @@ namespace Pulumi.AzureNextGen.Security
         /// Unmasked IP address logging status
         /// </summary>
         [Input("unmaskedIpLoggingStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.UnmaskedIpLoggingStatus>? UnmaskedIpLoggingStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.UnmaskedIpLoggingStatus>? UnmaskedIpLoggingStatus { get; set; }
 
         /// <summary>
         /// Properties of the IoT Security solution's user defined resources.

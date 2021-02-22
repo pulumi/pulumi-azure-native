@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     public static class ListServiceFabricApplicableSchedules
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         /// </summary>
         public static Task<ListServiceFabricApplicableSchedulesResult> InvokeAsync(ListServiceFabricApplicableSchedulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-nextgen:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFrontDoor'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFrontDoor'.")]
     public static class GetFrontDoor
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-nextgen:network/latest:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network/latest:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
     }
 
 

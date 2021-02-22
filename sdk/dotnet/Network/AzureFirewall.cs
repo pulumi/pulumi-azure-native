@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Azure Firewall resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:AzureFirewall")]
+    [AzureNativeResourceType("azure-native:network:AzureFirewall")]
     public partial class AzureFirewall : Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AzureFirewall(string name, AzureFirewallArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:AzureFirewall", name, args ?? new AzureFirewallArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:AzureFirewall", name, args ?? new AzureFirewallArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AzureFirewall(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:AzureFirewall", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:AzureFirewall", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,27 +155,49 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:AzureFirewall"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:AzureFirewall"},
                 },
             };
@@ -324,7 +346,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The operation mode for Threat Intelligence.
         /// </summary>
         [Input("threatIntelMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.AzureFirewallThreatIntelMode>? ThreatIntelMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.AzureFirewallThreatIntelMode>? ThreatIntelMode { get; set; }
 
         /// <summary>
         /// The virtualHub to which the firewall belongs.

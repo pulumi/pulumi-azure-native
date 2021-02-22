@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.V20200501.Inputs
+namespace Pulumi.AzureNative.MixedReality.V20200501.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNextGen.MixedReality.V20200501.SkuTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.MixedReality.V20200501.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

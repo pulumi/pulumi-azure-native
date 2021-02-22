@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20210101
+namespace Pulumi.AzureNative.MachineLearningServices.V20210101
 {
     public static class GetMachineLearningService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20210101
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetMachineLearningServiceResult> InvokeAsync(GetMachineLearningServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningServiceResult>("azure-nextgen:machinelearningservices/v20210101:getMachineLearningService", args ?? new GetMachineLearningServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningServiceResult>("azure-native:machinelearningservices/v20210101:getMachineLearningService", args ?? new GetMachineLearningServiceArgs(), options.WithVersion());
     }
 
 

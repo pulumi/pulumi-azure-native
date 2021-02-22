@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class ListSiteMetadataSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteMetadataSlotResult> InvokeAsync(ListSiteMetadataSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataSlotResult>("azure-nextgen:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataSlotResult>("azure-native:web/v20150801:listSiteMetadataSlot", args ?? new ListSiteMetadataSlotArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
 {
     public static class GetConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// Represents a Configuration.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbformariadb/v20180601preview:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformariadb/v20180601preview:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }
 
 

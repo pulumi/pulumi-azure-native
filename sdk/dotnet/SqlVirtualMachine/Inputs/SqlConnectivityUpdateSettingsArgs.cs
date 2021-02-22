@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
+namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
         /// SQL Server connectivity option.
         /// </summary>
         [Input("connectivityType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.ConnectivityType>? ConnectivityType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.ConnectivityType>? ConnectivityType { get; set; }
 
         /// <summary>
         /// SQL Server port.

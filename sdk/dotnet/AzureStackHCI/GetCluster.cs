@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStackHCI
+namespace Pulumi.AzureNative.AzureStackHCI
 {
     public static class GetCluster
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

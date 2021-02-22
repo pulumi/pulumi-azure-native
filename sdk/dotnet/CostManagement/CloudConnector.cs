@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// The Connector model definition
     /// API Version: 2019-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement:CloudConnector")]
+    [AzureNativeResourceType("azure-native:costmanagement:CloudConnector")]
     public partial class CloudConnector : Pulumi.CustomResource
     {
         /// <summary>
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudConnector(string name, CloudConnectorArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:CloudConnector", name, args ?? new CloudConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement:CloudConnector", name, args ?? new CloudConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudConnector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:CloudConnector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement:CloudConnector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNextGen.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190301preview:CloudConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190301preview:CloudConnector"},
                 },
             };
@@ -177,7 +178,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// Connector billing model
         /// </summary>
         [Input("billingModel")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.ConnectorBillingModel>? BillingModel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.ConnectorBillingModel>? BillingModel { get; set; }
 
         /// <summary>
         /// Connector Name.

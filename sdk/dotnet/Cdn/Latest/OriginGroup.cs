@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:OriginGroup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:OriginGroup'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:OriginGroup")]
     public partial class OriginGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginGroup(string name, OriginGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:OriginGroup", name, args ?? new OriginGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:OriginGroup", name, args ?? new OriginGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:OriginGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:OriginGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,10 +96,15 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:OriginGroup"},
                 },
             };

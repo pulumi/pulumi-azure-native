@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest.Inputs
+namespace Pulumi.AzureNative.Security.Latest.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
     public sealed class AdditionalWorkspacesPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("dataTypes")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.AdditionalWorkspaceDataType>>? _dataTypes;
+        private InputList<Union<string, Pulumi.AzureNative.Security.Latest.AdditionalWorkspaceDataType>>? _dataTypes;
 
         /// <summary>
         /// List of data types sent to workspace
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.AdditionalWorkspaceDataType>> DataTypes
+        public InputList<Union<string, Pulumi.AzureNative.Security.Latest.AdditionalWorkspaceDataType>> DataTypes
         {
-            get => _dataTypes ?? (_dataTypes = new InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.AdditionalWorkspaceDataType>>());
+            get => _dataTypes ?? (_dataTypes = new InputList<Union<string, Pulumi.AzureNative.Security.Latest.AdditionalWorkspaceDataType>>());
             set => _dataTypes = value;
         }
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// Workspace type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.AdditionalWorkspaceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.AdditionalWorkspaceType>? Type { get; set; }
 
         /// <summary>
         /// Workspace resource id

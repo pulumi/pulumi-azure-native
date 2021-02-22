@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Destination port behavior.
         /// </summary>
         [Input("destinationPortBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.DestinationPortBehavior>? DestinationPortBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.DestinationPortBehavior>? DestinationPortBehavior { get; set; }
 
         /// <summary>
         /// Value indicating whether path evaluation with trace route should be disabled.

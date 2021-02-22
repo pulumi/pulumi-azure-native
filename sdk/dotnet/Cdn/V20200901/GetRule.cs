@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     public static class GetRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Friendly Rules name mapping to the any Rules or secret related information.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-nextgen:cdn/v20200901:getRule", args ?? new GetRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:cdn/v20200901:getRule", args ?? new GetRuleArgs(), options.WithVersion());
     }
 
 

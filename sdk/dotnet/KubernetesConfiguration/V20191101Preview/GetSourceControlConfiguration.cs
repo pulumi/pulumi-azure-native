@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
+namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
 {
     public static class GetSourceControlConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
         /// The SourceControl Configuration object.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-nextgen:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
     }
 
 

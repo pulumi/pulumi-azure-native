@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
+namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
     public sealed class HttpAuthenticationArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
         /// Gets or sets the http authentication type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Scheduler.V20140801Preview.HttpAuthenticationType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.V20140801Preview.HttpAuthenticationType>? Type { get; set; }
 
         public HttpAuthenticationArgs()
         {

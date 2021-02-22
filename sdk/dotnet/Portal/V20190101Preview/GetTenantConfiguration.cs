@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20190101Preview
+namespace Pulumi.AzureNative.Portal.V20190101Preview
 {
     public static class GetTenantConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         /// Tenant configuration.
         /// </summary>
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-nextgen:portal/v20190101preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-native:portal/v20190101preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithVersion());
     }
 
 

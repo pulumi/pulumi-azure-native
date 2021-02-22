@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Bookmark'.")]
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Bookmark")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Bookmark'.")]
+    [AzureNativeResourceType("azure-native:securityinsights/latest:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bookmark(string name, BookmarkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Bookmark", name, args ?? new BookmarkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/latest:Bookmark", name, args ?? new BookmarkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bookmark(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Bookmark", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/latest:Bookmark", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,7 +138,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Bookmark"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Bookmark"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Bookmark"},
                 },
             };

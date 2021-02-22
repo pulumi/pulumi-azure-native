@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
+namespace Pulumi.AzureNative.DocumentDB.V20200401.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
         /// Indicates the kind of algorithm used for partitioning
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200401.PartitionKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20200401.PartitionKind>? Kind { get; set; }
 
         [Input("paths")]
         private InputList<string>? _paths;

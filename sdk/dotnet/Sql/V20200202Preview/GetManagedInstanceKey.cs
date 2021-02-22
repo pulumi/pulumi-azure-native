@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     public static class GetManagedInstanceKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// A managed instance key.
         /// </summary>
         public static Task<GetManagedInstanceKeyResult> InvokeAsync(GetManagedInstanceKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-nextgen:sql/v20200202preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-native:sql/v20200202preview:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
     }
 
 

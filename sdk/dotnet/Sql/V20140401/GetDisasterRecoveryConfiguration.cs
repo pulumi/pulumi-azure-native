@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     public static class GetDisasterRecoveryConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// Represents a disaster recovery configuration.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigurationResult> InvokeAsync(GetDisasterRecoveryConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-nextgen:sql/v20140401:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql/v20140401:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
     }
 
 

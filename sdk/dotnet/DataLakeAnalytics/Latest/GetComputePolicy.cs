@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
+namespace Pulumi.AzureNative.DataLakeAnalytics.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'.")]
     public static class GetComputePolicy
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// Latest API Version: 2016-11-01.
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-nextgen:datalakeanalytics/latest:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics/latest:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account map.
     /// API Version: 2019-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic:IntegrationAccountMap")]
+    [AzureNativeResourceType("azure-native:logic:IntegrationAccountMap")]
     public partial class IntegrationAccountMap : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.Logic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountMap(string name, IntegrationAccountMapArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:IntegrationAccountMap", name, args ?? new IntegrationAccountMapArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic:IntegrationAccountMap", name, args ?? new IntegrationAccountMapArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountMap(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:IntegrationAccountMap", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic:IntegrationAccountMap", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,10 +113,15 @@ namespace Pulumi.AzureNextGen.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountMap"},
                 },
             };
@@ -175,7 +180,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// The map type.
         /// </summary>
         [Input("mapType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.MapType> MapType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.MapType> MapType { get; set; } = null!;
 
         /// <summary>
         /// The metadata.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview.Inputs
         /// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
         /// </summary>
         [Input("level", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20160501Preview.DiagnosticsLevel> Level { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.V20160501Preview.DiagnosticsLevel> Level { get; set; } = null!;
 
         public DiagnosticsConfigurationArgs()
         {

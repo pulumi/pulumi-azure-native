@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20170301Preview
+namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
     public static class GetManagedInstanceAdministrator
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// An Azure SQL managed instance administrator.
         /// </summary>
         public static Task<GetManagedInstanceAdministratorResult> InvokeAsync(GetManagedInstanceAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-nextgen:sql/v20170301preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql/v20170301preview:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithVersion());
     }
 
 

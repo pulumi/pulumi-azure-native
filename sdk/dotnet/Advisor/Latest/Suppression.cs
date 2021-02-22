@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Advisor.Latest
+namespace Pulumi.AzureNative.Advisor.Latest
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.")]
-    [AzureNextGenResourceType("azure-nextgen:advisor/latest:Suppression")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:advisor:Suppression'.")]
+    [AzureNativeResourceType("azure-native:advisor/latest:Suppression")]
     public partial class Suppression : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Suppression(string name, SuppressionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:advisor/latest:Suppression", name, args ?? new SuppressionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:advisor/latest:Suppression", name, args ?? new SuppressionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Suppression(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:advisor/latest:Suppression", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:advisor/latest:Suppression", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,10 +72,15 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
+                    new Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
+                    new Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170331:Suppression"},
+                    new Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170419:Suppression"},
+                    new Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20200101:Suppression"},
                 },
             };

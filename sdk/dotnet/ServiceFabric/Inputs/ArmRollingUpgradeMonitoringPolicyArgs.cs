@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Inputs
         /// The activation Mode of the service package
         /// </summary>
         [Input("failureAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.ArmUpgradeFailureAction>? FailureAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ArmUpgradeFailureAction>? FailureAction { get; set; }
 
         /// <summary>
         /// The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.

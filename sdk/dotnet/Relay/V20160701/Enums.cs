@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Relay.V20160701
+namespace Pulumi.AzureNative.Relay.V20160701
 {
     [EnumType]
     public readonly struct AccessRights : IEquatable<AccessRights>

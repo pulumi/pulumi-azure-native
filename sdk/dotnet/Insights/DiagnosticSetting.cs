@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The diagnostic setting resource.
     /// API Version: 2017-05-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:DiagnosticSetting")]
+    [AzureNativeResourceType("azure-native:insights:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/v20170501preview:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170501preview:DiagnosticSetting"},
                 },
             };

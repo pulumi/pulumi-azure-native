@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The protocol for the outbound rule in load balancer.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.LoadBalancerOutboundRuleProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.LoadBalancerOutboundRuleProtocol> Protocol { get; set; } = null!;
 
         public OutboundRuleArgs()
         {

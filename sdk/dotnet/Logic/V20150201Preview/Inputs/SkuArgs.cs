@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150201Preview.Inputs
 {
 
     public sealed class SkuArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
         /// Gets or sets the name.
         /// </summary>
         [Input("name")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150201Preview.SkuName>? Name { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150201Preview.SkuName>? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the reference to plan.

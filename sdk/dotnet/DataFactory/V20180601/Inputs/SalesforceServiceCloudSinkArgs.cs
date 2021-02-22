@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The write behavior for the operation. Default is Insert.
         /// </summary>
         [Input("writeBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.SalesforceSinkWriteBehavior>? WriteBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.SalesforceSinkWriteBehavior>? WriteBehavior { get; set; }
 
         public SalesforceServiceCloudSinkArgs()
         {

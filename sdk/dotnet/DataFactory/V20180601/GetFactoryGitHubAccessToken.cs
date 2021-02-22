@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     public static class GetFactoryGitHubAccessToken
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Get GitHub access token response definition.
         /// </summary>
         public static Task<GetFactoryGitHubAccessTokenResult> InvokeAsync(GetFactoryGitHubAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-nextgen:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200201Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20200201Preview.Inputs
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview.Inputs
         /// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         /// </summary>
         [Input("transport", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200201Preview.MediaGraphRtspTransport> Transport { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200201Preview.MediaGraphRtspTransport> Transport { get; set; } = null!;
 
         public MediaGraphRtspSourceArgs()
         {

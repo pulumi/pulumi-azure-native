@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad
+namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
     /// Domain service.
     /// API Version: 2020-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:aad:DomainService")]
+    [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : Pulumi.CustomResource
     {
         /// <summary>
@@ -145,12 +145,12 @@ namespace Pulumi.AzureNextGen.Aad
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainService(string name, DomainServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aad:DomainService", name, args ?? new DomainServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aad:DomainService", name, args ?? new DomainServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aad:DomainService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aad:DomainService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -161,9 +161,13 @@ namespace Pulumi.AzureNextGen.Aad
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aad/latest:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/latest:DomainService"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170101:DomainService"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:DomainService"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:DomainService"},
                 },
             };
@@ -222,7 +226,7 @@ namespace Pulumi.AzureNextGen.Aad
         /// Enabled or Disabled flag to turn on Group-based filtered sync
         /// </summary>
         [Input("filteredSync")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.FilteredSync>? FilteredSync { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.FilteredSync>? FilteredSync { get; set; }
 
         /// <summary>
         /// Secure LDAP Settings

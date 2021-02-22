@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// IoT sensor model
     /// API Version: 2020-08-06-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:IotSensor")]
+    [AzureNativeResourceType("azure-native:security:IotSensor")]
     public partial class IotSensor : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSensor(string name, IotSensorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotSensor", name, args ?? new IotSensorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:IotSensor", name, args ?? new IotSensorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSensor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:IotSensor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:IotSensor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20200806preview:IotSensor"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200806preview:IotSensor"},
                 },
             };

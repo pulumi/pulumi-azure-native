@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class ListSiteAuthSettingsSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// </summary>
         public static Task<ListSiteAuthSettingsSlotResult> InvokeAsync(ListSiteAuthSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsSlotResult>("azure-nextgen:web/v20150801:listSiteAuthSettingsSlot", args ?? new ListSiteAuthSettingsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsSlotResult>("azure-native:web/v20150801:listSiteAuthSettingsSlot", args ?? new ListSiteAuthSettingsSlotArgs(), options.WithVersion());
     }
 
 

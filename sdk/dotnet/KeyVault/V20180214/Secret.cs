@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20180214
+namespace Pulumi.AzureNative.KeyVault.V20180214
 {
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:keyvault/v20180214:Secret")]
+    [AzureNativeResourceType("azure-native:keyvault/v20180214:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20180214:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:keyvault/v20180214:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Secret(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20180214:Secret", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:keyvault/v20180214:Secret", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,11 +70,17 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:keyvault:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/latest:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214preview:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:Secret"},
                 },
             };

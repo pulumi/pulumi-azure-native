@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20180331
+namespace Pulumi.AzureNative.ContainerService.V20180331
 {
     /// <summary>
     /// Size of agent VMs.

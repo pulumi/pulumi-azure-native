@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Network resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:VirtualNetwork")]
+    [AzureNativeResourceType("azure-native:network:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetwork(string name, VirtualNetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetwork(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:VirtualNetwork", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:VirtualNetwork", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,41 +143,77 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetwork"},
                 },
             };

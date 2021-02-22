@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The metric alert resource.
     /// API Version: 2018-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights:MetricAlert")]
+    [AzureNativeResourceType("azure-native:insights:MetricAlert")]
     public partial class MetricAlert : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricAlert(string name, MetricAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MetricAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights:MetricAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights:MetricAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,7 +143,9 @@ namespace Pulumi.AzureNextGen.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:MetricAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180301:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:MetricAlert"},
                 },
             };

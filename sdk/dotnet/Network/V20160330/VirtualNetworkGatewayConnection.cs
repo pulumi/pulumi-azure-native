@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160330
+namespace Pulumi.AzureNative.Network.V20160330
 {
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection")]
+    [AzureNativeResourceType("azure-native:network/v20160330:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkGatewayConnection(string name, VirtualNetworkGatewayConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection", name, args ?? new VirtualNetworkGatewayConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20160330:VirtualNetworkGatewayConnection", name, args ?? new VirtualNetworkGatewayConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkGatewayConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20160330:VirtualNetworkGatewayConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,40 +154,75 @@ namespace Pulumi.AzureNextGen.Network.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetworkGatewayConnection"},
                 },
             };
@@ -222,13 +257,13 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// Virtual network Gateway connection status
         /// </summary>
         [Input("connectionStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.VirtualNetworkGatewayConnectionStatus>? ConnectionStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160330.VirtualNetworkGatewayConnectionStatus>? ConnectionStatus { get; set; }
 
         /// <summary>
         /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
         /// </summary>
         [Input("connectionType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.VirtualNetworkGatewayConnectionType>? ConnectionType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160330.VirtualNetworkGatewayConnectionType>? ConnectionType { get; set; }
 
         /// <summary>
         /// The Egress Bytes Transferred in this connection

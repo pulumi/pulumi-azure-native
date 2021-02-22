@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.Latest
+namespace Pulumi.AzureNative.EventGrid.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscriptionFullUrl'.")]
     public static class GetEventSubscriptionFullUrl
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetEventSubscriptionFullUrlResult> InvokeAsync(GetEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionFullUrlResult>("azure-nextgen:eventgrid/latest:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionFullUrlResult>("azure-native:eventgrid/latest:getEventSubscriptionFullUrl", args ?? new GetEventSubscriptionFullUrlArgs(), options.WithVersion());
     }
 
 

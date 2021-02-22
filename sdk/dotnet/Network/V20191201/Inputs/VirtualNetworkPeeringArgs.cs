@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
+namespace Pulumi.AzureNative.Network.V20191201.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The status of the virtual network peering.
         /// </summary>
         [Input("peeringState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.VirtualNetworkPeeringState>? PeeringState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
         /// The reference to the remote virtual network address space.

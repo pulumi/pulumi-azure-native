@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
     /// <summary>
     /// Definition of the connection.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'.")]
-    [AzureNextGenResourceType("azure-nextgen:automation/latest:Connection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Connection'.")]
+    [AzureNativeResourceType("azure-native:automation/latest:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/latest:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:Connection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/latest:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,9 +84,13 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Connection"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Connection"},
                 },
             };

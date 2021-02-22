@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Portal.V20181001
+namespace Pulumi.AzureNative.Portal.V20181001
 {
     /// <summary>
     /// Size of terminal font.

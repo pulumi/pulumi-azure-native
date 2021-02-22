@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.Inputs
+namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.Inputs
         /// The tier of the particular SKU, e.g. GeneralPurpose.
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.SkuTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

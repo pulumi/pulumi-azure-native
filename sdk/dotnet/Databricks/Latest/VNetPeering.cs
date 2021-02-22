@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks.Latest
+namespace Pulumi.AzureNative.Databricks.Latest
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// Latest API Version: 2018-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.")]
-    [AzureNextGenResourceType("azure-nextgen:databricks/latest:vNetPeering")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.")]
+    [AzureNativeResourceType("azure-native:databricks/latest:vNetPeering")]
     public partial class VNetPeering : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VNetPeering(string name, VNetPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks/latest:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databricks/latest:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VNetPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks/latest:vNetPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databricks/latest:vNetPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,7 +114,9 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks:vNetPeering"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:vNetPeering"},
                 },
             };

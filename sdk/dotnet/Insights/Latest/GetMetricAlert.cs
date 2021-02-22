@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'.")]
     public static class GetMetricAlert
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2018-03-01.
         /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-nextgen:insights/latest:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights/latest:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
     }
 
 

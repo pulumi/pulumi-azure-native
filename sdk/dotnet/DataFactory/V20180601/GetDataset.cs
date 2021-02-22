@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     public static class GetDataset
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Dataset resource type.
         /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-nextgen:datafactory/v20180601:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-native:datafactory/v20180601:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
     }
 
 

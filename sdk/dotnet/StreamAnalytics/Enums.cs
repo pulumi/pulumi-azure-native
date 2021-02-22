@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics
+namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.

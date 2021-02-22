@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
+namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
     public static class GetArtifact
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// Represents a blueprint artifact.
         /// </summary>
         public static Task<GetArtifactResult> InvokeAsync(GetArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-nextgen:blueprint/v20181101preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-native:blueprint/v20181101preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
     }
 
 

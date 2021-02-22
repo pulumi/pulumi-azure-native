@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:AFDOriginGroup")]
+    [AzureNativeResourceType("azure-native:cdn/v20200901:AFDOriginGroup")]
     public partial class AFDOriginGroup : Pulumi.CustomResource
     {
         [Output("deploymentStatus")]
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AFDOriginGroup(string name, AFDOriginGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDOriginGroup", name, args ?? new AFDOriginGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200901:AFDOriginGroup", name, args ?? new AFDOriginGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AFDOriginGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDOriginGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200901:AFDOriginGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,7 +97,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOriginGroup"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDOriginGroup"},
                 },
             };
@@ -162,7 +164,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("sessionAffinityState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.EnabledState>? SessionAffinityState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.EnabledState>? SessionAffinityState { get; set; }
 
         /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.

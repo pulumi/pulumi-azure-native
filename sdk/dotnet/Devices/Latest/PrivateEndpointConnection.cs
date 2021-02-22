@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Latest
+namespace Pulumi.AzureNative.Devices.Latest
 {
     /// <summary>
     /// The private endpoint connection of an IotHub
     /// Latest API Version: 2020-08-31.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:devices/latest:PrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:PrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:devices/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,13 +60,21 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200401:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:PrivateEndpointConnection"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20150501Preview
+namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
     public static class GetFailoverGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// A failover group.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-nextgen:sql/v20150501preview:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:sql/v20150501preview:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithVersion());
     }
 
 

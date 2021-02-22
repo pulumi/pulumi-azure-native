@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         /// </summary>
         [Input("multiVmSyncStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.SetMultiVmSyncStatus> MultiVmSyncStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SetMultiVmSyncStatus> MultiVmSyncStatus { get; set; } = null!;
 
         /// <summary>
         /// The duration in minutes until which the recovery points need to be stored.

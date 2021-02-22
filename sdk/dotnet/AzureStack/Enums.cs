@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AzureStack
+namespace Pulumi.AzureNative.AzureStack
 {
     /// <summary>
     /// Location of the resource.

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents an environment instance
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:Environment")]
+    [AzureNativeResourceType("azure-native:labservices/v20181015:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/v20181015:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/v20181015:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,7 +136,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:Environment"},
                 },
             };

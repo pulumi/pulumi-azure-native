@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Latest
+namespace Pulumi.AzureNative.DataBox.Latest
 {
     /// <summary>
     /// Job Resource.
     /// Latest API Version: 2020-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.")]
-    [AzureNextGenResourceType("azure-nextgen:databox/latest:Job")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.")]
+    [AzureNativeResourceType("azure-native:databox/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -140,12 +140,12 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databox/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databox/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databox/latest:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databox/latest:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -156,10 +156,15 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20190901:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20190901:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20200401:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20200401:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20201101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20201101:Job"},
                 },
             };
@@ -194,7 +199,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// Delivery type of Job.
         /// </summary>
         [Input("deliveryType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.JobDeliveryType>? DeliveryType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBox.Latest.JobDeliveryType>? DeliveryType { get; set; }
 
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.
@@ -248,7 +253,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// Type of the data transfer.
         /// </summary>
         [Input("transferType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.TransferType> TransferType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.Latest.TransferType> TransferType { get; set; } = null!;
 
         public JobArgs()
         {

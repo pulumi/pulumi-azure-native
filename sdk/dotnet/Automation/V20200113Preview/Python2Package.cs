@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20200113Preview
+namespace Pulumi.AzureNative.Automation.V20200113Preview
 {
     /// <summary>
     /// Definition of the module type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20200113preview:Python2Package")]
+    [AzureNativeResourceType("azure-native:automation/v20200113preview:Python2Package")]
     public partial class Python2Package : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Python2Package(string name, Python2PackageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20200113preview:Python2Package", name, args ?? new Python2PackageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20200113preview:Python2Package", name, args ?? new Python2PackageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Python2Package(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20200113preview:Python2Package", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20200113preview:Python2Package", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,9 +136,13 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20180630:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Python2Package"},
                 },
             };

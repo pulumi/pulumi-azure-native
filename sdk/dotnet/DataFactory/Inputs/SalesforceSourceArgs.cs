@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The read behavior for the operation. Default is Query.
         /// </summary>
         [Input("readBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.SalesforceSourceReadBehavior>? ReadBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.SalesforceSourceReadBehavior>? ReadBehavior { get; set; }
 
         /// <summary>
         /// Source retry count. Type: integer (or Expression with resultType integer).

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
+namespace Pulumi.AzureNative.Scheduler.V20140801Preview.Inputs
 {
 
     public sealed class JobErrorActionArgs : Pulumi.ResourceArgs
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
         /// Gets or sets the job error action type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Scheduler.V20140801Preview.JobActionType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.V20140801Preview.JobActionType>? Type { get; set; }
 
         public JobErrorActionArgs()
         {

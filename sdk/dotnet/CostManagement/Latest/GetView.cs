@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Latest
+namespace Pulumi.AzureNative.CostManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getView'.")]
     public static class GetView
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:costmanagement/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-native:costmanagement/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
     }
 
 

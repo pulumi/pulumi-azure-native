@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.Inputs
+namespace Pulumi.AzureNative.DataMigration.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Inputs
         /// Authentication type to use for connection
         /// </summary>
         [Input("authentication")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.AuthenticationType>? Authentication { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.AuthenticationType>? Authentication { get; set; }
 
         /// <summary>
         /// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Inputs
         /// Server platform type for connection
         /// </summary>
         [Input("platform")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.SqlSourcePlatform>? Platform { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.SqlSourcePlatform>? Platform { get; set; }
 
         /// <summary>
         /// Whether to trust the server certificate

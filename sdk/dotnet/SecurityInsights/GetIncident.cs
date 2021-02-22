@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     public static class GetIncident
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-nextgen:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
     }
 
 

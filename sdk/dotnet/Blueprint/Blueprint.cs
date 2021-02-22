@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint
+namespace Pulumi.AzureNative.Blueprint
 {
     /// <summary>
     /// Represents a Blueprint definition.
     /// API Version: 2018-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint:Blueprint")]
+    [AzureNativeResourceType("azure-native:blueprint:Blueprint")]
     public partial class Blueprint : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Blueprint(string name, BlueprintArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Blueprint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint:Blueprint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint:Blueprint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Blueprint"},
                     new Pulumi.Alias { Type = "azure-nextgen:blueprint/v20181101preview:Blueprint"},
                 },
             };
@@ -183,7 +184,7 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// The scope where this blueprint definition can be assigned.
         /// </summary>
         [Input("targetScope", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.BlueprintTargetScope> TargetScope { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.BlueprintTargetScope> TargetScope { get; set; } = null!;
 
         /// <summary>
         /// Published versions of this blueprint definition.

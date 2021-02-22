@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
     /// <summary>
     /// Role Addon
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901preview:Addon")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Addon(string name, AddonArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901preview:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Addon(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:Addon", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901preview:Addon", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Addon"},
                 },
             };
@@ -106,7 +109,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// Addon type.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.AddonType> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.AddonType> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// The connector resource format.
     /// API Version: 2017-04-26.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights:Connector")]
+    [AzureNativeResourceType("azure-native:customerinsights:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,8 +119,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Connector"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Connector"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Connector"},
                 },
             };
@@ -167,7 +170,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Type of connector.
         /// </summary>
         [Input("connectorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CustomerInsights.ConnectorTypes> ConnectorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CustomerInsights.ConnectorTypes> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// Description of the connector.

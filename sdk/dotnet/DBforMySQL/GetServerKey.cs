@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL
+namespace Pulumi.AzureNative.DBforMySQL
 {
     public static class GetServerKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbformysql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformysql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }
 
 

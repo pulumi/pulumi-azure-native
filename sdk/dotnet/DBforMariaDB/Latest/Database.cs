@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
+namespace Pulumi.AzureNative.DBforMariaDB.Latest
 {
     /// <summary>
     /// Represents a Database.
     /// Latest API Version: 2018-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:Database")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Database'.")]
+    [AzureNativeResourceType("azure-native:dbformariadb/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformariadb/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/latest:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformariadb/latest:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:Database"},
                 },
             };

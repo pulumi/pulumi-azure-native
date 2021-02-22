@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam
+namespace Pulumi.AzureNative.AadIam
 {
     /// <summary>
     /// The diagnostic setting resource.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:aadiam:DiagnosticSetting")]
+    [AzureNativeResourceType("azure-native:aadiam:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.AadIam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aadiam/latest:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/latest:DiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20170401:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20170401:DiagnosticSetting"},
                 },
             };

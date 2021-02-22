@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.Inputs
+namespace Pulumi.AzureNative.VMwareCloudSimple.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Inputs
         /// NIC type
         /// </summary>
         [Input("nicType", required: true)]
-        public Input<Pulumi.AzureNextGen.VMwareCloudSimple.NICType> NicType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.VMwareCloudSimple.NICType> NicType { get; set; } = null!;
 
         /// <summary>
         /// Is NIC powered on/off on boot

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     public static class GetAnalyticsItem
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Properties that define an Analytics item that is associated to an Application Insights component.
         /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-nextgen:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
     }
 
 

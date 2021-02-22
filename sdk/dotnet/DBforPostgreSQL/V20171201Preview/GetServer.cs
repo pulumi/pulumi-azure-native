@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
 {
     public static class GetServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
         /// Represents a server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbforpostgresql/v20171201preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql/v20171201preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

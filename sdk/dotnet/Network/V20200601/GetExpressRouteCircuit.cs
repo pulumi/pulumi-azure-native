@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601
+namespace Pulumi.AzureNative.Network.V20200601
 {
     public static class GetExpressRouteCircuit
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// ExpressRouteCircuit resource.
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-nextgen:network/v20200601:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network/v20200601:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
     }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     /// <summary>
     /// The access type of the rule.

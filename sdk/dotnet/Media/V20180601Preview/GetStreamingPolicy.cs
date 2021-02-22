@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview
+namespace Pulumi.AzureNative.Media.V20180601Preview
 {
     public static class GetStreamingPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// A Streaming Policy resource
         /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-nextgen:media/v20180601preview:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media/v20180601preview:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithVersion());
     }
 
 

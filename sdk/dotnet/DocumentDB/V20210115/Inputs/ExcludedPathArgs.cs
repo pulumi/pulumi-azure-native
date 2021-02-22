@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20210115.Inputs
+namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
 {
 
     public sealed class ExcludedPathArgs : Pulumi.ResourceArgs

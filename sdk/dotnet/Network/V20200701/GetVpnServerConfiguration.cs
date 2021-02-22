@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     public static class GetVpnServerConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// VpnServerConfiguration Resource.
         /// </summary>
         public static Task<GetVpnServerConfigurationResult> InvokeAsync(GetVpnServerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-nextgen:network/v20200701:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network/v20200701:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithVersion());
     }
 
 

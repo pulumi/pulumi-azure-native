@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210201
+namespace Pulumi.AzureNative.RecoveryServices.V20210201
 {
     public static class GetProtectionIntent
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20210201
         /// Base class for backup ProtectionIntent.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-nextgen:recoveryservices/v20210201:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20210201:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
     }
 
 

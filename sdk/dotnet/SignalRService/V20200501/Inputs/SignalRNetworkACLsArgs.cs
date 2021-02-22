@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
+namespace Pulumi.AzureNative.SignalRService.V20200501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
         /// Default action when no other rule matches
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200501.ACLAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SignalRService.V20200501.ACLAction>? DefaultAction { get; set; }
 
         [Input("privateEndpoints")]
         private InputList<Inputs.PrivateEndpointACLArgs>? _privateEndpoints;

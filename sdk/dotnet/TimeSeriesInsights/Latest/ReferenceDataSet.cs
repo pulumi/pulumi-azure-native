@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     /// Latest API Version: 2020-05-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.")]
-    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:ReferenceDataSet'.")]
+    [AzureNativeResourceType("azure-native:timeseriesinsights/latest:ReferenceDataSet")]
     public partial class ReferenceDataSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReferenceDataSet(string name, ReferenceDataSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet", name, args ?? new ReferenceDataSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:timeseriesinsights/latest:ReferenceDataSet", name, args ?? new ReferenceDataSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReferenceDataSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:timeseriesinsights/latest:ReferenceDataSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,10 +90,15 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"},
                 },
             };
@@ -122,7 +127,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         /// </summary>
         [Input("dataStringComparisonBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.DataStringComparisonBehavior>? DataStringComparisonBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.DataStringComparisonBehavior>? DataStringComparisonBehavior { get; set; }
 
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.

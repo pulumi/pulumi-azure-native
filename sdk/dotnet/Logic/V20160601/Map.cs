@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The integration account map.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20160601:Map")]
+    [AzureNativeResourceType("azure-native:logic/v20160601:Map")]
     public partial class Map : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Map(string name, MapArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Map", name, args ?? new MapArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20160601:Map", name, args ?? new MapArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Map(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20160601:Map", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20160601:Map", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,10 +112,15 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:Map"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Map"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:Map"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Map"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Map"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Map"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Map"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Map"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:Map"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Map"},
                 },
             };
@@ -174,7 +179,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The map type.
         /// </summary>
         [Input("mapType", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.V20160601.MapType> MapType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.V20160601.MapType> MapType { get; set; } = null!;
 
         /// <summary>
         /// The metadata.

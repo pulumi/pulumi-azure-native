@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
+namespace Pulumi.AzureNative.Insights.V20180416.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Metric Trigger Type - 'Consecutive' or 'Total'
         /// </summary>
         [Input("metricTriggerType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.MetricTriggerType>? MetricTriggerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180416.MetricTriggerType>? MetricTriggerType { get; set; }
 
         /// <summary>
         /// The threshold of the metric trigger.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         /// </summary>
         [Input("thresholdOperator")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.ConditionalOperator>? ThresholdOperator { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180416.ConditionalOperator>? ThresholdOperator { get; set; }
 
         public LogMetricTriggerArgs()
         {

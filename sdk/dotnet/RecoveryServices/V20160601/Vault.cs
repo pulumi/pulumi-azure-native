@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
+namespace Pulumi.AzureNative.RecoveryServices.V20160601
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160601:Vault")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20160601:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vault(string name, VaultArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160601:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20160601:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Vault(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160601:Vault", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20160601:Vault", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,9 +88,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20200202:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:Vault"},
                 },
             };

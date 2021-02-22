@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20200501Preview
+namespace Pulumi.AzureNative.Insights.V20200501Preview
 {
     /// <summary>
     /// The criteria operator.

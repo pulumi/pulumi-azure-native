@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getModule'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getModule'.")]
     public static class GetModule
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-nextgen:automation/latest:getModule", args ?? new GetModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/latest:getModule", args ?? new GetModuleArgs(), options.WithVersion());
     }
 
 

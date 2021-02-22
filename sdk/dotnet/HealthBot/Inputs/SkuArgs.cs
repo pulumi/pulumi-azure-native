@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthBot.Inputs
+namespace Pulumi.AzureNative.HealthBot.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Inputs
         /// The name of the HealthBot SKU
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNextGen.HealthBot.SkuName> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HealthBot.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

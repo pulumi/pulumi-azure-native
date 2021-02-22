@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DynamicsAuthenticationType> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.DynamicsAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("deploymentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DynamicsDeploymentType> DeploymentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20170901Preview.DynamicsDeploymentType> DeploymentType { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.

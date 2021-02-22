@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Inputs
         /// Indicates the conflict resolution mode.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.ConflictResolutionMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.ConflictResolutionMode>? Mode { get; set; }
 
         public ConflictResolutionPolicyArgs()
         {

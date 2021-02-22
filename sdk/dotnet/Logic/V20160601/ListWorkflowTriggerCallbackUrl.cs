@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601
+namespace Pulumi.AzureNative.Logic.V20160601
 {
     public static class ListWorkflowTriggerCallbackUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListWorkflowTriggerCallbackUrlResult> InvokeAsync(ListWorkflowTriggerCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowTriggerCallbackUrlResult>("azure-nextgen:logic/v20160601:listWorkflowTriggerCallbackUrl", args ?? new ListWorkflowTriggerCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowTriggerCallbackUrlResult>("azure-native:logic/v20160601:listWorkflowTriggerCallbackUrl", args ?? new ListWorkflowTriggerCallbackUrlArgs(), options.WithVersion());
     }
 
 

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'.")]
     public static class ListGlobalUserLabs
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Latest API Version: 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-nextgen:labservices/latest:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-native:labservices/latest:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
     }
 
 

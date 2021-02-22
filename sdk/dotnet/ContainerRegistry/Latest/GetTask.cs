@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
+namespace Pulumi.AzureNative.ContainerRegistry.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getTask'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getTask'.")]
     public static class GetTask
     {
         /// <summary>
@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// Latest API Version: 2019-04-01.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-nextgen:containerregistry/latest:getTask", args ?? new GetTaskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry/latest:getTask", args ?? new GetTaskArgs(), options.WithVersion());
     }
 
 

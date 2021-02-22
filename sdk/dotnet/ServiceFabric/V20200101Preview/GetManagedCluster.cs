@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     public static class GetManagedCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// The manged cluster resource
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-nextgen:servicefabric/v20200101preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric/v20200101preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
     }
 
 

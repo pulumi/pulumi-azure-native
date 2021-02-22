@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server trust group.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ServerTrustGroup")]
+    [AzureNativeResourceType("azure-native:sql:ServerTrustGroup")]
     public partial class ServerTrustGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerTrustGroup(string name, ServerTrustGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ServerTrustGroup", name, args ?? new ServerTrustGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ServerTrustGroup", name, args ?? new ServerTrustGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerTrustGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ServerTrustGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ServerTrustGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,7 +65,9 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerTrustGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerTrustGroup"},
                 },
             };

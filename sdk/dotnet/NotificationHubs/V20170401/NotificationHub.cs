@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
+namespace Pulumi.AzureNative.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a NotificationHub Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:notificationhubs/v20170401:NotificationHub")]
+    [AzureNativeResourceType("azure-native:notificationhubs/v20170401:NotificationHub")]
     public partial class NotificationHub : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationHub(string name, NotificationHubArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs/v20170401:NotificationHub", name, args ?? new NotificationHubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:notificationhubs/v20170401:NotificationHub", name, args ?? new NotificationHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationHub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notificationhubs/v20170401:NotificationHub", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:notificationhubs/v20170401:NotificationHub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,9 +118,13 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:NotificationHub"},
+                    new Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHub"},
                 },
             };

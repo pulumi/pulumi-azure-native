@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     public static class GetServerTrustGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// A server trust group.
         /// </summary>
         public static Task<GetServerTrustGroupResult> InvokeAsync(GetServerTrustGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustGroupResult>("azure-nextgen:sql/v20200801preview:getServerTrustGroup", args ?? new GetServerTrustGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustGroupResult>("azure-native:sql/v20200801preview:getServerTrustGroup", args ?? new GetServerTrustGroupArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         /// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         /// </summary>
         [Input("applicationSharingPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Latest.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.Latest.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
 
         /// <summary>
         /// The Compute Instance Authorization type. Available values are personal (default).
         /// </summary>
         [Input("computeInstanceAuthorizationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Latest.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.Latest.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
 
         /// <summary>
         /// Settings for a personal compute instance.

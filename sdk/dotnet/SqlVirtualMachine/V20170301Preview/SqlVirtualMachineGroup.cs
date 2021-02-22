@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
+namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL virtual machine group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup")]
+    [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlVirtualMachineGroup(string name, SqlVirtualMachineGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup", name, args ?? new SqlVirtualMachineGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup", name, args ?? new SqlVirtualMachineGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlVirtualMachineGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sqlvirtualmachine:SqlVirtualMachineGroup"},
                 },
             };
@@ -152,7 +153,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// SQL image sku.
         /// </summary>
         [Input("sqlImageSku")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlVmGroupImageSku>? SqlImageSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.SqlVmGroupImageSku>? SqlImageSku { get; set; }
 
         /// <summary>
         /// Name of the SQL virtual machine group.

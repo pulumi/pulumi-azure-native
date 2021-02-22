@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
+namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
     public static class ListDomainSharedAccessKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// Shared access keys of the Domain.
         /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-nextgen:eventgrid/v20200401preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithVersion());
     }
 
 

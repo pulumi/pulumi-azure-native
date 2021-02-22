@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:FileShare")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
@@ -128,12 +128,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileShare(string name, FileShareArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileShare(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:FileShare", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:FileShare", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -144,10 +144,15 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileShare"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileShare"},
                 },
             };
@@ -176,7 +181,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         /// </summary>
         [Input("accessTier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.ShareAccessTier>? AccessTier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.ShareAccessTier>? AccessTier { get; set; }
 
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -188,7 +193,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The authentication protocol that is used for the file share. Can only be specified when creating a share.
         /// </summary>
         [Input("enabledProtocols")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.EnabledProtocols>? EnabledProtocols { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.EnabledProtocols>? EnabledProtocols { get; set; }
 
         /// <summary>
         /// Optional, used to create a snapshot.
@@ -218,7 +223,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The property is for NFS share only. The default is NoRootSquash.
         /// </summary>
         [Input("rootSquash")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.RootSquashType>? RootSquash { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.RootSquashType>? RootSquash { get; set; }
 
         /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.

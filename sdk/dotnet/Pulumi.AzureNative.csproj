@@ -4,10 +4,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Pulumi Corp.</Authors>
     <Company>Pulumi Corp.</Company>
-    <Description>A Next Generation Pulumi package for creating and managing Azure resources.</Description>
+    <Description>A native Pulumi package for creating and managing Azure resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pulumi/pulumi-azure-nextgen</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pulumi/pulumi-azure-native</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>netcoreapp3.1</TargetFramework>

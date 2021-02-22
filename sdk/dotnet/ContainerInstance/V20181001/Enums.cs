@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20181001
+namespace Pulumi.AzureNative.ContainerInstance.V20181001
 {
     /// <summary>
     /// Specifies if the IP is exposed to the public internet or private VNET.

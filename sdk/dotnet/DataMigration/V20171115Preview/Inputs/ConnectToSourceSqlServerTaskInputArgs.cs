@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20171115Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Inputs
         /// Permission group for validations
         /// </summary>
         [Input("checkPermissionsGroup")]
-        public Input<Pulumi.AzureNextGen.DataMigration.V20171115Preview.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
+        public Input<Pulumi.AzureNative.DataMigration.V20171115Preview.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
 
         /// <summary>
         /// Connection information for Source SQL Server

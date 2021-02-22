@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh
+namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes an application resource.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh:Application")]
+    [AzureNativeResourceType("azure-native:servicefabricmesh:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabricmesh:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabricmesh:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,7 +125,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180701preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Application"},
                 },
             };

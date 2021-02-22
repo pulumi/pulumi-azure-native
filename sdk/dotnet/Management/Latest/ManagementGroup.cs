@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.Latest
+namespace Pulumi.AzureNative.Management.Latest
 {
     /// <summary>
     /// The management group details.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")]
-    [AzureNextGenResourceType("azure-nextgen:management/latest:ManagementGroup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.")]
+    [AzureNativeResourceType("azure-native:management/latest:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Management.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/latest:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:management/latest:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/latest:ManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:management/latest:ManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,12 +84,19 @@ namespace Pulumi.AzureNextGen.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20171101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20171101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180301preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20191101:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroup"},
                 },
             };

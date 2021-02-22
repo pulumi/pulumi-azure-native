@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Represents an environment instance
     /// API Version: 2018-10-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices:Environment")]
+    [AzureNativeResourceType("azure-native:labservices:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,7 +137,9 @@ namespace Pulumi.AzureNextGen.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:Environment"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Communication
+namespace Pulumi.AzureNative.Communication
 {
     public static class ListCommunicationServiceKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Communication
         /// API Version: 2020-08-20-preview.
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-nextgen:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
     }
 
 

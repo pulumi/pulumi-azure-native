@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
+namespace Pulumi.AzureNative.CognitiveServices.V20170418
 {
     public static class GetAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
         /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:cognitiveservices/v20170418:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:cognitiveservices/v20170418:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

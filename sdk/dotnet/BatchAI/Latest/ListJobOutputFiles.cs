@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobOutputFiles'.")]
     public static class ListJobOutputFiles
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// Latest API Version: 2018-05-01.
         /// </summary>
         public static Task<ListJobOutputFilesResult> InvokeAsync(ListJobOutputFilesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-nextgen:batchai/latest:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-native:batchai/latest:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
     }
 
 

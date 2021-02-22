@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
+namespace Pulumi.AzureNative.ContainerRegistry.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'.")]
     public static class ListRegistryCredentials
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// Latest API Version: 2019-05-01.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-nextgen:containerregistry/latest:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/latest:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
     }
 
 

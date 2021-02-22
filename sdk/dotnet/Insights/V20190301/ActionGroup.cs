@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20190301
+namespace Pulumi.AzureNative.Insights.V20190301
 {
     /// <summary>
     /// An action group resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20190301:ActionGroup")]
+    [AzureNativeResourceType("azure-native:insights/v20190301:ActionGroup")]
     public partial class ActionGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Insights.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionGroup(string name, ActionGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20190301:ActionGroup", name, args ?? new ActionGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20190301:ActionGroup", name, args ?? new ActionGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActionGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20190301:ActionGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20190301:ActionGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,11 +136,17 @@ namespace Pulumi.AzureNextGen.Insights.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180901:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20190601:ActionGroup"},
                 },
             };

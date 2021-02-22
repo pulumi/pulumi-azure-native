@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200301
+namespace Pulumi.AzureNative.Network.V20200301
 {
     public static class GetLoadBalancer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// LoadBalancer resource.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-nextgen:network/v20200301:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/v20200301:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
     }
 
 

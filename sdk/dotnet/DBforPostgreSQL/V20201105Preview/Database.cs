@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201105Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20201105Preview
 {
     /// <summary>
     /// Represents a Database.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20201105preview:Database")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/v20201105preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201105Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20201105preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/v20201105preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20201105preview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/v20201105preview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 

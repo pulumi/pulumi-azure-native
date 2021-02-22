@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200901
+namespace Pulumi.AzureNative.Web.V20200901
 {
     public static class ListWebAppAzureStorageAccountsSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// AzureStorageInfo dictionary resource.
         /// </summary>
         public static Task<ListWebAppAzureStorageAccountsSlotResult> InvokeAsync(ListWebAppAzureStorageAccountsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsSlotResult>("azure-nextgen:web/v20200901:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsSlotResult>("azure-native:web/v20200901:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotArgs(), options.WithVersion());
     }
 
 

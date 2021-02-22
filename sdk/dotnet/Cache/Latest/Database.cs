@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
     /// Latest API Version: 2021-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'.")]
-    [AzureNextGenResourceType("azure-nextgen:cache/latest:Database")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'.")]
+    [AzureNativeResourceType("azure-native:cache/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/latest:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,8 +102,11 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:Database"},
                 },
             };
@@ -132,7 +135,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         /// </summary>
         [Input("clientProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.Protocol>? ClientProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.Protocol>? ClientProtocol { get; set; }
 
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -144,7 +147,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Clustering policy - default is OSSCluster. Specified at create time.
         /// </summary>
         [Input("clusteringPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.ClusteringPolicy>? ClusteringPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.ClusteringPolicy>? ClusteringPolicy { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -156,7 +159,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Redis eviction policy - default is VolatileLRU
         /// </summary>
         [Input("evictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.EvictionPolicy>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.EvictionPolicy>? EvictionPolicy { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ModuleArgs>? _modules;

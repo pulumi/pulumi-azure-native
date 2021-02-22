@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview.Inputs
+namespace Pulumi.AzureNative.KubernetesConfiguration.V20201001Preview.Inputs
 {
 
     /// <summary>

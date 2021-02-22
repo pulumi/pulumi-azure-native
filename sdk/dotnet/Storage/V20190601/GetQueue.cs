@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20190601
+namespace Pulumi.AzureNative.Storage.V20190601
 {
     public static class GetQueue
     {
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:storage/v20190601:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage/v20190601:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }
 
 

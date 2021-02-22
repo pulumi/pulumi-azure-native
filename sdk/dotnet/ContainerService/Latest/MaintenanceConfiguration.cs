@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest
+namespace Pulumi.AzureNative.ContainerService.Latest
 {
     /// <summary>
     /// maintenance configuration.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:MaintenanceConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:containerservice/latest:MaintenanceConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.")]
+    [AzureNativeResourceType("azure-native:containerservice/latest:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceConfiguration(string name, MaintenanceConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/latest:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice/latest:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MaintenanceConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/latest:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice/latest:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"},
                 },
             };

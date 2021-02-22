@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20190401
+namespace Pulumi.AzureNative.Storage.V20190401
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/v20190401:ManagementPolicy")]
+    [AzureNativeResourceType("azure-native:storage/v20190401:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementPolicy(string name, ManagementPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190401:ManagementPolicy", name, args ?? new ManagementPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20190401:ManagementPolicy", name, args ?? new ManagementPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190401:ManagementPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20190401:ManagementPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,12 +64,19 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ManagementPolicy"},
                 },
             };

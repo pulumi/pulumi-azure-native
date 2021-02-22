@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX Port Mirroring
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:WorkloadNetworkPortMirroring")]
+    [AzureNativeResourceType("azure-native:avs:WorkloadNetworkPortMirroring")]
     public partial class WorkloadNetworkPortMirroring : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadNetworkPortMirroring(string name, WorkloadNetworkPortMirroringArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkPortMirroring", name, args ?? new WorkloadNetworkPortMirroringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:WorkloadNetworkPortMirroring", name, args ?? new WorkloadNetworkPortMirroringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadNetworkPortMirroring(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkPortMirroring", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:WorkloadNetworkPortMirroring", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkPortMirroring"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring"},
                 },
             };
@@ -130,7 +132,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// Direction of port mirroring profile.
         /// </summary>
         [Input("direction")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.PortMirroringDirectionEnum>? Direction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.PortMirroringDirectionEnum>? Direction { get; set; }
 
         /// <summary>
         /// Display name of the port mirroring profile.

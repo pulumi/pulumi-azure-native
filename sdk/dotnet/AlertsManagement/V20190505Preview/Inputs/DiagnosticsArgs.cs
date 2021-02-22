@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.Inputs
         /// Indicates if the given action rule is enabled or disabled
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20190505Preview.ActionRuleStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20190505Preview.ActionRuleStatus>? Status { get; set; }
 
         /// <summary>
         /// Indicates type of action rule

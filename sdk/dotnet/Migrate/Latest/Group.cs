@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
     /// <summary>
     /// A group created in a Migration project.
     /// Latest API Version: 2019-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Group'.")]
-    [AzureNextGenResourceType("azure-nextgen:migrate/latest:Group")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:Group'.")]
+    [AzureNativeResourceType("azure-native:migrate/latest:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/latest:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:Group", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/latest:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Group"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Group"},
                 },
             };

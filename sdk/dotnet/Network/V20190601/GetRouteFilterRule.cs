@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190601
+namespace Pulumi.AzureNative.Network.V20190601
 {
     public static class GetRouteFilterRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// Route Filter Rule Resource.
         /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-nextgen:network/v20190601:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-native:network/v20190601:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithVersion());
     }
 
 

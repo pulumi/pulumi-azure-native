@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.DataFactory.Latest.FactoryIdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DataFactory.Latest.FactoryIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

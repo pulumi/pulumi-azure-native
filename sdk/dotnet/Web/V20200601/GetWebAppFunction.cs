@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     public static class GetWebAppFunction
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// Function information.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-nextgen:web/v20200601:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web/v20200601:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
     }
 
 

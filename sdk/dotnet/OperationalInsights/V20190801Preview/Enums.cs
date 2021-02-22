@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 {
     /// <summary>
     /// The identity type.

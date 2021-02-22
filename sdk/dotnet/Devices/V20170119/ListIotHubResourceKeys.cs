@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20170119
+namespace Pulumi.AzureNative.Devices.V20170119
 {
     public static class ListIotHubResourceKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170119
         /// The list of shared access policies with a next link.
         /// </summary>
         public static Task<ListIotHubResourceKeysResult> InvokeAsync(ListIotHubResourceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-nextgen:devices/v20170119:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-native:devices/v20170119:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
     }
 
 

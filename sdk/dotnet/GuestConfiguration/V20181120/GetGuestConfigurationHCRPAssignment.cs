@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
+namespace Pulumi.AzureNative.GuestConfiguration.V20181120
 {
     public static class GetGuestConfigurationHCRPAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
         /// Guest configuration assignment is an association between a machine and guest configuration.
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-nextgen:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
     }
 
 

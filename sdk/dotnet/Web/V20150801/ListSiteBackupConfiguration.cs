@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class ListSiteBackupConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Description of a backup which will be performed
         /// </summary>
         public static Task<ListSiteBackupConfigurationResult> InvokeAsync(ListSiteBackupConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupConfigurationResult>("azure-nextgen:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupConfigurationResult>("azure-native:web/v20150801:listSiteBackupConfiguration", args ?? new ListSiteBackupConfigurationArgs(), options.WithVersion());
     }
 
 

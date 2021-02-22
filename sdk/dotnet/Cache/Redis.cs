@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
     /// API Version: 2020-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache:Redis")]
+    [AzureNativeResourceType("azure-native:cache:Redis")]
     public partial class Redis : Pulumi.CustomResource
     {
         /// <summary>
@@ -169,12 +169,12 @@ namespace Pulumi.AzureNextGen.Cache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Redis(string name, RedisArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Redis(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:Redis", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache:Redis", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -185,13 +185,21 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20150801:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:Redis"},
                 },
             };
@@ -232,7 +240,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         /// </summary>
         [Input("minimumTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.TlsVersion>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.
@@ -244,7 +252,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         [Input("redisConfiguration")]
         private InputMap<string>? _redisConfiguration;

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Inputs
+namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview.Inputs
         /// Indicates whether or not private link is enabled.
         /// </summary>
         [Input("privateLink")]
-        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.V20150301Preview.PrivateLink>? PrivateLink { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HDInsight.V20150301Preview.PrivateLink>? PrivateLink { get; set; }
 
         /// <summary>
         /// The direction for the resource provider connection.
         /// </summary>
         [Input("resourceProviderConnection")]
-        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.V20150301Preview.ResourceProviderConnection>? ResourceProviderConnection { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HDInsight.V20150301Preview.ResourceProviderConnection>? ResourceProviderConnection { get; set; }
 
         public NetworkPropertiesArgs()
         {

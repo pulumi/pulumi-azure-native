@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
     /// <summary>
     /// Information about a Cluster.
     /// Latest API Version: 2018-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:batchai/latest:Cluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Cluster'.")]
+    [AzureNativeResourceType("azure-native:batchai/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -128,12 +128,12 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -144,7 +144,9 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Cluster"},
                 },
             };
@@ -215,7 +217,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// VM priority. Allowed values are: dedicated (default) and lowpriority.
         /// </summary>
         [Input("vmPriority")]
-        public Input<Pulumi.AzureNextGen.BatchAI.Latest.VmPriority>? VmPriority { get; set; }
+        public Input<Pulumi.AzureNative.BatchAI.Latest.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
@@ -231,7 +233,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
 
         public ClusterArgs()
         {
-            VmPriority = Pulumi.AzureNextGen.BatchAI.Latest.VmPriority.Dedicated;
+            VmPriority = Pulumi.AzureNative.BatchAI.Latest.VmPriority.Dedicated;
         }
     }
 }

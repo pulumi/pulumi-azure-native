@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The extended info of the manager.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:ManagerExtendedInfo")]
     public partial class ManagerExtendedInfo : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagerExtendedInfo(string name, ManagerExtendedInfoArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo", name, args ?? new ManagerExtendedInfoArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:ManagerExtendedInfo", name, args ?? new ManagerExtendedInfoArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagerExtendedInfo(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:ManagerExtendedInfo", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:ManagerExtendedInfo"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:ManagerExtendedInfo"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo"},
                 },
             };

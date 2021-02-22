@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20150408
+namespace Pulumi.AzureNative.DocumentDB.V20150408
 {
     public static class GetDatabaseAccountSqlDatabase
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// An Azure Cosmos DB SQL database.
         /// </summary>
         public static Task<GetDatabaseAccountSqlDatabaseResult> InvokeAsync(GetDatabaseAccountSqlDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlDatabaseResult>("azure-nextgen:documentdb/v20150408:getDatabaseAccountSqlDatabase", args ?? new GetDatabaseAccountSqlDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlDatabaseResult>("azure-native:documentdb/v20150408:getDatabaseAccountSqlDatabase", args ?? new GetDatabaseAccountSqlDatabaseArgs(), options.WithVersion());
     }
 
 

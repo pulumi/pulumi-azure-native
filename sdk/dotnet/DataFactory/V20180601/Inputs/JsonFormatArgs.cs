@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
         [Input("filePattern")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.JsonFormatFilePattern>? FilePattern { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.JsonFormatFilePattern>? FilePattern { get; set; }
 
         /// <summary>
         /// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).

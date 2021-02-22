@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.Latest.Inputs
+namespace Pulumi.AzureNative.DBforMariaDB.Latest.Inputs
 {
 
     public sealed class PrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs

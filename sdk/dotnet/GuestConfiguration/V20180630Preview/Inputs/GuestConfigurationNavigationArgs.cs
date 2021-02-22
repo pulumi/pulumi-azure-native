@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.Inputs
+namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.Inputs
         /// Kind of the guest configuration. For example:DSC
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.GuestConfiguration.V20180630Preview.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Name of the guest configuration.

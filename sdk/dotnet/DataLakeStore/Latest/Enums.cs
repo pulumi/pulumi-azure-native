@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.Latest
+namespace Pulumi.AzureNative.DataLakeStore.Latest
 {
     /// <summary>
     /// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.

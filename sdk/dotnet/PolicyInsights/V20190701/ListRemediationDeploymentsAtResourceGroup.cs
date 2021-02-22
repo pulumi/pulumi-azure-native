@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
+namespace Pulumi.AzureNative.PolicyInsights.V20190701
 {
     public static class ListRemediationDeploymentsAtResourceGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
         /// List of deployments for a remediation.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-nextgen:policyinsights/v20190701:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights/v20190701:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithVersion());
     }
 
 

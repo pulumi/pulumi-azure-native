@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.V20200601Preview
+namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
     public static class GetCustomerSubscription
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20200601Preview
         /// Customer subscription.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-nextgen:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
     }
 
 

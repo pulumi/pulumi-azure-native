@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20191101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
         /// Has type of the column to group.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.ReportConfigColumnType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.ReportConfigColumnType> Type { get; set; } = null!;
 
         public ReportConfigGroupingArgs()
         {

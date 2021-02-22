@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRulesEngine'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'.")]
     public static class GetRulesEngine
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetRulesEngineResult> InvokeAsync(GetRulesEngineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-nextgen:network/latest:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-native:network/latest:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
     }
 
 

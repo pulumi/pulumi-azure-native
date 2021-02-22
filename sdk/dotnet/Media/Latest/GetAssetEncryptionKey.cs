@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetEncryptionKey'.")]
     public static class GetAssetEncryptionKey
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-nextgen:media/latest:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media/latest:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
     }
 
 

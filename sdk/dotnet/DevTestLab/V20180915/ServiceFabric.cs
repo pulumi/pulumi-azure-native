@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A Service Fabric.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:ServiceFabric")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:ServiceFabric")]
     public partial class ServiceFabric : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceFabric(string name, ServiceFabricArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:ServiceFabric", name, args ?? new ServiceFabricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:ServiceFabric", name, args ?? new ServiceFabricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceFabric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:ServiceFabric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:ServiceFabric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceFabric"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ServiceFabric"},
                 },
             };

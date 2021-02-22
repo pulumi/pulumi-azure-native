@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EngagementFabric
+namespace Pulumi.AzureNative.EngagementFabric
 {
     public static class GetAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:engagementfabric:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:engagementfabric:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

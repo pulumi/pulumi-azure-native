@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
+namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
 {
     public static class ListConfigurationStoreKeyValue
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// The result of a request to retrieve a key-value from the specified configuration store.
         /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-nextgen:appconfiguration/v20191101preview:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration/v20191101preview:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
+namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 {
     public static class GetAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
         /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datalakeanalytics/v20151001preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics/v20151001preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

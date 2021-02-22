@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:FrontDoor")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FrontDoor'.")]
+    [AzureNativeResourceType("azure-native:network/latest:FrontDoor")]
     public partial class FrontDoor : Pulumi.CustomResource
     {
         /// <summary>
@@ -128,12 +128,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FrontDoor(string name, FrontDoorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:FrontDoor", name, args ?? new FrontDoorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:FrontDoor", name, args ?? new FrontDoorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FrontDoor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:FrontDoor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:FrontDoor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -144,12 +144,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FrontDoor"},
                 },
             };
@@ -196,7 +203,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FrontDoorEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.FrontDoorEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// A friendly name for the frontDoor

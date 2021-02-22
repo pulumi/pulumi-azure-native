@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTCentral
+namespace Pulumi.AzureNative.IoTCentral
 {
     public static class GetApp
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.IoTCentral
         /// API Version: 2018-09-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:iotcentral:getApp", args ?? new GetAppArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }
 
 

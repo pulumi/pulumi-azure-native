@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media
+namespace Pulumi.AzureNative.Media
 {
     public static class GetAssetEncryptionKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-nextgen:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-native:media:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
     }
 
 

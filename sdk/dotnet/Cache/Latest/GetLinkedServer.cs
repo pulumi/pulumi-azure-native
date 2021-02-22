@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getLinkedServer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getLinkedServer'.")]
     public static class GetLinkedServer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-nextgen:cache/latest:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache/latest:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
     }
 
 

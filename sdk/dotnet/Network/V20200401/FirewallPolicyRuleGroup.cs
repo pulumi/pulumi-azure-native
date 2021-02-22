@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401
+namespace Pulumi.AzureNative.Network.V20200401
 {
     /// <summary>
     /// Rule Group resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200401:FirewallPolicyRuleGroup")]
+    [AzureNativeResourceType("azure-native:network/v20200401:FirewallPolicyRuleGroup")]
     public partial class FirewallPolicyRuleGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallPolicyRuleGroup(string name, FirewallPolicyRuleGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200401:FirewallPolicyRuleGroup", name, args ?? new FirewallPolicyRuleGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200401:FirewallPolicyRuleGroup", name, args ?? new FirewallPolicyRuleGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallPolicyRuleGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200401:FirewallPolicyRuleGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200401:FirewallPolicyRuleGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,14 +76,23 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:FirewallPolicyRuleGroup"},
                 },
             };

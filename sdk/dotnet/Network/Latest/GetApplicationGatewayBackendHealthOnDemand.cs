@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'.")]
     public static class GetApplicationGatewayBackendHealthOnDemand
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-nextgen:network/latest:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/latest:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
     }
 
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The protocol used for the probe.
         /// </summary>
         [Input("protocol")]
-        public Union<string, Pulumi.AzureNextGen.Network.Latest.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public Union<string, Pulumi.AzureNative.Network.Latest.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

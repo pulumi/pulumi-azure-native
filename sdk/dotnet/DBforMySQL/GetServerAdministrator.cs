@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL
+namespace Pulumi.AzureNative.DBforMySQL
 {
     public static class GetServerAdministrator
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-nextgen:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbformysql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
     }
 
 

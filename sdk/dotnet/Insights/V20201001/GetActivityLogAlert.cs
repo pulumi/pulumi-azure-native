@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20201001
+namespace Pulumi.AzureNative.Insights.V20201001
 {
     public static class GetActivityLogAlert
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201001
         /// An Activity Log Alert rule resource.
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-nextgen:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights/v20201001:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
     }
 
 

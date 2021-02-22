@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.Latest
+namespace Pulumi.AzureNative.DataLakeStore.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getTrustedIdProvider'.")]
     public static class GetTrustedIdProvider
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// Latest API Version: 2016-11-01.
         /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-nextgen:datalakestore/latest:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-native:datalakestore/latest:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
     }
 
 

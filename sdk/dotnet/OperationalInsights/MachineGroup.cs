@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// A user-defined logical grouping of machines.
     /// API Version: 2015-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights:MachineGroup")]
+    [AzureNativeResourceType("azure-native:operationalinsights:MachineGroup")]
     public partial class MachineGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineGroup(string name, MachineGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights:MachineGroup", name, MakeArgs(args), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights:MachineGroup", name, MakeArgs(args), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights:MachineGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights:MachineGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:MachineGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:MachineGroup"},
                 },
             };
@@ -143,7 +144,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// Type of the machine group
         /// </summary>
         [Input("groupType")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.MachineGroupType>? GroupType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.MachineGroupType>? GroupType { get; set; }
 
         /// <summary>
         /// Additional resource type qualifier.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Inputs
+namespace Pulumi.AzureNative.Web.Inputs
 {
 
     public sealed class GlobalValidationArgs : Pulumi.ResourceArgs
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         public Input<bool>? RequireAuthentication { get; set; }
 
         [Input("unauthenticatedClientAction")]
-        public Input<Pulumi.AzureNextGen.Web.UnauthenticatedClientActionV2>? UnauthenticatedClientAction { get; set; }
+        public Input<Pulumi.AzureNative.Web.UnauthenticatedClientActionV2>? UnauthenticatedClientAction { get; set; }
 
         public GlobalValidationArgs()
         {

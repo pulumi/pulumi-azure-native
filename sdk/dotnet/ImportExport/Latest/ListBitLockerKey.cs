@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport.Latest
+namespace Pulumi.AzureNative.ImportExport.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:listBitLockerKey'.")]
     public static class ListBitLockerKey
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-nextgen:importexport/latest:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport/latest:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
     }
 
 

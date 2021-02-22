@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200831.Inputs
+namespace Pulumi.AzureNative.Devices.V20200831.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831.Inputs
         /// Specifies authentication type being used for connecting to the storage account.
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200831.AuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20200831.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string for the Azure Storage account to which files are uploaded.

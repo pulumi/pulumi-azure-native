@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210101
+namespace Pulumi.AzureNative.RecoveryServices.V20210101
 {
     public static class GetProtectionContainer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20210101
         /// Base class for container with backup items. Containers with specific workloads are derived from this class.
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-nextgen:recoveryservices/v20210101:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-native:recoveryservices/v20210101:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithVersion());
     }
 
 

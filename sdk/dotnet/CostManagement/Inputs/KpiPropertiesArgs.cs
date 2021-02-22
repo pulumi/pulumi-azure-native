@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// KPI type (Forecast, Budget).
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.KpiTypeType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.KpiTypeType>? Type { get; set; }
 
         public KpiPropertiesArgs()
         {

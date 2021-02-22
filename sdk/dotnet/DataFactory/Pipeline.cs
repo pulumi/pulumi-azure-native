@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Pipeline resource type.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory:Pipeline")]
+    [AzureNativeResourceType("azure-native:datafactory:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,8 +113,11 @@ namespace Pulumi.AzureNextGen.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Pipeline"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Pipeline"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp
+namespace Pulumi.AzureNative.NetApp
 {
     public static class GetBackup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.NetApp
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-nextgen:netapp:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
     }
 
 

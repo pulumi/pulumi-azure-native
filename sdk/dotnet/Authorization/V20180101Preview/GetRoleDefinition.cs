@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
+namespace Pulumi.AzureNative.Authorization.V20180101Preview
 {
     public static class GetRoleDefinition
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
         /// Role definition.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-nextgen:authorization/v20180101preview:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization/v20180101preview:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }
 
 

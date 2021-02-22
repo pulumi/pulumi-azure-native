@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Intune
+namespace Pulumi.AzureNative.Intune
 {
     /// <summary>
     /// iOS Policy entity for Intune MAM.
     /// API Version: 2015-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:intune:IoMAMPolicyByName")]
+    [AzureNativeResourceType("azure-native:intune:IoMAMPolicyByName")]
     public partial class IoMAMPolicyByName : Pulumi.CustomResource
     {
         [Output("accessRecheckOfflineTimeout")]
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.Intune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IoMAMPolicyByName(string name, IoMAMPolicyByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:intune:IoMAMPolicyByName", name, args ?? new IoMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:intune:IoMAMPolicyByName", name, args ?? new IoMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IoMAMPolicyByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:intune:IoMAMPolicyByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:intune:IoMAMPolicyByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,7 +125,9 @@ namespace Pulumi.AzureNextGen.Intune
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114preview:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:IoMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName"},
                 },
             };

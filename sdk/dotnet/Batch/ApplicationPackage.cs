@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch
+namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batch:ApplicationPackage")]
+    [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationPackage(string name, ApplicationPackageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch:ApplicationPackage", name, args ?? new ApplicationPackageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch:ApplicationPackage", name, args ?? new ApplicationPackageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationPackage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch:ApplicationPackage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch:ApplicationPackage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,17 +89,29 @@ namespace Pulumi.AzureNextGen.Batch
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch/latest:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20151201:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170101:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170501:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:ApplicationPackage"},
                 },
             };

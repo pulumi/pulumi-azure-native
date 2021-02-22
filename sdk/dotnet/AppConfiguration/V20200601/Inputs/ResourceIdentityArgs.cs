@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.V20200601.Inputs
+namespace Pulumi.AzureNative.AppConfiguration.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601.Inputs
         /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.AppConfiguration.V20200601.IdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AppConfiguration.V20200601.IdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

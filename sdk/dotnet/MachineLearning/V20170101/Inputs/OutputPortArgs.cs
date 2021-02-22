@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
+namespace Pulumi.AzureNative.MachineLearning.V20170101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
         /// Port data type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20170101.OutputPortType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.V20170101.OutputPortType>? Type { get; set; }
 
         public OutputPortArgs()
         {

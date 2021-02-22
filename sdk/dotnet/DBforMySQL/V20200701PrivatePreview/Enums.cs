@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
+namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 {
     /// <summary>
     /// The mode to create a new MySQL server.

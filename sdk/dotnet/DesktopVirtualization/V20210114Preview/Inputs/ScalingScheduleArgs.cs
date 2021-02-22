@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.Inputs
+namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.Inputs
         /// Load balancing algorithm for off-peak period.
         /// </summary>
         [Input("offPeakLoadBalancingAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? OffPeakLoadBalancingAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? OffPeakLoadBalancingAlgorithm { get; set; }
 
         /// <summary>
         /// Starting time for off-peak period.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.Inputs
         /// Load balancing algorithm for peak period.
         /// </summary>
         [Input("peakLoadBalancingAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? PeakLoadBalancingAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? PeakLoadBalancingAlgorithm { get; set; }
 
         /// <summary>
         /// Starting time for peak period.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.Inputs
         /// Load balancing algorithm for ramp down period.
         /// </summary>
         [Input("rampDownLoadBalancingAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? RampDownLoadBalancingAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? RampDownLoadBalancingAlgorithm { get; set; }
 
         /// <summary>
         /// Minimum host percentage for ramp down period.
@@ -103,13 +103,13 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.Inputs
         /// Specifies when to stop hosts during ramp down period.
         /// </summary>
         [Input("rampDownStopHostsWhen")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.StopHostsWhen>? RampDownStopHostsWhen { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.StopHostsWhen>? RampDownStopHostsWhen { get; set; }
 
         /// <summary>
         /// Load balancing algorithm for ramp up period.
         /// </summary>
         [Input("rampUpAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? RampUpAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.SessionHostLoadBalancingAlgorithm>? RampUpAlgorithm { get; set; }
 
         /// <summary>
         /// Capacity threshold for ramp up period.

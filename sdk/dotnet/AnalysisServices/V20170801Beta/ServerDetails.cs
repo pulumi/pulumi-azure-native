@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
+namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:analysisservices/v20170801beta:ServerDetails")]
+    [AzureNativeResourceType("azure-native:analysisservices/v20170801beta:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerDetails(string name, ServerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/v20170801beta:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:analysisservices/v20170801beta:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/v20170801beta:ServerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:analysisservices/v20170801beta:ServerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,10 +130,15 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/latest:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/latest:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},
                 },
             };
@@ -198,7 +203,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.
         /// </summary>
         [Input("querypoolConnectionMode")]
-        public Input<Pulumi.AzureNextGen.AnalysisServices.V20170801Beta.ConnectionMode>? QuerypoolConnectionMode { get; set; }
+        public Input<Pulumi.AzureNative.AnalysisServices.V20170801Beta.ConnectionMode>? QuerypoolConnectionMode { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -239,7 +244,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         public ServerDetailsArgs()
         {
             ManagedMode = 1;
-            QuerypoolConnectionMode = Pulumi.AzureNextGen.AnalysisServices.V20170801Beta.ConnectionMode.All;
+            QuerypoolConnectionMode = Pulumi.AzureNative.AnalysisServices.V20170801Beta.ConnectionMode.All;
             ServerMonitorMode = 1;
         }
     }

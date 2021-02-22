@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20210301
+namespace Pulumi.AzureNative.Cache.V20210301
 {
     public static class GetRedisEnterprise
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301
         /// Describes the RedisEnterprise cluster
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-nextgen:cache/v20210301:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/v20210301:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.WindowsIoT.V20190601
+namespace Pulumi.AzureNative.WindowsIoT.V20190601
 {
     /// <summary>
     /// The description of the Windows IoT Device Service.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:windowsiot/v20190601:Service")]
+    [AzureNativeResourceType("azure-native:windowsiot/v20190601:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsiot/v20190601:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:windowsiot/v20190601:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:windowsiot/v20190601:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:windowsiot/v20190601:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,8 +100,11 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:windowsiot:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot:Service"},
+                    new Pulumi.Alias { Type = "azure-native:windowsiot/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-native:windowsiot/v20180216preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20180216preview:Service"},
                 },
             };

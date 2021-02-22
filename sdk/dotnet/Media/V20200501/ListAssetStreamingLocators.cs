@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     public static class ListAssetStreamingLocators
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// The Streaming Locators associated with this Asset.
         /// </summary>
         public static Task<ListAssetStreamingLocatorsResult> InvokeAsync(ListAssetStreamingLocatorsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-nextgen:media/v20200501:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-native:media/v20200501:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithVersion());
     }
 
 

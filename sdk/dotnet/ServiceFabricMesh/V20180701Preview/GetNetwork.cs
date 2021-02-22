@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     public static class GetNetwork
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// This type describes a network resource.
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-nextgen:servicefabricmesh/v20180701preview:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-native:servicefabricmesh/v20180701preview:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
     }
 
 

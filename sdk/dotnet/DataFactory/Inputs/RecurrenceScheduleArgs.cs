@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -64,14 +64,14 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         }
 
         [Input("weekDays")]
-        private InputList<Pulumi.AzureNextGen.DataFactory.DaysOfWeek>? _weekDays;
+        private InputList<Pulumi.AzureNative.DataFactory.DaysOfWeek>? _weekDays;
 
         /// <summary>
         /// The days of the week.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.DataFactory.DaysOfWeek> WeekDays
+        public InputList<Pulumi.AzureNative.DataFactory.DaysOfWeek> WeekDays
         {
-            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNextGen.DataFactory.DaysOfWeek>());
+            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNative.DataFactory.DaysOfWeek>());
             set => _weekDays = value;
         }
 

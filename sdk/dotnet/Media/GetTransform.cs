@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media
+namespace Pulumi.AzureNative.Media
 {
     public static class GetTransform
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-nextgen:media:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
     }
 
 

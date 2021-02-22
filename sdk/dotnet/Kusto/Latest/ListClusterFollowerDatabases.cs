@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.Latest
+namespace Pulumi.AzureNative.Kusto.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterFollowerDatabases'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listClusterFollowerDatabases'.")]
     public static class ListClusterFollowerDatabases
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// Latest API Version: 2020-09-18.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-nextgen:kusto/latest:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto/latest:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
     }
 
 

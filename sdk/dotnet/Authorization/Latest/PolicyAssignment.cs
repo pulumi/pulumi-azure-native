@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Latest
+namespace Pulumi.AzureNative.Authorization.Latest
 {
     /// <summary>
     /// The policy assignment.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")]
-    [AzureNextGenResourceType("azure-nextgen:authorization/latest:PolicyAssignment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyAssignment'.")]
+    [AzureNativeResourceType("azure-native:authorization/latest:PolicyAssignment")]
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyAssignment(string name, PolicyAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:PolicyAssignment", name, args ?? new PolicyAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/latest:PolicyAssignment", name, args ?? new PolicyAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:PolicyAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/latest:PolicyAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,17 +120,29 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20161201:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190101:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicyAssignment"},
                 },
             };
@@ -171,7 +183,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         /// </summary>
         [Input("enforcementMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.Latest.EnforcementMode>? EnforcementMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.Latest.EnforcementMode>? EnforcementMode { get; set; }
 
         /// <summary>
         /// The managed identity associated with the policy assignment.

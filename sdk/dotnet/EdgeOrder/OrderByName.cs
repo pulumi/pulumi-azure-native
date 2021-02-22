@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder
+namespace Pulumi.AzureNative.EdgeOrder
 {
     /// <summary>
     /// Represents order contract
     /// API Version: 2020-12-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:edgeorder:OrderByName")]
+    [AzureNativeResourceType("azure-native:edgeorder:OrderByName")]
     public partial class OrderByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.EdgeOrder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrderByName(string name, OrderByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder:OrderByName", name, args ?? new OrderByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:edgeorder:OrderByName", name, args ?? new OrderByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrderByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder:OrderByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:edgeorder:OrderByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:edgeorder/v20201201preview:OrderByName"},
                 },
             };

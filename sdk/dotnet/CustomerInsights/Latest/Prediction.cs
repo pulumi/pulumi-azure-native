@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
     /// <summary>
     /// The prediction resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")]
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Prediction")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.")]
+    [AzureNativeResourceType("azure-native:customerinsights/latest:Prediction")]
     public partial class Prediction : Pulumi.CustomResource
     {
         /// <summary>
@@ -140,12 +140,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Prediction(string name, PredictionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/latest:Prediction", name, args ?? new PredictionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/latest:Prediction", name, args ?? new PredictionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Prediction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/latest:Prediction", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/latest:Prediction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -156,7 +156,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Prediction"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Prediction"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Prediction"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Prediction"},
                 },
             };

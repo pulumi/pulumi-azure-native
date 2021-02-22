@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Inputs
+namespace Pulumi.AzureNative.DigitalTwins.Inputs
 {
 
     public sealed class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Inputs
         /// The status of a private endpoint connection.
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.PrivateLinkServiceConnectionStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.PrivateLinkServiceConnectionStatus> Status { get; set; } = null!;
 
         public ConnectionPropertiesPrivateLinkServiceConnectionStateArgs()
         {

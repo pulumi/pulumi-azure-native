@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     public static class ListOpenIdConnectProviderSecrets
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Task<ListOpenIdConnectProviderSecretsResult> InvokeAsync(ListOpenIdConnectProviderSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-nextgen:apimanagement/v20200601preview:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement/v20200601preview:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithVersion());
     }
 
 

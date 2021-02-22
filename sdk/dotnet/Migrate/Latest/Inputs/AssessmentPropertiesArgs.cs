@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
+namespace Pulumi.AzureNative.Migrate.Latest.Inputs
 {
 
     /// <summary>
@@ -19,47 +19,47 @@ namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
         /// Storage type selected for this disk.
         /// </summary>
         [Input("azureDiskType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzureDiskType> AzureDiskType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzureDiskType> AzureDiskType { get; set; } = null!;
 
         /// <summary>
         /// AHUB discount on windows virtual machines.
         /// </summary>
         [Input("azureHybridUseBenefit", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzureHybridUseBenefit> AzureHybridUseBenefit { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzureHybridUseBenefit> AzureHybridUseBenefit { get; set; } = null!;
 
         /// <summary>
         /// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
         /// </summary>
         [Input("azureLocation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzureLocation> AzureLocation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzureLocation> AzureLocation { get; set; } = null!;
 
         /// <summary>
         /// Offer code according to which cost estimation is done.
         /// </summary>
         [Input("azureOfferCode", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzureOfferCode> AzureOfferCode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzureOfferCode> AzureOfferCode { get; set; } = null!;
 
         /// <summary>
         /// Pricing tier for Size evaluation.
         /// </summary>
         [Input("azurePricingTier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzurePricingTier> AzurePricingTier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzurePricingTier> AzurePricingTier { get; set; } = null!;
 
         /// <summary>
         /// Storage Redundancy type offered by Azure.
         /// </summary>
         [Input("azureStorageRedundancy", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AzureStorageRedundancy> AzureStorageRedundancy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AzureStorageRedundancy> AzureStorageRedundancy { get; set; } = null!;
 
         [Input("azureVmFamilies", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.Migrate.Latest.AzureVmFamily>>? _azureVmFamilies;
+        private InputList<Union<string, Pulumi.AzureNative.Migrate.Latest.AzureVmFamily>>? _azureVmFamilies;
 
         /// <summary>
         /// List of azure VM families.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Migrate.Latest.AzureVmFamily>> AzureVmFamilies
+        public InputList<Union<string, Pulumi.AzureNative.Migrate.Latest.AzureVmFamily>> AzureVmFamilies
         {
-            get => _azureVmFamilies ?? (_azureVmFamilies = new InputList<Union<string, Pulumi.AzureNextGen.Migrate.Latest.AzureVmFamily>>());
+            get => _azureVmFamilies ?? (_azureVmFamilies = new InputList<Union<string, Pulumi.AzureNative.Migrate.Latest.AzureVmFamily>>());
             set => _azureVmFamilies = value;
         }
 
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
         /// Currency to report prices in.
         /// </summary>
         [Input("currency", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.Currency> Currency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.Currency> Currency { get; set; } = null!;
 
         /// <summary>
         /// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
@@ -79,13 +79,13 @@ namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
         /// Percentile of performance data used to recommend Azure size.
         /// </summary>
         [Input("percentile", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.Percentile> Percentile { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.Percentile> Percentile { get; set; } = null!;
 
         /// <summary>
         /// Azure reserved instance.
         /// </summary>
         [Input("reservedInstance", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.ReservedInstance> ReservedInstance { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.ReservedInstance> ReservedInstance { get; set; } = null!;
 
         /// <summary>
         /// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
@@ -97,19 +97,19 @@ namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
         /// Assessment sizing criterion.
         /// </summary>
         [Input("sizingCriterion", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AssessmentSizingCriterion> SizingCriterion { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AssessmentSizingCriterion> SizingCriterion { get; set; } = null!;
 
         /// <summary>
         /// User configurable setting that describes the status of the assessment.
         /// </summary>
         [Input("stage", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.AssessmentStage> Stage { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.AssessmentStage> Stage { get; set; } = null!;
 
         /// <summary>
         /// Time range of performance data used to recommend a size.
         /// </summary>
         [Input("timeRange", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.TimeRange> TimeRange { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.TimeRange> TimeRange { get; set; } = null!;
 
         /// <summary>
         /// Specify the duration for which the VMs are up in the on-premises environment.

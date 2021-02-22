@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
+namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
 {
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Caching behavior for the requests
         /// </summary>
         [Input("queryStringBehavior", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.QueryStringBehavior> QueryStringBehavior { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190615Preview.QueryStringBehavior> QueryStringBehavior { get; set; } = null!;
 
         public CacheKeyQueryStringActionParametersArgs()
         {

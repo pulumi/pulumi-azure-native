@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20201001.Inputs
+namespace Pulumi.AzureNative.Peering.V20201001.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001.Inputs
         /// The family of the peering SKU.
         /// </summary>
         [Input("family")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20201001.Family>? Family { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20201001.Family>? Family { get; set; }
 
         /// <summary>
         /// The name of the peering SKU.
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Peering.V20201001.Inputs
         /// The size of the peering SKU.
         /// </summary>
         [Input("size")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20201001.Size>? Size { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20201001.Size>? Size { get; set; }
 
         /// <summary>
         /// The tier of the peering SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20201001.Tier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20201001.Tier>? Tier { get; set; }
 
         public PeeringSkuArgs()
         {

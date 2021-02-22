@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
+namespace Pulumi.AzureNative.Network.V20160901.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// Name of an application gateway SKU. Possible values are: 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'WAF_Medium', and 'WAF_Large'.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.ApplicationGatewaySkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewaySkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of an application gateway. Possible values are: 'Standard' and 'WAF'.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.ApplicationGatewayTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewayTier>? Tier { get; set; }
 
         public ApplicationGatewaySkuArgs()
         {

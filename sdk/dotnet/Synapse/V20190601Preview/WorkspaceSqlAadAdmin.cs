@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// Workspace active directory administrator
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceSqlAadAdmin(string name, WorkspaceSqlAadAdminArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin", name, args ?? new WorkspaceSqlAadAdminArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin", name, args ?? new WorkspaceSqlAadAdminArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceSqlAadAdmin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,8 +76,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"},
                 },
             };

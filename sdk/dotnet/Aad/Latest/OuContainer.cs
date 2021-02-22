@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.Latest
+namespace Pulumi.AzureNative.Aad.Latest
 {
     /// <summary>
     /// Resource for OuContainer.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:OuContainer'.")]
-    [AzureNextGenResourceType("azure-nextgen:aad/latest:OuContainer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.")]
+    [AzureNativeResourceType("azure-native:aad/latest:OuContainer")]
     public partial class OuContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OuContainer(string name, OuContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aad/latest:OuContainer", name, args ?? new OuContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aad/latest:OuContainer", name, args ?? new OuContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OuContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aad/latest:OuContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aad/latest:OuContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,8 +120,11 @@ namespace Pulumi.AzureNextGen.Aad.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aad:OuContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:OuContainer"},
                 },
             };

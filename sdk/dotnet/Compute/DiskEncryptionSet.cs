@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk encryption set resource.
     /// API Version: 2020-09-30.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute:DiskEncryptionSet")]
+    [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskEncryptionSet(string name, DiskEncryptionSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:DiskEncryptionSet", name, args ?? new DiskEncryptionSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute:DiskEncryptionSet", name, args ?? new DiskEncryptionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskEncryptionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:DiskEncryptionSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute:DiskEncryptionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,11 +95,17 @@ namespace Pulumi.AzureNextGen.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskEncryptionSet"},
                 },
             };
@@ -140,7 +146,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         [Input("encryptionType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.DiskEncryptionSetType>? EncryptionType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskEncryptionSetType>? EncryptionType { get; set; }
 
         /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.

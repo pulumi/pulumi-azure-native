@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Represents a server.
     /// API Version: 2014-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:Server")]
+    [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,11 +113,17 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Server"},
                 },
             };
@@ -188,7 +194,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// The version of the server.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

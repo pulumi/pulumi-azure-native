@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS
+namespace Pulumi.AzureNative.SaaS
 {
     public static class ListSaasResourceAccessToken
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SaaS
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Task<ListSaasResourceAccessTokenResult> InvokeAsync(ListSaasResourceAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-nextgen:saas:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
     }
 
 

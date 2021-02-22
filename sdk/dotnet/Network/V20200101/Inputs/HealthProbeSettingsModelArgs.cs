@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200101.Inputs
+namespace Pulumi.AzureNative.Network.V20200101.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20200101.Inputs
         /// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200101.HealthProbeEnabled>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200101.HealthProbeEnabled>? EnabledState { get; set; }
 
         /// <summary>
         /// Configures which HTTP method to use to probe the backends defined under backendPools.
         /// </summary>
         [Input("healthProbeMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200101.FrontDoorHealthProbeMethod>? HealthProbeMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200101.FrontDoorHealthProbeMethod>? HealthProbeMethod { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101.Inputs
         /// Protocol scheme to use for this probe
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200101.FrontDoorProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200101.FrontDoorProtocol>? Protocol { get; set; }
 
         public HealthProbeSettingsModelArgs()
         {

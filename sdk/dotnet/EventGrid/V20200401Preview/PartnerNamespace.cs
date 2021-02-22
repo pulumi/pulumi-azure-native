@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
+namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
     /// <summary>
     /// EventGrid Partner Namespace.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20200401preview:PartnerNamespace")]
     public partial class PartnerNamespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PartnerNamespace(string name, PartnerNamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace", name, args ?? new PartnerNamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20200401preview:PartnerNamespace", name, args ?? new PartnerNamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PartnerNamespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20200401preview:PartnerNamespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerNamespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:PartnerNamespace"},
                 },
             };

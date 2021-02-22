@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB
+namespace Pulumi.AzureNative.DBforMariaDB
 {
     /// <summary>
     /// Represents a server.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformariadb:Server")]
+    [AzureNativeResourceType("azure-native:dbformariadb:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformariadb:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformariadb:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,8 +143,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:Server"},
                 },
             };

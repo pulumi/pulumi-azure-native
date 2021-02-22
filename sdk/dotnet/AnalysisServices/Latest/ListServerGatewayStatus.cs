@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.Latest
+namespace Pulumi.AzureNative.AnalysisServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:listServerGatewayStatus'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'.")]
     public static class ListServerGatewayStatus
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// Latest API Version: 2017-08-01.
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-nextgen:analysisservices/latest:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices/latest:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
     }
 
 

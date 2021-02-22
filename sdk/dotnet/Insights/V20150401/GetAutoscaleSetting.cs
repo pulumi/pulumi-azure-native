@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150401
+namespace Pulumi.AzureNative.Insights.V20150401
 {
     public static class GetAutoscaleSetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401
         /// The autoscale setting resource.
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-nextgen:insights/v20150401:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights/v20150401:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
     }
 
 

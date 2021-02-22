@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.Latest
+namespace Pulumi.AzureNative.MixedReality.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getRemoteRenderingAccount'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:getRemoteRenderingAccount'.")]
     public static class GetRemoteRenderingAccount
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-nextgen:mixedreality/latest:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality/latest:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201
+namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
     /// <summary>
     /// Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201:Group")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20191201:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20191201:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201:Group", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20191201:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,15 +76,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Group"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Group"},
                 },
             };
@@ -149,7 +159,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Group type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.ApiManagement.V20191201.GroupType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.ApiManagement.V20191201.GroupType>? Type { get; set; }
 
         public GroupArgs()
         {

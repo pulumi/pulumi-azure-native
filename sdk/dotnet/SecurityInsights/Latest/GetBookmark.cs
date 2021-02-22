@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getBookmark'.")]
     public static class GetBookmark
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-nextgen:securityinsights/latest:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights/latest:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
     }
 
 

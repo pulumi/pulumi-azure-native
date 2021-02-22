@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebApp")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebApp'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>
@@ -309,12 +309,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApp(string name, WebAppArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebApp(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebApp", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebApp", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -325,14 +325,23 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebApp"},
                 },
             };
@@ -382,7 +391,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         /// </summary>
         [Input("clientCertMode")]
-        public Input<Pulumi.AzureNextGen.Web.Latest.ClientCertMode>? ClientCertMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.Latest.ClientCertMode>? ClientCertMode { get; set; }
 
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
@@ -486,7 +495,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<Pulumi.AzureNextGen.Web.Latest.RedundancyMode>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.Latest.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

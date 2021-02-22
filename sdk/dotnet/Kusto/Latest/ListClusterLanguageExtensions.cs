@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.Latest
+namespace Pulumi.AzureNative.Kusto.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterLanguageExtensions'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listClusterLanguageExtensions'.")]
     public static class ListClusterLanguageExtensions
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// Latest API Version: 2020-09-18.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-nextgen:kusto/latest:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto/latest:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetInterfaceEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2019-02-01.
         /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-nextgen:network:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-native:network:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithVersion());
     }
 
 

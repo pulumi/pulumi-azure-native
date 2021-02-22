@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Site Extension Information.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSiteExtension'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSiteExtension")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSiteExtension'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppSiteExtension")]
     public partial class WebAppSiteExtension : Pulumi.CustomResource
     {
         /// <summary>
@@ -167,12 +167,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSiteExtension(string name, WebAppSiteExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSiteExtension", name, args ?? new WebAppSiteExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppSiteExtension", name, args ?? new WebAppSiteExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSiteExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSiteExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppSiteExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -183,13 +183,21 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSiteExtension"},
                 },
             };

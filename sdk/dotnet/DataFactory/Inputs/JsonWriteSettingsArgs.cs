@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
         [Input("filePattern")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.JsonWriteFilePattern>? FilePattern { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.JsonWriteFilePattern>? FilePattern { get; set; }
 
         /// <summary>
         /// The write setting type.

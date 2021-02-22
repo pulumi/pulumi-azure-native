@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     public static class GetGateway
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// This type describes a gateway resource.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-nextgen:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
     }
 
 

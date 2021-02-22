@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
+namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
     /// <summary>
     /// A share subscription data transfer object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare/v20181101preview:ShareSubscription")]
+    [AzureNativeResourceType("azure-native:datashare/v20181101preview:ShareSubscription")]
     public partial class ShareSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ShareSubscription(string name, ShareSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20181101preview:ShareSubscription", name, args ?? new ShareSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/v20181101preview:ShareSubscription", name, args ?? new ShareSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ShareSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20181101preview:ShareSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/v20181101preview:ShareSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,10 +130,15 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:ShareSubscription"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
+namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview
 {
     public static class GetHealthAlert
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
         /// The health alert resource.
         /// </summary>
         public static Task<GetHealthAlertResult> InvokeAsync(GetHealthAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-nextgen:alertsmanagement/v20200804preview:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-native:alertsmanagement/v20200804preview:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.Inputs
         /// The tier of the particular SKU, e.g. Burstable.
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.SkuTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

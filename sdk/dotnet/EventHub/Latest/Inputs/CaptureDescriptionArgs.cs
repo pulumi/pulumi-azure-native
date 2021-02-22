@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Latest.Inputs
+namespace Pulumi.AzureNative.EventHub.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest.Inputs
         /// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
         /// </summary>
         [Input("encoding")]
-        public Input<Pulumi.AzureNextGen.EventHub.Latest.EncodingCaptureDescription>? Encoding { get; set; }
+        public Input<Pulumi.AzureNative.EventHub.Latest.EncodingCaptureDescription>? Encoding { get; set; }
 
         /// <summary>
         /// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds

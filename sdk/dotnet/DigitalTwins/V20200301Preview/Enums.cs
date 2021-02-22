@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
+namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// The name of the SKU.

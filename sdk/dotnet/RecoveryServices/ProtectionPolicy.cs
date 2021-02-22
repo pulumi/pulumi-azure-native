@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ProtectionPolicy")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ProtectionPolicy")]
     public partial class ProtectionPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionPolicy(string name, ProtectionPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionPolicy", name, args ?? new ProtectionPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ProtectionPolicy", name, args ?? new ProtectionPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectionPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ProtectionPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,11 +77,17 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectionPolicy"},
                 },
             };

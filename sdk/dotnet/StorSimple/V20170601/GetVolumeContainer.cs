@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20170601
+namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     public static class GetVolumeContainer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The volume container.
         /// </summary>
         public static Task<GetVolumeContainerResult> InvokeAsync(GetVolumeContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeContainerResult>("azure-nextgen:storsimple/v20170601:getVolumeContainer", args ?? new GetVolumeContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeContainerResult>("azure-native:storsimple/v20170601:getVolumeContainer", args ?? new GetVolumeContainerArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Push settings for the App.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettings'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSitePushSettings")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettings'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppSitePushSettings")]
     public partial class WebAppSitePushSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -77,12 +77,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSitePushSettings(string name, WebAppSitePushSettingsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSitePushSettings", name, args ?? new WebAppSitePushSettingsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppSitePushSettings", name, args ?? new WebAppSitePushSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSitePushSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppSitePushSettings", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppSitePushSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,13 +93,21 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSitePushSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSitePushSettings"},
                 },
             };

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
+namespace Pulumi.AzureNative.MachineLearningServices.Latest
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningCompute'.")]
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:MachineLearningCompute")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningCompute'.")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/latest:MachineLearningCompute")]
     public partial class MachineLearningCompute : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningCompute(string name, MachineLearningComputeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:MachineLearningCompute", name, args ?? new MachineLearningComputeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/latest:MachineLearningCompute", name, args ?? new MachineLearningComputeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningCompute(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/latest:MachineLearningCompute", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/latest:MachineLearningCompute", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,21 +90,37 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"},
                 },
             };

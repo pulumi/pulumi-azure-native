@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAnalyticsItem'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAnalyticsItem'.")]
     public static class GetAnalyticsItem
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2015-05-01.
         /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-nextgen:insights/latest:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights/latest:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
     }
 
 

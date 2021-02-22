@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20190101Preview
+namespace Pulumi.AzureNative.Portal.V20190101Preview
 {
     public static class GetDashboard
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         /// The shared dashboard resource definition.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-nextgen:portal/v20190101preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
     }
 
 

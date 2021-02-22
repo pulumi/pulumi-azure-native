@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
+namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
     public static class GetAttestationAtResource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
         /// An attestation resource.
         /// </summary>
         public static Task<GetAttestationAtResourceResult> InvokeAsync(GetAttestationAtResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceResult>("azure-nextgen:policyinsights/v20210101:getAttestationAtResource", args ?? new GetAttestationAtResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceResult>("azure-native:policyinsights/v20210101:getAttestationAtResource", args ?? new GetAttestationAtResourceArgs(), options.WithVersion());
     }
 
 

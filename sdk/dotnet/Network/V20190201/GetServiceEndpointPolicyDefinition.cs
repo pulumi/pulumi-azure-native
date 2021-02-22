@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190201
+namespace Pulumi.AzureNative.Network.V20190201
 {
     public static class GetServiceEndpointPolicyDefinition
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// Service Endpoint policy definitions.
         /// </summary>
         public static Task<GetServiceEndpointPolicyDefinitionResult> InvokeAsync(GetServiceEndpointPolicyDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-nextgen:network/v20190201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/v20190201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
     }
 
 

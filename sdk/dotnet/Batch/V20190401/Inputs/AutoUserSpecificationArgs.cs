@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
+namespace Pulumi.AzureNative.Batch.V20190401.Inputs
 {
 
     public sealed class AutoUserSpecificationArgs : Pulumi.ResourceArgs
@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
         /// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         /// </summary>
         [Input("elevationLevel")]
-        public Input<Pulumi.AzureNextGen.Batch.V20190401.ElevationLevel>? ElevationLevel { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20190401.ElevationLevel>? ElevationLevel { get; set; }
 
         /// <summary>
         /// The default value is task.
         /// </summary>
         [Input("scope")]
-        public Input<Pulumi.AzureNextGen.Batch.V20190401.AutoUserScope>? Scope { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20190401.AutoUserScope>? Scope { get; set; }
 
         public AutoUserSpecificationArgs()
         {

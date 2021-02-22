@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
     /// <summary>
     /// Content type contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20200601preview:ContentItem")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:ContentItem")]
     public partial class ContentItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContentItem(string name, ContentItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, args ?? new ContentItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20200601preview:ContentItem", name, args ?? new ContentItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContentItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20200601preview:ContentItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20200601preview:ContentItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ContentItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ContentItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ContentItem"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ContentItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ContentItem"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachineRdpFileContents'.")]
     public static class GetVirtualMachineRdpFileContents
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Latest API Version: 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-nextgen:devtestlab/latest:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab/latest:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
     }
 
 

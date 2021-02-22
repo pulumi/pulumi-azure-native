@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Disk resource.
     /// API Version: 2020-09-30.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute:Disk")]
+    [AzureNativeResourceType("azure-native:compute:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>
@@ -211,12 +211,12 @@ namespace Pulumi.AzureNextGen.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Disk(string name, DiskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Disk(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:Disk", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute:Disk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -227,17 +227,29 @@ namespace Pulumi.AzureNextGen.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180930:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180930:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191101:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Disk"},
                 },
             };
@@ -338,7 +350,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.HyperVGeneration>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Resource location
@@ -356,13 +368,13 @@ namespace Pulumi.AzureNextGen.Compute
         /// Policy for accessing the disk via network.
         /// </summary>
         [Input("networkAccessPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<Pulumi.AzureNextGen.Compute.OperatingSystemTypes>? OsType { get; set; }
+        public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}

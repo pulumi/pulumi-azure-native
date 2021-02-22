@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
+namespace Pulumi.AzureNative.Authorization.V20180101Preview
 {
     /// <summary>
     /// Role definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20180101preview:RoleDefinition")]
+    [AzureNativeResourceType("azure-native:authorization/v20180101preview:RoleDefinition")]
     public partial class RoleDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleDefinition(string name, RoleDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20180101preview:RoleDefinition", name, args ?? new RoleDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20180101preview:RoleDefinition", name, args ?? new RoleDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20180101preview:RoleDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20180101preview:RoleDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNextGen.Authorization.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleDefinition"},
                 },
             };

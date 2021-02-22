@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20190501.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20190501.Inputs
 {
 
     public sealed class DataLakeAnalyticsPropertiesArgs : Pulumi.ResourceArgs

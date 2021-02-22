@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class ResourceTypeRegistrationPropertiesArgs : Pulumi.ResourceArgs
@@ -96,10 +96,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         public Input<string>? MarketplaceType { get; set; }
 
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
 
         [Input("regionality")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Regionality>? Regionality { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Regionality>? Regionality { get; set; }
 
         [Input("requestHeaderOptions")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs>? RequestHeaderOptions { get; set; }
@@ -113,13 +113,13 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         }
 
         [Input("resourceDeletionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
 
         [Input("resourceMovePolicy")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesResourceMovePolicyArgs>? ResourceMovePolicy { get; set; }
 
         [Input("routingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.RoutingType>? RoutingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.RoutingType>? RoutingType { get; set; }
 
         [Input("serviceTreeInfos")]
         private InputList<Inputs.ServiceTreeInfoArgs>? _serviceTreeInfos;

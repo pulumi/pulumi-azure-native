@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Inputs
 {
 
     public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
         /// Indicates whether or not the encryption is enabled for the workspace.
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200801.EncryptionStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200801.EncryptionStatus> Status { get; set; } = null!;
 
         public EncryptionPropertyArgs()
         {

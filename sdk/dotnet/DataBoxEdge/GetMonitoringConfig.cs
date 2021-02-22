@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge
+namespace Pulumi.AzureNative.DataBoxEdge
 {
     public static class GetMonitoringConfig
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-nextgen:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());
     }
 
 

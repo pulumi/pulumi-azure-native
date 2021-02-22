@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
+namespace Pulumi.AzureNative.ManagedServices.V20180601Preview
 {
     /// <summary>
     /// Registration assignment.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment")]
+    [AzureNativeResourceType("azure-native:managedservices/v20180601preview:RegistrationAssignment")]
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistrationAssignment(string name, RegistrationAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managedservices/v20180601preview:RegistrationAssignment", name, args ?? new RegistrationAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistrationAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managedservices/v20180601preview:RegistrationAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,11 +58,17 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/latest:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/latest:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190901:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment"},
                 },
             };

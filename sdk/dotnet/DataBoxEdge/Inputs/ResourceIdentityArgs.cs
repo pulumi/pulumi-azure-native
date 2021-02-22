@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Inputs
         /// Identity type
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.MsiIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.MsiIdentityType>? Type { get; set; }
 
         public ResourceIdentityArgs()
         {

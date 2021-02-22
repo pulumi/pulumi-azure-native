@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Inputs
 {
 
     public sealed class NotificationRegistrationPropertiesArgs : Pulumi.ResourceArgs
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         }
 
         [Input("messageScope")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.MessageScope>? MessageScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.MessageScope>? MessageScope { get; set; }
 
         [Input("notificationEndpoints")]
         private InputList<Inputs.NotificationEndpointArgs>? _notificationEndpoints;
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Inputs
         }
 
         [Input("notificationMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.NotificationMode>? NotificationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.NotificationMode>? NotificationMode { get; set; }
 
         public NotificationRegistrationPropertiesArgs()
         {

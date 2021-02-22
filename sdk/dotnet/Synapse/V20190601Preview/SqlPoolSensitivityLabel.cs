@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// A sensitivity label.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel")]
     public partial class SqlPoolSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPoolSensitivityLabel(string name, SqlPoolSensitivityLabelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel", name, args ?? new SqlPoolSensitivityLabelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel", name, args ?? new SqlPoolSensitivityLabelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPoolSensitivityLabel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,8 +109,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel"},
                 },
             };
@@ -166,7 +169,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string>? LabelName { get; set; }
 
         [Input("rank")]
-        public Input<Pulumi.AzureNextGen.Synapse.V20190601Preview.SensitivityLabelRank>? Rank { get; set; }
+        public Input<Pulumi.AzureNative.Synapse.V20190601Preview.SensitivityLabelRank>? Rank { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

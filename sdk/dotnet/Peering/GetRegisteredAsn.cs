@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering
+namespace Pulumi.AzureNative.Peering
 {
     public static class GetRegisteredAsn
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Peering
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-nextgen:peering:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
     }
 
 

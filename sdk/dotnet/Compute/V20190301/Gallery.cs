@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20190301:Gallery")]
+    [AzureNativeResourceType("azure-native:compute/v20190301:Gallery")]
     public partial class Gallery : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gallery(string name, GalleryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:Gallery", name, args ?? new GalleryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20190301:Gallery", name, args ?? new GalleryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gallery(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:Gallery", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20190301:Gallery", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,11 +82,17 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Gallery"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Gallery"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Gallery"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Gallery"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:Gallery"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Gallery"},
                 },
             };

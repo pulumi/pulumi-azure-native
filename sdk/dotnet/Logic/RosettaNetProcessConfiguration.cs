@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account RosettaNet process configuration.
     /// API Version: 2016-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic:RosettaNetProcessConfiguration")]
+    [AzureNativeResourceType("azure-native:logic:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.Logic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RosettaNetProcessConfiguration(string name, RosettaNetProcessConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RosettaNetProcessConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,7 +125,9 @@ namespace Pulumi.AzureNextGen.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:RosettaNetProcessConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
+namespace Pulumi.AzureNative.MachineLearningServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'.")]
     public static class ListWorkspaceNotebookAccessToken
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<ListWorkspaceNotebookAccessTokenResult> InvokeAsync(ListWorkspaceNotebookAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-nextgen:machinelearningservices/latest:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices/latest:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithVersion());
     }
 
 

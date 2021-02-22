@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200301
+namespace Pulumi.AzureNative.Network.V20200301
 {
     public static class GetVirtualNetworkGatewayVpnclientConnectionHealth
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// List of virtual network gateway vpn client connection health.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-nextgen:network/v20200301:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network/v20200301:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs(), options.WithVersion());
     }
 
 

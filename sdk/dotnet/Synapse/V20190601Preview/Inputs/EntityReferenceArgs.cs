@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
+namespace Pulumi.AzureNative.Synapse.V20190601Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// The type of this referenced entity.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20190601Preview.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
 
         public EntityReferenceArgs()
         {

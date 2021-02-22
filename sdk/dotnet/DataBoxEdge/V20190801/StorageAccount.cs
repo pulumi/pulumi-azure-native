@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
+namespace Pulumi.AzureNative.DataBoxEdge.V20190801
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20190801:StorageAccount")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20190801:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccount(string name, StorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190801:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20190801:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20190801:StorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20190801:StorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,10 +88,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccount"},
                 },
             };
@@ -120,7 +125,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Data policy of the storage Account.
         /// </summary>
         [Input("dataPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.DataPolicy>? DataPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20190801.DataPolicy>? DataPolicy { get; set; }
 
         /// <summary>
         /// Description for the storage Account.
@@ -156,7 +161,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Current status of the storage account
         /// </summary>
         [Input("storageAccountStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.StorageAccountStatus>? StorageAccountStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20190801.StorageAccountStatus>? StorageAccountStatus { get; set; }
 
         public StorageAccountArgs()
         {

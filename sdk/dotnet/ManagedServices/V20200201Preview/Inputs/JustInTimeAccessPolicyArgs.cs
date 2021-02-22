@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview.Inputs
+namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview.Inputs
         /// MFA provider.
         /// </summary>
         [Input("multiFactorAuthProvider", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ManagedServices.V20200201Preview.MultiFactorAuthProvider> MultiFactorAuthProvider { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ManagedServices.V20200201Preview.MultiFactorAuthProvider> MultiFactorAuthProvider { get; set; } = null!;
 
         public JustInTimeAccessPolicyArgs()
         {

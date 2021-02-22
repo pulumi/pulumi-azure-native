@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions
+namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about appliance definition.
     /// API Version: 2016-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:solutions:ApplianceDefinition")]
+    [AzureNativeResourceType("azure-native:solutions:ApplianceDefinition")]
     public partial class ApplianceDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Solutions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplianceDefinition(string name, ApplianceDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:ApplianceDefinition", name, args ?? new ApplianceDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions:ApplianceDefinition", name, args ?? new ApplianceDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplianceDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:ApplianceDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions:ApplianceDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplianceDefinition"},
                 },
             };
@@ -201,7 +202,7 @@ namespace Pulumi.AzureNextGen.Solutions
         /// The appliance lock level.
         /// </summary>
         [Input("lockLevel", required: true)]
-        public Input<Pulumi.AzureNextGen.Solutions.ApplianceLockLevel> LockLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Solutions.ApplianceLockLevel> LockLevel { get; set; } = null!;
 
         /// <summary>
         /// ID of the resource that manages this resource.

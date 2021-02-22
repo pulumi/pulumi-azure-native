@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning
+namespace Pulumi.AzureNative.MachineLearning
 {
     /// <summary>
     /// Instance of an Azure ML web service resource.
     /// API Version: 2017-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearning:WebService")]
+    [AzureNativeResourceType("azure-native:machinelearning:WebService")]
     public partial class WebService : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.MachineLearning
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebService(string name, WebServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning:WebService", name, args ?? new WebServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearning:WebService", name, args ?? new WebServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning:WebService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearning:WebService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/latest:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/latest:WebService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:WebService"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20170101:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20170101:WebService"},
                 },
             };

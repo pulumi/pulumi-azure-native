@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
+namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     /// <summary>
     /// Provider details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider")]
     public partial class ReplicationRecoveryServicesProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationRecoveryServicesProvider(string name, ReplicationRecoveryServicesProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider", name, args ?? new ReplicationRecoveryServicesProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationRecoveryServicesProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                 },
             };

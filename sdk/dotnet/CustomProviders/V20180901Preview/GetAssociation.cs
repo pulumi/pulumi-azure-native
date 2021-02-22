@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
+namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
     public static class GetAssociation
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// The resource definition of this association.
         /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-nextgen:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
     }
 
 

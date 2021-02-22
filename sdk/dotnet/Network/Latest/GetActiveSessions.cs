@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getActiveSessions'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getActiveSessions'.")]
     public static class GetActiveSessions
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-nextgen:network/latest:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-native:network/latest:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
     }
 
 

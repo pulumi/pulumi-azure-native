@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200901
+namespace Pulumi.AzureNative.DocumentDB.V20200901
 {
     public static class GetSqlResourceSqlTrigger
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
         /// An Azure Cosmos DB trigger.
         /// </summary>
         public static Task<GetSqlResourceSqlTriggerResult> InvokeAsync(GetSqlResourceSqlTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-nextgen:documentdb/v20200901:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20200901:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch
+namespace Pulumi.AzureNative.Batch
 {
     public static class GetApplication
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:batch:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
 
 

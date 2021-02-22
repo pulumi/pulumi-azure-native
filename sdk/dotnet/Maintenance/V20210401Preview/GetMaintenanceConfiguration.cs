@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
+namespace Pulumi.AzureNative.Maintenance.V20210401Preview
 {
     public static class GetMaintenanceConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
         /// Maintenance configuration record type
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-nextgen:maintenance/v20210401preview:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:maintenance/v20210401preview:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
     }
 
 
