@@ -12,15 +12,15 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'azure-nextgen', '${PLUGIN_VERSION}'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'azure-native', '${PLUGIN_VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""
-                There was an error installing the azure-nextgen resource provider plugin.
+                There was an error installing the azure-native resource provider plugin.
                 It looks like `pulumi` is not installed on your system.
                 Please visit https://pulumi.com/ to install the Pulumi CLI.
                 You may try manually installing the plugin by running
-                `pulumi plugin install resource azure-nextgen ${PLUGIN_VERSION}`
+                `pulumi plugin install resource azure-native ${PLUGIN_VERSION}`
                 """)
             else:
                 raise
@@ -31,23 +31,23 @@ def readme():
         return f.read()
 
 
-setup(name='pulumi_azure_nextgen',
+setup(name='pulumi_azure_native',
       version='${VERSION}',
-      description="A Next Generation Pulumi package for creating and managing Azure resources.",
+      description="A native Pulumi package for creating and managing Azure resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi azure azure-nextgen',
+      keywords='pulumi azure azure-native',
       url='https://pulumi.com',
       project_urls={
-          'Repository': 'https://github.com/pulumi/pulumi-azure-nextgen'
+          'Repository': 'https://github.com/pulumi/pulumi-azure-native'
       },
       license='Apache-2.0',
       packages=find_packages(),
       package_data={
-          'pulumi_azure_nextgen': [
+          'pulumi_azure_native': [
               'py.typed',
           ]
       },
